@@ -109,7 +109,7 @@ best-effort. Settings shows which state you are in.
 
 ```bash
 npm start           # serves on http://localhost:8080
-npm test            # 30 unit checks + 53-check end-to-end suite in Chromium
+npm test            # 30 unit checks + 59-check end-to-end suite in Chromium
 npm run test:unit   # calendar export only, no browser needed
 npm run test:shots  # end-to-end, writing screenshots to tests/screens/
 npm run icons       # regenerate the app icons

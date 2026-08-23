@@ -81,36 +81,35 @@
 <!-- ── Detail ─────────────────────────────────────────────────────────────── -->
 <section id="detail" class="sheet" hidden aria-modal="true" role="dialog">
   <div class="sheet-panel">
-    <header class="sheet-bar">
-      <button class="btn btn-ghost btn-sm" id="detailClose">Close</button>
-      <strong id="detailTitle">Entry</strong>
-      <button class="btn btn-ghost btn-sm" id="detailEdit">Edit</button>
-    </header>
+    <header class="sheet-bar"><strong id="detailTitle">Entry</strong></header>
     <div class="sheet-body" id="detailBody"></div>
+    <footer class="sheet-actions">
+      <button class="btn" id="detailClose">Close</button>
+      <button class="btn btn-primary" id="detailEdit">Edit</button>
+    </footer>
   </div>
 </section>
 
 <!-- ── Editor ─────────────────────────────────────────────────────────────── -->
 <section id="editor" class="sheet" hidden aria-modal="true" role="dialog">
   <div class="sheet-panel">
-    <header class="sheet-bar">
-      <button class="btn btn-ghost btn-sm" id="editorCancel">Cancel</button>
-      <strong id="editorTitle">New entry</strong>
-      <button class="btn btn-ghost btn-sm" id="editorSave">Save</button>
-    </header>
+    <header class="sheet-bar"><strong id="editorTitle">New entry</strong></header>
     <div class="sheet-body" id="editorBody"></div>
+    <footer class="sheet-actions">
+      <button class="btn" id="editorCancel">Cancel</button>
+      <button class="btn btn-primary" id="editorSave">Save</button>
+    </footer>
   </div>
 </section>
 
 <!-- ── Settings ───────────────────────────────────────────────────────────── -->
 <section id="settings" class="sheet" hidden aria-modal="true" role="dialog">
   <div class="sheet-panel">
-    <header class="sheet-bar">
-      <button class="btn btn-ghost btn-sm" id="settingsClose">Done</button>
-      <strong>Settings</strong>
-      <span style="width:62px"></span>
-    </header>
+    <header class="sheet-bar"><strong>Settings</strong></header>
     <div class="sheet-body" id="settingsBody"></div>
+    <footer class="sheet-actions">
+      <button class="btn btn-primary" id="settingsClose">Done</button>
+    </footer>
   </div>
 </section>
 

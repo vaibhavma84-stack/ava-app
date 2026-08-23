@@ -54,10 +54,18 @@ page.on('dialog', async (d) => {
   else await d.accept();
 });
 
+/** Sheets animate in; measuring or screenshotting mid-rise gives false results. */
+const settle = async () => {
+  await page.evaluate(async () => {
+    const panels = document.querySelectorAll('.sheet:not([hidden]) .sheet-panel');
+    await Promise.all([...panels].flatMap((el) => el.getAnimations().map((a) => a.finished)));
+  });
+};
+
 const shot = async (name) => {
   if (!SHOTS) return;
   fs.mkdirSync(SHOT_DIR, { recursive: true });
-  await page.waitForTimeout(350);   // let the sheet rise animation settle
+  await settle();
   await page.screenshot({ path: path.join(SHOT_DIR, name + '.png') });
 };
 
@@ -302,6 +310,30 @@ try {
     (await page.locator('.empty h3').textContent()) === 'Nothing found');
   await page.fill('#search', '');
   await page.waitForTimeout(200);
+
+  // Regression: the Save action used to sit in the sheet's top bar, where iOS
+  // draws the status bar over it in fullscreen. It must live at the bottom.
+  console.log('\nSheet action placement');
+  await openNew('manual');
+  await set('title', 'Placement check');
+  await set('notes', 'Long body. '.repeat(400));   // force the sheet to full height
+  await settle();
+  const vp = page.viewportSize();
+  const box = await page.locator('#editorSave').boundingBox();
+  const cancelBox = await page.locator('#editorCancel').boundingBox();
+  check('Save sits in the lower half of the screen', box.y > vp.height / 2,
+    `save y=${Math.round(box.y)} of ${vp.height}`);
+  check('Save is fully on screen', box.y + box.height <= vp.height && box.x + box.width <= vp.width,
+    `y=${Math.round(box.y)} h=${Math.round(box.height)} vh=${vp.height}`);
+  check('Save clears the status bar area', box.y > 60, `save y=${Math.round(box.y)}`);
+  check('Cancel is bottom-left of Save', cancelBox.x < box.x && Math.abs(cancelBox.y - box.y) < 2);
+  check('both actions are comfortably tappable', box.height >= 44 && cancelBox.height >= 44,
+    `save h=${Math.round(box.height)} cancel h=${Math.round(cancelBox.height)}`);
+  check('the form still scrolls behind them',
+    await page.locator('#editorBody').evaluate((n) => n.scrollHeight > n.clientHeight));
+  await shot('07-editor-actions');
+  await page.click('#editorCancel');
+  await page.waitForSelector('#editor', { state: 'hidden' });
 
   console.log('\nCalendar export');
   await page.click('#settingsBtn');

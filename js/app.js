@@ -446,12 +446,10 @@ function openDetail(id) {
     ]));
   }
 
-  const actions = el('div', { class: 'detail-sec' }, [
-    el('button', { class: 'btn btn-primary btn-block', onclick: () => { $('#detail').hidden = true; openEditor(item.type, item); } }, ['Edit entry'])
-  ]);
+  const actions = el('div', { class: 'detail-sec' }, []);
   if (eventFor(item)) {
     actions.append(el('button', {
-      class: 'btn btn-teal btn-block', style: 'margin-top:8px',
+      class: 'btn btn-teal btn-block',
       onclick: () => addToCalendar(item)
     }, [item.type === 'certificate' ? 'Add expiry to Calendar' : 'Add voyage to Calendar']));
   }
@@ -461,7 +459,9 @@ function openDetail(id) {
       onclick: async () => { await store.togglePin(item.id); openDetail(item.id); }
     }, [item.pinned ? 'Unpin' : 'Pin to top']));
   }
-  body.append(actions);
+  // Skip the section entirely when neither action applies, rather than leaving
+  // an empty bordered block.
+  if (actions.childElementCount) body.append(actions);
 
   $('#detail').hidden = false;
   $('#detailBody').scrollTop = 0;

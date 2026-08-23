@@ -264,7 +264,11 @@ select.field { appearance: none; -webkit-appearance: none; background-image: lin
 /* ── sheets ──────────────────────────────────────────────────────────────── */
 .sheet { position: fixed; inset: 0; z-index: 40; background: rgba(2, 8, 14, .72); display: flex; align-items: flex-end; }
 .sheet-panel {
-  background: var(--navy-800); width: 100%; max-height: 94vh;
+  background: var(--navy-800); width: 100%;
+  /* Never reach under the status bar: leave the top inset clear. dvh keeps this
+     honest while Safari's toolbars slide in and out. */
+  max-height: calc(100vh - var(--safe-t) - 12px);
+  max-height: calc(100dvh - var(--safe-t) - 12px);
   border-radius: 16px 16px 0 0; border-top: 1px solid var(--brass-dim);
   box-shadow: 0 -8px 40px rgba(0, 0, 0, .6);
   isolation: isolate;
@@ -274,18 +278,27 @@ select.field { appearance: none; -webkit-appearance: none; background-image: lin
 @media (prefers-reduced-motion: reduce) { .sheet-panel { animation: none; } }
 
 .sheet-bar {
-  display: flex; align-items: center; justify-content: space-between; gap: 8px;
-  padding: 11px 10px; border-bottom: 1px solid var(--line);
-  background: var(--navy-800);
+  display: flex; align-items: center; justify-content: center;
+  padding: 13px 14px; border-bottom: 1px solid var(--line);
+  background: var(--navy-800); flex: 0 0 auto;
 }
 .sheet-bar strong {
   font-family: var(--display); font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--text); text-align: center; flex: 1; min-width: 0;
+  color: var(--text); text-align: center; min-width: 0;
 }
+
+/* Actions sit at the bottom: clear of the status bar, and within thumb reach.
+   The bottom inset keeps them above the home indicator. */
+.sheet-actions {
+  display: flex; gap: 10px; flex: 0 0 auto;
+  border-top: 1px solid var(--line); background: var(--navy-800);
+  padding: 10px calc(var(--safe-r) + 14px) calc(var(--safe-b) + 10px) calc(var(--safe-l) + 14px);
+}
+.sheet-actions > .btn { flex: 1 1 0; min-width: 0; }
 .sheet-body {
   overflow-y: auto; -webkit-overflow-scrolling: touch;
-  padding: 15px calc(var(--safe-r) + 15px) calc(var(--safe-b) + 26px) calc(var(--safe-l) + 15px);
-  display: flex; flex-direction: column; gap: 13px;
+  padding: 15px calc(var(--safe-r) + 15px) 20px calc(var(--safe-l) + 15px);
+  display: flex; flex-direction: column; gap: 13px; flex: 1 1 auto; min-height: 0;
 }
 
 .label {
