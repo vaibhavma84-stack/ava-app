@@ -112,7 +112,7 @@ npm start           # serves on http://localhost:8080
 npm test            # 30 unit checks + 59-check end-to-end suite in Chromium
 npm run test:unit   # calendar export only, no browser needed
 npm run test:shots  # end-to-end, writing screenshots to tests/screens/
-npm run icons       # regenerate the app icons
+npm run icons       # regenerate the app icons from tools/lion.mjs
 ```
 
 The end-to-end suite drives a real browser at iPhone dimensions through vault
@@ -138,7 +138,8 @@ js/calendar.js          iCalendar (RFC 5545) export
 js/icons.js             inline SVG icons
 js/ui.js                DOM helpers
 js/app.js               screens and interaction
-tools/make-icons.py     generates the PNG icons from source
+tools/lion.mjs          the AVA lion mark, drawn as geometry
+tools/make-icons.mjs    rasterises the mark to PNG icons via headless Chromium
 ```
 
 Adding a field to any section is a one-line change in `js/schema.js`; the list

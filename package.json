@@ -8,6 +8,6 @@
     "test": "node tests/calendar.test.mjs && node tests/smoke.mjs",
     "test:unit": "node tests/calendar.test.mjs",
     "test:shots": "node tests/smoke.mjs --shots",
-    "icons": "python3 tools/make-icons.py"
+    "icons": "node tools/make-icons.mjs"
   }
 }
