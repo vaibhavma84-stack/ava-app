@@ -20,6 +20,23 @@ no network requests once it has loaded.
 
 Every entry also takes encrypted file attachments and a cloud link.
 
+## Calendar
+
+Certificate expiries and voyages can be pushed into Apple Calendar as standard
+`.ics` events — per entry from its detail view, or in bulk from Settings.
+
+No web API can write into Apple Calendar directly, so AVA generates the calendar
+file on-device and hands it to the iOS share sheet, where Calendar offers *Add
+All Events*. A subscribed `webcal://` feed would auto-update instead, but it
+would require your dates to live on a server, which is exactly what this app
+avoids.
+
+- **Certificate expiry** — an all-day event on the expiry date, with reminders at
+  90 days, 30 days, and on the morning itself.
+- **Voyage** — a multi-day event spanning sign-on to sign-off, with the sign-on
+  port as the location and a reminder 14 days before sign-off. An entry still
+  onboard becomes a single-day sign-on marker instead.
+
 ## Sea time arithmetic
 
 Days are counted **inclusive of both the sign-on and the sign-off day**, the way
@@ -92,15 +109,17 @@ best-effort. Settings shows which state you are in.
 
 ```bash
 npm start           # serves on http://localhost:8080
-npm test            # 47-check end-to-end suite in Chromium
-npm run test:shots  # same, writing screenshots to tests/screens/
+npm test            # 30 unit checks + 53-check end-to-end suite in Chromium
+npm run test:unit   # calendar export only, no browser needed
+npm run test:shots  # end-to-end, writing screenshots to tests/screens/
 npm run icons       # regenerate the app icons
 ```
 
-The test suite drives a real browser at iPhone dimensions through vault
+The end-to-end suite drives a real browser at iPhone dimensions through vault
 creation, all six record types, the sea time arithmetic, expiry flagging, global
 search, lock/unlock, and a reload with the network cut to prove the offline
-shell.
+shell. The unit suite checks the generated `.ics` against RFC 5545 — exclusive
+all-day end dates, text escaping, alarm triggers and 75-octet line folding.
 
 ## Layout
 
@@ -115,6 +134,7 @@ js/db.js                IndexedDB — stores ciphertext, knows nothing of keys
 js/store.js             vault: decrypt on unlock, encrypt on write
 js/schema.js            field definitions — every form and list is generated from these
 js/derive.js            sea time totals, expiry status, date formatting
+js/calendar.js          iCalendar (RFC 5545) export
 js/icons.js             inline SVG icons
 js/ui.js                DOM helpers
 js/app.js               screens and interaction

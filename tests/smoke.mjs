@@ -153,6 +153,12 @@ try {
     (await page.locator('.nav-btn[data-tab="certificate"] .nav-badge').textContent()) === '2');
   await shot('02-certificates');
 
+  await cardWith('Medical Fitness Certificate').click();
+  await page.waitForSelector('#detail:not([hidden])');
+  check('certificate detail offers an Add to Calendar action',
+    await page.locator('#detailBody button:has-text("Add expiry to Calendar")').isVisible());
+  await page.click('#detailClose');
+
   // ── sea time ────────────────────────────────────────────────────────────
   console.log('\nSea Time');
   await openNew('seatime');
@@ -213,6 +219,8 @@ try {
   check('detail view reveals IMO and call sign', /9345678/.test(detail) && /3FKQ7/.test(detail));
   check('detail view shows the embedded contract', /Anglo-Eastern Crew Management/.test(detail));
   check('detail view shows this voyage as 6 mo 2 d', /6 mo 2 d/.test(detail));
+  check('voyage detail offers an Add to Calendar action',
+    await page.locator('#detailBody button:has-text("Add voyage to Calendar")').isVisible());
   await shot('04-detail');
   await page.click('#detailClose');
 
@@ -252,6 +260,24 @@ try {
   check('pinned note sorts above the unpinned one',
     (await page.locator('.card-title').first().textContent()) === 'Rotterdam agent contact');
 
+  await cardWith('Rotterdam agent contact').click();
+  await page.waitForSelector('#detail:not([hidden])');
+  check('a note offers no calendar action, having no date',
+    (await page.locator('#detailBody button:has-text("Calendar")').count()) === 0);
+  await page.click('#detailClose');
+
+  // The generated file is verified in tests/calendar.test.mjs; here we only
+  // confirm the app builds one from real stored records.
+  const icsProbe = await page.evaluate(async () => {
+    const cal = await import('./js/calendar.js');
+    const store = await import('./js/store.js');
+    const certs = store.itemsOfType('certificate');
+    const bundle = cal.icsForItems(cal.datedCertificates(certs));
+    return { count: bundle ? bundle.count : 0, head: bundle ? bundle.ics.slice(0, 15) : '' };
+  });
+  check('builds a calendar file from stored certificates',
+    icsProbe.count === 3 && icsProbe.head === 'BEGIN:VCALENDAR', JSON.stringify(icsProbe));
+
   // ── global search ───────────────────────────────────────────────────────
   console.log('\nGlobal search');
   await page.fill('#search', 'northern star');
@@ -276,6 +302,16 @@ try {
     (await page.locator('.empty h3').textContent()) === 'Nothing found');
   await page.fill('#search', '');
   await page.waitForTimeout(200);
+
+  console.log('\nCalendar export');
+  await page.click('#settingsBtn');
+  await page.waitForSelector('#settings:not([hidden])');
+  check('settings offers a bulk certificate expiry export',
+    await page.locator('#settingsBody button:has-text("Export all certificate expiries")').isVisible());
+  check('settings offers a bulk voyage export',
+    await page.locator('#settingsBody button:has-text("Export all voyages")').isVisible());
+  await page.click('#settingsClose');
+  await page.waitForSelector('#settings', { state: 'hidden' });
 
   // ── persistence across a lock ───────────────────────────────────────────
   console.log('\nLock, reload and persistence');

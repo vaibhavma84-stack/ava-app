@@ -5,7 +5,7 @@
 // and keeps the app fully usable in airplane mode; a background refresh picks up
 // new versions on the next launch.
 
-const CACHE = 'ava-shell-v3';
+const CACHE = 'ava-shell-v4';
 
 const SHELL = [
   './',
@@ -18,6 +18,7 @@ const SHELL = [
   'js/schema.js',
   'js/derive.js',
   'js/icons.js',
+  'js/calendar.js',
   'js/db.js',
   'js/crypto.js',
   'js/ui.js',

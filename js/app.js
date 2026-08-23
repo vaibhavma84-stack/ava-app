@@ -5,6 +5,7 @@ import { TYPES, TAB_ORDER, CONTRACT_FIELDS } from './schema.js';
 import { entryDays, isOnboard, formatDuration, seaTimeSummary, expiryStatus, expiryLabel, displayDate, displayDateShort } from './derive.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
+import { icsForItem, icsForItems, datedCertificates, calendarFileName, eventFor } from './calendar.js';
 
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
 
@@ -448,6 +449,12 @@ function openDetail(id) {
   const actions = el('div', { class: 'detail-sec' }, [
     el('button', { class: 'btn btn-primary btn-block', onclick: () => { $('#detail').hidden = true; openEditor(item.type, item); } }, ['Edit entry'])
   ]);
+  if (eventFor(item)) {
+    actions.append(el('button', {
+      class: 'btn btn-teal btn-block', style: 'margin-top:8px',
+      onclick: () => addToCalendar(item)
+    }, [item.type === 'certificate' ? 'Add expiry to Calendar' : 'Add voyage to Calendar']));
+  }
   if (def.pinnable) {
     actions.append(el('button', {
       class: 'btn btn-block', style: 'margin-top:8px',
@@ -757,7 +764,6 @@ async function saveEditor() {
 // ── settings ────────────────────────────────────────────────────────────────
 
 async function openSettings() {
-  $('#settings').hidden = false;
   const body = clear($('#settingsBody'));
   const est = await db.storageEstimate();
   const persisted = navigator.storage?.persisted ? await navigator.storage.persisted().catch(() => false) : false;
@@ -820,6 +826,21 @@ async function openSettings() {
   ]));
 
   body.append(el('div', { class: 'panel' }, [
+    el('h3', { text: 'Calendar' }),
+    el('p', { text: 'Sends a standard calendar file to the iOS share sheet — choose Calendar to add the events. Certificate expiries carry reminders at 90 and 30 days.' }),
+    el('button', {
+      class: 'btn btn-block', style: 'margin-bottom:8px',
+      onclick: () => exportCalendar(datedCertificates(store.itemsOfType('certificate')),
+        'ava-certificate-expiries.ics', 'No certificates have an expiry date yet')
+    }, ['Export all certificate expiries']),
+    el('button', {
+      class: 'btn btn-block',
+      onclick: () => exportCalendar(store.itemsOfType('seatime'),
+        'ava-voyages.ics', 'No voyages have a sign-on date yet')
+    }, ['Export all voyages'])
+  ]));
+
+  body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Erase' }),
     el('p', { text: 'Deletes the vault and every entry permanently. There is no recovery.' }),
     el('button', { class: 'btn btn-danger btn-block', onclick: doErase }, ['Erase everything'])
@@ -827,6 +848,9 @@ async function openSettings() {
 
   body.append(el('p', { class: 'hint', style: 'text-align:center' },
     ['AVA keeps data only on this device and makes no network requests once loaded.']));
+
+  $('#settings').hidden = false;
+  $('#settingsBody').scrollTop = 0;
 }
 
 async function changePasscodeFlow() {
@@ -845,9 +869,16 @@ async function changePasscodeFlow() {
 }
 
 async function shareOrDownload(payload, filename) {
-  const text = JSON.stringify(payload, null, 2);
-  const blob = new Blob([text], { type: 'application/json' });
-  const file = new File([blob], filename, { type: 'application/json' });
+  return shareText(JSON.stringify(payload, null, 2), filename, 'application/json');
+}
+
+/**
+ * Hand a generated file to iOS. The share sheet is the only reliable way out of
+ * a standalone PWA, and for .ics it is what surfaces "Add All Events".
+ */
+async function shareText(text, filename, mime) {
+  const blob = new Blob([text], { type: mime });
+  const file = new File([blob], filename, { type: mime });
   if (navigator.canShare && navigator.canShare({ files: [file] })) {
     try {
       await navigator.share({ files: [file], title: filename });
@@ -863,6 +894,22 @@ async function shareOrDownload(payload, filename) {
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 30000);
   return true;
+}
+
+async function addToCalendar(item) {
+  const ics = icsForItem(item);
+  if (!ics) return toast('This entry has no date to add');
+  if (await shareText(ics, calendarFileName(item), 'text/calendar')) {
+    toast('Calendar file ready — choose Calendar to add it');
+  }
+}
+
+async function exportCalendar(items, filename, emptyMessage) {
+  const result = icsForItems(items);
+  if (!result) return toast(emptyMessage);
+  if (await shareText(result.ics, filename, 'text/calendar')) {
+    toast(`${result.count} event${result.count === 1 ? '' : 's'} ready for Calendar`);
+  }
 }
 
 async function doExportEncrypted() {
