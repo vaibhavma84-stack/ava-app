@@ -1,7 +1,8 @@
 // Renders every candidate mark onto one comparison sheet, each shown large and
 // at Home Screen size, since an icon that works at 512 can still fail at 60.
 import { chromium } from 'playwright';
-import { VARIANTS } from './lion-variants.mjs';
+const MODULE = process.env.VARIANTS_MODULE || './lion-variants.mjs';
+const { VARIANTS } = await import(MODULE);
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
