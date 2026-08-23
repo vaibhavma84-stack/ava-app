@@ -72,13 +72,13 @@ const FEATURES = `
  * @param scale shrink the art for maskable icons, whose corners get cropped.
  */
 export function lionSVG({ size = 512, scale = 1, background = true } = {}) {
-  // The head path is drawn around y=236; nudge it down so it sits concentric
-  // with the mane rather than riding high in it.
+  // Solid silhouette: the mane is a filled star, so the head laid over it in the
+  // same brass merges into one unbroken shape. Only the features are cut out.
+  // The head path is drawn around y=236; nudge it down to sit concentric.
   const inner = `
-    <path d="${mane()}" fill="${BRASS}"/>
-    <circle cx="${C}" cy="${C}" r="143" fill="${NAVY}"/>
+    <path d="${mane({ tufts: 14, inner: 152, outer: 212 })}" fill="${BRASS}"/>
     <g transform="translate(0,19)">
-      <path d="${HEAD}" fill="${BRASS_HI}"/>
+      <path d="${HEAD}" fill="${BRASS}"/>
       <g fill="${NAVY}">${FEATURES}</g>
     </g>`;
 
