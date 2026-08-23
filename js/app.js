@@ -14,8 +14,25 @@ const view = {
   query: '',
   draft: null,
   detailId: null,
-  autolockMs: AUTOLOCK_DEFAULT_MS
+  autolockMs: AUTOLOCK_DEFAULT_MS,
+  // 'numeric' shows the iOS number pad; 'text' the full keyboard. Remembered
+  // per vault, because a numeric pad cannot type an existing letter passcode.
+  passStyle: 'text'
 };
+
+/**
+ * Point a field at the right iOS keyboard. inputmode drives it on current iOS;
+ * the pattern is a long-standing fallback for older WebKit.
+ */
+function applyKeyboard(input, style) {
+  if (style === 'numeric') {
+    input.setAttribute('inputmode', 'numeric');
+    input.setAttribute('pattern', '[0-9]*');
+  } else {
+    input.removeAttribute('inputmode');
+    input.removeAttribute('pattern');
+  }
+}
 
 let lockTimer = null;
 
@@ -28,12 +45,16 @@ async function boot() {
     });
   }
   view.autolockMs = (await db.getMeta('autolockMs')) ?? AUTOLOCK_DEFAULT_MS;
+  // Existing vaults predate this setting, so default them to the full keyboard.
+  view.passStyle = (await db.getMeta('passcodeStyle')) ?? 'text';
 
   const ready = await store.isInitialized();
   $('#lock').hidden = false;
   $('#unlockForm').hidden = !ready;
   $('#setupForm').hidden = ready;
   $('#lockSub').textContent = ready ? 'Enter your passcode' : 'Everything stays on this iPhone';
+  applyKeyboard($('#unlockCode'), view.passStyle);
+  syncKeyboardToggle();
   if (ready) setTimeout(() => $('#unlockCode').focus(), 150);
 
   store.onChange(render);
@@ -64,6 +85,34 @@ function wireLock() {
     }
   });
 
+  // Escape hatch: swap keyboards if the remembered style is wrong for this vault.
+  $('#kbToggle').addEventListener('click', () => {
+    view.passStyle = view.passStyle === 'numeric' ? 'text' : 'numeric';
+    // Switch the field first so the keyboard responds instantly; the write to
+    // disk is not something the tap should wait on.
+    applyKeyboard($('#unlockCode'), view.passStyle);
+    syncKeyboardToggle();
+    $('#unlockCode').focus();
+    db.setMeta('passcodeStyle', view.passStyle).catch(() => {});
+  });
+
+  for (const [id, style] of [['#segText', 'text'], ['#segPin', 'numeric']]) {
+    $(id).addEventListener('click', () => {
+      view.passStyle = style;
+      $('#segText').setAttribute('aria-checked', String(style === 'text'));
+      $('#segPin').setAttribute('aria-checked', String(style === 'numeric'));
+      for (const field of ['#setupCode', '#setupCode2']) {
+        applyKeyboard($(field), style);
+        $(field).value = '';
+      }
+      $('#setupCode').placeholder = style === 'numeric' ? 'Choose a PIN (8+ digits)' : 'Choose a passcode';
+      $('#setupCode2').placeholder = style === 'numeric' ? 'Confirm PIN' : 'Confirm passcode';
+      $('#strengthFill').style.width = '0';
+      $('#strengthLabel').textContent = style === 'numeric' ? 'Enter a PIN' : 'Enter a passcode';
+      $('#setupCode').focus();
+    });
+  }
+
   $('#setupCode').addEventListener('input', (e) => {
     const { score, label } = sec.passcodeStrength(e.target.value);
     const fill = $('#strengthFill');
@@ -77,12 +126,24 @@ function wireLock() {
     const err = $('#setupError');
     err.hidden = true;
     const a = $('#setupCode').value, b = $('#setupCode2').value;
-    if (a.length < 6) { err.textContent = 'Use at least 6 characters.'; err.hidden = false; return; }
+    const numeric = view.passStyle === 'numeric';
+    if (numeric && !/^\d+$/.test(a)) {
+      err.textContent = 'A PIN must be digits only.'; err.hidden = false; return;
+    }
+    // A digit-only secret has far less entropy per character, so it needs length.
+    const min = numeric ? 8 : 6;
+    if (a.length < min) {
+      err.textContent = numeric ? 'Use at least 8 digits.' : 'Use at least 6 characters.';
+      err.hidden = false; return;
+    }
     if (a !== b) { err.textContent = 'The two passcodes do not match.'; err.hidden = false; return; }
     const btn = e.target.querySelector('button[type="submit"]');
     btn.disabled = true; btn.textContent = 'Creating…';
     try {
       await store.initialize(a);
+      await db.setMeta('passcodeStyle', view.passStyle);
+      applyKeyboard($('#unlockCode'), view.passStyle);
+      syncKeyboardToggle();
       $('#setupCode').value = $('#setupCode2').value = '';
       enterApp();
       toast('Vault created');
@@ -97,6 +158,10 @@ function wireLock() {
     $(id).addEventListener('click', () => $('#backupPicker').click());
   }
   $('#backupPicker').addEventListener('change', onBackupPicked);
+}
+
+function syncKeyboardToggle() {
+  $('#kbToggle').textContent = view.passStyle === 'numeric' ? 'Use full keyboard' : 'Use number pad';
 }
 
 function enterApp() {
@@ -813,8 +878,9 @@ async function openSettings() {
 
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Passcode' }),
-    el('p', { text: 'Changing it re-wraps the encryption key, so it is instant — your data is not re-encrypted.' }),
-    el('button', { class: 'btn btn-block', onclick: changePasscodeFlow }, ['Change passcode'])
+    el('p', { text: 'Changing it re-wraps the encryption key, so it is instant — your data is not re-encrypted. You can switch between a passphrase and a number PIN here.' }),
+    el('button', { class: 'btn btn-block', onclick: changePasscodeFlow }, ['Change passcode']),
+    el('div', { id: 'passcodePanel', style: 'margin-top:12px' })
   ]));
 
   body.append(el('div', { class: 'panel' }, [
@@ -853,19 +919,83 @@ async function openSettings() {
   $('#settingsBody').scrollTop = 0;
 }
 
-async function changePasscodeFlow() {
-  const current = prompt('Current passcode:');
-  if (current === null) return;
-  const next = prompt('New passcode (at least 6 characters):');
-  if (next === null) return;
-  if (next.length < 6) return toast('Passcode too short');
-  if (prompt('Confirm the new passcode:') !== next) return toast('Passcodes did not match');
-  try {
-    await store.changePasscode(current, next);
-    toast('Passcode changed');
-  } catch (ex) {
-    toast(ex.code === 'BAD_PASSCODE' ? 'Current passcode is wrong' : ex.message);
-  }
+function changePasscodeFlow() {
+  const panel = $('#passcodePanel');
+  if (!panel) return;
+  clear(panel);
+
+  // The new passcode's style is chosen here; the current one still uses the
+  // style the vault was created with.
+  let newStyle = view.passStyle;
+
+  const current = el('input', { class: 'field', type: 'password', placeholder: 'Current passcode',
+    autocomplete: 'current-password' });
+  applyKeyboard(current, view.passStyle);
+
+  const next = el('input', { class: 'field', type: 'password', autocomplete: 'new-password' });
+  const confirmField = el('input', { class: 'field', type: 'password', autocomplete: 'new-password' });
+  const error = el('p', { class: 'lock-error', hidden: true });
+
+  const segText = el('button', { type: 'button', class: 'seg', 'aria-checked': String(newStyle === 'text') }, ['Passphrase']);
+  const segPin = el('button', { type: 'button', class: 'seg', 'aria-checked': String(newStyle === 'numeric') }, ['Number PIN']);
+
+  const applyStyle = (style) => {
+    newStyle = style;
+    segText.setAttribute('aria-checked', String(style === 'text'));
+    segPin.setAttribute('aria-checked', String(style === 'numeric'));
+    for (const field of [next, confirmField]) {
+      applyKeyboard(field, style);
+      field.value = '';
+    }
+    next.placeholder = style === 'numeric' ? 'New PIN (8+ digits)' : 'New passcode';
+    confirmField.placeholder = style === 'numeric' ? 'Confirm PIN' : 'Confirm passcode';
+  };
+  segText.addEventListener('click', () => applyStyle('text'));
+  segPin.addEventListener('click', () => applyStyle('numeric'));
+  applyStyle(newStyle);
+
+  const save = el('button', { class: 'btn btn-primary btn-block' }, ['Change passcode']);
+  save.addEventListener('click', async () => {
+    error.hidden = true;
+    const numeric = newStyle === 'numeric';
+    if (numeric && !/^\d+$/.test(next.value)) return showErr(error, 'A PIN must be digits only.');
+    const min = numeric ? 8 : 6;
+    if (next.value.length < min) {
+      return showErr(error, numeric ? 'Use at least 8 digits.' : 'Use at least 6 characters.');
+    }
+    if (next.value !== confirmField.value) return showErr(error, 'The two entries do not match.');
+
+    save.disabled = true;
+    save.textContent = 'Changing…';
+    try {
+      await store.changePasscode(current.value, next.value);
+      await db.setMeta('passcodeStyle', newStyle);
+      view.passStyle = newStyle;
+      applyKeyboard($('#unlockCode'), newStyle);
+      syncKeyboardToggle();
+      clear(panel);
+      openSettings();
+      toast('Passcode changed');
+    } catch (ex) {
+      showErr(error, ex.code === 'BAD_PASSCODE' ? 'Current passcode is wrong.' : ex.message);
+      save.disabled = false;
+      save.textContent = 'Change passcode';
+    }
+  });
+
+  const cancel = el('button', { class: 'btn btn-block', onclick: () => clear(panel) }, ['Cancel']);
+
+  panel.append(
+    el('label', { class: 'label', text: 'Current' }), current,
+    el('label', { class: 'label', style: 'margin-top:12px', text: 'New passcode type' }),
+    el('div', { class: 'segment' }, [segText, segPin]),
+    el('label', { class: 'label', style: 'margin-top:12px', text: 'New' }), next,
+    el('div', { style: 'height:8px' }), confirmField,
+    error,
+    el('div', { style: 'height:10px' }), save,
+    el('div', { style: 'height:8px' }), cancel
+  );
+  current.focus();
 }
 
 async function shareOrDownload(payload, filename) {

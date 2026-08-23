@@ -338,3 +338,15 @@ select.field { appearance: none; -webkit-appearance: none; background-image: lin
   padding: 10px 17px; border-radius: 7px; font-size: 14px;
   box-shadow: 0 6px 22px rgba(0, 0, 0, .55); max-width: 86vw; text-align: center;
 }
+
+/* Passcode type switch on the setup screen. */
+.segment {
+  display: flex; gap: 4px; padding: 4px;
+  background: var(--navy-800); border: 1px solid var(--line-soft); border-radius: 11px;
+}
+.seg {
+  flex: 1; border: 0; cursor: pointer; border-radius: 8px; padding: 10px 8px; min-height: 42px;
+  background: transparent; color: var(--text-dim);
+  font-family: var(--display); font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+}
+.seg[aria-checked="true"] { background: var(--brass); color: #1a1305; font-weight: 600; }

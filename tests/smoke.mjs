@@ -113,6 +113,32 @@ try {
     (await page.locator('.nav-btn').count()) === 6);
 
   // ── manuals ─────────────────────────────────────────────────────────────
+  console.log('\nPasscode keyboard');
+  // The vault above was created with the default passphrase style.
+  check('unlock field defaults to the full keyboard',
+    (await page.locator('#unlockCode').getAttribute('inputmode')) === null);
+  check('a keyboard toggle is offered',
+    (await page.locator('#kbToggle').textContent()).includes('number pad'));
+
+  await page.click('#lockBtn');
+  await page.waitForSelector('#lock:not([hidden])');
+  await page.click('#kbToggle');
+  check('toggling switches the unlock field to the number pad',
+    (await page.locator('#unlockCode').getAttribute('inputmode')) === 'numeric');
+  check('the numeric fallback pattern is set for older WebKit',
+    (await page.locator('#unlockCode').getAttribute('pattern')) === '[0-9]*');
+  check('the toggle label flips back',
+    (await page.locator('#kbToggle').textContent()).includes('full keyboard'));
+  await page.click('#kbToggle');
+  check('toggling again restores the full keyboard',
+    (await page.locator('#unlockCode').getAttribute('inputmode')) === null);
+
+  // A letter passcode must still work after the keyboard has been switched.
+  await page.fill('#unlockCode', 'kestrel-harbour-92');
+  await page.click('#unlockForm button[type="submit"]');
+  await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+  check('a letter passcode still unlocks after switching keyboards', true);
+
   console.log('\nShip Manuals');
   await openNew('manual');
   await set('title', 'Main Engine Operating Manual');

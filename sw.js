@@ -5,7 +5,7 @@
 // and keeps the app fully usable in airplane mode; a background refresh picks up
 // new versions on the next launch.
 
-const CACHE = 'ava-shell-v7';
+const CACHE = 'ava-shell-v8';
 
 const SHELL = [
   './',

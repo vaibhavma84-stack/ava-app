@@ -30,10 +30,15 @@
              autocomplete="current-password" enterkeyhint="go">
       <button class="btn btn-primary" type="submit">Unlock</button>
       <p class="lock-error" id="unlockError" role="alert" hidden></p>
+      <button type="button" class="btn btn-ghost btn-sm" id="kbToggle">Use full keyboard</button>
       <button type="button" class="btn btn-ghost btn-sm" id="restoreBtn2">Restore from a backup</button>
     </form>
 
     <form id="setupForm" class="lock-form" hidden autocomplete="off">
+      <div class="segment" role="radiogroup" aria-label="Passcode type">
+        <button type="button" class="seg" id="segText" role="radio" aria-checked="true">Passphrase</button>
+        <button type="button" class="seg" id="segPin" role="radio" aria-checked="false">Number PIN</button>
+      </div>
       <input type="password" id="setupCode" class="field" placeholder="Choose a passcode"
              autocomplete="new-password" enterkeyhint="next">
       <input type="password" id="setupCode2" class="field" placeholder="Confirm passcode"
