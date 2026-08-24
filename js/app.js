@@ -306,19 +306,20 @@ function genericRow(item) {
   const subParts = (def.listFields || []).map((k) => item.data[k]).filter(Boolean);
 
   const head = el('div', { class: 'card-head' }, [
-    el('h2', { class: 'card-title', text: item.type === 'salary' ? displayDate(item.data.month) : title }),
+    el('h2', { class: 'card-title', text: title }),
     item.pinned ? el('span', { class: 'pill pill-brass', text: 'Pinned' }) : null,
     attachCount(item)
   ]);
 
   const card = cardShell(item, item.pinned ? 'pinned' : '', [head]);
 
-  if (item.type === 'salary') {
-    const amount = item.data.amount;
+  if (item.type === 'publication') {
+    // Corrections are the thing you check first, so they get their own cell.
     card.append(el('div', { class: 'dgrid two' }, [
-      dcell('Amount', amount ? `${item.data.currency || ''} ${Number(amount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`.trim() : '—'),
-      dcell('Vessel', item.data.vessel || '—')
+      dcell('Corrected to', item.data.correctedTo || '—', !item.data.correctedTo),
+      dcell('Edition', item.data.edition || '—', !item.data.edition)
     ]));
+    if (subParts.length) card.append(el('p', { class: 'card-sub', text: subParts.join(' · ') }));
   } else if (subParts.length) {
     card.append(el('p', { class: 'card-sub', text: subParts.join(' · ') }));
   } else if (item.type === 'note' && item.data.body) {
@@ -440,7 +441,7 @@ function openDetail(id) {
   $('#detailTitle').textContent = def.singular;
   const body = clear($('#detailBody'));
 
-  const heading = item.type === 'salary' ? displayDate(item.data.month) : (item.data[def.titleKey] || 'Untitled');
+  const heading = item.data[def.titleKey] || 'Untitled';
   body.append(el('h2', { class: 'card-title', style: 'font-size:21px;margin:0', text: heading }));
 
   if (item.type === 'certificate') {
@@ -462,7 +463,7 @@ function openDetail(id) {
   let shown = 0;
   for (const f of def.fields) {
     if (['attachments', 'contracts', 'fileLink'].includes(f.key)) continue;
-    if (f.key === def.titleKey || (item.type === 'salary' && f.key === 'month')) continue;
+    if (f.key === def.titleKey) continue;
     const raw = item.data[f.key];
     if (raw === undefined || raw === null || raw === '') continue;
     const value = f.type === 'date' ? displayDate(raw)

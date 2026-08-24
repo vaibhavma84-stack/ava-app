@@ -14,8 +14,7 @@ no network requests once it has loaded.
 | **Ship Manuals** | Title, category, vessel, location, extracted procedures |
 | **Certificates** | Issuer, reference no., issue and expiry dates — flagged amber within 90 days, red once expired |
 | **Sea Time** | Full vessel particulars, sign-on/off, and up to 5 contracts per entry |
-| **Sea Service Letters** | Same shape as certificates, without expiry tracking |
-| **Salary Slips** | Month, vessel, amount, currency |
+| **Publications** | Number, edition, category, publisher, correction state, vessel, location onboard |
 | **Important Notes** | Free text, pinnable to the top |
 
 Every entry also takes encrypted file attachments and a cloud link.

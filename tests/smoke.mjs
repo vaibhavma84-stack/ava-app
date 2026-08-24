@@ -109,8 +109,8 @@ try {
   check('creates the vault and enters the app', true);
   check('opens on the Ship Manuals tab',
     (await page.locator('#screenTitle').textContent()) === 'Ship Manuals');
-  check('bottom nav shows all six sections',
-    (await page.locator('.nav-btn').count()) === 6);
+  check('bottom nav shows every section',
+    (await page.locator('.nav-btn').count()) === 5);
 
   // ── manuals ─────────────────────────────────────────────────────────────
   console.log('\nPasscode keyboard');
@@ -212,6 +212,31 @@ try {
   await set('signOffDate', '2024-07-09');   // 182 days inclusive
   await set('signOffPort', 'Rotterdam');
 
+  // Regression: the registry row used to pack four fields across, which pushed
+  // the official-number field onto its own line and wrapped its label.
+  const rowOf = (key) => page.evaluate((k) => {
+    const input = document.querySelector(`#editorBody [data-field="${k}"]`);
+    const row = input.closest('.fieldrow');
+    return row ? row.querySelectorAll('.field').length : 1;
+  }, key);
+  check('registry fields sit two to a row', (await rowOf('officialNumber')) === 2,
+    `got ${await rowOf('officialNumber')}`);
+  check('IMO and call sign share their own row', (await rowOf('imo')) === 2);
+
+  const offBox = await page.locator('#editorBody [data-field="officialNumber"]').boundingBox();
+  const flagBox = await page.locator('#editorBody [data-field="flag"]').boundingBox();
+  check('official number sits beside the flag, not below it',
+    Math.abs(offBox.y - flagBox.y) < 2 && offBox.x > flagBox.x,
+    `flag y=${Math.round(flagBox.y)} off y=${Math.round(offBox.y)}`);
+
+  const offLabel = await page.evaluate(() => {
+    const input = document.querySelector('#editorBody [data-field="officialNumber"]');
+    const label = input.closest('div').querySelector('label.label');
+    return { text: label.textContent, lines: Math.round(label.getBoundingClientRect().height) };
+  });
+  check('its label is abbreviated', offLabel.text === 'Off. No.', offLabel.text);
+  check('its label fits on one line', offLabel.lines < 24, `${offLabel.lines}px tall`);
+
   await page.click('#editorBody button:has-text("Add contract")');
   await page.fill('#editorBody [data-contract-field="company"]', 'Anglo-Eastern Crew Management');
   await page.fill('#editorBody [data-contract-field="position"]', 'Third Officer');
@@ -259,26 +284,30 @@ try {
   await page.click('#detailClose');
 
   // ── remaining types ─────────────────────────────────────────────────────
-  console.log('\nLetters, salary and notes');
-  await openNew('letter');
-  await set('title', 'Sea Service — MV Northern Star');
-  await set('issuer', 'Anglo-Eastern Ship Management');
-  await set('refNo', 'SSL-8841');
-  await set('issueDate', '2024-07-15');
-  await save();
-  check('saves a sea service letter', (await page.locator('.card').count()) === 1);
-  check('letters carry no expiry pill',
-    !(await page.locator('.card').first().innerText()).match(/Expired|Expiring/));
-
-  await openNew('salary');
-  await set('month', '2024-06');
+  console.log('\nPublications and notes');
+  await openNew('publication');
+  await set('title', 'Admiralty List of Radio Signals Vol 1');
+  await set('refNo', 'NP281(1)');
+  await set('edition', '2026');
+  await pick('category', 'List of Radio Signals');
+  await set('publisher', 'UKHO');
+  await set('correctedTo', 'NtM 12/2026');
   await set('vessel', 'MV Northern Star');
-  await set('amount', '3900');
-  await pick('currency', 'USD');
+  await set('location', 'Chart room');
   await save();
-  const salaryRow = await page.locator('.card').first().innerText();
-  check('salary row shows the month', /June 2024/.test(salaryRow), salaryRow);
-  check('salary row shows a formatted amount', /USD 3,900\.00/.test(salaryRow), salaryRow);
+  check('saves a publication', (await page.locator('.card').count()) === 1);
+  const pubRow = await page.locator('.card').first().innerText();
+  check('publication row shows the correction state', /NtM 12\/2026/.test(pubRow), pubRow.replace(/\n/g, ' / '));
+  check('publication row shows the edition', /2026/.test(pubRow));
+  check('publication row shows the number and vessel',
+    /NP281\(1\)/.test(pubRow) && /Northern Star/.test(pubRow), pubRow.replace(/\n/g, ' / '));
+
+  await openNew('publication');
+  await set('title', 'Mariner\'s Handbook');
+  await set('refNo', 'NP100');
+  await save();
+  check('a publication with no correction shows a placeholder',
+    (await cardWith('Mariner').innerText()).includes('—'));
 
   await openNew('note');
   await set('title', 'Rotterdam agent contact');
@@ -300,8 +329,6 @@ try {
     (await page.locator('#detailBody button:has-text("Calendar")').count()) === 0);
   await page.click('#detailClose');
 
-  // The generated file is verified in tests/calendar.test.mjs; here we only
-  // confirm the app builds one from real stored records.
   const icsProbe = await page.evaluate(async () => {
     const cal = await import('./js/calendar.js');
     const store = await import('./js/store.js');
@@ -312,6 +339,14 @@ try {
   check('builds a calendar file from stored certificates',
     icsProbe.count === 3 && icsProbe.head === 'BEGIN:VCALENDAR', JSON.stringify(icsProbe));
 
+  console.log('\nRemoved sections');
+  check('only five tabs remain', (await page.locator('.nav-btn').count()) === 5);
+  const tabs = await page.locator('.nav-btn').evaluateAll((ns) => ns.map((n) => n.dataset.tab));
+  check('salary and letters are gone',
+    !tabs.includes('salary') && !tabs.includes('letter'), tabs.join(','));
+  check('publications sits after sea time',
+    tabs.join(',') === 'manual,certificate,seatime,publication,note', tabs.join(','));
+
   // ── global search ───────────────────────────────────────────────────────
   console.log('\nGlobal search');
   await page.fill('#search', 'northern star');
@@ -320,7 +355,7 @@ try {
   check('search groups results by section', heads.length >= 3, heads.join(' | '));
   check('search reaches manuals', heads.some((h) => h.includes('Ship Manuals')));
   check('search reaches sea time', heads.some((h) => h.includes('Sea Time')));
-  check('search reaches salary slips', heads.some((h) => h.includes('Salary Slips')));
+  check('search reaches publications', heads.some((h) => h.includes('Publications')));
   check('search title switches to results',
     (await page.locator('#screenTitle').textContent()) === 'Search results');
   await shot('05-search');

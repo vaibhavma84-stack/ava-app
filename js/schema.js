@@ -14,7 +14,11 @@ export const RANKS = [
   'Fitter', 'Oiler', 'Wiper', 'Chief Cook', 'Steward', 'Other'
 ];
 
-export const CURRENCIES = ['USD', 'EUR', 'GBP', 'INR', 'PHP', 'SGD', 'AUD', 'NOK', 'JPY'];
+export const PUBLICATION_CATEGORIES = [
+  'Chart', 'Sailing Directions', 'List of Lights', 'List of Radio Signals',
+  'Tide Tables', 'Nautical Almanac', 'Notices to Mariners', 'IMO Convention',
+  'Code / Guideline', 'Flag State', 'Company Manual', 'Other'
+];
 
 export const MANUAL_CATEGORIES = [
   'Deck', 'Engine', 'Safety', 'Cargo', 'Navigation', 'ISM / ISPS', 'MARPOL',
@@ -90,10 +94,12 @@ export const TYPES = {
       { key: 'grt', label: 'GRT', type: 'number', group: 'tonnage' },
       { key: 'nrt', label: 'NRT', type: 'number', group: 'tonnage' },
       { key: 'kw', label: 'KW', type: 'number', group: 'tonnage' },
-      { key: 'flag', label: 'Flag', type: 'text', group: 'registry' },
-      { key: 'officialNumber', label: 'Official number', type: 'text', group: 'registry' },
-      { key: 'imo', label: 'IMO number', type: 'text', group: 'registry' },
-      { key: 'callSign', label: 'Call sign', type: 'text', group: 'registry' },
+      // Two per row: four across is unusable on a phone, and "Official number"
+      // is abbreviated so its label stays on one line.
+      { key: 'flag', label: 'Flag', type: 'text', group: 'registry1' },
+      { key: 'officialNumber', label: 'Off. No.', type: 'text', group: 'registry1' },
+      { key: 'imo', label: 'IMO No.', type: 'text', group: 'registry2' },
+      { key: 'callSign', label: 'Call sign', type: 'text', group: 'registry2' },
       { key: 'signOnDate', label: 'Sign-on date', type: 'date', group: 'signon' },
       { key: 'signOnPort', label: 'Sign-on port', type: 'text', group: 'signon' },
       { key: 'signOffDate', label: 'Sign-off date', type: 'date', group: 'signoff' },
@@ -106,42 +112,27 @@ export const TYPES = {
     sort: (a, b) => (b.signOnDate || '').localeCompare(a.signOnDate || '')
   },
 
-  letter: {
-    label: 'Sea Service Letters',
-    short: 'Letters',
-    singular: 'Sea service letter',
-    icon: 'mail',
+  publication: {
+    label: 'Publications',
+    short: 'Pubs',
+    singular: 'Publication',
+    icon: 'library',
     titleKey: 'title',
     fields: [
-      { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Sea Service — MV Northern Star' },
-      { key: 'issuer', label: 'Issuer', type: 'text', placeholder: 'e.g. Anglo-Eastern Ship Management' },
-      { key: 'refNo', label: 'Reference no.', type: 'text' },
-      { key: 'issueDate', label: 'Issue date', type: 'date' },
+      { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Admiralty List of Radio Signals Vol 1' },
+      { key: 'refNo', label: 'Number', type: 'text', placeholder: 'e.g. NP281(1)', group: 'ident' },
+      { key: 'edition', label: 'Edition / year', type: 'text', placeholder: 'e.g. 2026', group: 'ident' },
+      { key: 'category', label: 'Category', type: 'select', options: PUBLICATION_CATEGORIES },
+      { key: 'publisher', label: 'Publisher', type: 'text', placeholder: 'e.g. UKHO' },
+      { key: 'correctedTo', label: 'Corrected to', type: 'text', placeholder: 'e.g. NtM 12/2026', group: 'status' },
+      { key: 'vessel', label: 'Vessel', type: 'text', group: 'status' },
+      { key: 'location', label: 'Location onboard', type: 'text', placeholder: 'e.g. Chart room' },
       NOTES,
       ATTACHMENTS,
       FILE_LINK
     ],
-    listFields: ['issuer', 'refNo'],
-    sort: (a, b) => (b.issueDate || '').localeCompare(a.issueDate || '')
-  },
-
-  salary: {
-    label: 'Salary Slips',
-    short: 'Salary',
-    singular: 'Salary slip',
-    icon: 'cash',
-    titleKey: 'month',
-    fields: [
-      { key: 'month', label: 'Month', type: 'month', required: true },
-      { key: 'vessel', label: 'Vessel', type: 'text' },
-      { key: 'amount', label: 'Amount', type: 'number', step: '0.01', group: 'money' },
-      { key: 'currency', label: 'Currency', type: 'select', options: CURRENCIES, group: 'money' },
-      NOTES,
-      ATTACHMENTS,
-      FILE_LINK
-    ],
-    listFields: ['vessel'],
-    sort: (a, b) => (b.month || '').localeCompare(a.month || '')
+    listFields: ['refNo', 'edition', 'vessel'],
+    sort: (a, b) => (a.title || '').localeCompare(b.title || '')
   },
 
   note: {
@@ -161,7 +152,7 @@ export const TYPES = {
   }
 };
 
-export const TAB_ORDER = ['manual', 'certificate', 'seatime', 'letter', 'salary', 'note'];
+export const TAB_ORDER = ['manual', 'certificate', 'seatime', 'publication', 'note'];
 
 export const CONTRACT_FIELDS = [
   { key: 'company', label: 'Company / agency', type: 'text' },
