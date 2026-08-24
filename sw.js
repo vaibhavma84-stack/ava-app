@@ -1,11 +1,14 @@
 // Offline shell.
 //
-// The app makes no network requests once loaded -- all data lives in IndexedDB --
-// so the only thing to cache is the shell itself. Cache-first serves it instantly
-// and keeps the app fully usable in airplane mode; a background refresh picks up
-// new versions on the next launch.
+// Network-first, cache-fallback. Cache-first was wrong for this app: an
+// installed iOS web app would keep serving the cached build forever, so pushed
+// fixes never arrived no matter how many times it was relaunched.
+//
+// Now a launch with a connection always gets current code, and a launch without
+// one falls straight back to the cache, so the app stays fully usable at sea.
 
-const CACHE = 'ava-shell-v9';
+const VERSION = 'v10';
+const CACHE = `ava-shell-${VERSION}`;
 
 const SHELL = [
   './',
@@ -17,10 +20,10 @@ const SHELL = [
   'js/store.js',
   'js/schema.js',
   'js/derive.js',
-  'js/icons.js',
   'js/calendar.js',
   'js/db.js',
   'js/crypto.js',
+  'js/icons.js',
   'js/ui.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
@@ -31,7 +34,9 @@ const SHELL = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE)
-      .then((cache) => cache.addAll(SHELL))
+      // cache:'reload' bypasses the HTTP cache, so precaching cannot store a
+      // stale copy of a file that was just deployed.
+      .then((cache) => cache.addAll(SHELL.map((u) => new Request(u, { cache: 'reload' }))))
       .then(() => self.skipWaiting())
   );
 });
@@ -44,37 +49,33 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+self.addEventListener('message', (event) => {
+  if (event.data === 'skipWaiting') self.skipWaiting();
+  if (event.data === 'version') event.source?.postMessage({ version: VERSION });
+});
+
+async function networkFirst(request) {
+  try {
+    const fresh = await fetch(request);
+    if (fresh && fresh.ok) {
+      const copy = fresh.clone();
+      caches.open(CACHE).then((c) => c.put(request, copy)).catch(() => {});
+    }
+    return fresh;
+  } catch {
+    const hit = await caches.match(request);
+    if (hit) return hit;
+    // A cold navigation offline still needs the shell.
+    if (request.mode === 'navigate') {
+      return (await caches.match('index.html')) || (await caches.match('./'));
+    }
+    throw new Error('offline and not cached');
+  }
+}
+
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
-
-  const url = new URL(req.url);
-  if (url.origin !== self.location.origin) return;
-
-  // Navigations: serve the cached shell so a cold offline launch works.
-  if (req.mode === 'navigate') {
-    event.respondWith(
-      caches.match('index.html').then((hit) => hit || fetch(req).catch(() => caches.match('./')))
-    );
-    return;
-  }
-
-  event.respondWith(
-    caches.match(req).then((hit) => {
-      if (hit) {
-        // Refresh in the background; ignore failures (offline is the normal case).
-        fetch(req).then((res) => {
-          if (res && res.ok) caches.open(CACHE).then((c) => c.put(req, res.clone()));
-        }).catch(() => {});
-        return hit;
-      }
-      return fetch(req).then((res) => {
-        if (res && res.ok) {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put(req, copy));
-        }
-        return res;
-      });
-    })
-  );
+  if (new URL(req.url).origin !== self.location.origin) return;
+  event.respondWith(networkFirst(req));
 });

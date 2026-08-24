@@ -8,6 +8,7 @@ import { icon } from './icons.js';
 import { icsForItem, icsForItems, datedCertificates, calendarFileName, eventFor } from './calendar.js';
 
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
+const APP_VERSION = '2026.08.24';
 
 const view = {
   tab: 'manual',
@@ -39,11 +40,7 @@ let lockTimer = null;
 // ── boot ────────────────────────────────────────────────────────────────────
 
 async function boot() {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch((e) => console.warn('SW failed', e));
-    });
-  }
+  registerServiceWorker();
   view.autolockMs = (await db.getMeta('autolockMs')) ?? AUTOLOCK_DEFAULT_MS;
   // Existing vaults predate this setting, so default them to the full keyboard.
   view.passStyle = (await db.getMeta('passcodeStyle')) ?? 'text';
@@ -61,6 +58,48 @@ async function boot() {
   wireLock();
   wireApp();
   wireAutoLock();
+}
+
+/**
+ * Register the worker and make updates actually land.
+ *
+ * updateViaCache:'none' stops the browser serving sw.js itself from the HTTP
+ * cache, which was letting an installed app miss new versions entirely. When a
+ * new worker takes control the page reloads once, so a fix applies on the
+ * launch it arrives rather than the one after.
+ */
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+
+  let reloading = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (reloading) return;
+    reloading = true;
+    // Never interrupt someone mid-edit; the next launch will pick it up.
+    if (view.draft || !$('#editor').hidden) return;
+    location.reload();
+  });
+
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' });
+      reg.addEventListener('updatefound', () => {
+        const next = reg.installing;
+        if (!next) return;
+        next.addEventListener('statechange', () => {
+          if (next.state === 'installed' && navigator.serviceWorker.controller) {
+            next.postMessage('skipWaiting');
+          }
+        });
+      });
+      // Also check on every foreground, so a long-lived install still updates.
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') reg.update().catch(() => {});
+      });
+    } catch (e) {
+      console.warn('SW registration failed', e);
+    }
+  });
 }
 
 // ── lock ────────────────────────────────────────────────────────────────────
@@ -912,6 +951,30 @@ async function openSettings() {
     el('p', { text: 'Deletes the vault and every entry permanently. There is no recovery.' }),
     el('button', { class: 'btn btn-danger btn-block', onclick: doErase }, ['Erase everything'])
   ]));
+
+  const build = el('span', { text: '—' });
+  body.append(el('div', { class: 'panel' }, [
+    el('h3', { text: 'Build' }),
+    el('div', { class: 'stat' }, [el('span', { text: 'App version' }), el('span', { text: APP_VERSION })]),
+    el('div', { class: 'stat' }, [el('span', { text: 'Offline cache' }), build]),
+    el('button', {
+      class: 'btn btn-block', style: 'margin-top:10px',
+      onclick: async () => {
+        const reg = await navigator.serviceWorker?.getRegistration();
+        await reg?.update().catch(() => {});
+        toast('Checked for updates');
+      }
+    }, ['Check for updates'])
+  ]));
+  // Ask the worker which shell version is actually serving this launch.
+  if (navigator.serviceWorker?.controller) {
+    const channel = new MessageChannel();
+    navigator.serviceWorker.controller.postMessage('version');
+    navigator.serviceWorker.addEventListener('message', (e) => {
+      if (e.data?.version) build.textContent = e.data.version;
+    }, { once: true });
+    void channel;
+  }
 
   body.append(el('p', { class: 'hint', style: 'text-align:center' },
     ['AVA keeps data only on this device and makes no network requests once loaded.']));
