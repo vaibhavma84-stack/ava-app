@@ -14,17 +14,6 @@ export const RANKS = [
   'Fitter', 'Oiler', 'Wiper', 'Chief Cook', 'Steward', 'Other'
 ];
 
-export const PUBLICATION_CATEGORIES = [
-  'Chart', 'Sailing Directions', 'List of Lights', 'List of Radio Signals',
-  'Tide Tables', 'Nautical Almanac', 'Notices to Mariners', 'IMO Convention',
-  'Code / Guideline', 'Flag State', 'Company Manual', 'Other'
-];
-
-export const MANUAL_CATEGORIES = [
-  'Deck', 'Engine', 'Safety', 'Cargo', 'Navigation', 'ISM / ISPS', 'MARPOL',
-  'Machinery', 'Electrical', 'Company Procedures', 'Emergency', 'Other'
-];
-
 const FILE_LINK = {
   key: 'fileLink', label: 'Cloud link', type: 'url',
   placeholder: 'https://… (iCloud or Drive)',
@@ -39,25 +28,6 @@ const ATTACHMENTS = {
 const NOTES = { key: 'notes', label: 'Notes', type: 'textarea' };
 
 export const TYPES = {
-  manual: {
-    label: 'Ship Manuals',
-    short: 'Manuals',
-    singular: 'Manual',
-    icon: 'book',
-    titleKey: 'title',
-    fields: [
-      { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Main Engine Operating Manual' },
-      { key: 'category', label: 'Category', type: 'select', options: MANUAL_CATEGORIES },
-      { key: 'vessel', label: 'Vessel', type: 'text', placeholder: 'e.g. MV Northern Star' },
-      { key: 'location', label: 'Location', type: 'text', placeholder: 'e.g. ECR bookshelf, folder 3' },
-      { ...NOTES, label: 'Notes / extracted procedures', hint: 'Paste the procedures or key figures you actually need at hand.' },
-      ATTACHMENTS,
-      FILE_LINK
-    ],
-    listFields: ['category', 'vessel', 'location'],
-    sort: (a, b) => (a.title || '').localeCompare(b.title || '')
-  },
-
   certificate: {
     label: 'Certificates',
     short: 'Certs',
@@ -114,29 +84,6 @@ export const TYPES = {
     sort: (a, b) => (b.signOnDate || '').localeCompare(a.signOnDate || '')
   },
 
-  publication: {
-    label: 'Publications',
-    short: 'Pubs',
-    singular: 'Publication',
-    icon: 'library',
-    titleKey: 'title',
-    fields: [
-      { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Admiralty List of Radio Signals Vol 1' },
-      { key: 'refNo', label: 'Number', type: 'text', placeholder: 'e.g. NP281(1)', group: 'ident' },
-      { key: 'edition', label: 'Edition / year', type: 'text', placeholder: 'e.g. 2026', group: 'ident' },
-      { key: 'category', label: 'Category', type: 'select', options: PUBLICATION_CATEGORIES },
-      { key: 'publisher', label: 'Publisher', type: 'text', placeholder: 'e.g. UKHO' },
-      { key: 'correctedTo', label: 'Corrected to', type: 'text', placeholder: 'e.g. NtM 12/2026', group: 'status' },
-      { key: 'vessel', label: 'Vessel', type: 'text', group: 'status' },
-      { key: 'location', label: 'Location onboard', type: 'text', placeholder: 'e.g. Chart room' },
-      NOTES,
-      ATTACHMENTS,
-      FILE_LINK
-    ],
-    listFields: ['refNo', 'edition', 'vessel'],
-    sort: (a, b) => (a.title || '').localeCompare(b.title || '')
-  },
-
   note: {
     label: 'Important Notes',
     short: 'Notes',
@@ -154,7 +101,7 @@ export const TYPES = {
   }
 };
 
-export const TAB_ORDER = ['manual', 'certificate', 'seatime', 'publication', 'note'];
+export const TAB_ORDER = ['certificate', 'seatime', 'note'];
 
 export const CONTRACT_FIELDS = [
   { key: 'company', label: 'Company / agency', type: 'text' },

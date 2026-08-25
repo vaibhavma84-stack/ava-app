@@ -12,6 +12,7 @@ import { chromium, devices } from 'playwright';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import os from 'node:os';
 import path from 'node:path';
 
@@ -122,7 +123,46 @@ try {
   await page.waitForSelector('#detail:not([hidden])');
   const detail = await page.locator('#detailBody').innerText();
   check('the PDF was read and its pages indexed', /pages indexed/i.test(detail), detail.replace(/\n/g, ' / '));
-  check('it did not fall back to "scanned"', !/scanned/i.test(detail));
+  check('it was not misreported as a scan', !/no text layer/i.test(detail));
+  check('a readable PDF offers no re-read prompt', !/reading the text again/i.test(detail));
+
+  // Extracting text must not alter the stored file. Diagrams and photographs
+  // only survive if the original bytes come back exactly as they went in.
+  const sourceHash = crypto.createHash('sha256').update(fs.readFileSync(PDF_PATH)).digest('hex');
+  const stored = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    const item = store.itemsOfType('manual')[0];
+    const att = item.data.attachments[0];
+    const blob = await store.readFile(att);
+    const buf = await blob.arrayBuffer();
+    const digest = await crypto.subtle.digest('SHA-256', buf);
+    return {
+      size: buf.byteLength,
+      type: blob.type,
+      hash: [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('')
+    };
+  });
+  check('the stored PDF is byte-for-byte the file that went in',
+    stored.hash === sourceHash, `${stored.hash.slice(0, 16)} vs ${sourceHash.slice(0, 16)}`);
+  check('its size is unchanged', stored.size === fs.statSync(PDF_PATH).size,
+    `${stored.size} vs ${fs.statSync(PDF_PATH).size}`);
+  check('it comes back as a PDF, openable as the original',
+    stored.type === 'application/pdf', stored.type);
+
+  // The engine self-test must agree that reading works on this device.
+  const self = await page.evaluate(async () => (await import('./js/pdftext.js')).selfTest());
+  check('the built-in PDF self-test passes', self.ok === true, JSON.stringify(self));
+  check('the self-test reads real characters', self.chars > 10, String(self.chars));
+
+  // A file that is not a PDF at all must report failure, not silently "scan".
+  const bogus = await page.evaluate(async () => {
+    const { extract, STATUS } = await import('./js/pdftext.js');
+    const bytes = new TextEncoder().encode('this is not a pdf at all');
+    const r = await extract(bytes.buffer);
+    return { status: r.status, failed: r.status === STATUS.FAILED, error: r.error };
+  });
+  check('an unreadable file reports failure rather than "scan"', bogus.failed, JSON.stringify(bogus));
+  check('and carries a reason', Boolean(bogus.error), String(bogus.error));
   await shot('lib-02-detail');
   await page.click('#detailClose');
 

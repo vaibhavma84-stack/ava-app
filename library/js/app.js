@@ -3,7 +3,7 @@ import * as db from './db.js';
 import * as sec from './crypto.js';
 import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch } from './search.js';
-import { isPdf, extract } from './pdftext.js';
+import { isPdf, extract, selfTest, STATUS } from './pdftext.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
@@ -516,10 +516,21 @@ function openDetail(id) {
   $('#detailBody').scrollTop = 0;
 }
 
+function textStatusOf(att) {
+  // Older records predate textStatus and only carry a page count.
+  if (att.textStatus) return att.textStatus;
+  if (att.textPages > 0) return STATUS.INDEXED;
+  if (att.scanned) return STATUS.NO_TEXT;
+  return null;
+}
+
 function attachmentRow(att, onRemove) {
-  const status = att.textPages > 0
-    ? el('span', { class: 'pill pill-sage', text: `${att.textPages} pages indexed` })
-    : att.scanned ? el('span', { class: 'pill pill-warn', text: 'Scanned — no text' })
+  const state = textStatusOf(att);
+  const status =
+    state === STATUS.INDEXED ? el('span', { class: 'pill pill-sage', text: `${att.textPages} pages indexed` })
+    : state === STATUS.NO_TEXT ? el('span', { class: 'pill pill-warn', text: 'No text layer — scan' })
+    : state === STATUS.ENCRYPTED ? el('span', { class: 'pill pill-warn', text: 'Password protected' })
+    : state === STATUS.FAILED ? el('span', { class: 'pill pill-warn', text: 'Could not be read' })
     : null;
 
   const row = el('div', { class: 'attach' }, [
@@ -532,13 +543,56 @@ function attachmentRow(att, onRemove) {
     ])
   ]);
   if (status) row.append(el('div', { style: 'margin-top:8px' }, [status]));
+  if (state === STATUS.NO_TEXT) {
+    row.append(el('p', { class: 'hint', text: 'This file is a picture of its pages, so there are no words to search. Its title and fields are still searchable.' }));
+  }
+  if (state === STATUS.FAILED && att.textError) {
+    row.append(el('p', { class: 'hint', text: att.textError }));
+  }
   if (!onRemove) {
     row.append(el('div', { class: 'fieldrow', style: 'margin-top:9px' }, [
       el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => openAttachment(att) }, ['Open'])]),
       el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => shareAttachment(att) }, ['Save to Files'])])
     ]));
+    if (state !== STATUS.INDEXED) {
+      row.append(el('button', {
+        class: 'btn btn-sm btn-block', style: 'margin-top:8px',
+        onclick: (e) => reReadText(att, e.target)
+      }, ['Try reading the text again']));
+    }
   }
   return row;
+}
+
+/** Re-run extraction on a stored file, without needing it added again. */
+async function reReadText(att, button) {
+  button.disabled = true;
+  button.textContent = 'Reading…';
+  try {
+    const blob = await store.readFile(att);
+    const result = await extract(await blob.arrayBuffer());
+    if (result.pages.length) await store.storeText(att.id, result.pages);
+
+    // The descriptor lives on the record, so update and save it there.
+    const item = store.getItem(view.detailId);
+    if (item) {
+      const next = (item.data.attachments || []).map((a) => a.id === att.id
+        ? { ...a, textPages: result.pages.length, pageCount: result.pageCount,
+            textStatus: result.status, textError: result.error }
+        : a);
+      await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, attachments: next } });
+      openDetail(item.id);
+    }
+    toast(result.status === STATUS.INDEXED
+      ? `Read ${result.pages.length} pages`
+      : result.status === STATUS.NO_TEXT ? 'Still no text layer — this is a scan'
+      : 'Could not read it: ' + (result.error || 'unknown reason'));
+  } catch (ex) {
+    toast('Could not read it: ' + ex.message);
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Try reading the text again';
+  }
 }
 
 async function openAttachment(att) {
@@ -703,23 +757,18 @@ async function saveEditor() {
       // Read the text out of PDFs so their contents become searchable.
       if (isPdf(file)) {
         status.textContent = `Reading text from ${file.name}…`;
-        try {
-          const buffer = await file.arrayBuffer();
-          const result = await extract(buffer, {
-            onProgress: (page, total) => {
-              progress.firstChild.style.width = `${Math.round((page / total) * 100)}%`;
-              status.textContent = `Reading ${file.name} — page ${page} of ${total}`;
-            }
-          });
-          if (result.pages.length) await store.storeText(descriptor.id, result.pages);
-          descriptor.textPages = result.pages.length;
-          descriptor.pageCount = result.pageCount;
-          descriptor.scanned = result.scanned;
-        } catch (ex) {
-          console.warn('PDF text extraction failed', ex);
-          descriptor.textPages = 0;
-          descriptor.scanned = true;
-        }
+        const buffer = await file.arrayBuffer();
+        const result = await extract(buffer, {
+          onProgress: (page, total) => {
+            progress.firstChild.style.width = `${Math.round((page / total) * 100)}%`;
+            status.textContent = `Reading ${file.name} — page ${page} of ${total}`;
+          }
+        });
+        if (result.pages.length) await store.storeText(descriptor.id, result.pages);
+        descriptor.textPages = result.pages.length;
+        descriptor.pageCount = result.pageCount;
+        descriptor.textStatus = result.status;
+        descriptor.textError = result.error;
       }
       draft.data.attachments.push(descriptor);
       progress.firstChild.style.width = '0';
@@ -804,6 +853,30 @@ async function openSettings() {
     el('h3', { text: 'Bring records from AVA' }),
     el('p', { text: 'Takes the manuals and publications exported from AVA. Their fields come across; files do not, so re-attach the PDFs here.' }),
     el('button', { class: 'btn btn-block', onclick: () => $('#backupPicker').click() }, ['Import handover file'])
+  ]));
+
+  // Distinguishes "the engine is broken on this device" from "your PDFs are
+  // scans" — two problems that look identical from the outside.
+  const testOut = el('p', { class: 'hint', style: 'margin:0' }, ['Not run yet.']);
+  body.append(el('div', { class: 'panel' }, [
+    el('h3', { text: 'PDF reading' }),
+    el('p', { text: 'Runs a built-in PDF through the reader to check it works on this iPhone. If this passes but your own files find no text, those files are scans.' }),
+    el('button', {
+      class: 'btn btn-block', style: 'margin-bottom:10px',
+      onclick: async (e) => {
+        e.target.disabled = true;
+        e.target.textContent = 'Testing…';
+        testOut.textContent = 'Running…';
+        const r = await selfTest();
+        testOut.textContent = r.ok
+          ? `Working. Read ${r.chars} characters from the test file.`
+          : `Failed (${r.status})${r.error ? ': ' + r.error : ''}`;
+        testOut.style.color = r.ok ? 'var(--sage)' : 'var(--danger)';
+        e.target.disabled = false;
+        e.target.textContent = 'Test PDF reading';
+      }
+    }, ['Test PDF reading']),
+    testOut
   ]));
 
   body.append(el('div', { class: 'panel' }, [

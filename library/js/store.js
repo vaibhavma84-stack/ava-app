@@ -191,14 +191,16 @@ export function counts() {
 
 /** How many attachments carry searchable text, and how many do not. */
 export function textStats() {
-  let searchable = 0, unsearchable = 0;
+  let searchable = 0, unsearchable = 0, failed = 0;
   for (const item of state.items.values()) {
     for (const att of item.data?.attachments || []) {
-      if (att.textPages > 0) searchable++;
-      else if (att.scanned) unsearchable++;
+      const status = att.textStatus || (att.textPages > 0 ? 'indexed' : att.scanned ? 'no-text' : null);
+      if (status === 'indexed') searchable++;
+      else if (status === 'no-text') unsearchable++;
+      else if (status === 'failed' || status === 'encrypted') failed++;
     }
   }
-  return { searchable, unsearchable };
+  return { searchable, unsearchable, failed };
 }
 
 // ── backup ──────────────────────────────────────────────────────────────────

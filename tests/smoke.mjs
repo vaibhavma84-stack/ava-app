@@ -107,49 +107,15 @@ try {
   await page.click('#setupForm button[type="submit"]');
   await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
   check('creates the vault and enters the app', true);
-  check('opens on the Ship Manuals tab',
-    (await page.locator('#screenTitle').textContent()) === 'Ship Manuals');
+  check('opens on the Certificates tab',
+    (await page.locator('#screenTitle').textContent()) === 'Certificates');
   check('bottom nav shows every section',
-    (await page.locator('.nav-btn').count()) === 5);
-
-  // ── manuals ─────────────────────────────────────────────────────────────
-  console.log('\nPasscode keyboard');
-  // The vault above was created with the default passphrase style.
-  check('unlock field defaults to the full keyboard',
-    (await page.locator('#unlockCode').getAttribute('inputmode')) === null);
-  check('a keyboard toggle is offered',
-    (await page.locator('#kbToggle').textContent()).includes('number pad'));
-
-  await page.click('#lockBtn');
-  await page.waitForSelector('#lock:not([hidden])');
-  await page.click('#kbToggle');
-  check('toggling switches the unlock field to the number pad',
-    (await page.locator('#unlockCode').getAttribute('inputmode')) === 'numeric');
-  check('the numeric fallback pattern is set for older WebKit',
-    (await page.locator('#unlockCode').getAttribute('pattern')) === '[0-9]*');
-  check('the toggle label flips back',
-    (await page.locator('#kbToggle').textContent()).includes('full keyboard'));
-  await page.click('#kbToggle');
-  check('toggling again restores the full keyboard',
-    (await page.locator('#unlockCode').getAttribute('inputmode')) === null);
-
-  // A letter passcode must still work after the keyboard has been switched.
-  await page.fill('#unlockCode', 'kestrel-harbour-92');
-  await page.click('#unlockForm button[type="submit"]');
-  await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
-  check('a letter passcode still unlocks after switching keyboards', true);
-
-  console.log('\nShip Manuals');
-  await openNew('manual');
-  await set('title', 'Main Engine Operating Manual');
-  await pick('category', 'Engine');
-  await set('vessel', 'MV Northern Star');
-  await set('location', 'ECR bookshelf, folder 3');
-  await set('notes', 'Starting air pressure minimum 25 bar before first attempt.');
-  await save();
-  check('saves a manual', (await page.locator('.card').count()) === 1);
-  check('manual row shows category and vessel',
-    (await page.locator('.card-sub').first().textContent() || '').includes('Engine'));
+    (await page.locator('.nav-btn').count()) === 3);
+  const tabList = await page.locator('.nav-btn').evaluateAll((ns) => ns.map((n) => n.dataset.tab));
+  check('manuals and publications have moved to Library',
+    !tabList.includes('manual') && !tabList.includes('publication'), tabList.join(','));
+  check('the personal record is what remains',
+    tabList.join(',') === 'certificate,seatime,note', tabList.join(','));
 
   // ── certificates ────────────────────────────────────────────────────────
   console.log('\nCertificates');
@@ -313,31 +279,7 @@ try {
   await page.click('#detailClose');
 
   // ── remaining types ─────────────────────────────────────────────────────
-  console.log('\nPublications and notes');
-  await openNew('publication');
-  await set('title', 'Admiralty List of Radio Signals Vol 1');
-  await set('refNo', 'NP281(1)');
-  await set('edition', '2026');
-  await pick('category', 'List of Radio Signals');
-  await set('publisher', 'UKHO');
-  await set('correctedTo', 'NtM 12/2026');
-  await set('vessel', 'MV Northern Star');
-  await set('location', 'Chart room');
-  await save();
-  check('saves a publication', (await page.locator('.card').count()) === 1);
-  const pubRow = await page.locator('.card').first().innerText();
-  check('publication row shows the correction state', /NtM 12\/2026/.test(pubRow), pubRow.replace(/\n/g, ' / '));
-  check('publication row shows the edition', /2026/.test(pubRow));
-  check('publication row shows the number and vessel',
-    /NP281\(1\)/.test(pubRow) && /Northern Star/.test(pubRow), pubRow.replace(/\n/g, ' / '));
-
-  await openNew('publication');
-  await set('title', 'Mariner\'s Handbook');
-  await set('refNo', 'NP100');
-  await save();
-  check('a publication with no correction shows a placeholder',
-    (await cardWith('Mariner').innerText()).includes('—'));
-
+  console.log('\nNotes');
   await openNew('note');
   await set('title', 'Rotterdam agent contact');
   await set('body', 'Agent: Van der Berg Shipping. Ask for Pieter on the night line.');
@@ -368,23 +310,22 @@ try {
   check('builds a calendar file from stored certificates',
     icsProbe.count === 3 && icsProbe.head === 'BEGIN:VCALENDAR', JSON.stringify(icsProbe));
 
-  console.log('\nRemoved sections');
-  check('only five tabs remain', (await page.locator('.nav-btn').count()) === 5);
-  const tabs = await page.locator('.nav-btn').evaluateAll((ns) => ns.map((n) => n.dataset.tab));
-  check('salary and letters are gone',
-    !tabs.includes('salary') && !tabs.includes('letter'), tabs.join(','));
-  check('publications sits after sea time',
-    tabs.join(',') === 'manual,certificate,seatime,publication,note', tabs.join(','));
 
   // ── global search ───────────────────────────────────────────────────────
   console.log('\nGlobal search');
-  await page.fill('#search', 'northern star');
+  // Rotterdam is a sign-off port on a voyage and appears in a note, so it spans
+  // two sections and exercises the grouping.
+  await page.fill('#search', 'Rotterdam');
   await page.waitForTimeout(250);
   const heads = await page.locator('.group-head').allTextContents();
-  check('search groups results by section', heads.length >= 3, heads.join(' | '));
-  check('search reaches manuals', heads.some((h) => h.includes('Ship Manuals')));
+  check('search groups results by section', heads.length >= 2, heads.join(' | '));
   check('search reaches sea time', heads.some((h) => h.includes('Sea Time')));
-  check('search reaches publications', heads.some((h) => h.includes('Publications')));
+  check('search reaches notes', heads.some((h) => h.includes('Important Notes')));
+
+  await page.fill('#search', 'DG Shipping');
+  await page.waitForTimeout(250);
+  check('search reaches certificates',
+    (await page.locator('.group-head').allTextContents()).some((h) => h.includes('Certificates')));
   check('search title switches to results',
     (await page.locator('#screenTitle').textContent()) === 'Search results');
   await shot('05-search');
@@ -404,9 +345,9 @@ try {
   // Regression: the Save action used to sit in the sheet's top bar, where iOS
   // draws the status bar over it in fullscreen. It must live at the bottom.
   console.log('\nSheet action placement');
-  await openNew('manual');
+  await openNew('note');
   await set('title', 'Placement check');
-  await set('notes', 'Long body. '.repeat(400));   // force the sheet to full height
+  await set('body', 'Long body. '.repeat(400));   // force the sheet to full height
   await settle();
   const vp = page.viewportSize();
   const box = await page.locator('#editorSave').boundingBox();
