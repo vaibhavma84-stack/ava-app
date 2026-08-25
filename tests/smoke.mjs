@@ -237,6 +237,33 @@ try {
   check('its label is abbreviated', offLabel.text === 'Off. No.', offLabel.text);
   check('its label fits on one line', offLabel.lines < 24, `${offLabel.lines}px tall`);
 
+  // General guard: no two inputs in a form may overlap. A date input that
+  // refuses to shrink inside a flex row was spilling over its neighbour.
+  const overlaps = await page.evaluate(() => {
+    const boxes = [...document.querySelectorAll('#editorBody .field')]
+      .map((el) => ({ key: el.dataset.field || el.type, r: el.getBoundingClientRect() }))
+      .filter((b) => b.r.width > 0 && b.r.height > 0);
+    const hits = [];
+    for (let i = 0; i < boxes.length; i++) {
+      for (let j = i + 1; j < boxes.length; j++) {
+        const a = boxes[i].r, b = boxes[j].r;
+        const overlap = a.left < b.right - 1 && b.left < a.right - 1
+                     && a.top < b.bottom - 1 && b.top < a.bottom - 1;
+        if (overlap) hits.push(`${boxes[i].key}/${boxes[j].key}`);
+      }
+    }
+    return hits;
+  });
+  check('no two fields overlap in the sea time form', overlaps.length === 0, overlaps.join(', '));
+
+  const wider = await page.evaluate(() => {
+    const el = document.querySelector('#editorBody [data-field="signOnDate"]');
+    const parent = el.parentElement.getBoundingClientRect();
+    return { field: Math.round(el.getBoundingClientRect().width), parent: Math.round(parent.width) };
+  });
+  check('the sign-on date fills its row rather than overflowing it',
+    wider.field <= wider.parent + 1, `field=${wider.field} parent=${wider.parent}`);
+
   await page.click('#editorBody button:has-text("Add contract")');
   await page.fill('#editorBody [data-contract-field="company"]', 'Anglo-Eastern Crew Management');
   await page.fill('#editorBody [data-contract-field="position"]', 'Third Officer');

@@ -8,7 +8,7 @@ import { icon } from './icons.js';
 import { icsForItem, icsForItems, datedCertificates, calendarFileName, eventFor } from './calendar.js';
 
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
-const APP_VERSION = '2026.08.24';
+const APP_VERSION = '2026.08.26';
 
 const view = {
   tab: 'manual',

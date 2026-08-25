@@ -100,10 +100,12 @@ export const TYPES = {
       { key: 'officialNumber', label: 'Off. No.', type: 'text', group: 'registry1' },
       { key: 'imo', label: 'IMO No.', type: 'text', group: 'registry2' },
       { key: 'callSign', label: 'Call sign', type: 'text', group: 'registry2' },
-      { key: 'signOnDate', label: 'Sign-on date', type: 'date', group: 'signon' },
-      { key: 'signOnPort', label: 'Sign-on port', type: 'text', group: 'signon' },
-      { key: 'signOffDate', label: 'Sign-off date', type: 'date', group: 'signoff' },
-      { key: 'signOffPort', label: 'Sign-off port', type: 'text', group: 'signoff' },
+      // Full width each: a WebKit date input will not shrink below its
+      // intrinsic width, so pairing one with a port field made it overlap.
+      { key: 'signOnDate', label: 'Sign-on date', type: 'date' },
+      { key: 'signOnPort', label: 'Sign-on port', type: 'text', placeholder: 'e.g. Singapore' },
+      { key: 'signOffDate', label: 'Sign-off date', type: 'date' },
+      { key: 'signOffPort', label: 'Sign-off port', type: 'text', placeholder: 'e.g. Rotterdam' },
       NOTES,
       ATTACHMENTS,
       FILE_LINK,

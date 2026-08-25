@@ -78,11 +78,18 @@ button, input, textarea, select { font: inherit; color: inherit; }
   width: 100%; padding: 12px 13px; border-radius: 9px;
   border: 1px solid var(--line-soft); background: var(--navy-800); color: var(--text);
   font-size: 16px; /* 16px stops iOS zooming the page on focus */
+  min-width: 0;    /* flex items default to min-width:auto and refuse to shrink */
 }
 .field:focus { outline: none; border-color: var(--brass); box-shadow: 0 0 0 2px var(--brass-dim); }
 .field::placeholder { color: #55708a; }
 textarea.field { min-height: 110px; resize: vertical; line-height: 1.55; }
 input[type="date"].field, input[type="month"].field, input[type="number"].field { font-family: var(--mono); }
+/* WebKit sizes date and month controls from their shadow content, which
+   overflows a narrow flex column unless the intrinsic width is overridden. */
+input[type="date"].field, input[type="month"].field {
+  -webkit-appearance: none; appearance: none;
+  min-width: 0; width: 100%; padding-right: 10px;
+}
 select.field { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--brass) 50%), linear-gradient(135deg, var(--brass) 50%, transparent 50%); background-position: right 16px center, right 11px center; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 34px; }
 
 .icon-btn {
