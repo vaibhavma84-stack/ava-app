@@ -99,9 +99,10 @@ export function displayDate(s) {
   return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 }
 
+/** Compact but unambiguous: a two-digit year is guesswork on a service record. */
 export function displayDateShort(s) {
   if (!s) return '—';
   const d = parseDate(s);
   if (!d) return s;
-  return d.toLocaleDateString(undefined, { year: '2-digit', month: 'short', day: 'numeric', timeZone: 'UTC' });
+  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 }

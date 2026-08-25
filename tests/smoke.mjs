@@ -296,6 +296,8 @@ try {
   check('list row shows vessel, rank and type', /Northern Star/.test(starRow) && /Third Officer/.test(starRow) && /Bulk Carrier/.test(starRow), starRow.replace(/\n/g, ' / '));
   check('list row shows GRT, NRT and KW', /38500/.test(starRow) && /22400/.test(starRow) && /9480/.test(starRow), starRow.replace(/\n/g, ' / '));
   check('list row hides IMO and call sign', !/9345678/.test(starRow) && !/3FKQ7/.test(starRow));
+  check('list row dates carry a four-digit year',
+    /2024/.test(starRow) && !/\b24\b(?!\d)/.test(starRow.replace(/2024/g, '')), starRow.replace(/\n/g, ' / '));
   await shot('03-seatime');
 
   // detail opens on tap
