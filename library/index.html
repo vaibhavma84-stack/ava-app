@@ -18,42 +18,22 @@
 </head>
 <body>
 
-<!-- ── Lock ───────────────────────────────────────────────────────────────── -->
+<!-- ── One-time conversion of an older, encrypted library ───────────────── -->
 <section id="lock" class="lock" hidden>
   <div class="lock-inner">
     <h1 class="lock-mark">LIBRARY</h1>
     <div class="lock-rule"></div>
-    <p class="lock-sub" id="lockSub">Everything stays on this iPhone</p>
+    <p class="lock-sub">This library was created with a passcode.<br>Enter it once and it will not be asked for again.</p>
 
-    <form id="unlockForm" class="lock-form" hidden autocomplete="off">
-      <input type="password" id="unlockCode" class="field" placeholder="Passcode"
+    <form id="migrateForm" class="lock-form" autocomplete="off">
+      <input type="password" id="migrateCode" class="field" placeholder="Passcode"
              autocomplete="current-password" enterkeyhint="go">
-      <button class="btn btn-primary" type="submit">Unlock</button>
-      <p class="lock-error" id="unlockError" role="alert" hidden></p>
-      <button type="button" class="btn btn-ghost btn-sm" id="kbToggle">Use number pad</button>
-      <button type="button" class="btn btn-ghost btn-sm" id="restoreBtn2">Restore from a backup</button>
-    </form>
-
-    <form id="setupForm" class="lock-form" hidden autocomplete="off">
-      <div class="segment" role="radiogroup" aria-label="Passcode type">
-        <button type="button" class="seg" id="segText" role="radio" aria-checked="true">Passphrase</button>
-        <button type="button" class="seg" id="segPin" role="radio" aria-checked="false">Number PIN</button>
-      </div>
-      <input type="password" id="setupCode" class="field" placeholder="Choose a passcode"
-             autocomplete="new-password" enterkeyhint="next">
-      <input type="password" id="setupCode2" class="field" placeholder="Confirm passcode"
-             autocomplete="new-password" enterkeyhint="go">
-      <div class="strength">
-        <div class="strength-bar"><i id="strengthFill"></i></div>
-        <span id="strengthLabel">Enter a passcode</span>
-      </div>
-      <button class="btn btn-primary" type="submit">Create library</button>
-      <p class="lock-error" id="setupError" role="alert" hidden></p>
+      <button class="btn btn-primary" type="submit">Remove the passcode</button>
+      <p class="lock-error" id="migrateError" role="alert" hidden></p>
       <p class="lock-note">
-        Your passcode encrypts everything on this device. It is never stored and never transmitted —
-        <strong>if you forget it, the library cannot be recovered.</strong>
+        Your documents are converted so they open straight away from now on. Ship documents are not
+        secret, and your iPhone&rsquo;s own lock still guards them.
       </p>
-      <button type="button" class="btn btn-ghost btn-sm" id="restoreBtn">Restore from a backup instead</button>
     </form>
   </div>
 </section>
@@ -65,7 +45,6 @@
       <button class="icon-btn" id="backBtn" aria-label="Back" hidden></button>
       <h1 class="brand" id="screenTitle">LIBRARY</h1>
       <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button>
-      <button class="icon-btn" id="lockBtn" aria-label="Lock now">⏻</button>
     </div>
     <div class="searchwrap">
       <input type="search" id="search" class="search" placeholder="Search titles and PDF contents"
@@ -98,6 +77,20 @@
     <footer class="sheet-actions">
       <button class="btn" id="editorCancel">Cancel</button>
       <button class="btn btn-primary" id="editorSave">Save</button>
+    </footer>
+  </div>
+</section>
+
+<!-- ── Document viewer ────────────────────────────────────────────────────── -->
+<section id="viewer" class="sheet" hidden aria-modal="true" role="dialog">
+  <div class="sheet-panel viewer-panel">
+    <header class="sheet-bar">
+      <strong id="viewerTitle">Document</strong>
+    </header>
+    <div class="viewer-body" id="viewerBody"></div>
+    <footer class="sheet-actions">
+      <button class="btn" id="viewerClose">Close</button>
+      <button class="btn btn-primary" id="viewerShare">Save to Files</button>
     </footer>
   </div>
 </section>

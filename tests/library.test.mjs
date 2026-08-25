@@ -88,14 +88,11 @@ const closeDetail = async () => {
 };
 
 try {
-  console.log('\nSetup');
+  console.log('\nOpening');
   await page.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
-  await page.waitForSelector('#setupForm:not([hidden])');
-  await page.fill('#setupCode', 'quayside-lantern-44');
-  await page.fill('#setupCode2', 'quayside-lantern-44');
-  await page.click('#setupForm button[type="submit"]');
   await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
-  check('creates the library', true);
+  check('opens straight away, with no passcode', true);
+  check('no lock screen is shown', await page.locator('#lock').isHidden());
   check('opens on the sections screen',
     (await page.locator('.section-card').count()) === 4);
   const names = await page.locator('.section-name').allTextContents();
@@ -164,6 +161,32 @@ try {
   check('an unreadable file reports failure rather than "scan"', bogus.failed, JSON.stringify(bogus));
   check('and carries a reason', Boolean(bogus.error), String(bogus.error));
   await shot('lib-02-detail');
+  await page.click('#detailClose');
+
+  console.log('\nOpening a document in the app');
+  await page.locator('.card').first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailBody button:has-text("Open")');
+  await page.waitForSelector('#viewer:not([hidden])');
+  await page.waitForSelector('#viewerBody canvas', { timeout: 20000 });
+  const drawn = await page.evaluate(() => {
+    const c = document.querySelector('#viewerBody canvas');
+    if (!c || !c.width) return { ok: false, reason: 'no canvas' };
+    // A blank canvas means nothing was painted; look for non-white pixels.
+    const ctx = c.getContext('2d');
+    const { data } = ctx.getImageData(0, 0, c.width, Math.min(c.height, 400));
+    let ink = 0;
+    for (let i = 0; i < data.length; i += 4) if (data[i] < 200) ink++;
+    return { ok: ink > 50, ink, width: c.width, height: c.height, pages: document.querySelectorAll('#viewerBody canvas').length };
+  });
+  check('the document renders inside the app', drawn.ok, JSON.stringify(drawn));
+  check('every page gets a slot', drawn.pages === 2, String(drawn.pages));
+  check('the viewer reports the page count',
+    /2 pages/i.test(await page.locator('#viewerTitle').textContent()));
+  await page.click('#viewerClose');
+  await page.waitForSelector('#viewer', { state: 'hidden' });
+  check('closing the viewer tears it down',
+    (await page.locator('#viewerBody canvas').count()) === 0);
   await page.click('#detailClose');
 
   console.log('\nSearching inside the PDF');
@@ -293,11 +316,7 @@ try {
   await page.waitForTimeout(200);
 
   console.log('\nPersistence and offline');
-  await page.click('#lockBtn');
-  await page.waitForSelector('#lock:not([hidden])');
   await page.reload({ waitUntil: 'networkidle' });
-  await page.fill('#unlockCode', 'quayside-lantern-44');
-  await page.click('#unlockForm button[type="submit"]');
   await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
   // Address the card by name: the section order is configurable.
   const manualsCard = await page.locator('.section-card', { hasText: 'Manuals' }).innerText();
@@ -305,7 +324,7 @@ try {
 
   await page.fill('#search', 'QUAYSIDEMARKER');
   await page.waitForSelector('.snippet', { timeout: 15000 });
-  check('content search reloads its index after a lock without being asked',
+  check('content search rebuilds its index after a reload without being asked',
     (await page.locator('.snippet').count()) > 0);
   await page.fill('#search', '');
   await page.waitForTimeout(200);
@@ -313,9 +332,6 @@ try {
   await page.evaluate(() => navigator.serviceWorker.ready);
   await context.setOffline(true);
   await page.reload({ waitUntil: 'domcontentloaded' });
-  await page.waitForSelector('#unlockForm:not([hidden])', { timeout: 10000 });
-  await page.fill('#unlockCode', 'quayside-lantern-44');
-  await page.click('#unlockForm button[type="submit"]');
   await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
   check('the library opens with the network cut', true);
 

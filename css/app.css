@@ -357,3 +357,18 @@ select.field { appearance: none; -webkit-appearance: none; background-image: lin
   font-family: var(--display); font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
 }
 .seg[aria-checked="true"] { background: var(--brass); color: #1a1305; font-weight: 600; }
+
+/* ── document viewer ─────────────────────────────────────────────────────── */
+.viewer-panel { height: calc(100dvh - var(--safe-t) - 12px); }
+.viewer-body {
+  flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  background: var(--navy-900);
+  padding: 10px calc(var(--safe-r) + 8px) 10px calc(var(--safe-l) + 8px);
+  display: flex; flex-direction: column; gap: 10px; align-items: center;
+}
+.viewer-page {
+  width: 100%; height: auto; display: block; border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .5);
+}
+.viewer-image { max-width: 100%; height: auto; border-radius: 6px; }

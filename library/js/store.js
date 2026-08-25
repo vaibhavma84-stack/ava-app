@@ -1,78 +1,98 @@
-// The Library vault: decrypt-on-unlock, encrypt-on-write.
+// The Library store.
 //
-// Record metadata is small and loads into memory on unlock. Extracted PDF text
-// is far larger, so it stays encrypted on disk and is pulled in only when a
-// full-text search actually needs it, then kept for the rest of the session.
+// Library holds ship documents — manuals, publications, company documents,
+// circulars. None of it is secret, so it is stored in the clear and opens
+// straight away: the iPhone's own lock is the gate that matters, and a passcode
+// on top only added friction to looking something up in the engine room.
+//
+// AVA is the opposite case and keeps its encryption: certificates, sea time and
+// personal records are worth protecting.
+//
+// A library created before this change is still encrypted. It is migrated once,
+// on the next launch, after asking for that passcode a final time.
 
 import * as db from './db.js';
 import * as sec from './crypto.js';
 import { TYPES } from './schema.js';
 
 const state = {
-  dek: null,
+  open: false,
   items: new Map(),
-  texts: null,          // id -> [{ page, text }], loaded lazily
+  texts: null,        // id -> [{ page, text }], loaded on first search
   listeners: new Set()
 };
 
-export function isUnlocked() { return state.dek !== null; }
+export function isOpen() { return state.open; }
 export function onChange(fn) { state.listeners.add(fn); return () => state.listeners.delete(fn); }
 const emit = () => { for (const fn of state.listeners) fn(); };
 
 export const newId = () =>
   crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2);
 
-// ── vault ───────────────────────────────────────────────────────────────────
+// ── opening ─────────────────────────────────────────────────────────────────
 
-export async function isInitialized() { return (await db.getMeta('vaultKey')) !== undefined; }
+/** True when this device still holds a passcode-encrypted library. */
+export async function needsMigration() {
+  return (await db.getMeta('vaultKey')) !== undefined;
+}
 
-export async function initialize(passcode) {
-  if (await isInitialized()) throw new Error('A library already exists on this device');
-  const { meta, dek } = await sec.createVaultKey(passcode);
-  await db.setMeta('vaultKey', meta);
-  state.dek = dek;
-  state.items = new Map();
-  state.texts = new Map();
+export async function open() {
+  const rows = await db.getAll(db.STORE_ITEMS);
+  const items = new Map();
+  for (const row of rows) {
+    if (!row.data) continue;   // an encrypted row left behind; migration handles it
+    items.set(row.data.id, row.data);
+  }
+  state.items = items;
+  state.texts = null;
+  state.open = true;
   await db.requestPersistence();
   emit();
 }
 
-export async function unlock(passcode) {
+/**
+ * Decrypt an older library once and rewrite it in the clear, then drop the key.
+ * Everything is read before anything is written, so a failure part-way through
+ * cannot leave the library half-converted.
+ */
+export async function migrate(passcode) {
   const meta = await db.getMeta('vaultKey');
-  if (!meta) throw new Error('No library on this device');
-  state.dek = await sec.unlockVaultKey(passcode, meta);
-  await loadAll();
-  emit();
-}
+  if (!meta) return 0;
+  const dek = await sec.unlockVaultKey(passcode, meta);
 
-export function lock() {
-  state.dek = null;
-  state.items = new Map();
-  state.texts = null;
-  emit();
-}
+  const [itemRows, blobRows, textRows] = await Promise.all([
+    db.getAll(db.STORE_ITEMS), db.getAll(db.STORE_BLOBS), db.getAll(db.STORE_TEXTS)
+  ]);
 
-export async function changePasscode(current, next) {
-  const meta = await db.getMeta('vaultKey');
-  const dek = await sec.unlockVaultKey(current, meta);
-  await db.setMeta('vaultKey', await sec.rewrapVaultKey(dek, next));
-}
-
-async function loadAll() {
-  const rows = await db.getAll(db.STORE_ITEMS);
-  const items = new Map();
-  for (const row of rows) {
-    try {
-      const item = await sec.decryptJSON(state.dek, row.iv, row.ct);
-      items.set(item.id, item);
-    } catch { console.warn('Skipping unreadable record', row.id); }
+  const items = [];
+  for (const row of itemRows) {
+    if (row.data) { items.push(row); continue; }          // already plain
+    const item = await sec.decryptJSON(dek, row.iv, row.ct);
+    items.push({ id: item.id, updatedAt: item.updatedAt, data: item });
   }
-  state.items = items;
-  state.texts = null;
-}
 
-function requireUnlocked() {
-  if (!state.dek) throw new Error('Library is locked');
+  const blobs = [];
+  for (const row of blobRows) {
+    if (row.blob) { blobs.push(row); continue; }
+    const bytes = await sec.decryptBytes(dek, row.iv, row.ct);
+    blobs.push({ id: row.id, size: row.size, type: row.type || 'application/octet-stream',
+                 blob: new Blob([bytes], { type: row.type || 'application/octet-stream' }) });
+  }
+
+  const texts = [];
+  for (const row of textRows) {
+    if (row.pages) { texts.push(row); continue; }
+    texts.push({ id: row.id, pages: await sec.decryptJSON(dek, row.iv, row.ct) });
+  }
+
+  await db.putMany(db.STORE_ITEMS, items);
+  await db.putMany(db.STORE_BLOBS, blobs);
+  await db.putMany(db.STORE_TEXTS, texts);
+  await db.del(db.STORE_META, 'vaultKey');
+  await db.del(db.STORE_META, 'passcodeStyle').catch(() => {});
+
+  await open();
+  return items.length;
 }
 
 // ── items ───────────────────────────────────────────────────────────────────
@@ -84,11 +104,10 @@ export function itemsOfType(type) {
   const def = TYPES[type];
   return allItems()
     .filter((i) => i.type === type)
-    .sort((a, b) => (def.sort ? def.sort(a.data, b.data) || 0 : b.updatedAt - a.updatedAt));
+    .sort((a, b) => (def?.sort ? def.sort(a.data, b.data) || 0 : b.updatedAt - a.updatedAt));
 }
 
 export async function saveItem({ id, type, data }) {
-  requireUnlocked();
   const now = Date.now();
   const existing = id ? state.items.get(id) : null;
   const item = {
@@ -98,15 +117,13 @@ export async function saveItem({ id, type, data }) {
     createdAt: existing?.createdAt ?? now,
     updatedAt: now
   };
-  const { iv, ct } = await sec.encryptJSON(state.dek, item);
-  await db.put(db.STORE_ITEMS, { id: item.id, updatedAt: item.updatedAt, iv, ct });
+  await db.put(db.STORE_ITEMS, { id: item.id, updatedAt: item.updatedAt, data: item });
   state.items.set(item.id, item);
   emit();
   return item;
 }
 
 export async function deleteItem(id) {
-  requireUnlocked();
   const item = state.items.get(id);
   for (const att of item?.data?.attachments || []) {
     await db.del(db.STORE_BLOBS, att.id).catch(() => {});
@@ -120,39 +137,32 @@ export async function deleteItem(id) {
 
 // ── attachments ─────────────────────────────────────────────────────────────
 
+/**
+ * Files are kept as Blobs rather than byte arrays: IndexedDB stores them
+ * without holding the whole document in memory, which matters for a manual of
+ * a few hundred megabytes.
+ */
 export async function storeFile(file) {
-  requireUnlocked();
-  const buffer = await file.arrayBuffer();
-  const { iv, ct } = await sec.encryptBytes(state.dek, buffer);
   const id = newId();
-  await db.put(db.STORE_BLOBS, { id, size: buffer.byteLength, iv, ct });
-  return {
-    id,
-    name: file.name || 'file',
-    type: file.type || 'application/octet-stream',
-    size: buffer.byteLength,
-    addedAt: Date.now()
-  };
+  const type = file.type || 'application/octet-stream';
+  await db.put(db.STORE_BLOBS, { id, size: file.size, type, blob: file.slice(0, file.size, type) });
+  return { id, name: file.name || 'file', type, size: file.size, addedAt: Date.now() };
 }
 
-/** Store the text pulled out of a PDF, encrypted like everything else. */
 export async function storeText(attachmentId, pages) {
-  requireUnlocked();
-  const { iv, ct } = await sec.encryptJSON(state.dek, pages);
-  await db.put(db.STORE_TEXTS, { id: attachmentId, iv, ct });
+  await db.put(db.STORE_TEXTS, { id: attachmentId, pages });
   state.texts?.set(attachmentId, pages);
 }
 
 export async function readFile(att) {
-  requireUnlocked();
   const row = await db.get(db.STORE_BLOBS, att.id);
   if (!row) throw new Error('File data is missing from this device');
-  const plain = await sec.decryptBytes(state.dek, row.iv, row.ct);
-  return new Blob([plain], { type: att.type || 'application/octet-stream' });
+  if (row.blob) return row.blob;
+  // A row left by the encrypted era, before migration completed.
+  throw new Error('This file has not been converted yet');
 }
 
 export async function removeFile(att) {
-  requireUnlocked();
   await db.del(db.STORE_BLOBS, att.id);
   await db.del(db.STORE_TEXTS, att.id).catch(() => {});
   state.texts?.delete(att.id);
@@ -166,16 +176,12 @@ export function attachmentBytes() {
   return total;
 }
 
-/** Decrypt every stored page of text once, then keep it for the session. */
+/** Document text is pulled in on the first search, not at startup. */
 export async function loadTexts() {
-  requireUnlocked();
   if (state.texts) return state.texts;
   const rows = await db.getAll(db.STORE_TEXTS);
   const map = new Map();
-  for (const row of rows) {
-    try { map.set(row.id, await sec.decryptJSON(state.dek, row.iv, row.ct)); }
-    catch { console.warn('Unreadable text index for', row.id); }
-  }
+  for (const row of rows) if (row.pages) map.set(row.id, row.pages);
   state.texts = map;
   return map;
 }
@@ -189,7 +195,6 @@ export function counts() {
   return out;
 }
 
-/** How many attachments carry searchable text, and how many do not. */
 export function textStats() {
   let searchable = 0, unsearchable = 0, failed = 0;
   for (const item of state.items.values()) {
@@ -205,50 +210,32 @@ export function textStats() {
 
 // ── backup ──────────────────────────────────────────────────────────────────
 
-export async function exportEncrypted() {
-  const meta = await db.getMeta('vaultKey');
-  const [items, blobs, texts] = await Promise.all([
-    db.getAll(db.STORE_ITEMS), db.getAll(db.STORE_BLOBS), db.getAll(db.STORE_TEXTS)
-  ]);
-  const enc = (r) => ({ ...r, iv: sec.toBase64(r.iv), ct: sec.toBase64(r.ct) });
+/**
+ * Records and the text index, without the files themselves. Attachments are
+ * left out deliberately: a library of PDFs turns into a backup far too large to
+ * hand to the share sheet, and the PDFs exist elsewhere anyway.
+ */
+export async function exportRecords() {
   return {
-    format: 'ava-library-encrypted',
-    version: 1,
+    format: 'ava-library-records',
+    version: 2,
     exportedAt: new Date().toISOString(),
-    vaultKey: meta,
-    items: items.map(enc),
-    blobs: blobs.map(enc),
-    texts: texts.map(enc)
+    note: 'Records only. Attached files are not included; re-attach them after restoring.',
+    items: allItems().map((i) => ({
+      ...i,
+      data: { ...i.data, attachments: (i.data.attachments || []).map((a) => ({ ...a, id: undefined })) }
+    }))
   };
 }
 
-export async function importEncrypted(payload, passcode) {
-  if (payload?.format !== 'ava-library-encrypted') throw new Error('Not a Library backup');
-  const dek = await sec.unlockVaultKey(passcode, payload.vaultKey);
-  const dec = (r) => ({ ...r, iv: sec.fromBase64(r.iv), ct: sec.fromBase64(r.ct).buffer });
-
-  for (const store of [db.STORE_ITEMS, db.STORE_BLOBS, db.STORE_TEXTS]) await db.clearStore(store);
-  await db.setMeta('vaultKey', payload.vaultKey);
-  await db.putMany(db.STORE_ITEMS, (payload.items || []).map(dec));
-  await db.putMany(db.STORE_BLOBS, (payload.blobs || []).map(dec));
-  await db.putMany(db.STORE_TEXTS, (payload.texts || []).map(dec));
-
-  state.dek = dek;
-  await loadAll();
-  emit();
-  return state.items.size;
-}
-
-/** Bring records across from AVA's plain export of its manuals and publications. */
-export async function importFromAva(payload) {
-  requireUnlocked();
-  if (payload?.format !== 'ava-library-handover') throw new Error('Not an AVA handover file');
+export async function importRecords(payload) {
+  const accepted = ['ava-library-records', 'ava-library-handover'];
+  if (!accepted.includes(payload?.format)) throw new Error('Not a Library records file');
   let n = 0;
   for (const record of payload.items || []) {
     if (!TYPES[record.type]) continue;
-    // Attachments cannot travel in a plain handover; the metadata still can.
-    const data = { ...record.data, attachments: [] };
-    await saveItem({ type: record.type, data });
+    // Files cannot travel in a records file, so start each entry without them.
+    await saveItem({ type: record.type, data: { ...record.data, attachments: [] } });
     n++;
   }
   return n;
@@ -256,8 +243,8 @@ export async function importFromAva(payload) {
 
 export async function eraseVault() {
   await db.destroyEverything();
-  state.dek = null;
   state.items = new Map();
   state.texts = null;
+  state.open = false;
   emit();
 }

@@ -5,10 +5,11 @@ import { TYPES, TAB_ORDER, CONTRACT_FIELDS } from './schema.js';
 import { entryDays, isOnboard, formatDuration, seaTimeSummary, expiryStatus, expiryLabel, displayDate, displayDateShort } from './derive.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
+import { renderInto } from './viewer.js';
 import { icsForItem, icsForItems, datedCertificates, calendarFileName, eventFor } from './calendar.js';
 
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
-const APP_VERSION = '2026.08.28';
+const APP_VERSION = '2026.08.29';
 
 const view = {
   tab: 'certificate',
@@ -457,6 +458,7 @@ function wireApp() {
   $('#editorSave').addEventListener('click', saveEditor);
   $('#fab').addEventListener('click', () => openEditor(view.query ? view.tab : view.tab, null));
   $('#filePicker').addEventListener('change', onFilesPicked);
+  $('#viewerClose').addEventListener('click', closeViewer);
 
   for (const id of ['#detail', '#editor', '#settings']) {
     $(id).addEventListener('click', (e) => { if (e.target.id === id.slice(1)) e.target.hidden = true; });
@@ -584,15 +586,38 @@ function attachmentRow(att, onRemove) {
   return row;
 }
 
+let disposeViewer = null;
+
+/**
+ * Show a document in the app. An installed iOS web app cannot open a blob: URL
+ * in a new tab -- the old Open button silently did nothing -- so it is rendered
+ * here instead.
+ */
 async function openAttachment(att) {
+  const body = clear($('#viewerBody'));
+  $('#viewerTitle').textContent = att.name || 'Document';
+  $('#viewer').hidden = false;
+  body.append(el('p', { class: 'hint', style: 'padding:24px', text: 'Opening…' }));
   try {
     const blob = await store.readFile(att);
-    const url = URL.createObjectURL(blob);
-    window.open(url, '_blank');
-    setTimeout(() => URL.revokeObjectURL(url), 60000);
+    disposeViewer?.();
+    disposeViewer = await renderInto(body, blob, att.name, {
+      onStatus: (text) => { $('#viewerTitle').textContent = `${att.name} · ${text}`; }
+    });
+    $('#viewerShare').onclick = () => shareAttachment(att);
   } catch (ex) {
-    toast('Could not open: ' + ex.message);
+    clear(body).append(el('div', { class: 'empty' }, [
+      el('h3', { text: 'Could not open it' }),
+      el('p', { text: ex.message })
+    ]));
   }
+}
+
+function closeViewer() {
+  $('#viewer').hidden = true;
+  disposeViewer?.();
+  disposeViewer = null;
+  clear($('#viewerBody'));
 }
 
 /**

@@ -23,9 +23,9 @@ function polyfillSumPrecise() {
 async function lib() {
   if (pdfjs) return pdfjs;
   polyfillSumPrecise();
-  pdfjs = await import('../vendor/pdf.min.mjs');
+  pdfjs = await import('../../vendor/pdf.min.mjs');
   // The wrapper installs the same polyfill inside the worker scope.
-  pdfjs.GlobalWorkerOptions.workerSrc = new URL('../vendor/pdf.worker.wrapper.mjs', import.meta.url).href;
+  pdfjs.GlobalWorkerOptions.workerSrc = new URL('../../vendor/pdf.worker.wrapper.mjs', import.meta.url).href;
   return pdfjs;
 }
 

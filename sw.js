@@ -7,7 +7,7 @@
 // Now a launch with a connection always gets current code, and a launch without
 // one falls straight back to the cache, so the app stays fully usable at sea.
 
-const VERSION = 'v14';
+const VERSION = 'v16';
 const CACHE = `ava-shell-${VERSION}`;
 
 const SHELL = [
@@ -25,6 +25,10 @@ const SHELL = [
   'js/crypto.js',
   'js/icons.js',
   'js/ui.js',
+  'js/viewer.js',
+  'vendor/pdf.min.mjs',
+  'vendor/pdf.worker.min.mjs',
+  'vendor/pdf.worker.wrapper.mjs',
   'icons/icon-192.png',
   'icons/icon-512.png',
   'icons/icon-512-maskable.png',
@@ -34,9 +38,13 @@ const SHELL = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE)
-      // cache:'reload' bypasses the HTTP cache, so precaching cannot store a
-      // stale copy of a file that was just deployed.
-      .then((cache) => cache.addAll(SHELL.map((u) => new Request(u, { cache: 'reload' }))))
+      // Cached one at a time rather than with addAll, which rejects the whole
+      // batch if a single entry 404s and would leave the app with no offline
+      // shell at all because of one mislaid file.
+      .then((cache) => Promise.all(SHELL.map((url) =>
+        cache.add(new Request(url, { cache: 'reload' }))
+          .catch((err) => console.warn('Could not precache', url, err))
+      )))
       .then(() => self.skipWaiting())
   );
 });

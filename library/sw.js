@@ -4,7 +4,7 @@
 // launch with no connection falls straight back to the cache. PDF.js is bundled
 // into the precache, so text extraction and search work with no signal.
 
-const VERSION = 'v4';
+const VERSION = 'v7';
 const CACHE = `library-shell-${VERSION}`;
 
 const SHELL = [
@@ -21,11 +21,12 @@ const SHELL = [
   'js/icons.js',
   'js/ui.js',
   'js/pdftext.js',
+  'js/viewer.js',
   'js/search.js',
   'js/revision.js',
-  'vendor/pdf.min.mjs',
-  'vendor/pdf.worker.min.mjs',
-  'vendor/pdf.worker.wrapper.mjs',
+  '../vendor/pdf.min.mjs',
+  '../vendor/pdf.worker.min.mjs',
+  '../vendor/pdf.worker.wrapper.mjs',
   'icons/icon-192.png',
   'icons/icon-512.png',
   'icons/icon-512-maskable.png',
@@ -35,7 +36,13 @@ const SHELL = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE)
-      .then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: 'reload' }))))
+      // Cached one at a time rather than with addAll, which rejects the whole
+      // batch if a single entry 404s and would leave the app with no offline
+      // shell at all because of one mislaid file.
+      .then((cache) => Promise.all(SHELL.map((url) =>
+        cache.add(new Request(url, { cache: 'reload' }))
+          .catch((err) => console.warn('Could not precache', url, err))
+      )))
       .then(() => self.skipWaiting())
   );
 });

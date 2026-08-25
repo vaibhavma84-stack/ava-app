@@ -26,7 +26,7 @@ const check = (label, cond, extra = '') => {
 
 // A throwaway copy so the test can "deploy" over it.
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ava-update-'));
-for (const entry of ['index.html', 'manifest.webmanifest', 'sw.js', 'css', 'js', 'fonts', 'icons']) {
+for (const entry of ['index.html', 'manifest.webmanifest', 'sw.js', 'css', 'js', 'fonts', 'icons', 'vendor']) {
   fs.cpSync(path.join(ROOT, entry), path.join(dir, entry), { recursive: true });
 }
 

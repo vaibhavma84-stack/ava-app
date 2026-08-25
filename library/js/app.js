@@ -1,15 +1,14 @@
 import * as store from './store.js';
 import * as db from './db.js';
-import * as sec from './crypto.js';
 import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch } from './search.js';
 import { isPdf, extract, selfTest, STATUS } from './pdftext.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
+import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.08.27';
-const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
+const APP_VERSION = '2026.08.29';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -18,43 +17,54 @@ const view = {
   filter: null,        // active value of the section's filterBy field
   draft: null,
   detailId: null,
-  autolockMs: AUTOLOCK_DEFAULT_MS,
-  passStyle: 'text',
   loadingTexts: false
 };
 
 let lockTimer = null;
 
-function applyKeyboard(input, style) {
-  if (style === 'numeric') {
-    input.setAttribute('inputmode', 'numeric');
-    input.setAttribute('pattern', '[0-9]*');
-  } else {
-    input.removeAttribute('inputmode');
-    input.removeAttribute('pattern');
-  }
-}
-
 // ── boot ────────────────────────────────────────────────────────────────────
 
 async function boot() {
   registerServiceWorker();
-  view.autolockMs = (await db.getMeta('autolockMs')) ?? AUTOLOCK_DEFAULT_MS;
-  view.passStyle = (await db.getMeta('passcodeStyle')) ?? 'text';
-
-  const ready = await store.isInitialized();
-  $('#lock').hidden = false;
-  $('#unlockForm').hidden = !ready;
-  $('#setupForm').hidden = ready;
-  $('#lockSub').textContent = ready ? 'Enter your passcode' : 'Everything stays on this iPhone';
-  applyKeyboard($('#unlockCode'), view.passStyle);
-  syncKeyboardToggle();
-  if (ready) setTimeout(() => $('#unlockCode').focus(), 150);
 
   store.onChange(render);
-  wireLock();
   wireApp();
-  wireAutoLock();
+
+  if (await store.needsMigration()) {
+    // An older library, made when Library still had a passcode.
+    $('#lock').hidden = false;
+    wireMigration();
+    setTimeout(() => $('#migrateCode').focus(), 150);
+    return;
+  }
+
+  await store.open();
+  enterApp();
+}
+
+function wireMigration() {
+  $('#migrateForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const err = $('#migrateError');
+    err.hidden = true;
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Converting…';
+    try {
+      const n = await store.migrate($('#migrateCode').value);
+      $('#migrateCode').value = '';
+      $('#lock').hidden = true;
+      enterApp();
+      toast(`Passcode removed — ${n} entr${n === 1 ? 'y' : 'ies'} converted`);
+    } catch (ex) {
+      err.textContent = ex.code === 'BAD_PASSCODE' ? 'Incorrect passcode.' : ex.message;
+      err.hidden = false;
+      $('#migrateCode').select();
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Remove the passcode';
+    }
+  });
 }
 
 function registerServiceWorker() {
@@ -82,133 +92,18 @@ function registerServiceWorker() {
   });
 }
 
-// ── lock ────────────────────────────────────────────────────────────────────
-
-const showErr = (node, message) => { node.textContent = message; node.hidden = false; };
-
-function syncKeyboardToggle() {
-  $('#kbToggle').textContent = view.passStyle === 'numeric' ? 'Use full keyboard' : 'Use number pad';
-}
-
-function wireLock() {
-  $('#unlockForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const err = $('#unlockError');
-    err.hidden = true;
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.disabled = true; btn.textContent = 'Unlocking…';
-    try {
-      await store.unlock($('#unlockCode').value);
-      $('#unlockCode').value = '';
-      enterApp();
-    } catch (ex) {
-      showErr(err, ex.code === 'BAD_PASSCODE' ? 'Incorrect passcode.' : ex.message);
-      $('#unlockCode').select();
-    } finally { btn.disabled = false; btn.textContent = 'Unlock'; }
-  });
-
-  $('#kbToggle').addEventListener('click', () => {
-    view.passStyle = view.passStyle === 'numeric' ? 'text' : 'numeric';
-    applyKeyboard($('#unlockCode'), view.passStyle);
-    syncKeyboardToggle();
-    $('#unlockCode').focus();
-    db.setMeta('passcodeStyle', view.passStyle).catch(() => {});
-  });
-
-  for (const [id, style] of [['#segText', 'text'], ['#segPin', 'numeric']]) {
-    $(id).addEventListener('click', () => {
-      view.passStyle = style;
-      $('#segText').setAttribute('aria-checked', String(style === 'text'));
-      $('#segPin').setAttribute('aria-checked', String(style === 'numeric'));
-      for (const f of ['#setupCode', '#setupCode2']) { applyKeyboard($(f), style); $(f).value = ''; }
-      $('#setupCode').placeholder = style === 'numeric' ? 'Choose a PIN (8+ digits)' : 'Choose a passcode';
-      $('#setupCode2').placeholder = style === 'numeric' ? 'Confirm PIN' : 'Confirm passcode';
-      $('#strengthFill').style.width = '0';
-      $('#strengthLabel').textContent = style === 'numeric' ? 'Enter a PIN' : 'Enter a passcode';
-      $('#setupCode').focus();
-    });
-  }
-
-  $('#setupCode').addEventListener('input', (e) => {
-    const { score, label } = sec.passcodeStrength(e.target.value);
-    const fill = $('#strengthFill');
-    fill.style.width = (score / 5 * 100) + '%';
-    fill.style.background = score <= 1 ? 'var(--danger)' : score <= 3 ? 'var(--warn)' : 'var(--sage)';
-    $('#strengthLabel').textContent = label;
-  });
-
-  $('#setupForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const err = $('#setupError');
-    err.hidden = true;
-    const a = $('#setupCode').value, b = $('#setupCode2').value;
-    const numeric = view.passStyle === 'numeric';
-    if (numeric && !/^\d+$/.test(a)) return showErr(err, 'A PIN must be digits only.');
-    const min = numeric ? 8 : 6;
-    if (a.length < min) return showErr(err, numeric ? 'Use at least 8 digits.' : 'Use at least 6 characters.');
-    if (a !== b) return showErr(err, 'The two passcodes do not match.');
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.disabled = true; btn.textContent = 'Creating…';
-    try {
-      await store.initialize(a);
-      await db.setMeta('passcodeStyle', view.passStyle);
-      applyKeyboard($('#unlockCode'), view.passStyle);
-      syncKeyboardToggle();
-      $('#setupCode').value = $('#setupCode2').value = '';
-      enterApp();
-      toast('Library created');
-    } catch (ex) { showErr(err, ex.message); }
-    finally { btn.disabled = false; btn.textContent = 'Create library'; }
-  });
-
-  for (const id of ['#restoreBtn', '#restoreBtn2']) {
-    $(id).addEventListener('click', () => $('#backupPicker').click());
-  }
-  $('#backupPicker').addEventListener('change', onBackupPicked);
-}
-
 function enterApp() {
   $('#lock').hidden = true;
   $('#app').hidden = false;
   view.screen = 'home';
   view.section = null;
   render();
-  resetLockTimer();
-}
-
-function lockNow() {
-  store.lock();
-  for (const s of ['#detail', '#editor', '#settings']) $(s).hidden = true;
-  view.query = ''; view.draft = null; view.detailId = null; view.screen = 'home'; view.section = null;
-  $('#search').value = '';
-  $('#app').hidden = true;
-  $('#lock').hidden = false;
-  $('#setupForm').hidden = true;
-  $('#unlockForm').hidden = false;
-  $('#unlockError').hidden = true;
-  $('#lockSub').textContent = 'Enter your passcode';
-  clearTimeout(lockTimer);
-}
-
-function wireAutoLock() {
-  for (const evt of ['pointerdown', 'keydown', 'focusin']) {
-    document.addEventListener(evt, () => resetLockTimer(), { passive: true });
-  }
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') resetLockTimer();
-  });
-}
-
-function resetLockTimer() {
-  clearTimeout(lockTimer);
-  if (!store.isUnlocked() || view.autolockMs === 0) return;
-  lockTimer = setTimeout(() => { if (store.isUnlocked()) { lockNow(); toast('Locked'); } }, view.autolockMs);
 }
 
 // ── render ──────────────────────────────────────────────────────────────────
 
 function render() {
-  if (!store.isUnlocked()) return;
+  if (!store.isOpen()) return;
   const body = clear($('#body'));
   const searching = view.query.trim().length > 0;
   view.screen = searching ? 'search' : (view.section ? 'section' : 'home');
@@ -443,7 +338,6 @@ function wireApp() {
     else { view.section = null; view.filter = null; }
     render();
   });
-  $('#lockBtn').addEventListener('click', lockNow);
   $('#settingsBtn').addEventListener('click', openSettings);
   $('#settingsClose').addEventListener('click', () => { $('#settings').hidden = true; });
   $('#detailClose').addEventListener('click', () => { $('#detail').hidden = true; view.detailId = null; });
@@ -456,6 +350,7 @@ function wireApp() {
   $('#editorSave').addEventListener('click', saveEditor);
   $('#fab').addEventListener('click', () => view.section && openEditor(view.section, null));
   $('#filePicker').addEventListener('change', onFilesPicked);
+  $('#viewerClose').addEventListener('click', closeViewer);
   for (const id of ['#detail', '#editor', '#settings']) {
     $(id).addEventListener('click', (e) => { if (e.target.id === id.slice(1)) e.target.hidden = true; });
   }
@@ -595,13 +490,39 @@ async function reReadText(att, button) {
   }
 }
 
+let disposeViewer = null;
+
+/**
+ * Show a document in the app. An installed iOS web app cannot open a blob: URL
+ * in a new tab, so this renders it here instead of handing it to the browser.
+ */
 async function openAttachment(att) {
+  const sheet = $('#viewer');
+  const body = clear($('#viewerBody'));
+  $('#viewerTitle').textContent = att.name || 'Document';
+  sheet.hidden = false;
+  body.append(el('p', { class: 'hint', style: 'padding:24px', text: 'Opening…' }));
+
   try {
     const blob = await store.readFile(att);
-    const url = URL.createObjectURL(blob);
-    window.open(url, '_blank');
-    setTimeout(() => URL.revokeObjectURL(url), 60000);
-  } catch (ex) { toast('Could not open: ' + ex.message); }
+    disposeViewer?.();
+    disposeViewer = await renderInto(body, blob, att.name, {
+      onStatus: (text) => { $('#viewerTitle').textContent = `${att.name} · ${text}`; }
+    });
+    $('#viewerShare').onclick = () => shareAttachment(att);
+  } catch (ex) {
+    clear(body).append(el('div', { class: 'empty' }, [
+      el('h3', { text: 'Could not open it' }),
+      el('p', { text: ex.message })
+    ]));
+  }
+}
+
+function closeViewer() {
+  $('#viewer').hidden = true;
+  disposeViewer?.();
+  disposeViewer = null;
+  clear($('#viewerBody'));
 }
 
 async function shareAttachment(att) {
@@ -823,35 +744,16 @@ async function openSettings() {
   if (!installed) box.append(el('p', { class: 'hint', text: 'In Safari: Share → Add to Home Screen.' }));
   body.append(box);
 
-  const lockPanel = el('div', { class: 'panel' }, [
-    el('h3', { text: 'Auto-lock' }),
-    el('p', { text: 'Lock the library after a period without interaction.' })
-  ]);
-  const select = el('select', {
-    class: 'field',
-    onchange: async (e) => {
-      view.autolockMs = Number(e.target.value);
-      await db.setMeta('autolockMs', view.autolockMs);
-      resetLockTimer();
-      toast('Auto-lock updated');
-    }
-  });
-  for (const [ms, label] of [[60000, '1 minute'], [300000, '5 minutes'], [900000, '15 minutes'], [3600000, '1 hour'], [0, 'Never']]) {
-    select.append(el('option', { value: String(ms), selected: view.autolockMs === ms }, [label]));
-  }
-  lockPanel.append(select);
-  body.append(lockPanel);
-
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Backup' }),
-    el('p', { text: 'This device holds the only copy. The backup is encrypted, so it is safe to keep in iCloud Drive — but it includes your PDFs, so it can be large.' }),
-    el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: doExport }, ['Export encrypted backup']),
-    el('button', { class: 'btn btn-block', onclick: () => $('#backupPicker').click() }, ['Restore from backup'])
+    el('p', { text: 'Saves your records and their indexed text. The PDFs themselves are left out — a library of them is far too large for a single file, and you hold those elsewhere. Re-attach files after restoring.' }),
+    el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: doExport }, ['Export records']),
+    el('button', { class: 'btn btn-block', onclick: () => $('#backupPicker').click() }, ['Restore records'])
   ]));
 
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Bring records from AVA' }),
-    el('p', { text: 'Takes the manuals and publications exported from AVA. Their fields come across; files do not, so re-attach the PDFs here.' }),
+    el('p', { text: 'Takes a handover file exported from AVA. Fields come across; files do not, so re-attach the PDFs here.' }),
     el('button', { class: 'btn btn-block', onclick: () => $('#backupPicker').click() }, ['Import handover file'])
   ]));
 
@@ -894,7 +796,7 @@ async function openSettings() {
 
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Erase' }),
-    el('p', { text: 'Deletes the library, every entry and every stored file. There is no recovery.' }),
+    el('p', { text: 'Deletes every entry and every stored file. There is no recovery.' }),
     el('button', { class: 'btn btn-danger btn-block', onclick: doErase }, ['Erase everything'])
   ]));
 
@@ -917,10 +819,9 @@ async function shareJSON(payload, filename) {
 }
 
 async function doExport() {
-  toast('Preparing backup…');
-  const payload = await store.exportEncrypted();
+  const payload = await store.exportRecords();
   const stamp = new Date().toISOString().slice(0, 10);
-  if (await shareJSON(payload, `library-backup-${stamp}.json`)) toast('Backup ready — save it to Files');
+  if (await shareJSON(payload, `library-records-${stamp}.json`)) toast('Records exported — save to Files');
 }
 
 async function onBackupPicked(e) {
@@ -931,28 +832,13 @@ async function onBackupPicked(e) {
   try { payload = JSON.parse(await file.text()); }
   catch { return toast('That file is not valid JSON'); }
 
-  if (payload.format === 'ava-library-handover') {
-    if (!store.isUnlocked()) return toast('Unlock the library first');
-    try {
-      const n = await store.importFromAva(payload);
-      $('#settings').hidden = true;
-      render();
-      toast(`Brought ${n} record${n === 1 ? '' : 's'} across`);
-    } catch (ex) { toast('Import failed: ' + ex.message); }
-    return;
-  }
-
-  if (payload.format !== 'ava-library-encrypted') return toast('Not a Library backup');
-  const passcode = prompt('Passcode for this backup:');
-  if (passcode === null) return;
-  if (!confirm('Restoring replaces everything currently in this library. Continue?')) return;
   try {
-    const n = await store.importEncrypted(payload, passcode);
+    const n = await store.importRecords(payload);
     $('#settings').hidden = true;
-    enterApp();
-    toast(`Restored ${n} entr${n === 1 ? 'y' : 'ies'}`);
+    render();
+    toast(`Brought ${n} record${n === 1 ? '' : 's'} in`);
   } catch (ex) {
-    toast(ex.code === 'BAD_PASSCODE' ? 'Wrong passcode for that backup' : 'Restore failed: ' + ex.message);
+    toast(ex.message);
   }
 }
 
