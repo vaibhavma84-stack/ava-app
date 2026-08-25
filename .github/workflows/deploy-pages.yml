@@ -39,6 +39,10 @@ jobs:
           mkdir -p _site
           cp index.html manifest.webmanifest sw.js _site/
           cp -r css js fonts icons _site/
+          # Library is a second installable app served from /library/.
+          mkdir -p _site/library
+          cp library/index.html library/manifest.webmanifest library/sw.js _site/library/
+          cp -r library/css library/js library/fonts library/icons library/vendor _site/library/
           echo "Deploying:" && find _site -type f | sort
 
       - uses: actions/upload-pages-artifact@v3

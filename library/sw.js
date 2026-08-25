@@ -1,14 +1,11 @@
-// Offline shell.
+// Offline shell for Library.
 //
-// Network-first, cache-fallback. Cache-first was wrong for this app: an
-// installed iOS web app would keep serving the cached build forever, so pushed
-// fixes never arrived no matter how many times it was relaunched.
-//
-// Now a launch with a connection always gets current code, and a launch without
-// one falls straight back to the cache, so the app stays fully usable at sea.
+// Network-first with a cache fallback: online launches get current code, and a
+// launch with no connection falls straight back to the cache. PDF.js is bundled
+// into the precache, so text extraction and search work with no signal.
 
-const VERSION = 'v13';
-const CACHE = `ava-shell-${VERSION}`;
+const VERSION = 'v2';
+const CACHE = `library-shell-${VERSION}`;
 
 const SHELL = [
   './',
@@ -19,12 +16,14 @@ const SHELL = [
   'js/app.js',
   'js/store.js',
   'js/schema.js',
-  'js/derive.js',
-  'js/calendar.js',
   'js/db.js',
   'js/crypto.js',
   'js/icons.js',
   'js/ui.js',
+  'js/pdftext.js',
+  'js/search.js',
+  'vendor/pdf.min.mjs',
+  'vendor/pdf.worker.min.mjs',
   'icons/icon-192.png',
   'icons/icon-512.png',
   'icons/icon-512-maskable.png',
@@ -34,9 +33,7 @@ const SHELL = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE)
-      // cache:'reload' bypasses the HTTP cache, so precaching cannot store a
-      // stale copy of a file that was just deployed.
-      .then((cache) => cache.addAll(SHELL.map((u) => new Request(u, { cache: 'reload' }))))
+      .then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: 'reload' }))))
       .then(() => self.skipWaiting())
   );
 });
@@ -65,7 +62,6 @@ async function networkFirst(request) {
   } catch {
     const hit = await caches.match(request);
     if (hit) return hit;
-    // A cold navigation offline still needs the shell.
     if (request.mode === 'navigate') {
       return (await caches.match('index.html')) || (await caches.match('./'));
     }

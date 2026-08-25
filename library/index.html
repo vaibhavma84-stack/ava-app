@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<title>Library</title>
+<meta name="description" content="Ship manuals, publications, circulars and notices — stored and searched entirely on the device.">
+<meta name="theme-color" content="#070809">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Library">
+<meta name="color-scheme" content="dark">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<!-- ── Lock ───────────────────────────────────────────────────────────────── -->
+<section id="lock" class="lock" hidden>
+  <div class="lock-inner">
+    <h1 class="lock-mark">LIBRARY</h1>
+    <div class="lock-rule"></div>
+    <p class="lock-sub" id="lockSub">Everything stays on this iPhone</p>
+
+    <form id="unlockForm" class="lock-form" hidden autocomplete="off">
+      <input type="password" id="unlockCode" class="field" placeholder="Passcode"
+             autocomplete="current-password" enterkeyhint="go">
+      <button class="btn btn-primary" type="submit">Unlock</button>
+      <p class="lock-error" id="unlockError" role="alert" hidden></p>
+      <button type="button" class="btn btn-ghost btn-sm" id="kbToggle">Use number pad</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="restoreBtn2">Restore from a backup</button>
+    </form>
+
+    <form id="setupForm" class="lock-form" hidden autocomplete="off">
+      <div class="segment" role="radiogroup" aria-label="Passcode type">
+        <button type="button" class="seg" id="segText" role="radio" aria-checked="true">Passphrase</button>
+        <button type="button" class="seg" id="segPin" role="radio" aria-checked="false">Number PIN</button>
+      </div>
+      <input type="password" id="setupCode" class="field" placeholder="Choose a passcode"
+             autocomplete="new-password" enterkeyhint="next">
+      <input type="password" id="setupCode2" class="field" placeholder="Confirm passcode"
+             autocomplete="new-password" enterkeyhint="go">
+      <div class="strength">
+        <div class="strength-bar"><i id="strengthFill"></i></div>
+        <span id="strengthLabel">Enter a passcode</span>
+      </div>
+      <button class="btn btn-primary" type="submit">Create library</button>
+      <p class="lock-error" id="setupError" role="alert" hidden></p>
+      <p class="lock-note">
+        Your passcode encrypts everything on this device. It is never stored and never transmitted —
+        <strong>if you forget it, the library cannot be recovered.</strong>
+      </p>
+      <button type="button" class="btn btn-ghost btn-sm" id="restoreBtn">Restore from a backup instead</button>
+    </form>
+  </div>
+</section>
+
+<!-- ── App ────────────────────────────────────────────────────────────────── -->
+<section id="app" class="app" hidden>
+  <header class="topbar">
+    <div class="topbar-row">
+      <button class="icon-btn" id="backBtn" aria-label="Back" hidden></button>
+      <h1 class="brand" id="screenTitle">LIBRARY</h1>
+      <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button>
+      <button class="icon-btn" id="lockBtn" aria-label="Lock now">⏻</button>
+    </div>
+    <div class="searchwrap">
+      <input type="search" id="search" class="search" placeholder="Search titles and PDF contents"
+             enterkeyhint="search" autocomplete="off">
+    </div>
+    <nav class="scope" id="scope" hidden aria-label="Filter"></nav>
+  </header>
+
+  <main class="body" id="body" tabindex="-1"></main>
+  <button class="fab" id="fab" aria-label="Add entry" hidden>+</button>
+</section>
+
+<!-- ── Detail ─────────────────────────────────────────────────────────────── -->
+<section id="detail" class="sheet" hidden aria-modal="true" role="dialog">
+  <div class="sheet-panel">
+    <header class="sheet-bar"><strong id="detailTitle">Entry</strong></header>
+    <div class="sheet-body" id="detailBody"></div>
+    <footer class="sheet-actions">
+      <button class="btn" id="detailClose">Close</button>
+      <button class="btn btn-primary" id="detailEdit">Edit</button>
+    </footer>
+  </div>
+</section>
+
+<!-- ── Editor ─────────────────────────────────────────────────────────────── -->
+<section id="editor" class="sheet" hidden aria-modal="true" role="dialog">
+  <div class="sheet-panel">
+    <header class="sheet-bar"><strong id="editorTitle">New entry</strong></header>
+    <div class="sheet-body" id="editorBody"></div>
+    <footer class="sheet-actions">
+      <button class="btn" id="editorCancel">Cancel</button>
+      <button class="btn btn-primary" id="editorSave">Save</button>
+    </footer>
+  </div>
+</section>
+
+<!-- ── Settings ───────────────────────────────────────────────────────────── -->
+<section id="settings" class="sheet" hidden aria-modal="true" role="dialog">
+  <div class="sheet-panel">
+    <header class="sheet-bar"><strong>Settings</strong></header>
+    <div class="sheet-body" id="settingsBody"></div>
+    <footer class="sheet-actions">
+      <button class="btn btn-primary" id="settingsClose">Done</button>
+    </footer>
+  </div>
+</section>
+
+<div id="toast" class="toast" hidden></div>
+<input type="file" id="filePicker" multiple hidden>
+<input type="file" id="backupPicker" accept="application/json,.json" hidden>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

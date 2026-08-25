@@ -8,7 +8,7 @@ import { icon } from './icons.js';
 import { icsForItem, icsForItems, datedCertificates, calendarFileName, eventFor } from './calendar.js';
 
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
-const APP_VERSION = '2026.08.26';
+const APP_VERSION = '2026.08.27';
 
 const view = {
   tab: 'manual',
@@ -944,6 +944,28 @@ async function openSettings() {
       onclick: () => exportCalendar(store.itemsOfType('seatime'),
         'ava-voyages.ics', 'No voyages have a sign-on date yet')
     }, ['Export all voyages'])
+  ]));
+
+  const movable = ['manual', 'publication'].reduce((n, t) => n + (c[t] || 0), 0);
+  body.append(el('div', { class: 'panel' }, [
+    el('h3', { text: 'Move to Library' }),
+    el('p', { text: `Hands your ${movable} manual and publication record${movable === 1 ? '' : 's'} to the Library app. Fields come across; attached files do not, so re-attach those in Library where their text can be searched.` }),
+    el('button', {
+      class: 'btn btn-block',
+      onclick: async () => {
+        const items = store.allItems().filter((i) => ['manual', 'publication'].includes(i.type));
+        if (!items.length) return toast('Nothing to hand over');
+        const payload = {
+          format: 'ava-library-handover',
+          version: 1,
+          exportedAt: new Date().toISOString(),
+          items: items.map((i) => ({ type: i.type, data: { ...i.data, attachments: undefined } }))
+        };
+        if (await shareOrDownload(payload, 'ava-to-library.json')) {
+          toast('Handover file ready — open it in Library');
+        }
+      }
+    }, ['Export manuals & publications'])
   ]));
 
   body.append(el('div', { class: 'panel' }, [
