@@ -78,6 +78,14 @@ const save = async (timeout = 30000) => {
   await page.waitForSelector('#editor', { state: 'hidden', timeout });
 };
 
+/** Editing from the detail view reopens it on save; dismiss it before going on. */
+const closeDetail = async () => {
+  if (await page.locator('#detail').isVisible()) {
+    await page.click('#detailClose');
+    await page.waitForSelector('#detail', { state: 'hidden' });
+  }
+};
+
 try {
   console.log('\nSetup');
   await page.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
@@ -206,6 +214,43 @@ try {
   await set('revision', 'Rev 7');
   await save();
   check('saves a Synergy document', (await page.locator('.card').count()) === 1);
+
+  // A controlled document is only trustworthy while its revision is verified.
+  const iso = (offsetDays) => new Date(Date.now() + offsetDays * 86400000).toISOString().slice(0, 10);
+  const firstCard = await page.locator('.card').first().innerText();
+  check('an unchecked document is flagged as unverified',
+    /unverified/i.test(firstCard), firstCard.replace(/\n/g, ' / '));
+
+  await page.locator('.card').first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  check('the detail view explains what to do about it',
+    /confirm against the company system/i.test(await page.locator('#detailBody').innerText()));
+  await page.click('#detailEdit');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('revisionChecked', iso(-200));
+  await save();
+  await closeDetail();
+  check('a check older than 90 days asks to be redone',
+    /check/i.test(await page.locator('.card').first().innerText()));
+
+  await page.locator('.card').first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailEdit');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('revisionChecked', iso(-10));
+  await save();
+  await closeDetail();
+  const fresh = await page.locator('.card').first().innerText();
+  check('a recent check reads as current', /current/i.test(fresh), fresh.replace(/\n/g, ' / '));
+  check('and reports how long ago', /10 days ago/i.test(fresh), fresh.replace(/\n/g, ' / '));
+
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  const synergyCard = await page.locator('.section-card', { hasText: 'Synergy' }).innerText();
+  check('the sections screen does not nag once everything is current',
+    !/to check/i.test(synergyCard), synergyCard.replace(/\n/g, ' / '));
+  await page.locator('.section-card', { hasText: 'Synergy' }).click();
+  await page.waitForTimeout(200);
 
   console.log('\nPersistence and offline');
   await page.click('#lockBtn');

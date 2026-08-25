@@ -6,8 +6,9 @@ import { search as runSearch } from './search.js';
 import { isPdf, extract } from './pdftext.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
+import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.08.26';
+const APP_VERSION = '2026.08.27';
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
 
 const view = {
@@ -258,7 +259,10 @@ function renderHome(body) {
     }, [
       el('span', { class: 'section-ico' }, [icon(def.icon, 24)]),
       el('h2', { class: 'section-name', text: def.label }),
-      el('span', { class: 'section-count', text: `${counts[type] || 0} ${counts[type] === 1 ? 'entry' : 'entries'}` })
+      el('span', { class: 'section-count', text: `${counts[type] || 0} ${counts[type] === 1 ? 'entry' : 'entries'}` }),
+      def.tracksRevision && countDue(store.itemsOfType(type))
+        ? el('span', { class: 'pill pill-warn', text: `${countDue(store.itemsOfType(type))} to check` })
+        : null
     ]));
   }
   body.append(grid);
@@ -362,12 +366,26 @@ function cardFor(item, snippets) {
   const sub = (def.listFields || []).map((k) => item.data[k]).filter(Boolean).join(' · ');
   const atts = item.data.attachments || [];
 
-  const card = el('article', { class: 'card', onclick: () => openDetail(item.id) }, [
+  const rev = def.tracksRevision ? revisionStatus(item.data) : null;
+  const card = el('article', {
+    class: 'card' + (rev && rev.state !== 'ok' ? ' due' : ''),
+    onclick: () => openDetail(item.id)
+  }, [
     el('div', { class: 'card-head' }, [
       el('h2', { class: 'card-title', text: title }),
+      rev ? el('span', {
+        class: 'pill ' + (rev.state === 'ok' ? 'pill-sage' : 'pill-warn'),
+        text: rev.state === 'ok' ? 'Current' : rev.state === 'never' ? 'Unverified' : 'Check'
+      }) : null,
       atts.length ? el('span', { class: 'pill pill-dim', text: `${atts.length} file${atts.length === 1 ? '' : 's'}` }) : null
     ])
   ]);
+  if (rev) {
+    card.append(el('div', { class: 'dgrid' }, [
+      dcell('Revision', item.data.revision || '—', !item.data.revision),
+      dcell('Status', revisionLabel(rev), rev.state === 'ok')
+    ]));
+  }
   if (sub) card.append(el('p', { class: 'card-sub', text: sub }));
 
   if (item.type === 'publication' && (item.data.correctedTo || item.data.edition)) {
@@ -454,6 +472,17 @@ function openDetail(id) {
   const body = clear($('#detailBody'));
 
   body.append(el('h2', { class: 'card-title', style: 'font-size:21px;margin:0', text: item.data[def.titleKey] || 'Untitled' }));
+
+  if (def.tracksRevision) {
+    const rev = revisionStatus(item.data);
+    body.append(el('div', {}, [
+      el('span', { class: 'pill ' + (rev.state === 'ok' ? 'pill-sage' : 'pill-warn'), text: revisionLabel(rev) })
+    ]));
+    if (rev.state !== 'ok') {
+      body.append(el('p', { class: 'hint', style: 'margin-top:0' },
+        ['Confirm against the company system before relying on this, then update the revision-checked date.']));
+    }
+  }
 
   const section = el('div', { class: 'detail-sec' });
   let shown = 0;

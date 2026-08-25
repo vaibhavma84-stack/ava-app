@@ -297,3 +297,6 @@ select.field {
   padding: 10px 17px; border-radius: 7px; font-size: 14px;
   box-shadow: 0 6px 22px rgba(0, 0, 0, .6); max-width: 86vw; text-align: center;
 }
+
+/* A controlled document that has not been checked lately. */
+.card.due { border-left-color: var(--warn); }

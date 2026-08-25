@@ -101,6 +101,10 @@ export const TYPES = {
       { key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. SMS-04', group: 'ident' },
       { key: 'revision', label: 'Revision', type: 'text', placeholder: 'e.g. Rev 7', group: 'ident' },
       { key: 'date', label: 'Date', type: 'date' },
+      {
+        key: 'revisionChecked', label: 'Revision checked', type: 'date',
+        hint: 'When you last confirmed this is still the current revision. The app flags it after 90 days — a superseded copy is worse than no copy.'
+      },
       { key: 'department', label: 'Department', type: 'text', placeholder: 'e.g. HSEQ' },
       { key: 'vessel', label: 'Applies to', type: 'text', placeholder: 'e.g. All vessels' },
       NOTES,
@@ -108,6 +112,7 @@ export const TYPES = {
       FILE_LINK
     ],
     listFields: ['refNo', 'revision'],
+    tracksRevision: true,
     filterBy: { key: 'docType', label: 'Type' },
     sort: (a, b) => (a.docType || '').localeCompare(b.docType || '')
                  || (a.title || '').localeCompare(b.title || '')
