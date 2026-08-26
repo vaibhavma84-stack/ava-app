@@ -112,21 +112,25 @@ function parseWpMedia(data) {
   }).filter(Boolean);
 }
 
+const WP_PAGE = 100;
+
 /**
- * Pages of a WordPress media listing, newest first.
+ * One page of a WordPress media search, newest first.
  *
- * Asking for the two classes separately fetched the same hundred uploads
- * twice — the search term barely narrows anything, and both queries came back
- * with the identical count. One listing is read instead and each document is
- * classed by the reference in its own name.
+ * The search term does real work and has to stay. Dropping it and reading the
+ * listing by date instead looked tidier and cost the authority's site most of
+ * its catalogue — 13 documents became 2 — because its circulars are old
+ * uploads that four pages of newest-first never reach. Search finds them
+ * whatever their date.
  *
  * media_type=application asks for the uploaded files rather than the site's
  * photographs, and _fields trims each record to the five that are used, so a
  * page of a hundred is a small read on a metered connection.
  */
-const wpMediaPages = (host, pages) => Array.from({ length: pages }, (_, i) =>
-  `${host}/wp-json/wp/v2/media?media_type=application&per_page=100&page=${i + 1}`
-  + '&orderby=date&order=desc&_fields=title,slug,date,date_gmt,source_url');
+const wpMedia = (host, search) => (page) =>
+  `${host}/wp-json/wp/v2/media?media_type=application&per_page=${WP_PAGE}&page=${page}`
+  + `&search=${encodeURIComponent(search)}`
+  + '&orderby=date&order=desc&_fields=title,slug,date,date_gmt,source_url';
 
 // ---------------------------------------------------------- Singapore -----
 
@@ -293,12 +297,10 @@ export const FEEDS = {
     note: 'The registry runs on WordPress, whose REST API is readable where its pages are not.',
     groups: [
       {
-        // One group, because one listing holds both classes. Each document is
-        // filed as a circular or a notice by its own reference.
-        name: 'Circulars and notices',
+        name: 'Merchant Marine Circulars',
         alternatives: [
-          { label: 'Registry API', kind: 'json', urls: wpMediaPages(PANAMA, 4), parse: parseWpMedia },
-          { label: 'Authority API', kind: 'json', urls: wpMediaPages(PANAMA_AMP, 4), parse: parseWpMedia },
+          { label: 'Registry API', kind: 'json', paged: wpMedia(PANAMA, 'MMC-'), parse: parseWpMedia },
+          { label: 'Authority API', kind: 'json', paged: wpMedia(PANAMA_AMP, 'MMC-'), parse: parseWpMedia },
           {
             label: 'Circulars page', kind: 'html', url: `${PANAMA}/circulars/`,
             parse: parseLinkIndex({
@@ -306,6 +308,13 @@ export const FEEDS = {
               refOf: panamaRef, types: PANAMA_TYPES
             })
           }
+        ]
+      },
+      {
+        name: 'Merchant Marine Notices',
+        alternatives: [
+          { label: 'Registry API', kind: 'json', paged: wpMedia(PANAMA, 'MMN-'), parse: parseWpMedia },
+          { label: 'Authority API', kind: 'json', paged: wpMedia(PANAMA_AMP, 'MMN-'), parse: parseWpMedia }
         ]
       }
     ]
@@ -354,18 +363,50 @@ async function readOne(url, alternative) {
   const response = await fetch(url, { mode: 'cors', credentials: 'omit' });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const payload = alternative.kind === 'json' ? await response.json() : await response.text();
-  return alternative.parse(payload);
+  const items = alternative.parse(payload);
+  // How many records the reply held, as against how many were recognised —
+  // a page of a hundred uploads holding three circulars is a full page, and
+  // there is another behind it.
+  return { items, held: Array.isArray(payload) ? payload.length : items.length };
 }
 
 /** Every URL an alternative names. One of them answering is enough. */
 const urlsOf = (alternative) => alternative.urls || [alternative.url];
 
+/**
+ * Walk a paged listing until it runs out.
+ *
+ * Stops at the first short page, so a search returning forty documents costs
+ * one request and only a genuinely long catalogue costs more. A page past the
+ * end is an error from WordPress, not an empty list, so that ends it too —
+ * but only after the pages before it have been kept.
+ */
+async function readPaged(alternative) {
+  const found = [];
+  let first = null;
+  for (let page = 1; page <= (alternative.maxPages || 4); page++) {
+    let batch;
+    try {
+      batch = await readOne(alternative.paged(page), alternative);
+    } catch (ex) {
+      if (page === 1) first = ex;
+      break;
+    }
+    found.push(...batch.items);
+    if (batch.held < WP_PAGE) break;
+  }
+  if (!found.length && first) throw first;
+  return found;
+}
+
 async function read(alternative) {
+  if (alternative.paged) return readPaged(alternative);
+
   const urls = urlsOf(alternative);
   const found = [];
   const errors = [];
   for (const url of urls) {
-    try { found.push(...await readOne(url, alternative)); }
+    try { found.push(...(await readOne(url, alternative)).items); }
     catch (ex) { errors.push(ex); }
   }
   // Only a total refusal is a failure: one listing being renamed should not
@@ -426,21 +467,18 @@ export async function fetchNotices(admin) {
 
 async function attempt(label, alternative) {
   const started = Date.now();
-  const urls = urlsOf(alternative);
-  const found = [];
-  const errors = [];
-  for (const url of urls) {
-    try { found.push(...await readOne(url, { ...alternative })); }
-    catch (ex) { errors.push(ex); }
+  try {
+    // Read exactly as a real fetch would, so what the probe reports is what a
+    // sync will actually get — not a single page standing in for the walk.
+    const found = await read(alternative);
+    return {
+      label, ok: found.length > 0, ms: Date.now() - started,
+      detail: found.length ? `${found.length} documents listed` : 'read, but nothing recognisable in it'
+    };
+  } catch (ex) {
+    // A CORS refusal surfaces as a TypeError with no status at all.
+    return { label, ok: false, ms: Date.now() - started, detail: message(ex) };
   }
-  const ms = Date.now() - started;
-  // How many of an alternative's URLs answered matters: one listing renamed
-  // reads very differently from a host refusing the app outright.
-  const reach = urls.length > 1 ? ` (${urls.length - errors.length} of ${urls.length} read)` : '';
-  if (found.length) return { label, ok: true, ms, detail: `${found.length} documents listed${reach}` };
-  // A CORS refusal surfaces as a TypeError with no status at all.
-  if (errors.length) return { label, ok: false, ms, detail: `${message(errors[0])}${reach}` };
-  return { label, ok: false, ms, detail: `read, but nothing recognisable in it${reach}` };
 }
 
 /** Try every route one administration has, and report what the device reached. */

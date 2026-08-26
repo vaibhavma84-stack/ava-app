@@ -269,16 +269,24 @@ try {
   await page.click('#detailBody button:has-text("Open")');
   await page.waitForSelector('#viewer:not([hidden])');
   await page.waitForSelector('#viewerBody canvas', { timeout: 20000 });
-  const drawn = await page.evaluate(() => {
+
+  // The canvas is in the document before PDF.js has painted into it, so
+  // counting pixels the moment it appears reads a blank one. Wait for the ink.
+  const inkOnPage = () => {
     const c = document.querySelector('#viewerBody canvas');
-    if (!c || !c.width) return { ok: false, reason: 'no canvas' };
-    // A blank canvas means nothing was painted; look for non-white pixels.
+    if (!c || !c.width) return null;
     const ctx = c.getContext('2d');
     const { data } = ctx.getImageData(0, 0, c.width, Math.min(c.height, 400));
     let ink = 0;
     for (let i = 0; i < data.length; i += 4) if (data[i] < 200) ink++;
-    return { ok: ink > 50, ink, width: c.width, height: c.height, pages: document.querySelectorAll('#viewerBody canvas').length };
-  });
+    return { ink, width: c.width, height: c.height, pages: document.querySelectorAll('#viewerBody canvas').length };
+  };
+  await page.waitForFunction(
+    (fn) => { const r = new Function(`return (${fn})()`)(); return Boolean(r && r.ink > 50); },
+    inkOnPage.toString(), { timeout: 20000 }
+  ).catch(() => {});
+  const measured = await page.evaluate((fn) => new Function(`return (${fn})()`)(), inkOnPage.toString());
+  const drawn = { ok: Boolean(measured && measured.ink > 50), ...(measured || { reason: 'no canvas' }) };
   check('the document renders inside the app', drawn.ok, JSON.stringify(drawn));
   check('every page gets a slot', drawn.pages === 2, String(drawn.pages));
   check('the viewer reports the page count',
@@ -662,32 +670,44 @@ try {
   await closeDetail();
 
   // ---- Panama: no API of its own, but WordPress serves one ----------------
-  // One listing holds circulars and notices together, paged. Later pages run
-  // past the end of the library, which WordPress answers with an error — that
-  // must not lose the pages that did come back.
-  const PANAMA_PAGE_1 = [
+  // A search per class, each walked page by page. A full page means there is
+  // another behind it; a short one is the end of the catalogue.
+  const filler = (n) => Array.from({ length: n }, (_, i) => ({
+    title: { rendered: `Registry-brochure-${i}` }, date: '2025-02-01T10:00:00',
+    source_url: `https://www.panamashipregistry.com/wp-content/uploads/2025/02/brochure-${i}.pdf`
+  }));
+  const MMC_PAGE_1 = [
     { title: { rendered: 'MMC-230-Recognised-Organisations' }, date: '2025-10-15T10:00:00',
       source_url: 'https://www.panamashipregistry.com/wp-content/uploads/2025/10/MMC-230-15-10-2025.pdf' },
-    { title: { rendered: 'MMN-7-070-Ballast-water-record-book' }, date: '2025-06-02T10:00:00',
-      source_url: 'https://www.panamashipregistry.com/wp-content/uploads/2025/06/MMN-7-070.pdf' },
-    // Every upload the site holds comes back here, so anything without a
-    // reference has to be dropped.
-    { title: { rendered: 'Registry-brochure-2025' }, date: '2025-02-01T10:00:00',
-      source_url: 'https://www.panamashipregistry.com/wp-content/uploads/2025/02/brochure.pdf' }
+    // A search returns everything it matched, most of it not a circular, so a
+    // full page is mostly uploads that have to be dropped.
+    ...filler(99)
   ];
-  const PANAMA_PAGE_2 = [
+  const MMC_PAGE_2 = [
     { title: { rendered: 'MMC-388-January-2024' }, date: '2024-01-11T10:00:00',
       source_url: 'https://www.panamashipregistry.com/wp-content/uploads/2024/01/MMC-388-January-2024.pdf' }
   ];
+  const MMN_PAGE_1 = [
+    { title: { rendered: 'MMN-7-070-Ballast-water-record-book' }, date: '2025-06-02T10:00:00',
+      source_url: 'https://www.panamashipregistry.com/wp-content/uploads/2025/06/MMN-7-070.pdf' }
+  ];
   const panamaPages = [];
-  await page.route('**/wp-json/wp/v2/media**', (route) => {
+  const panamaStub = (route) => {
     const url = route.request().url();
     panamaPages.push(url);
-    const n = Number(new URL(url).searchParams.get('page') || 1);
-    if (n === 1) return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_PAGE_1) });
-    if (n === 2) return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_PAGE_2) });
-    return route.fulfill({ status: 400, contentType: 'application/json', body: '{"code":"rest_post_invalid_page_number"}' });
-  });
+    const q = new URL(url).searchParams;
+    const n = Number(q.get('page') || 1);
+    const notices = /MMN/.test(q.get('search') || '');
+    const body = notices
+      ? (n === 1 ? MMN_PAGE_1 : null)
+      : (n === 1 ? MMC_PAGE_1 : n === 2 ? MMC_PAGE_2 : null);
+    if (!body) {
+      // What WordPress answers for a page past the end: an error, not a list.
+      return route.fulfill({ status: 400, contentType: 'application/json', body: '{"code":"rest_post_invalid_page_number"}' });
+    }
+    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
+  };
+  await page.route('**/wp-json/wp/v2/media**', panamaStub);
 
   blockingOnPurpose = true;
   await page.click(`${panel} button:text-is("Panama")`);
@@ -697,12 +717,21 @@ try {
   // A fetched notice has to merge into it rather than sit beside it.
   check('Panama files its circulars and notices',
     /Panama: 2 new, 1 updated/.test(panamaRun), panamaRun);
-  check('the classes are read from one listing, not one request each',
-    panamaPages.every((u) => !/search=/.test(u)), panamaPages.join(' | '));
+
+  const asked = (re) => panamaPages.filter((u) => re.test(u));
+  check('the search term is kept — it is what finds the older circulars',
+    panamaPages.every((u) => /search=MM[CN]/.test(u)), panamaPages.join(' | '));
   check('and only the uploaded files are asked for',
     panamaPages.every((u) => /media_type=application/.test(u)), panamaPages.join(' | '));
-  check('pages past the end of the library do not lose the ones before them',
-    panamaPages.some((u) => /page=3/.test(u)), panamaPages.join(' | '));
+  check('a full page is followed by the next one',
+    asked(/search=MMC-&?.*page=2|page=2.*search=MMC-/).length === 1, panamaPages.join(' | '));
+  check('a short page ends the walk there',
+    asked(/search=MMN/).length === 1, panamaPages.join(' | '));
+  check('and the walk stops rather than running on past the end',
+    asked(/page=4/).length === 0, panamaPages.join(' | '));
+  check('what the filler uploads carry is not filed',
+    !(await page.locator('.card').allInnerTexts()).some((c) => /brochure/i.test(c)));
+
   check('and does not duplicate one already entered by hand',
     await page.locator('.card', { hasText: 'MMN 7-070' }).count() === 1);
   await page.locator('.card', { hasText: 'MMN 7-070' }).first().click();
@@ -789,21 +818,24 @@ try {
     /Singapore could not be read/.test(refused), refused);
   check('and says a connection is needed', /needs a connection/.test(refused), refused);
 
-  // A host that refuses one route and answers another must not be written off:
-  // the reply that worked is still filed.
+  // One class failing while the other answers still files what came back, and
+  // says which one it could not read.
   await page.unroute('**/wp-json/wp/v2/media**');
   await page.route('**/wp-json/wp/v2/media**', (route) => {
-    const n = Number(new URL(route.request().url()).searchParams.get('page') || 1);
-    if (n === 1) return route.abort('failed');
-    if (n === 2) return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_PAGE_2) });
-    return route.abort('failed');
+    if (/MMC/.test(new URL(route.request().url()).searchParams.get('search') || '')) {
+      return route.abort('failed');
+    }
+    panamaStub(route);
   });
   await page.route('**/circulars/**', (route) => route.abort('failed'));
   await page.click(`${panel} button:text-is("Panama")`);
   await page.waitForSelector('.hint:has-text("Panama:")', { timeout: 20000 });
   const partial = await page.locator(`${panel} .hint`).innerText();
-  check('one page refusing does not discard the rest', /Panama: 0 new/.test(partial), partial);
-  check('and it is not reported as a failure', /already held/.test(partial), partial);
+  check('a partial result is still filed', /Panama: 0 new/.test(partial), partial);
+  check('and names the class it could not read',
+    /Could not read: Merchant Marine Circulars/.test(partial), partial);
+  check('naming both hosts it tried for it',
+    /Registry API/.test(partial) && /Authority API/.test(partial), partial);
 
   await page.unroute('**/api/content/government/collections/**');
   await page.unroute('**/wp-json/wp/v2/media**');
