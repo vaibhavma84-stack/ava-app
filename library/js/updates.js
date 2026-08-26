@@ -14,6 +14,64 @@ const SEARCH = 'https://www.gov.uk/api/search.json'
   + '?filter_organisations=maritime-and-coastguard-agency'
   + '&q=merchant%20shipping%20notice&count=5&fields=title,link,public_timestamp';
 
+const GOVUK = 'https://www.gov.uk';
+
+const DOC_TYPES = {
+  MSN: 'MSN (Merchant Shipping Notice)',
+  MGN: 'MGN (Marine Guidance Note)',
+  MIN: 'MIN (Marine Information Note)'
+};
+
+/** Turn a GOV.UK document entry into a flag-circular record. */
+function toNotice(doc) {
+  const title = String(doc?.title || '').trim();
+  if (!title) return null;
+
+  // Titles read like "MSN 1871 (M) Amendment 1" or "MGN 654 (M+F)".
+  const marked = title.match(/\b(MSN|MGN|MIN)\s*([\d]+)\s*(\([A-Z+]+\))?/i);
+  const prefix = marked ? marked[1].toUpperCase() : '';
+  const refNo = marked
+    ? `${prefix} ${marked[2]}${marked[3] ? ' ' + marked[3].toUpperCase() : ''}`
+    : '';
+
+  const updated = String(doc.public_updated_at || '').slice(0, 10);
+  return {
+    title: title.replace(/\s+/g, ' '),
+    refNo,
+    docType: DOC_TYPES[prefix] || '',
+    date: /^\d{4}-\d{2}-\d{2}$/.test(updated) ? updated : '',
+    // The document page, not the PDF: the asset host refuses cross-origin
+    // reads, so the file is fetched by opening this in Safari.
+    sourceUrl: doc.base_path ? GOVUK + doc.base_path : ''
+  };
+}
+
+/**
+ * The current MCA notices, from the published collection.
+ * Throws on a network or CORS failure so the caller can say what went wrong.
+ */
+export async function fetchMcaNotices() {
+  const response = await fetch(COLLECTION, { mode: 'cors', credentials: 'omit' });
+  if (!response.ok) throw new Error(`GOV.UK returned HTTP ${response.status}`);
+  const data = await response.json();
+
+  // Documents hang off links.documents; the collection groups list the same
+  // paths without titles, so prefer the former and fall back to counting.
+  const docs = data?.links?.documents || [];
+  const notices = docs.map(toNotice).filter(Boolean);
+
+  // Newest first, and deduplicated on reference where one was found.
+  const seen = new Set();
+  return notices
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+    .filter((n) => {
+      const key = n.refNo || n.sourceUrl || n.title;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
 async function attempt(label, url, read) {
   const started = Date.now();
   try {

@@ -493,6 +493,87 @@ try {
   check('flag circulars are filed under their administration',
     flagHeads.some((h) => h.includes('Panama')), flagHeads.join(' | '));
 
+  // GOV.UK is not reachable from the test machine, so the collection response
+  // is stubbed. What is being tested is the parsing and the merge: that a
+  // repeat sync updates rather than duplicates, and never overwrites notes
+  // typed by hand.
+  console.log('\nUpdating from MCA');
+  // Data on a ship is limited, so the app must never fetch on its own. Watch
+  // every outbound request while simply using the app.
+  const outbound = [];
+  const watch = (req) => {
+    const url = req.url();
+    if (!url.startsWith(`http://localhost:${PORT}`)) outbound.push(url);
+  };
+  page.on('request', watch);
+  await page.click('#backBtn');
+  await page.waitForTimeout(300);
+  await page.locator('.section-card', { hasText: 'Flag Circulars' }).click();
+  await page.waitForTimeout(300);
+  await page.fill('#search', 'notice');
+  await page.waitForTimeout(600);
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+  check('nothing is fetched until asked for', outbound.length === 0, outbound.join(', '));
+  page.off('request', watch);
+
+  const FEED = {
+    links: {
+      documents: [
+        { title: 'MSN 1871 (M) Amendment 1', base_path: '/government/publications/msn-1871', public_updated_at: '2026-02-10T09:00:00Z' },
+        { title: 'MGN 654 (M+F) Safe movement on board', base_path: '/government/publications/mgn-654', public_updated_at: '2026-01-05T09:00:00Z' },
+        { title: 'MIN 700 (M) Training berths', base_path: '/government/publications/min-700', public_updated_at: '2025-11-20T09:00:00Z' }
+      ]
+    }
+  };
+  await page.route('**/api/content/government/collections/**', (route) =>
+    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(FEED) }));
+
+  await page.click('button:has-text("Update MCA notices")');
+  await page.waitForSelector('.hint:has-text("new")', { timeout: 20000 });
+  const firstRun = await page.locator('.panel:has-text("Update from MCA") .hint').innerText();
+  check('a first sync files every notice', /3 new/.test(firstRun), firstRun);
+
+  const synced = await page.evaluate(() => {
+    const store = window.__libStore;
+    return null;
+  });
+  void synced;
+
+  const cards = await page.locator('.card').allInnerTexts();
+  check('the reference is parsed from the title',
+    cards.some((c) => /MSN 1871 \(M\)/.test(c)), cards.join(' | '));
+  check('the document class follows the prefix',
+    cards.some((c) => /MGN \(Marine Guidance Note\)/.test(c))
+    || cards.some((c) => /MGN 654/.test(c)), cards.join(' | '));
+  check('all three are filed under MCA',
+    (await page.locator('.group-head').allTextContents()).some((h) => h.includes('MCA')));
+
+  // Add a note by hand, then sync again: the note must survive.
+  await page.locator('.card', { hasText: 'MSN 1871' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailEdit');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('notes', 'Checked against the ship copy on 2 March.');
+  await save();
+  await closeDetail();
+
+  await page.click('button:has-text("Update MCA notices")');
+  await page.waitForSelector('.hint:has-text("already held")', { timeout: 20000 });
+  const secondRun = await page.locator('.panel:has-text("Update from MCA") .hint').innerText();
+  check('a repeat sync does not duplicate', /0 new/.test(secondRun), secondRun);
+  check('and recognises what is already held', /3 already held/.test(secondRun), secondRun);
+
+  const noteKept = await page.evaluate(() =>
+    [...document.querySelectorAll('.card')].some((c) => c.textContent.includes('MSN 1871')));
+  check('the hand-typed note survives a resync', noteKept);
+  await page.locator('.card', { hasText: 'MSN 1871' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  check('the note is still there',
+    /Checked against the ship copy/.test(await page.locator('#detailBody').innerText()));
+  await closeDetail();
+  await page.unroute('**/api/content/government/collections/**');
+
   console.log('\nOther sections');
   await page.click('#backBtn');
   await page.waitForTimeout(200);

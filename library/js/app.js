@@ -4,13 +4,13 @@ import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch } from './search.js';
 import { isPdf, extract, describe, selfTest, STATUS } from './pdftext.js';
 import { suggestFields } from './suggest.js';
-import { probeMcaFeed } from './updates.js';
+import { probeMcaFeed, fetchMcaNotices } from './updates.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.05';
+const APP_VERSION = '2026.09.06';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -19,7 +19,10 @@ const view = {
   filter: null,        // active value of the section's filterBy field
   draft: null,
   detailId: null,
-  loadingTexts: false
+  loadingTexts: false,
+  // Kept in view state: the panel is rebuilt when the list redraws, so a
+  // summary held only in the DOM disappears the moment it is shown.
+  lastSync: null
 };
 
 let lockTimer = null;
@@ -175,6 +178,7 @@ function renderHome(body) {
 
 function renderSection(body) {
   const def = TYPES[view.section];
+  if (view.section === 'flag') body.append(updatePanel());
   if (def.sources) body.append(sourceLinks(def.sources));
   let items = store.itemsOfType(view.section);
   if (view.filter && def.filterBy) {
@@ -251,6 +255,103 @@ async function renderSearch(body) {
         { matchCount: result.matchCount, pagesWithHits: result.pagesWithHits }));
     }
   }
+}
+
+/**
+ * Pull the current MCA notice list in and file it.
+ *
+ * Only the catalogue is fetched: GOV.UK's asset host refuses cross-origin
+ * reads, so the PDFs cannot be downloaded by the app itself. Each entry keeps a
+ * link to its page, which opens in Safari when a particular document is wanted.
+ */
+function updatePanel() {
+  const out = el('div');
+  const panel = el('div', { class: 'panel' }, [
+    el('h3', { text: 'Update from MCA' }),
+    el('p', { text: 'Fetches the current list of MSNs, MGNs and MINs and files them under MCA. Nothing is fetched until you tap this, so it never spends your data on its own. Your own entries and notes are left alone.' })
+  ]);
+
+  if (view.lastSync) {
+    out.append(el('p', {
+      class: 'hint',
+      style: `color:${view.lastSync.ok ? 'var(--sage)' : 'var(--danger)'}`,
+      text: view.lastSync.text
+    }));
+  }
+
+  const button = el('button', { class: 'btn btn-primary btn-block' }, ['Update MCA notices']);
+  button.addEventListener('click', async () => {
+    button.disabled = true;
+    button.textContent = 'Fetching…';
+    clear(out).append(el('p', { class: 'hint', text: 'Contacting GOV.UK…' }));
+    try {
+      const notices = await fetchMcaNotices();
+      const summary = await mergeNotices(notices);
+      view.lastSync = {
+        ok: true,
+        text: `${summary.added} new, ${summary.updated} updated, ${summary.unchanged} already held.`
+      };
+      render();   // redraws the list, and the panel with the summary in it
+    } catch (ex) {
+      view.lastSync = { ok: false, text: `Could not fetch: ${ex.message}. This needs a connection.` };
+      clear(out).append(el('p', { class: 'hint', style: 'color:var(--danger)', text: view.lastSync.text }));
+    } finally {
+      button.disabled = false;
+      button.textContent = 'Update MCA notices';
+    }
+  });
+
+  panel.append(button, out);
+  return panel;
+}
+
+/**
+ * Fold fetched notices into what is already held, matching on reference so a
+ * repeat run updates rather than duplicates. Anything typed by hand — notes,
+ * applies-to, attachments — is preserved; only the published fields are
+ * refreshed.
+ */
+async function mergeNotices(notices) {
+  const held = store.itemsOfType('flag');
+  const byRef = new Map();
+  for (const item of held) {
+    const key = item.data.refNo || item.data.sourceUrl;
+    if (key) byRef.set(key.toUpperCase(), item);
+  }
+
+  let added = 0, updated = 0, unchanged = 0;
+  for (const notice of notices) {
+    const key = (notice.refNo || notice.sourceUrl || '').toUpperCase();
+    const existing = key ? byRef.get(key) : null;
+
+    if (!existing) {
+      await store.saveItem({
+        type: 'flag',
+        data: {
+          title: notice.title,
+          flagState: 'MCA',
+          docType: notice.docType,
+          refNo: notice.refNo,
+          date: notice.date,
+          issuer: 'Maritime & Coastguard Agency',
+          fileLink: notice.sourceUrl,
+          sourceUrl: notice.sourceUrl,
+          attachments: []
+        }
+      });
+      added++;
+      continue;
+    }
+
+    const changed = existing.data.title !== notice.title || existing.data.date !== notice.date;
+    if (!changed) { unchanged++; continue; }
+    await store.saveItem({
+      id: existing.id, type: 'flag',
+      data: { ...existing.data, title: notice.title, date: notice.date, sourceUrl: notice.sourceUrl }
+    });
+    updated++;
+  }
+  return { added, updated, unchanged };
 }
 
 /** Links to where an administration publishes, for verifying a held copy. */

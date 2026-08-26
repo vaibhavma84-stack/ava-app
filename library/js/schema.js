@@ -187,6 +187,7 @@ export const TYPES = {
       FILE_LINK
     ],
     listFields: ['refNo', 'docType'],
+    // sourceUrl is written by the MCA sync and is not edited by hand.
     // Filed by flag, since an officer serves under one at a time.
     groupBy: { key: 'flagState', label: 'Flag / Administration', blank: 'No flag set' },
     sources: FLAG_SOURCES,
