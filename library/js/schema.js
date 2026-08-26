@@ -22,6 +22,14 @@ export const SYNERGY_DOC_TYPES = [
   'Bulletin', 'Training', 'Fleet Instruction', 'Other'
 ];
 
+export const FLAG_STATES = ['MCA', 'Panama', 'Singapore', 'Other'];
+
+export const FLAG_DOC_TYPES = [
+  'Marine Notice', 'Marine Circular', 'Merchant Marine Notice',
+  'Marine Information Note', 'Technical Alert', 'Advisory', 'Amendment',
+  'Instruction to ROs', 'Other'
+];
+
 export const NOTICE_SOURCES = [
   'Notice to Mariners', 'Marine Shipping Notice (MSN)', 'Marine Guidance Note (MGN)',
   'Marine Information Note (MIN)', 'Flag State', 'Classification Society',
@@ -118,6 +126,32 @@ export const TYPES = {
                  || (a.title || '').localeCompare(b.title || '')
   },
 
+  flag: {
+    label: 'Flag Circulars',
+    short: 'Flag',
+    singular: 'Flag circular',
+    icon: 'flag',
+    titleKey: 'title',
+    fields: [
+      { key: 'title', label: 'Subject', type: 'text', required: true, placeholder: 'e.g. Implementation of MARPOL Annex VI amendments' },
+      { key: 'flagState', label: 'Flag / Administration', type: 'select', options: FLAG_STATES },
+      { key: 'docType', label: 'Type', type: 'select', options: FLAG_DOC_TYPES },
+      { key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. MMN 7-070', group: 'ident' },
+      { key: 'date', label: 'Date issued', type: 'date', group: 'ident' },
+      { key: 'issuer', label: 'Issued by', type: 'text', placeholder: 'e.g. Panama Maritime Authority' },
+      { key: 'supersedes', label: 'Supersedes', type: 'text', placeholder: 'e.g. MMN 7-070 Rev 2' },
+      { key: 'vessel', label: 'Applies to', type: 'text', placeholder: 'e.g. All Panama-flagged vessels' },
+      { ...NOTES, label: 'Summary' },
+      ATTACHMENTS,
+      FILE_LINK
+    ],
+    listFields: ['refNo', 'docType'],
+    // Filed by flag, since an officer serves under one at a time.
+    groupBy: { key: 'flagState', label: 'Flag / Administration', blank: 'No flag set' },
+    filterBy: { key: 'docType', label: 'Type' },
+    sort: (a, b) => (b.date || '').localeCompare(a.date || '')
+  },
+
   circular: {
     label: 'Circulars',
     short: 'Circulars',
@@ -166,4 +200,4 @@ export const TYPES = {
 // 'notice' is defined above but parked: it is not listed here, so nothing
 // renders it, and any records already saved under it stay untouched. Adding it
 // back to this list restores both the section and its entries.
-export const TAB_ORDER = ['publication', 'manual', 'synergy', 'circular'];
+export const TAB_ORDER = ['publication', 'manual', 'synergy', 'flag', 'circular'];

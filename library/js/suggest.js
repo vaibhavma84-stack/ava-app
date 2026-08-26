@@ -118,10 +118,56 @@ function pickDate(described) {
   return meta ? `${meta[1]}-${meta[2]}-${meta[3]}` : '';
 }
 
+// Only the three administrations in use, and the wording that identifies each
+// on a circular. MCA is an administration rather than a flag, but it is how
+// these documents are filed in practice.
+const FLAGS = [
+  [/\bmaritime\s+and\s+coastguard\s+agency\b|\bMCA\b|\bMGN\s?\d|\bMSN\s?\d|\bMIN\s?\d/i, 'MCA'],
+  [/\bpanama\b|panama\s+maritime\s+authority|\bAMP\b|\bMMN\b/i, 'Panama'],
+  [/\bsingapore\b|maritime\s+and\s+port\s+authority|\bMPA\b|\bSC\s?No\b/i, 'Singapore']
+];
+
+const ADMINISTRATIONS = [
+  [/panama\s+maritime\s+authority|autoridad\s+mar[ií]tima\s+de\s+panam[áa]/i, 'Panama Maritime Authority'],
+  [/maritime\s+and\s+port\s+authority\s+of\s+singapore|\bMPA\b/i, 'MPA Singapore'],
+  [/maritime\s+and\s+coastguard\s+agency|\bMCA\b/i, 'Maritime & Coastguard Agency']
+];
+
+function pickFlagState(described, filename) {
+  const haystack = `${described.firstPageText || ''} ${filename} ${described.info?.Author || ''}`;
+  for (const [re, name] of FLAGS) if (re.test(haystack)) return name;
+  return '';
+}
+
+function pickAdministration(described) {
+  const haystack = `${described.info?.Author || ''} ${described.firstPageText || ''}`;
+  for (const [re, name] of ADMINISTRATIONS) if (re.test(haystack)) return name;
+  return '';
+}
+
 function pickPublisher(described) {
   const haystack = `${described.info?.Author || ''} ${described.firstPageText || ''}`;
   for (const [needle, name] of PUBLISHERS) {
     if (haystack.toLowerCase().includes(needle.toLowerCase())) return name;
+  }
+  return '';
+}
+
+/**
+ * Notice and circular numbering, which follows its own conventions: MMN 7-070
+ * from Panama, MGN 654 (M) from the MCA, SC No. 4 of 2026 from Singapore, and
+ * the "Circular No." wording used almost everywhere else.
+ */
+function pickNoticeReference(described, filename) {
+  const haystack = `${described.firstPageText || ''} ${filename}`;
+  const patterns = [
+    /\b(?:MMN|MGN|MSN|MIN|MC|MN|TA|SC)\s?\.?\s?\d+[\w./-]*(?:\s?\([A-Z+]+\))?/i,
+    /\b(?:circular|notice|alert)\s+no\.?\s*[\w./-]+(?:\s+of\s+(?:19|20)\d{2})?/i,
+    /\bno\.?\s*\d+\s+of\s+(?:19|20)\d{2}\b/i
+  ];
+  for (const re of patterns) {
+    const m = haystack.match(re);
+    if (m) return tidy(m[0]).replace(/\s*\.\s*/, ' ').replace(/\s+/g, ' ');
   }
   return '';
 }
@@ -154,12 +200,22 @@ export function suggestFields(type, described, filename, fieldKeys) {
     if (has('refNo')) out.refNo = pickReference(described, filename);
   }
   if (type === 'synergy' || type === 'circular') {
-    if (has('refNo')) out.refNo = pickReference(described, filename);
+    if (has('refNo')) out.refNo = pickNoticeReference(described, filename) || pickReference(described, filename);
     if (has('issuer')) out.issuer = pickPublisher(described);
     if (has('revision')) out.revision = pickRevision(described);
     if (has('date')) out.date = pickDate(described);
   }
-  if (type === 'notice' && has('date')) out.date = pickDate(described);
+  if (type === 'notice') {
+    if (has('date')) out.date = pickDate(described);
+    if (has('refNo')) out.refNo = pickNoticeReference(described, filename);
+  }
+
+  if (type === 'flag') {
+    if (has('refNo')) out.refNo = pickNoticeReference(described, filename) || pickReference(described, filename);
+    if (has('date')) out.date = pickDate(described);
+    if (has('flagState')) out.flagState = pickFlagState(described, filename);
+    if (has('issuer')) out.issuer = pickAdministration(described);
+  }
   if (type === 'manual' && has('vessel')) {
     // A ship name in the filename is a common convention: "MV Something - ...".
     const vessel = String(filename || '').match(/\b(?:MV|MT|MS|SS)\s+[A-Z][\w'-]*(?:\s+[A-Z][\w'-]*)?/i);

@@ -76,6 +76,22 @@ const PUB_PATH = path.join(tmp, 'NP281-1 Radio Signals.pdf');
   await maker.close();
 }
 
+const FLAG_PATH = path.join(tmp, 'MMN-7-070.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent(`
+    <style>@page{size:A4;margin:20mm}
+      h1{font-family:sans-serif;font-size:22pt} p{font-family:serif;font-size:11pt}</style>
+    <h1>Merchant Marine Notice</h1>
+    <p>Panama Maritime Authority</p>
+    <p>MMN 7-070</p>
+    <p>12 March 2026</p>
+    <p>Subject: Implementation of amendments to MARPOL Annex VI for vessels
+       registered under the Panamanian flag.</p>`, { waitUntil: 'load' });
+  await maker.pdf({ path: FLAG_PATH, format: 'A4' });
+  await maker.close();
+}
+
 const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'allow' });
 const page = await context.newPage();
 const errors = [];
@@ -115,10 +131,10 @@ try {
   check('opens straight away, with no passcode', true);
   check('no lock screen is shown', await page.locator('#lock').isHidden());
   check('opens on the sections screen',
-    (await page.locator('.section-card').count()) === 4);
+    (await page.locator('.section-card').count()) === 5);
   const names = await page.locator('.section-name').allTextContents();
   check('sections appear in the configured order',
-    names.join(',') === 'Publications,Manuals,Synergy,Circulars', names.join(','));
+    names.join(',') === 'Publications,Manuals,Synergy,Flag Circulars,Circulars', names.join(','));
   await shot('lib-01-home');
 
   console.log('\nAdding a manual with a PDF');
@@ -400,10 +416,52 @@ try {
   await page.click('#editorCancel');
   await page.waitForSelector('#editor', { state: 'hidden' });
 
+  console.log('\nFlag circulars');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card', { hasText: 'Flag Circulars' }).click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await page.setInputFiles('#filePicker', FLAG_PATH);
+  await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
+  const flagGuess = await page.evaluate(() => {
+    const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
+    return { title: read('title'), flagState: read('flagState'), refNo: read('refNo'),
+             date: read('date'), issuer: read('issuer') };
+  });
+  check('the flag is recognised from the document',
+    flagGuess.flagState === 'Panama', JSON.stringify(flagGuess));
+  check('the administration is named', /Panama Maritime Authority/i.test(flagGuess.issuer), JSON.stringify(flagGuess));
+  check('the notice number is picked up', /MMN\s?7-070/i.test(flagGuess.refNo), JSON.stringify(flagGuess));
+  check('the date issued is picked up', flagGuess.date === '2026-03-12', JSON.stringify(flagGuess));
+
+  await pick('docType', 'Merchant Marine Notice');
+  await save();
+  check('saves a flag circular', (await page.locator('.card').count()) === 1);
+
+  const flagOptions = await page.evaluate(() => {
+    const sel = document.querySelector('#editorBody [data-field="flagState"]');
+    return sel ? [...sel.options].map((o) => o.value).filter(Boolean) : [];
+  });
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  const opts = await page.evaluate(() =>
+    [...document.querySelector('#editorBody [data-field="flagState"]').options]
+      .map((o) => o.value).filter(Boolean));
+  check('only the administrations in use are offered',
+    opts.join(',') === 'MCA,Panama,Singapore,Other', opts.join(','));
+  await page.click('#editorCancel');
+  await page.waitForSelector('#editor', { state: 'hidden' });
+  void flagOptions;
+
+  const flagHeads = await page.locator('.group-head').allTextContents();
+  check('flag circulars are filed under their administration',
+    flagHeads.some((h) => h.includes('Panama')), flagHeads.join(' | '));
+
   console.log('\nOther sections');
   await page.click('#backBtn');
   await page.waitForTimeout(200);
-  await page.locator('.section-card', { hasText: 'Circulars' }).click();
+  await page.locator('.section-card:has(.section-name:text-is("Circulars"))').click();
   await page.click('#fab');
   await page.waitForSelector('#editor:not([hidden])');
   await set('title', 'Revised bunkering procedure');
