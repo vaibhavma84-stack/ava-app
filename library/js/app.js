@@ -4,12 +4,13 @@ import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch } from './search.js';
 import { isPdf, extract, describe, selfTest, STATUS } from './pdftext.js';
 import { suggestFields } from './suggest.js';
+import { probeMcaFeed } from './updates.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.04';
+const APP_VERSION = '2026.09.05';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -919,6 +920,38 @@ async function openSettings() {
       }
     }, ['Test PDF reading']),
     testOut
+  ]));
+
+  // Whether notices can be pulled in automatically depends on headers only a
+  // real device with a connection can reveal.
+  const feedOut = el('div');
+  body.append(el('div', { class: 'panel' }, [
+    el('h3', { text: 'Fetching MCA notices' }),
+    el('p', { text: 'Checks whether this iPhone can read the GOV.UK notice listings directly from the app. Needs a connection. Run it once and send me the result.' }),
+    el('button', {
+      class: 'btn btn-block', style: 'margin-bottom:10px',
+      onclick: async (e) => {
+        e.target.disabled = true;
+        e.target.textContent = 'Checking…';
+        clear(feedOut).append(el('p', { class: 'hint', text: 'Contacting GOV.UK…' }));
+        const report = await probeMcaFeed();
+        clear(feedOut);
+        feedOut.append(el('p', {
+          class: 'hint',
+          style: `color:${report.canList ? 'var(--sage)' : 'var(--danger)'}`,
+          text: report.verdict
+        }));
+        for (const r of report.results) {
+          feedOut.append(el('div', { class: 'stat' }, [
+            el('span', { text: r.label }),
+            el('span', { text: `${r.ok ? 'ok' : 'blocked'} · ${r.detail}` })
+          ]));
+        }
+        e.target.disabled = false;
+        e.target.textContent = 'Check again';
+      }
+    }, ['Check if notices can be fetched']),
+    feedOut
   ]));
 
   body.append(el('div', { class: 'panel' }, [
