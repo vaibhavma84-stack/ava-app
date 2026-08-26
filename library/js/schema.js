@@ -1,6 +1,8 @@
 // Every screen in Library is generated from these definitions: the list row,
 // the detail view and the edit form. Adding a field is a one-line change.
 
+import { IMO_LIST_URL } from './imo.js';
+
 export const MANUAL_CATEGORIES = [
   'Deck', 'Engine', 'Safety', 'Cargo', 'Navigation', 'ISM / ISPS', 'MARPOL',
   'Machinery', 'Electrical', 'Company Procedures', 'Emergency', 'Other'
@@ -138,7 +140,11 @@ export const TYPES = {
       FILE_LINK
     ],
     listFields: ['refNo', 'edition'],
+    // Filed under what kind of publication it is, so the conventions sit
+    // together as their own section rather than mixed in among the charts.
+    groupBy: { key: 'category', label: 'Category', blank: 'Uncategorised' },
     filterBy: { key: 'category', label: 'Type' },
+    sources: { IMO: [{ label: 'Conventions', url: IMO_LIST_URL }] },
     sort: (a, b) => (a.title || '').localeCompare(b.title || '')
   },
 

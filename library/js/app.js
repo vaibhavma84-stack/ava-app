@@ -5,12 +5,13 @@ import { search as runSearch } from './search.js';
 import { isPdf, extract, describe, selfTest, STATUS } from './pdftext.js';
 import { suggestFields } from './suggest.js';
 import { probeAll, fetchNotices, FEEDS, SYNCABLE } from './updates.js';
+import { IMO_CONVENTIONS, IMO_LIST_URL, asPublication, notHeld } from './imo.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.13';
+const APP_VERSION = '2026.09.14';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -22,7 +23,8 @@ const view = {
   loadingTexts: false,
   // Kept in view state: the panel is rebuilt when the list redraws, so a
   // summary held only in the DOM disappears the moment it is shown.
-  lastSync: null
+  lastSync: null,
+  imoOpen: false
 };
 
 let lockTimer = null;
@@ -179,6 +181,7 @@ function renderHome(body) {
 function renderSection(body) {
   const def = TYPES[view.section];
   if (view.section === 'flag') body.append(updatePanel());
+  if (view.section === 'publication') body.append(conventionPanel());
   if (def.sources) body.append(sourceLinks(def.sources));
   let items = store.itemsOfType(view.section);
   if (view.filter && def.filterBy) {
@@ -255,6 +258,72 @@ async function renderSearch(body) {
         { matchCount: result.matchCount, pagesWithHits: result.pagesWithHits }));
     }
   }
+}
+
+/**
+ * The IMO conventions, offered from a list held in the app.
+ *
+ * Deliberately not a download. The conventions are a closed set that changes
+ * once every few years, so fetching them would spend data at sea to be told
+ * what the app already knows. The list is here; what it cannot know — which
+ * amendments are in force on your ship — stays yours to fill in.
+ */
+function conventionPanel() {
+  const held = store.itemsOfType('publication');
+  const missing = notHeld(held);
+
+  // Its own class: the source-links panel below carries the words "IMO
+  // Conventions" too, and a selector that matches both is a selector that
+  // will pick the wrong one.
+  const panel = el('div', { class: 'panel imo-panel' }, [
+    el('h3', { text: 'IMO conventions' }),
+    el('p', {
+      text: missing.length
+        ? `${IMO_CONVENTIONS.length} conventions, held in the app. ${missing.length} not yet filed. Nothing is downloaded — add the ones you want and fill in the amendments in force from your circulars.`
+        : `All ${IMO_CONVENTIONS.length} conventions are filed.`
+    })
+  ]);
+
+  if (!missing.length) return panel;
+
+  const list = el('div', { hidden: !view.imoOpen });
+  for (const convention of missing) {
+    const row = el('div', { class: 'stat' }, [
+      el('span', {}, [
+        el('strong', { text: convention.short }),
+        el('span', { class: 'hint', style: 'display:block',
+          text: `${convention.name} · ${convention.inForce ? `in force ${convention.inForce}` : 'not yet in force'}` })
+      ])
+    ]);
+    const add = el('button', { class: 'btn btn-sm', text: 'Add' });
+    add.addEventListener('click', async () => {
+      add.disabled = true;
+      await store.saveItem({ type: 'publication', data: asPublication(convention) });
+      view.imoOpen = true;
+      render();
+    });
+    row.append(add);
+    list.append(row);
+  }
+
+  const toggle = el('button', { class: 'btn btn-block' },
+    [view.imoOpen ? 'Hide the list' : `Add from the IMO list (${missing.length})`]);
+  toggle.addEventListener('click', () => { view.imoOpen = !view.imoOpen; render(); });
+
+  const all = el('button', { class: 'btn btn-sm btn-block', style: 'margin-top:8px' },
+    [`Add all ${missing.length}`]);
+  all.addEventListener('click', async () => {
+    all.disabled = true;
+    all.textContent = 'Adding…';
+    for (const convention of missing) {
+      await store.saveItem({ type: 'publication', data: asPublication(convention) });
+    }
+    render();
+  });
+  list.append(all);
+
+  panel.append(toggle, list);
+  return panel;
 }
 
 /**

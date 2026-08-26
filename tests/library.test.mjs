@@ -388,10 +388,67 @@ try {
   check('clearing the filter restores it', (await page.locator('.card').count()) === 3);
   await shot('lib-04-grouped');
 
-  console.log('\nFilling an entry from the PDF');
+  console.log('\nIMO conventions');
   await page.click('#backBtn');
   await page.waitForTimeout(200);
   await page.locator('.section-card', { hasText: 'Publications' }).click();
+  await page.waitForTimeout(200);
+
+  // The conventions are a closed set that ships with the app. Adding them must
+  // cost nothing on a metered connection, so watch for any fetch at all.
+  const imoOutbound = [];
+  const imoWatch = (req) => {
+    const url = req.url();
+    if (!url.startsWith(`http://localhost:${PORT}`)) imoOutbound.push(url);
+  };
+  page.on('request', imoWatch);
+
+  const imoPanel = '.imo-panel';
+  check('publications offers the convention list',
+    await page.locator(imoPanel).count() === 1);
+  const offer = await page.locator(`${imoPanel} button`).first().innerText();
+  check('and says how many are not yet filed', /Add from the IMO list \(\d+\)/i.test(offer), offer);
+
+  await page.locator(`${imoPanel} button`).first().click();
+  await page.waitForTimeout(200);
+  const listed = await page.locator(`${imoPanel} .stat`).count();
+  check('the conventions are listed to choose from', listed > 20, String(listed));
+  const solasRow = page.locator(`${imoPanel} .stat`, { hasText: 'SOLAS 1974' }).first();
+  check('SOLAS is among them', await solasRow.count() === 1);
+  check('and reads with its full name and status',
+    /Safety of Life at Sea/.test(await solasRow.innerText())
+    && /in force 1980/.test(await solasRow.innerText()),
+    await solasRow.innerText());
+
+  await solasRow.locator('button').click();
+  await page.waitForTimeout(400);
+  check('adding one files it', await page.locator('.card', { hasText: 'Safety of Life at Sea' }).count() === 1);
+  check('under its own heading',
+    (await page.locator('.group-head').allTextContents()).some((h) => h.includes('IMO Convention')),
+    (await page.locator('.group-head').allTextContents()).join(' | '));
+  check('and it is not offered a second time',
+    await page.locator(`${imoPanel} .stat`, { hasText: 'SOLAS 1974' }).count() === 0);
+
+  await page.locator('.card', { hasText: 'Safety of Life at Sea' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const conventionDetail = await page.locator('#detailBody').innerText();
+  check('the reference is how it is spoken about', /SOLAS 1974/.test(conventionDetail), conventionDetail.slice(0, 300));
+  check('adoption and entry into force are both recorded',
+    /Adopted 1974/.test(conventionDetail) && /in force 1980/.test(conventionDetail),
+    conventionDetail.slice(0, 300));
+  check('nothing was downloaded to do any of it', imoOutbound.length === 0, imoOutbound.join(', '));
+  page.off('request', imoWatch);
+  await closeDetail();
+
+  // A convention still awaiting ratification must not read as if it were law.
+  await page.locator(`${imoPanel} button`).first().click();
+  await page.waitForTimeout(200);
+  const hns = page.locator(`${imoPanel} .stat`, { hasText: 'HNS 2010' }).first();
+  check('one not yet in force says so', /not yet in force/.test(await hns.innerText()), await hns.innerText());
+  await page.locator(`${imoPanel} button`).first().click();
+  await page.waitForTimeout(200);
+
+  console.log('\nFilling an entry from the PDF');
   await page.click('#fab');
   await page.waitForSelector('#editor:not([hidden])');
   await page.setInputFiles('#filePicker', PUB_PATH);
@@ -411,7 +468,7 @@ try {
   // What the user typed must survive; only empty fields are filled.
   await set('vessel', 'MV Northern Star');
   await save();
-  const savedPub = await page.locator('.card').first().innerText();
+  const savedPub = await page.locator('.card', { hasText: 'Radio Signals' }).first().innerText();
   check('a filled entry saves', /Radio Signals/i.test(savedPub), savedPub.replace(/\n/g, ' / '));
 
   await page.click('#fab');
