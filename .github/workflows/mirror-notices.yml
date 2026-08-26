@@ -34,6 +34,14 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install a browser
+        # MPA draws its listings with script, so the markup a server receives
+        # holds no links. Rendering them needs a real browser — here, in CI,
+        # where it costs the ship nothing.
+        run: |
+          npm install --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+
       - name: Read the catalogues
         run: node tools/mirror-notices.mjs
 

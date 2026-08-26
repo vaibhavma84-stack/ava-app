@@ -152,21 +152,105 @@ const SOURCES = {
     const found = [];
     const shape = { refOf: singaporeRef, types: SG_TYPES };
 
+    let fromFeed = 0;
     try {
-      found.push(...readFeed(await get(`${MPA}/feeds/media-releases`, 'text'), shape));
+      const items = readFeed(await get(`${MPA}/feeds/media-releases`, 'text'), shape);
+      fromFeed = items.length;
+      found.push(...items);
     } catch (ex) { console.warn(`  Singapore feed: ${ex.message}`); }
 
-    const listings = ['Shipping+Circulars', 'Port+Marine+Circulars', 'Port+Marine+Notices'];
-    for (const type of listings) {
+    // The listing pages come back as an empty shell — MPA draws its links with
+    // script, so fetching the markup finds nothing in it. Kept anyway, because
+    // it costs one request and would start working the day they render on the
+    // server; the browser pass below is what actually reads them.
+    let fromMarkup = 0;
+    for (const type of SG_LISTINGS) {
       try {
-        found.push(...readLinks(await get(`${MPA}/media-centre?type=${type}`, 'text'), {
-          base: MPA, match: /\/(media-centre\/details|docs\/mpalibraries)\//i, ...shape
-        }));
+        const items = readLinks(await get(`${MPA}/media-centre?type=${type}`, 'text'), {
+          base: MPA, match: SG_LINK, ...shape
+        });
+        fromMarkup += items.length;
+        found.push(...items);
       } catch (ex) { console.warn(`  Singapore ${type}: ${ex.message}`); }
     }
+
+    const fromBrowser = await renderSingapore(found, shape);
+    console.log(`  [feed ${fromFeed}, markup ${fromMarkup}, rendered ${fromBrowser}]`);
     return found;
   }
 };
+
+const SG_LISTINGS = ['Shipping+Circulars', 'Port+Marine+Circulars', 'Port+Marine+Notices'];
+const SG_LINK = /\/(media-centre\/details|docs\/mpalibraries)\//i;
+
+/**
+ * Read MPA's listings the only way they can be read: in a browser.
+ *
+ * The pages are drawn by script, so the markup a server receives holds no
+ * links at all. Rendering them here is fine — this is CI, not the ship — and
+ * it is the difference between the handful of recent items the feed carries
+ * and the actual catalogue.
+ *
+ * Every request the page makes is logged, because the listing is almost
+ * certainly fed by an endpoint that could be read directly. Finding it means
+ * this can go back to being a plain fetch.
+ */
+async function renderSingapore(found, shape) {
+  let chromium;
+  try { ({ chromium } = await import('playwright')); }
+  catch { console.warn('  Singapore: no browser available, listings not rendered'); return 0; }
+
+  const before = found.length;
+  let browser;
+  try {
+    browser = await chromium.launch({ args: ['--no-sandbox'] });
+    const page = await browser.newPage();
+    const seenApi = new Set();
+    page.on('request', (req) => {
+      const url = req.url();
+      if (/\/(api|rest|odata|sitefinity|services)\b/i.test(url) && !seenApi.has(url)) {
+        seenApi.add(url);
+      }
+    });
+
+    for (const type of SG_LISTINGS) {
+      try {
+        await page.goto(`${MPA}/media-centre?type=${type}`, { waitUntil: 'networkidle', timeout: 60000 });
+        // The listing paginates. Follow it while a next control is offered.
+        for (let round = 0; round < 25; round++) {
+          const links = await page.$$eval('a[href]', (as) =>
+            as.map((a) => ({ href: a.href, text: (a.textContent || '').replace(/\s+/g, ' ').trim() })));
+          for (const { href, text } of links) {
+            if (!SG_LINK.test(href)) continue;
+            const ref = shape.refOf(text) || shape.refOf(href);
+            if (!ref) continue;
+            found.push({
+              title: text || ref.refNo, refNo: ref.refNo,
+              docType: shape.types[ref.prefix] || '', date: '', sourceUrl: href
+            });
+          }
+
+          const next = page.locator(
+            'a[rel="next"], button:has-text("Load more"), a:has-text("Next"), li.next > a, .pagination__next'
+          ).first();
+          if (!await next.count() || !await next.isVisible().catch(() => false)) break;
+          await next.click({ timeout: 5000 }).catch(() => {});
+          await page.waitForLoadState('networkidle', { timeout: 30000 }).catch(() => {});
+        }
+      } catch (ex) { console.warn(`  Singapore render ${type}: ${ex.message}`); }
+    }
+
+    if (seenApi.size) {
+      console.log('  endpoints the listing called:');
+      for (const url of [...seenApi].slice(0, 8)) console.log(`    ${url}`);
+    }
+  } catch (ex) {
+    console.warn(`  Singapore render: ${ex.message}`);
+  } finally {
+    if (browser) await browser.close().catch(() => {});
+  }
+  return found.length - before;
+}
 
 /** Newest first, one entry per reference. */
 function tidy(notices) {

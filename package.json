@@ -5,10 +5,12 @@
   "description": "Offline-first personal data organizer for merchant navy officers",
   "scripts": {
     "start": "python3 -m http.server 8080",
-    "test": "node tests/calendar.test.mjs && node tests/update.test.mjs && node tests/smoke.mjs && node tests/library.test.mjs",
+    "test": "node tests/calendar.test.mjs && node tests/update.test.mjs && node tests/mirror.test.mjs && node tests/smoke.mjs && node tests/library.test.mjs",
     "test:library": "node tests/library.test.mjs",
     "test:unit": "node tests/calendar.test.mjs",
     "test:shots": "node tests/smoke.mjs --shots",
-    "icons": "node tools/make-icons.mjs && node tools/make-library-icons.mjs"
+    "icons": "node tools/make-icons.mjs && node tools/make-library-icons.mjs",
+    "test:mirror": "node tests/mirror.test.mjs",
+    "mirror": "node tools/mirror-notices.mjs"
   }
 }
