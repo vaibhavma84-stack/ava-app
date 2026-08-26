@@ -35,9 +35,10 @@ jobs:
           node-version: '20'
 
       - name: Install a browser
-        # MPA draws its listings with script, so the markup a server receives
-        # holds no links. Rendering them needs a real browser — here, in CI,
-        # where it costs the ship nothing.
+        # Only the fallback needs this: MPA's own endpoint is read with a plain
+        # fetch, and rendering is what stands in if that endpoint ever moves.
+        # So a bad browser download must not take the whole run down with it.
+        continue-on-error: true
         run: |
           npm install --no-save playwright@1.49.1
           npx playwright install --with-deps chromium
