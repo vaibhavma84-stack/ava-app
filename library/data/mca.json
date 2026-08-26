@@ -1,0 +1,3478 @@
+{
+ "administration": "MCA",
+ "fetched": "2026-08-26",
+ "notices": [
+  {
+   "title": "MIN 655 Amendment 1 (M+F) new-style certificates for UK seafarers and those working onboard UK ships",
+   "refNo": "MIN 655",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-08-24",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-655-amendment-1-mf-new-style-certificates-for-uk-seafarers-and-those-working-onboard-uk-ships"
+  },
+  {
+   "title": "MGN 381 (M + F) Amendment 1: Survey and Certification Requirements for Merchant Shipping (Prevention of Air Pollution from Ships) Regulations 2008 as amended",
+   "refNo": "MGN 381",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-08-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-381-m-f-amendment-1---survey-and-certification-requirements-for-merchant-shipping-prevention-of-air-pollution-from-ships-regulations-2008-as-amend"
+  },
+  {
+   "title": "MGN 718 (M+F): 2026 IMO amendment to PSSR",
+   "refNo": "MGN 718 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-08-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-718-mf-2026-imo-amendment-to-pssr"
+  },
+  {
+   "title": "MGN 370 (M+F) Amendment 2 the Dreadnought Medical Service, St Thomas' Hospital, London",
+   "refNo": "MGN 370 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-08-12",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-370-mf-amendment-2-the-dreadnought-medical-service-st-thomas-hospital-london"
+  },
+  {
+   "title": "MIN 732 (M+F) Amendment 3 guidance for shipowners, fishing vessel owners, seafarers and fishers affected by the conflict in the Middle East",
+   "refNo": "MIN 732 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-07-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-732-mf-amendment-3-guidance-for-shipowners-fishing-vessel-owners-seafarers-and-fishers-affected-by-the-conflict-in-the-middle-east"
+  },
+  {
+   "title": "MGN165 Amendment 2 (F) fishing vessels: risk of flooding",
+   "refNo": "MGN 165",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-07-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn165-amendment-2-f-fishing-vessels-risk-of-flooding"
+  },
+  {
+   "title": "MGN 711 (M) The Merchant Shipping (Port State Control) Regulations 2026",
+   "refNo": "MGN 711 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-07-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-711-m-the-merchant-shipping-port-state-control-regulations-2026"
+  },
+  {
+   "title": "MGN 675 (M+F) Amendment 2 The merchant shipping (control and management of ships’ ballast water and sediments) regulations 2022",
+   "refNo": "MGN 675 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-06-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-675-mf-amendment-2-the-merchant-shipping-control-and-management-of-ships-ballast-water-and-sediments-regulations-2022"
+  },
+  {
+   "title": "MGN 670 Amendment 2 (M) Guidance on the application of SOLAS II-1",
+   "refNo": "MGN 670",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-06-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-670-amendment-2-m-guidance-on-the-application-of-solas-ii-1"
+  },
+  {
+   "title": "MIN 698 Amendment 2 (M) Workboat Code Edition 3 – standards and guidelines for best practice",
+   "refNo": "MIN 698",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-06-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-698-amendment-2-m-workboat-code-edition-3-standards-and-guidelines-for-best-practice"
+  },
+  {
+   "title": "MIN 710 (M) Amendment 1 written and digital assessment dates: Deck and Engineer Officers",
+   "refNo": "MIN 710 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-06-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-710-m-amendment-1-written-and-digital-assessment-dates-deck-and-engineer-officers"
+  },
+  {
+   "title": "Marine Guidance Note 564 (M+F) Amendment 2",
+   "refNo": "",
+   "docType": "",
+   "date": "2026-06-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-564-marine-casualty-and-marine-incident-reporting"
+  },
+  {
+   "title": "MIN 735 (M) CS-SL3-WS3 Ideas Connected Ltd Lifejacket Lights",
+   "refNo": "MIN 735 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-05-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-735-m-cs-sl3-ws3-ideas-connected-ltd-lifejacket-lights"
+  },
+  {
+   "title": "MIN 690: Guidance on the MCA Oral Examination Booking, the Issue of Notices of Eligibility (NOEs) and the Online Oral Examination Processes - Amendment 6",
+   "refNo": "MIN 690",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-05-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-690-guidance-on-the-mca-oral-examination-booking-the-issue-of-notices-of-eligibility-noes-and-the-online-oral-examination-processes"
+  },
+  {
+   "title": "MIN 653 (M) Deck Oral Exam Syllabus - Amendment 1",
+   "refNo": "MIN 653 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-04-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-653-m-deck-oral-exam-syllabus-amendment-1"
+  },
+  {
+   "title": "MIN 654 (M) Engineering and Electro-technical Officer Oral Exam Syllabus - Amendment 1",
+   "refNo": "MIN 654 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-04-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-654-m-engineering-and-electro-technical-officer-oral-exam-syllabus-amendment-1"
+  },
+  {
+   "title": "MIN 720 (M): Transforming Seafarer Training: The UK's Modernised Officer Qualifications Syllabus",
+   "refNo": "MIN 720 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-04-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-720-m-transforming-seafarer-training-the-uks-modernised-officer-qualifications-syllabus"
+  },
+  {
+   "title": "MGN 717 (M+F) Air Quality: amendments to mandatory international instruments",
+   "refNo": "MGN 717 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-04-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-717-mf-air-quality-amendments-to-mandatory-international-instruments"
+  },
+  {
+   "title": "MGN 645 (M) Amendment 1 load line length – policy clarification: hull form cut-outs, extensions and steps",
+   "refNo": "MGN 645 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-04-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-645-m-amendment-1-load-line-length-policy-clarification---hull-form-cut-outs-extensions-and-steps"
+  },
+  {
+   "title": "MGN 544 Amendment 1 (M+F) Means of recovery of persons from the water by ships and boats - plans, procedures and acceptance of recovery equipment",
+   "refNo": "MGN 544",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-04-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-544-amendment-1-mf-means-of-recovery-of-persons-from-the-water-by-ships-and-boats-plans-procedures-and-acceptance-of-recovery-equipment"
+  },
+  {
+   "title": "MIN 688 (M) Amendment 4 code of safe working practices: 2026 edition",
+   "refNo": "MIN 688 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-04-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-688-m-amendment-4-code-of-safe-working-practices-2026-edition"
+  },
+  {
+   "title": "MGN 297 (M) amendment 2 the carriage of defibrillators on ships",
+   "refNo": "MGN 297 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-04-02",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-297-m-amendment-2-the-carriage-of-defibrillators-on-ships"
+  },
+  {
+   "title": "MGN 657 (M+F) Amendment 2 requirements for fixed aerosol fire extinguishing systems for use in small vessel machinery spaces",
+   "refNo": "MGN 657 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-04-02",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-657-mf-amendment-2-requirements-for-fixed-aerosol-fire-extinguishing-systems-for-use-in-small-vessel-machinery-spaces"
+  },
+  {
+   "title": "MSN 1924 (M+F) EPIRB and PLB registration requirements",
+   "refNo": "MSN 1924 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2026-03-24",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1924-mf-epirb-and-plb-registration-requirements"
+  },
+  {
+   "title": "MGN 665 (M+F) Amendment 1 Mandatory registration of EPIRBs and PLBs",
+   "refNo": "MGN 665 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-03-24",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-665-mf-amendment-1-mandatory-registration-of-epirbs-and-plbs"
+  },
+  {
+   "title": "MSN 1908 (M+F) Amendment 3 The merchant shipping (control and management of ships’ ballast water and sediments) regulations 2022",
+   "refNo": "MSN 1908 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2026-03-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1908-mf-amendment-3-the-merchant-shipping-control-and-management-of-ships-ballast-water-and-sediments-regulations-2022"
+  },
+  {
+   "title": "MGN 482 (M) Amendment 2 MLC, 2006 - Medical care",
+   "refNo": "MGN 482 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-03-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-482-m-amendment-2-mlc-2006-medical-care"
+  },
+  {
+   "title": "MGN 707 (M) MLC, 2006 - provision of social connectivity and internet access",
+   "refNo": "MGN 707 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-03-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-707-m-mlc-2006-provision-of-social-connectivity-and-internet-access"
+  },
+  {
+   "title": "MIN 733 - Conflict in the Middle-East – MCA approach to survey and certification of UK vessels",
+   "refNo": "MIN 733",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-03-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-733-conflict-in-the-middle-east-mca-approach-to-survey-and-certification-of-uk-vessels"
+  },
+  {
+   "title": "MGN 539 (M) Amendment 4 carriage of the code of safe working practices",
+   "refNo": "MGN 539 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-03-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-539-m-amendment-4-carriage-of-the-code-of-safe-working-practices"
+  },
+  {
+   "title": "MGN 708(M) Guidance on the merchant shipping (international safety management (ISM) code) regulations 2026",
+   "refNo": "MGN 708 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-03-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-708m-guidance-on-the-merchant-shipping-international-safety-management-ism-code-regulations-2026"
+  },
+  {
+   "title": "MGN 715 (M+F) recommended best practice for respectful and safe operation",
+   "refNo": "MGN 715 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-03-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-715-mf-recommended-best-practice-for-respectful-and-safe-operation"
+  },
+  {
+   "title": "MIN 724 (M) The sport or pleasure vessel code – standards and guidelines for best practice",
+   "refNo": "MIN 724 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-03-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-724-m-the-sport-or-pleasure-vessel-code-standards-and-guidelines-for-best-practice"
+  },
+  {
+   "title": "MGN 413 (F) Amendment 3 voluntary code of practice for employment of non European economic area (EEA) fishing crew",
+   "refNo": "MGN 413 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-02-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-413-f-amendment-3-voluntary-code-of-practice-for-employment-of-non-european-economic-area-eea-fishing-crew"
+  },
+  {
+   "title": "MGN 474 (M) Amendment 1 retention of crew agreements where appropriate",
+   "refNo": "MGN 474 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-474-m-amendment-1-retention-of-crew-agreements-where-appropriate"
+  },
+  {
+   "title": "MGN 585 (F) Amendment 1 ILO work in fishing convention, payment of fishermen",
+   "refNo": "MGN 585 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-585-f-amendment-1-ilo-work-in-fishing-convention-payment-of-fishermen"
+  },
+  {
+   "title": "MSN 1891 (F) Amendment 2 ILO work in fishing convention, list of crew",
+   "refNo": "MSN 1891 (F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2026-01-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1891-f-amendment-2-ilo-work-in-fishing-convention-list-of-crew"
+  },
+  {
+   "title": "MGN 702 (M) Amendment 2 Maritime autonomous surface ships of less than 2.5 metres in LOA",
+   "refNo": "MGN 702 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-702-m-amendment-2-maritime-autonomous-surface-ships-of-less-than-25-metres-in-loa"
+  },
+  {
+   "title": "MGN 705 (M) Amendment 1 Remotely operated unmanned vessels (ROUVs) of 2.5 metres to less than 4.5 metres in length overall",
+   "refNo": "MGN 705 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-705-m-amendment-1-remotely-operated-unmanned-vessels-rouvs-of-25-metres-to-less-than-45-metres-in-length-overall"
+  },
+  {
+   "title": "MGN 681 (M) Amendment 1 Fire safety and storage of small electric powered craft on yachts",
+   "refNo": "MGN 681 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-681-m-amendment-1-fire-safety-and-storage-of-small-electric-powered-craft-on-yachts"
+  },
+  {
+   "title": "MGN 577 (M) Amendment 2 maintenance of lists of crew ashore",
+   "refNo": "MGN 577 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-577-m-amendment-2-maintenance-of-lists-of-crew-ashore"
+  },
+  {
+   "title": "MGN 331 (M+F) Amendment 4: The PUWER Regulations 2006",
+   "refNo": "MGN 331 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-331-mf-amendment-4-the-puwer-regulations-2006"
+  },
+  {
+   "title": "MGN 332 (M+F) Amendment 4: The LOLER regulations 2006",
+   "refNo": "MGN 332 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-332-mf-amendment-4-the-loler-regulations-2006"
+  },
+  {
+   "title": "MGN 589 (F) Amendment 1 ILO Work in fishing convention: complaints",
+   "refNo": "MGN 589 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-589-f-amendment-1-ilo-work-in-fishing-convention-complaints"
+  },
+  {
+   "title": "MGN 601 (M) Amendment 1 MLC, 2006 crew accommodation for small vessels of less than 200GT",
+   "refNo": "MGN 601 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-601-m-amendment-1-mlc-2006-crew-accommodation-for-small-vessels-of-less-than-200gt"
+  },
+  {
+   "title": "MGN 659 (M+F) Amendment 3 (Entry into Enclosed Spaces)",
+   "refNo": "MGN 659 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-659-mf-amendment-3-entry-into-enclosed-spaces"
+  },
+  {
+   "title": "MIN 731 (M) High Speed Craft Codes 1994 & 2000 - ban of PFOS in firefighting media",
+   "refNo": "MIN 731 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-01-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-731-m-high-speed-craft-codes-1994-2000-ban-of-pfos-in-firefighting-media"
+  },
+  {
+   "title": "MGN 710 (M) safety management systems for small workboats and pilot boats",
+   "refNo": "MGN 710 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-02",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-710-m-safety-management-systems-for-small-workboats-and-pilot-boats"
+  },
+  {
+   "title": "MGN 714 (M+F) - adoption of amendments to the life saving appliances (LSA) Code.",
+   "refNo": "MGN 714 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-01-02",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-714-mf-adoption-of-amendments-to-the-life-saving-appliances-lsa-code"
+  },
+  {
+   "title": "MIN 678 (M) Amendment 3: Enhancement to the Current Support for Maritime Training (SMarT) Fund and Additional Support for Junior Officers",
+   "refNo": "MIN 678 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-678-m-enhancement-to-the-current-support-for-maritime-training-smart-fund-and-additional-support-for-junior-officers"
+  },
+  {
+   "title": "MIN 730 (M) Carriage of cargoes: amendments to mandatory international instruments 2026",
+   "refNo": "MIN 730 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-730-m-carriage-of-cargoes-amendments-to-mandatory-international-instruments-2026"
+  },
+  {
+   "title": "MSN 1819 Prevention of air pollution from ships",
+   "refNo": "MSN 1819",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-12-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1819-prevention-of-air-pollution-from-ships"
+  },
+  {
+   "title": "MGN 472 (M) Amendment 4 MLC applying for a substantial equivalence",
+   "refNo": "MGN 472 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-12-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-472-m-amendment-4-mlc-applying-for-a-substantial-equivalence"
+  },
+  {
+   "title": "MIN 723 (M+F) Ballast water management: the intra north sea ballast water contingency area",
+   "refNo": "MIN 723 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-12-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-723-mf-ballast-water-management-the-intra-north-sea-ballast-water-contingency-area"
+  },
+  {
+   "title": "MGN 713 (M) Fire protection regulations – adoptions of amendments in IMO resolutions in force on 1 Jan 2026",
+   "refNo": "MGN 713 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-12-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-713-m-fire-protection-regulations-adoptions-of-amendments-in-imo-resolutions-in-force-on-1-jan-2026"
+  },
+  {
+   "title": "MGN 123 (M+F) Amendment 2 Certificates of Discharge",
+   "refNo": "MGN 123 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-12-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-123-mf-amendment-2-certificates-of-discharge"
+  },
+  {
+   "title": "MGN 554 (M+F) Amendment 2 – Procedure for becoming a UK approved body",
+   "refNo": "MGN 554 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-12-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-554-mf-amendment-2-procedure-for-becoming-a-uk-approved-body"
+  },
+  {
+   "title": "MGN 557 (M+F) Amendment 2 Marine equipment - market surveillance - strategy, reporting and enforcement",
+   "refNo": "MGN 557 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-12-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-557-mf-amendment-2-marine-equipment-market-surveillance-strategy-reporting-and-enforcement"
+  },
+  {
+   "title": "MGN 680 (M+F) Amendment 1 – Procedure for becoming a UK Nominated Body",
+   "refNo": "MGN 680 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-12-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-680-mf-amendment-1-procedure-for-becoming-a-uk-nominated-body"
+  },
+  {
+   "title": "MGN 701 (M) - Application of the industrial personnel code and the special purpose ships code",
+   "refNo": "MGN 701 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-12-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-701-m-application-of-the-industrial-personnel-code-and-the-special-purpose-ships-code"
+  },
+  {
+   "title": "MSN 1874 (M+F) Amendment 11 Marine Equipment United Kingdom conformity assessment and type approval procedures for marine equipment",
+   "refNo": "MSN 1874 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-12-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1874-mf-amendment-11-marine-equipment-united-kingdom-conformity-assessment-and-type-approval-procedures-for-marine-equipment"
+  },
+  {
+   "title": "MSN 1920 (M) Code of safety for special purpose ships, 1983",
+   "refNo": "MSN 1920 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-12-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1920-m-code-of-safety-for-special-purpose-ships-1983"
+  },
+  {
+   "title": "MSN 1919 (M) - Code of Safety for Special Purpose Ships, 2008",
+   "refNo": "MSN 1919 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-12-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1919-m-code-of-safety-for-special-purpose-ships-2008"
+  },
+  {
+   "title": "MSN 1866 (M) Amendment 2 - Training and certification requirements for seafarers on tankers, ships subject to the IGF Code, ships that operate in polar waters and passenger ships",
+   "refNo": "MSN 1866 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-12-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1866-m-amendment-2-training-and-certification-requirements-for-seafarers-on-tankers-ships-subject-to-the-igf-code-ships-that-operate-in-pola"
+  },
+  {
+   "title": "MGN 637 (M) Amendment 1 - International code for ships operating in polar waters (Polar Code)",
+   "refNo": "MGN 637 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-12-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-637-m-amendment-1-international-code-for-ships-operating-in-polar-waters-polar-code"
+  },
+  {
+   "title": "MGN 712 (M) Electronic inclinometers for new container ships and bulk carriers",
+   "refNo": "MGN 712 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-11-25",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-712-m-electronic-inclinometers-for-new-container-ships-and-bulk-carriers"
+  },
+  {
+   "title": "MIN728 (M+F) Upcoming SOLAS chapter V amendment-reporting loss of containers at sea",
+   "refNo": "MIN 728 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-11-25",
+   "sourceUrl": "https://www.gov.uk/government/publications/min728-mf-upcoming-solas-chapter-v-amendment-reporting-loss-of-containers-at-sea"
+  },
+  {
+   "title": "MSN 1838 (M) Amendment 2 MLC, 2006 Minimum Age",
+   "refNo": "MSN 1838 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-11-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1838-m-amendment-2-mlc-2006-minimum-age"
+  },
+  {
+   "title": "MGN 410 (M+F) Amendment 4 work at height regulations 2010",
+   "refNo": "MGN 410 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-10-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-410-mf-amendment-4-work-at-height-regulations-2010"
+  },
+  {
+   "title": "MIN 641 (M) Amendment 1 Navigation: ports and marine facilities safety code compliance submission for 2026-2028",
+   "refNo": "MIN 641 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-10-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-641-m-amendment-1-navigation-ports-and-marine-facilities-safety-code-compliance-submission-for-2026-2028"
+  },
+  {
+   "title": "MIN 725 (M) Electronic reporting of persons on board passenger ships",
+   "refNo": "MIN 725 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-10-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-725-m-electronic-reporting-of-persons-on-board-passenger-ships"
+  },
+  {
+   "title": "MGN 417 (M+F) Amendment 1 Radio communications GMDSS shore based maintenance",
+   "refNo": "MGN 417 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-10-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-417-mf-amendment-1-radio-communications-gmdss-shore-based-maintenance"
+  },
+  {
+   "title": "MGN 446 (M+F) Amd 3 (control of vibration at work) - exemptions",
+   "refNo": "MGN 446 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-10-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-446-mf-amd-3-control-of-vibration-at-work-exemptions"
+  },
+  {
+   "title": "MGN 485 (M) Amendment 1 MLC, 2006 -seafarer employment agreements application to trainees",
+   "refNo": "MGN 485 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-10-02",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-485-m-amendment-1-mlc-2006-seafarer-employment-agreements-application-to-trainees"
+  },
+  {
+   "title": "MGN 602 (M) Amendment 1 MLC substantial equivalence for crew accommodation for 200GT to <500GT",
+   "refNo": "MGN 602 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-10-02",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-602-m-amendment-1-mlc-substantial-equivalence-for-crew-accommodation-for-200gt-to-500gt"
+  },
+  {
+   "title": "MGN 582 (F) Amendment 1 ILO work in fishing convention, 2007 - financial security",
+   "refNo": "MGN 582 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-10-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-582-f-amendment-1-ilo-work-in-fishing-convention-2007-financial-security"
+  },
+  {
+   "title": "MGN 583 (F) Amendment 2 ILO Work in fishing convention - fishermen's work agreements",
+   "refNo": "MGN 583 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-10-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-583-f-amendment-2-ilo-work-in-fishing-convention-fishermens-work-agreements"
+  },
+  {
+   "title": "MGN 587 (F) Amendment 2 ILO health and safety responsibilities",
+   "refNo": "MGN 587 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-10-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-587-f-amendment-2-ilo-health-and-safety-responsibilities"
+  },
+  {
+   "title": "MIN 726 (M+F) Life raft weight compliance based on keel laying date",
+   "refNo": "MIN 726 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-09-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-726-mf-life-raft-weight-compliance-based-on-keel-laying-date"
+  },
+  {
+   "title": "MGN 486(M+F) Amendment 3 access to shore based welfare facilities",
+   "refNo": "MGN 486 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-09-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-486mf-amendment-3-access-to-shore-based-welfare-facilities"
+  },
+  {
+   "title": "MSN 1889 (M+F) Amendment 5 (Biological agents) regulations 2010",
+   "refNo": "MSN 1889 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-09-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1889-mf-amendment-5-biological-agents-regulations-2010"
+  },
+  {
+   "title": "MGN 428 (M+F) Amendment 4 artificial optical radiation regs 2010",
+   "refNo": "MGN 428 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-09-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-428-mf-amendment-4-artificial-optical-radiation-regs-2010"
+  },
+  {
+   "title": "MGN 436 (M+F) Amendment 5 whole body vibration",
+   "refNo": "MGN 436 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-08-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-436-mf-amendment-5-whole-body-vibration"
+  },
+  {
+   "title": "MGN 561 (M) Amendment 1 Surveys: recognised organisation enhanced authorisation",
+   "refNo": "MGN 561 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-08-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-561-m-amendment-1-surveys-recognised-organisation-enhanced-authorisation"
+  },
+  {
+   "title": "MGN 568 (M) Amendment 1 Surveys: alternative compliance safety system",
+   "refNo": "MGN 568 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-08-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-568-m-amendment-1-surveys-alternative-compliance-safety-system"
+  },
+  {
+   "title": "MGN 672 (M) Extended dry-docking",
+   "refNo": "MGN 672 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-08-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-672m-extended-dry-docking"
+  },
+  {
+   "title": "MIN 681 (M) Amendment 1: Helicopter aviation inspection bodies",
+   "refNo": "MIN 681 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-08-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-681-m-amendment-1-helicopter-aviation-inspection-bodies"
+  },
+  {
+   "title": "MGN 447 (M+F) Amendment 4 control of noise at work - seeking exemptions",
+   "refNo": "MGN 447 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-07-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-447-mf-amendment-4-control-of-noise-at-work-seeking-exemptions"
+  },
+  {
+   "title": "MGN 425 (M+F) Amendment 3 risks for those sleeping on \"dead ships\"",
+   "refNo": "MGN 425 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-07-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-425-mf-amendment-3-risks-for-those-sleeping-on-dead-ships"
+  },
+  {
+   "title": "MGN 471 (M) Amendment 2: Maritime Labour Convention, 2006, definitions",
+   "refNo": "MGN 471 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-06-26",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-471-m-amendment-2-maritime-labour-convention-2006-definitions"
+  },
+  {
+   "title": "MGN 498 (M) Amendment 1 Operational guidance for towing inflatables",
+   "refNo": "MGN 498 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-06-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-498-amendment-1-operational-guidance-for-towing-inflatables"
+  },
+  {
+   "title": "MGN 709 Recommendations for ‘Short range’ yachts, when making passages greater than 90 miles from a safe haven",
+   "refNo": "MGN 709",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-06-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-709-recommendations-for-short-range-yachts-when-making-passages-greater-than-90-miles-from-a-safe-haven"
+  },
+  {
+   "title": "MSN 1676 (M+F) Amendment 2 Merchant shipping life-saving appliances regulations",
+   "refNo": "MSN 1676 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-06-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1676-mf-amendment-2-merchant-shipping-life-saving-appliances-regulations"
+  },
+  {
+   "title": "Annex to MGN 656 The latest UK list of approved facilities",
+   "refNo": "MGN 656",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-06-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/annex-to-mgn-656-the-latest-uk-list-of-approved-facilities"
+  },
+  {
+   "title": "MIN 642 (M+F) Engineer Officer Small Vessel Certificate of Competency Guidance",
+   "refNo": "MIN 642 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-06-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-642-mf-engineer-officer-small-vessel-certificate-of-competency-guidance"
+  },
+  {
+   "title": "MGN 351 (M) Amendment 1 leadership qualities for safety management",
+   "refNo": "MGN 351 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-05-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-351-m-amendment-1-leadership-qualities-for-safety-management"
+  },
+  {
+   "title": "MGN 71 (M+F) Amendment 1: Musters, drills, on-board training and instructions, and decision support systems.",
+   "refNo": "MGN 71 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-05-12",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-71-mf-amendment-1-musters-drills-on-board-training-and-instructions-and-decision-support-systems"
+  },
+  {
+   "title": "MIN 716 (M+F) Amendment 1: Changes to the GMDSS process in the UK.",
+   "refNo": "MIN 716 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-05-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-716-mf-changes-to-the-gmdss-process-in-the-uk"
+  },
+  {
+   "title": "MIN 674 (M) Guidance for shipowners regarding seafarers affected by Russia’s invasion of Ukraine",
+   "refNo": "MIN 674 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-05-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-674-m-guidance-for-shipowners-regarding-seafarers-affected-by-russias-invasion-of-ukraine"
+  },
+  {
+   "title": "MSN 1895 (M) The Red Ensign Group (REG) Yacht Code Part A",
+   "refNo": "MSN 1895 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-04-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1895-m-the-red-ensign-group-reg-yacht-code-part-a"
+  },
+  {
+   "title": "MIN 707 (M): UK STCW Merchant Rating Training, Skills, Progression and Funding Availability",
+   "refNo": "MIN 707 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-04-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-707-m-uk-stcw-merchant-rating-training-skills-progression-and-funding-availability"
+  },
+  {
+   "title": "MGN 580 (M) Amendment 1 - Fire protection - fire retardant treatments for fabrics",
+   "refNo": "MGN 580 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-04-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-580-m-amendment-1-fire-protection-fire-retardant-treatments-for-fabrics"
+  },
+  {
+   "title": "MGN 608 Amendment 1 (M+F) Radio Survey Service: Authorisation",
+   "refNo": "MGN 608",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-03-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-608-amendment-1-mf-radio-survey-service-authorisation"
+  },
+  {
+   "title": "MIN 580 New route to an UK Officer of the Watch (OOW) yachts Certificate of Competency",
+   "refNo": "MIN 580",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-03-24",
+   "sourceUrl": "https://www.gov.uk/guidance/min-580-new-route-to-an-uk-officer-of-the-watch-oow-yachts-certificate-of-competency"
+  },
+  {
+   "title": "MGN 600 (M) Amendment 3 Maritime Labour Convention - Inspection of coded vessels",
+   "refNo": "MGN 600 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-02-25",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-600-m-maritime-labour-convention-inspection-of-coded-vessels"
+  },
+  {
+   "title": "MGN 193 Amendment 2 (M+F) the effects of alcohol or drugs at sea",
+   "refNo": "MGN 193",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-02-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-193-amendment-2-mf-the-effects-of-alcohol-or-drugs-at-sea"
+  },
+  {
+   "title": "MGN 610 (M+F) Amendment 1 SOLAS chapter V – guidance on the merchant shipping (safety of navigation) regulations 2020",
+   "refNo": "MGN 610 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-02-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-610-mf-amendment-1-solas-chapter-v-guidance-on-the-merchant-shipping-safety-of-navigation-regulations-2020"
+  },
+  {
+   "title": "MSN 1790 Stability requirements for ro-ro passenger ships",
+   "refNo": "MSN 1790",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2025-02-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1790-stability-requirements-for-ro-ro-passenger-ships"
+  },
+  {
+   "title": "MGN 477 (M) amendment 5 MLC 2006 seafarer's employment agreements",
+   "refNo": "MGN 477 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-02-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-477-m-amendment-5-mlc-2006-seafarers-employment-agreements"
+  },
+  {
+   "title": "MGN 301 (M+F) Amendment 1: Manoeuvring information onboard ships",
+   "refNo": "MGN 301 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-01-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-301-mf-amendment-1-manoeuvring-information-onboard-ships"
+  },
+  {
+   "title": "MIN 718 (M+F) The ship captains medical guide 24th edition",
+   "refNo": "MIN 718 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2025-01-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-718-mf-the-ship-captains-medical-guide-24th-edition"
+  },
+  {
+   "title": "MGN 319 (M+F) Amendment 2 - Acceptance of electronic chart systems for fishing vessels and small vessels in commercial use (code boats) up to 24 metres in load line length (SV-ECS)",
+   "refNo": "MGN 319 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2025-01-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-319-mf-amendment-2-acceptance-of-electronic-chart-systems-for-fishing-vessels-and-small-vessels-in-commercial-use-code-boats-up-to-24-metre"
+  },
+  {
+   "title": "MGN 704 (M+F) Prevention of oil pollution: prohibition on the use and carriage for use of heavy fuel oil in arctic waters",
+   "refNo": "MGN 704 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-12-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-704-mf-prevention-of-oil-pollution-prohibition-on-the-use-and-carriage-for-use-of-heavy-fuel-oil-in-arctic-waters"
+  },
+  {
+   "title": "MIN 700 (M+F) Radio communications – delay to IMO performance standards",
+   "refNo": "MIN 700 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-12-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-700-mf-radio-communications-delay-to-imo-performance-standards"
+  },
+  {
+   "title": "MIN 702 (M+F): VHF channel changes in Antwerp and the Scheldt estuary",
+   "refNo": "MIN 702 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-12-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-702-mf-vhf-channel-changes-in-antwerp-and-the-scheldt-estuary"
+  },
+  {
+   "title": "MGN 599 (M) Amendment 1 Pleasure vessels – regulations and exemptions – guidance and best practice advice",
+   "refNo": "MGN 599 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-12-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-599-m-amendment-1-m-pleasure-vessels-regulations-and-exemptions-guidance-and-best-practice-advice"
+  },
+  {
+   "title": "MGN 627(M) Amendment 2 - Guidance on changes and available exemptions against requirements introduced by the Merchant Shipping (Safety Standards for Passenger Ships on Domestic Voyages) (Miscellaneous amendments) Regulations 2022",
+   "refNo": "MGN 627 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-12-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-627m-amendment-2-guidance-on-changes-and-available-exemptions-against-requirements-introduced-by-the-merchant-shipping-safety-standards-for-p"
+  },
+  {
+   "title": "MIN 715 (M) Cargoes – amendments to the IMSBC code (07-23) and IMDG code (42-24)",
+   "refNo": "MIN 715 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-12-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-715-m-cargoes-amendments-to-the-imsbc-code-07-23-and-imdg-code-42-24"
+  },
+  {
+   "title": "MGN 364 (M+F) Amendment 2 navigation safety: traffic separation schemes – application of rule 10 and navigation in the Dover Strait",
+   "refNo": "MGN 364 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-12-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-364-mf-amendment-2-navigation-safety-traffic-separation-schemes-application-of-rule-10-and-navigation-in-the-dover-strait"
+  },
+  {
+   "title": "MGN 630 Amendment 4 (F) Fishing vessels: Pre-registration surveys for fishing vessels",
+   "refNo": "MGN 630",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-11-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn630-amendment-4-fishing-vessels-pre-registration-surveys-for-fishing-vessels"
+  },
+  {
+   "title": "MIN 676 (M+F) - Amendment 1 - Clarification of Dyslexia Policy: Examination and Assessment Procedures for MCA Written Examinations",
+   "refNo": "MIN 676 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-11-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-676-mf-clarification-of-dyslexia-policy-examination-and-assessment-procedures-for-mca-written-examinations"
+  },
+  {
+   "title": "MGN 703: Information concerning the training and competence of Remote Operators working with Remotely Operated Unmanned Vessels (ROUVs), certified under the Workboat Code Edition 3",
+   "refNo": "MGN 703",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-10-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-703-information-concerning-the-training-and-competence-of-remote-operators-working-with-remotely-operated-unmanned-vessels-rouvs-certified-und"
+  },
+  {
+   "title": "MSN 1883 (F) - Amendment 5 Work in Fishing Convention (No. 188) Medical Examination and Certification for Fishers",
+   "refNo": "MSN 1883 (F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2024-08-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1883-f-amendment-5-work-in-fishing-convention-no-188-medical-examination-and-certification-for-fishers"
+  },
+  {
+   "title": "MIN 554 (M) Amendment 7: vessel traffic services C0103 and local port services course providers",
+   "refNo": "MIN 554 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-08-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-554-m-amendment-7-vessel-traffic-services-c0103-and-local-port-services-course-providers-2024-25"
+  },
+  {
+   "title": "MGN 503 Amendment No.1 (F) Procedure for Carrying out Small Fishing Vessel Stability Tests",
+   "refNo": "MGN 503",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-08-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-503-amendment-no1-f-procedure-for-carrying-out-small-fishing-vessel-stability-tests"
+  },
+  {
+   "title": "MSN 1888 (M+F) Amendment 4 Chemical agents regulations 2010",
+   "refNo": "MSN 1888 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2024-08-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1888-mf-amendment-4-chemical-agents-regulations-2010"
+  },
+  {
+   "title": "MIN 711 (F) Amendment 1 written assessment dates: Deck Officers",
+   "refNo": "MIN 711 (F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-07-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-711-f-amendment-1-written-assessment-dates-deck-officers"
+  },
+  {
+   "title": "MIN 712 (M + F) Amendment 1 written assessment dates: small vessel Engineer Officers (Yachts, sail training and small vessels)",
+   "refNo": "MIN 712",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-07-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-712-m-f-amendment-1-written-assessment-dates-small-vessel-engineer-officers-yachts-sail-training-and-small-vessels"
+  },
+  {
+   "title": "MGN 35 (M+F) Amendment 2 Accidents when using power operated watertight doors",
+   "refNo": "MGN 35 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-07-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-35-mf-amendment-2-accidents-when-using-power-operated-watertight-doors"
+  },
+  {
+   "title": "MGN 548 (M+F) Amendment 1 Life-Saving Appliances – servicing requirements for SOLAS inflatable life saving appliances at approved service stations",
+   "refNo": "MGN 548 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-07-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-548-mf-amendment-1-life-saving-appliances-servicing-requirements-for-solas-inflatable-life-saving-appliances-at-approved-service-stations"
+  },
+  {
+   "title": "MGN 476 (M) MLC 2006 advice signing on non-MLC ratified country's ships",
+   "refNo": "MGN 476 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-07-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-476-m-mlc-2006-advice-signing-on-non-mlc-ratified-countrys-ships"
+  },
+  {
+   "title": "MSN 1916 (M) Workboat code edition 3 – Annex 3 The safety of police boats",
+   "refNo": "MSN 1916 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2024-05-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1916-m-workboat-code-edition-3-annex-3-the-safety-of-police-boats"
+  },
+  {
+   "title": "MSN 1837 (M) Amendment 3: Categorisation of waters",
+   "refNo": "MSN 1837 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2024-05-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1837-m-amendment-3-categorisation-of-waters"
+  },
+  {
+   "title": "MGN 699 (M): Guidance on the merchant shipping (carriage of cargoes) regulations 2024",
+   "refNo": "MGN 699 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-05-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-699-m-guidance-on-the-merchant-shipping-carriage-of-cargoes-regulations-2024"
+  },
+  {
+   "title": "MSN 1917 (M) Carriage of cargoes: requirements for the safe use of pesticides in ships",
+   "refNo": "MSN 1917 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2024-05-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1917-m-carriage-of-cargoes-requirements-for-the-safe-use-of-pesticides-in-ships"
+  },
+  {
+   "title": "MGN 700 (M) Carriage of cargoes: guidance on the safe use of pesticides in ships",
+   "refNo": "MGN 700 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-05-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-700-m-carriage-of-cargoes-guidance-on-the-safe-use-of-pesticides-in-ships"
+  },
+  {
+   "title": "MGN 632 (M+F) Amendment 2: The merchant shipping (prevention of pollution by garbage from ships) regulations 2020",
+   "refNo": "MGN 632 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-05-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-632-mf-amendment-2-the-merchant-shipping-prevention-of-pollution-by-garbage-from-ships-regulations-2020"
+  },
+  {
+   "title": "MGN 698 (M): The carriage of military and commercial explosives",
+   "refNo": "MGN 698 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-05-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-698-m-the-carriage-of-military-and-commercial-explosives"
+  },
+  {
+   "title": "MGN 691 (M) Navigation and radar training requirements for workboat code 3",
+   "refNo": "MGN 691 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-05-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-691-m-navigation-and-radar-training-requirements-for-workboat-code-3"
+  },
+  {
+   "title": "MGN 619 (F) Amendment 2: The application of the LOLER and PUWER Regulations 2006 to fishing vessels",
+   "refNo": "MGN 619 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-05-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-619-f-amendment-2-the-application-of-the-loler-and-puwer-regulations-2006-to-fishing-vessels"
+  },
+  {
+   "title": "MGN 563 (M+F) Amendment 2 Port waste reception facilities and management planning",
+   "refNo": "MGN 563 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-04-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-563-mf-amendment-2-port-waste-reception-facilities-and-management-planning"
+  },
+  {
+   "title": "MGN 588 (F) Amendment 2: Compulsory provision and wearing of personal flotation devices on fishing vessels",
+   "refNo": "MGN 588 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-04-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-588-f-amendment-2-compulsory-provision-and-wearing-of-personal-flotation-devices-on-fishing-vessels"
+  },
+  {
+   "title": "MGN 484 (M) Amendment 4: Health and safety published accident statistics - information and advice",
+   "refNo": "MGN 484 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-04-24",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-484-m-amendment-4-health-and-safety-published-accident-statistics-information-and-advice"
+  },
+  {
+   "title": "MGN 553 Amendment 1(M+F): Inflatable Non-SOLAS liferafts and life-saving appliances",
+   "refNo": "MGN 553",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-04-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-553-amendment-1mf-inflatable-non-solas-liferafts-and-life-saving-appliances"
+  },
+  {
+   "title": "MGN 398 (M+F) Amendment 1: The merchant shipping (anti-fouling systems) regulations 2024",
+   "refNo": "MGN 398 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-04-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-398-mf-amendment-1-the-merchant-shipping-anti-fouling-systems-regulations-2024"
+  },
+  {
+   "title": "MIN 542 (M+F) Amendment 3 life saving appliances – recognised distress signals and advertised alternatives to pyrotechnic flares",
+   "refNo": "MIN 542 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-04-12",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-542-mf-amendment-3-life-saving-appliances-recognised-distress-signals-and-advertised-alternatives-to-pyrotechnic-flares"
+  },
+  {
+   "title": "MSN 1915(F) Merchant Shipping (Work in Fishing Convention) (Medical Certification) Regulations 2018 Exemption",
+   "refNo": "MSN 1915 (F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2024-03-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1915f-merchant-shipping-work-in-fishing-convention-medical-certification-regulations-2018-exemption"
+  },
+  {
+   "title": "MGN 321 (M) Amendment 1 AIS on double-ended passenger ferries",
+   "refNo": "MGN 321 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-03-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-321-m-amendment-1-ais-on-double-ended-passenger-ferries"
+  },
+  {
+   "title": "MGN 506 (M) Amendment 1 Navigation: Deep-sea pilotage in the north sea, english channel, and the skagerrak",
+   "refNo": "MGN 506 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-03-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-506-m-amendment-1-navigation-deep-sea-pilotage-in-the-north-sea-nglish-channel-and-the-skagerrak"
+  },
+  {
+   "title": "MGN 369 (M+F) – Amendment 1 Navigation Safety: Navigation practices relevant to restricted visibility",
+   "refNo": "MGN 369 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-03-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-369-mf-amendment-1-navigation-safety-navigation-practices-relevant-to-restricted-visibility"
+  },
+  {
+   "title": "MGN 696 (M+F) Navigation Safety: Dynamically positioned vessels undertaking diving or other subsea operations",
+   "refNo": "MGN 696 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-03-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-696-mf-navigation-safety-dynamically-positioned-vessels-undertaking-diving-or-other-subsea-operations"
+  },
+  {
+   "title": "MIN 640 Amendment 1 (F) Construction standards for fishing vessels of less than 15m LOA - outfitting of fishing vessels of less than 7m LOA",
+   "refNo": "MIN 640",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-03-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-640-amendment-1-f-construction-standards-for-fishing-vessels-of-less-than-15m-loa-outfitting-of-fishing-vessels-of-less-than-7m-loa"
+  },
+  {
+   "title": "MGN 638 (M+F) Amendment 1: Human element guidance - part 3 distraction",
+   "refNo": "MGN 638 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-03-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-638-mf-amendment-1-human-element-guidance-part-3-distraction"
+  },
+  {
+   "title": "MGN 660 (M) Special measures to enhance maritime safety for merchant ships",
+   "refNo": "MGN 660 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-03-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-660-m-special-measures-to-enhance-maritime-safety-for-merchant-ships"
+  },
+  {
+   "title": "MGN 695 (M) - Training Standards for Crew Taking Part in Helicopter Operations on Large Commercial Yachts",
+   "refNo": "MGN 695 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-03-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-695-m-training-standards-for-crew-taking-part-in-helicopter-operations-on-large-commercial-yachts"
+  },
+  {
+   "title": "MIN 706 (M+F) New IMO voluntary guidelines",
+   "refNo": "MIN 706 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2024-02-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-706-mf-new-imo-voluntary-guidelines"
+  },
+  {
+   "title": "MGN 684 (M) Safety of powered watercraft",
+   "refNo": "MGN 684 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-02-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-684-m-safety-of-powered-watercraft"
+  },
+  {
+   "title": "MGN 628 (M+F) Amendment 1: Construction and outfit standards for fishing vessels of less than 15m length overall",
+   "refNo": "MGN 628 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-01-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-628-mf-amendment-1-construction-and-outfit-standards-for-fishing-vessels-of-less-than-15m-length-overall"
+  },
+  {
+   "title": "MSN 1914 (M) The carriage of dangerous goods and marine pollutants: amendments to international standards",
+   "refNo": "MSN 1914 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2024-01-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1914-m-the-carriage-of-dangerous-goods-and-marine-pollutants-amendments-to-international-standards"
+  },
+  {
+   "title": "MGN 379 (M+F) Amendment 1: use of electronic navigational aids",
+   "refNo": "MGN 379 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-01-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-379-mf-amendment-1-use-of-electronic-navigational-aids"
+  },
+  {
+   "title": "MGN 416 (M) Amendment 1: Small commercial vessels operating in foreign waters",
+   "refNo": "MGN 416 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-01-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-416-m-amendment-1-small-commercial-vessels-operating-in-foreign-waters"
+  },
+  {
+   "title": "MGN 693 (M+F) Amendments to SOLAS chapter II-1 (IGF code)",
+   "refNo": "MGN 693 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-01-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-693-mf-amendments-to-solas-chapter-ii-1-igf-code"
+  },
+  {
+   "title": "MGN 550 (M+F) Amendment 1: Electrical installations - guidance for safe design, installation and operation of lithium-ion batteries",
+   "refNo": "MGN 550 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2024-01-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-550-mf-amendment-1-electrical-installations-guidance-for-safe-design-installation-and-operation-of-lithium-ion-batteries"
+  },
+  {
+   "title": "MIN 701 (M+F) MLC and ILO 188: reportable medical conditions during validity period of a medical certificate",
+   "refNo": "MIN 701 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2023-12-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-701-mf-mlc-and-ilo-188-reportable-medical-conditions-during-validity-period-of-a-medical-certificate"
+  },
+  {
+   "title": "MGN 546 (M) Amendment 1: in-water surveys",
+   "refNo": "MGN 546 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-12-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-546-m-amendment-1-in-water-surveys"
+  },
+  {
+   "title": "MGN 689 (M): Amendments to international conventions and mandatory instruments - requirements for watertight doors on cargo ships",
+   "refNo": "MGN 689 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-689-m-amendments-to-international-conventions-and-mandatory-instruments-requirements-for-watertight-doors-on-cargo-ships"
+  },
+  {
+   "title": "MGN 692 (M) Revised notes to the SOLAS Chapter II-1 subdivision and damage stability regulations",
+   "refNo": "MGN 692 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-692-m-revised-notes-to-the-solas-chapter-ii-1-subdivision-and-damage-stability-regulations"
+  },
+  {
+   "title": "MGN 469 (M) Amendment 1: Safety standards for non-passenger vessels",
+   "refNo": "MGN 469 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-11-24",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-469-m-amendment-1-safety-standards-for-non-passenger-vessels"
+  },
+  {
+   "title": "MSN 1887 (M) Amendment 1: maritime labour convention, 2006: medical certification",
+   "refNo": "MSN 1887 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-11-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1887-m-amendment-1-maritime-labour-convention-2006-medical-certification"
+  },
+  {
+   "title": "MGN 562 (M+F) Amendment 4 Radio: Radio regulations amendments and GMDSS radio equipment updates",
+   "refNo": "MGN 562 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-11-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-562-mf-amendment-4-radio-radio-regulations-amendments-and-gmdss-radio-equipment-updates"
+  },
+  {
+   "title": "MGN 686 (M+F) eligibility for british seaman’s card",
+   "refNo": "MGN 686 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-11-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-686-mf-eligibility-for-british-seamans-card"
+  },
+  {
+   "title": "MIN 697 (F) Amendment 1 - New arrangements for the plan approval, construction and outfit and certification of new build fishing vessels",
+   "refNo": "MIN 697 (F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2023-11-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-697-f-new-arrangements-for-the-plan-approval-construction-and-outfit-and-certification-of-new-build-fishing-vessels-from-30-october-2023"
+  },
+  {
+   "title": "MSN 1781 (M+F) Amendment 3 The Merchant Shipping regulations 1996 - COLREG",
+   "refNo": "MSN 1781 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-11-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1781-mf-amendment-3-the-merchant-shipping-regulations-1996-colreg"
+  },
+  {
+   "title": "MGN 690 (M+F) Approval and acceptance of electronic record books and recording requirements under SOLAS chapter V/Reg 28",
+   "refNo": "MGN 690 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-11-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-690-mf-approval-and-acceptance-of-electronic-record-books-and-recording-requirements-under-solas-chapter-vreg-28"
+  },
+  {
+   "title": "MGN 323 (M+F) Amendment 1 Explosives picked up at sea",
+   "refNo": "MGN 323 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-11-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-323-mf-amendment-1-explosives-picked-up-at-sea"
+  },
+  {
+   "title": "MGN 635 (M): Inspections of Ro-Ro passenger ships and high-speed passenger craft",
+   "refNo": "MGN 635 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-09-26",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-635-m-inspections-of-ro-ro-passenger-ships-and-high-speed-passenger-craft"
+  },
+  {
+   "title": "MGN 664 (M+F) Amendment 1: Certification process for vessels using innovative technology",
+   "refNo": "MGN 664 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-09-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-664-mf-amendment-1-certification-process-for-vessels-using-innovative-technology"
+  },
+  {
+   "title": "MGN 673 (M+F): Radio communications: non-SOLAS vessel",
+   "refNo": "MGN 673 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-09-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-673-mf-radio-communications-non-solas-vessel"
+  },
+  {
+   "title": "MGN 631 (M+F) Amendment 1: The merchant shipping (prevention of pollution by sewage from ships) regulations 2020",
+   "refNo": "MGN 631 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-08-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-631-mf-amendment-1-the-merchant-shipping-prevention-of-pollution-by-sewage-from-ships-regulations-2020"
+  },
+  {
+   "title": "MGN 653 (M) Amendment 1 electric vehicles onboard passenger roll-on/roll-off (ro-ro) ferries",
+   "refNo": "MGN 653 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-08-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-653-m-amendment-1-electric-vehicles-onboard-passenger-roll-onroll-off-ro-ro-ferries"
+  },
+  {
+   "title": "MGN 434 (M+F) Amendment 2: Navigation: vessel traffic services (VTS) – training and certification of VTS personnel",
+   "refNo": "MGN 434 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-08-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-434-mf-amendment-2-navigation-vessel-traffic-services-vts-training-and-certification-of-vts-personnel"
+  },
+  {
+   "title": "MIN 692 (M+F) Navigation: vessel traffic services (VTS) – accreditation of prior learning",
+   "refNo": "MIN 692 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2023-08-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-692-mf-navigation-vessel-traffic-services-vts-accreditation-of-prior-learning"
+  },
+  {
+   "title": "MSN 1794 (M) Amendment 2: Counting and registration of persons on board passenger ships",
+   "refNo": "MSN 1794 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-07-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1794-m-amendment-2-counting-and-registration-of-persons-on-board-passenger-ships"
+  },
+  {
+   "title": "MGN 651 (M) Bilge alarms on cargo ships 24m or more in length and under 500GT",
+   "refNo": "MGN 651 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-07-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-651-m-bilge-alarms-on-cargo-ships-24m-or-more-in-length-and-under-500gt"
+  },
+  {
+   "title": "MGN 668 (M) Amendment 1: Additional safety measures for bulk carriers",
+   "refNo": "MGN 668 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-07-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-668-m-amendment-1-additional-safety-measures-for-bulk-carriers"
+  },
+  {
+   "title": "MGN 353 (M+F) Control of vibration at work regulations 2007",
+   "refNo": "MGN 353 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-07-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-353-mf-control-of-vibration-at-work-regulations-2007"
+  },
+  {
+   "title": "MGN 451 (M+F) The risk of exposure to radiation",
+   "refNo": "MGN 451 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-06-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-451-mf-the-risk-of-exposure-to-radiation"
+  },
+  {
+   "title": "MSN 1665 (M) Amendment 1: Fire fighting equipment",
+   "refNo": "MSN 1665 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1665-m-amendment-1"
+  },
+  {
+   "title": "MSN 1666 (M) Amendment 1: fixed fire detection alarm and extinguishing systems",
+   "refNo": "MSN 1666 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1666-m-amendment-1-fixed-fire-detection-alarm-and-extinguishing-systems"
+  },
+  {
+   "title": "MSN 1667 (M) Amendment 1: fire integrity of bulkheads, decks and ventilation ducts",
+   "refNo": "MSN 1667 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1667-m-amendment-1-fire-integrity-of-bulkheads-decks-and-ventilation-ducts"
+  },
+  {
+   "title": "MSN 1668 (M) Amendment 1: fire integrity of bulkheads, decks, ventilation ducting",
+   "refNo": "MSN 1668 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1668-m-amendment-1-fire-integrity-of-bulkheads-decks-ventilation-ducting"
+  },
+  {
+   "title": "MSN 1669 (M) Amendment 1: special fire safety measures for ships carrying dangerous goods",
+   "refNo": "MSN 1669 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1669-m-amendment-1-special-fire-safety-measures-for-ships-carrying-dangerous-goods"
+  },
+  {
+   "title": "MSN 1670 (M) Amendment 2: The Merchant Shipping (Fire Protection) Regulations 2023 and 1998",
+   "refNo": "MSN 1670 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1670-m-amendment-2-the-merchant-shipping-fire-protection-regulations-2023-and-1998"
+  },
+  {
+   "title": "MSN 1900(M): The Merchant Shipping (Fire Protection) Regulations",
+   "refNo": "MSN 1900 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1900m-the-merchant-shipping-fire-protection-regulations"
+  },
+  {
+   "title": "MSN 1901 (M): The Merchant Shipping (Fire Protection) Regulations 2023",
+   "refNo": "MSN 1901 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1901-m-the-merchant-shipping-fire-protection-regulations-2023"
+  },
+  {
+   "title": "MSN 1902 (M): The Merchant Shipping (Fire Protection) Regulations 2023",
+   "refNo": "MSN 1902 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1902-m-the-merchant-shipping-fire-protection-regulations-2023"
+  },
+  {
+   "title": "MGN 666 (M) Guidance for Merchant Shipping Notice (MSN) 1900 (M)",
+   "refNo": "MGN 666 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-666-m-guidance-for-merchant-shipping-notice-msn-1900-m"
+  },
+  {
+   "title": "MGN 667 (M) Guidance for MSN 1901 and MSN 1902",
+   "refNo": "MGN 667 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-06-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-667-m-guidance-for-msn-1901-and-msn-1902"
+  },
+  {
+   "title": "MGN 424 (M) Safety responsibilities on board dive boats",
+   "refNo": "MGN 424 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-05-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-424-m-safety-responsibilities-on-board-dive-boats"
+  },
+  {
+   "title": "MGN 468 - Amendment 1 (M) - Voluntary Towage Endorsement Scheme",
+   "refNo": "MGN 468",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-05-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-468-amendment-1-m-voluntary-towage-endorsement-scheme"
+  },
+  {
+   "title": "MGN 685 (M+F) Issue of discharge books to seafarers",
+   "refNo": "MGN 685 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-05-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-685-mf-issue-of-discharge-books-to-seafarers"
+  },
+  {
+   "title": "MGN 492 (M+F) Protecting those not employed by the shipowner",
+   "refNo": "MGN 492 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-05-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-492-mf-protecting-those-not-employed-by-the-shipowner"
+  },
+  {
+   "title": "MGN 374 (M+F) Amendment 1: Periodic inspection and testing of seamless steel pressurised gas cylinders",
+   "refNo": "MGN 374 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-04-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-374-mf-amendment-1-periodic-inspection-and-testing-of-seamless-steel-pressurised-gas-cylinders"
+  },
+  {
+   "title": "MGN 276 (M+F) Amendment 1: Fire protection - maintenance of portable fire extinguishers",
+   "refNo": "MGN 276 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-04-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-276-mf-amendment-1-fire-protection-maintenance-of-portable-fire-extinguishers"
+  },
+  {
+   "title": "MGN 394 (M+F) Amendment 1: Local supplier of fuel oil registration",
+   "refNo": "MGN 394 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-04-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-394-mf-amendment-1-local-supplier-of-fuel-oil-registration"
+  },
+  {
+   "title": "MGN 400 (M+F) Amendment 1: Additional guidance on air pollution from ships",
+   "refNo": "MGN 400 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-04-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-400-mf-amendment-1-additional-guidance-on-air-pollution-from-ships"
+  },
+  {
+   "title": "MGN 683 (M+F) IMO carbon reduction measures",
+   "refNo": "MGN 683 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-04-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-683-mf-imo-carbon-reduction-measures"
+  },
+  {
+   "title": "MGN 663 (F) Enclosed space entry on fishing vessels",
+   "refNo": "MGN 663 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-03-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn663-f-enclosed-space-entry-on-fishing-vessels"
+  },
+  {
+   "title": "MSN 1884 (F) ILO Work in fishing convention, working time",
+   "refNo": "MSN 1884 (F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-03-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1884-f-ilo-work-in-fishing-convention-working-time"
+  },
+  {
+   "title": "MSN 1698 (M) Amendment 1 - The merchant shipping (passenger ship construction: ships of classes I, II and II(A)) regulations 1998",
+   "refNo": "MSN 1698 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-03-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1698-m-amendment-1-the-merchant-shipping-passenger-ship-construction-ships-of-classes-i-ii-and-iia-regulations-1998"
+  },
+  {
+   "title": "MSN 1907 (M) - Application to ships built before 1st January 2009 and engaged on international voyages",
+   "refNo": "MSN 1907 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2023-03-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1907-m-application-to-ships-built-before-1st-january-2009-and-engaged-on-international-voyages"
+  },
+  {
+   "title": "MGN 671 (M) Subdivision and damage stability of cargo ships of 80m in length and over",
+   "refNo": "MGN 671 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-03-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-671-m-subdivision-and-damage-stability-of-cargo-ships-of-80m-in-length-and-over"
+  },
+  {
+   "title": "MGN 676 (M) Unmanned non-self-propelled barges – MARPOL Annexes I and IV Exemptions",
+   "refNo": "MGN 676 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2023-02-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-676-m-unmanned-non-self-propelled-barges-marpol-annexes-i-and-iv-exemptions"
+  },
+  {
+   "title": "MSN 1904 (M+F) UK Requirements for Engineer Officer Small Vessel Certificate of Competency",
+   "refNo": "MSN 1904 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1904-mf-uk-requirements-for-engineer-officer-small-vessel-certificate-of-competency"
+  },
+  {
+   "title": "MGN 536 (M) Amendment 5 safety management code for domestic passenger ships",
+   "refNo": "MGN 536 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-12-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-536-m-amendment-5-safety-management-code-for-domestic-passenger-ships"
+  },
+  {
+   "title": "MSN 1856 (M+F) - Amendment 1 - UK Requirements for Master and Deck Officers",
+   "refNo": "MSN 1856 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1856-mf-amendment-1-uk-requirements-for-master-and-deck-officers"
+  },
+  {
+   "title": "MSN 1857 (M+F) - Amendment 1 - UK Requirements for Engineer Officers and Engineer Operators",
+   "refNo": "MSN 1857 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1857-mf-amendment-1-uk-requirements-for-engineer-officers-and-engineer-operators"
+  },
+  {
+   "title": "MSN 1860 (M) - Amendment 1 - UK Requirements For Electro-technical Officers",
+   "refNo": "MSN 1860 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1860-m-amendment-1-uk-requirements-for-electro-technical-officers"
+  },
+  {
+   "title": "MSN 1861 (M) - Amendment 1 - UK Procedure for the Revalidation of Certificates of Competency and Tanker Endorsements",
+   "refNo": "MSN 1861 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1861-m-amendment-1-uk-procedure-for-the-revalidation-of-certificates-of-competency-and-tanker-endorsements"
+  },
+  {
+   "title": "MSN 1862 (M) - Amendment 1 - UK Requirements for Deck Ratings",
+   "refNo": "MSN 1862 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1862-m-amendment-1-uk-requirements-for-deck-ratings"
+  },
+  {
+   "title": "MSN 1863 (M+F) - Amendment 1 - UK Requirements for Engine Room Ratings",
+   "refNo": "MSN 1863 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1863-mf-amendment-1-uk-requirements-for-engine-room-ratings"
+  },
+  {
+   "title": "MSN 1864 (M) - Amendment 1 - UK Requirements for Radio Operators",
+   "refNo": "MSN 1864 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1864-m-amendment-1-uk-requirements-for-radio-operators"
+  },
+  {
+   "title": "MSN 1865 (M) - Amendment 1 - UK Requirements for Emergency, Occupational Safety, Security, Medical Care and Survival Functions",
+   "refNo": "MSN 1865 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1865-m-amendment-1-uk-requirements-for-emergency-occupational-safety-security-medical-care-and-survival-functions"
+  },
+  {
+   "title": "MSN 1867 (M) - Amendment 1 - Recognition of non-UK certification for the issue of a Flag State Endorsement",
+   "refNo": "MSN 1867 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1867-m-amendment-1-recognition-of-non-uk-certification-for-the-issue-of-a-flag-state-endorsement"
+  },
+  {
+   "title": "MSN 1868 (M) - Amendment 1 - UK Requirements for Safe Manning and Watchkeeping",
+   "refNo": "MSN 1868 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1868-m-amendment-1-uk-requirements-for-safe-manning-and-watchkeeping"
+  },
+  {
+   "title": "MGN 375 (M+F) Maritime safety information Amendment 1",
+   "refNo": "MGN 375 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-375-mf-maritime-safety-information-amendment-1"
+  },
+  {
+   "title": "MIN 511 (M) - Amendment 1 - Alternative Route for an Engineer Officer of the Watch (EOOW) Unlimited Certificate of Competency",
+   "refNo": "MIN 511 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-511-m-amendment-1-alternative-route-for-an-engineer-officer-of-the-watch-eoow-unlimited-certificate-of-competency"
+  },
+  {
+   "title": "MIN 636 (M+F) Amendment 3 Radio Communications - Iridium GMDSS Recognised Mobile Satellite Service",
+   "refNo": "MIN 636 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2022-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-636-mf-amendment-3-radio-communications-iridium-gmdss-recognised-mobile-satellite-service"
+  },
+  {
+   "title": "MGN 677 (M) Guidance on the Merchant Shipping (High Speed Craft) Regulations 2022 (SI 2022/1219)",
+   "refNo": "MGN 677 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-12-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-677-m-guidance-on-the-merchant-shipping-high-speed-craft-regulations-2022-si-20221219"
+  },
+  {
+   "title": "MIN 686 (M) Chapter X of SOLAS and the High Speed Craft Codes 1994 and 2000 - Amending Resolutions since 2012",
+   "refNo": "MIN 686 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2022-12-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-686-m-chapter-x-of-solas-and-the-high-speed-craft-codes-1994-and-2000-amending-resolutions-since-2012"
+  },
+  {
+   "title": "MSN 1699(M) Amendment 3 The Merchant Shipping (Passenger Ship Construction: Ships of Classes III to VI(A)) Regulations 1998.",
+   "refNo": "MSN 1699 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-12-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1699m-amendment-3-the-merchant-shipping-passenger-ship-construction-ships-of-classes-iii-to-via-regulations-1998"
+  },
+  {
+   "title": "MGN 504 (M) Maritime Passenger Rights - role of the National Enforcement Body",
+   "refNo": "MGN 504 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-12-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-504-maritime-passenger-rights-national-enforcement-body"
+  },
+  {
+   "title": "MGN 679 Nuclear Ships",
+   "refNo": "MGN 679",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-12-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-679-nuclear-ships"
+  },
+  {
+   "title": "MSN 1846 (M) MLC 2006 food and catering ship's cooks and catering staff",
+   "refNo": "MSN 1846 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-11-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1846-m-mlc-2006-food-and-catering-ships-cooks-and-catering-staff"
+  },
+  {
+   "title": "MSN 1848 (M) Maritime labour convention survey and certification of UK ships",
+   "refNo": "MSN 1848 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-11-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1848-m-maritime-labour-convention-survey-and-certification-of-uk-ships"
+  },
+  {
+   "title": "MGN 372 Amendment 1 (M+F) Guidance to mariners operating in vicinity of UK OREIs",
+   "refNo": "MGN 372",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-11-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-372-amendment-1-mf-guidance-to-mariners-operating-in-vicinity-of-uk-oreis"
+  },
+  {
+   "title": "MIN 687 Changes to how individuals can dispose of marine flares",
+   "refNo": "MIN 687",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2022-10-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-687-changes-to-how-individuals-can-dispose-of-marine-flares"
+  },
+  {
+   "title": "MGN 349 (M+F) Amendment 1 Carriage and use of radar reflectors on small vessels",
+   "refNo": "MGN 349 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-10-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-349-mf-amendment-1-carriage-and-use-of-radar-reflectors-on-small-vessels"
+  },
+  {
+   "title": "MGN 479 (M) Maritime labour convention 2006 repatriation of seafarers",
+   "refNo": "MGN 479 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-10-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-479-m-maritime-labour-convention-2006-repatriation-of-seafarers"
+  },
+  {
+   "title": "MSN 1877 (M) Maritime labour convention 2006, hours of work and entitlement to leave",
+   "refNo": "MSN 1877 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-10-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1877-m-maritime-labour-convention-2006-hours-of-work-and-entitlement-to-leave"
+  },
+  {
+   "title": "MGN 629 (M+F) Construction and outfit standards for fishing vessels of 15m to 24m",
+   "refNo": "MGN 629 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-08-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-629-mf-construction-and-outfit-standards-for-fishing-vessels-of-15m-to-24m"
+  },
+  {
+   "title": "MGN 652 (M+F) infectious disease at sea",
+   "refNo": "MGN 652 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-08-12",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-652-mf-infectious-disease-at-sea"
+  },
+  {
+   "title": "MSN 1796 (M+F) Amendment 4 Designation of Vessel Traffic Services (VTS)",
+   "refNo": "MSN 1796 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-08-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1796-mf-amendment-4-designation-of-vessel-traffic-services-vts"
+  },
+  {
+   "title": "MSN 1850 (M) Amendment 1: Maritime Labour Convention, 2006: health and safety reporting of occupational diseases",
+   "refNo": "MSN 1850 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-07-25",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1850-m-amendment-1-maritime-labour-convention-2006-health-and-safety-reporting-of-occupational-diseases"
+  },
+  {
+   "title": "MGN 570 Amendment No. 1: (F) Fishing vessels: emergency drills",
+   "refNo": "MGN 570",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-06-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-570-amendment-no-1-f-fishing-vessels-emergency-drills"
+  },
+  {
+   "title": "MGN 70 (M) Amendment 1 Guidelines on responsibilities for resolution of stowaway cases",
+   "refNo": "MGN 70 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-05-25",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-70-m-amendment-1-guidelines-on-responsibilities-resolution-of-stowaways"
+  },
+  {
+   "title": "MIN609 (M+F) Amendment 2 Implementation of electronic certificates",
+   "refNo": "MIN 609 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2022-05-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/min609-mf-amendment-2-implementation-of-electronic-certificates"
+  },
+  {
+   "title": "MGN 649 (M) Amendment 1 Application of MARPOL Annex II to offshore support vessels",
+   "refNo": "MGN 649 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-05-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-649-m-amendment-1-application-of-marpol-annex-ii-to-offshore-support-vessels"
+  },
+  {
+   "title": "MGN 487 (M) Amendment 2 Maritime Labour Convention (MLC), 2006 On-shore complaints",
+   "refNo": "MGN 487 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-04-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-487-m-amendment-2-maritime-labour-convention-mlc-2006-on-shore-complaints"
+  },
+  {
+   "title": "MGN 324 (M+F) Amendment 2 navigation: watchkeeping safety – use of Very High Frequency (VHF) radio and Automatic Identification System (AIS)",
+   "refNo": "MGN 324 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-03-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-324-mf-amendment-2-navigation-watchkeeping-safety-use-of-very-high-frequency-vhf-radio-and-automatic-identification-system-ais"
+  },
+  {
+   "title": "MGN 401 (M+F) Amendment 3 Navigation: Vessel Traffic Services (VTS) and Local Port Services (LPS) in the UK",
+   "refNo": "MGN 401 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-03-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-401-mf-amendment-3-navigation-vessel-traffic-services-vts-and-local-port-services-lps-in-the-uk"
+  },
+  {
+   "title": "MGN 478 (M) Maritime labour convention 2006 - seafarer's wages",
+   "refNo": "MGN 478 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-03-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-478-m-maritime-labour-convention-2006-seafarers-wages"
+  },
+  {
+   "title": "MSN 1747 (M) Amendment 1 Sea areas associated with the Merchant Shipping (Passenger Ships on Domestic Voyages) Regulations 2000",
+   "refNo": "MSN 1747 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-03-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1747-m-amendment-1-sea-areas-associated-with-the-merchant-shipping-passenger-ships-on-domestic-voyages-regulations-2000"
+  },
+  {
+   "title": "MGN 306(M) Amendment 1 - Designing and operating smaller passenger vessels: guidance on meeting the needs of persons with disabilities",
+   "refNo": "MGN 306 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-03-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-306m-amendment-1-designing-and-operating-smaller-passenger-vessels-guidance-on-meeting-the-needs-of-persons-with-disabilities"
+  },
+  {
+   "title": "MGN 641 Amendment 1 (M) Guidance on radiocommunications under chapter IV of SOLAS",
+   "refNo": "MGN 641",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2022-03-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-641-amendment-1-m-guidance-on-radiocommunications-under-chapter-iv-of-solas"
+  },
+  {
+   "title": "MIN 593 (F) Amendment 1 Vessel modifications - pre-approval by MCA",
+   "refNo": "MIN 593 (F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2022-02-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-593-f-amendment-1-vessel-modifications-pre-approval-by-mca"
+  },
+  {
+   "title": "MSN 1882 (F) ILO work in fishing convention minimum age",
+   "refNo": "MSN 1882 (F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2022-02-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1882-f-ilo-work-in-fishing-convention-minimum-age"
+  },
+  {
+   "title": "MIN 644 (M+F) Approval and acceptance of electronic record books and recording requirements under MARPOL",
+   "refNo": "MIN 644 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2022-01-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-644-mf-approval-and-acceptance-of-electronic-record-books-and-recording-requirements-under-marpol"
+  },
+  {
+   "title": "MGN 524 (M+F) Amendment 1 - Life-saving appliances – category C medical kits",
+   "refNo": "MGN 524 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-12-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-524-mf-amendment-1-life-saving-appliances-category-c-medical-kits"
+  },
+  {
+   "title": "MGN 560 (M+F) Amendment 2 life-saving appliances",
+   "refNo": "MGN 560 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-12-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-560-mf-amendment-2-life-saving-appliances"
+  },
+  {
+   "title": "MSN 1690 (M) Amendment 1 Radio equipment: serviceability and maintenance",
+   "refNo": "MSN 1690 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2021-12-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1690-m-amendment-1-radio-equipment-serviceability-and-maintenance"
+  },
+  {
+   "title": "MSN 1903 (M) The Global Maritime Distress and Safety System (GMDSS) ship requirements",
+   "refNo": "MSN 1903 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2021-12-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1903-m-the-global-maritime-distress-and-safety-system-gmdss-ship-requirements"
+  },
+  {
+   "title": "MSN 1853 (M) Amendment 1: Boatmasters’ Qualifications, Crew and Hours of Work",
+   "refNo": "MSN 1853 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2021-12-02",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1853-m-boatmasters-qualifications-crew-and-hours-of-work"
+  },
+  {
+   "title": "MGN 661 (M+F) Navigation - safe and responsible anchoring and fishing practices",
+   "refNo": "MGN 661 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-12-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-661-mf-navigation-safe-and-responsible-anchoring-and-fishing-practices"
+  },
+  {
+   "title": "MSN 1829 (M) Ship to ship transfer regulations 2020",
+   "refNo": "MSN 1829 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2021-11-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1829-ship-to-ship-transfer-regulations-2010-and-2012"
+  },
+  {
+   "title": "MSN 1871 Amendment No. 2 (F) The Code of Practice for the Safety of Small Fishing Vessels of less than 15m Length Overall",
+   "refNo": "MSN 1871",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2021-09-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1871-amendment-no-2-f-the-code-of-practice-for-the-safety-of-small-fishing-vessels-of-less-than-15m-length-overall"
+  },
+  {
+   "title": "MGN 535 (M) Amendment 1 Small Seagoing Passenger Ship code (SSPS)",
+   "refNo": "MGN 535 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-08-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-535-m-amendment-1-small-seagoing-passenger-ship-code-ssps"
+  },
+  {
+   "title": "MGN 658 (M+F) Control of noise at work regulations 2007",
+   "refNo": "MGN 658 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-07-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-658-mf-control-of-noise-at-work-regulations-2007"
+  },
+  {
+   "title": "MGN 558 (M) Amendment 1 Marine Evacuation Systems (MES) servicing and deployments",
+   "refNo": "MGN 558 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-06-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-558-m-amendment-1-life-saving-appliances"
+  },
+  {
+   "title": "MGN 656 (M+F) The United Kingdom list of approved ship recycling facilities",
+   "refNo": "MGN 656 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-06-10",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-656-mf-the-united-kingdom-list-of-approved-ship-recycling-facilities"
+  },
+  {
+   "title": "MGN 440 (M) Amendment 1 Measures to counter piracy, armed robbery",
+   "refNo": "MGN 440 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-04-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-440-m-amendment-1-measures-to-counter-piracy-armed-robbery"
+  },
+  {
+   "title": "MGN 654 (M+F) Offshore Renewable Energy Installations (OREI) safety response",
+   "refNo": "MGN 654 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-04-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-654-mf-offshore-renewable-energy-installations-orei-safety-response"
+  },
+  {
+   "title": "MIN 523 open reversible liferafts - UK over capacity",
+   "refNo": "MIN 523",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2021-04-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-523-m-open-reversible-liferafts-orls-uk-over-capacity-and-servicing-exemption"
+  },
+  {
+   "title": "MGN 505 (M) Amendment 1: Human element guidance - Part 1: Fatigue and fitness",
+   "refNo": "MGN 505 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-04-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-505-human-element-guidance-fatigue-and-fitness-for-duty"
+  },
+  {
+   "title": "MGN 642 (M) Safety rules and standards for seagoing domestic passenger ships: 2016 and 2017 amendments",
+   "refNo": "MGN 642 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2021-03-12",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-642-m-safety-rules-and-standards-for-seagoing-domestic-passenger-ships-2016-and-2017-amendments"
+  },
+  {
+   "title": "MGN 633 (M+F) Amendment 1: Ship recycling requirements in relation to hazardous materials on ships",
+   "refNo": "MGN 633 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-12-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-633-mf-amendment-1-ship-recycling-requirements-in-relation-to-hazardous-materials-on-ships"
+  },
+  {
+   "title": "MIN 619 (M) Notice of general exemption for workboats built before 21 July 1968",
+   "refNo": "MIN 619 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2020-12-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-619-m-notice-of-general-exemption-for-workboats-built-before-21-july-1968"
+  },
+  {
+   "title": "MSN 1672 (M+F) Amendment 4: Ship inspection and survey organisations",
+   "refNo": "MSN 1672 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2020-12-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1672-mf-amendment-4-ship-inspection-and-survey-organisations"
+  },
+  {
+   "title": "MGN 646 (M+F) Engine emission standards applicable to inland waterway vessels",
+   "refNo": "MGN 646 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-12-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-646-mf-engine-emission-standards-applicable-to-inland-waterway-vessels"
+  },
+  {
+   "title": "MGN 647 (M+F) Alternative to the IMO MARPOL Annex VI tier III standard engine",
+   "refNo": "MGN 647 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-12-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-647-mf-alternative-to-the-imo-marpol-annex-vi-tier-iii-standard-engine"
+  },
+  {
+   "title": "MGN 634 (M+F) Navigation: Long-range identification and tracking – survey, certification and compliance",
+   "refNo": "MGN 634 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-10-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-634-mf-navigation-long-range-identification-and-tracking-survey-certification-and-compliance"
+  },
+  {
+   "title": "MGN 643 (M) Emergency information and arrangements for passengers on passenger ships",
+   "refNo": "MGN 643 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-10-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-643-m-emergency-information-and-arrangements-for-passengers-on-passenger-ships"
+  },
+  {
+   "title": "MGN 644 (M) Interpretation on positive freeboard and decked or open vessel",
+   "refNo": "MGN 644 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-10-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-644-m-interpretation-on-positive-freeboard-and-decked-or-open-vessel"
+  },
+  {
+   "title": "MIN 635 (M) - Wellbeing at Sea Publications",
+   "refNo": "MIN 635 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2020-09-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-635-m-wellbeing-at-sea-publications"
+  },
+  {
+   "title": "MGN 384 (M+F) Amendment 1 Training in the maintenance of electronic navigational equipment",
+   "refNo": "MGN 384 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-09-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-384-mf-amendment-1-training-in-the-maintenance-of-electronic-navigational-equipment"
+  },
+  {
+   "title": "MGN 366 (M+F) Amendment 1 Off-shore pirate broadcasting",
+   "refNo": "MGN 366 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-08-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-366-mf-amendment-1-off-shore-pirate-broadcasting"
+  },
+  {
+   "title": "MGN 311 (F) Working and protective gear for fishermen",
+   "refNo": "MGN 311 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-07-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-311-working-and-protective-gear-for-fishermen"
+  },
+  {
+   "title": "MGN 455 Support for maritime training scheme-revised arrangements",
+   "refNo": "MGN 455",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-06-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-455-support-for-maritime-training-scheme-revised-arrangements"
+  },
+  {
+   "title": "MIN 486 Maritime training - extra funds of up to £3 million",
+   "refNo": "MIN 486",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2020-06-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-486-m-support-for-maritime-training-additional-funds-of-up-to-3-million"
+  },
+  {
+   "title": "MGN 305 (M+F) Amendment 1 Barring of INMARSAT ship earth station procedures",
+   "refNo": "MGN 305 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-06-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-305-mf-amendment-1-barring-of-inmarsat-ship-earth-station-procedures"
+  },
+  {
+   "title": "MGN 618 (M) Large commercial yachts - guidance for the control and operation of lifting gear",
+   "refNo": "MGN 618 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-04-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-618-m-large-commercial-yachts-guidance-for-the-control-and-operation-of-lifting-gear"
+  },
+  {
+   "title": "MIN 610 (M+F) MARPOL - Amendments to MARPOL annex VI chapter 3",
+   "refNo": "MIN 610 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2020-04-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-610-mf-marpol-amendments-to-marpol-annex-vi-chapter-3"
+  },
+  {
+   "title": "MGN 555 (M) Amendment 1 Life-saving appliances: lifeboats, rescue boats, launching appliances and release gear - authorisation of service providers",
+   "refNo": "MGN 555 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2020-03-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-555-m-amendment-1-life-saving-appliances-lifeboats-rescue-boats-launching-appliances-and-release-gear-authorisation-of-service-providers"
+  },
+  {
+   "title": "MIN 607 (M+F) Port and terminal refusal of requests to conduct boat drills",
+   "refNo": "MIN 607 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2020-02-25",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-607-mf-port-and-terminal-refusal-of-requests-to-conduct-boat-drills"
+  },
+  {
+   "title": "MSN 1879 (M) Amendment 1 - Directive (EU) 2016/1629 – Laying down technical requirements for inland waterway vessels",
+   "refNo": "MSN 1879 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2020-02-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1879-m-amendment-1-directive-eu-20161629-laying-down-technical-requirements-for-inland-waterway-vessels"
+  },
+  {
+   "title": "MSN 1880 (M) Amendment 1 - Directive (EU) 2016/1629 – Technical requirements for inland waterway vessels - Annex II",
+   "refNo": "MSN 1880 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2020-02-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1880-m-amendment-1-directive-eu-20161629-technical-requirements-for-inland-waterway-vessels-annex-ii"
+  },
+  {
+   "title": "MSN 1899 (M+F) Vessel traffic monitoring notification and reporting requirements for ships and ports",
+   "refNo": "MSN 1899 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2020-01-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1899-mf-vessel-traffic-monitoring-notification-and-reporting-requirements-for-ships-and-ports"
+  },
+  {
+   "title": "MIN 606 Notification of suspension for some UK Certification of Competency holders.",
+   "refNo": "MIN 606",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2020-01-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-606-notification-of-suspension-for-some-uk-certification-of-competency-holders"
+  },
+  {
+   "title": "MSN 1869 (M) Safety Management Code For Domestic Passenger Ships",
+   "refNo": "MSN 1869 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2020-01-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1869-m-safety-management-code-for-domestic-passenger-ships"
+  },
+  {
+   "title": "MGN 623 (M+F) Telemedical advice service (TMAS) for ships at sea",
+   "refNo": "MGN 623 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-623-mf-telemedical-advice-service-tmas-for-ships-at-sea"
+  },
+  {
+   "title": "MGN 406 (M+F) Use of barbecues and pig roasts on ships and fishing vessels",
+   "refNo": "MGN 406 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-11-26",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-406-mf-use-of-barbecues-and-pig-roasts-on-ships-and-fishing-vessels"
+  },
+  {
+   "title": "MGN 621 roll-on/roll-off ships - guidance for the stowage and securing of vehicles",
+   "refNo": "MGN 621",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-11-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-621-roll-onroll-off-ships-guidance-for-the-stowage-and-securing-of-vehicles"
+  },
+  {
+   "title": "MIN 603 (M+F) Refurbishment of Liverpool marine office and coastal operations base",
+   "refNo": "MIN 603 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2019-10-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-603-mf-refurbishment-of-liverpool-marine-office-and-coastal-operations-base"
+  },
+  {
+   "title": "MIN 602 Guidance and deadline for the notification of assessment requirement for some UK certificate of competency holders.",
+   "refNo": "MIN 602",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2019-10-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-602-guidance-and-deadline-for-the-notification-of-assessment-requirement-for-some-uk-certificate-of-competency-holders"
+  },
+  {
+   "title": "MGN 612 (M) Yacht and powerboat safety at sea - maintenance, modifications, damage and repairs - good practice",
+   "refNo": "MGN 612 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-08-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-612-m-yacht-and-powerboat-safety-at-sea-maintenance-modifications-damage-and-repairs-good-practice"
+  },
+  {
+   "title": "MGN 613 (M) Yacht and powerboat safety at sea - grounding of fixed fin keel GRP yachts - good practice",
+   "refNo": "MGN 613 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-08-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-613-m-yacht-and-powerboat-safety-at-sea-grounding-of-fixed-fin-keel-grp-yachts-good-practice"
+  },
+  {
+   "title": "MGN 614 (M) Yacht and powerboat safety at sea - stowage of life-saving appliances - good practice",
+   "refNo": "MGN 614 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-08-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-614-m-yacht-and-powerboat-safety-at-sea-stowage-of-life-saving-appliances-good-practice"
+  },
+  {
+   "title": "MGN 615 (M) Yacht and powerboat safety at sea - preparedness for non-coastal passages - good practice",
+   "refNo": "MGN 615 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-08-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-615-m-yacht-and-powerboat-safety-at-sea-preparedness-for-non-coastal-passages-good-practice"
+  },
+  {
+   "title": "MGN 616 (M) Yacht and powerboat safety at sea - rigs and rigging - good practice for inspection",
+   "refNo": "MGN 616 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-08-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-616-m-yacht-and-powerboat-safety-at-sea-rigs-and-rigging-good-practice-for-inspection"
+  },
+  {
+   "title": "MGN 617 (M) Yacht and powerboat safety at sea - emergency procedures, equipment and actions - good practice",
+   "refNo": "MGN 617 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-08-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-617-m-yacht-and-powerboat-safety-at-sea-emergency-procedures-equipment-and-actions-good-practice"
+  },
+  {
+   "title": "MGN 609 (M) Class IX tugs under 500GT - guidance for exemption from the carriage of a rescue boat",
+   "refNo": "MGN 609 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-07-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-609-m-class-ix-tugs-under-500gt-guidance-for-exemption-from-the-carriage-of-a-rescue-boat"
+  },
+  {
+   "title": "MGN 611 (M) Damage stability: alternative verification method for tankers",
+   "refNo": "MGN 611 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-07-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-611-m-damage-stability-alternative-verification-method-for-tankers"
+  },
+  {
+   "title": "MSN 1699 Passenger ship construction classes III to VI",
+   "refNo": "MSN 1699",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2019-07-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1699-passenger-ship-consutruction-classes-iii-to-vi"
+  },
+  {
+   "title": "MGN 197 Amendment 1 (M+F) Implementation of council directive 2013/59 euratom",
+   "refNo": "MGN 197",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-06-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-197-amendment-mf-implementation-of-council-directive-201359-euratom"
+  },
+  {
+   "title": "MGN 579 (M) Load line convention regulations 2018",
+   "refNo": "MGN 579 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-03-26",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-579-m-load-line-convention-regulations-2018"
+  },
+  {
+   "title": "MIN 591 (M) Notification of assessment requirement for some UK certificate of competency holders",
+   "refNo": "MIN 591 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2019-03-26",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-591-m-notification-of-assessment-requirement-for-some-uk-certificate-of-competency-holders"
+  },
+  {
+   "title": "MGN 604(M+F) - Media, Other Organisations or persons carried as passengers on board Ships and Fishing Vessels.",
+   "refNo": "MGN 604 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-03-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-604mf-media-other-organisations-or-persons-carried-as-passengers-on-board-ships-and-fishing-vessels"
+  },
+  {
+   "title": "MSN 1881 (M) EU Directive 2016/1629 – Technical requirements for inland waterway vessels - Annex V",
+   "refNo": "MSN 1881 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2019-02-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1881-m-eu-directive-20161629-technical-requirements-for-inland-waterway-vessels-annex-v"
+  },
+  {
+   "title": "MGN 603(M) Requirements for Oil or Oily Mixture Discharges for Offshore Installations Engaged in Oil and Gas Operations on the UK Continental Shelf",
+   "refNo": "MGN 603 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2019-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-603m-requirements-for-oil-or-oily-mixture-discharges-for-offshore-installations-engaged-in-oil-and-gas-operations-on-the-uk-continental-shelf"
+  },
+  {
+   "title": "MIN 585 (M) The international convention for prevention of pollution from ships 1973, as modified by the protocol 1978 (MARPOL 73/78) – Annex I (Prevention of pollution by oil)",
+   "refNo": "MIN 585 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2019-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-585-m-the-international-convention-for-the-prevention-of-pollution-from-ships-1973-as-modified-by-the-protocol-of-1978-marpol-7378-annex-i"
+  },
+  {
+   "title": "MGN 597 (M) Intended pleasure vessels - Temporary commercial use at sea - Business purposes",
+   "refNo": "MGN 597 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2018-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-597-m-intended-pleasure-vessels-temporary-commercial-use-at-sea-business-purposes"
+  },
+  {
+   "title": "MGN 598 (M) Intended pleasure vessels - Temporary commercial use at sea - Race support boats",
+   "refNo": "MGN 598 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2018-12-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-598-m-intended-pleasure-vessels-temporary-commercial-use-at-sea-race-support-boats"
+  },
+  {
+   "title": "MSN 1872 Amendment 1: Safe working for construction and use of fishing vessels",
+   "refNo": "MSN 1872",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2018-11-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1872-amendment-1-safe-working-for-construction-and-use-of-fishing-vessels"
+  },
+  {
+   "title": "MSN 1873 Amendment 1: Construction and safe operation of fishing vessels of 24m and over",
+   "refNo": "MSN 1873",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2018-11-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1873-amendment-1-construction-and-safe-operation-of-fishing-vessels-of-24m-and-over"
+  },
+  {
+   "title": "MGN 526 - Stability guidance for fishing vessels - Wolfson method",
+   "refNo": "MGN 526",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2018-11-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-526-stability-guidance-for-fishing-vessels-wolfson-method"
+  },
+  {
+   "title": "MGN 596 - Fishing safety: Helping to improve safety - Fishing Vessels",
+   "refNo": "MGN 596",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2018-11-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-596-fishing-safety-helping-to-improve-safety-fishing-vessels"
+  },
+  {
+   "title": "MGN 595 ILO work in fishing convention food and water",
+   "refNo": "MGN 595",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2018-11-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-595-ilo-work-in-fishing-convention-food-and-water"
+  },
+  {
+   "title": "MSN 1885 ILO work in fishing convention survey and inspection",
+   "refNo": "MSN 1885",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2018-11-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1885-ilo-work-in-fishing-convention-survey-and-inspection"
+  },
+  {
+   "title": "MSN 1878 Arrangements for the carriage of agreed search and rescue co-operation plans aboard UK passenger vessels",
+   "refNo": "MSN 1878",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2018-10-24",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1878-arrangements-for-the-carriage-of-agreed-search-and-rescue-co-operation-plans-aboard-uk-passenger-vessels"
+  },
+  {
+   "title": "MSN 1823 (M) Edition 2, Amendment 1 - The inland waters passenger ship code",
+   "refNo": "MSN 1823 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2018-09-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1823-m-edition-2-amendment-1-the-inland-waters-passenger-ship-code"
+  },
+  {
+   "title": "MIN 495 Boatmasters’ Qualifications, Crew and Hours of Work",
+   "refNo": "MIN 495",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2018-06-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-495-m-the-merchant-shipping-boatmasters-qualifications-crew-and-hours-of-work-regulations-2015-local-regulations"
+  },
+  {
+   "title": "MGN 481 Amendment 1 Crew Accommodation and supplementary guidance",
+   "refNo": "MGN 481",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2018-03-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-481-amendment-1-crew-accommodation-and-supplementary-guidance"
+  },
+  {
+   "title": "MGN 545 (M+F) Transport of dangerous goods in private vehicles",
+   "refNo": "MGN 545 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2018-03-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-545-mf-transport-of-dangerous-goods-in-private-vehicles"
+  },
+  {
+   "title": "MIN 560 (M) Amending Resolutions - Load Line Convention",
+   "refNo": "MIN 560 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2018-02-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-560-m-amending-resolutions-load-line-convention"
+  },
+  {
+   "title": "MIN 466 Support for maritime training scheme: additional guidance",
+   "refNo": "MIN 466",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2018-02-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-466-government-support-for-maritime-training-scheme-additional-guidance"
+  },
+  {
+   "title": "MGN 507 (M+F) (Amendment 1) Oil pollution: Bunker Oil",
+   "refNo": "MGN 507 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2017-12-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-507-oil-pollutionliability-compulsory-insurance-bunker-oil"
+  },
+  {
+   "title": "MGN 571 (F) Fishing vessels: prevention of man overboard",
+   "refNo": "MGN 571 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2017-10-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-571-f-fishing-vessels-prevention-of-man-overboard"
+  },
+  {
+   "title": "MGN 457 Oil recovery vessel code alternate arrangements",
+   "refNo": "MGN 457",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2017-07-07",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-457-oil-recovery-vessel-code-alternate-arrangements"
+  },
+  {
+   "title": "MGN 457 (M) Oil recovery vessel code: corrigendum",
+   "refNo": "MGN 457 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2017-07-06",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-457-m-oil-recovery-vessel-code-corrigendum"
+  },
+  {
+   "title": "MGN 567 Marine evacuation systems - single point of failure",
+   "refNo": "MGN 567",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2017-04-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-567-m-life-saving-appliances-marine-evacuation-systems-survival-craft-and-launching-appliances-risk-mitigation-for-single-point-of-failure"
+  },
+  {
+   "title": "MIN 543 (M) - Sea service verification on large yachts",
+   "refNo": "MIN 543 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2017-04-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-543-m-sea-service-verification-on-large-yachts"
+  },
+  {
+   "title": "MGN 432 (M+F) Amendment 1: Safety during Transfers of Persons to and from Ships",
+   "refNo": "MGN 432 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2016-07-18",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-432-mf-amendment-1-safety-during-transfers-of-persons-to-and-from-ships"
+  },
+  {
+   "title": "MGN 534 (M+F) Cargo Safety: Verifying gross mass of containers",
+   "refNo": "MGN 534 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2016-05-12",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-534-mf-guidance-on-the-implementation-of-the-solas-vi-regulation-2-amendment-requiring-the-verification-of-the-gross-mass-of-packed-containers"
+  },
+  {
+   "title": "MIN 522 Boatmaster's licence applicants on domestic vessels",
+   "refNo": "MIN 522",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2016-04-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-522-m-boatmasters-licence-regulations-maritime-studies-qualifications-for-boatmasters-licence-applicants-and-crew-members-on-domestic-passen"
+  },
+  {
+   "title": "MGN 552 Cargo - safe stowage of specialised vehicles",
+   "refNo": "MGN 552",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2016-04-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-552-cargo-safe-stowage-of-specialised-vehicles"
+  },
+  {
+   "title": "MGN 545 Transportation of dangerous goods (marine)",
+   "refNo": "MGN 545",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2016-04-04",
+   "sourceUrl": "https://www.gov.uk/guidance/dangerous-goods-transportation-marine-mgn-545"
+  },
+  {
+   "title": "MIN 521 (M) Amendments to MSN 1858",
+   "refNo": "MIN 521 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2016-02-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-521-m-amendments-to-msn-1858-oow-yacht-requirements-to-gain-an-exemption-from-completing-the-training-record-book"
+  },
+  {
+   "title": "MIN 518 Port of London local knowledge examination arrangements",
+   "refNo": "MIN 518",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2016-01-25",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-518-m-boatmasters-licence-regulations-examination-arrangements-for-the-port-of-london-local-knowledge-endorsement"
+  },
+  {
+   "title": "MGN 542 (M) The Hovercraft Code",
+   "refNo": "MGN 542 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2015-12-22",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-542-m-the-hovercraft-code"
+  },
+  {
+   "title": "MIN 516 Amendment: International Maritime Solid Bulk Cargoes Code",
+   "refNo": "MIN 516",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2015-12-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-516-m-amendment-to-the-international-maritime-solid-bulk-cargoes-code"
+  },
+  {
+   "title": "MGN 540 Fitting 'fall preventer devices' to on-load release hooks",
+   "refNo": "MGN 540",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2015-10-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-540-mf-fitting-of-fall-preventer-devices-to-reduce-the-danger-of-accidental-hook-release"
+  },
+  {
+   "title": "MGN 541 Replacement of lifeboat release and retrieval systems",
+   "refNo": "MGN 541",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2015-10-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-541-mf-evaluation-and-replacement-of-lifeboat-release-and-retrieval-systems"
+  },
+  {
+   "title": "MSN 1751: Harmonised system of survey and certification (HSSC)",
+   "refNo": "MSN 1751",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2015-05-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1751-harmonised-system-of-survey-and-certification-hssc"
+  },
+  {
+   "title": "MIN 503 (M) Training for ECDIS as Primary Means of Navigation",
+   "refNo": "MIN 503 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2015-04-21",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-503-m-training-for-ecdis-as-primary-means-of-navigation"
+  },
+  {
+   "title": "MSN 1855(M) Domestic Passenger Ships Directive Equivalent Standards",
+   "refNo": "MSN 1855 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2015-03-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1855m-domestic-passenger-ships-directive-equivalent-standards"
+  },
+  {
+   "title": "MGN 531 (M) Cargo stowage and securing",
+   "refNo": "MGN 531 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2015-02-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-531-m-cargo-stowage-and-securing"
+  },
+  {
+   "title": "MGN 510 (M+F) Use of exhaust gas cleaning systems.",
+   "refNo": "MGN 510 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2015-01-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-510-mf-use-of-exhaust-gas-cleaning-systems-prevention-of-air-pollution-from-ships"
+  },
+  {
+   "title": "MGN 529 (M + F) Life-saving appliances - immersion suits",
+   "refNo": "MGN 529",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2015-01-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-529-m-f-life-saving-appliances-immersion-suits"
+  },
+  {
+   "title": "MGN 530 (M+F) Radio log book: merchant and fishing vessels",
+   "refNo": "MGN 530 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2015-01-08",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-530-radio-log-book-merchant-shipping-and-fishing-vessels"
+  },
+  {
+   "title": "MGN 527(M) Tonnage of Multihulls Under 24m Load Line Length",
+   "refNo": "MGN 527 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2014-11-05",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-527m-tonnage-measurement-multihulls-under-24m-load-line-length"
+  },
+  {
+   "title": "MGN 519 (M) Life-saving appliances: Controlled means of descent",
+   "refNo": "MGN 519 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2014-09-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-519-life-saving-appliances-controlled-means-of-descent"
+  },
+  {
+   "title": "MGN 518 (M) Police Boat Codes, Amendment 3 (PBC3)",
+   "refNo": "MGN 518 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2014-08-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-518m-police-boat-codes-amendment-3-pbc3"
+  },
+  {
+   "title": "MGN 516 (M) IMO Codes and guidelines for offshore vessels",
+   "refNo": "MGN 516 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2014-07-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-516m-ship-construction-and-equipment-use-and-application-of-imo-codes-and-guidelines-for-offshore-vessels"
+  },
+  {
+   "title": "MSN 1844 (M) Maritime labour convention, 2006: crew accommodation",
+   "refNo": "MSN 1844 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2014-07-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1844-m-maritime-labour-convention-2006-crew-accomodation"
+  },
+  {
+   "title": "MGN 511 (M) - Solid Bulk Cargoes: Amendments 02-13 to (IMSBC)",
+   "refNo": "MGN 511 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2014-06-26",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-511m-solid-bulk-cargoes"
+  },
+  {
+   "title": "MGN 512 (M) - Solid bulk cargoes: Cargoes not listed in (IMSBC)",
+   "refNo": "MGN 512 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2014-06-26",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-512m-solid-bulk-cargoes"
+  },
+  {
+   "title": "MGN 513 (M) - Solid Bulk Cargoes: Controlling moisture content",
+   "refNo": "MGN 513 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2014-06-26",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-513m-solid-bulk-cargoes"
+  },
+  {
+   "title": "MGN 508 (M) Oil pollution : liability and compulsory insurance",
+   "refNo": "MGN 508 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2014-05-12",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-508-oil-pollution-liability-and-compulsory-insurance"
+  },
+  {
+   "title": "MSN 1792 The large commercial yacht code (LY2)",
+   "refNo": "MSN 1792",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2014-04-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1792-the-large-commercial-yacht-code-ly2"
+  },
+  {
+   "title": "MGN 281 (F) Fishing vessel freeboard & stability booklet format",
+   "refNo": "MGN 281 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2014-04-15",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-281-fishing-vessel-freeboard-and-stability-information-format"
+  },
+  {
+   "title": "MIN 478 Amendments to international convention on load lines 1966",
+   "refNo": "MIN 478",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2014-03-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-478-amendments-to-international-convention-on-load-lines-1966"
+  },
+  {
+   "title": "MIN 474 Changes to officer of the watch written exams",
+   "refNo": "MIN 474",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2014-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-474-changes-to-officer-of-the-watch-written-exams"
+  },
+  {
+   "title": "MSN 1852 Requirements for tanks taking dangerous goods by sea",
+   "refNo": "MSN 1852",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2014-01-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1852-m-requirements-for-tanks-taking-dangerous-goods-by-sea"
+  },
+  {
+   "title": "MGN 497 Storage and use of dangerous goods onboard ship",
+   "refNo": "MGN 497",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2013-08-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-497-storage-and-use-of-dangerous-goods-onboard-ship"
+  },
+  {
+   "title": "MGN 466 The rescue boat code",
+   "refNo": "MGN 466",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2013-06-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-466-the-rescue-boat-code"
+  },
+  {
+   "title": "MGN 495 Certificate of competency tug deck",
+   "refNo": "MGN 495",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2013-06-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-495-certificate-of-competency-tug-deck"
+  },
+  {
+   "title": "MGN 496 Certificate of competency for master workboat deck",
+   "refNo": "MGN 496",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2013-06-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-496-certificate-of-competency-workboat-deck"
+  },
+  {
+   "title": "MGN 407 Testing fire protection for composite, wood constructions",
+   "refNo": "MGN 407",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2013-03-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-407-testing-fire-protection-for-composite-wood-constructions"
+  },
+  {
+   "title": "MGN 465 Annual testing of automatic identification systems (AIS)",
+   "refNo": "MGN 465",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2013-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-465-annual-testing-of-automatic-identification-systems-ais"
+  },
+  {
+   "title": "MGN 464 Life and rescue boat weight increase from water ingress",
+   "refNo": "MGN 464",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2013-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-464-life-and-rescue-boat-weight-increase-from-water-ingress"
+  },
+  {
+   "title": "MGN 452 Potential hazards of arc flash",
+   "refNo": "MGN 452",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2012-05-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-452-potential-hazards-of-arc-flash"
+  },
+  {
+   "title": "MGN 449 Excessive harmonic distortion: potential hazards",
+   "refNo": "MGN 449",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2012-04-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-449-excessive-harmonic-distortion-potential-hazards"
+  },
+  {
+   "title": "MIN 427 Lifejackets on class V vessels: general exemption",
+   "refNo": "MIN 427",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2012-04-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-427-lifejackets-on-class-v-vessels-general-exemption"
+  },
+  {
+   "title": "MGN 439 Survey standards for 24m and over registered length FV",
+   "refNo": "MGN 439",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2012-03-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-439-survey-standards-for-24m-and-over-registered-length-fv"
+  },
+  {
+   "title": "MGN 435 Declaration of maximum continuous engine power",
+   "refNo": "MGN 435",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2012-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-435-declaration-of-maximum-continuous-engine-power"
+  },
+  {
+   "title": "MGN 437 Small commercial vessel codes of practice revision",
+   "refNo": "MGN 437",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2011-12-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-437-small-commercial-vessel-codes-of-practice-revision"
+  },
+  {
+   "title": "MGN 438 CERS exemption arrangements under VTM reporting regulations 2004",
+   "refNo": "MGN 438",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2011-11-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-438-cers-exemption-arrangements-under-the-vtm-reporting-regulations-2004"
+  },
+  {
+   "title": "MIN 417 Carbon fibre masts and spars",
+   "refNo": "MIN 417",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2011-10-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-417-carbon-fibre-masts-and-spars"
+  },
+  {
+   "title": "MSN 1830 (M) Implementation of directive 2009/21/EC in the UK",
+   "refNo": "MSN 1830 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2011-08-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1830-implementing-directive-200921ec-in-the-uk"
+  },
+  {
+   "title": "MGN 426 External access to means of escape",
+   "refNo": "MGN 426",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2010-09-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-426-external-access-to-means-of-escape"
+  },
+  {
+   "title": "MSN 1825 (F) Fishing vessels training and FSE guidance",
+   "refNo": "MSN 1825 (F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2010-07-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1825-fishing-vessels-training-and-certification-guidance"
+  },
+  {
+   "title": "MGN 415 Fishing vessels: hazards trawling, including beam trawling and scallop dredging",
+   "refNo": "MGN 415",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2010-07-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-415-fishing-vessels-hazards-trawling-including-beam-trawling-and-scallop-dredging"
+  },
+  {
+   "title": "MGN 414 Fishing vessels: management beyond european waters",
+   "refNo": "MGN 414",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2010-07-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-414-fishing-vessels-management-beyond-european-waters"
+  },
+  {
+   "title": "MGN 418 Roll-on/roll-off ships stowage and securing of vehicles",
+   "refNo": "MGN 418",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2010-07-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-418-roll-onroll-off-ships-stowage-and-securing-of-vehicles"
+  },
+  {
+   "title": "MGN 389 (M+F) Fixed gas fire-extinguishing systems",
+   "refNo": "MGN 389 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2010-05-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-389-instructions-for-fixed-gas-fire-extinguishing-systems"
+  },
+  {
+   "title": "MGN 411 Certification requirements for crew of fishing vessels, small commercial vessels and large yachts",
+   "refNo": "MGN 411",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2010-03-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-411-cert-req-for-crew-of-fv-their-use-to-vessels-yachts"
+  },
+  {
+   "title": "MGN 406c (M+F) Use of barbecues and pig roasts on vessels",
+   "refNo": "MGN 406",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2010-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-406c-use-of-barbecues-pig-roasts-on-vessels"
+  },
+  {
+   "title": "MSN 1752 Load Line Regulations 2000 Corrigendum",
+   "refNo": "MSN 1752",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2009-11-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1752-corrigendum"
+  },
+  {
+   "title": "MGN 396 (M+F) Compatibility of life-saving equipment",
+   "refNo": "MGN 396 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2009-06-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-396-compatibility-of-life-saving-equipment"
+  },
+  {
+   "title": "MGN 393 (M+F) Maintenance and use of new technology light sources",
+   "refNo": "MGN 393 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2009-03-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-393-navigation-light-units-maintenance-and-new-technology-light-sources"
+  },
+  {
+   "title": "MGN 382 (M) Fire protection of balconies and other external areas",
+   "refNo": "MGN 382 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2008-11-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-382-fire-protection-of-balconies-and-other-external-areas"
+  },
+  {
+   "title": "MGN 383 (M+F) United States clean water act",
+   "refNo": "MGN 383 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2008-10-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-383-us-clean-water-act"
+  },
+  {
+   "title": "MGN 367 Approval fixed fire detection alarm systems balconies",
+   "refNo": "MGN 367",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2008-06-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-367-approval-fixed-fire-detection-alarm-systems-balconies"
+  },
+  {
+   "title": "MGN 360 Changes to routeing measures in electronic navigational charts (ENCs)",
+   "refNo": "MGN 360",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2008-03-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-360-changes-to-routeing-measures-in-electronic-navigational-charts-encs"
+  },
+  {
+   "title": "MGN 358 CERS reporting requirements for port waste and bulk carrier infringements",
+   "refNo": "MGN 358",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-12-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-358-cers-reporting-requirements-for-port-waste-and-bulk-carrier-infringements"
+  },
+  {
+   "title": "MGN 357 Night time lookout: photochromic lenses and dark adaptation",
+   "refNo": "MGN 357",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-12-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-357-night-time-lookout-photocromic-lenses-and-dark-adaptation"
+  },
+  {
+   "title": "MGN 344 Observations from passenger vessel evacuation exercises",
+   "refNo": "MGN 344",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-11-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-344-observations-from-passenger-vessel-evacuation-exercises"
+  },
+  {
+   "title": "MGN 354 Safe operation of fixed CO2 gas fire extinguishing systems",
+   "refNo": "MGN 354",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-11-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-354-safe-operation-of-fixed-co2-gas-fire-extinguishing-systems"
+  },
+  {
+   "title": "MGN 355 Maintenance of fixed bulk dry powder fire systems",
+   "refNo": "MGN 355",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-11-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-355-maintenance-of-fixed-bulk-dry-powder-fire-systems"
+  },
+  {
+   "title": "MGN 347 Vessels where certificates state a limiting number of passengers",
+   "refNo": "MGN 347",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-07-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-347-vessels-where-certificates-state-a-limiting-number-of-passengers"
+  },
+  {
+   "title": "MGN 340 IMDG code and cargoes carried in cargo transport units",
+   "refNo": "MGN 340",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-05-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-340-imdg-code-and-cargoes-carried-in-cargo-transport-units"
+  },
+  {
+   "title": "MGN 341 Ro-ro ships' vehicle decks: accidents and access",
+   "refNo": "MGN 341",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-05-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-341-ro-ro-ships-vehicle-decks-accidents-and-access"
+  },
+  {
+   "title": "MGN 342 Carriage of dangerous goods for sale on UK ferries",
+   "refNo": "MGN 342",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-05-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-342-carriage-of-dangerous-goods-for-sale-on-uk-ferries"
+  },
+  {
+   "title": "MGN 343 Hydrostatic release units: stowage and arrangements for liferafts",
+   "refNo": "MGN 343",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2007-04-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-343-hydrostatic-release-units-stowage-and-arrangements-for-liferafts"
+  },
+  {
+   "title": "MSN 1811 (M) Passenger ships on domestic voyages regulations 2002",
+   "refNo": "MSN 1811 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2006-12-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1811-council-directive-9818ec"
+  },
+  {
+   "title": "MSN 1809 (F) Standard of radio equipment required on ships",
+   "refNo": "MSN 1809 (F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2006-10-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1809-radio-equipment-required-performance-standards"
+  },
+  {
+   "title": "MGN 325 (M) Helicopter assistance at sea",
+   "refNo": "MGN 325 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-10-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-325-helicopter-assistance-at-sea"
+  },
+  {
+   "title": "MGN 327(M) High speed craft dynamic stability research",
+   "refNo": "MGN 327 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-08-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-327a-hsc-dynamic-stability-in-following-and-quartering-seas"
+  },
+  {
+   "title": "MGN 328 High-speed craft dynamic stability in following, quartering seas",
+   "refNo": "MGN 328",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-08-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-328-hsc-dynamic-stability-in-following-quartering-seas"
+  },
+  {
+   "title": "MGN 330 (M+F) Radio aerial lead-ins",
+   "refNo": "MGN 330 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-07-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-330-radio-aerial-lead-ins"
+  },
+  {
+   "title": "MGN 322 (M+F) Ship survey standards",
+   "refNo": "MGN 322 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-07-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-322-ship-survey-standards"
+  },
+  {
+   "title": "MSN 1801 Radio equipment: serviceability and maintenance",
+   "refNo": "MSN 1801",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2006-06-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1801-radio-equipment-serviceability-and-maintenance"
+  },
+  {
+   "title": "MSN 1799 Rabies: carriage of animals on ships",
+   "refNo": "MSN 1799",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2006-05-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1799-rabies-carriage-of-animals-on-ships"
+  },
+  {
+   "title": "MGN 313 (F) Keeping a safe navigational watch on fishing vessels",
+   "refNo": "MGN 313 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-313-keeping-a-safe-navigational-watch-on-fishing-vessels"
+  },
+  {
+   "title": "MGN 314 (F) Wheelhouse visibility onboard fishing vessels",
+   "refNo": "MGN 314 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-314-wheelhouse-visibility-onboard-fishing-vessels"
+  },
+  {
+   "title": "MGN 316 (F) Re-applying paints and varnishes to interior surfaces",
+   "refNo": "MGN 316 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-316-re-applying-paints-and-varnishes-to-interior-surfaces"
+  },
+  {
+   "title": "MGN 315 (M) Keeping a safe navigational watch on merchant vessels",
+   "refNo": "MGN 315 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-02-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-315-keeping-a-safe-navigational-watch-on-merchant-vessels"
+  },
+  {
+   "title": "MGN 310 (F) Fishing vessels: risk of fire, explosion and burning",
+   "refNo": "MGN 310 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-310-fv-risk-of-fire-explosion-from-gas-welding-and-burning"
+  },
+  {
+   "title": "MGN 312 (F) Liquid petroleum gas and diesel fuelled appliances.",
+   "refNo": "MGN 312 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2006-01-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-312-liquid-petroleum-gas-and-diesel-fueled-appliances-on-fishing-vessels"
+  },
+  {
+   "title": "MGN 296 (M) Medication at sea",
+   "refNo": "MGN 296 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2005-10-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-296-medication-at-sea"
+  },
+  {
+   "title": "MGN 299 (M+F) Inappropriate use of mobile phones whilst on duty",
+   "refNo": "MGN 299 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2005-10-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-299-interference-with-safe-navigation-from-inappropriate-use-of-mobile-phones"
+  },
+  {
+   "title": "MGN 293(M+F) Alternative arrangement for paper chart requirements",
+   "refNo": "MGN 293 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2005-05-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-293-alternative-arrangements-for-paper-chart-requirements"
+  },
+  {
+   "title": "MGN 290 (M) Local passenger vessels - manning",
+   "refNo": "MGN 290 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2005-03-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-290-local-passenger-vessels-manning"
+  },
+  {
+   "title": "MGN 282(M) Carriage of dangerous goods on offshore supply vessels",
+   "refNo": "MGN 282 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2005-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-282-carriage-of-dangerous-goods-on-offshore-supply-vessels"
+  },
+  {
+   "title": "MGN 283 (M) Back loading of contaminated bulk liquids",
+   "refNo": "MGN 283 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2005-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-283-back-loading-of-contaminated-bulk-liquids"
+  },
+  {
+   "title": "MGN 285 (M+F) Electronic charts operating ECDIS in the RCDS mode",
+   "refNo": "MGN 285 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2005-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-285-electronic-charts-operating-ecdis-in-the-rcds-mode"
+  },
+  {
+   "title": "MGN 291 (F) Fishing vessels: fire detection and alarms",
+   "refNo": "MGN 291 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2005-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-291-fire-detection-and-alarm-systems-on-fvs"
+  },
+  {
+   "title": "MSN 1789 Directive 2003/24/EC",
+   "refNo": "MSN 1789",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2004-12-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1789-directive-200324ec"
+  },
+  {
+   "title": "MGN 279 (M) Certificate of competency as compass adjuster",
+   "refNo": "MGN 279 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2004-10-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-279-certificate-of-competency-as-compass-adjuster"
+  },
+  {
+   "title": "MGN 280 (M) Construction standards for small vessels in sport use",
+   "refNo": "MGN 280 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2004-10-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-280-small-vessels-in-commercial-use-for-sport"
+  },
+  {
+   "title": "MGN 273 (M) Operational issues relating to marine evacuation systems",
+   "refNo": "MGN 273 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2004-09-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-273-operational-issues-relating-to-marine-evacuation-systems"
+  },
+  {
+   "title": "MGN 271 (M) The protection of windows and side scuttles",
+   "refNo": "MGN 271 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2004-09-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-271-the-protection-of-windows-and-side-scuttles"
+  },
+  {
+   "title": "MGN 272 (M) Voyage data recorders: performance testing",
+   "refNo": "MGN 272 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2004-08-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-272-vdrs-performance-testing"
+  },
+  {
+   "title": "MGN 272a (M) Voyage data recorder: performance test certificate",
+   "refNo": "MGN 272",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2004-07-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-272a-vdr-performance-test-certificate"
+  },
+  {
+   "title": "MGN 267 (F) Location, stowage of liferafts and radio beacons on fishing vessels",
+   "refNo": "MGN 267 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2004-04-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-267-location-stowage-of-liferafts-and-radio-beacons-on-fishing-vessels"
+  },
+  {
+   "title": "MGN 266 (F) Interpretation of SOLAS chapter 5 for fishing vessels",
+   "refNo": "MGN 266 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2004-03-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-266-interpretation-of-solas-chapter-5-for-fishing-vessels"
+  },
+  {
+   "title": "MGN 258 (M+F) Decommissioning of halon systems",
+   "refNo": "MGN 258 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2003-07-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-258-decommissioning-of-halon-systems"
+  },
+  {
+   "title": "MGN 203 (M) Crew training for domestic passenger vessels",
+   "refNo": "MGN 203 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2003-03-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-203-crew-training-for-serving-on-domestic-passenger-vessels"
+  },
+  {
+   "title": "MGN 248 (M) Safety preparations prior to machinery maintenance",
+   "refNo": "MGN 248 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2003-03-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-248-safety-preparations-prior-to-machinery-maintenance"
+  },
+  {
+   "title": "MGN 231 (M+F) Shipboard pollution emergency plans",
+   "refNo": "MGN 231 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2002-12-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-231-shipboard-pollution-emergency-plans"
+  },
+  {
+   "title": "MGN 242 (M+F) Format and procedures for reporting safety incidents",
+   "refNo": "MGN 242 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2002-12-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-242-standard-format-and-procedures-for-ship-reporting"
+  },
+  {
+   "title": "MGN 245 (M) Inspection of shell loading doors on ro-ro ferries",
+   "refNo": "MGN 245 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2002-08-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-245-inspection-of-shell-loading-doors-on-ro-ro-ferries"
+  },
+  {
+   "title": "MGN 223 (M) Carriage of coconut oil and other vegetable oils",
+   "refNo": "MGN 223 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2002-07-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-223-carriage-of-coconut-oil-and-other-vegetable-oils-as-cargo"
+  },
+  {
+   "title": "MGN 199 (M) Dangers of interaction",
+   "refNo": "MGN 199 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2002-04-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-199-dangers-of-interaction"
+  },
+  {
+   "title": "MGN 218 (M) Thames safety inquiry recommendation 27.2",
+   "refNo": "MGN 218 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2002-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-218-thames-safety-inquiry-recommendation-272"
+  },
+  {
+   "title": "MGN 210 (M) Advice on the dangers of flooding of forward compartments",
+   "refNo": "MGN 210 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2001-12-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-210-advice-on-the-dangers-of-flooding-of-forward-compartments"
+  },
+  {
+   "title": "MGN 198 (M) Safety at solid bulk cargo terminals",
+   "refNo": "MGN 198 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2001-11-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-198-safety-at-solid-bulk-cargo-terminals"
+  },
+  {
+   "title": "MGN 190 (F) Copper pipe failure in engine cooling water systems",
+   "refNo": "MGN 190 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2001-07-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-190-fv-failure-of-copper-pipe-in-engine-cooling-water-systems"
+  },
+  {
+   "title": "MSN 1757 Requirements for life-saving appliances",
+   "refNo": "MSN 1757",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2001-06-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1757-requirements-for-life-saving-appliances"
+  },
+  {
+   "title": "MGN 168 (M + F) The marking of seismic streamers",
+   "refNo": "MGN 168",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2001-02-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-168-the-marking-of-seismic-streamers"
+  },
+  {
+   "title": "MGN 164 (M) STCW 95 Part 18: Conversion of Tonnage",
+   "refNo": "MGN 164 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2001-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-164-training-and-certification-guidance-part-18"
+  },
+  {
+   "title": "MGN 137 (M+F) Look-out during periods of darkness and restricted visibility",
+   "refNo": "MGN 137 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2000-04-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-137-look-out-during-periods-of-darkness-restricted-visibility"
+  },
+  {
+   "title": "MGN 7 Training, certification guidance part 7",
+   "refNo": "MGN 7",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2000-03-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-7-training-certification-guidance-part-7"
+  },
+  {
+   "title": "MGN 141 (M) Man overboard smoke signals parachute flares on class VI passenger vessels",
+   "refNo": "MGN 141 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2000-02-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-141-man-overboard-smoke-signals-parachute-flares-class-vi"
+  },
+  {
+   "title": "MGN 83a Guidelines specifications hyperbaric evacuation systems",
+   "refNo": "MGN 83",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "1999-12-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-83a-guidelines-specifications-hyperbaric-evacuation-systems"
+  },
+  {
+   "title": "MGN 132 (M+F) Electrical equipment, maintenance and incidents",
+   "refNo": "MGN 132 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "1999-12-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-132-electrical-equipment-maintenance-and-incidents"
+  },
+  {
+   "title": "MSN 1671 Amendment 2: The merchant shipping regulations 1999",
+   "refNo": "MSN 1671",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1999-07-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1671-amendment-2-the-merchant-shipping-regulations-1999"
+  },
+  {
+   "title": "MSN 1722 Training crews launching lifeboats and rescue boats",
+   "refNo": "MSN 1722",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1999-06-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1722-guidelines-for-training-crews-launching-lifeboats-and-rescue-boats"
+  },
+  {
+   "title": "MSN 1740 Training and certification of officers and crew on high speed craft",
+   "refNo": "MSN 1740",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1999-06-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1740-training-and-certification-of-officers-and-crew-on-high-speed-craft"
+  },
+  {
+   "title": "MSN 1737 Helicopter emergency landing areas",
+   "refNo": "MSN 1737",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1999-04-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1737-helicopter-emergency-landing-areas"
+  },
+  {
+   "title": "MSN 1733 Merchant shipping (fire protection) (amendment) regulations 1999",
+   "refNo": "MSN 1733",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1999-03-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1733-merchant-shipping-fire-protection-amendment-regulations-1999"
+  },
+  {
+   "title": "MGN 108 (M) Hull stress monitoring systems",
+   "refNo": "MGN 108 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "1999-02-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-108-hull-stress-monitoring-systems"
+  },
+  {
+   "title": "MGN 38 (M+F)Contamination of ships air conditioning by legionella",
+   "refNo": "MGN 38 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "1998-08-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-38-contamination-of-ships-air-conditioning-by-legionella"
+  },
+  {
+   "title": "MSN 1711 Insurance for ships receiving trans-shipped fish",
+   "refNo": "MSN 1711",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1998-02-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1711-insurance-for-ships-receiving-trans-shipped-fish"
+  },
+  {
+   "title": "MSN 1704 Carriage of firearms on board ships",
+   "refNo": "MSN 1704",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1998-01-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1704-carriage-of-firearms-on-board-ships"
+  },
+  {
+   "title": "MGN 52 Testing emergency sources of electrical power",
+   "refNo": "MGN 52",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "1998-01-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-52-testing-emergency-sources-of-electrical-power"
+  },
+  {
+   "title": "MGN 50 Manning of pilot boats",
+   "refNo": "MGN 50",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "1997-12-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-50-manning-of-pilot-boats"
+  },
+  {
+   "title": "MGN 36 Carrying dangerous goods in packaged or dry bulk form",
+   "refNo": "MGN 36",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "1997-09-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-36-carrying-dangerous-goods-in-packaged-or-dry-bulk-form"
+  },
+  {
+   "title": "MGN 26 (M) High-speed craft training: further guidance",
+   "refNo": "MGN 26 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "1997-07-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-026-hsc-further-guidance-on-course-approval-certification"
+  },
+  {
+   "title": "MGN 12 (F) Fishing vessels operating in submarine exercise areas",
+   "refNo": "MGN 12 (F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "1997-05-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-12-fishing-vessels-operating-in-submarine-exercise-areas"
+  },
+  {
+   "title": "MSN 1675 'Instructions to surveyors': Revised chapter 11",
+   "refNo": "MSN 1675",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1996-09-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1675-instructions-to-surveyors-revised-chapter-11"
+  },
+  {
+   "title": "MSN 1634 Certificates of competency, licences and certificates",
+   "refNo": "MSN 1634",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1995-09-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1634-cocs-licences-vocational-certificates"
+  },
+  {
+   "title": "MSN 1613 Survey and certification regulations: arbitration process",
+   "refNo": "MSN 1613",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1995-05-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1613-ms-survey-and-certification-regulations-1995-arbitration-process"
+  },
+  {
+   "title": "MSN 1579 Training required to assist passengers in an emergency",
+   "refNo": "MSN 1579",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1994-11-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1579-minimum-training-requirements-to-assist-passengers-in-emergency-situations"
+  },
+  {
+   "title": "MSN 1560 Survival at sea",
+   "refNo": "MSN 1560",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1994-04-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1560-survival-at-sea"
+  },
+  {
+   "title": "MSN 1467 (M) Emergency radio beacons, liferafts and lifejackets",
+   "refNo": "MSN 1467 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1991-09-29",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1467-epirb-floatfree-arrangements-for-liferaftslifejackets"
+  },
+  {
+   "title": "MSN 1409 (M) Emergency information for passengers",
+   "refNo": "MSN 1409 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1990-03-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1409-emergency-information-for-passengers"
+  },
+  {
+   "title": "MSN 1359 (M) Emergency equipment lockers: Ro/Ro passenger ships",
+   "refNo": "MSN 1359 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1988-11-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1359-emergency-equipment-lockers-for-roro-passenger-ships"
+  },
+  {
+   "title": "MSN 1328 Small vessels' navigation and radar training course",
+   "refNo": "MSN 1328",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1988-04-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1328-small-vessels-navigation-and-radar-training-course"
+  },
+  {
+   "title": "MSN 1300 Safety of submersible craft",
+   "refNo": "MSN 1300",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1987-11-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1300-safety-of-submersible-craft"
+  },
+  {
+   "title": "MSN 1157 Issue of certificates of service under the fishing vessel regulations",
+   "refNo": "MSN 1157",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1985-05-31",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1157-issues-of-certificates-of-service"
+  },
+  {
+   "title": "MSN 1136 Fires involving oil-fired appliances",
+   "refNo": "MSN 1136",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1984-06-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1136-fires-involving-oil-fired-appliances"
+  },
+  {
+   "title": "MSN 1015 Training for masters and chief mates of large ships",
+   "refNo": "MSN 1015",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1982-03-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1015-training-for-masters-and-chief-mates-of-large-ships"
+  },
+  {
+   "title": "MSN 975 Freeboards of fishing vessels",
+   "refNo": "MSN 975",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1981-04-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-975-freeboards-of-fishing-vessels"
+  },
+  {
+   "title": "MSN 681 Fixed fire smothering gas installations",
+   "refNo": "MSN 681",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1974-05-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-681-fixed-fire-smothering-gas-installations"
+  },
+  {
+   "title": "MSN 622 Miscellaneous openings: spurling pipes",
+   "refNo": "MSN 622",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "1971-10-27",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-622-miscellaneous-openings-spurling-pipes"
+  }
+ ]
+}
