@@ -36,7 +36,7 @@ export const FLAG_SOURCES = {
     { label: 'MINs', url: 'https://www.gov.uk/government/collections/marine-information-notes-mins' }
   ],
   Panama: [
-    { label: 'Circulars', url: 'https://panamashipregistry.com/circulars/' }
+    { label: 'Circulars', url: 'https://www.panamashipregistry.com/circulars/' }
   ],
   Singapore: [
     { label: 'Shipping', url: 'https://www.mpa.gov.sg/media-centre?type=Shipping+Circulars' },

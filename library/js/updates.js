@@ -69,7 +69,13 @@ const collection = (slug) =>
 
 // ------------------------------------------------------------- Panama -----
 
-const PANAMA = 'https://panamashipregistry.com';
+// The bare host redirects to www, and a cross-origin redirect only survives if
+// every hop carries the CORS headers — so the canonical host is addressed
+// directly. The maritime authority's own site runs the same software and
+// carries the same circulars, so it stands behind the registry as a second
+// host rather than a second guess.
+const PANAMA = 'https://www.panamashipregistry.com';
+const PANAMA_AMP = 'https://www.amp.gob.pa';
 
 const PANAMA_TYPES = {
   MMC: 'Merchant Marine Circular',
@@ -243,6 +249,7 @@ export const FEEDS = {
         name: 'Merchant Marine Circulars',
         alternatives: [
           { label: 'Registry API', kind: 'json', url: wpMedia(PANAMA, 'MMC-'), parse: parseWpMedia },
+          { label: 'Authority API', kind: 'json', url: wpMedia(PANAMA_AMP, 'MMC-'), parse: parseWpMedia },
           {
             label: 'Circulars page', kind: 'html', url: `${PANAMA}/circulars/`,
             parse: parseLinkIndex({
@@ -255,7 +262,8 @@ export const FEEDS = {
       {
         name: 'Merchant Marine Notices',
         alternatives: [
-          { label: 'Registry API', kind: 'json', url: wpMedia(PANAMA, 'MMN-'), parse: parseWpMedia }
+          { label: 'Registry API', kind: 'json', url: wpMedia(PANAMA, 'MMN-'), parse: parseWpMedia },
+          { label: 'Authority API', kind: 'json', url: wpMedia(PANAMA_AMP, 'MMN-'), parse: parseWpMedia }
         ]
       }
     ]
@@ -346,18 +354,20 @@ export async function fetchNotices(admin) {
 
   for (const group of feed.groups) {
     let got = null;
-    let why = 'no route configured';
+    // Every route that was tried is reported, not just the last one, so a
+    // failure says which hosts were reached and what each of them did.
+    const tried = [];
     for (const alternative of group.alternatives) {
       try {
         const parsed = await read(alternative);
         if (parsed.length) { got = parsed; used.push(`${group.name} via ${alternative.label}`); break; }
-        why = `${alternative.label}: nothing recognisable in the reply`;
+        tried.push(`${alternative.label}: nothing recognisable in the reply`);
       } catch (ex) {
-        why = `${alternative.label}: ${message(ex)}`;
+        tried.push(`${alternative.label}: ${message(ex)}`);
       }
     }
     if (got) notices.push(...got);
-    else failed.push(`${group.name} — ${why}`);
+    else failed.push(`${group.name} — ${tried.join('; ') || 'no route configured'}`);
   }
 
   if (!notices.length) throw new Error(failed.join('; ') || 'nothing came back');
