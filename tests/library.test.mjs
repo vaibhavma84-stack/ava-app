@@ -46,10 +46,12 @@ const PDF_PATH = path.join(tmp, 'main-engine-manual.pdf');
     <h1>Main Engine Operating Manual</h1>
     <p>Starting air pressure shall be a minimum of 25 bar before the first attempt.</p>
     <p>Unique marker one: ZEPHYRTESTONE.</p>
+    <p>SWELLWORD conditions on page one. More SWELLWORD here. And SWELLWORD again.</p>
     <div style="page-break-before:always"></div>
     <h1>Section 2 — Lubrication</h1>
     <p>Sump oil temperature must remain between 40 and 55 degrees Celsius.</p>
-    <p>Unique marker two: QUAYSIDEMARKER.</p>`, { waitUntil: 'load' });
+    <p>Unique marker two: QUAYSIDEMARKER.</p>
+    <p>SWELLWORD appears on page two as well. SWELLWORD once more.</p>`, { waitUntil: 'load' });
   await maker.pdf({ path: PDF_PATH, format: 'A4' });
   await maker.close();
   console.log(`  generated test PDF: ${(fs.statSync(PDF_PATH).size / 1024).toFixed(0)} KB`);
@@ -257,6 +259,43 @@ try {
   await page.waitForTimeout(400);
   const page2 = await page.locator('.snippet').first().innerText();
   check('a term on page two reports page two', /page 2/i.test(page2), page2);
+
+  // A term repeated across pages must report every hit, not a sample of three.
+  await page.fill('#search', 'SWELLWORD');
+  await page.waitForTimeout(700);
+  const counted = await page.evaluate(async () => {
+    const { search } = await import('./js/search.js');
+    const store = await import('./js/store.js');
+    const texts = await store.loadTexts();
+    const [top] = search('SWELLWORD', store.allItems(), texts);
+    return { matches: top.matchCount, pages: top.pagesWithHits, snippets: top.snippets.length };
+  });
+  check('every occurrence is counted, not just the first few',
+    counted.matches === 5, JSON.stringify(counted));
+  check('hits are counted across both pages', counted.pages === 2, JSON.stringify(counted));
+  check('the card reports the real total',
+    /5 matches on 2 pages/i.test(await page.locator('.card').first().innerText()),
+    (await page.locator('.card').first().innerText()).replace(/\n/g, ' / '));
+
+  const shownFirst = await page.locator('.snippet').count();
+  check('only the first few are shown at once', shownFirst === 3, String(shownFirst));
+  check('the rest are offered', await page.locator('button:has-text("Show all")').isVisible());
+  await page.click('button:has-text("Show all")');
+  await page.waitForTimeout(200);
+  check('showing all reveals every snippet',
+    (await page.locator('.snippet').count()) === counted.snippets,
+    `${await page.locator('.snippet').count()} vs ${counted.snippets}`);
+
+  // A hit on page two must open the document there, not at the front.
+  const pageTwo = page.locator('.snippet', { hasText: 'page 2' }).first();
+  await pageTwo.click();
+  await page.waitForSelector('#viewer:not([hidden])');
+  await page.waitForSelector('#viewerBody canvas', { timeout: 20000 });
+  check('opening a hit jumps to its page',
+    /page 2/i.test(await page.locator('#viewerTitle').textContent()),
+    await page.locator('#viewerTitle').textContent());
+  await page.click('#viewerClose');
+  await page.waitForSelector('#viewer', { state: 'hidden' });
 
   await page.fill('#search', 'sump oil temperature');
   await page.waitForTimeout(400);

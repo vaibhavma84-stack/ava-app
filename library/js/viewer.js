@@ -34,7 +34,7 @@ function isImageBlob(blob, name) {
  * Show a stored file. Returns a teardown function the caller runs on close so
  * object URLs and the PDF task do not outlive the sheet.
  */
-export async function renderInto(container, blob, name, { onStatus } = {}) {
+export async function renderInto(container, blob, name, { onStatus, startPage = 1 } = {}) {
   clear(container);
 
   if (isImageBlob(blob, name)) {
@@ -90,9 +90,14 @@ export async function renderInto(container, blob, name, { onStatus } = {}) {
     observer.observe(canvas);
   }
 
-  // Draw the first page immediately so the sheet is never blank.
-  const first = container.querySelector('canvas');
-  if (first) await draw(first, 1);
+  // Draw the page being jumped to first, so the sheet is never blank and a
+  // search result lands where it should rather than at the front of the book.
+  const target = Math.min(Math.max(1, startPage), doc.numPages);
+  const wanted = container.querySelector(`canvas[data-page="${target}"]`);
+  if (wanted) {
+    await draw(wanted, target);
+    if (target > 1) wanted.scrollIntoView({ block: 'start' });
+  }
 
   return () => {
     observer.disconnect();

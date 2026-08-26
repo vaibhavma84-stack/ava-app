@@ -63,15 +63,24 @@ function markUp(passage, words) {
   return out;
 }
 
-/** Pull a readable window of text around the first hit on a page. */
-function snippetFor(text, words) {
+/** Every position on a page where any search term appears. */
+function hitPositions(text, words) {
   const lower = text.toLowerCase();
-  let at = -1;
+  const positions = [];
   for (const w of words) {
-    const i = lower.indexOf(w);
-    if (i !== -1 && (at === -1 || i < at)) at = i;
+    let from = 0;
+    for (;;) {
+      const at = lower.indexOf(w, from);
+      if (at === -1) break;
+      positions.push(at);
+      from = at + w.length;
+    }
   }
-  if (at === -1) return null;
+  return positions.sort((a, b) => a - b);
+}
+
+/** A readable window of text around one hit. */
+function snippetAt(text, at, words) {
   const start = Math.max(0, at - SNIPPET_BEFORE);
   const end = Math.min(text.length, at + SNIPPET_AFTER);
   const passage = (start > 0 ? '… ' : '') + text.slice(start, end).trim() + (end < text.length ? ' …' : '');
@@ -80,10 +89,15 @@ function snippetFor(text, words) {
 
 /**
  * Rank records against a query.
+ *
+ * Every match is returned, not a sample of them: a phrase can appear on forty
+ * pages of a publication and the point of searching is to find all of them. The
+ * caller decides how many to show at once.
+ *
  * `texts` maps attachment id -> [{ page, text }]; pass null to search metadata
  * only, which is what happens before the text index has been loaded.
  */
-export function search(query, items, texts, { type = null, maxSnippets = 3 } = {}) {
+export function search(query, items, texts, { type = null, perPage = 2 } = {}) {
   const words = terms(query);
   if (!words.length) return [];
 
@@ -96,6 +110,8 @@ export function search(query, items, texts, { type = null, maxSnippets = 3 } = {
 
     const snippets = [];
     const contentWords = new Set();
+    let matchCount = 0;
+    let pagesWithHits = 0;
     if (texts) {
       for (const att of item.data?.attachments || []) {
         const pages = texts.get(att.id);
@@ -105,9 +121,14 @@ export function search(query, items, texts, { type = null, maxSnippets = 3 } = {
           const present = words.filter((w) => lower.includes(w));
           if (!present.length) continue;
           present.forEach((w) => contentWords.add(w));
-          if (snippets.length < maxSnippets) {
-            const parts = snippetFor(text, words);
-            if (parts) snippets.push({ file: att.name, page, parts });
+
+          const positions = hitPositions(text, words);
+          matchCount += positions.length;
+          pagesWithHits++;
+          // A page mentioning a term twenty times does not need twenty
+          // snippets; a couple shows the context and the rest is noise.
+          for (const at of positions.slice(0, perPage)) {
+            snippets.push({ attachmentId: att.id, file: att.name, page, parts: snippetAt(text, at, words) });
           }
         }
       }
@@ -120,8 +141,11 @@ export function search(query, items, texts, { type = null, maxSnippets = 3 } = {
     results.push({
       item,
       snippets,
-      // Title and field matches outrank a mention buried in a PDF.
-      score: metaHits * 10 + contentWords.size * 3 + snippets.length
+      matchCount,
+      pagesWithHits,
+      // Title and field matches outrank a mention buried in a PDF, but a
+      // document mentioning the term throughout outranks one mentioning it once.
+      score: metaHits * 10 + contentWords.size * 3 + Math.min(matchCount, 20)
     });
   }
 

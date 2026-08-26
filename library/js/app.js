@@ -8,7 +8,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.08.31';
+const APP_VERSION = '2026.09.01';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -243,7 +243,10 @@ async function renderSearch(body) {
     body.append(el('div', { class: 'group-head' }, [
       TYPES[type].label, el('span', { class: 'group-count', text: String(group.length) })
     ]));
-    for (const result of group) body.append(cardFor(result.item, result.snippets));
+    for (const result of group) {
+      body.append(cardFor(result.item, result.snippets,
+        { matchCount: result.matchCount, pagesWithHits: result.pagesWithHits }));
+    }
   }
 }
 
@@ -255,7 +258,7 @@ function emptyState(title, text) {
   ]);
 }
 
-function cardFor(item, snippets) {
+function cardFor(item, snippets, matchInfo) {
   const def = TYPES[item.type];
   const title = item.data[def.titleKey] || 'Untitled';
   const sub = (def.listFields || []).map((k) => item.data[k]).filter(Boolean).join(' · ');
@@ -297,17 +300,60 @@ function cardFor(item, snippets) {
     ]));
   }
 
-  for (const snip of snippets || []) {
-    const box = el('div', { class: 'snippet' }, [
-      el('span', { class: 'snippet-page', text: `${snip.file} · page ${snip.page}` })
-    ]);
-    // Built from text nodes, so a document's own words cannot become markup.
-    for (const part of snip.parts) {
-      box.append(part.hit ? el('mark', { text: part.text }) : document.createTextNode(part.text));
-    }
-    card.append(box);
-  }
+  if (snippets?.length) card.append(matchList(item, snippets, matchInfo));
   return card;
+}
+
+const FIRST_SHOWN = 3;
+
+/** The hits inside a document: a few at first, the rest on request. */
+function matchList(item, snippets, info) {
+  const wrap = el('div');
+
+  if (info && info.matchCount > snippets.length) {
+    wrap.append(el('p', { class: 'match-count' }, [
+      `${info.matchCount} match${info.matchCount === 1 ? '' : 'es'} on `
+      + `${info.pagesWithHits} page${info.pagesWithHits === 1 ? '' : 's'}`
+    ]));
+  }
+
+  const holder = el('div');
+  let shown = 0;
+
+  const draw = (upTo) => {
+    for (; shown < Math.min(upTo, snippets.length); shown++) {
+      const snip = snippets[shown];
+      const att = (item.data.attachments || []).find((a) => a.id === snip.attachmentId);
+      const box = el('button', {
+        class: 'snippet',
+        // Tapping a hit opens the document at that page rather than page one.
+        onclick: (e) => { e.stopPropagation(); if (att) openAttachment(att, snip.page); }
+      }, [
+        el('span', { class: 'snippet-page', text: `${snip.file} · page ${snip.page}` })
+      ]);
+      // Built from text nodes, so a document's own words cannot become markup.
+      for (const part of snip.parts) {
+        box.append(part.hit ? el('mark', { text: part.text }) : document.createTextNode(part.text));
+      }
+      holder.append(box);
+    }
+  };
+
+  draw(FIRST_SHOWN);
+  wrap.append(holder);
+
+  if (snippets.length > FIRST_SHOWN) {
+    const more = el('button', {
+      class: 'btn btn-sm btn-block', style: 'margin-top:8px',
+      onclick: (e) => {
+        e.stopPropagation();
+        draw(snippets.length);
+        more.remove();
+      }
+    }, [`Show all ${snippets.length} results`]);
+    wrap.append(more);
+  }
+  return wrap;
 }
 
 function dcell(key, value, dim) {
@@ -496,7 +542,7 @@ let disposeViewer = null;
  * Show a document in the app. An installed iOS web app cannot open a blob: URL
  * in a new tab, so this renders it here instead of handing it to the browser.
  */
-async function openAttachment(att) {
+async function openAttachment(att, startPage = 1) {
   const sheet = $('#viewer');
   const body = clear($('#viewerBody'));
   $('#viewerTitle').textContent = att.name || 'Document';
@@ -507,7 +553,12 @@ async function openAttachment(att) {
     const blob = await store.readFile(att);
     disposeViewer?.();
     disposeViewer = await renderInto(body, blob, att.name, {
-      onStatus: (text) => { $('#viewerTitle').textContent = `${att.name} · ${text}`; }
+      startPage,
+      onStatus: (text) => {
+        $('#viewerTitle').textContent = startPage > 1
+          ? `${att.name} · page ${startPage} of ${text.replace(/ pages?$/, '')}`
+          : `${att.name} · ${text}`;
+      }
     });
     $('#viewerShare').onclick = () => shareAttachment(att);
   } catch (ex) {

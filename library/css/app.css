@@ -216,9 +216,17 @@ select.field {
 .group-count { font-family: var(--mono); color: var(--text-dim); letter-spacing: 0; }
 
 .snippet {
+  display: block; width: 100%; text-align: left; cursor: pointer;
   margin-top: 9px; padding: 9px 11px; border-radius: 8px;
-  background: var(--ink-850); border-left: 2px solid var(--copper-dim);
+  background: var(--ink-850); border: 1px solid var(--line);
+  border-left: 2px solid var(--copper-dim);
   font-size: 13px; line-height: 1.55; color: var(--text-dim);
+  font-family: var(--body);
+}
+.snippet:active { background: var(--ink-700); }
+.match-count {
+  margin: 10px 0 0; font-family: var(--display); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--copper);
 }
 .snippet mark { background: var(--copper-dim); color: var(--copper-bright); border-radius: 2px; padding: 0 2px; }
 .snippet-page {
