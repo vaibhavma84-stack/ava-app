@@ -95,15 +95,17 @@ const FLAG_PATH = path.join(tmp, 'MMN-7-070.pdf');
 const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'allow' });
 const page = await context.newPage();
 const errors = [];
-// Part of the suite cuts a source off on purpose, to see how the app reports a
-// refusal. The browser logs those as resource errors; they are the point of
-// the test, not a defect, so they are ignored only while that is set up.
+// Part of the suite refuses a source on purpose — a host cut off, or the 400
+// WordPress returns for a page past the end of its library — to see how the
+// app reports it. The browser logs those as resource errors; they are the
+// point of the test, not a defect, so they are ignored while that is set up.
+// The window covers the flag-sync section only, where every host is stubbed.
 let blockingOnPurpose = false;
 page.on('pageerror', (e) => errors.push(String(e)));
 page.on('console', (m) => {
   if (m.type() !== 'error') return;
   const text = m.text();
-  if (blockingOnPurpose && /net::ERR_FAILED/.test(text)) return;
+  if (blockingOnPurpose && /net::ERR_FAILED|status of 400/.test(text)) return;
   errors.push(text);
 });
 page.on('dialog', async (d) => { await d.accept(''); });
@@ -660,28 +662,34 @@ try {
   await closeDetail();
 
   // ---- Panama: no API of its own, but WordPress serves one ----------------
-  const PANAMA_MEDIA = {
-    'MMC-': [
-      { title: { rendered: 'MMC-230-Recognised-Organisations' }, date: '2025-10-15T10:00:00',
-        source_url: 'https://panamashipregistry.com/wp-content/uploads/2025/10/MMC-230-15-10-2025.pdf' },
-      { title: { rendered: 'MMC-388-January-2024' }, date: '2024-01-11T10:00:00',
-        source_url: 'https://panamashipregistry.com/wp-content/uploads/2024/01/MMC-388-January-2024.pdf' },
-      // Everything the site has ever uploaded comes back from this endpoint,
-      // so anything without a reference has to be dropped.
-      { title: { rendered: 'Registry-brochure-2025' }, date: '2025-02-01T10:00:00',
-        source_url: 'https://panamashipregistry.com/wp-content/uploads/2025/02/brochure.pdf' }
-    ],
-    'MMN-': [
-      { title: { rendered: 'MMN-7-070-Ballast-water-record-book' }, date: '2025-06-02T10:00:00',
-        source_url: 'https://panamashipregistry.com/wp-content/uploads/2025/06/MMN-7-070.pdf' }
-    ]
-  };
+  // One listing holds circulars and notices together, paged. Later pages run
+  // past the end of the library, which WordPress answers with an error — that
+  // must not lose the pages that did come back.
+  const PANAMA_PAGE_1 = [
+    { title: { rendered: 'MMC-230-Recognised-Organisations' }, date: '2025-10-15T10:00:00',
+      source_url: 'https://www.panamashipregistry.com/wp-content/uploads/2025/10/MMC-230-15-10-2025.pdf' },
+    { title: { rendered: 'MMN-7-070-Ballast-water-record-book' }, date: '2025-06-02T10:00:00',
+      source_url: 'https://www.panamashipregistry.com/wp-content/uploads/2025/06/MMN-7-070.pdf' },
+    // Every upload the site holds comes back here, so anything without a
+    // reference has to be dropped.
+    { title: { rendered: 'Registry-brochure-2025' }, date: '2025-02-01T10:00:00',
+      source_url: 'https://www.panamashipregistry.com/wp-content/uploads/2025/02/brochure.pdf' }
+  ];
+  const PANAMA_PAGE_2 = [
+    { title: { rendered: 'MMC-388-January-2024' }, date: '2024-01-11T10:00:00',
+      source_url: 'https://www.panamashipregistry.com/wp-content/uploads/2024/01/MMC-388-January-2024.pdf' }
+  ];
+  const panamaPages = [];
   await page.route('**/wp-json/wp/v2/media**', (route) => {
     const url = route.request().url();
-    const key = /MMN/.test(url) ? 'MMN-' : 'MMC-';
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_MEDIA[key]) });
+    panamaPages.push(url);
+    const n = Number(new URL(url).searchParams.get('page') || 1);
+    if (n === 1) return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_PAGE_1) });
+    if (n === 2) return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_PAGE_2) });
+    return route.fulfill({ status: 400, contentType: 'application/json', body: '{"code":"rest_post_invalid_page_number"}' });
   });
 
+  blockingOnPurpose = true;
   await page.click(`${panel} button:text-is("Panama")`);
   await page.waitForSelector('.hint:has-text("Panama:")', { timeout: 20000 });
   const panamaRun = await page.locator(`${panel} .hint`).innerText();
@@ -689,6 +697,12 @@ try {
   // A fetched notice has to merge into it rather than sit beside it.
   check('Panama files its circulars and notices',
     /Panama: 2 new, 1 updated/.test(panamaRun), panamaRun);
+  check('the classes are read from one listing, not one request each',
+    panamaPages.every((u) => !/search=/.test(u)), panamaPages.join(' | '));
+  check('and only the uploaded files are asked for',
+    panamaPages.every((u) => /media_type=application/.test(u)), panamaPages.join(' | '));
+  check('pages past the end of the library do not lose the ones before them',
+    panamaPages.some((u) => /page=3/.test(u)), panamaPages.join(' | '));
   check('and does not duplicate one already entered by hand',
     await page.locator('.card', { hasText: 'MMN 7-070' }).count() === 1);
   await page.locator('.card', { hasText: 'MMN 7-070' }).first().click();
@@ -727,13 +741,27 @@ try {
       .some((c) => /Recognised organisations acting for Panama/.test(c)));
 
   // ---- Singapore: an index page, read for the links it lists --------------
-  const MPA_PAGE = `<!doctype html><html><body>
-    <a href="/media-centre/details/port-marine-circular-no.-01-of-2026">PORT MARINE CIRCULAR NO. 01 OF 2026 List of active port marine circulars</a>
-    <a href="/docs/mpalibraries/circulars-and-notices/sc25-09.pdf">Shipping Circular No. 9 of 2025 Ballast water management</a>
-    <a href="/about-us/careers">Careers at MPA</a>
-  </body></html>`;
-  await page.route('**/media-centre**', (route) =>
-    route.fulfill({ status: 200, contentType: 'text/html', body: MPA_PAGE }));
+  // MPA publishes a feed carrying its releases, circulars and notices together.
+  const MPA_FEED = `<?xml version="1.0" encoding="utf-8"?>
+  <rss version="2.0"><channel>
+    <item>
+      <title>PORT MARINE CIRCULAR NO. 01 OF 2026 List of active port marine circulars</title>
+      <link>https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-01-of-2026</link>
+      <pubDate>Mon, 05 Jan 2026 09:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Shipping Circular No. 9 of 2025 Ballast water management</title>
+      <link>https://www.mpa.gov.sg/docs/mpalibraries/circulars-and-notices/sc25-09.pdf</link>
+      <pubDate>Tue, 09 Sep 2025 09:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>MPA and partners sign agreement on green corridors</title>
+      <link>https://www.mpa.gov.sg/media-centre/details/green-corridors</link>
+      <pubDate>Wed, 01 Oct 2025 09:00:00 +0800</pubDate>
+    </item>
+  </channel></rss>`;
+  await page.route('**/feeds/**', (route) =>
+    route.fulfill({ status: 200, contentType: 'application/rss+xml', body: MPA_FEED }));
 
   await page.click(`${panel} button:text-is("Singapore")`);
   await page.waitForSelector('.hint:has-text("Singapore:")', { timeout: 20000 });
@@ -745,12 +773,14 @@ try {
     sgCards.some((c) => /PC 01\/2026/.test(c)), sgCards.join(' | '));
   check('a reference in a filename is parsed too',
     sgCards.some((c) => /SC 09\/2025/.test(c)), sgCards.join(' | '));
-  check('unrelated links on the page are ignored',
-    !sgCards.some((c) => /Careers/i.test(c)), sgCards.join(' | '));
+  check('media releases in the same feed are left out',
+    !sgCards.some((c) => /green corridors/i.test(c)), sgCards.join(' | '));
+  check('the date comes across from the feed',
+    sgCards.some((c) => /2026/.test(c)), sgCards.join(' | '));
 
   // ---- A source that refuses the read has to say so, not fail silently ----
-  blockingOnPurpose = true;
-  await page.unroute('**/media-centre**');
+  await page.unroute('**/feeds/**');
+  await page.route('**/feeds/**', (route) => route.abort('failed'));
   await page.route('**/media-centre**', (route) => route.abort('failed'));
   await page.click(`${panel} button:text-is("Singapore")`);
   await page.waitForSelector('.hint:has-text("could not be read")', { timeout: 20000 });
@@ -759,24 +789,26 @@ try {
     /Singapore could not be read/.test(refused), refused);
   check('and says a connection is needed', /needs a connection/.test(refused), refused);
 
-  // A class that fails while others succeed still files the ones that worked.
+  // A host that refuses one route and answers another must not be written off:
+  // the reply that worked is still filed.
   await page.unroute('**/wp-json/wp/v2/media**');
   await page.route('**/wp-json/wp/v2/media**', (route) => {
-    const url = route.request().url();
-    if (/MMN/.test(url)) return route.abort('failed');
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_MEDIA['MMC-']) });
+    const n = Number(new URL(route.request().url()).searchParams.get('page') || 1);
+    if (n === 1) return route.abort('failed');
+    if (n === 2) return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_PAGE_2) });
+    return route.abort('failed');
   });
   await page.route('**/circulars/**', (route) => route.abort('failed'));
   await page.click(`${panel} button:text-is("Panama")`);
   await page.waitForSelector('.hint:has-text("Panama:")', { timeout: 20000 });
   const partial = await page.locator(`${panel} .hint`).innerText();
-  check('a partial result is still filed', /Panama: 0 new/.test(partial), partial);
-  check('and names the class it could not read',
-    /Could not read: Merchant Marine Notices/.test(partial), partial);
+  check('one page refusing does not discard the rest', /Panama: 0 new/.test(partial), partial);
+  check('and it is not reported as a failure', /already held/.test(partial), partial);
 
   await page.unroute('**/api/content/government/collections/**');
   await page.unroute('**/wp-json/wp/v2/media**');
   await page.unroute('**/media-centre**');
+  await page.unroute('**/feeds/**');
   await page.unroute('**/circulars/**');
   blockingOnPurpose = false;
 

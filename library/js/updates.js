@@ -112,10 +112,21 @@ function parseWpMedia(data) {
   }).filter(Boolean);
 }
 
-const wpMedia = (host, search) =>
-  `${host}/wp-json/wp/v2/media?per_page=100&orderby=date&order=desc`
-  + `&search=${encodeURIComponent(search)}`
-  + '&_fields=title,slug,date,date_gmt,source_url';
+/**
+ * Pages of a WordPress media listing, newest first.
+ *
+ * Asking for the two classes separately fetched the same hundred uploads
+ * twice — the search term barely narrows anything, and both queries came back
+ * with the identical count. One listing is read instead and each document is
+ * classed by the reference in its own name.
+ *
+ * media_type=application asks for the uploaded files rather than the site's
+ * photographs, and _fields trims each record to the five that are used, so a
+ * page of a hundred is a small read on a metered connection.
+ */
+const wpMediaPages = (host, pages) => Array.from({ length: pages }, (_, i) =>
+  `${host}/wp-json/wp/v2/media?media_type=application&per_page=100&page=${i + 1}`
+  + '&orderby=date&order=desc&_fields=title,slug,date,date_gmt,source_url');
 
 // ---------------------------------------------------------- Singapore -----
 
@@ -152,7 +163,43 @@ function singaporeRef(text) {
 }
 
 /**
- * Read a published index page for the links it lists. Coarser than an API, but
+ * Read an RSS or Atom feed. A published feed is a list an administration keeps
+ * deliberately, so it beats scraping a page whose links are drawn by script
+ * and may not be in the HTML at all.
+ *
+ * MPA's feed carries media releases as well as circulars, so anything without
+ * a recognisable reference is left out.
+ */
+function parseFeed({ refOf, types }) {
+  return (xml) => {
+    const doc = new DOMParser().parseFromString(String(xml), 'application/xml');
+    if (doc.querySelector('parsererror')) return [];
+
+    const out = [];
+    for (const entry of doc.querySelectorAll('item, entry')) {
+      const title = clean(entry.querySelector('title')?.textContent);
+      const ref = refOf(title);
+      if (!ref) continue;
+
+      const linkEl = entry.querySelector('link');
+      const href = clean(linkEl?.textContent) || linkEl?.getAttribute('href') || '';
+      const when = entry.querySelector('pubDate, published, updated')?.textContent;
+      const parsed = when ? new Date(when) : null;
+
+      out.push({
+        title,
+        refNo: ref.refNo,
+        docType: types[ref.prefix] || '',
+        date: parsed && !Number.isNaN(parsed.getTime()) ? parsed.toISOString().slice(0, 10) : '',
+        sourceUrl: href
+      });
+    }
+    return out;
+  };
+}
+
+/**
+ * Read a published index page for the links it lists. Coarser than a feed, but
  * it is what an administration without one gives you.
  */
 function parseLinkIndex({ base, match, refOf, types }) {
@@ -243,13 +290,15 @@ export const FEEDS = {
 
   Panama: {
     issuer: 'Panama Maritime Authority',
-    note: 'The registry runs on WordPress; its REST API is the only machine-readable list it offers.',
+    note: 'The registry runs on WordPress, whose REST API is readable where its pages are not.',
     groups: [
       {
-        name: 'Merchant Marine Circulars',
+        // One group, because one listing holds both classes. Each document is
+        // filed as a circular or a notice by its own reference.
+        name: 'Circulars and notices',
         alternatives: [
-          { label: 'Registry API', kind: 'json', url: wpMedia(PANAMA, 'MMC-'), parse: parseWpMedia },
-          { label: 'Authority API', kind: 'json', url: wpMedia(PANAMA_AMP, 'MMC-'), parse: parseWpMedia },
+          { label: 'Registry API', kind: 'json', urls: wpMediaPages(PANAMA, 4), parse: parseWpMedia },
+          { label: 'Authority API', kind: 'json', urls: wpMediaPages(PANAMA_AMP, 4), parse: parseWpMedia },
           {
             label: 'Circulars page', kind: 'html', url: `${PANAMA}/circulars/`,
             parse: parseLinkIndex({
@@ -258,53 +307,37 @@ export const FEEDS = {
             })
           }
         ]
-      },
-      {
-        name: 'Merchant Marine Notices',
-        alternatives: [
-          { label: 'Registry API', kind: 'json', url: wpMedia(PANAMA, 'MMN-'), parse: parseWpMedia },
-          { label: 'Authority API', kind: 'json', url: wpMedia(PANAMA_AMP, 'MMN-'), parse: parseWpMedia }
-        ]
       }
     ]
   },
 
   Singapore: {
     issuer: 'Maritime & Port Authority of Singapore',
-    note: 'MPA publishes no API, so this reads the media centre listing itself.',
+    note: 'MPA publishes a feed of its releases, which carries the circulars and notices among them.',
     groups: [
       {
-        name: 'Shipping Circulars',
-        alternatives: [{
-          label: 'Media centre', kind: 'html',
-          url: `${MPA}/media-centre?type=Shipping+Circulars`,
-          parse: parseLinkIndex({
-            base: MPA, match: /\/(media-centre\/details|docs\/mpalibraries)\//i,
-            refOf: singaporeRef, types: SG_TYPES
-          })
-        }]
-      },
-      {
-        name: 'Port Marine Circulars',
-        alternatives: [{
-          label: 'Media centre', kind: 'html',
-          url: `${MPA}/media-centre?type=Port+Marine+Circulars`,
-          parse: parseLinkIndex({
-            base: MPA, match: /\/(media-centre\/details|docs\/mpalibraries)\//i,
-            refOf: singaporeRef, types: SG_TYPES
-          })
-        }]
-      },
-      {
-        name: 'Port Marine Notices',
-        alternatives: [{
-          label: 'Media centre', kind: 'html',
-          url: `${MPA}/media-centre?type=Port+Marine+Notices`,
-          parse: parseLinkIndex({
-            base: MPA, match: /\/(media-centre\/details|docs\/mpalibraries)\//i,
-            refOf: singaporeRef, types: SG_TYPES
-          })
-        }]
+        // One class, because the feed does not separate them — each item is
+        // sorted by the reference in its own title. The listing pages behind
+        // it are split by type, so all three are read together.
+        name: 'Circulars and notices',
+        alternatives: [
+          {
+            label: 'MPA feed', kind: 'xml', url: `${MPA}/feeds/media-releases`,
+            parse: parseFeed({ refOf: singaporeRef, types: SG_TYPES })
+          },
+          {
+            label: 'Media centre', kind: 'html',
+            urls: [
+              `${MPA}/media-centre?type=Shipping+Circulars`,
+              `${MPA}/media-centre?type=Port+Marine+Circulars`,
+              `${MPA}/media-centre?type=Port+Marine+Notices`
+            ],
+            parse: parseLinkIndex({
+              base: MPA, match: /\/(media-centre\/details|docs\/mpalibraries)\//i,
+              refOf: singaporeRef, types: SG_TYPES
+            })
+          }
+        ]
       }
     ]
   }
@@ -317,11 +350,28 @@ const message = (ex) =>
   `${ex?.name === 'TypeError' ? 'blocked or offline' : ex?.name || 'Error'}: ${String(ex?.message || ex)}`
     .slice(0, 120);
 
-async function read(alternative) {
-  const response = await fetch(alternative.url, { mode: 'cors', credentials: 'omit' });
+async function readOne(url, alternative) {
+  const response = await fetch(url, { mode: 'cors', credentials: 'omit' });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const payload = alternative.kind === 'json' ? await response.json() : await response.text();
   return alternative.parse(payload);
+}
+
+/** Every URL an alternative names. One of them answering is enough. */
+const urlsOf = (alternative) => alternative.urls || [alternative.url];
+
+async function read(alternative) {
+  const urls = urlsOf(alternative);
+  const found = [];
+  const errors = [];
+  for (const url of urls) {
+    try { found.push(...await readOne(url, alternative)); }
+    catch (ex) { errors.push(ex); }
+  }
+  // Only a total refusal is a failure: one listing being renamed should not
+  // take the other two down with it.
+  if (!found.length && errors.length === urls.length) throw errors[0];
+  return found;
 }
 
 /** Newest first, one entry per reference. */
@@ -376,16 +426,21 @@ export async function fetchNotices(admin) {
 
 async function attempt(label, alternative) {
   const started = Date.now();
-  try {
-    const found = await read(alternative);
-    return {
-      label, ok: found.length > 0, ms: Date.now() - started,
-      detail: found.length ? `${found.length} documents listed` : 'read, but nothing recognisable in it'
-    };
-  } catch (ex) {
-    // A CORS refusal surfaces as a TypeError with no status at all.
-    return { label, ok: false, ms: Date.now() - started, detail: message(ex) };
+  const urls = urlsOf(alternative);
+  const found = [];
+  const errors = [];
+  for (const url of urls) {
+    try { found.push(...await readOne(url, { ...alternative })); }
+    catch (ex) { errors.push(ex); }
   }
+  const ms = Date.now() - started;
+  // How many of an alternative's URLs answered matters: one listing renamed
+  // reads very differently from a host refusing the app outright.
+  const reach = urls.length > 1 ? ` (${urls.length - errors.length} of ${urls.length} read)` : '';
+  if (found.length) return { label, ok: true, ms, detail: `${found.length} documents listed${reach}` };
+  // A CORS refusal surfaces as a TypeError with no status at all.
+  if (errors.length) return { label, ok: false, ms, detail: `${message(errors[0])}${reach}` };
+  return { label, ok: false, ms, detail: `read, but nothing recognisable in it${reach}` };
 }
 
 /** Try every route one administration has, and report what the device reached. */
