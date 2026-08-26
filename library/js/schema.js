@@ -32,8 +32,16 @@ export const FLAG_STATES = ['MCA', 'Panama', 'Singapore', 'Other'];
 export const FLAG_SOURCES = {
   MCA: [
     { label: 'MSNs', url: 'https://www.gov.uk/government/collections/merchant-shipping-notices-msns' },
-    { label: 'MGNs', url: 'https://www.gov.uk/government/collections/marine-guidance-notes-mgns' },
+    { label: 'MGNs', url: 'https://www.gov.uk/government/collections/active-marine-guidance-notes-mgns' },
     { label: 'MINs', url: 'https://www.gov.uk/government/collections/marine-information-notes-mins' }
+  ],
+  Panama: [
+    { label: 'Circulars', url: 'https://panamashipregistry.com/circulars/' }
+  ],
+  Singapore: [
+    { label: 'Shipping', url: 'https://www.mpa.gov.sg/media-centre?type=Shipping+Circulars' },
+    { label: 'Port Marine', url: 'https://www.mpa.gov.sg/media-centre?type=Port+Marine+Circulars' },
+    { label: 'Notices', url: 'https://www.mpa.gov.sg/media-centre?type=Port+Marine+Notices' }
   ]
 };
 

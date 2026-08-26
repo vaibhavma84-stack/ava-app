@@ -95,8 +95,17 @@ const FLAG_PATH = path.join(tmp, 'MMN-7-070.pdf');
 const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'allow' });
 const page = await context.newPage();
 const errors = [];
+// Part of the suite cuts a source off on purpose, to see how the app reports a
+// refusal. The browser logs those as resource errors; they are the point of
+// the test, not a defect, so they are ignored only while that is set up.
+let blockingOnPurpose = false;
 page.on('pageerror', (e) => errors.push(String(e)));
-page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
+page.on('console', (m) => {
+  if (m.type() !== 'error') return;
+  const text = m.text();
+  if (blockingOnPurpose && /net::ERR_FAILED/.test(text)) return;
+  errors.push(text);
+});
 page.on('dialog', async (d) => { await d.accept(''); });
 
 const shot = async (name) => {
@@ -425,12 +434,18 @@ try {
   const sourceHrefs = await page.locator('.body a.link-btn').evaluateAll((as) =>
     as.map((a) => ({ text: a.textContent.trim(), href: a.getAttribute('href') })));
   check('the section links to where the notices are published',
-    sourceHrefs.length === 3, JSON.stringify(sourceHrefs));
+    sourceHrefs.length === 7, JSON.stringify(sourceHrefs));
   check('the MSN collection is the one supplied',
     sourceHrefs.some((l) => l.href === 'https://www.gov.uk/government/collections/merchant-shipping-notices-msns'),
     JSON.stringify(sourceHrefs));
+  check('the MGN collection is the one supplied',
+    sourceHrefs.some((l) => l.href === 'https://www.gov.uk/government/collections/active-marine-guidance-notes-mgns'),
+    JSON.stringify(sourceHrefs));
   check('MSN, MGN and MIN are all offered',
     ['MSN', 'MGN', 'MIN'].every((k) => sourceHrefs.some((l) => l.text.includes(k))),
+    JSON.stringify(sourceHrefs.map((l) => l.text)));
+  check('all three administrations are linked',
+    ['MCA', 'Panama', 'Singapore'].every((k) => sourceHrefs.some((l) => l.text.includes(k))),
     JSON.stringify(sourceHrefs.map((l) => l.text)));
   await page.click('#fab');
   await page.waitForSelector('#editor:not([hidden])');
@@ -493,11 +508,11 @@ try {
   check('flag circulars are filed under their administration',
     flagHeads.some((h) => h.includes('Panama')), flagHeads.join(' | '));
 
-  // GOV.UK is not reachable from the test machine, so the collection response
-  // is stubbed. What is being tested is the parsing and the merge: that a
-  // repeat sync updates rather than duplicates, and never overwrites notes
-  // typed by hand.
-  console.log('\nUpdating from MCA');
+  // None of these administrations is reachable from the test machine, so each
+  // response is stubbed. What is being tested is the parsing, the fallback
+  // between routes, and the merge: that a repeat sync updates rather than
+  // duplicates, and never overwrites what was typed by hand.
+  console.log('\nUpdating from the administrations');
   // Data on a ship is limited, so the app must never fetch on its own. Watch
   // every outbound request while simply using the app.
   const outbound = [];
@@ -517,28 +532,45 @@ try {
   check('nothing is fetched until asked for', outbound.length === 0, outbound.join(', '));
   page.off('request', watch);
 
-  const FEED = {
-    links: {
-      documents: [
-        { title: 'MSN 1871 (M) Amendment 1', base_path: '/government/publications/msn-1871', public_updated_at: '2026-02-10T09:00:00Z' },
-        { title: 'MGN 654 (M+F) Safe movement on board', base_path: '/government/publications/mgn-654', public_updated_at: '2026-01-05T09:00:00Z' },
-        { title: 'MIN 700 (M) Training berths', base_path: '/government/publications/min-700', public_updated_at: '2025-11-20T09:00:00Z' }
-      ]
-    }
+  const panel = '.panel:has-text("Update from the administration")';
+  for (const admin of ['MCA', 'Panama', 'Singapore']) {
+    check(`there is an update button for ${admin}`,
+      await page.locator(`${panel} button:text-is("${admin}")`).count() === 1);
+  }
+
+  // ---- MCA: a public JSON API, with the collection path having moved -------
+  // Each collection lists only its own class, so a class that failed to load
+  // shows up as a missing entry rather than being covered by another's reply.
+  const DOCS = {
+    msns: { title: 'MSN 1871 (M) Amendment 1', base_path: '/government/publications/msn-1871', public_updated_at: '2026-02-10T09:00:00Z' },
+    mgns: { title: 'MGN 654 (M+F) Safe movement on board', base_path: '/government/publications/mgn-654', public_updated_at: '2026-01-05T09:00:00Z' },
+    mins: { title: 'MIN 700 (M) Training berths', base_path: '/government/publications/min-700', public_updated_at: '2025-11-20T09:00:00Z' }
   };
-  await page.route('**/api/content/government/collections/**', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(FEED) }));
-
-  await page.click('button:has-text("Update MCA notices")');
-  await page.waitForSelector('.hint:has-text("new")', { timeout: 20000 });
-  const firstRun = await page.locator('.panel:has-text("Update from MCA") .hint').innerText();
-  check('a first sync files every notice', /3 new/.test(firstRun), firstRun);
-
-  const synced = await page.evaluate(() => {
-    const store = window.__libStore;
-    return null;
+  const feedFor = (url) => {
+    const key = Object.keys(DOCS).find((k) => url.endsWith(k));
+    return JSON.stringify(key ? { links: { documents: [DOCS[key]] } } : { links: {} });
+  };
+  // GOV.UK answers a moved collection with a redirect document that lists
+  // nothing. Standing in for that proves the app falls through to the next
+  // known path instead of reporting the class as unavailable.
+  const mgnTried = [];
+  await page.route('**/api/content/government/collections/**', (route) => {
+    const url = route.request().url();
+    if (/mgns$/.test(url)) {
+      mgnTried.push(url);
+      if (!/active-marine-guidance-notes/.test(url)) {
+        return route.fulfill({ status: 200, contentType: 'application/json', body: '{"links":{}}' });
+      }
+    }
+    return route.fulfill({ status: 200, contentType: 'application/json', body: feedFor(url) });
   });
-  void synced;
+
+  await page.click(`${panel} button:text-is("MCA")`);
+  await page.waitForSelector('.hint:has-text("new")', { timeout: 20000 });
+  const firstRun = await page.locator(`${panel} .hint`).innerText();
+  check('a first sync files every notice', /MCA: 3 new/.test(firstRun), firstRun);
+  check('the collection the user gave is the one used',
+    mgnTried.some((u) => /active-marine-guidance-notes-mgns/.test(u)), mgnTried.join(', '));
 
   const cards = await page.locator('.card').allInnerTexts();
   check('the reference is parsed from the title',
@@ -558,21 +590,138 @@ try {
   await save();
   await closeDetail();
 
-  await page.click('button:has-text("Update MCA notices")');
+  await page.click(`${panel} button:text-is("MCA")`);
   await page.waitForSelector('.hint:has-text("already held")', { timeout: 20000 });
-  const secondRun = await page.locator('.panel:has-text("Update from MCA") .hint').innerText();
+  const secondRun = await page.locator(`${panel} .hint`).innerText();
   check('a repeat sync does not duplicate', /0 new/.test(secondRun), secondRun);
   check('and recognises what is already held', /3 already held/.test(secondRun), secondRun);
 
-  const noteKept = await page.evaluate(() =>
-    [...document.querySelectorAll('.card')].some((c) => c.textContent.includes('MSN 1871')));
-  check('the hand-typed note survives a resync', noteKept);
   await page.locator('.card', { hasText: 'MSN 1871' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
-  check('the note is still there',
+  check('the hand-typed note survives a resync',
     /Checked against the ship copy/.test(await page.locator('#detailBody').innerText()));
   await closeDetail();
+
+  // ---- Panama: no API of its own, but WordPress serves one ----------------
+  const PANAMA_MEDIA = {
+    'MMC-': [
+      { title: { rendered: 'MMC-230-Recognised-Organisations' }, date: '2025-10-15T10:00:00',
+        source_url: 'https://panamashipregistry.com/wp-content/uploads/2025/10/MMC-230-15-10-2025.pdf' },
+      { title: { rendered: 'MMC-388-January-2024' }, date: '2024-01-11T10:00:00',
+        source_url: 'https://panamashipregistry.com/wp-content/uploads/2024/01/MMC-388-January-2024.pdf' },
+      // Everything the site has ever uploaded comes back from this endpoint,
+      // so anything without a reference has to be dropped.
+      { title: { rendered: 'Registry-brochure-2025' }, date: '2025-02-01T10:00:00',
+        source_url: 'https://panamashipregistry.com/wp-content/uploads/2025/02/brochure.pdf' }
+    ],
+    'MMN-': [
+      { title: { rendered: 'MMN-7-070-Ballast-water-record-book' }, date: '2025-06-02T10:00:00',
+        source_url: 'https://panamashipregistry.com/wp-content/uploads/2025/06/MMN-7-070.pdf' }
+    ]
+  };
+  await page.route('**/wp-json/wp/v2/media**', (route) => {
+    const url = route.request().url();
+    const key = /MMN/.test(url) ? 'MMN-' : 'MMC-';
+    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_MEDIA[key]) });
+  });
+
+  await page.click(`${panel} button:text-is("Panama")`);
+  await page.waitForSelector('.hint:has-text("Panama:")', { timeout: 20000 });
+  const panamaRun = await page.locator(`${panel} .hint`).innerText();
+  // MMN 7-070 is already held: it was typed in from a PDF earlier in this run.
+  // A fetched notice has to merge into it rather than sit beside it.
+  check('Panama files its circulars and notices',
+    /Panama: 2 new, 1 updated/.test(panamaRun), panamaRun);
+  check('and does not duplicate one already entered by hand',
+    await page.locator('.card', { hasText: 'MMN 7-070' }).count() === 1);
+  await page.locator('.card', { hasText: 'MMN 7-070' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  check('an entry made by hand keeps the subject its owner gave it',
+    !/MMN 7 070 Ballast water record book/i.test(await page.locator('#detailBody').innerText()),
+    (await page.locator('#detailBody').innerText()).slice(0, 200));
+  await closeDetail();
+
+  const panamaCards = await page.locator('.card').allInnerTexts();
+  check('a Panama circular reference is parsed',
+    panamaCards.some((c) => /MMC 230/.test(c)), panamaCards.join(' | '));
+  check('a hyphenated notice reference survives',
+    panamaCards.some((c) => /MMN 7-070/.test(c)), panamaCards.join(' | '));
+  check('uploads that are not circulars are ignored',
+    !panamaCards.some((c) => /brochure/i.test(c)), panamaCards.join(' | '));
+  check('Panama entries are filed under Panama',
+    (await page.locator('.group-head').allTextContents()).some((h) => h.includes('Panama')));
+
+  // Panama titles come from filenames, so they get rewritten by hand. A later
+  // sync must not put the filename back.
+  await page.locator('.card', { hasText: 'MMC 230' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailEdit');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'Recognised organisations acting for Panama');
+  await save();
+  await closeDetail();
+
+  await page.click(`${panel} button:text-is("Panama")`);
+  await page.waitForSelector('.hint:has-text("Panama: 0 new")', { timeout: 20000 });
+  const panamaAgain = await page.locator(`${panel} .hint`).innerText();
+  check('a repeat Panama sync adds nothing', /Panama: 0 new/.test(panamaAgain), panamaAgain);
+  check('a title rewritten by hand is kept',
+    (await page.locator('.card').allInnerTexts())
+      .some((c) => /Recognised organisations acting for Panama/.test(c)));
+
+  // ---- Singapore: an index page, read for the links it lists --------------
+  const MPA_PAGE = `<!doctype html><html><body>
+    <a href="/media-centre/details/port-marine-circular-no.-01-of-2026">PORT MARINE CIRCULAR NO. 01 OF 2026 List of active port marine circulars</a>
+    <a href="/docs/mpalibraries/circulars-and-notices/sc25-09.pdf">Shipping Circular No. 9 of 2025 Ballast water management</a>
+    <a href="/about-us/careers">Careers at MPA</a>
+  </body></html>`;
+  await page.route('**/media-centre**', (route) =>
+    route.fulfill({ status: 200, contentType: 'text/html', body: MPA_PAGE }));
+
+  await page.click(`${panel} button:text-is("Singapore")`);
+  await page.waitForSelector('.hint:has-text("Singapore:")', { timeout: 20000 });
+  const sgRun = await page.locator(`${panel} .hint`).innerText();
+  check('Singapore files what its listing names', /Singapore: 2 new/.test(sgRun), sgRun);
+
+  const sgCards = await page.locator('.card').allInnerTexts();
+  check('a spelt-out Singapore reference is parsed',
+    sgCards.some((c) => /PC 01\/2026/.test(c)), sgCards.join(' | '));
+  check('a reference in a filename is parsed too',
+    sgCards.some((c) => /SC 09\/2025/.test(c)), sgCards.join(' | '));
+  check('unrelated links on the page are ignored',
+    !sgCards.some((c) => /Careers/i.test(c)), sgCards.join(' | '));
+
+  // ---- A source that refuses the read has to say so, not fail silently ----
+  blockingOnPurpose = true;
+  await page.unroute('**/media-centre**');
+  await page.route('**/media-centre**', (route) => route.abort('failed'));
+  await page.click(`${panel} button:text-is("Singapore")`);
+  await page.waitForSelector('.hint:has-text("could not be read")', { timeout: 20000 });
+  const refused = await page.locator(`${panel} .hint`).innerText();
+  check('a blocked administration reports what happened',
+    /Singapore could not be read/.test(refused), refused);
+  check('and says a connection is needed', /needs a connection/.test(refused), refused);
+
+  // A class that fails while others succeed still files the ones that worked.
+  await page.unroute('**/wp-json/wp/v2/media**');
+  await page.route('**/wp-json/wp/v2/media**', (route) => {
+    const url = route.request().url();
+    if (/MMN/.test(url)) return route.abort('failed');
+    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(PANAMA_MEDIA['MMC-']) });
+  });
+  await page.route('**/circulars/**', (route) => route.abort('failed'));
+  await page.click(`${panel} button:text-is("Panama")`);
+  await page.waitForSelector('.hint:has-text("Panama:")', { timeout: 20000 });
+  const partial = await page.locator(`${panel} .hint`).innerText();
+  check('a partial result is still filed', /Panama: 0 new/.test(partial), partial);
+  check('and names the class it could not read',
+    /Could not read: Merchant Marine Notices/.test(partial), partial);
+
   await page.unroute('**/api/content/government/collections/**');
+  await page.unroute('**/wp-json/wp/v2/media**');
+  await page.unroute('**/media-centre**');
+  await page.unroute('**/circulars/**');
+  blockingOnPurpose = false;
 
   console.log('\nOther sections');
   await page.click('#backBtn');

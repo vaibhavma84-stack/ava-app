@@ -4,13 +4,13 @@ import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch } from './search.js';
 import { isPdf, extract, describe, selfTest, STATUS } from './pdftext.js';
 import { suggestFields } from './suggest.js';
-import { probeMcaFeed, fetchMcaNotices } from './updates.js';
+import { probeAll, fetchNotices, FEEDS, SYNCABLE } from './updates.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.06';
+const APP_VERSION = '2026.09.12';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -258,17 +258,20 @@ async function renderSearch(body) {
 }
 
 /**
- * Pull the current MCA notice list in and file it.
+ * Pull an administration's current notice list in and file it.
  *
- * Only the catalogue is fetched: GOV.UK's asset host refuses cross-origin
- * reads, so the PDFs cannot be downloaded by the app itself. Each entry keeps a
- * link to its page, which opens in Safari when a particular document is wanted.
+ * Only the catalogue is fetched, never the documents: the hosts that serve the
+ * PDFs refuse cross-origin reads. Each entry keeps a link to its page, which
+ * opens in Safari when a particular document is wanted.
+ *
+ * One button per administration, and nothing behind them runs on its own —
+ * on a metered connection you fetch the flag you are under, not all three.
  */
 function updatePanel() {
   const out = el('div');
   const panel = el('div', { class: 'panel' }, [
-    el('h3', { text: 'Update from MCA' }),
-    el('p', { text: 'Fetches the current list of MSNs, MGNs and MINs and files them under MCA. Nothing is fetched until you tap this, so it never spends your data on its own. Your own entries and notes are left alone.' })
+    el('h3', { text: 'Update from the administration' }),
+    el('p', { text: 'Fetches the current notice list for one flag and files it here. Nothing is fetched until you tap, so it never spends your data on its own. Your own entries, notes and files are left alone.' })
   ]);
 
   if (view.lastSync) {
@@ -279,39 +282,55 @@ function updatePanel() {
     }));
   }
 
-  const button = el('button', { class: 'btn btn-primary btn-block' }, ['Update MCA notices']);
-  button.addEventListener('click', async () => {
-    button.disabled = true;
-    button.textContent = 'Fetching…';
-    clear(out).append(el('p', { class: 'hint', text: 'Contacting GOV.UK…' }));
-    try {
-      const notices = await fetchMcaNotices();
-      const summary = await mergeNotices(notices);
-      view.lastSync = {
-        ok: true,
-        text: `${summary.added} new, ${summary.updated} updated, ${summary.unchanged} already held.`
-      };
-      render();   // redraws the list, and the panel with the summary in it
-    } catch (ex) {
-      view.lastSync = { ok: false, text: `Could not fetch: ${ex.message}. This needs a connection.` };
-      clear(out).append(el('p', { class: 'hint', style: 'color:var(--danger)', text: view.lastSync.text }));
-    } finally {
-      button.disabled = false;
-      button.textContent = 'Update MCA notices';
-    }
-  });
+  const row = el('div', { class: 'fieldrow' });
+  for (const admin of SYNCABLE) {
+    const button = el('button', { class: 'btn btn-sm btn-block' }, [admin]);
+    button.addEventListener('click', () => syncAdmin(admin, button, out));
+    row.append(el('div', {}, [button]));
+  }
 
-  panel.append(button, out);
+  panel.append(row, out);
   return panel;
+}
+
+/** Run one administration's fetch, reporting whatever actually happened. */
+async function syncAdmin(admin, button, out) {
+  const label = button.textContent;
+  button.disabled = true;
+  button.textContent = '…';
+  clear(out).append(el('p', { class: 'hint', text: `Contacting ${admin}…` }));
+
+  try {
+    const { notices, failed } = await fetchNotices(admin);
+    const summary = await mergeNotices(notices, admin);
+    // A partial result is still a result: file what came back, and say plainly
+    // which classes of document did not.
+    const missed = failed.length ? ` Could not read: ${failed.join('; ')}.` : '';
+    view.lastSync = {
+      ok: true,
+      text: `${admin}: ${summary.added} new, ${summary.updated} updated, ${summary.unchanged} already held.${missed}`
+    };
+    render();   // redraws the list, and the panel with the summary in it
+  } catch (ex) {
+    view.lastSync = {
+      ok: false,
+      text: `${admin} could not be read: ${ex.message}. This needs a connection, and the site has to permit the app to read it.`
+    };
+    clear(out).append(el('p', { class: 'hint', style: 'color:var(--danger)', text: view.lastSync.text }));
+  } finally {
+    button.disabled = false;
+    button.textContent = label;
+  }
 }
 
 /**
  * Fold fetched notices into what is already held, matching on reference so a
  * repeat run updates rather than duplicates. Anything typed by hand — notes,
  * applies-to, attachments — is preserved; only the published fields are
- * refreshed.
+ * refreshed, and a title you have rewritten yourself is left as you wrote it.
  */
-async function mergeNotices(notices) {
+async function mergeNotices(notices, admin) {
+  const feed = FEEDS[admin];
   const held = store.itemsOfType('flag');
   const byRef = new Map();
   for (const item of held) {
@@ -329,11 +348,12 @@ async function mergeNotices(notices) {
         type: 'flag',
         data: {
           title: notice.title,
-          flagState: 'MCA',
+          syncTitle: notice.title,     // what the source called it, to spot edits
+          flagState: admin,
           docType: notice.docType,
           refNo: notice.refNo,
           date: notice.date,
-          issuer: 'Maritime & Coastguard Agency',
+          issuer: feed.issuer,
           fileLink: notice.sourceUrl,
           sourceUrl: notice.sourceUrl,
           attachments: []
@@ -343,12 +363,30 @@ async function mergeNotices(notices) {
       continue;
     }
 
-    const changed = existing.data.title !== notice.title || existing.data.date !== notice.date;
+    // syncTitle records what the source last called this. Its absence means
+    // the entry was typed in by hand — a notice already held before the flag
+    // was ever synced — so the sync attaches itself to it without rewriting
+    // any of it. Panama in particular titles its circulars by filename, and
+    // that must never replace a subject the owner wrote themselves.
+    const mine = !existing.data.syncTitle;
+    const renamed = existing.data.title !== existing.data.syncTitle;
+
+    const next = { ...existing.data, syncTitle: notice.title };
+    if (!mine && !renamed) next.title = notice.title;
+    if (!mine && notice.date) next.date = notice.date;
+    if (!mine) next.sourceUrl = notice.sourceUrl;
+
+    // Blanks are filled either way: adding what was missing takes nothing away.
+    if (!next.date) next.date = notice.date;
+    if (!next.docType) next.docType = notice.docType;
+    if (!next.issuer) next.issuer = feed.issuer;
+    if (!next.sourceUrl) next.sourceUrl = notice.sourceUrl;
+    if (!next.fileLink) next.fileLink = notice.sourceUrl;
+
+    const changed = Object.keys(next).some((k) => next[k] !== existing.data[k]);
     if (!changed) { unchanged++; continue; }
-    await store.saveItem({
-      id: existing.id, type: 'flag',
-      data: { ...existing.data, title: notice.title, date: notice.date, sourceUrl: notice.sourceUrl }
-    });
+
+    await store.saveItem({ id: existing.id, type: 'flag', data: next });
     updated++;
   }
   return { added, updated, unchanged };
@@ -1023,35 +1061,37 @@ async function openSettings() {
     testOut
   ]));
 
-  // Whether notices can be pulled in automatically depends on headers only a
-  // real device with a connection can reveal.
+  // Whether an administration can be pulled in depends on headers only a real
+  // device with a connection can reveal, and each one answers differently.
   const feedOut = el('div');
   body.append(el('div', { class: 'panel' }, [
-    el('h3', { text: 'Fetching MCA notices' }),
-    el('p', { text: 'Checks whether this iPhone can read the GOV.UK notice listings directly from the app. Needs a connection. Run it once and send me the result.' }),
+    el('h3', { text: 'Fetching flag notices' }),
+    el('p', { text: 'Checks which administrations this iPhone can read directly from the app. Needs a connection, and fetches only listings — no documents.' }),
     el('button', {
       class: 'btn btn-block', style: 'margin-bottom:10px',
       onclick: async (e) => {
         e.target.disabled = true;
         e.target.textContent = 'Checking…';
-        clear(feedOut).append(el('p', { class: 'hint', text: 'Contacting GOV.UK…' }));
-        const report = await probeMcaFeed();
+        clear(feedOut).append(el('p', { class: 'hint', text: 'Contacting each administration…' }));
+        const reports = await probeAll();
         clear(feedOut);
-        feedOut.append(el('p', {
-          class: 'hint',
-          style: `color:${report.canList ? 'var(--sage)' : 'var(--danger)'}`,
-          text: report.verdict
-        }));
-        for (const r of report.results) {
-          feedOut.append(el('div', { class: 'stat' }, [
-            el('span', { text: r.label }),
-            el('span', { text: `${r.ok ? 'ok' : 'blocked'} · ${r.detail}` })
-          ]));
+        for (const report of reports) {
+          feedOut.append(el('p', {
+            class: 'hint',
+            style: `color:${report.canList ? 'var(--sage)' : 'var(--danger)'};margin-top:8px`,
+            text: report.verdict
+          }));
+          for (const r of report.results) {
+            feedOut.append(el('div', { class: 'stat' }, [
+              el('span', { text: r.label }),
+              el('span', { text: `${r.ok ? 'ok' : 'blocked'} · ${r.detail}` })
+            ]));
+          }
         }
         e.target.disabled = false;
         e.target.textContent = 'Check again';
       }
-    }, ['Check if notices can be fetched']),
+    }, ['Check which flags can be fetched']),
     feedOut
   ]));
 
