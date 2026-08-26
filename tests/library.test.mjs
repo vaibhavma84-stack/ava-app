@@ -57,6 +57,25 @@ const PDF_PATH = path.join(tmp, 'main-engine-manual.pdf');
   console.log(`  generated test PDF: ${(fs.statSync(PDF_PATH).size / 1024).toFixed(0)} KB`);
 }
 
+const PUB_PATH = path.join(tmp, 'NP281-1 Radio Signals.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent(`
+    <style>@page{size:A4;margin:20mm}
+      h1{font-family:sans-serif;font-size:34pt}
+      h2{font-family:sans-serif;font-size:16pt}
+      p{font-family:serif;font-size:11pt}</style>
+    <h1>Admiralty List of Radio Signals</h1>
+    <h2>Volume 1 Part 1</h2>
+    <p>Published by the United Kingdom Hydrographic Office</p>
+    <p>Fifth edition, 2016</p>
+    <p>NP281(1)</p>
+    <p>Body text so the document is not treated as a scan and has something to index.</p>`,
+    { waitUntil: 'load' });
+  await maker.pdf({ path: PUB_PATH, format: 'A4' });
+  await maker.close();
+}
+
 const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'allow' });
 const page = await context.newPage();
 const errors = [];
@@ -343,6 +362,43 @@ try {
   await page.waitForTimeout(200);
   check('clearing the filter restores it', (await page.locator('.card').count()) === 3);
   await shot('lib-04-grouped');
+
+  console.log('\nFilling an entry from the PDF');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card', { hasText: 'Publications' }).click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await page.setInputFiles('#filePicker', PUB_PATH);
+  await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
+
+  const guessed = await page.evaluate(() => {
+    const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
+    return { title: read('title'), edition: read('edition'), publisher: read('publisher'), refNo: read('refNo') };
+  });
+  check('the title comes from the document, not the filename',
+    /Admiralty List of Radio Signals/i.test(guessed.title), JSON.stringify(guessed));
+  check('the edition and year are picked up',
+    /2016/.test(guessed.edition), JSON.stringify(guessed));
+  check('the publisher is recognised', guessed.publisher === 'UKHO', JSON.stringify(guessed));
+  check('the reference number is found', /NP281/i.test(guessed.refNo), JSON.stringify(guessed));
+
+  // What the user typed must survive; only empty fields are filled.
+  await set('vessel', 'MV Northern Star');
+  await save();
+  const savedPub = await page.locator('.card').first().innerText();
+  check('a filled entry saves', /Radio Signals/i.test(savedPub), savedPub.replace(/\n/g, ' / '));
+
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'My own title');
+  await page.setInputFiles('#filePicker', PUB_PATH);
+  await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
+  const kept = await page.evaluate(() =>
+    document.querySelector('#editorBody [data-field="title"]')?.value);
+  check('a title already typed is never overwritten', kept === 'My own title', String(kept));
+  await page.click('#editorCancel');
+  await page.waitForSelector('#editor', { state: 'hidden' });
 
   console.log('\nOther sections');
   await page.click('#backBtn');

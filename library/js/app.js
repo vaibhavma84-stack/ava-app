@@ -2,13 +2,14 @@ import * as store from './store.js';
 import * as db from './db.js';
 import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch } from './search.js';
-import { isPdf, extract, selfTest, STATUS } from './pdftext.js';
+import { isPdf, extract, describe, selfTest, STATUS } from './pdftext.js';
+import { suggestFields } from './suggest.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.01';
+const APP_VERSION = '2026.09.02';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -699,12 +700,54 @@ function attachmentsEditor(draft, f) {
   return wrap;
 }
 
-function onFilesPicked(e) {
+async function onFilesPicked(e) {
   const files = [...(e.target.files || [])];
   e.target.value = '';
   if (!files.length || !view.draft) return;
   view.draft.newFiles.push(...files);
   renderEditor();
+
+  // Fill in what the PDF can tell us about itself. Only the first page is read,
+  // so this is quick, and only empty fields are touched -- anything already
+  // typed is left exactly as it is.
+  const pdf = files.find(isPdf);
+  if (pdf) await fillFromPdf(pdf);
+}
+
+async function fillFromPdf(file) {
+  const draft = view.draft;
+  if (!draft) return;
+  const def = TYPES[draft.type];
+  const status = el('p', { class: 'hint', text: `Reading details from ${file.name}…` });
+  $('#editorBody').prepend(status);
+
+  try {
+    const described = await describe(await file.arrayBuffer());
+    if (!draft || !described.ok) return;
+
+    const keys = def.fields.map((f) => f.key);
+    const suggested = suggestFields(draft.type, described, file.name, keys);
+
+    const filled = [];
+    for (const [key, value] of Object.entries(suggested)) {
+      if (String(draft.data[key] || '').trim()) continue;   // never overwrite
+      draft.data[key] = value;
+      filled.push(def.fields.find((f) => f.key === key)?.label || key);
+    }
+
+    renderEditor();
+    if (filled.length) {
+      // Say what was guessed, so it gets checked rather than trusted.
+      $('#editorBody').prepend(el('div', { class: 'panel', style: 'border-color:var(--copper-dim)' }, [
+        el('h3', { text: 'Filled in from the PDF' }),
+        el('p', { style: 'margin:0', text: `${filled.join(', ')} — check these and correct anything wrong.` })
+      ]));
+    }
+  } catch (ex) {
+    console.warn('Could not read details from the PDF', ex);
+  } finally {
+    status.remove();
+  }
 }
 
 async function saveEditor() {
