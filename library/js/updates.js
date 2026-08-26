@@ -27,14 +27,14 @@ function absolute(href, base) {
 
 const GOVUK = 'https://www.gov.uk';
 
-const MCA_TYPES = {
+export const MCA_TYPES = {
   MSN: 'MSN (Merchant Shipping Notice)',
   MGN: 'MGN (Marine Guidance Note)',
   MIN: 'MIN (Marine Information Note)'
 };
 
 /** Titles read like "MSN 1871 (M) Amendment 1" or "MGN 654 (M+F)". */
-function mcaRef(text) {
+export function mcaRef(text) {
   const m = String(text).match(/\b(MSN|MGN|MIN)\s*(\d{1,4})\s*(\([A-Z+]+\))?/i);
   if (!m) return null;
   const prefix = m[1].toUpperCase();
@@ -44,7 +44,7 @@ function mcaRef(text) {
   };
 }
 
-function parseGovukCollection(data) {
+export function parseGovukCollection(data) {
   // Documents hang off links.documents; the collection groups list the same
   // paths without titles, so this reads the former.
   const docs = data?.links?.documents || [];
@@ -77,13 +77,13 @@ const collection = (slug) =>
 const PANAMA = 'https://www.panamashipregistry.com';
 const PANAMA_AMP = 'https://www.amp.gob.pa';
 
-const PANAMA_TYPES = {
+export const PANAMA_TYPES = {
   MMC: 'Merchant Marine Circular',
   MMN: 'MMN (Merchant Marine Notice)'
 };
 
 /** Circulars are referenced as MMC-230, notices as MMN 7-070. */
-function panamaRef(text) {
+export function panamaRef(text) {
   const m = String(text).match(/\b(MMC|MMN)[\s._-]*(\d{1,4}(?:-\d{1,4})?)\b/i);
   if (!m) return null;
   const prefix = m[1].toUpperCase();
@@ -95,7 +95,7 @@ function panamaRef(text) {
  * would not, and every circular on the registry's site is an uploaded PDF, so
  * the media endpoint is the closest thing Panama has to a catalogue.
  */
-function parseWpMedia(data) {
+export function parseWpMedia(data) {
   const list = Array.isArray(data) ? data : [];
   return list.map((item) => {
     const url = String(item?.source_url || '');
@@ -134,9 +134,9 @@ const wpMedia = (host, search) => (page) =>
 
 // ---------------------------------------------------------- Singapore -----
 
-const MPA = 'https://www.mpa.gov.sg';
+export const MPA = 'https://www.mpa.gov.sg';
 
-const SG_TYPES = {
+export const SG_TYPES = {
   SC: 'Shipping Circular',
   PC: 'Port Marine Circular',
   PN: 'Marine Notice'
@@ -146,7 +146,7 @@ const SG_TYPES = {
  * Singapore writes references out in full on the page — "PORT MARINE CIRCULAR
  * NO. 01 OF 2025" — and short in the filename — "pc25-01".
  */
-function singaporeRef(text) {
+export function singaporeRef(text) {
   const t = String(text);
 
   const spelt = t.match(
@@ -228,6 +228,31 @@ function parseLinkIndex({ base, match, refOf, types }) {
   };
 }
 
+// ------------------------------------------------------------- Mirror -----
+
+/**
+ * The catalogue as this site holds it, fetched by a scheduled job and served
+ * from the app's own origin.
+ *
+ * CORS is a rule browsers apply, not servers. MPA refuses the app outright —
+ * its feed and all three of its listing pages — so no arrangement of requests
+ * from a phone will ever read it. The job reads it where nothing is blocking
+ * and commits the result beside the app; this reads that. Same origin, so
+ * there is no permission to be refused.
+ *
+ * It is also the smaller read: already parsed, one request instead of four.
+ */
+const mirrorUrl = (admin) =>
+  new URL(`../data/${admin.toLowerCase()}.json`, import.meta.url).href;
+
+function parseMirror(data) {
+  return Array.isArray(data?.notices) ? data.notices : [];
+}
+
+const mirror = (admin) => ({
+  label: 'This site', kind: 'json', url: mirrorUrl(admin), parse: parseMirror
+});
+
 // -------------------------------------------------------------- Feeds -----
 
 /**
@@ -244,11 +269,14 @@ export const FEEDS = {
     groups: [
       {
         name: 'MSNs',
-        alternatives: [{
-          label: 'GOV.UK collection', kind: 'json',
-          url: collection('merchant-shipping-notices-msns'),
-          parse: parseGovukCollection
-        }]
+        alternatives: [
+          {
+            label: 'GOV.UK collection', kind: 'json',
+            url: collection('merchant-shipping-notices-msns'),
+            parse: parseGovukCollection
+          },
+          mirror('MCA')
+        ]
       },
       {
         // GOV.UK has moved this collection more than once and keeps the old
@@ -271,7 +299,8 @@ export const FEEDS = {
             label: 'GOV.UK collection (notes)', kind: 'json',
             url: collection('marine-guidance-notes-mgns'),
             parse: parseGovukCollection
-          }
+          },
+          mirror('MCA')
         ]
       },
       {
@@ -286,7 +315,8 @@ export const FEEDS = {
             label: 'GOV.UK collection (active)', kind: 'json',
             url: collection('active-marine-information-notes-mins'),
             parse: parseGovukCollection
-          }
+          },
+          mirror('MCA')
         ]
       }
     ]
@@ -307,14 +337,16 @@ export const FEEDS = {
               base: PANAMA, match: /\/wp-content\/uploads\/.+\.pdf(\?|$)/i,
               refOf: panamaRef, types: PANAMA_TYPES
             })
-          }
+          },
+          mirror('Panama')
         ]
       },
       {
         name: 'Merchant Marine Notices',
         alternatives: [
           { label: 'Registry API', kind: 'json', paged: wpMedia(PANAMA, 'MMN-'), parse: parseWpMedia },
-          { label: 'Authority API', kind: 'json', paged: wpMedia(PANAMA_AMP, 'MMN-'), parse: parseWpMedia }
+          { label: 'Authority API', kind: 'json', paged: wpMedia(PANAMA_AMP, 'MMN-'), parse: parseWpMedia },
+          mirror('Panama')
         ]
       }
     ]
@@ -322,7 +354,7 @@ export const FEEDS = {
 
   Singapore: {
     issuer: 'Maritime & Port Authority of Singapore',
-    note: 'MPA publishes a feed of its releases, which carries the circulars and notices among them.',
+    note: 'MPA refuses the app directly, so its circulars are read by a scheduled job and served from this site.',
     groups: [
       {
         // One class, because the feed does not separate them — each item is
@@ -330,6 +362,10 @@ export const FEEDS = {
         // it are split by type, so all three are read together.
         name: 'Circulars and notices',
         alternatives: [
+          // The mirror leads here: MPA refused the feed and all three listing
+          // pages from the device, so trying them first would only spend data
+          // to be refused again before falling back to this anyway.
+          mirror('Singapore'),
           {
             label: 'MPA feed', kind: 'xml', url: `${MPA}/feeds/media-releases`,
             parse: parseFeed({ refOf: singaporeRef, types: SG_TYPES })

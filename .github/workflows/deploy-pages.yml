@@ -43,6 +43,9 @@ jobs:
           mkdir -p _site/library
           cp library/index.html library/manifest.webmanifest library/sw.js _site/library/
           cp -r library/css library/js library/fonts library/icons _site/library/
+          # The mirrored catalogues, read by a scheduled job because the
+          # administrations that publish them refuse the app directly.
+          [ -d library/data ] && cp -r library/data _site/library/ || true
           echo "Deploying:" && find _site -type f | sort
 
       - uses: actions/upload-pages-artifact@v3

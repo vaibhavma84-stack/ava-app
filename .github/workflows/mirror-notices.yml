@@ -1,0 +1,52 @@
+name: Mirror the notice catalogues
+
+# MPA refuses cross-origin reads, so no request from the phone will ever read
+# it. CORS is a rule browsers apply and this is not a browser: it fetches the
+# catalogues here and commits them beside the app, where the phone can read
+# them from its own origin.
+#
+# This does not spend the ship's data. It runs on GitHub, weekly, and the phone
+# still downloads nothing until the button is tapped — it just has something
+# to download when it is.
+
+on:
+  schedule:
+    # Mondays, early UTC. Circulars are not hourly news.
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror-notices
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/iphone-offline-storage-app-c14vtc
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Read the catalogues
+        run: node tools/mirror-notices.mjs
+
+      - name: Commit anything that changed
+        # A source that gave nothing leaves its file alone, so a quiet week is
+        # simply no commit — and no commit means no deploy.
+        run: |
+          if [ -z "$(git status --porcelain library/data)" ]; then
+            echo "No change in any catalogue."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add library/data
+          git commit -m "Refresh the mirrored notice catalogues"
+          git push

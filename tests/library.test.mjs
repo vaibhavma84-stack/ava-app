@@ -22,6 +22,17 @@ const BASE = `http://localhost:${PORT}/library`;
 const SHOTS = process.argv.includes('--shots');
 const SHOT_DIR = path.join(ROOT, 'tests', 'screens');
 
+// The mirrored catalogue is a real file on the site. The suite writes its own
+// and puts back whatever was there, so a run never leaves the repo altered.
+const MIRROR_DIR = path.join(ROOT, 'library', 'data');
+const MIRROR_FILE = path.join(MIRROR_DIR, 'singapore.json');
+const mirrorBefore = fs.existsSync(MIRROR_FILE) ? fs.readFileSync(MIRROR_FILE, 'utf8') : null;
+const restoreMirror = () => {
+  if (mirrorBefore === null) { try { fs.rmSync(MIRROR_FILE); } catch {} }
+  else fs.writeFileSync(MIRROR_FILE, mirrorBefore);
+};
+process.on('exit', restoreMirror);
+
 let passed = 0, failed = 0;
 const check = (label, cond, extra = '') => {
   if (cond) { passed++; console.log(`  ok    ${label}`); }
@@ -95,9 +106,10 @@ const FLAG_PATH = path.join(tmp, 'MMN-7-070.pdf');
 const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'allow' });
 const page = await context.newPage();
 const errors = [];
-// Part of the suite refuses a source on purpose — a host cut off, or the 400
-// WordPress returns for a page past the end of its library — to see how the
-// app reports it. The browser logs those as resource errors; they are the
+// Part of the suite refuses a source on purpose — a host cut off, the 400
+// WordPress returns for a page past the end of its library, or the 404 of a
+// mirrored catalogue that has not been written yet — to see how the app
+// reports it. The browser logs those as resource errors; they are the
 // point of the test, not a defect, so they are ignored while that is set up.
 // The window covers the flag-sync section only, where every host is stubbed.
 let blockingOnPurpose = false;
@@ -105,7 +117,7 @@ page.on('pageerror', (e) => errors.push(String(e)));
 page.on('console', (m) => {
   if (m.type() !== 'error') return;
   const text = m.text();
-  if (blockingOnPurpose && /net::ERR_FAILED|status of 400/.test(text)) return;
+  if (blockingOnPurpose && /net::ERR_FAILED|status of (400|404)/.test(text)) return;
   errors.push(text);
 });
 page.on('dialog', async (d) => { await d.accept(''); });
@@ -770,7 +782,28 @@ try {
       .some((c) => /Recognised organisations acting for Panama/.test(c)));
 
   // ---- Singapore: an index page, read for the links it lists --------------
-  // MPA publishes a feed carrying its releases, circulars and notices together.
+  // MPA refuses the app outright, so the catalogue is fetched by a scheduled
+  // job and served from this site. That file is what Singapore reads.
+  const SG_MIRROR = {
+    administration: 'Singapore',
+    fetched: '2026-02-10',
+    notices: [
+      { title: 'PORT MARINE CIRCULAR NO. 01 OF 2026 List of active port marine circulars',
+        refNo: 'PC 01/2026', docType: 'Port Marine Circular', date: '2026-01-05',
+        sourceUrl: 'https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-01-of-2026' },
+      { title: 'Shipping Circular No. 9 of 2025 Ballast water management',
+        refNo: 'SC 09/2025', docType: 'Shipping Circular', date: '2025-09-09',
+        sourceUrl: 'https://www.mpa.gov.sg/docs/mpalibraries/circulars-and-notices/sc25-09.pdf' }
+    ]
+  };
+  // Served as a real file rather than stubbed: the mirror is same-origin, so
+  // the service worker fetches it and route interception never sees it. The
+  // suite writes it, then puts back whatever was there before.
+  fs.mkdirSync(MIRROR_DIR, { recursive: true });
+  fs.writeFileSync(MIRROR_FILE, JSON.stringify(SG_MIRROR));
+
+  // Left in place behind the mirror, and it must stay behind it: trying MPA
+  // first would spend data to be refused before falling back here anyway.
   const MPA_FEED = `<?xml version="1.0" encoding="utf-8"?>
   <rss version="2.0"><channel>
     <item>
@@ -792,8 +825,15 @@ try {
   await page.route('**/feeds/**', (route) =>
     route.fulfill({ status: 200, contentType: 'application/rss+xml', body: MPA_FEED }));
 
+  const sgOutbound = [];
+  const sgWatch = (req) => {
+    const url = req.url();
+    if (!url.startsWith(`http://localhost:${PORT}`)) sgOutbound.push(url);
+  };
+  page.on('request', sgWatch);
   await page.click(`${panel} button:text-is("Singapore")`);
   await page.waitForSelector('.hint:has-text("Singapore:")', { timeout: 20000 });
+  page.off('request', sgWatch);
   const sgRun = await page.locator(`${panel} .hint`).innerText();
   check('Singapore files what its listing names', /Singapore: 2 new/.test(sgRun), sgRun);
 
@@ -802,12 +842,17 @@ try {
     sgCards.some((c) => /PC 01\/2026/.test(c)), sgCards.join(' | '));
   check('a reference in a filename is parsed too',
     sgCards.some((c) => /SC 09\/2025/.test(c)), sgCards.join(' | '));
-  check('media releases in the same feed are left out',
-    !sgCards.some((c) => /green corridors/i.test(c)), sgCards.join(' | '));
-  check('the date comes across from the feed',
-    sgCards.some((c) => /2026/.test(c)), sgCards.join(' | '));
+  check('the date comes across', sgCards.some((c) => /2026/.test(c)), sgCards.join(' | '));
+  // Reading this site rather than MPA is the whole point, so prove nothing
+  // left the device for it — not the feed, not any of the three listings.
+  check('Singapore is read from this site, not from MPA',
+    sgOutbound.length === 0, sgOutbound.join(', '));
 
   // ---- A source that refuses the read has to say so, not fail silently ----
+  // An empty mirror stands for one that has not run yet, or a week the job
+  // read nothing. Emptying the file rather than deleting it keeps the service
+  // worker from answering out of its cache.
+  fs.writeFileSync(MIRROR_FILE, JSON.stringify({ administration: 'Singapore', notices: [] }));
   await page.unroute('**/feeds/**');
   await page.route('**/feeds/**', (route) => route.abort('failed'));
   await page.route('**/media-centre**', (route) => route.abort('failed'));
@@ -817,6 +862,8 @@ try {
   check('a blocked administration reports what happened',
     /Singapore could not be read/.test(refused), refused);
   check('and says a connection is needed', /needs a connection/.test(refused), refused);
+  check('naming every route it tried, this site included',
+    /This site/.test(refused) && /MPA feed/.test(refused) && /Media centre/.test(refused), refused);
 
   // One class failing while the other answers still files what came back, and
   // says which one it could not read.
@@ -842,6 +889,7 @@ try {
   await page.unroute('**/media-centre**');
   await page.unroute('**/feeds/**');
   await page.unroute('**/circulars/**');
+  restoreMirror();
   blockingOnPurpose = false;
 
   console.log('\nOther sections');
