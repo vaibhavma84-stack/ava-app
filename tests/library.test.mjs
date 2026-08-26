@@ -151,6 +151,53 @@ try {
   check('the built-in PDF self-test passes', self.ok === true, JSON.stringify(self));
   check('the self-test reads real characters', self.chars > 10, String(self.chars));
 
+  // Reproduce an older iOS properly: the built-ins must be missing before any
+  // module loads, so this runs in its own page with an init script. Deleting
+  // them on a live page does not work — the polyfill module has already been
+  // evaluated and will not run again — and it poisons everything after it.
+  {
+    const oldPage = await context.newPage();
+    await oldPage.addInitScript(() => {
+      delete Promise.withResolvers;
+      delete Math.sumPrecise;
+      delete Object.hasOwn;
+    });
+    await oldPage.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    const missing = await oldPage.evaluate(() => ({
+      withResolvers: typeof Promise.withResolvers,
+      sumPrecise: typeof Math.sumPrecise
+    }));
+    check('the simulated device really lacks those built-ins',
+      missing.withResolvers === 'undefined' && missing.sumPrecise === 'undefined',
+      JSON.stringify(missing));
+
+    const result = await oldPage.evaluate(async () => {
+      const { selfTest } = await import('./js/pdftext.js');
+      return selfTest();
+    });
+    check('extraction works on a device without Promise.withResolvers',
+      result.ok === true, JSON.stringify(result));
+
+    const drew = await oldPage.evaluate(async () => {
+      try {
+        const { renderInto } = await import('./js/viewer.js');
+        const raw = atob((await import('./js/pdftext.js')).SELF_TEST_PDF_B64);
+        const bytes = new Uint8Array(raw.length);
+        for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+        const host = document.createElement('div');
+        host.style.width = '400px';
+        document.body.append(host);
+        await renderInto(host, new Blob([bytes], { type: 'application/pdf' }), 'test.pdf');
+        const c = host.querySelector('canvas');
+        return { ok: Boolean(c && c.width > 0), width: c?.width || 0 };
+      } catch (ex) {
+        return { ok: false, error: String(ex?.message || ex) };
+      }
+    });
+    check('the viewer also renders on that device', drew.ok === true, JSON.stringify(drew));
+    await oldPage.close();
+  }
+
   // A file that is not a PDF at all must report failure, not silently "scan".
   const bogus = await page.evaluate(async () => {
     const { extract, STATUS } = await import('./js/pdftext.js');

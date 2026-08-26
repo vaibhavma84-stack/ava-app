@@ -15,9 +15,7 @@ const MAX_CANVAS_WIDTH = 1400;   // beyond this, a phone gains nothing but memor
 let pdfjs = null;
 async function lib() {
   if (!pdfjs) {
-    if (typeof Math.sumPrecise !== 'function') {
-      Math.sumPrecise = (v) => { let t = 0; for (const x of v) t += Number(x); return t; };
-    }
+    await import('../../vendor/polyfills.mjs');
     pdfjs = await import('../../vendor/pdf.min.mjs');
     pdfjs.GlobalWorkerOptions.workerSrc =
       new URL('../../vendor/pdf.worker.wrapper.mjs', import.meta.url).href;

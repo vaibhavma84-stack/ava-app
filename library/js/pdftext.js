@@ -10,19 +10,10 @@
 
 let pdfjs = null;
 
-/** PDF.js 5 calls Math.sumPrecise, which older WebKit lacks. */
-function polyfillSumPrecise() {
-  if (typeof Math.sumPrecise === 'function') return;
-  Math.sumPrecise = (values) => {
-    let total = 0;
-    for (const v of values) total += Number(v);
-    return total;
-  };
-}
-
 async function lib() {
   if (pdfjs) return pdfjs;
-  polyfillSumPrecise();
+  // Older WebKit lacks built-ins PDF.js assumes; install them before it loads.
+  await import('../../vendor/polyfills.mjs');
   pdfjs = await import('../../vendor/pdf.min.mjs');
   // The wrapper installs the same polyfill inside the worker scope.
   pdfjs.GlobalWorkerOptions.workerSrc = new URL('../../vendor/pdf.worker.wrapper.mjs', import.meta.url).href;
@@ -79,10 +70,14 @@ export async function extract(buffer, { onProgress } = {}) {
   } catch (ex) {
     const message = String(ex?.message || ex);
     const encrypted = /password|encrypted/i.test(message) || ex?.name === 'PasswordException';
+    // Include where it failed: "undefined is not a function" alone says nothing
+    // about which call was missing.
+    const frame = String(ex?.stack || '').split('\n').find((l) => /\.mjs/.test(l)) || '';
     return {
       status: encrypted ? STATUS.ENCRYPTED : STATUS.FAILED,
       pages: [], chars: 0, pageCount: 0,
-      error: message.slice(0, 200)
+      error: `${ex?.name || 'Error'}: ${message}`.slice(0, 160)
+           + (frame ? ` — ${frame.trim().slice(0, 90)}` : '')
     };
   } finally {
     try { await task?.destroy(); } catch { /* nothing useful to do */ }
@@ -90,7 +85,7 @@ export async function extract(buffer, { onProgress } = {}) {
 }
 
 /** Round-trip a tiny built-in PDF, to prove the engine works on this device. */
-const SELF_TEST_PDF =
+export const SELF_TEST_PDF_B64 =
   'JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoK' +
   'PDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUg' +
   'L1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8' +
@@ -104,7 +99,7 @@ const SELF_TEST_PDF =
 
 export async function selfTest() {
   try {
-    const raw = atob(SELF_TEST_PDF);
+    const raw = atob(SELF_TEST_PDF_B64);
     const bytes = new Uint8Array(raw.length);
     for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
     const result = await extract(bytes.buffer);
