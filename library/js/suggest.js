@@ -139,6 +139,25 @@ function pickFlagState(described, filename) {
   return '';
 }
 
+// The prefix on a notice identifies its class, per administration.
+const FLAG_DOC_TYPE_HINTS = [
+  [/\bMSN\s?\d/i, 'MCA', 'MSN (Merchant Shipping Notice)'],
+  [/\bMGN\s?\d/i, 'MCA', 'MGN (Marine Guidance Note)'],
+  [/\bMIN\s?\d/i, 'MCA', 'MIN (Marine Information Note)'],
+  [/\bMMN\s?\d|merchant\s+marine\s+notice/i, 'Panama', 'MMN (Merchant Marine Notice)'],
+  [/merchant\s+marine\s+circular/i, 'Panama', 'Merchant Marine Circular'],
+  [/\bshipping\s+circular\b/i, 'Singapore', 'Shipping Circular'],
+  [/\bport\s+marine\s+circular\b/i, 'Singapore', 'Port Marine Circular']
+];
+
+function pickFlagDocType(described, filename, flagState) {
+  const haystack = `${described.firstPageText || ''} ${filename}`;
+  for (const [re, admin, label] of FLAG_DOC_TYPE_HINTS) {
+    if ((!flagState || admin === flagState) && re.test(haystack)) return label;
+  }
+  return '';
+}
+
 function pickAdministration(described) {
   const haystack = `${described.info?.Author || ''} ${described.firstPageText || ''}`;
   for (const [re, name] of ADMINISTRATIONS) if (re.test(haystack)) return name;
@@ -214,6 +233,7 @@ export function suggestFields(type, described, filename, fieldKeys) {
     if (has('refNo')) out.refNo = pickNoticeReference(described, filename) || pickReference(described, filename);
     if (has('date')) out.date = pickDate(described);
     if (has('flagState')) out.flagState = pickFlagState(described, filename);
+    if (has('docType')) out.docType = pickFlagDocType(described, filename, out.flagState);
     if (has('issuer')) out.issuer = pickAdministration(described);
   }
   if (type === 'manual' && has('vessel')) {

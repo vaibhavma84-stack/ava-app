@@ -420,6 +420,18 @@ try {
   await page.click('#backBtn');
   await page.waitForTimeout(200);
   await page.locator('.section-card', { hasText: 'Flag Circulars' }).click();
+  await page.waitForTimeout(200);
+
+  const sourceHrefs = await page.locator('.body a.link-btn').evaluateAll((as) =>
+    as.map((a) => ({ text: a.textContent.trim(), href: a.getAttribute('href') })));
+  check('the section links to where the notices are published',
+    sourceHrefs.length === 3, JSON.stringify(sourceHrefs));
+  check('the MSN collection is the one supplied',
+    sourceHrefs.some((l) => l.href === 'https://www.gov.uk/government/collections/merchant-shipping-notices-msns'),
+    JSON.stringify(sourceHrefs));
+  check('MSN, MGN and MIN are all offered',
+    ['MSN', 'MGN', 'MIN'].every((k) => sourceHrefs.some((l) => l.text.includes(k))),
+    JSON.stringify(sourceHrefs.map((l) => l.text)));
   await page.click('#fab');
   await page.waitForSelector('#editor:not([hidden])');
   await page.setInputFiles('#filePicker', FLAG_PATH);
@@ -435,7 +447,30 @@ try {
   check('the notice number is picked up', /MMN\s?7-070/i.test(flagGuess.refNo), JSON.stringify(flagGuess));
   check('the date issued is picked up', flagGuess.date === '2026-03-12', JSON.stringify(flagGuess));
 
-  await pick('docType', 'Merchant Marine Notice');
+  check('the document class is recognised from its prefix',
+    (await page.evaluate(() =>
+      document.querySelector('#editorBody [data-field="docType"]')?.value)) === 'MMN (Merchant Marine Notice)');
+
+  // The Type list must follow the administration, not offer everyone's terms.
+  const panamaTypes = await page.evaluate(() =>
+    [...document.querySelector('#editorBody [data-field="docType"]').options].map((o) => o.value).filter(Boolean));
+  check('Panama offers its own document classes',
+    panamaTypes.some((t) => t.startsWith('MMN')) && !panamaTypes.some((t) => t.startsWith('MSN')),
+    panamaTypes.join(' | '));
+
+  await pick('flagState', 'MCA');
+  await page.waitForTimeout(200);
+  const mcaTypes = await page.evaluate(() =>
+    [...document.querySelector('#editorBody [data-field="docType"]').options].map((o) => o.value).filter(Boolean));
+  check('MCA offers MSN, MGN and MIN',
+    ['MSN', 'MGN', 'MIN'].every((k) => mcaTypes.some((t) => t.startsWith(k))), mcaTypes.join(' | '));
+  check('a type from the previous administration is cleared, not left stale',
+    (await page.evaluate(() =>
+      document.querySelector('#editorBody [data-field="docType"]').value)) === '');
+
+  await pick('flagState', 'Panama');
+  await page.waitForTimeout(200);
+  await pick('docType', 'MMN (Merchant Marine Notice)');
   await save();
   check('saves a flag circular', (await page.locator('.card').count()) === 1);
 

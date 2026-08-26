@@ -9,7 +9,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.03';
+const APP_VERSION = '2026.09.04';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -174,6 +174,7 @@ function renderHome(body) {
 
 function renderSection(body) {
   const def = TYPES[view.section];
+  if (def.sources) body.append(sourceLinks(def.sources));
   let items = store.itemsOfType(view.section);
   if (view.filter && def.filterBy) {
     items = items.filter((i) => i.data[def.filterBy.key] === view.filter);
@@ -249,6 +250,27 @@ async function renderSearch(body) {
         { matchCount: result.matchCount, pagesWithHits: result.pagesWithHits }));
     }
   }
+}
+
+/** Links to where an administration publishes, for verifying a held copy. */
+function sourceLinks(sources) {
+  const panel = el('div', { class: 'panel' }, [
+    el('h3', { text: 'Check against the source' }),
+    el('p', { style: 'margin-bottom:9px', text: 'Opens in Safari, so it needs a connection. Use it to confirm a notice you hold is still the current one.' })
+  ]);
+  for (const [admin, links] of Object.entries(sources)) {
+    const row = el('div', { class: 'fieldrow', style: 'margin-bottom:8px' });
+    for (const link of links) {
+      row.append(el('div', {}, [
+        el('a', {
+          class: 'btn btn-sm btn-block link-btn',
+          href: link.url, target: '_blank', rel: 'noopener noreferrer'
+        }, [`${admin} ${link.label}`])
+      ]));
+    }
+    panel.append(row);
+  }
+  return panel;
 }
 
 function emptyState(title, text) {
@@ -655,10 +677,34 @@ function fieldFor(f, draft) {
       oninput: (e) => { draft.data[f.key] = e.target.value; }
     }, [value]));
   } else if (f.type === 'select') {
-    const sel = el('select', { class: 'field', 'data-field': f.key, onchange: (e) => { draft.data[f.key] = e.target.value; } });
+    // A field can narrow its options based on another field's value.
+    const options = f.optionsBy
+      ? (f.optionsBy.map[draft.data[f.optionsBy.key]] || f.options)
+      : f.options;
+    // Changing a controlling field has to redraw the fields it controls.
+    const controls = TYPES[draft.type].fields.some((other) => other.optionsBy?.key === f.key);
+
+    const sel = el('select', {
+      class: 'field', 'data-field': f.key,
+      onchange: (e) => {
+        draft.data[f.key] = e.target.value;
+        if (controls) {
+          // A type that does not exist under the new administration is dropped
+          // rather than left behind as a stale value.
+          for (const other of TYPES[draft.type].fields) {
+            if (other.optionsBy?.key !== f.key) continue;
+            const allowed = other.optionsBy.map[e.target.value] || other.options;
+            if (draft.data[other.key] && !allowed.includes(draft.data[other.key])) {
+              delete draft.data[other.key];
+            }
+          }
+          renderEditor();
+        }
+      }
+    });
     sel.append(el('option', { value: '' }, ['—']));
-    for (const opt of f.options) sel.append(el('option', { value: opt, selected: value === opt }, [opt]));
-    if (value && !f.options.includes(value)) sel.append(el('option', { value, selected: true }, [value]));
+    for (const opt of options) sel.append(el('option', { value: opt, selected: value === opt }, [opt]));
+    if (value && !options.includes(value)) sel.append(el('option', { value, selected: true }, [value]));
     wrap.append(sel);
   } else {
     wrap.append(el('input', {

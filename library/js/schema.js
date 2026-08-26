@@ -24,6 +24,43 @@ export const SYNERGY_DOC_TYPES = [
 
 export const FLAG_STATES = ['MCA', 'Panama', 'Singapore', 'Other'];
 
+/**
+ * Where each administration publishes, for checking a held copy is still
+ * current. These open in Safari, so they need a connection — the point is the
+ * check you do alongside, not something the app can do at sea.
+ */
+export const FLAG_SOURCES = {
+  MCA: [
+    { label: 'MSNs', url: 'https://www.gov.uk/government/collections/merchant-shipping-notices-msns' },
+    { label: 'MGNs', url: 'https://www.gov.uk/government/collections/marine-guidance-notes-mgns' },
+    { label: 'MINs', url: 'https://www.gov.uk/government/collections/marine-information-notes-mins' }
+  ]
+};
+
+// Each administration issues its own classes of document, so the Type list
+// follows the flag rather than offering everyone's terms to everyone.
+export const FLAG_DOC_TYPES_BY_ADMIN = {
+  MCA: [
+    'MSN (Merchant Shipping Notice)',
+    'MGN (Marine Guidance Note)',
+    'MIN (Marine Information Note)',
+    'Other'
+  ],
+  Panama: [
+    'MMN (Merchant Marine Notice)',
+    'Merchant Marine Circular',
+    'Resolution',
+    'Technical Alert',
+    'Other'
+  ],
+  Singapore: [
+    'Shipping Circular',
+    'Port Marine Circular',
+    'Marine Notice',
+    'Other'
+  ]
+};
+
 export const FLAG_DOC_TYPES = [
   'Marine Notice', 'Marine Circular', 'Merchant Marine Notice',
   'Marine Information Note', 'Technical Alert', 'Advisory', 'Amendment',
@@ -135,7 +172,11 @@ export const TYPES = {
     fields: [
       { key: 'title', label: 'Subject', type: 'text', required: true, placeholder: 'e.g. Implementation of MARPOL Annex VI amendments' },
       { key: 'flagState', label: 'Flag / Administration', type: 'select', options: FLAG_STATES },
-      { key: 'docType', label: 'Type', type: 'select', options: FLAG_DOC_TYPES },
+      {
+        key: 'docType', label: 'Type', type: 'select', options: FLAG_DOC_TYPES,
+        // Narrows to the chosen administration's own document classes.
+        optionsBy: { key: 'flagState', map: FLAG_DOC_TYPES_BY_ADMIN }
+      },
       { key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. MMN 7-070', group: 'ident' },
       { key: 'date', label: 'Date issued', type: 'date', group: 'ident' },
       { key: 'issuer', label: 'Issued by', type: 'text', placeholder: 'e.g. Panama Maritime Authority' },
@@ -148,6 +189,7 @@ export const TYPES = {
     listFields: ['refNo', 'docType'],
     // Filed by flag, since an officer serves under one at a time.
     groupBy: { key: 'flagState', label: 'Flag / Administration', blank: 'No flag set' },
+    sources: FLAG_SOURCES,
     filterBy: { key: 'docType', label: 'Type' },
     sort: (a, b) => (b.date || '').localeCompare(a.date || '')
   },
