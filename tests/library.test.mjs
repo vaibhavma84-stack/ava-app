@@ -161,15 +161,20 @@ try {
       delete Promise.withResolvers;
       delete Math.sumPrecise;
       delete Object.hasOwn;
+      // The one that actually broke a real device: PDF.js reads text with
+      // "for await (const chunk of stream)".
+      delete ReadableStream.prototype[Symbol.asyncIterator];
+      delete ReadableStream.prototype.values;
     });
     await oldPage.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
     const missing = await oldPage.evaluate(() => ({
       withResolvers: typeof Promise.withResolvers,
-      sumPrecise: typeof Math.sumPrecise
+      sumPrecise: typeof Math.sumPrecise,
+      streamIterator: typeof ReadableStream.prototype[Symbol.asyncIterator]
     }));
     check('the simulated device really lacks those built-ins',
-      missing.withResolvers === 'undefined' && missing.sumPrecise === 'undefined',
-      JSON.stringify(missing));
+      missing.withResolvers === 'undefined' && missing.sumPrecise === 'undefined'
+      && missing.streamIterator === 'undefined', JSON.stringify(missing));
 
     const result = await oldPage.evaluate(async () => {
       const { selfTest } = await import('./js/pdftext.js');

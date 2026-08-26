@@ -41,3 +41,42 @@ if (typeof globalThis.structuredClone !== 'function') {
   // Only reached for plain data; PDF.js does not clone exotic values here.
   globalThis.structuredClone = (value) => JSON.parse(JSON.stringify(value));
 }
+
+if (typeof ReadableStream !== 'undefined'
+    && typeof Symbol !== 'undefined' && Symbol.asyncIterator
+    && !ReadableStream.prototype[Symbol.asyncIterator]) {
+  // Async iteration of a ReadableStream — "for await (const chunk of stream)" —
+  // also arrived in Safari 17.4. PDF.js reads text content that way, so without
+  // it getTextContent fails with "undefined is not a function" and no document
+  // can be indexed at all.
+  const asyncIterator = function ({ preventCancel = false } = {}) {
+    const reader = this.getReader();
+    return {
+      async next() {
+        try {
+          const { done, value } = await reader.read();
+          if (done) reader.releaseLock();
+          return { done, value };
+        } catch (err) {
+          reader.releaseLock();
+          throw err;
+        }
+      },
+      async return(value) {
+        if (preventCancel) {
+          reader.releaseLock();
+        } else {
+          const cancelled = reader.cancel(value);
+          reader.releaseLock();
+          await cancelled;
+        }
+        return { done: true, value };
+      },
+      [Symbol.asyncIterator]() { return this; }
+    };
+  };
+  ReadableStream.prototype[Symbol.asyncIterator] = asyncIterator;
+  if (typeof ReadableStream.prototype.values !== 'function') {
+    ReadableStream.prototype.values = asyncIterator;
+  }
+}

@@ -9,7 +9,7 @@ import { renderInto } from './viewer.js';
 import { icsForItem, icsForItems, datedCertificates, calendarFileName, eventFor } from './calendar.js';
 
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
-const APP_VERSION = '2026.08.30';
+const APP_VERSION = '2026.08.31';
 
 const view = {
   tab: 'certificate',

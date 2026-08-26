@@ -8,7 +8,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.08.30';
+const APP_VERSION = '2026.08.31';
 
 const view = {
   screen: 'home',      // home | section | search
