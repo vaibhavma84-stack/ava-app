@@ -167,6 +167,53 @@ export function singaporeRef(text) {
 }
 
 /**
+ * The endpoint that draws MPA's media centre, found by logging what the
+ * rendered page asked for. One type id per class of document.
+ */
+const SG_LISTS = [
+  { name: 'Shipping Circulars', id: '63fc1321-c383-4bc1-8cda-a7718c8eb28c' },
+  { name: 'Port Marine Circulars', id: '0b4c161c-92d5-475e-8a41-51e096406f74' },
+  { name: 'Port Marine Notices', id: '2b89298e-3d17-4bf2-8275-9079e84f63d0' }
+];
+
+const sgApi = (id) => (page) =>
+  `${MPA}/api/items/media_releases_and_circulars?type=${id}&year=All&limit=100&page=${page}`;
+
+const pick = (item, keys) => {
+  for (const key of keys) {
+    const value = item?.[key];
+    if (typeof value === 'string' && value.trim()) return value.trim();
+  }
+  return '';
+};
+
+function parseSgItems(body) {
+  const items = Array.isArray(body) ? body
+    : body?.data || body?.items || body?.results || body?.records || [];
+  if (!Array.isArray(items)) return [];
+
+  return items.map((item) => {
+    const title = pick(item, ['title', 'name', 'heading', 'subject']);
+    const ref = singaporeRef(title);
+    if (!ref) return null;
+
+    const href = pick(item, ['url', 'link', 'documentUrl', 'fileUrl', 'file', 'permalink']);
+    const slug = pick(item, ['slug', 'urlName', 'itemUrl']);
+    const when = pick(item, ['date', 'publishedDate', 'releaseDate', 'publicationDate', 'created']);
+    const parsed = when ? new Date(when) : null;
+
+    return {
+      title,
+      refNo: ref.refNo,
+      docType: SG_TYPES[ref.prefix] || '',
+      date: parsed && !Number.isNaN(parsed.getTime()) ? parsed.toISOString().slice(0, 10) : '',
+      sourceUrl: href ? absolute(href, MPA)
+        : slug ? `${MPA}/media-centre/details/${slug.replace(/^\/+/, '')}` : ''
+    };
+  }).filter(Boolean);
+}
+
+/**
  * Read an RSS or Atom feed. A published feed is a list an administration keeps
  * deliberately, so it beats scraping a page whose links are drawn by script
  * and may not be in the HTML at all.
@@ -366,6 +413,14 @@ export const FEEDS = {
           // pages from the device, so trying them first would only spend data
           // to be refused again before falling back to this anyway.
           mirror('Singapore'),
+          // MPA's own endpoint, behind the mirror rather than ahead of it:
+          // the mirror is one small pre-parsed read where this is three walks,
+          // and whether MPA lets the app touch it at all is still unproven.
+          // It is here so the settings probe can answer that.
+          ...SG_LISTS.map((list) => ({
+            label: `MPA ${list.name}`, kind: 'json',
+            paged: sgApi(list.id), maxPages: 40, parse: parseSgItems
+          })),
           {
             label: 'MPA feed', kind: 'xml', url: `${MPA}/feeds/media-releases`,
             parse: parseFeed({ refOf: singaporeRef, types: SG_TYPES })

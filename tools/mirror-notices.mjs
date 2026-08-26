@@ -174,14 +174,103 @@ const SOURCES = {
       } catch (ex) { console.warn(`  Singapore ${type}: ${ex.message}`); }
     }
 
-    const fromBrowser = await renderSingapore(found, shape);
-    console.log(`  [feed ${fromFeed}, markup ${fromMarkup}, rendered ${fromBrowser}]`);
+    // The endpoint behind the listings, read directly. This is where the bulk
+    // of the catalogue comes from.
+    let fromApi = 0;
+    const seenShape = new Set();
+    for (const list of SG_LISTS) {
+      const items = await readSgList(list, shape, seenShape);
+      fromApi += items.length;
+      found.push(...items);
+    }
+
+    // Only if the endpoint gave nothing: rendering is slower and thinner, but
+    // it is what found the endpoint in the first place and would find its
+    // replacement.
+    const fromBrowser = fromApi ? 0 : await renderSingapore(found, shape);
+    console.log(`  [feed ${fromFeed}, markup ${fromMarkup}, api ${fromApi}, rendered ${fromBrowser}]`);
     return found;
   }
 };
 
 const SG_LISTINGS = ['Shipping+Circulars', 'Port+Marine+Circulars', 'Port+Marine+Notices'];
 const SG_LINK = /\/(media-centre\/details|docs\/mpalibraries)\//i;
+
+/**
+ * What actually feeds MPA's media centre.
+ *
+ * Rendering the listings in a browser worked, but only returned ten items —
+ * which was the page size, not the catalogue. Logging what the rendered page
+ * requested gave up the endpoint behind it, and these three type ids with it.
+ * A listing drawn by script is being fed by something; this is that something,
+ * and it can be read with a plain fetch.
+ */
+const SG_LISTS = [
+  { name: 'Shipping Circulars', id: '63fc1321-c383-4bc1-8cda-a7718c8eb28c' },
+  { name: 'Port Marine Circulars', id: '0b4c161c-92d5-475e-8a41-51e096406f74' },
+  { name: 'Port Marine Notices', id: '2b89298e-3d17-4bf2-8275-9079e84f63d0' }
+];
+
+const sgApi = (id, page, limit) =>
+  `${MPA}/api/items/media_releases_and_circulars`
+  + `?type=${id}&year=All&limit=${limit}&page=${page}`;
+
+const firstOf = (item, keys) => {
+  for (const key of keys) {
+    const value = item?.[key];
+    if (typeof value === 'string' && value.trim()) return value.trim();
+  }
+  return '';
+};
+
+/**
+ * Read one of MPA's listings from its own endpoint.
+ *
+ * The reply's shape is not documented anywhere, so the fields are looked for
+ * by the names such a thing usually uses, and the keys of the first item are
+ * logged once. If a run comes back thin, the log says what it was actually
+ * given rather than leaving it to guesswork.
+ */
+async function readSgList({ name, id }, shape, seenShape) {
+  const out = [];
+  for (let page = 1; page <= 40; page++) {
+    let body;
+    try { body = await get(sgApi(id, page, 100), 'json'); }
+    catch (ex) { if (page === 1) console.warn(`  Singapore ${name}: ${ex.message}`); break; }
+
+    const items = Array.isArray(body) ? body
+      : body?.data || body?.items || body?.results || body?.records || [];
+    if (!Array.isArray(items) || !items.length) break;
+
+    if (!seenShape.has(name)) {
+      seenShape.add(name);
+      console.log(`  ${name} fields: ${Object.keys(items[0] || {}).join(', ')}`);
+    }
+
+    for (const item of items) {
+      const title = firstOf(item, ['title', 'name', 'heading', 'subject']);
+      const ref = shape.refOf(title);
+      if (!ref) continue;
+
+      const href = firstOf(item, ['url', 'link', 'documentUrl', 'fileUrl', 'file', 'permalink']);
+      const slug = firstOf(item, ['slug', 'urlName', 'itemUrl']);
+      const sourceUrl = href
+        ? new URL(href, MPA).href
+        : slug ? `${MPA}/media-centre/details/${slug.replace(/^\/+/, '')}` : '';
+
+      out.push({
+        title,
+        refNo: ref.refNo,
+        docType: shape.types[ref.prefix] || '',
+        date: isoDay(firstOf(item, ['date', 'publishedDate', 'releaseDate', 'publicationDate', 'created', 'lastModified'])),
+        sourceUrl
+      });
+    }
+
+    if (items.length < 100) break;
+  }
+  return out;
+}
 
 /**
  * Read MPA's listings the only way they can be read: in a browser.

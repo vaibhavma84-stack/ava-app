@@ -26,10 +26,15 @@ const SHOT_DIR = path.join(ROOT, 'tests', 'screens');
 // and puts back whatever was there, so a run never leaves the repo altered.
 const MIRROR_DIR = path.join(ROOT, 'library', 'data');
 const MIRROR_FILE = path.join(MIRROR_DIR, 'singapore.json');
-const mirrorBefore = fs.existsSync(MIRROR_FILE) ? fs.readFileSync(MIRROR_FILE, 'utf8') : null;
+const mirrorBefore = new Map(['mca.json', 'panama.json', 'singapore.json'].map((name) => {
+  const file = path.join(MIRROR_DIR, name);
+  return [file, fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null];
+}));
 const restoreMirror = () => {
-  if (mirrorBefore === null) { try { fs.rmSync(MIRROR_FILE); } catch {} }
-  else fs.writeFileSync(MIRROR_FILE, mirrorBefore);
+  for (const [file, content] of mirrorBefore) {
+    if (content === null) { try { fs.rmSync(file); } catch {} }
+    else fs.writeFileSync(file, content);
+  }
 };
 process.on('exit', restoreMirror);
 
@@ -801,6 +806,14 @@ try {
   // suite writes it, then puts back whatever was there before.
   fs.mkdirSync(MIRROR_DIR, { recursive: true });
   fs.writeFileSync(MIRROR_FILE, JSON.stringify(SG_MIRROR));
+  // MCA and Panama reach their mirror only once every live route has failed,
+  // which is what the refusal cases below arrange. Empty ones there keep those
+  // cases about the live routes rather than about this file — and the real
+  // ones now hold hundreds of notices, which would swamp any assertion.
+  for (const name of ['mca.json', 'panama.json']) {
+    fs.writeFileSync(path.join(MIRROR_DIR, name),
+      JSON.stringify({ administration: name.replace('.json', ''), notices: [] }));
+  }
 
   // Left in place behind the mirror, and it must stay behind it: trying MPA
   // first would spend data to be refused before falling back here anyway.
@@ -824,6 +837,9 @@ try {
   </channel></rss>`;
   await page.route('**/feeds/**', (route) =>
     route.fulfill({ status: 200, contentType: 'application/rss+xml', body: MPA_FEED }));
+  // The endpoint behind MPA's listings. Stubbed so a refusal case cannot
+  // quietly reach the real one.
+  await page.route('**/api/items/**', (route) => route.abort('failed'));
 
   const sgOutbound = [];
   const sgWatch = (req) => {
@@ -864,6 +880,8 @@ try {
   check('and says a connection is needed', /needs a connection/.test(refused), refused);
   check('naming every route it tried, this site included',
     /This site/.test(refused) && /MPA feed/.test(refused) && /Media centre/.test(refused), refused);
+  check('MPA own endpoint among them',
+    /MPA Shipping Circulars/.test(refused), refused);
 
   // One class failing while the other answers still files what came back, and
   // says which one it could not read.
@@ -889,6 +907,7 @@ try {
   await page.unroute('**/media-centre**');
   await page.unroute('**/feeds/**');
   await page.unroute('**/circulars/**');
+  await page.unroute('**/api/items/**');
   restoreMirror();
   blockingOnPurpose = false;
 
