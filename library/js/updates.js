@@ -167,13 +167,29 @@ export function singaporeRef(text) {
 }
 
 /**
+ * A reference with the class left off: "No. 2 of 2023 - LIST OF ACTIVE
+ * SHIPPING CIRCULARS".
+ *
+ * MPA titles a good many of its circulars this way, and reading the class from
+ * the title alone wrote almost all of them off — 288 documents came back with
+ * exactly one shipping circular in them. The list a document was fetched from
+ * knows its class, so that stands in when the title does not say. A title that
+ * does say still wins, in case a list ever carries something from another.
+ */
+export function singaporeLooseRef(text, prefix) {
+  const m = String(text).match(/\bno\.?\s*0*(\d{1,3})\s*of\s*(\d{4})\b/i);
+  if (!m || !prefix) return null;
+  return { prefix, refNo: `${prefix} ${String(parseInt(m[1], 10)).padStart(2, '0')}/${m[2]}` };
+}
+
+/**
  * The endpoint that draws MPA's media centre, found by logging what the
  * rendered page asked for. One type id per class of document.
  */
 const SG_LISTS = [
-  { name: 'Shipping Circulars', id: '63fc1321-c383-4bc1-8cda-a7718c8eb28c' },
-  { name: 'Port Marine Circulars', id: '0b4c161c-92d5-475e-8a41-51e096406f74' },
-  { name: 'Port Marine Notices', id: '2b89298e-3d17-4bf2-8275-9079e84f63d0' }
+  { name: 'Shipping Circulars', id: '63fc1321-c383-4bc1-8cda-a7718c8eb28c', prefix: 'SC' },
+  { name: 'Port Marine Circulars', id: '0b4c161c-92d5-475e-8a41-51e096406f74', prefix: 'PC' },
+  { name: 'Port Marine Notices', id: '2b89298e-3d17-4bf2-8275-9079e84f63d0', prefix: 'PN' }
 ];
 
 const sgApi = (id) => (page) =>
@@ -187,19 +203,21 @@ const pick = (item, keys) => {
   return '';
 };
 
-function parseSgItems(body) {
+function parseSgItems(body, prefix) {
   const items = Array.isArray(body) ? body
     : body?.data || body?.items || body?.results || body?.records || [];
   if (!Array.isArray(items)) return [];
 
   return items.map((item) => {
     const title = pick(item, ['title', 'name', 'heading', 'subject']);
-    const ref = singaporeRef(title);
+    const ref = singaporeRef(title) || singaporeLooseRef(title, prefix);
     if (!ref) return null;
 
     const href = pick(item, ['url', 'link', 'documentUrl', 'fileUrl', 'file', 'permalink']);
     const slug = pick(item, ['slug', 'urlName', 'itemUrl']);
-    const when = pick(item, ['date', 'publishedDate', 'releaseDate', 'publicationDate', 'created']);
+    // release_date is the one MPA actually sends; the rest are what a listing
+    // of this kind might have used, kept in case it is ever renamed.
+    const when = pick(item, ['release_date', 'date', 'publishedDate', 'releaseDate', 'publicationDate', 'created']);
     const parsed = when ? new Date(when) : null;
 
     return {
@@ -419,7 +437,8 @@ export const FEEDS = {
           // It is here so the settings probe can answer that.
           ...SG_LISTS.map((list) => ({
             label: `MPA ${list.name}`, kind: 'json',
-            paged: sgApi(list.id), maxPages: 40, parse: parseSgItems
+            paged: sgApi(list.id), maxPages: 40,
+            parse: (body) => parseSgItems(body, list.prefix)
           })),
           {
             label: 'MPA feed', kind: 'xml', url: `${MPA}/feeds/media-releases`,

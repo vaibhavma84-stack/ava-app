@@ -6,7 +6,7 @@
 // pinning down: a regex over markup is easy to get subtly wrong.
 
 import { readFeed, readLinks } from '../tools/mirror-notices.mjs';
-import { singaporeRef, SG_TYPES, MPA } from '../library/js/updates.js';
+import { singaporeRef, singaporeLooseRef, SG_TYPES, MPA } from '../library/js/updates.js';
 
 let passed = 0, failed = 0;
 const check = (name, ok, detail) => {
@@ -108,6 +108,29 @@ check('a page with no links at all yields nothing',
   readLinks('<html><body><p>Nothing here</p></body></html>', {
     base: MPA, match: /./, ...shape
   }).length === 0);
+
+console.log('\nA reference with the class left off');
+
+// MPA titles many of its circulars this way. Reading the class from the title
+// alone wrote almost all of them off: 288 documents with one shipping circular
+// among them. The list a document came from supplies what the title omits.
+check('the number and year are read',
+  singaporeLooseRef('No. 2 of 2023 - LIST OF ACTIVE SHIPPING CIRCULARS', 'SC')?.refNo === 'SC 02/2023',
+  JSON.stringify(singaporeLooseRef('No. 2 of 2023 - LIST OF ACTIVE SHIPPING CIRCULARS', 'SC')));
+check('the class comes from the list it was fetched from',
+  singaporeLooseRef('No. 9 of 2025 Something', 'PC')?.refNo === 'PC 09/2025');
+check('a number already padded is not padded twice',
+  singaporeLooseRef('No. 07 of 2026 Works', 'PN')?.refNo === 'PN 07/2026');
+check('a three-figure number survives',
+  singaporeLooseRef('No. 175 of 2025 Works at Tuas', 'PN')?.refNo === 'PN 175/2025');
+check('nothing without a number', singaporeLooseRef('A media release', 'SC') === null);
+check('and nothing without a list to attribute it to',
+  singaporeLooseRef('No. 9 of 2025 Something', '') === null);
+
+// The spelt-out form still wins, so a list carrying another class is not
+// silently relabelled by the list it happens to sit in.
+check('a title that names its own class is read by the strict form first',
+  singaporeRef('PORT MARINE CIRCULAR NO. 01 OF 2026')?.refNo === 'PC 01/2026');
 
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);

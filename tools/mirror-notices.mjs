@@ -17,7 +17,7 @@ import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   MPA, SG_TYPES, PANAMA_TYPES, MCA_TYPES,
-  singaporeRef, panamaRef,
+  singaporeRef, singaporeLooseRef, panamaRef,
   parseGovukCollection, parseWpMedia
 } from '../library/js/updates.js';
 
@@ -181,6 +181,7 @@ const SOURCES = {
     for (const list of SG_LISTS) {
       const items = await readSgList(list, shape, seenShape);
       fromApi += items.length;
+      console.log(`    ${list.name}: ${items.length}`);
       found.push(...items);
     }
 
@@ -206,9 +207,9 @@ const SG_LINK = /\/(media-centre\/details|docs\/mpalibraries)\//i;
  * and it can be read with a plain fetch.
  */
 const SG_LISTS = [
-  { name: 'Shipping Circulars', id: '63fc1321-c383-4bc1-8cda-a7718c8eb28c' },
-  { name: 'Port Marine Circulars', id: '0b4c161c-92d5-475e-8a41-51e096406f74' },
-  { name: 'Port Marine Notices', id: '2b89298e-3d17-4bf2-8275-9079e84f63d0' }
+  { name: 'Shipping Circulars', id: '63fc1321-c383-4bc1-8cda-a7718c8eb28c', prefix: 'SC' },
+  { name: 'Port Marine Circulars', id: '0b4c161c-92d5-475e-8a41-51e096406f74', prefix: 'PC' },
+  { name: 'Port Marine Notices', id: '2b89298e-3d17-4bf2-8275-9079e84f63d0', prefix: 'PN' }
 ];
 
 const sgApi = (id, page, limit) =>
@@ -231,7 +232,7 @@ const firstOf = (item, keys) => {
  * logged once. If a run comes back thin, the log says what it was actually
  * given rather than leaving it to guesswork.
  */
-async function readSgList({ name, id }, shape, seenShape) {
+async function readSgList({ name, id, prefix }, shape, seenShape) {
   const out = [];
   for (let page = 1; page <= 40; page++) {
     let body;
@@ -244,12 +245,14 @@ async function readSgList({ name, id }, shape, seenShape) {
 
     if (!seenShape.has(name)) {
       seenShape.add(name);
-      console.log(`  ${name} fields: ${Object.keys(items[0] || {}).join(', ')}`);
+      // The first title as well as the fields: it is what says whether this
+      // list really holds what its id was taken to mean.
+      console.log(`  ${name}: ${firstOf(items[0] || {}, ['title']).slice(0, 70)}`);
     }
 
     for (const item of items) {
       const title = firstOf(item, ['title', 'name', 'heading', 'subject']);
-      const ref = shape.refOf(title);
+      const ref = shape.refOf(title) || singaporeLooseRef(title, prefix);
       if (!ref) continue;
 
       const href = firstOf(item, ['url', 'link', 'documentUrl', 'fileUrl', 'file', 'permalink']);
@@ -262,7 +265,7 @@ async function readSgList({ name, id }, shape, seenShape) {
         title,
         refNo: ref.refNo,
         docType: shape.types[ref.prefix] || '',
-        date: isoDay(firstOf(item, ['date', 'publishedDate', 'releaseDate', 'publicationDate', 'created', 'lastModified'])),
+        date: isoDay(firstOf(item, ['release_date', 'date', 'publishedDate', 'releaseDate', 'publicationDate', 'created'])),
         sourceUrl
       });
     }
