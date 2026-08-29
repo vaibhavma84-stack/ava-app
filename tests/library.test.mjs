@@ -131,6 +131,55 @@ const ALERT_PATH = path.join(tmp, 'FA-2026-05.pdf');
   await maker.close();
 }
 
+// The same alert as the fleet actually numbers it: no "Ref", no "No.", just
+// 045 / 2026 under the heading, meaning the 45th of 2026.
+const BARE_ALERT_PATH = path.join(tmp, 'fleet-alert-045.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent(`
+    <style>@page{size:A4;margin:18mm}
+      h1{font-family:sans-serif;font-size:26pt;margin:0 0 6pt}
+      h2{font-family:sans-serif;font-size:14pt;margin:0 0 16pt;font-weight:normal}
+      p{font-family:sans-serif;font-size:11pt;margin:2pt 0}</style>
+    <h1>FLEET ALERT</h1>
+    <h2>045 / 2026</h2>
+    <p>Subject: Enclosed space entry without a permit to work.</p>
+    <p>Body text so the document is not treated as a scan.</p>`, { waitUntil: 'load' });
+  await maker.pdf({ path: BARE_ALERT_PATH, format: 'A4' });
+  await maker.close();
+}
+
+// Numbered inside the subject rather than under the heading, which is how
+// Synergy writes them as often as not.
+const SUBJECT_ALERT_PATH = path.join(tmp, 'Mooring winch brake holding test.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent(`
+    <style>@page{size:A4;margin:18mm}
+      h1{font-family:sans-serif;font-size:24pt;margin:0 0 16pt}
+      p{font-family:sans-serif;font-size:11pt;margin:2pt 0}</style>
+    <h1>SAFETY ALERT</h1>
+    <p>Subject: Safety Alert 112 / 2026 - Mooring winch brake holding capacity.</p>
+    <p>Body text so the document is not treated as a scan.</p>`, { waitUntil: 'load' });
+  await maker.pdf({ path: SUBJECT_ALERT_PATH, format: 'A4' });
+  await maker.close();
+}
+
+// No subject line at all: the filename is the only statement of what it is.
+const NAMED_ALERT_PATH = path.join(tmp, 'Fleet Alert 077-2026 Gangway net rigging.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent(`
+    <style>@page{size:A4;margin:18mm}
+      h1{font-family:sans-serif;font-size:24pt;margin:0 0 16pt}
+      p{font-family:sans-serif;font-size:11pt}</style>
+    <h1>FLEET ALERT</h1>
+    <p>Body text so the document is not treated as a scan, with no subject line.</p>`,
+    { waitUntil: 'load' });
+  await maker.pdf({ path: NAMED_ALERT_PATH, format: 'A4' });
+  await maker.close();
+}
+
 const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'allow' });
 const page = await context.newPage();
 const errors = [];
@@ -528,7 +577,10 @@ try {
   await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
   const kept = await page.evaluate(() =>
     document.querySelector('#editorBody [data-field="title"]')?.value);
-  check('a title already typed is never overwritten', kept === 'My own title', String(kept));
+  // Capitalisation is applied to what was typed; the words themselves must be
+  // exactly what the writer put there, not the PDF's.
+  check('a title already typed is never overwritten',
+    String(kept).toLowerCase() === 'my own title', String(kept));
   await page.click('#editorCancel');
   await page.waitForSelector('#editor', { state: 'hidden' });
 
@@ -810,7 +862,7 @@ try {
   check('a repeat Panama sync adds nothing', /Panama: 0 new/.test(panamaAgain), panamaAgain);
   check('a title rewritten by hand is kept',
     (await page.locator('.card').allInnerTexts())
-      .some((c) => /Recognised organisations acting for Panama/.test(c)));
+      .some((c) => /Recognised [Oo]rganisations [Aa]cting for Panama/.test(c)));
 
   // ---- Singapore: an index page, read for the links it lists --------------
   // MPA refuses the app outright, so the catalogue is fetched by a scheduled
@@ -1038,8 +1090,10 @@ try {
 
   const alert = await page.evaluate(() => {
     const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
-    return { title: read('title'), refNo: read('refNo'), date: read('date') };
+    return { title: read('title'), refNo: read('refNo'), date: read('date'), docType: read('docType') };
   });
+  // The heading that is useless as a title is exactly what names the type.
+  check('the kind of document fills in the type', alert.docType === 'Fleet Alert', JSON.stringify(alert));
   check('the subject is taken as the title, not the kind of document',
     /emergency fire pump/i.test(alert.title), JSON.stringify(alert));
   check('and the kind of document is not offered as the title',
@@ -1049,6 +1103,67 @@ try {
   check('the reference comes off its labelled line',
     /FA\s*05\/2026/i.test(alert.refNo), JSON.stringify(alert));
   check('the date is read too', alert.date === '2026-08-14', JSON.stringify(alert));
+  const offered = await page.locator('#editorBody [data-field="docType"] option').allInnerTexts();
+  check('the Synergy types are the ones the fleet issues',
+    ['Manager\u2019s Instructions', 'QHSE', 'Fleet Alert', 'Safety Alert']
+      .every((t) => offered.includes(t)), offered.join(' | '));
+  check('and the generic list it replaced is gone',
+    !offered.some((t) => /SMS Manual|Procedure|Checklist|Bulletin|Fleet Instruction/.test(t)),
+    offered.join(' | '));
+  await page.click('#editorCancel');
+  await page.waitForTimeout(200);
+
+  // The number as the fleet writes it: bare, spaced around the slash.
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await page.setInputFiles('#filePicker', BARE_ALERT_PATH);
+  await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
+  const bare = await page.evaluate(() => {
+    const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
+    return { title: read('title'), refNo: read('refNo'), docType: read('docType') };
+  });
+  check('an unlabelled 045 / 2026 is read as the number',
+    bare.refNo === '045/2026', JSON.stringify(bare));
+  check('and it is still typed as a fleet alert',
+    bare.docType === 'Fleet Alert', JSON.stringify(bare));
+  check('with the subject as the title',
+    /enclosed space entry/i.test(bare.title), JSON.stringify(bare));
+  await page.click('#editorCancel');
+  await page.waitForTimeout(200);
+
+  // The number written into the subject, not under the heading.
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await page.setInputFiles('#filePicker', SUBJECT_ALERT_PATH);
+  await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
+  const inSubject = await page.evaluate(() => {
+    const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
+    return { title: read('title'), refNo: read('refNo'), docType: read('docType') };
+  });
+  check('a number written into the subject is found',
+    inSubject.refNo === '112/2026', JSON.stringify(inSubject));
+  check('and is not left duplicated in the title',
+    !/112/.test(inSubject.title), JSON.stringify(inSubject));
+  check('the subject keeps what it is actually about',
+    /mooring winch brake/i.test(inSubject.title), JSON.stringify(inSubject));
+  check('the type still follows the heading',
+    inSubject.docType === 'Safety Alert', JSON.stringify(inSubject));
+  await page.click('#editorCancel');
+  await page.waitForTimeout(200);
+
+  // No subject line: the filename is all there is to go on.
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await page.setInputFiles('#filePicker', NAMED_ALERT_PATH);
+  await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
+  const fromName = await page.evaluate(() => {
+    const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
+    return { title: read('title'), refNo: read('refNo'), docType: read('docType') };
+  });
+  check('the filename stands in when there is no subject line',
+    /gangway net/i.test(fromName.title), JSON.stringify(fromName));
+  check('and its number is read from there too',
+    fromName.refNo === '077/2026', JSON.stringify(fromName));
   await page.click('#editorCancel');
   await page.waitForTimeout(200);
 
@@ -1071,7 +1186,7 @@ try {
   await page.click('#fab');
   await page.waitForSelector('#editor:not([hidden])');
   await set('title', 'Shipboard Safety Management Manual');
-  await pick('docType', 'SMS Manual');
+  await pick('docType', 'Manager\u2019s Instructions');
   await set('refNo', 'SMS-04');
   await set('revision', 'Rev 7');
   await save();
@@ -1112,6 +1227,37 @@ try {
   check('the sections screen does not nag once everything is current',
     !/to check/i.test(synergyCard), synergyCard.replace(/\n/g, ' / '));
   await page.locator('.section-card', { hasText: 'Synergy' }).click();
+  await page.waitForTimeout(200);
+
+  console.log('\nCapitalising what is typed');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card', { hasText: 'Synergy' }).click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+
+  const typeAndLeave = async (key, text) => {
+    const field = page.locator(`#editorBody [data-field="${key}"]`);
+    await field.fill(text);
+    await field.blur();
+    await page.waitForTimeout(120);
+    return field.inputValue();
+  };
+
+  check('each word is capitalised',
+    await typeAndLeave('title', 'enclosed space entry procedure') === 'Enclosed Space Entry Procedure');
+  check('but not the small words in the middle',
+    await typeAndLeave('title', 'failure of the emergency fire pump') === 'Failure of the Emergency Fire Pump');
+  check('a small word first or last is still capitalised',
+    await typeAndLeave('title', 'the master and the officer of the watch')
+      === 'The Master and the Officer of the Watch');
+  check('what was typed in capitals is left as it was',
+    await typeAndLeave('title', 'MARPOL annex vi compliance') === 'MARPOL Annex VI Compliance');
+  check('and a reference keeps its own case exactly',
+    await typeAndLeave('refNo', 'MSN 1905 (M+F)') === 'MSN 1905 (M+F)');
+  check('a lower-case reference is not turned into a title either',
+    await typeAndLeave('refNo', 'sms-04 rev b') === 'sms-04 rev b');
+  await page.click('#editorCancel');
   await page.waitForTimeout(200);
 
   console.log('\nSaying whether there is an update');

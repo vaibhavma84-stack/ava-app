@@ -19,9 +19,16 @@ export const CIRCULAR_CATEGORIES = [
   'Security', 'Environmental', 'Commercial', 'Other'
 ];
 
+// What the fleet actually issues, replacing the generic list that was here
+// before. More to come. A document already filed under one of the old types
+// keeps it — the editor puts a stored value back as an option rather than
+// changing it — so nothing already entered is disturbed by this.
 export const SYNERGY_DOC_TYPES = [
-  'SMS Manual', 'Procedure', 'Circular', 'Form', 'Checklist', 'Policy',
-  'Bulletin', 'Training', 'Fleet Instruction', 'Other'
+  'Manager\u2019s Instructions',
+  'QHSE',
+  'Fleet Alert',
+  'Safety Alert',
+  'Other'
 ];
 
 export const FLAG_STATES = ['MCA', 'Panama', 'Singapore', 'Other'];
@@ -128,11 +135,11 @@ export const TYPES = {
     titleKey: 'title',
     fields: [
       { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Admiralty List of Radio Signals Vol 1' },
-      { key: 'refNo', label: 'Number', type: 'text', placeholder: 'e.g. NP281(1)', group: 'ident' },
-      { key: 'edition', label: 'Edition / year', type: 'text', placeholder: 'e.g. 2026', group: 'ident' },
+      { keepCase: true, key: 'refNo', label: 'Number', type: 'text', placeholder: 'e.g. NP281(1)', group: 'ident' },
+      { keepCase: true, key: 'edition', label: 'Edition / year', type: 'text', placeholder: 'e.g. 2026', group: 'ident' },
       { key: 'category', label: 'Category', type: 'select', options: PUBLICATION_CATEGORIES },
       { key: 'publisher', label: 'Publisher', type: 'text', placeholder: 'e.g. UKHO' },
-      { key: 'correctedTo', label: 'Corrected to', type: 'text', placeholder: 'e.g. NtM 12/2026' },
+      { keepCase: true, key: 'correctedTo', label: 'Corrected to', type: 'text', placeholder: 'e.g. NtM 12/2026' },
       { key: 'vessel', label: 'Vessel', type: 'text', group: 'where' },
       { key: 'location', label: 'Location onboard', type: 'text', group: 'where' },
       NOTES,
@@ -157,8 +164,8 @@ export const TYPES = {
     fields: [
       { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Shipboard Safety Management Manual' },
       { key: 'docType', label: 'Document type', type: 'select', options: SYNERGY_DOC_TYPES },
-      { key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. SMS-04', group: 'ident' },
-      { key: 'revision', label: 'Revision', type: 'text', placeholder: 'e.g. Rev 7', group: 'ident' },
+      { keepCase: true, key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. SMS-04', group: 'ident' },
+      { keepCase: true, key: 'revision', label: 'Revision', type: 'text', placeholder: 'e.g. Rev 7', group: 'ident' },
       { key: 'date', label: 'Date', type: 'date' },
       {
         key: 'revisionChecked', label: 'Revision checked', type: 'date',
@@ -191,7 +198,7 @@ export const TYPES = {
         // Narrows to the chosen administration's own document classes.
         optionsBy: { key: 'flagState', map: FLAG_DOC_TYPES_BY_ADMIN }
       },
-      { key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. MMN 7-070', group: 'ident' },
+      { keepCase: true, key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. MMN 7-070', group: 'ident' },
       { key: 'date', label: 'Date issued', type: 'date', group: 'ident' },
       { key: 'issuer', label: 'Issued by', type: 'text', placeholder: 'e.g. Panama Maritime Authority' },
       { key: 'supersedes', label: 'Supersedes', type: 'text', placeholder: 'e.g. MMN 7-070 Rev 2' },
@@ -217,7 +224,7 @@ export const TYPES = {
     titleKey: 'title',
     fields: [
       { key: 'title', label: 'Subject', type: 'text', required: true, placeholder: 'e.g. Revised bunkering procedure' },
-      { key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. FC-2026-014', group: 'ident' },
+      { keepCase: true, key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. FC-2026-014', group: 'ident' },
       { key: 'date', label: 'Date issued', type: 'date', group: 'ident' },
       { key: 'issuer', label: 'Issued by', type: 'text', placeholder: 'e.g. Fleet Technical' },
       { key: 'category', label: 'Category', type: 'select', options: CIRCULAR_CATEGORIES },
@@ -240,7 +247,7 @@ export const TYPES = {
     fields: [
       { key: 'title', label: 'Subject', type: 'text', required: true, placeholder: 'e.g. Amendment to SOLAS Ch. V' },
       { key: 'source', label: 'Source', type: 'select', options: NOTICE_SOURCES },
-      { key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. MGN 654 (M)', group: 'ident' },
+      { keepCase: true, key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. MGN 654 (M)', group: 'ident' },
       { key: 'date', label: 'Date', type: 'date', group: 'ident' },
       { key: 'area', label: 'Area / subject', type: 'text', placeholder: 'e.g. North Sea, navigation warnings' },
       { ...NOTES, label: 'Summary' },

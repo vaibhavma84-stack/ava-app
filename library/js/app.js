@@ -6,12 +6,12 @@ import { isPdf, extract, describe, selfTest, STATUS } from './pdftext.js';
 import { suggestFields } from './suggest.js';
 import { probeAll, fetchNotices, FEEDS, SYNCABLE } from './updates.js';
 import { IMO_CONVENTIONS, IMO_LIST_URL, asPublication, notHeld } from './imo.js';
-import { el, $, clear, toast, formatBytes } from './ui.js';
+import { el, $, clear, toast, formatBytes, titleCase } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.23';
+const APP_VERSION = '2026.09.24';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1097,11 +1097,23 @@ function fieldFor(f, draft) {
     if (value && !options.includes(value)) sel.append(el('option', { value, selected: true }, [value]));
     wrap.append(sel);
   } else {
+    // Names and subjects read as titles; references do not. "MSN 1905 (M+F)"
+    // must stay exactly as it is, so a field carrying a code says so and is
+    // left alone. Applied when the field is left rather than while typing,
+    // which would fight the keyboard mid-word.
+    const cased = f.type === 'text' && !f.keepCase;
     wrap.append(el('input', {
       class: 'field', 'data-field': f.key,
       type: f.type === 'date' ? 'date' : f.type === 'url' ? 'url' : 'text',
       value, placeholder: f.placeholder || '',
-      oninput: (e) => { draft.data[f.key] = e.target.value; }
+      ...(cased ? { autocapitalize: 'words' } : {}),
+      oninput: (e) => { draft.data[f.key] = e.target.value; },
+      ...(cased ? {
+        onblur: (e) => {
+          const next = titleCase(e.target.value);
+          if (next !== e.target.value) { e.target.value = next; draft.data[f.key] = next; }
+        }
+      } : {})
     }));
   }
   if (f.hint) wrap.append(el('p', { class: 'hint', text: f.hint }));

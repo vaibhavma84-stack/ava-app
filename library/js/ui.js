@@ -45,3 +45,40 @@ export function toast(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { node.hidden = true; }, 2400);
 }
+
+/**
+ * Capitalise each word, leaving the small ones alone.
+ *
+ * Only words typed entirely in lower case are touched. Anything already
+ * carrying a capital is left exactly as it was — so MARPOL stays MARPOL, PSC
+ * stays PSC, and a subject typed in capitals is not quietly rewritten. The
+ * rule only ever adds a capital; it never removes one, which is what makes it
+ * safe to apply to a field the moment it is left.
+ */
+const SMALL_WORDS = new Set([
+  'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'from', 'in', 'into',
+  'nor', 'of', 'off', 'on', 'onto', 'or', 'per', 'the', 'to', 'up', 'via',
+  'with', 'vs'
+]);
+
+const ROMAN = /^(?:i{1,3}|iv|vi{0,3}|ix|xi{0,3}|xiv|xv)$/;
+
+export function titleCase(text) {
+  const words = String(text || '').split(/(\s+)/);
+  const lastWord = words.reduce((last, w, i) => (w.trim() ? i : last), -1);
+  const firstWord = words.findIndex((w) => w.trim());
+
+  return words.map((word, i) => {
+    if (!word.trim()) return word;
+    // Leave anything the writer has already capitalised, anywhere in it.
+    if (/[A-Z]/.test(word)) return word;
+
+    // Annex vi reads as Annex VI, not Annex Vi.
+    const bare = word.replace(/[^a-z]/g, '');
+    if (bare && ROMAN.test(bare)) return word.replace(bare, bare.toUpperCase());
+
+    const small = SMALL_WORDS.has(bare);
+    if (small && i !== firstWord && i !== lastWord) return word;
+    return word.replace(/[a-z]/, (c) => c.toUpperCase());
+  }).join('');
+}

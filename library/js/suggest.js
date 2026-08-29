@@ -68,6 +68,32 @@ function pickLabelled(described, labels) {
   return '';
 }
 
+/**
+ * What kind of Synergy document this is, from how it announces itself.
+ *
+ * The heading that is useless as a title — FLEET ALERT across the top — is
+ * exactly what names the type, so the same line that has to be rejected in
+ * one field fills in another. Longer names are matched first: "Fleet Alert"
+ * before "Alert", or every alert would come back as the plainer one.
+ */
+const SYNERGY_KINDS = [
+  [/manager'?\u2019?s?\s+instructions?/i, 'Manager\u2019s Instructions'],
+  [/\bQHSE\b/i, 'QHSE'],
+  [/fleet\s+alert/i, 'Fleet Alert'],
+  [/safety\s+alert/i, 'Safety Alert']
+];
+
+function pickSynergyDocType(described, filename) {
+  // The headings first: a word in the body text says far less than the same
+  // word set across the top of the page.
+  const headings = (described.largestLines || []).slice(0, 3).join(' ');
+  for (const [re, label] of SYNERGY_KINDS) if (re.test(headings)) return label;
+
+  const haystack = `${String(described.firstPageText || '').slice(0, 400)} ${filename}`;
+  for (const [re, label] of SYNERGY_KINDS) if (re.test(haystack)) return label;
+  return '';
+}
+
 /** The subject of a circular, however it is labelled. */
 const pickSubject = (described) =>
   pickLabelled(described, ['subject', 'sub', 'subj', 're', 'title']);
@@ -226,13 +252,65 @@ function pickPublisher(described) {
  * from Panama, MGN 654 (M) from the MCA, SC No. 4 of 2026 from Singapore, and
  * the "Circular No." wording used almost everywhere else.
  */
-function pickNoticeReference(described, filename) {
-  // A labelled reference is the document telling you its own number, so it is
-  // worth more than anything matched out of running text.
+/**
+ * A number written on its own, the way a fleet alert carries one: 045 / 2026,
+ * meaning the 45th of 2026.
+ *
+ * Nothing labels it and nothing spells out what it is, so this is only trusted
+ * once the document has already said what kind it is — otherwise any date or
+ * page number written with a slash would be taken for a reference. The spaces
+ * around the slash are how it is actually typed on a letterhead, and are
+ * closed up so the reference reads as one thing.
+ */
+// 045 / 2026 on the page, 077-2026 in a filename: the same number, written
+// with whichever separator the medium allows. The guards on either side keep
+// it away from the middle of a date — in 29-08-2026 the 08 is preceded by a
+// dash, and is left alone.
+const BARE_NUMBER = /(?<![\d/-])(\d{1,4})\s*[-/]\s*((?:19|20)\d{2})(?![\d/-])/;
+
+function pickBareNumber(described, filename) {
+  // Synergy does not number its circulars in one place. The number turns up
+  // in the subject line as often as under the heading, and sometimes only in
+  // the filename — so all three are read, nearest the top first.
+  const sources = [
+    pickSubject(described),
+    String(described.firstPageText || '').slice(0, 500),
+    String(filename || '')
+  ];
+  for (const source of sources) {
+    const m = String(source).match(BARE_NUMBER);
+    if (m) return `${m[1]}/${m[2]}`;
+  }
+  return '';
+}
+
+/**
+ * A subject that already carries its own number reads better without it: the
+ * number has its own field, and repeating it in the title crowds the list row.
+ */
+function withoutNumber(subject) {
+  return tidy(String(subject || '')
+    .replace(BARE_NUMBER, ' ')
+    .replace(/^\s*(?:fleet|safety|technical)?\s*(?:alert|circular|bulletin|instruction)s?\b/i, '')
+    .replace(/^[\s:.,\-–—]+/, ''));
+}
+
+/**
+ * A reference the document states under a label of its own.
+ *
+ * The strongest signal there is: the document naming its own number rather
+ * than a pattern being matched out of running text.
+ */
+function pickLabelledRef(described) {
   const labelled = pickLabelled(described,
     ['ref', 'ref no', 'reference', 'our ref', 'circular no', 'alert no', 'notice no',
      'bulletin no', 'document no', 'doc no', 'no']);
-  if (labelled && /\d/.test(labelled) && labelled.length <= 40) return labelled;
+  return labelled && /\d/.test(labelled) && labelled.length <= 40 ? labelled : '';
+}
+
+function pickNoticeReference(described, filename) {
+  const labelled = pickLabelledRef(described);
+  if (labelled) return labelled;
 
   const haystack = `${described.firstPageText || ''} ${filename}`;
   const patterns = [
@@ -279,8 +357,27 @@ export function suggestFields(type, described, filename, fieldKeys) {
   if (type === 'synergy' || type === 'circular') {
     // The subject line is the document's own statement of what it is about,
     // and outranks a heading that only says what kind of document it is.
-    if (has('title')) out.title = pickSubject(described) || out.title;
-    if (has('refNo')) out.refNo = pickNoticeReference(described, filename) || pickReference(described, filename);
+    // Sometimes the subject is only ever written as the filename. A page with
+    // no subject line leaves the largest remaining text as the title, which on
+    // an alert is a line of the body — so a filename carrying real words is
+    // preferred over that.
+    const named = withoutNumber(titleFromFilename(filename));
+    const subject = pickSubject(described)
+      || (named.split(/\s+/).filter((w) => /[a-z]/i.test(w)).length >= 2 ? named : '');
+    if (has('title')) out.title = withoutNumber(subject) || out.title;
+    if (has('docType')) out.docType = pickSynergyDocType(described, filename);
+    if (has('refNo')) {
+      // The number alone, because the kind of document is already its own
+      // field: a fleet alert numbered 045 / 2026 wants "045/2026", not "Fleet
+      // Alert 045", which repeats the type and drops the year. A reference the
+      // document labels still outranks it; a bare number is only trusted once
+      // the document has said what kind it is, since "045 / 2026" is a
+      // reference on an alert and a date almost anywhere else.
+      out.refNo = pickLabelledRef(described)
+        || (out.docType ? pickBareNumber(described, filename) : '')
+        || pickNoticeReference(described, filename)
+        || pickReference(described, filename);
+    }
     if (has('issuer')) out.issuer = pickPublisher(described);
     if (has('revision')) out.revision = pickRevision(described);
     if (has('date')) out.date = pickDate(described);
