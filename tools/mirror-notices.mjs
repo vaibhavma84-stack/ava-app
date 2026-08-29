@@ -256,6 +256,11 @@ async function readSgList({ name, id, prefix }, shape, seenShape) {
       if (!ref) continue;
 
       const href = firstOf(item, ['url', 'link', 'documentUrl', 'fileUrl', 'file', 'permalink']);
+      // The document link is inside the body MPA already sends, so keeping it
+      // here saves fetching every detail page again later just to find it.
+      const body = firstOf(item, ['main_content']);
+      const doc = (body.match(/href=["']([^"']*\/docs\/mpalibraries\/[^"']+)["']/i)
+        || body.match(/href=["']([^"']+\.pdf(?:\?[^"']*)?)["']/i) || [])[1] || '';
       const slug = firstOf(item, ['slug', 'urlName', 'itemUrl']);
       const sourceUrl = href
         ? new URL(href, MPA).href
@@ -266,7 +271,8 @@ async function readSgList({ name, id, prefix }, shape, seenShape) {
         refNo: ref.refNo,
         docType: shape.types[ref.prefix] || '',
         date: isoDay(firstOf(item, ['release_date', 'date', 'publishedDate', 'releaseDate', 'publicationDate', 'created'])),
-        sourceUrl
+        sourceUrl,
+        ...(doc ? { docUrl: new URL(doc.replace(/&amp;/g, '&'), MPA).href } : {})
       });
     }
 

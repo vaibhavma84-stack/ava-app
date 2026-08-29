@@ -46,6 +46,12 @@ jobs:
       - name: Read the catalogues
         run: node tools/mirror-notices.mjs
 
+      - name: Measure what the documents would cost
+        # Before a thousand PDFs are pulled into a repository, find out what
+        # they weigh. Resolves every link and asks each host for the size,
+        # keeping none of it.
+        run: node tools/mirror-docs.mjs --measure
+
       - name: Commit anything that changed
         # A source that gave nothing leaves its file alone, so a quiet week is
         # simply no commit — and no commit means no deploy.
