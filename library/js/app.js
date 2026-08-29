@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.24';
+const APP_VERSION = '2026.09.25';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -74,6 +74,58 @@ function wireMigration() {
   });
 }
 
+/**
+ * Ask the site what version it is serving, past every cache in the way.
+ *
+ * The query string is the point: a URL nothing has seen before cannot be
+ * answered from the worker's cache or the browser's, so this is the truth
+ * even when the worker is wedged. Which is the case worth catching — a stuck
+ * worker is invisible from inside the app, and the app goes on looking
+ * perfectly fine while running code from a fortnight ago.
+ */
+async function versionOnSite() {
+  const url = new URL('version.json', location.href);
+  url.searchParams.set('asked', Date.now());
+  const body = await (await fetch(url.href, { cache: 'reload' })).json();
+  return String(body?.version || '');
+}
+
+/**
+ * Throw away the code and keep the data.
+ *
+ * Unregisters the workers and empties their caches, then reloads. Nothing
+ * here touches the database, so entries, files and their text all survive —
+ * this only discards what was downloaded from the site.
+ */
+async function reinstall() {
+  try {
+    const regs = await navigator.serviceWorker?.getRegistrations() || [];
+    await Promise.all(regs.map((r) => r.unregister().catch(() => {})));
+    const keys = await caches.keys();
+    await Promise.all(keys.map((k) => caches.delete(k).catch(() => {})));
+  } catch { /* whatever fails, the reload is still worth doing */ }
+  location.replace(location.pathname + '?fresh=' + Date.now());
+}
+
+/** Say so, once, when the site has moved on and this copy has not. */
+async function announceIfStale() {
+  if (!navigator.onLine) return;
+  let onSite = '';
+  try { onSite = await versionOnSite(); } catch { return; }
+  if (!onSite || onSite === APP_VERSION) return;
+
+  const bar = el('div', { class: 'panel', id: 'staleBar', style: 'margin:10px' }, [
+    el('p', { class: 'hint', style: 'margin-bottom:8px',
+      text: `Version ${onSite} is on the site; this is ${APP_VERSION}.` }),
+    el('button', { class: 'btn btn-primary btn-block', onclick: reinstall },
+      ['Update now — your entries are kept'])
+  ]);
+  // Above the body rather than inside it: every render empties the body, and
+  // a notice that disappears the moment anything is tapped is no notice.
+  const body = $('#body');
+  if (body && !$('#staleBar')) body.parentNode.insertBefore(bar, body);
+}
+
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
   let reloading = false;
@@ -108,6 +160,8 @@ function enterApp() {
   view.screen = 'home';
   view.section = null;
   render();
+  // After the first render, so a slow reply never delays the app opening.
+  announceIfStale();
 }
 
 // ── render ──────────────────────────────────────────────────────────────────
@@ -1375,20 +1429,19 @@ async function openSettings() {
           const reg = await navigator.serviceWorker?.getRegistration();
           await reg?.update().catch(() => {});
 
-          const url = new URL('js/app.js', location.href).href;
-          const source = await (await fetch(url, { cache: 'reload' })).text();
-          const onSite = (source.match(/APP_VERSION\s*=\s*'([^']+)'/) || [])[1] || 'unknown';
+          const onSite = await versionOnSite() || 'unknown';
 
           if (onSite === APP_VERSION) {
             versionOut.append(el('p', { class: 'hint', style: 'color:var(--sage)',
               text: `Up to date — the site is serving ${onSite} too.` }));
-          } else if (reg?.waiting) {
-            versionOut.append(el('p', { class: 'hint',
-              text: `${onSite} is ready and waiting. Applying it now.` }));
-            reg.waiting.postMessage('skipWaiting');
           } else {
+            // Not a suggestion to close and reopen: that is what has already
+            // failed if it has come to this. Offer the reset instead.
             versionOut.append(el('p', { class: 'hint',
-              text: `The site is serving ${onSite}. Close the app completely and reopen it to pick it up.` }));
+              text: `The site is serving ${onSite}. This copy is ${APP_VERSION}.` }));
+            versionOut.append(el('button', {
+              class: 'btn btn-primary btn-block', style: 'margin-top:8px', onclick: reinstall
+            }, ['Update now — your entries are kept']));
           }
         } catch (ex) {
           versionOut.append(el('p', { class: 'hint', style: 'color:var(--danger)',

@@ -53,7 +53,9 @@ jobs:
           cp -r css js fonts icons vendor _site/
           # Library is a second installable app served from /library/.
           mkdir -p _site/library
-          cp library/index.html library/manifest.webmanifest library/sw.js _site/library/
+          # Stamped from APP_VERSION, so a copy left behind can say so.
+          node tools/stamp-version.mjs
+          cp library/index.html library/manifest.webmanifest library/sw.js library/version.json _site/library/
           cp -r library/css library/js library/fonts library/icons _site/library/
           # The mirrored catalogues, read by a scheduled job because the
           # administrations that publish them refuse the app directly.

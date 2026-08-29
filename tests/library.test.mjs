@@ -24,6 +24,12 @@ const SHOT_DIR = path.join(ROOT, 'tests', 'screens');
 
 // The mirrored catalogue is a real file on the site. The suite writes its own
 // and puts back whatever was there, so a run never leaves the repo altered.
+// The version file is generated from this, and drift between them would mean
+// the app comparing itself against a number nothing is actually serving.
+const APP_VERSION_IN_SOURCE =
+  (fs.readFileSync(path.join(ROOT, 'library', 'js', 'app.js'), 'utf8')
+    .match(/APP_VERSION\s*=\s*'([^']+)'/) || [])[1];
+
 const MIRROR_DIR = path.join(ROOT, 'library', 'data');
 const MIRROR_FILE = path.join(MIRROR_DIR, 'singapore.json');
 const mirrorBefore = new Map(['mca.json', 'panama.json', 'singapore.json'].map((name) => {
@@ -1260,9 +1266,37 @@ try {
   await page.click('#editorCancel');
   await page.waitForTimeout(200);
 
+  console.log('\nNoticing a version left behind');
+  // The worker being wedged is exactly the case worth catching, so the check
+  // has to reach the site past every cache. Standing in an older version here
+  // proves the app notices and offers a way out rather than looking fine.
+  // Served as a real file, like the catalogues: the request goes through the
+  // service worker, which is where route interception does not reach.
+  const versionFile = path.join(ROOT, 'library', 'version.json');
+  const versionBefore = fs.readFileSync(versionFile, 'utf8');
+  fs.writeFileSync(versionFile, JSON.stringify({ version: '2099.01.01' }));
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForSelector('#staleBar', { timeout: 20000 });
+  const stale = await page.locator('#staleBar').innerText();
+  check('a version left behind is announced', /2099\.01\.01/.test(stale), stale.replace(/\n/g, ' / '));
+  check('and it says the entries are kept', /entries are kept/i.test(stale), stale.replace(/\n/g, ' / '));
+  fs.writeFileSync(versionFile, versionBefore);
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(600);
+  check('and it stays out of the way once the versions agree',
+    await page.locator('#staleBar').count() === 0);
+
+  check('the stamped version matches the app it ships with',
+    JSON.parse(versionBefore).version === APP_VERSION_IN_SOURCE,
+    `${JSON.parse(versionBefore).version} vs ${APP_VERSION_IN_SOURCE}`);
+
   console.log('\nSaying whether there is an update');
-  await page.click('#backBtn');
-  await page.waitForTimeout(200);
+  // Back only if there is somewhere to go back to: the checks above end on the
+  // home screen, where the button is hidden.
+  if (await page.locator('#backBtn').isVisible()) {
+    await page.click('#backBtn');
+    await page.waitForTimeout(200);
+  }
   await page.click('#settingsBtn');
   await page.waitForSelector('#settings:not([hidden])');
   await page.click('#settingsBody button:has-text("Check for updates")');
