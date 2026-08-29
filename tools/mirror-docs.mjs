@@ -30,6 +30,28 @@ const has = (name) => args.includes(`--${name}`);
 
 const mb = (bytes) => (bytes / 1048576).toFixed(1);
 
+/**
+ * Work through a list several at a time, keeping the order of the results.
+ *
+ * A thousand documents one after another is a thousand round trips end to
+ * end, and the first measuring run was still going after fifteen minutes. The
+ * hosts are not the bottleneck; waiting for each reply before asking the next
+ * question is. Eight at a time is brisk without leaning on anyone's server.
+ */
+async function inParallel(items, width, work) {
+  const results = new Array(items.length);
+  let next = 0;
+  const workers = Array.from({ length: Math.min(width, items.length) }, async () => {
+    for (;;) {
+      const i = next++;
+      if (i >= items.length) return;
+      results[i] = await work(items[i], i);
+    }
+  });
+  await Promise.all(workers);
+  return results;
+}
+
 async function head(url) {
   // Some hosts refuse HEAD but answer a ranged GET, which costs one byte.
   try {
@@ -99,43 +121,45 @@ async function run() {
     let totalBytes = 0, takenBytes = 0, stoppedAt = 0;
     let changed = false;
 
-    for (const notice of data.notices) {
+    // Resolving and sizing is all network, so it is done several at a time.
+    const sized = await inParallel(data.notices, 8, async (notice) => {
       const localPath = join(DOCS, admin.toLowerCase(), fileNameFor(notice));
-
-      if (!measuring && existsSync(localPath)) {
-        held++;
-        takenBytes += statSync(localPath).size;
-        if (notice.file !== localPath.replace('library/', '')) {
-          notice.file = localPath.replace('library/', '');
-          changed = true;
-        }
-        continue;
-      }
+      if (!measuring && existsSync(localPath)) return { notice, localPath, alreadyHere: true };
 
       const url = await RESOLVE[admin](notice);
-      if (!url) { unresolved++; continue; }
+      if (!url) return { notice, localPath, unresolved: true };
+      return { notice, localPath, url, size: await head(url) };
+    });
+
+    for (const row of sized) {
+      if (row.alreadyHere) {
+        held++;
+        takenBytes += statSync(row.localPath).size;
+        const rel = row.localPath.replace('library/', '');
+        if (row.notice.file !== rel) { row.notice.file = rel; changed = true; }
+        continue;
+      }
+      if (row.unresolved) { unresolved++; continue; }
       resolved++;
-
-      const size = await head(url);
-      if (!size.ok) { refused++; continue; }
-      totalBytes += size.bytes;
-
-      if (size.bytes > MAX_FILE_MB * 1048576) { tooBig++; continue; }
+      if (!row.size.ok) { refused++; continue; }
+      totalBytes += row.size.bytes;
+      if (row.size.bytes > MAX_FILE_MB * 1048576) { tooBig++; continue; }
       if (measuring) continue;
 
       // Newest first, so a budget that cannot hold everything holds the part
-      // most likely to be wanted rather than an arbitrary slice.
-      if (takenBytes + size.bytes > budget) { stoppedAt++; continue; }
+      // most likely to be wanted rather than an arbitrary slice. Kept
+      // sequential: this is where the bytes are actually spent.
+      if (takenBytes + row.size.bytes > budget) { stoppedAt++; continue; }
 
       try {
-        const r = await fetch(url, { redirect: 'follow' });
+        const r = await fetch(row.url, { redirect: 'follow' });
         if (!r.ok) { refused++; continue; }
         const bytes = Buffer.from(await r.arrayBuffer());
-        mkdirSync(dirname(localPath), { recursive: true });
-        writeFileSync(localPath, bytes);
+        mkdirSync(dirname(row.localPath), { recursive: true });
+        writeFileSync(row.localPath, bytes);
         takenBytes += bytes.length;
-        notice.file = localPath.replace('library/', '');
-        notice.bytes = bytes.length;
+        row.notice.file = row.localPath.replace('library/', '');
+        row.notice.bytes = bytes.length;
         changed = true;
       } catch { refused++; }
     }
