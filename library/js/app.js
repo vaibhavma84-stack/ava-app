@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.20';
+const APP_VERSION = '2026.09.21';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -180,7 +180,11 @@ function renderHome(body) {
 
 function renderSection(body) {
   const def = TYPES[view.section];
-  if (view.section === 'flag') body.append(updatePanel());
+  if (view.section === 'flag') {
+    body.append(updatePanel());
+    const docs = documentPanel();
+    if (docs) body.append(docs);
+  }
   if (view.section === 'publication') body.append(conventionPanel());
   if (def.sources) body.append(sourceLinks(def.sources));
   let items = store.itemsOfType(view.section);
@@ -371,6 +375,132 @@ function updatePanel() {
 }
 
 /**
+ * Fetch one notice's document, keep it, and read its text.
+ *
+ * The text is the point. A PDF sitting on the phone unread is a file you
+ * cannot find again; extracted, it joins the search and the whole document is
+ * reachable at sea by any phrase inside it.
+ */
+async function downloadDocument(item, onProgress) {
+  // The catalogue says which documents the mirror actually holds, so a notice
+  // whose file was never fetched is never asked for. Guessing at the path
+  // instead would mean a thousand requests to find out there is nothing there.
+  const path = item.data.mirrorFile;
+  if (!path) throw new Error('not held on the site');
+  const url = new URL(`../${path}`, import.meta.url).href;
+
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(response.status === 404 ? 'not held on the site' : `HTTP ${response.status}`);
+
+  const blob = await response.blob();
+  const name = decodeURIComponent(url.split('/').pop());
+  const descriptor = await store.storeFile(new File([blob], name, { type: 'application/pdf' }));
+
+  const result = await extract(await blob.arrayBuffer(), { onProgress });
+  if (result.pages.length) await store.storeText(descriptor.id, result.pages);
+  Object.assign(descriptor, {
+    textPages: result.pages.length, pageCount: result.pageCount,
+    textStatus: result.status, textError: result.error
+  });
+
+  await store.saveItem({
+    id: item.id, type: item.type,
+    data: { ...item.data, attachments: [...(item.data.attachments || []), descriptor] }
+  });
+  return blob.size;
+}
+
+/** Notices of one flag whose document is held on the site but not yet here. */
+function withoutDocuments(admin) {
+  return store.itemsOfType('flag').filter((i) =>
+    i.data.flagState === admin && i.data.mirrorFile && !(i.data.attachments || []).length);
+}
+
+/**
+ * The documents themselves, for one flag or for all of them.
+ *
+ * Deliberately not one button that runs for an hour. Each document is fetched
+ * and read in turn, the count says where it has got to, and it stops the
+ * moment it is asked to — a download that cannot be interrupted is no use on
+ * a connection that comes and goes.
+ */
+function documentPanel() {
+  const out = el('div');
+  const panel = el('div', { class: 'panel doc-panel' }, [
+    el('h3', { text: 'Documents' }),
+    el('p', { text: 'Fetches the circulars themselves, not just the list, and reads each one so its contents can be searched with no signal. This is the large download — do it alongside a good connection, and it can be stopped and picked up again at any point.' })
+  ]);
+
+  const counts = SYNCABLE.map((admin) => [admin, withoutDocuments(admin).length]);
+  const outstanding = counts.reduce((n, [, c]) => n + c, 0);
+  const anyHeld = store.itemsOfType('flag').some((i) => i.data.mirrorFile);
+
+  // Nothing to offer until the list has been updated at least once, and until
+  // the site actually holds documents for it.
+  if (!anyHeld) return null;
+  if (!outstanding) {
+    panel.append(el('p', { class: 'hint', text: 'Every notice whose document is held has it.' }));
+    return panel;
+  }
+
+  const row = el('div', { class: 'fieldrow' });
+  for (const [admin, count] of counts) {
+    const button = el('button', {
+      class: 'btn btn-sm btn-block', disabled: !count
+    }, [count ? `${admin} (${count})` : admin]);
+    button.addEventListener('click', () => fetchDocuments([admin], button, out));
+    row.append(el('div', {}, [button]));
+  }
+
+  const all = el('button', { class: 'btn btn-block', style: 'margin-top:8px' },
+    [`Fetch all ${outstanding} documents`]);
+  all.addEventListener('click', () => fetchDocuments(SYNCABLE, all, out));
+
+  panel.append(row, all, out);
+  return panel;
+}
+
+let stopFetching = false;
+
+async function fetchDocuments(admins, button, out) {
+  stopFetching = false;
+  const queue = admins.flatMap((admin) => withoutDocuments(admin));
+  const label = button.textContent;
+  button.disabled = true;
+
+  const status = el('p', { class: 'hint', text: `0 of ${queue.length}` });
+  const bar = el('div', { class: 'bar' }, [el('i')]);
+  const stop = el('button', { class: 'btn btn-sm btn-block', style: 'margin-top:8px' }, ['Stop']);
+  stop.addEventListener('click', () => { stopFetching = true; stop.textContent = 'Stopping…'; });
+  clear(out).append(status, bar, stop);
+
+  let done = 0, bytes = 0, missing = 0, failed = 0;
+  for (const item of queue) {
+    if (stopFetching) break;
+    status.textContent = `${done + 1} of ${queue.length} — ${item.data.refNo}`;
+    try {
+      bytes += await downloadDocument(item);
+    } catch (ex) {
+      if (/not held/.test(ex.message)) missing++; else failed++;
+    }
+    done++;
+    bar.firstChild.style.width = `${Math.round((done / queue.length) * 100)}%`;
+  }
+
+  const held = done - missing - failed;
+  view.lastSync = {
+    ok: held > 0,
+    text: `${held} document${held === 1 ? '' : 's'} fetched, ${(bytes / 1048576).toFixed(1)} MB`
+      + (missing ? ` · ${missing} not held on the site` : '')
+      + (failed ? ` · ${failed} could not be fetched` : '')
+      + (stopFetching ? ' · stopped' : '')
+  };
+  button.disabled = false;
+  button.textContent = label;
+  render();
+}
+
+/**
  * All three, one after another.
  *
  * Run in turn rather than at once: three administrations answering together
@@ -471,6 +601,7 @@ async function mergeNotices(notices, admin) {
           issuer: feed.issuer,
           fileLink: notice.sourceUrl,
           sourceUrl: notice.sourceUrl,
+          ...(notice.file ? { mirrorFile: notice.file } : {}),
           attachments: []
         }
       });
@@ -497,6 +628,7 @@ async function mergeNotices(notices, admin) {
     if (!next.issuer) next.issuer = feed.issuer;
     if (!next.sourceUrl) next.sourceUrl = notice.sourceUrl;
     if (!next.fileLink) next.fileLink = notice.sourceUrl;
+    if (notice.file && next.mirrorFile !== notice.file) next.mirrorFile = notice.file;
 
     const changed = Object.keys(next).some((k) => next[k] !== existing.data[k]);
     if (!changed) { unchanged++; continue; }

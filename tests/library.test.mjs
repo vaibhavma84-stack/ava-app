@@ -616,6 +616,9 @@ try {
   check('nothing is fetched until asked for', outbound.length === 0, outbound.join(', '));
   page.off('request', watch);
 
+  check('no documents are offered before a list has been fetched',
+    await page.locator('.doc-panel').count() === 0);
+
   const panel = '.panel:has-text("Update from the administration")';
   for (const admin of ['MCA', 'Panama', 'Singapore']) {
     check(`there is an update button for ${admin}`,
@@ -795,7 +798,9 @@ try {
     notices: [
       { title: 'PORT MARINE CIRCULAR NO. 01 OF 2026 List of active port marine circulars',
         refNo: 'PC 01/2026', docType: 'Port Marine Circular', date: '2026-01-05',
-        sourceUrl: 'https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-01-of-2026' },
+        sourceUrl: 'https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-01-of-2026',
+        // The mirror holds this one's document; the other's it does not.
+        file: 'docs/singapore/PC-01-2026.pdf' },
       { title: 'Shipping Circular No. 9 of 2025 Ballast water management',
         refNo: 'SC 09/2025', docType: 'Shipping Circular', date: '2025-09-09',
         sourceUrl: 'https://www.mpa.gov.sg/docs/mpalibraries/circulars-and-notices/sc25-09.pdf' }
@@ -876,6 +881,68 @@ try {
     /\d+ new, \d+ updated, \d+ already held/.test(allRun), allRun);
   check('nothing is duplicated by running them together',
     /^0 new/.test(allRun), allRun);
+
+  // ---- The documents themselves -----------------------------------------
+  // Served as real files, like the catalogue: same origin, so the service
+  // worker fetches them and route interception never sees it.
+  const docsDir = path.join(ROOT, 'library', 'docs', 'singapore');
+  fs.mkdirSync(docsDir, { recursive: true });
+  fs.copyFileSync(FLAG_PATH, path.join(docsDir, 'PC-01-2026.pdf'));
+  const docsCleanup = () => { try { fs.rmSync(path.join(ROOT, 'library', 'docs'), { recursive: true }); } catch {} };
+  process.on('exit', docsCleanup);
+
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(400);
+  await page.locator('.section-card', { hasText: 'Flag Circulars' }).click();
+  await page.waitForTimeout(300);
+
+  const docPanel = '.doc-panel';
+  check('the documents are offered separately from the list',
+    await page.locator(docPanel).count() === 1);
+  const perFlag = await page.locator(`${docPanel} .fieldrow button`).allInnerTexts();
+  check('each flag says how many it is missing',
+    perFlag.some((t) => /SINGAPORE \(1\)/i.test(t)), perFlag.join(' | '));
+  check('only documents the site actually holds are counted',
+    !perFlag.some((t) => /MCA \(|PANAMA \(/i.test(t)), perFlag.join(' | '));
+  check('and there is one for all of them',
+    await page.locator(`${docPanel} button:has-text("Fetch all")`).count() === 1);
+
+  const docOutbound = [];
+  const docWatch = (req) => {
+    if (!req.url().startsWith(`http://localhost:${PORT}`)) docOutbound.push(req.url());
+  };
+  page.on('request', docWatch);
+  await page.locator(`${docPanel} .fieldrow button`, { hasText: /Singapore/i }).click();
+  await page.waitForSelector(`${panel} .sync-result:has-text("fetched")`, { timeout: 60000 });
+  page.off('request', docWatch);
+
+  const docRun = await page.locator(`${panel} .sync-result`).innerText();
+  check('the document that is held gets fetched', /1 document fetched/.test(docRun), docRun);
+  check('nothing is fetched from the administration itself',
+    !docOutbound.some((u) => /mpa\.gov\.sg/.test(u)), docOutbound.join(', '));
+
+  await page.locator('.card', { hasText: 'PC 01/2026' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const withDoc = await page.locator('#detailBody').innerText();
+  check('the document is attached to its notice', /\.pdf/i.test(withDoc), withDoc.slice(0, 200));
+  await closeDetail();
+
+  // The text is the point: a document held but unread cannot be found again.
+  await page.fill('#search', 'Panama Maritime Authority');
+  await page.waitForTimeout(900);
+  check('its contents joined the search',
+    (await page.locator('.card').count()) > 0,
+    String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // Only the one whose document is actually held drops off the count. The
+  // other has nothing to fetch, so it stays outstanding — accurately.
+  check('with nothing left outstanding, the panel says so and offers nothing',
+    /Every notice whose document is held has it/.test(await page.locator(docPanel).innerText()),
+    await page.locator(docPanel).innerText());
+
+  docsCleanup();
 
   // ---- A source that refuses the read has to say so, not fail silently ----
   // An empty mirror stands for one that has not run yet, or a week the job
