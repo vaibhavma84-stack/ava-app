@@ -58,6 +58,8 @@ jobs:
           # The mirrored catalogues, read by a scheduled job because the
           # administrations that publish them refuse the app directly.
           [ -d library/data ] && cp -r library/data _site/library/ || true
+          # The documents themselves, for the flags whose hosts publish them.
+          [ -d library/docs ] && cp -r library/docs _site/library/ || true
           echo "Deploying:" && find _site -type f | sort
 
       - uses: actions/upload-pages-artifact@v3

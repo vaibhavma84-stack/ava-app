@@ -46,22 +46,29 @@ jobs:
       - name: Read the catalogues
         run: node tools/mirror-notices.mjs
 
-      - name: Measure what the documents would cost
-        # Before a thousand PDFs are pulled into a repository, find out what
-        # they weigh. Resolves every link and asks each host for the size,
-        # keeping none of it.
-        run: node tools/mirror-docs.mjs --measure
+      - name: Fetch the documents
+        # The measurement came back at 139 MB for MCA and 23 MB for Panama,
+        # which fits comfortably. The budget is well above both, so nothing is
+        # truncated; it is there to stop a runaway if a host starts serving
+        # something unexpected.
+        #
+        # Singapore is left out for now: only 7 of its 563 notices link a PDF
+        # at all — MPA publishes the circular as the page itself — so there is
+        # nothing to fetch until that is handled as text rather than as files.
+        run: node tools/mirror-docs.mjs --budget=250 --only=MCA
+      - name: Fetch Panama's documents
+        run: node tools/mirror-docs.mjs --budget=250 --only=Panama
 
       - name: Commit anything that changed
         # A source that gave nothing leaves its file alone, so a quiet week is
         # simply no commit — and no commit means no deploy.
         run: |
-          if [ -z "$(git status --porcelain library/data)" ]; then
+          if [ -z "$(git status --porcelain library/data library/docs)" ]; then
             echo "No change in any catalogue."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add library/data
+          git add library/data library/docs
           git commit -m "Refresh the mirrored notice catalogues"
           git push
