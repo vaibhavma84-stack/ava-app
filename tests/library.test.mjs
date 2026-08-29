@@ -651,7 +651,7 @@ try {
 
   await page.click(`${panel} button:text-is("MCA")`);
   await page.waitForSelector('.hint:has-text("new")', { timeout: 20000 });
-  const firstRun = await page.locator(`${panel} .hint`).innerText();
+  const firstRun = await page.locator(`${panel} .sync-result`).innerText();
   check('a first sync files every notice', /MCA: 3 new/.test(firstRun), firstRun);
   check('the collection the user gave is the one used',
     mgnTried.some((u) => /active-marine-guidance-notes-mgns/.test(u)), mgnTried.join(', '));
@@ -676,7 +676,7 @@ try {
 
   await page.click(`${panel} button:text-is("MCA")`);
   await page.waitForSelector('.hint:has-text("already held")', { timeout: 20000 });
-  const secondRun = await page.locator(`${panel} .hint`).innerText();
+  const secondRun = await page.locator(`${panel} .sync-result`).innerText();
   check('a repeat sync does not duplicate', /0 new/.test(secondRun), secondRun);
   check('and recognises what is already held', /3 already held/.test(secondRun), secondRun);
 
@@ -729,7 +729,7 @@ try {
   blockingOnPurpose = true;
   await page.click(`${panel} button:text-is("Panama")`);
   await page.waitForSelector('.hint:has-text("Panama:")', { timeout: 20000 });
-  const panamaRun = await page.locator(`${panel} .hint`).innerText();
+  const panamaRun = await page.locator(`${panel} .sync-result`).innerText();
   // MMN 7-070 is already held: it was typed in from a PDF earlier in this run.
   // A fetched notice has to merge into it rather than sit beside it.
   check('Panama files its circulars and notices',
@@ -780,7 +780,7 @@ try {
 
   await page.click(`${panel} button:text-is("Panama")`);
   await page.waitForSelector('.hint:has-text("Panama: 0 new")', { timeout: 20000 });
-  const panamaAgain = await page.locator(`${panel} .hint`).innerText();
+  const panamaAgain = await page.locator(`${panel} .sync-result`).innerText();
   check('a repeat Panama sync adds nothing', /Panama: 0 new/.test(panamaAgain), panamaAgain);
   check('a title rewritten by hand is kept',
     (await page.locator('.card').allInnerTexts())
@@ -850,7 +850,7 @@ try {
   await page.click(`${panel} button:text-is("Singapore")`);
   await page.waitForSelector('.hint:has-text("Singapore:")', { timeout: 20000 });
   page.off('request', sgWatch);
-  const sgRun = await page.locator(`${panel} .hint`).innerText();
+  const sgRun = await page.locator(`${panel} .sync-result`).innerText();
   check('Singapore files what its listing names', /Singapore: 2 new/.test(sgRun), sgRun);
 
   const sgCards = await page.locator('.card').allInnerTexts();
@@ -864,6 +864,19 @@ try {
   check('Singapore is read from this site, not from MPA',
     sgOutbound.length === 0, sgOutbound.join(', '));
 
+  // ---- All three at once, without losing sight of which did what ---------
+  check('there is a button for all three together',
+    await page.locator(`${panel} button:text-is("Update all three")`).count() === 1);
+  await page.click(`${panel} button:text-is("Update all three")`);
+  await page.waitForSelector(`${panel} .sync-result:has-text("already held")`, { timeout: 30000 });
+  const allRun = await page.locator(`${panel} .sync-result`).innerText();
+  check('every administration is named in the result',
+    ['MCA', 'Panama', 'Singapore'].every((a) => allRun.includes(a)), allRun);
+  check('and the totals are added up across them',
+    /\d+ new, \d+ updated, \d+ already held/.test(allRun), allRun);
+  check('nothing is duplicated by running them together',
+    /^0 new/.test(allRun), allRun);
+
   // ---- A source that refuses the read has to say so, not fail silently ----
   // An empty mirror stands for one that has not run yet, or a week the job
   // read nothing. Emptying the file rather than deleting it keeps the service
@@ -874,7 +887,7 @@ try {
   await page.route('**/media-centre**', (route) => route.abort('failed'));
   await page.click(`${panel} button:text-is("Singapore")`);
   await page.waitForSelector('.hint:has-text("could not be read")', { timeout: 20000 });
-  const refused = await page.locator(`${panel} .hint`).innerText();
+  const refused = await page.locator(`${panel} .sync-result`).innerText();
   check('a blocked administration reports what happened',
     /Singapore could not be read/.test(refused), refused);
   check('and says a connection is needed', /needs a connection/.test(refused), refused);
@@ -895,7 +908,7 @@ try {
   await page.route('**/circulars/**', (route) => route.abort('failed'));
   await page.click(`${panel} button:text-is("Panama")`);
   await page.waitForSelector('.hint:has-text("Panama:")', { timeout: 20000 });
-  const partial = await page.locator(`${panel} .hint`).innerText();
+  const partial = await page.locator(`${panel} .sync-result`).innerText();
   check('a partial result is still filed', /Panama: 0 new/.test(partial), partial);
   check('and names the class it could not read',
     /Could not read: Merchant Marine Circulars/.test(partial), partial);

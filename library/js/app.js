@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.19';
+const APP_VERSION = '2026.09.20';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -345,7 +345,9 @@ function updatePanel() {
 
   if (view.lastSync) {
     out.append(el('p', {
-      class: 'hint',
+      // Its own class: the panel carries advice in a .hint too, and a result
+      // that cannot be told apart from advice is a result you cannot check.
+      class: 'hint sync-result',
       style: `color:${view.lastSync.ok ? 'var(--sage)' : 'var(--danger)'}`,
       text: view.lastSync.text
     }));
@@ -358,8 +360,52 @@ function updatePanel() {
     row.append(el('div', {}, [button]));
   }
 
-  panel.append(row, out);
+  const all = el('button', { class: 'btn btn-block', style: 'margin-top:8px' }, ['Update all three']);
+  all.addEventListener('click', () => syncAll(all, out));
+
+  panel.append(row, all, el('p', {
+    class: 'hint',
+    text: 'All three is the larger download — around 70 KB — so it is worth doing alongside a good signal. One flag at a time is the smaller read.'
+  }), out);
   return panel;
+}
+
+/**
+ * All three, one after another.
+ *
+ * Run in turn rather than at once: three administrations answering together
+ * is three times the demand on a connection that may barely support one. A
+ * flag that refuses is named and the others still go through — the point of
+ * doing them together is not having to notice which one failed.
+ */
+async function syncAll(button, out) {
+  button.disabled = true;
+  clear(out);
+
+  let added = 0, updated = 0, unchanged = 0;
+  const lines = [];
+
+  for (const admin of SYNCABLE) {
+    button.textContent = `${admin}…`;
+    try {
+      const { notices, failed } = await fetchNotices(admin);
+      const summary = await mergeNotices(notices, admin);
+      added += summary.added;
+      updated += summary.updated;
+      unchanged += summary.unchanged;
+      lines.push(`${admin} ${summary.added}${failed.length ? ' (partial)' : ''}`);
+    } catch {
+      lines.push(`${admin} could not be read`);
+    }
+  }
+
+  view.lastSync = {
+    ok: lines.some((l) => !/could not be read/.test(l)),
+    text: `${added} new, ${updated} updated, ${unchanged} already held — ${lines.join(' · ')}.`
+  };
+  button.disabled = false;
+  button.textContent = 'Update all three';
+  render();
 }
 
 /** Run one administration's fetch, reporting whatever actually happened. */
@@ -385,7 +431,7 @@ async function syncAdmin(admin, button, out) {
       ok: false,
       text: `${admin} could not be read: ${ex.message}. This needs a connection, and the site has to permit the app to read it.`
     };
-    clear(out).append(el('p', { class: 'hint', style: 'color:var(--danger)', text: view.lastSync.text }));
+    clear(out).append(el('p', { class: 'hint sync-result', style: 'color:var(--danger)', text: view.lastSync.text }));
   } finally {
     button.disabled = false;
     button.textContent = label;
