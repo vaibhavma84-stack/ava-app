@@ -1,7 +1,14 @@
 {
  "administration": "MCA",
- "fetched": "2026-08-26",
+ "fetched": "2026-08-29",
  "notices": [
+  {
+   "title": "MSN 1905 (M+F) Amendment 5 ships’ medical stores",
+   "refNo": "MSN 1905 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2026-08-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1905-mf-amendment-5-ships-medical-stores"
+  },
   {
    "title": "MIN 655 Amendment 1 (M+F) new-style certificates for UK seafarers and those working onboard UK ships",
    "refNo": "MIN 655",
@@ -22,6 +29,13 @@
    "docType": "MGN (Marine Guidance Note)",
    "date": "2026-08-18",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-718-mf-2026-imo-amendment-to-pssr"
+  },
+  {
+   "title": "MSN 1815 (M+F) Amendment 7 equivalent medical certificates",
+   "refNo": "MSN 1815 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2026-08-13",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1815-mf-amendment-7-equivalent-medical-certificates"
   },
   {
    "title": "MGN 370 (M+F) Amendment 2 the Dreadnought Medical Service, St Thomas' Hospital, London",
@@ -2542,13 +2556,6 @@
    "docType": "MGN (Marine Guidance Note)",
    "date": "2014-07-31",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-516m-ship-construction-and-equipment-use-and-application-of-imo-codes-and-guidelines-for-offshore-vessels"
-  },
-  {
-   "title": "MSN 1844 (M) Maritime labour convention, 2006: crew accommodation",
-   "refNo": "MSN 1844 (M)",
-   "docType": "MSN (Merchant Shipping Notice)",
-   "date": "2014-07-15",
-   "sourceUrl": "https://www.gov.uk/government/publications/msn-1844-m-maritime-labour-convention-2006-crew-accomodation"
   },
   {
    "title": "MGN 511 (M) - Solid Bulk Cargoes: Amendments 02-13 to (IMSBC)",

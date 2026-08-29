@@ -1,7 +1,21 @@
 {
  "administration": "Singapore",
- "fetched": "2026-08-26",
+ "fetched": "2026-08-29",
  "notices": [
+  {
+   "title": "PORT MARINE CIRCULAR NO. 08 OF 2026 - VHF RADIO TELEPHONE REPORTING PROCEDURES FOR VESSEL MANOEUVRING WITHIN THE TRAFFIC INFORMATION AREA (TIA) IN THE EAST JOHOR STRAIT INTRODUCTION",
+   "refNo": "PC 08/2026",
+   "docType": "Port Marine Circular",
+   "date": "2026-08-28",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no-08-of-2026-vhf-radio-telephone-reporting-procedures-for-vessel-manoeuvring-within-the-traffic-information-area-tia-in-the-east-johor-strait-introduction"
+  },
+  {
+   "title": "No. 8 of 2026 - RESOLUTIONS ADOPTED BY THE 111TH SESSION OF THE MARITIME SAFETY COMMITTEE (MSC 111) OF THE INTERNATIONAL MARITIME ORGANIZATION (IMO)",
+   "refNo": "SC 08/2026",
+   "docType": "Shipping Circular",
+   "date": "2026-08-27",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/resolutions-adopted-by-the-111th-session-of-the-maritime-safety-committee-msc-111-of-the-international-maritime-organization-imo"
+  },
   {
    "title": "PORT MARINE CIRCULAR NO. 07 OF 2026 - VESSELS NAVIGATING UNDER THE RAPID TRANSIT SYSTEM (RTS) LINK BRIDGE AT WOODLANDS",
    "refNo": "PC 07/2026",
@@ -1422,13 +1436,6 @@
    "docType": "Shipping Circular",
    "date": "2020-11-30",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-18-of-2020---2018-amendments-to-the-maritime-labour-convention-2006"
-  },
-  {
-   "title": "PORT  MARINE CIRCULAR  NO. 41 OF 2020 VHF RADIO TELEPHONE REPORTING PROCEDURES FOR VESSEL MANOEUVRING WITHIN THE TRAFFIC INFORMATION AREA (TIA) IN THE EAST JOHOR STRAIT",
-   "refNo": "PC 41/2020",
-   "docType": "Port Marine Circular",
-   "date": "2020-10-27",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/vhf-radio-telephone-reporting-procedures-for-vessel-manoeuvring-within-the-traffic-information-area-(tia)-in-the-east-johor-strait"
   },
   {
    "title": "No. 17 of 2020  - AMENDMENTS TO THE PREVENTION OF POLLUTION OF THE SEA REGULATIONS",
@@ -3059,14 +3066,16 @@
    "refNo": "SC 03/2009",
    "docType": "Shipping Circular",
    "date": "2009-01-05",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-3-of-2009---draft-international-convention-for-the-safe-and-environmentally-sound-recycling-of-ships"
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-3-of-2009---draft-international-convention-for-the-safe-and-environmentally-sound-recycling-of-ships",
+   "docUrl": "https://cms.mpa.gov.sg/assets/76f11327-d2d0-44c1-ab1e-36329afa0b19/mepc58-23-final-report.pdf"
   },
   {
    "title": "No. 1 of 2009  - RESOLUTIONS/UNIFIED INTERPRETATIONS (UIS) ADOPTED/APPROVED BY THE 58TH SESSION OF THE MARINE ENVIRONMENT PROTECTION COMMITTEE (MEPC 58) OF IMO",
    "refNo": "SC 01/2009",
    "docType": "Shipping Circular",
    "date": "2009-01-02",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-1-of-2009---resolutions-unified-interpretations-(uis)-adopted-approved-by-the-58th-session-of-the-marine-environment-protection-committee-(mepc-58)-of-imo"
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-1-of-2009---resolutions-unified-interpretations-(uis)-adopted-approved-by-the-58th-session-of-the-marine-environment-protection-committee-(mepc-58)-of-imo",
+   "docUrl": "https://cms.mpa.gov.sg/assets/d6557524-ceee-4d8b-8aef-3e87d82df0ae/sc09-01a.pdf"
   },
   {
    "title": "No. 2 of 2009  - AMENDMENTS TO MARPOL ANNEX VI (REGULATIONS FOR THE PREVENTION OF AIR POLLUTION FROM SHIPS) AND THE NOX TECHNICAL CODE",
@@ -3136,7 +3145,8 @@
    "refNo": "SC 26/2008",
    "docType": "Shipping Circular",
    "date": "2008-09-19",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-26-of-2008---the-international-convention-on-civil-liability-for-bunker-oil-pollution-damage-2001-(bunker-convention)"
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-26-of-2008---the-international-convention-on-civil-liability-for-bunker-oil-pollution-damage-2001-(bunker-convention)",
+   "docUrl": "https://cms.mpa.gov.sg/assets/4b32d8bc-5f1b-4fcd-b5bc-5ca9b8455bd8/sc08-26a.pdf"
   },
   {
    "title": "No. 17 of 2008  - FITTING OF A SIMPLIFIED VOYAGE DATA RECORDER (S-VDR) ON REGIONAL PASSENGER FERRIES AND HIGH SPEED CRAFT",
@@ -3164,7 +3174,8 @@
    "refNo": "SC 14/2008",
    "docType": "Shipping Circular",
    "date": "2008-07-08",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-14-of-2008---draft-amendments-to-mandatory-instruments-approved-by-the-84th-session-of-the-maritime-safety-committee-(msc-84)-of-imo"
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-14-of-2008---draft-amendments-to-mandatory-instruments-approved-by-the-84th-session-of-the-maritime-safety-committee-(msc-84)-of-imo",
+   "docUrl": "https://cms.mpa.gov.sg/assets/5997a8b1-abe9-463e-bdc6-c14c3f7c83c5/sc08-14a.pdf"
   },
   {
    "title": "No. 11 of 2008  - IMO UNIQUE COMPANY AND REGISTERED OWNER IDENTIFICATION NUMBER SCHEME. AMENDMENTS TO THE FORMAT AND GUIDELINES FOR THE MAINTENANCE OF THE CONTINUOUS SYNOPSIS RECORD (CSR) (RESOLUTION A.959(23))",
@@ -3409,7 +3420,8 @@
    "refNo": "SC 12/2005",
    "docType": "Shipping Circular",
    "date": "2005-03-15",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-12-of-2005---prevention-of-pollution-of-the-sea-(oil)-(amendment)-regulations-2005---phasing-out-of-single-hulled-oil-tankers"
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-12-of-2005---prevention-of-pollution-of-the-sea-(oil)-(amendment)-regulations-2005---phasing-out-of-single-hulled-oil-tankers",
+   "docUrl": "https://cms.mpa.gov.sg/assets/87d7b375-a607-4a24-9dc6-a33f621ae214/sc05-12a.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 08 OF 2005 SPEED LIMIT IN THE EAST JOHOR STRAIT",
@@ -3570,7 +3582,8 @@
    "refNo": "SC 21/2003",
    "docType": "Shipping Circular",
    "date": "2003-10-13",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-21-of-2003---marking-of-ships-identification-number-(imo)"
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-21-of-2003---marking-of-ships-identification-number-(imo)",
+   "docUrl": "https://cms.mpa.gov.sg/assets/798d528a-5165-46d4-9c9a-0ef0ad2b6112/mc03-21a.pdf"
   },
   {
    "title": "PORT MARINE NOTICE No. 113 of 2003  - APPOINTMENT OF RECOGNISED SECURITY ORGANSATIONS (RSOS) FOR PORT FACILITIES",
@@ -3724,7 +3737,8 @@
    "refNo": "SC 05/2001",
    "docType": "Shipping Circular",
    "date": "2001-05-14",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-5-of-2001---guidelines-for-revalidating-conversion-and-updating-of-singapore-certificate-of-competency-(deck-officer)-class-6"
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-5-of-2001---guidelines-for-revalidating-conversion-and-updating-of-singapore-certificate-of-competency-(deck-officer)-class-6",
+   "docUrl": "https://cms.mpa.gov.sg/assets/8f1d8da7-100e-4f26-82f6-052e17fefedc/sc01-5.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR  NO 6 OF 2000 PROHIBITION OF EXPORT OF EXCAVATED MATERIAL, MARINE CLAY AND CONSTRUCTION DEBRIS FROM SINGAPORE TO INDONESIA WITH IMMEDIATE EFFECT",

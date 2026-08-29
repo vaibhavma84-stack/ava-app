@@ -1,7 +1,14 @@
 {
  "administration": "Panama",
- "fetched": "2026-08-26",
+ "fetched": "2026-08-29",
  "notices": [
+  {
+   "title": "MMC 270 17 08 2026",
+   "refNo": "MMC 270-17",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-08-28",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-270-17-08-2026-1.pdf"
+  },
   {
    "title": "MMC 270 &#8211; 17 08 2026",
    "refNo": "MMC 270",
