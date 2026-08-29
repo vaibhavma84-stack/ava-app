@@ -6,6 +6,16 @@ name: Deploy AVA to GitHub Pages
 on:
   push:
     branches: [claude/iphone-offline-storage-app-c14vtc]
+
+  # A push made with the Actions token deliberately does not start another
+  # workflow — GitHub's own guard against runaway loops. So the mirror job's
+  # weekly commit never triggered the deploy above, and its catalogues sat in
+  # the repository without ever reaching the site. Listening for that job to
+  # finish is what closes the loop.
+  workflow_run:
+    workflows: ["Mirror the notice catalogues"]
+    types: [completed]
+
   workflow_dispatch:
 
 permissions:
@@ -21,6 +31,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # A mirror run that failed has nothing new to publish.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
