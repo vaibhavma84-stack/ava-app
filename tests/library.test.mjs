@@ -885,10 +885,23 @@ try {
   // ---- The documents themselves -----------------------------------------
   // Served as real files, like the catalogue: same origin, so the service
   // worker fetches them and route interception never sees it.
-  const docsDir = path.join(ROOT, 'library', 'docs', 'singapore');
+  // Only what this suite creates is removed afterwards. library/docs now holds
+  // the real mirrored catalogue — 163 MB of it — and a cleanup that deletes
+  // the whole directory would take that with it every time the tests run.
+  const docsRoot = path.join(ROOT, 'library', 'docs');
+  const docsDir = path.join(docsRoot, 'singapore');
+  const docFile = path.join(docsDir, 'PC-01-2026.pdf');
+  const madeRoot = !fs.existsSync(docsRoot);
+  const madeDir = !fs.existsSync(docsDir);
   fs.mkdirSync(docsDir, { recursive: true });
-  fs.copyFileSync(FLAG_PATH, path.join(docsDir, 'PC-01-2026.pdf'));
-  const docsCleanup = () => { try { fs.rmSync(path.join(ROOT, 'library', 'docs'), { recursive: true }); } catch {} };
+  fs.copyFileSync(FLAG_PATH, docFile);
+
+  const docsCleanup = () => {
+    try { fs.rmSync(docFile); } catch {}
+    // Only if they were not there to begin with, and only if still empty.
+    if (madeDir) { try { fs.rmdirSync(docsDir); } catch {} }
+    if (madeRoot) { try { fs.rmdirSync(docsRoot); } catch {} }
+  };
   process.on('exit', docsCleanup);
 
   await page.reload({ waitUntil: 'networkidle' });
