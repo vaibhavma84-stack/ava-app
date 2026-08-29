@@ -3,7 +3,7 @@ import * as db from './db.js';
 import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch } from './search.js';
 import { isPdf, extract, describe, selfTest, STATUS } from './pdftext.js';
-import { suggestFields } from './suggest.js';
+import { suggestFields, titleFromFilename } from './suggest.js';
 import { probeAll, fetchNotices, FEEDS, SYNCABLE } from './updates.js';
 import { IMO_CONVENTIONS, IMO_LIST_URL, asPublication, notHeld } from './imo.js';
 import { el, $, clear, toast, formatBytes, titleCase } from './ui.js';
@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.25';
+const APP_VERSION = '2026.09.26';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -242,6 +242,7 @@ function renderSection(body) {
     const docs = documentPanel();
     if (docs) body.append(docs);
   }
+  body.append(importPanel(def));
   if (view.section === 'publication') body.append(conventionPanel());
   if (def.sources) body.append(sourceLinks(def.sources));
   let items = store.itemsOfType(view.section);
@@ -863,6 +864,7 @@ function wireApp() {
   $('#editorSave').addEventListener('click', saveEditor);
   $('#fab').addEventListener('click', () => view.section && openEditor(view.section, null));
   $('#filePicker').addEventListener('change', onFilesPicked);
+  $('#importPicker').addEventListener('change', onImportPicked);
   $('#viewerClose').addEventListener('click', closeViewer);
   for (const id of ['#detail', '#editor', '#settings']) {
     $(id).addEventListener('click', (e) => { if (e.target.id === id.slice(1)) e.target.hidden = true; });
@@ -1214,6 +1216,88 @@ async function onFilesPicked(e) {
   // typed is left exactly as it is.
   const pdf = files.find(isPdf);
   if (pdf) await fillFromPdf(pdf);
+}
+
+/** Bringing a stack of documents in at once, rather than one at a time. */
+function importPanel(def) {
+  const panel = el('div', { class: 'panel import-panel' }, [
+    el('h3', { text: `Import ${def.label.toLowerCase()}` }),
+    el('p', { text: 'Choose several PDFs at once. Each becomes its own entry, filled in from the document and read so its contents can be searched with no signal.' })
+  ]);
+  panel.append(el('button', {
+    class: 'btn btn-block', onclick: () => $('#importPicker').click()
+  }, ['Choose files']));
+  return panel;
+}
+
+/**
+ * Bring in a stack of circulars at once.
+ *
+ * One entry per file, filled in from the document the same way a single one
+ * is, and its text read so it joins the search. Adding a folder's worth one
+ * at a time is the same six taps repeated a hundred times, and the app
+ * already knows how to read each of them.
+ *
+ * Nothing is guessed silently: what each entry was filled in with is on the
+ * entry, to be corrected. A file that cannot be read still becomes an entry,
+ * titled from its filename, rather than being dropped.
+ */
+async function onImportPicked(e) {
+  const files = [...(e.target.files || [])];
+  e.target.value = '';
+  if (!files.length || !view.section) return;
+
+  const type = view.section;
+  const def = TYPES[type];
+  const keys = def.fields.map((f) => f.key);
+
+  const status = el('p', { class: 'hint', text: `0 of ${files.length}` });
+  const bar = el('div', { class: 'bar' }, [el('i')]);
+  let stopped = false;
+  const stop = el('button', { class: 'btn btn-sm btn-block', style: 'margin-top:8px' }, ['Stop']);
+  stop.addEventListener('click', () => { stopped = true; stop.textContent = 'Stopping…'; });
+  const panel = el('div', { class: 'panel', id: 'importProgress' }, [status, bar, stop]);
+  $('#body').prepend(panel);
+
+  let added = 0, unreadable = 0;
+  for (const [i, file] of files.entries()) {
+    if (stopped) break;
+    status.textContent = `${i + 1} of ${files.length} — ${file.name}`;
+    try {
+      const buffer = await file.arrayBuffer();
+      const descriptor = await store.storeFile(file);
+
+      let data = { attachments: [] };
+      if (isPdf(file)) {
+        const described = await describe(buffer.slice(0));
+        if (described.ok) data = { ...data, ...suggestFields(type, described, file.name, keys) };
+
+        const read = await extract(buffer);
+        if (read.pages.length) await store.storeText(descriptor.id, read.pages);
+        Object.assign(descriptor, {
+          textPages: read.pages.length, pageCount: read.pageCount,
+          textStatus: read.status, textError: read.error
+        });
+        if (read.status !== STATUS.INDEXED) unreadable++;
+      }
+
+      // Never nameless: a document that says nothing about itself is still
+      // findable by what it was called.
+      if (!String(data[def.titleKey] || '').trim()) data[def.titleKey] = titleFromFilename(file.name);
+      data.attachments = [descriptor];
+
+      await store.saveItem({ type, data });
+      added++;
+    } catch (ex) {
+      console.warn('Could not import', file.name, ex);
+    }
+    bar.firstChild.style.width = `${Math.round(((i + 1) / files.length) * 100)}%`;
+  }
+
+  panel.remove();
+  render();
+  toast(`${added} imported${unreadable ? ` — ${unreadable} had no text to search` : ''}`
+    + (stopped ? ' · stopped' : ''));
 }
 
 async function fillFromPdf(file) {

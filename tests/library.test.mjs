@@ -1235,6 +1235,58 @@ try {
   await page.locator('.section-card', { hasText: 'Synergy' }).click();
   await page.waitForTimeout(200);
 
+  console.log('\nImporting a stack at once');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card', { hasText: 'Synergy' }).click();
+  await page.waitForTimeout(200);
+  const before = await page.locator('.card').count();
+
+  check('every section offers an import', await page.locator('.import-panel').count() === 1);
+  await page.setInputFiles('#importPicker', [ALERT_PATH, SUBJECT_ALERT_PATH, NAMED_ALERT_PATH]);
+  // Waited for by its words, not merely by being a toast: an older one is
+  // still on screen, and matching that reads the result before it exists.
+  const done = page.locator('.toast', { hasText: 'imported' });
+  await done.waitFor({ timeout: 60000 });
+  const said = await done.innerText();
+  check('it says how many came in', /3 imported/.test(said), said);
+  await page.waitForTimeout(600);
+
+  const now = await page.locator('.card').allInnerTexts();
+  check('one entry per file', now.length === before + 3, `${before} then ${now.length}`);
+  check('each is filled in from its own document',
+    now.some((c) => /emergency fire pump/i.test(c))
+    && now.some((c) => /mooring winch brake/i.test(c))
+    && now.some((c) => /gangway net/i.test(c)), now.join(' | '));
+  check('with the numbers read from wherever they were written',
+    ['FA 05/2026', '112/2026', '077/2026'].every((r) => now.some((c) => c.includes(r))),
+    now.join(' | '));
+
+  // The point of reading them: findable by what is inside rather than only by
+  // the title, so the phrase searched for is one that appears in the body and
+  // in no title.
+  await page.fill('#search', 'Synergy Marine Group');
+  await page.waitForTimeout(900);
+  check('and their contents joined the search',
+    await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // A circular often travels with its annexes, so one entry has to hold more
+  // than one document — the circular and everything that came with it.
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'Circular with its annexes');
+  await page.setInputFiles('#filePicker', [SUBJECT_ALERT_PATH, NAMED_ALERT_PATH]);
+  await page.waitForTimeout(1500);
+  await save();
+  await page.locator('.card', { hasText: 'Circular With Its Annexes' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const held = (await page.locator('#detailBody').innerText()).match(/\.pdf/gi) || [];
+  check('an entry can carry a circular and the documents that came with it',
+    held.length >= 2, `${held.length} files listed`);
+  await closeDetail();
+
   console.log('\nCapitalising what is typed');
   await page.click('#backBtn');
   await page.waitForTimeout(200);
