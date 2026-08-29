@@ -79,6 +79,9 @@ const isPdf = (url) => /\.pdf(\?|$)/i.test(String(url || ''));
  * GOV.UK gives a page per notice, and the file hangs off it as an attachment.
  * The content API lists those, so the page itself never has to be scraped.
  */
+const reportedShape = new Set();
+const admin = 'MCA';
+
 async function resolveMca(notice) {
   if (isPdf(notice.sourceUrl)) return notice.sourceUrl;
   const path = String(notice.sourceUrl || '').replace(GOVUK, '');
@@ -92,7 +95,20 @@ async function resolveMca(notice) {
     // The notice itself, not the consultation response or the impact
     // assessment that sometimes sits beside it: the first PDF is the document.
     const pdf = attachments.find((a) => isPdf(a?.url));
-    return pdf?.url || '';
+    if (pdf?.url) return pdf.url;
+
+    // Nothing to fetch. Say what was there instead, once, so that 179 notices
+    // without a file are explained rather than merely counted — GOV.UK has
+    // been moving M-notices to HTML attachments, and an HTML notice has no
+    // document to download at all.
+    if (!reportedShape.has(admin)) {
+      reportedShape.add(admin);
+      const kinds = attachments.map((a) => a?.attachment_type || a?.content_type || 'unknown');
+      console.log(`  first notice with no PDF: ${attachments.length} attachment(s)`
+        + (kinds.length ? ` of type ${[...new Set(kinds)].join(', ')}` : '')
+        + ` · document_type ${body?.document_type || 'unknown'}`);
+    }
+    return '';
   } catch { return ''; }
 }
 
