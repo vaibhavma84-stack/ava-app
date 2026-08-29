@@ -4,7 +4,7 @@
 // launch with no connection falls straight back to the cache. PDF.js is bundled
 // into the precache, so text extraction and search work with no signal.
 
-const VERSION = 'v26';
+const VERSION = 'v27';
 const CACHE = `library-shell-${VERSION}`;
 
 const SHELL = [
@@ -64,10 +64,21 @@ self.addEventListener('message', (event) => {
   if (event.data === 'version') event.source?.postMessage({ version: VERSION });
 });
 
+/**
+ * The mirrored documents are not shell, and must never be cached here.
+ *
+ * A fetched circular is already kept in the database, where it belongs and
+ * where the app can find it. Caching it a second time would put 163 MB of
+ * PDFs into the same store the app shell lives in, and a store over its quota
+ * takes the shell down with it — the precache starts failing, the new worker
+ * never installs, and the app quietly stops updating.
+ */
+const isBulk = (url) => /\/library\/(docs|data)\//.test(url);
+
 async function networkFirst(request) {
   try {
     const fresh = await fetch(request);
-    if (fresh && fresh.ok) {
+    if (fresh && fresh.ok && !isBulk(request.url)) {
       const copy = fresh.clone();
       caches.open(CACHE).then((c) => c.put(request, copy)).catch(() => {});
     }

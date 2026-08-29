@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.22';
+const APP_VERSION = '2026.09.23';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -79,8 +79,11 @@ function registerServiceWorker() {
   let reloading = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (reloading) return;
-    reloading = true;
+    // Only mark it done once it is actually being done. Declining to reload
+    // over an open editor used to latch this flag anyway, so the reload never
+    // came — not on that change, and not on any change after it.
     if (view.draft || !$('#editor').hidden) return;
+    reloading = true;
     location.reload();
   });
   window.addEventListener('load', async () => {
@@ -1342,15 +1345,46 @@ async function openSettings() {
     feedOut
   ]));
 
+  const versionOut = el('div');
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Build' }),
     el('div', { class: 'stat' }, [el('span', { text: 'App version' }), el('span', { text: APP_VERSION })]),
+    versionOut,
     el('button', {
       class: 'btn btn-block', style: 'margin-top:10px',
-      onclick: async () => {
-        const reg = await navigator.serviceWorker?.getRegistration();
-        await reg?.update().catch(() => {});
-        toast('Checked for updates');
+      // "Checked for updates" said nothing about whether there was one, which
+      // is the only thing worth knowing. This asks the site directly what
+      // version it is serving and compares it with what is running.
+      onclick: async (e) => {
+        e.target.disabled = true;
+        e.target.textContent = 'Checking…';
+        clear(versionOut);
+        try {
+          const reg = await navigator.serviceWorker?.getRegistration();
+          await reg?.update().catch(() => {});
+
+          const url = new URL('js/app.js', location.href).href;
+          const source = await (await fetch(url, { cache: 'reload' })).text();
+          const onSite = (source.match(/APP_VERSION\s*=\s*'([^']+)'/) || [])[1] || 'unknown';
+
+          if (onSite === APP_VERSION) {
+            versionOut.append(el('p', { class: 'hint', style: 'color:var(--sage)',
+              text: `Up to date — the site is serving ${onSite} too.` }));
+          } else if (reg?.waiting) {
+            versionOut.append(el('p', { class: 'hint',
+              text: `${onSite} is ready and waiting. Applying it now.` }));
+            reg.waiting.postMessage('skipWaiting');
+          } else {
+            versionOut.append(el('p', { class: 'hint',
+              text: `The site is serving ${onSite}. Close the app completely and reopen it to pick it up.` }));
+          }
+        } catch (ex) {
+          versionOut.append(el('p', { class: 'hint', style: 'color:var(--danger)',
+            text: `Could not check: ${ex.message}. This needs a connection.` }));
+        } finally {
+          e.target.disabled = false;
+          e.target.textContent = 'Check for updates';
+        }
       }
     }, ['Check for updates'])
   ]));

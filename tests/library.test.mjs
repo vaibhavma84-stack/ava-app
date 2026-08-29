@@ -1114,6 +1114,21 @@ try {
   await page.locator('.section-card', { hasText: 'Synergy' }).click();
   await page.waitForTimeout(200);
 
+  console.log('\nSaying whether there is an update');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.click('#settingsBtn');
+  await page.waitForSelector('#settings:not([hidden])');
+  await page.click('#settingsBody button:has-text("Check for updates")');
+  await page.waitForSelector('#settingsBody .panel:has-text("Build") .hint', { timeout: 20000 });
+  const versionSaid = await page.locator('#settingsBody .panel:has-text("Build")').innerText();
+  check('it says whether the site has anything newer',
+    /Up to date/i.test(versionSaid), versionSaid.replace(/\n/g, ' / '));
+  check('and names the version it compared against',
+    /2026\.\d\d\.\d\d/.test(versionSaid), versionSaid.replace(/\n/g, ' / '));
+  await page.click('#settingsClose');
+  await page.waitForTimeout(200);
+
   console.log('\nPersistence and offline');
   await page.reload({ waitUntil: 'networkidle' });
   await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
