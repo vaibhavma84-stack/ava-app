@@ -108,6 +108,29 @@ const FLAG_PATH = path.join(tmp, 'MMN-7-070.pdf');
   await maker.close();
 }
 
+// A fleet alert as a ship actually receives one: the kind of document in the
+// largest type at the top, the subject and the reference on labelled lines
+// below it. Reading the biggest text as the title gives "FLEET ALERT" every
+// time, which says nothing about this particular alert.
+const ALERT_PATH = path.join(tmp, 'FA-2026-05.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent(`
+    <style>@page{size:A4;margin:18mm}
+      h1{font-family:sans-serif;font-size:26pt;margin:0 0 14pt}
+      p{font-family:sans-serif;font-size:11pt;margin:2pt 0}</style>
+    <h1>FLEET ALERT</h1>
+    <p>Synergy Marine Group</p>
+    <p>Ref: FA 05/2026</p>
+    <p>Date: 14 August 2026</p>
+    <p>To: All Vessels</p>
+    <p>Subject: Failure of emergency fire pump during port state control
+       inspection, and the checks now required before arrival.</p>
+    <p>Body text so the document is not treated as a scan.</p>`, { waitUntil: 'load' });
+  await maker.pdf({ path: ALERT_PATH, format: 'A4' });
+  await maker.close();
+}
+
 const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'allow' });
 const page = await context.newPage();
 const errors = [];
@@ -1003,6 +1026,31 @@ try {
   await page.unroute('**/api/items/**');
   restoreMirror();
   blockingOnPurpose = false;
+
+  console.log('\nA fleet alert filling itself in');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card', { hasText: 'Synergy' }).click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await page.setInputFiles('#filePicker', ALERT_PATH);
+  await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
+
+  const alert = await page.evaluate(() => {
+    const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
+    return { title: read('title'), refNo: read('refNo'), date: read('date') };
+  });
+  check('the subject is taken as the title, not the kind of document',
+    /emergency fire pump/i.test(alert.title), JSON.stringify(alert));
+  check('and the kind of document is not offered as the title',
+    !/^fleet alert$/i.test(alert.title.trim()), alert.title);
+  check('a wrapped subject line is kept whole',
+    /before arrival/i.test(alert.title), alert.title);
+  check('the reference comes off its labelled line',
+    /FA\s*05\/2026/i.test(alert.refNo), JSON.stringify(alert));
+  check('the date is read too', alert.date === '2026-08-14', JSON.stringify(alert));
+  await page.click('#editorCancel');
+  await page.waitForTimeout(200);
 
   console.log('\nOther sections');
   await page.click('#backBtn');

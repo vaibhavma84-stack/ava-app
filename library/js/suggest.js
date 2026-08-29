@@ -25,6 +25,53 @@ const PUBLISHERS = [
 /** Producer strings and placeholders that are not a real title. */
 const JUNK_TITLE = /^(untitled|document\d*|microsoft word|microsoft powerpoint|adobe|print|scan|new document|.*\.(pdf|docx?|indd))/i;
 
+/**
+ * Headings that name the kind of document rather than the document.
+ *
+ * A fleet alert has FLEET ALERT across the top in the largest type on the
+ * page, so "the biggest text is the title" hands back the category every
+ * time. What the reader actually wants is the subject line further down.
+ */
+const KIND_HEADING = /^(fleet\s+alert|safety\s+alert|alert|circular|fleet\s+circular|notice|bulletin|advisory|memo(randum)?|technical\s+bulletin|marine\s+notice)\.?$/i;
+
+/**
+ * Read a "Label: value" line out of the first page.
+ *
+ * Circulars, alerts and bulletins across the industry are laid out this way —
+ * Subject, Ref, Date, To — and the labelled value is far more reliable than
+ * anything inferred from type size. A label alone on its line takes the line
+ * below it; a value that wraps takes the continuation with it.
+ */
+function pickLabelled(described, labels) {
+  const lines = String(described.firstPageText || '').split('\n').map((l) => l.trim());
+  const label = new RegExp(`^(?:${labels.join('|')})\\s*[:\\-–—]\\s*(.*)$`, 'i');
+  const anyLabel = /^[A-Za-z][A-Za-z /.'-]{1,24}\s*[:\-–—]\s/;
+
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(label);
+    if (!m) continue;
+
+    let value = tidy(m[1]);
+    // A label on a line of its own, or a value that runs on: keep taking lines
+    // until the sentence closes. A subject is routinely three lines long, and
+    // stopping at a fixed count truncated it mid-clause. What stops it is the
+    // full stop, a label starting below it, or a length no subject reaches.
+    for (let j = i + 1; j < lines.length && j - i <= 3; j++) {
+      const next = lines[j];
+      if (!next || anyLabel.test(next)) break;
+      if (!value) { value = tidy(next); continue; }
+      if (/[.:;!?]$/.test(value) || value.length >= 200) break;
+      value = tidy(`${value} ${next}`);
+    }
+    if (value.length >= 3) return value.slice(0, 160);
+  }
+  return '';
+}
+
+/** The subject of a circular, however it is labelled. */
+const pickSubject = (described) =>
+  pickLabelled(described, ['subject', 'sub', 'subj', 're', 'title']);
+
 function tidy(text) {
   return String(text || '')
     .replace(/\s+/g, ' ')
@@ -42,12 +89,14 @@ export function titleFromFilename(name) {
 
 function pickTitle(described, filename) {
   const meta = tidy(described.info?.Title);
-  if (meta && meta.length > 3 && !JUNK_TITLE.test(meta)) return meta;
+  if (meta && meta.length > 3 && !JUNK_TITLE.test(meta) && !KIND_HEADING.test(meta)) return meta;
 
-  // Otherwise the largest text on page one, provided it reads like a heading.
+  // Otherwise the largest text on page one, provided it reads like a heading
+  // and not merely like the kind of document this is.
   for (const line of described.largestLines || []) {
     const candidate = tidy(line);
-    if (candidate.length >= 4 && candidate.length <= 120 && !/^page\b/i.test(candidate)) {
+    if (candidate.length >= 4 && candidate.length <= 120
+        && !/^page\b/i.test(candidate) && !KIND_HEADING.test(candidate)) {
       return candidate;
     }
   }
@@ -178,10 +227,19 @@ function pickPublisher(described) {
  * the "Circular No." wording used almost everywhere else.
  */
 function pickNoticeReference(described, filename) {
+  // A labelled reference is the document telling you its own number, so it is
+  // worth more than anything matched out of running text.
+  const labelled = pickLabelled(described,
+    ['ref', 'ref no', 'reference', 'our ref', 'circular no', 'alert no', 'notice no',
+     'bulletin no', 'document no', 'doc no', 'no']);
+  if (labelled && /\d/.test(labelled) && labelled.length <= 40) return labelled;
+
   const haystack = `${described.firstPageText || ''} ${filename}`;
   const patterns = [
     /\b(?:MMN|MGN|MSN|MIN|MC|MN|TA|SC)\s?\.?\s?\d+[\w./-]*(?:\s?\([A-Z+]+\))?/i,
     /\b(?:circular|notice|alert)\s+no\.?\s*[\w./-]+(?:\s+of\s+(?:19|20)\d{2})?/i,
+    // "Fleet Alert 05/2026", with the "No." that a form often leaves out.
+    /\b(?:fleet|safety|technical)\s+(?:alert|circular|bulletin)\s*[#:]?\s*\d+[\w./-]*/i,
     /\bno\.?\s*\d+\s+of\s+(?:19|20)\d{2}\b/i
   ];
   for (const re of patterns) {
@@ -219,6 +277,9 @@ export function suggestFields(type, described, filename, fieldKeys) {
     if (has('refNo')) out.refNo = pickReference(described, filename);
   }
   if (type === 'synergy' || type === 'circular') {
+    // The subject line is the document's own statement of what it is about,
+    // and outranks a heading that only says what kind of document it is.
+    if (has('title')) out.title = pickSubject(described) || out.title;
     if (has('refNo')) out.refNo = pickNoticeReference(described, filename) || pickReference(described, filename);
     if (has('issuer')) out.issuer = pickPublisher(described);
     if (has('revision')) out.revision = pickRevision(described);
@@ -230,6 +291,7 @@ export function suggestFields(type, described, filename, fieldKeys) {
   }
 
   if (type === 'flag') {
+    if (has('title')) out.title = pickSubject(described) || out.title;
     if (has('refNo')) out.refNo = pickNoticeReference(described, filename) || pickReference(described, filename);
     if (has('date')) out.date = pickDate(described);
     if (has('flagState')) out.flagState = pickFlagState(described, filename);
