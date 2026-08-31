@@ -1,7 +1,14 @@
 {
  "administration": "Singapore",
- "fetched": "2026-08-29",
+ "fetched": "2026-08-31",
  "notices": [
+  {
+   "title": "PORT MARINE CIRCULAR NO. 09 OF 2026 - BUSINESS CONTINUITY PLAN FOR HAZE",
+   "refNo": "PC 09/2026",
+   "docType": "Port Marine Circular",
+   "date": "2026-08-30",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no-09-of-2026-business-continuity-plan-for-haze"
+  },
   {
    "title": "PORT MARINE CIRCULAR NO. 08 OF 2026 - VHF RADIO TELEPHONE REPORTING PROCEDURES FOR VESSEL MANOEUVRING WITHIN THE TRAFFIC INFORMATION AREA (TIA) IN THE EAST JOHOR STRAIT INTRODUCTION",
    "refNo": "PC 08/2026",
@@ -1023,13 +1030,6 @@
    "docType": "Marine Notice",
    "date": "2023-06-21",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-55-of-2023-change-of-sms-notification-sender-for-crew-applications"
-  },
-  {
-   "title": "PORT MARINE CIRCULAR NO. 09 OF 2023 BUSINESS CONTINUITY PLAN FOR HAZE",
-   "refNo": "PC 09/2023",
-   "docType": "Port Marine Circular",
-   "date": "2023-06-20",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-09-of-2023-business-continuity-plan-for-haze"
   },
   {
    "title": "No. 7 of 2023 - TRAINING AND CERTIFICATION REQUIREMENTS FOR SEAFARERS AND OTHER PERSONNEL TO SERVE ON BOARD SINGAPORE-REGISTERED SHIPS SUBJECT TO THE IGF CODE",

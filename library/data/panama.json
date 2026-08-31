@@ -1,6 +1,6 @@
 {
  "administration": "Panama",
- "fetched": "2026-08-29",
+ "fetched": "2026-08-31",
  "notices": [
   {
    "title": "MMC 270 17 08 2026",
@@ -8,8 +8,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-08-28",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-270-17-08-2026-1.pdf",
-   "file": "docs/panama/MMC-270-17.pdf",
-   "bytes": 335285
+   "file": "docs/panama/MMC-270-17.pdf"
   },
   {
    "title": "MMC 270 &#8211; 17 08 2026",
@@ -17,8 +16,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-08-24",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-270-17-08-2026.pdf",
-   "file": "docs/panama/MMC-270.pdf",
-   "bytes": 370128
+   "file": "docs/panama/MMC-270.pdf"
   },
   {
    "title": "MMC 302 &#8211; August 18 2026",
@@ -26,8 +24,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-08-21",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-302-August-18-2026.pdf",
-   "file": "docs/panama/MMC-302.pdf",
-   "bytes": 363281
+   "file": "docs/panama/MMC-302.pdf"
   },
   {
    "title": "MMN 15 2026 &#8211; CIC 2026 CHINAS COASTAL WATERS &#8211; 20 08 2026",
@@ -35,8 +32,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-08-21",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMN-15-2026-CIC-2026-CHINAS-COASTAL-WATERS-20-08-2026.pdf",
-   "file": "docs/panama/MMN-15-2026.pdf",
-   "bytes": 220052
+   "file": "docs/panama/MMN-15-2026.pdf"
   },
   {
    "title": "MMN 14 2026 &#8211; CIC 2026 &#8211; CARGO SECURING &#8211; 18 08 2026",
@@ -44,8 +40,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-08-18",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMN-14-2026-CIC-2026-CARGO-SECURING-18-08-2026.pdf",
-   "file": "docs/panama/MMN-14-2026.pdf",
-   "bytes": 166308
+   "file": "docs/panama/MMN-14-2026.pdf"
   },
   {
    "title": "MMC 136 &#8211; RO &#8211; 24 07 2026 &#8211; 2 (1)",
@@ -53,8 +48,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-08-07",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-136-RO-24-07-2026-2-1.pdf",
-   "file": "docs/panama/MMC-136.pdf",
-   "bytes": 281179
+   "file": "docs/panama/MMC-136.pdf"
   },
   {
    "title": "MMN 18 2021 &#8211; 23 07 2026",
@@ -62,8 +56,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-07-27",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/07/MMN-18-2021-23-07-2026.pdf",
-   "file": "docs/panama/MMN-18-2021.pdf",
-   "bytes": 203987
+   "file": "docs/panama/MMN-18-2021.pdf"
   },
   {
    "title": "MMN 05 2026 &#8211; 26 06 2026",
@@ -71,8 +64,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-06-29",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/06/MMN-05-2026-26-06-2026.pdf",
-   "file": "docs/panama/MMN-05-2026.pdf",
-   "bytes": 117210
+   "file": "docs/panama/MMN-05-2026.pdf"
   },
   {
    "title": "MMC 269 &#8211; june 2026 rev",
@@ -80,8 +72,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-06-25",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/06/MMC-269-june-2026-rev.pdf",
-   "file": "docs/panama/MMC-269.pdf",
-   "bytes": 354180
+   "file": "docs/panama/MMC-269.pdf"
   },
   {
    "title": "MMN 03 2026 &#8211; 29 01 2026",
@@ -89,8 +80,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-06-16",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/06/MMN-03-2026-29-01-2026.pdf",
-   "file": "docs/panama/MMN-03-2026.pdf",
-   "bytes": 152148
+   "file": "docs/panama/MMN-03-2026.pdf"
   },
   {
    "title": "MMC 183 &#8211; rev dccm 5 6 2026 limpio (1)",
@@ -98,8 +88,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-06-05",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/06/MMC-183-rev-dccm-5-6-2026-limpio-1.pdf",
-   "file": "docs/panama/MMC-183.pdf",
-   "bytes": 697966
+   "file": "docs/panama/MMC-183.pdf"
   },
   {
    "title": "MMN 11 2024 &#8211; PRE CHECK &#8211; 21 05 2026",
@@ -107,8 +96,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-05-21",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/05/MMN-11-2024-PRE-CHECK-21-05-2026.pdf",
-   "file": "docs/panama/MMN-11-2024.pdf",
-   "bytes": 203273
+   "file": "docs/panama/MMN-11-2024.pdf"
   },
   {
    "title": "MMN 09 2024 &#8211; 09 08 2024 &#8211; BWMC D 2",
@@ -116,8 +104,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-05-21",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/05/MMN-09-2024-09-08-2024-BWMC-D-2.pdf",
-   "file": "docs/panama/MMN-09-2024.pdf",
-   "bytes": 100197
+   "file": "docs/panama/MMN-09-2024.pdf"
   },
   {
    "title": "MMC 171 &#8211; 08 05 2026",
@@ -125,8 +112,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-05-12",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/05/MMC-171-08-05-2026.pdf",
-   "file": "docs/panama/MMC-171.pdf",
-   "bytes": 244554
+   "file": "docs/panama/MMC-171.pdf"
   },
   {
    "title": "MMN 10 2026 &#8211; FLAG STATE INSPECTORS CANCELLED &#8211; 14 04 2026",
@@ -134,8 +120,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-04-15",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/04/MMN-10-2026-FLAG-STATE-INSPECTORS-CANCELLED-14-04-2026.pdf",
-   "file": "docs/panama/MMN-10-2026.pdf",
-   "bytes": 99589
+   "file": "docs/panama/MMN-10-2026.pdf"
   },
   {
    "title": "MMC 235 &#8211; 08 04 2026",
@@ -143,8 +128,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-04-10",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/04/MMC-235-08-04-2026.pdf",
-   "file": "docs/panama/MMC-235.pdf",
-   "bytes": 152191
+   "file": "docs/panama/MMC-235.pdf"
   },
   {
    "title": "MMN 09 2026 &#8211; FISHING AREAS ÁREAS AND CHINA &#8211; 10 04 2026",
@@ -152,8 +136,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-04-10",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/04/MMN-09-2026-FISHING-AREAS-AREAS-AND-CHINA-10-04-2026.pdf",
-   "file": "docs/panama/MMN-09-2026.pdf",
-   "bytes": 133174
+   "file": "docs/panama/MMN-09-2026.pdf"
   },
   {
    "title": "MMC 404 &#8211; Pre Arrival Checklist &#8211; 02 04 2026",
@@ -161,8 +144,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-04-06",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/04/MMC-404-Pre-Arrival-Checklist-02-04-2026.pdf",
-   "file": "docs/panama/MMC-404.pdf",
-   "bytes": 172661
+   "file": "docs/panama/MMC-404.pdf"
   },
   {
    "title": "MMC 405 &#8211; FRA &#038; PMAP &#8211; 03 09 2025",
@@ -170,8 +152,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-04-01",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/04/MMC-405-FRA-PMAP-03-09-2025.pdf",
-   "file": "docs/panama/MMC-405.pdf",
-   "bytes": 210406
+   "file": "docs/panama/MMC-405.pdf"
   },
   {
    "title": "MMC 331 &#8211; DGGM &#8211; 25 03 2026",
@@ -179,8 +160,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-03-27",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/03/MMC-331-DGGM-25-03-2026.pdf",
-   "file": "docs/panama/MMC-331.pdf",
-   "bytes": 298824
+   "file": "docs/panama/MMC-331.pdf"
   },
   {
    "title": "MMC 193  12 03 2026 REV DCCM",
@@ -188,8 +168,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-03-25",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/03/MMC-193-12-03-2026-REV-DCCM.pdf",
-   "file": "docs/panama/MMC-193.pdf",
-   "bytes": 749875
+   "file": "docs/panama/MMC-193.pdf"
   },
   {
    "title": "MMN 08 2026 &#8211; Reminder on Mandatory Compliance",
@@ -197,8 +176,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-03-14",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/03/MMN-08-2026-Reminder-on-Mandatory-Compliance-1.pdf",
-   "file": "docs/panama/MMN-08-2026.pdf",
-   "bytes": 103452
+   "file": "docs/panama/MMN-08-2026.pdf"
   },
   {
    "title": "MMC 345 MARCH 2026 CM rev dccm",
@@ -206,8 +184,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-03-10",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/03/MMC-345-MARCH-2026-CM-rev-dccm.pdf",
-   "file": "docs/panama/MMC-345.pdf",
-   "bytes": 996262
+   "file": "docs/panama/MMC-345.pdf"
   },
   {
    "title": "MMC 215 &#8211; CM &#8211; Rev. RB (1) &#8211; 06 03 2026",
@@ -215,8 +192,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-03-07",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/03/MMC-215-CM-Rev.-RB-1-06-03-2026.pdf",
-   "file": "docs/panama/MMC-215.pdf",
-   "bytes": 230560
+   "file": "docs/panama/MMC-215.pdf"
   },
   {
    "title": "MMC 169 &#8211; 05 03 2026",
@@ -224,8 +200,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-03-06",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/03/MMC-169-05-03-2026.pdf",
-   "file": "docs/panama/MMC-169.pdf",
-   "bytes": 242566
+   "file": "docs/panama/MMC-169.pdf"
   },
   {
    "title": "MMC 245 &#8211; 02 03 2026",
@@ -233,8 +208,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-03-06",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/03/MMC-245-02-03-2026.pdf",
-   "file": "docs/panama/MMC-245.pdf",
-   "bytes": 313356
+   "file": "docs/panama/MMC-245.pdf"
   },
   {
    "title": "MMN 05 2026",
@@ -242,8 +216,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-03-01",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/03/MMN-05-2026.pdf",
-   "file": "docs/panama/MMN-05.pdf",
-   "bytes": 123390
+   "file": "docs/panama/MMN-05.pdf"
   },
   {
    "title": "MMC 230 &#8211; 16 01 2026",
@@ -251,8 +224,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-01-21",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/01/MMC-230-16-01-2026.pdf",
-   "file": "docs/panama/MMC-230.pdf",
-   "bytes": 336634
+   "file": "docs/panama/MMC-230.pdf"
   },
   {
    "title": "MMC 217 &#8211; STS &#8211; 16 01 2026",
@@ -260,8 +232,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-01-19",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/01/MMC-217-STS-16-01-2026.pdf",
-   "file": "docs/panama/MMC-217.pdf",
-   "bytes": 303508
+   "file": "docs/panama/MMC-217.pdf"
   },
   {
    "title": "MMC 230 15 10 2025",
@@ -269,8 +240,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-01-19",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/01/MMC-230-15-10-2025.pdf",
-   "file": "docs/panama/MMC-230-15.pdf",
-   "bytes": 335828
+   "file": "docs/panama/MMC-230-15.pdf"
   },
   {
    "title": "MMN 03 2022 &#8211; UKRAINE &#8211; 7 enero 2026",
@@ -278,8 +248,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-01-12",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/01/MMN-03-2022-UKRAINE-7-enero-2026.pdf",
-   "file": "docs/panama/MMN-03-2022.pdf",
-   "bytes": 617314
+   "file": "docs/panama/MMN-03-2022.pdf"
   },
   {
    "title": "MMC 194 January 2026 &#8211; CM Rev dccm",
@@ -287,8 +256,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2026-01-08",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/01/MMC-194-January-2026-CM-Rev-dccm.pdf",
-   "file": "docs/panama/MMC-194.pdf",
-   "bytes": 823344
+   "file": "docs/panama/MMC-194.pdf"
   },
   {
    "title": "MMC 369 &#8211; 19 12 2025",
@@ -296,8 +264,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2025-12-22",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/12/MMC-369-19-12-2025.pdf",
-   "file": "docs/panama/MMC-369.pdf",
-   "bytes": 220330
+   "file": "docs/panama/MMC-369.pdf"
   },
   {
    "title": "MMC 202 PI Clubs Rv Dec 2025",
@@ -305,8 +272,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2025-12-16",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/12/MMC-202-PI-Clubs-Rv-Dec-2025.pdf",
-   "file": "docs/panama/MMC-202.pdf",
-   "bytes": 802176
+   "file": "docs/panama/MMC-202.pdf"
   },
   {
    "title": "MMC 183 26 11 2025 rev dccm",
@@ -314,8 +280,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2025-11-27",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/11/MMC-183-26-11-2025-rev-dccm.pdf",
-   "file": "docs/panama/MMC-183-26.pdf",
-   "bytes": 728558
+   "file": "docs/panama/MMC-183-26.pdf"
   },
   {
    "title": "MMN 11 2025 &#8211; Maritime Telecommunications &#8211; NEW",
@@ -323,8 +288,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2025-11-20",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/11/MMN-11-2025-Maritime-Telecommunications-NEW-1.pdf",
-   "file": "docs/panama/MMN-11-2025.pdf",
-   "bytes": 324410
+   "file": "docs/panama/MMN-11-2025.pdf"
   },
   {
    "title": "MMC 374 &#8211; 08 09 2025",
@@ -332,8 +296,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2025-09-23",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/09/MMC-374-08-09-2025.pdf",
-   "file": "docs/panama/MMC-374.pdf",
-   "bytes": 205278
+   "file": "docs/panama/MMC-374.pdf"
   },
   {
    "title": "MMN 01 2022 &#8211; FEBRUARY 2022 &#8211; Cancelled 28 08 2025",
@@ -341,8 +304,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2025-09-04",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/09/MMN-01-2022-FEBRUARY-2022-Cancelled-28-08-2025.pdf",
-   "file": "docs/panama/MMN-01-2022.pdf",
-   "bytes": 103029
+   "file": "docs/panama/MMN-01-2022.pdf"
   },
   {
    "title": "MMN 08 2025 &#8211; PSC &#8211; 19 08 2025",
@@ -350,8 +312,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2025-08-26",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMN-08-2025-PSC-19-08-2025.pdf",
-   "file": "docs/panama/MMN-08-2025.pdf",
-   "bytes": 146236
+   "file": "docs/panama/MMN-08-2025.pdf"
   },
   {
    "title": "MMC 339 Rv MR Aug 2025",
@@ -359,8 +320,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2025-08-25",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-339-Rv-MR-Aug-2025.pdf",
-   "file": "docs/panama/MMC-339.pdf",
-   "bytes": 452139
+   "file": "docs/panama/MMC-339.pdf"
   },
   {
    "title": "MMC 359 &#8211; 18 08 2025",
@@ -368,8 +328,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2025-08-22",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-359-18-08-2025.pdf",
-   "file": "docs/panama/MMC-359.pdf",
-   "bytes": 314426
+   "file": "docs/panama/MMC-359.pdf"
   },
   {
    "title": "MMC 123 &#8211; 13 8 2025",
@@ -377,8 +336,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2025-08-14",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-123-13-8-2025.pdf",
-   "file": "docs/panama/MMC-123.pdf",
-   "bytes": 272378
+   "file": "docs/panama/MMC-123.pdf"
   },
   {
    "title": "MMC 243 &#8211; 13 08 2025",
@@ -386,8 +344,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2025-08-14",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-243-13-08-2025.pdf",
-   "file": "docs/panama/MMC-243.pdf",
-   "bytes": 238207
+   "file": "docs/panama/MMC-243.pdf"
   },
   {
    "title": "MMN 07 2025 &#8211; Insurers due diligence Rv MR",
@@ -395,8 +352,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2025-08-11",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMN-07-2025-Insurers-due-diligence-Rv-MR.pdf",
-   "file": "docs/panama/MMN-07-2025.pdf",
-   "bytes": 286648
+   "file": "docs/panama/MMN-07-2025.pdf"
   },
   {
    "title": "MMC 386 &#8211; Aug 2025 Rv MR",
@@ -404,8 +360,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2025-08-01",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-386-Aug-2025-Rv-MR.pdf",
-   "file": "docs/panama/MMC-386.pdf",
-   "bytes": 743423
+   "file": "docs/panama/MMC-386.pdf"
   },
   {
    "title": "MMN 05 2025 &#8211; CIC 2025 Ballast",
@@ -413,8 +368,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2025-08-01",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMN-05-2025-CIC-2025-Ballast.pdf",
-   "file": "docs/panama/MMN-05-2025.pdf",
-   "bytes": 182165
+   "file": "docs/panama/MMN-05-2025.pdf"
   },
   {
    "title": "MMN 09 2020 &#8211; MARCH 2023 &#8211; Cancelled 30 07 2025",
@@ -422,8 +376,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2025-07-31",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/07/MMN-09-2020-MARCH-2023-Cancelled-30-07-2025.pdf",
-   "file": "docs/panama/MMN-09-2020.pdf",
-   "bytes": 119081
+   "file": "docs/panama/MMN-09-2020.pdf"
   },
   {
    "title": "MMN 03 2025 &#8211; 18 07 2025",
@@ -431,8 +384,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2025-07-21",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/07/MMN-03-2025-18-07-2025.pdf",
-   "file": "docs/panama/MMN-03-2025.pdf",
-   "bytes": 163836
+   "file": "docs/panama/MMN-03-2025.pdf"
   },
   {
    "title": "MMN 04 2025 &#8211; RISING TENSIONS IN THE MIDDLE EAST &#8211; 18 07 2025",
@@ -440,8 +392,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2025-07-21",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/07/MMN-04-2025-RISING-TENSIONS-IN-THE-MIDDLE-EAST-18-07-2025.pdf",
-   "file": "docs/panama/MMN-04-2025.pdf",
-   "bytes": 172665
+   "file": "docs/panama/MMN-04-2025.pdf"
   },
   {
    "title": "MMN 03 2024 &#8211; RED SEA &#8211; 18 07 2025",
@@ -449,8 +400,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2025-07-21",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/07/MMN-03-2024-RED-SEA-18-07-2025.pdf",
-   "file": "docs/panama/MMN-03-2024.pdf",
-   "bytes": 126914
+   "file": "docs/panama/MMN-03-2024.pdf"
   },
   {
    "title": "MMN 12 2024 &#8211; Accounting Authorities (AA)  16 10 2024",
@@ -458,8 +408,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2024-10-17",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2024/10/MMN-12-2024-Accounting-Authorities-AA-16-10-2024.pdf",
-   "file": "docs/panama/MMN-12-2024.pdf",
-   "bytes": 120822
+   "file": "docs/panama/MMN-12-2024.pdf"
   },
   {
    "title": "MMN 10 2022 CIC 2022 (2)",
@@ -467,8 +416,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2024-10-14",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2024/10/MMN-10-2022-CIC-2022-2.pdf",
-   "file": "docs/panama/MMN-10-2022.pdf",
-   "bytes": 346553
+   "file": "docs/panama/MMN-10-2022.pdf"
   },
   {
    "title": "MMN 05 2022 &#8211; 25 09 2024",
@@ -476,8 +424,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2024-09-26",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2024/09/MMN-05-2022-25-09-2024.pdf",
-   "file": "docs/panama/MMN-05-2022.pdf",
-   "bytes": 109842
+   "file": "docs/panama/MMN-05-2022.pdf"
   },
   {
    "title": "MMN 08 2024 &#8211; 02 08 2024",
@@ -485,8 +432,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2024-08-09",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2024/08/MMN-08-2024-02-08-2024.pdf",
-   "file": "docs/panama/MMN-08-2024.pdf",
-   "bytes": 103826
+   "file": "docs/panama/MMN-08-2024.pdf"
   },
   {
    "title": "MMN 07 2024 &#8211; FIC PARIS MOU &#8211; 10 07 2024",
@@ -494,8 +440,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2024-07-15",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2024/07/MMN-07-2024-FIC-PARIS-MOU-10-07-2024.pdf",
-   "file": "docs/panama/MMN-07-2024.pdf",
-   "bytes": 148754
+   "file": "docs/panama/MMN-07-2024.pdf"
   },
   {
    "title": "MMC 138 &#8211; 02 04 2024 (2)",
@@ -503,8 +448,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2024-04-05",
    "sourceUrl": "https://www.amp.gob.pa/wp-content/uploads/2024/04/MMC-138-02-04-2024-2.pdf",
-   "file": "docs/panama/MMC-138.pdf",
-   "bytes": 210166
+   "file": "docs/panama/MMC-138.pdf"
   },
   {
    "title": "MMN 09 2023 &#8211; CANCELLED &#8211; 22 02 2024",
@@ -512,8 +456,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2024-02-23",
    "sourceUrl": "https://www.amp.gob.pa/wp-content/uploads/2024/02/MMN-09-2023-CANCELLED-22-02-2024.pdf",
-   "file": "docs/panama/MMN-09-2023.pdf",
-   "bytes": 170917
+   "file": "docs/panama/MMN-09-2023.pdf"
   },
   {
    "title": "MMC 324 &#8211; 07 11 2023",
@@ -521,8 +464,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2023-11-08",
    "sourceUrl": "https://www.amp.gob.pa/wp-content/uploads/2023/11/MMC-324-07-11-2023.pdf",
-   "file": "docs/panama/MMC-324.pdf",
-   "bytes": 684797
+   "file": "docs/panama/MMC-324.pdf"
   },
   {
    "title": "MMN 07 2021 09 06 2023",
@@ -530,8 +472,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2023-07-03",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2023/07/MMN-07-2021-09-06-2023.pdf",
-   "file": "docs/panama/MMN-07-2021.pdf",
-   "bytes": 145133
+   "file": "docs/panama/MMN-07-2021.pdf"
   },
   {
    "title": "MMN 05 2023 ASI 20 06 2023 1",
@@ -539,8 +480,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2023-07-03",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2023/07/MMN-05-2023-ASI-20-06-2023-1.pdf",
-   "file": "docs/panama/MMN-05-2023.pdf",
-   "bytes": 279266
+   "file": "docs/panama/MMN-05-2023.pdf"
   },
   {
    "title": "MMN 01 2021 DPSM 6 01 2021",
@@ -548,8 +488,7 @@
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2023-06-16",
    "sourceUrl": "https://www.amp.gob.pa/wp-content/uploads/2023/06/MMN-01-2021-DPSM-6-01-2021.pdf",
-   "file": "docs/panama/MMN-01-2021.pdf",
-   "bytes": 197419
+   "file": "docs/panama/MMN-01-2021.pdf"
   },
   {
    "title": "MMC 271 &#8211; 09 06 2021 &#8211; DGGM",
@@ -557,8 +496,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2021-06-14",
    "sourceUrl": "https://www.amp.gob.pa/wp-content/uploads/2021/06/MMC-271-09-06-2021-DGGM.pdf",
-   "file": "docs/panama/MMC-271.pdf",
-   "bytes": 428879
+   "file": "docs/panama/MMC-271.pdf"
   },
   {
    "title": "Circular DGGM UCYC 008 2015 ES EN (MMC 313)",
@@ -566,8 +504,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2019-02-02",
    "sourceUrl": "https://www.amp.gob.pa/wp-content/uploads/2019/02/Circular-DGGM-UCYC-008-2015-ES-EN-MMC-313.pdf",
-   "file": "docs/panama/MMC-313.pdf",
-   "bytes": 1528309
+   "file": "docs/panama/MMC-313.pdf"
   },
   {
    "title": "Circular DGGM UCYC 010 2015 ES EN (MMC 315)",
@@ -575,8 +512,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2019-02-02",
    "sourceUrl": "https://www.amp.gob.pa/wp-content/uploads/2019/02/Circular-DGGM-UCYC-010-2015-ES-EN-MMC-315-1.pdf",
-   "file": "docs/panama/MMC-315.pdf",
-   "bytes": 2225618
+   "file": "docs/panama/MMC-315.pdf"
   },
   {
    "title": "Circular DGGM UCYC 014 2015 ES EN (MMC 318)",
@@ -584,8 +520,7 @@
    "docType": "Merchant Marine Circular",
    "date": "2019-02-02",
    "sourceUrl": "https://www.amp.gob.pa/wp-content/uploads/2019/02/Circular-DGGM-UCYC-014-2015-ES-EN-MMC-318.pdf",
-   "file": "docs/panama/MMC-318.pdf",
-   "bytes": 1298914
+   "file": "docs/panama/MMC-318.pdf"
   }
  ]
 }
