@@ -1,7 +1,21 @@
 {
  "administration": "MCA",
- "fetched": "2026-08-31",
+ "fetched": "2026-09-07",
  "notices": [
+  {
+   "title": "MIN 738 (M+F) Direction issued under Section 8(4) of the Merchant Shipping Act 1995",
+   "refNo": "MIN 738 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-09-04",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-738-mf-direction-issued-under-section-84-of-the-merchant-shipping-act-1995"
+  },
+  {
+   "title": "MGN 718 (M+F): 2026 IMO amendment to PSSR",
+   "refNo": "MGN 718 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-09-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-718-mf-2026-imo-amendment-to-pssr"
+  },
   {
    "title": "MSN 1905 (M+F) Amendment 5 ships’ medical stores",
    "refNo": "MSN 1905 (M+F)",
@@ -25,13 +39,6 @@
    "date": "2026-08-19",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-381-m-f-amendment-1---survey-and-certification-requirements-for-merchant-shipping-prevention-of-air-pollution-from-ships-regulations-2008-as-amend",
    "file": "docs/mca/MGN-381.pdf"
-  },
-  {
-   "title": "MGN 718 (M+F): 2026 IMO amendment to PSSR",
-   "refNo": "MGN 718 (M+F)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2026-08-18",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-718-mf-2026-imo-amendment-to-pssr"
   },
   {
    "title": "MSN 1815 (M+F) Amendment 7 equivalent medical certificates",
@@ -2486,14 +2493,6 @@
    "date": "2018-06-07",
    "sourceUrl": "https://www.gov.uk/government/publications/min-495-m-the-merchant-shipping-boatmasters-qualifications-crew-and-hours-of-work-regulations-2015-local-regulations",
    "file": "docs/mca/MIN-495.pdf"
-  },
-  {
-   "title": "MGN 481 Amendment 1 Crew Accommodation and supplementary guidance",
-   "refNo": "MGN 481",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2018-03-27",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-481-amendment-1-crew-accommodation-and-supplementary-guidance",
-   "file": "docs/mca/MGN-481.pdf"
   },
   {
    "title": "MGN 545 (M+F) Transport of dangerous goods in private vehicles",

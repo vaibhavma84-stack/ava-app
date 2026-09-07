@@ -1,7 +1,21 @@
 {
  "administration": "Singapore",
- "fetched": "2026-08-31",
+ "fetched": "2026-09-07",
  "notices": [
+  {
+   "title": "PORT MARINE NOTICE NO. 110 of 2026 - Haze Advisory PSI 100 and above",
+   "refNo": "PN 110/2026",
+   "docType": "Marine Notice",
+   "date": "2026-09-04",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-110-of-2026-haze-advisory-psi-100-and-above"
+  },
+  {
+   "title": "PORT MARINE CIRCULAR NO. 10 OF 2026 - SUBMISSION OF ACCURATE INFORMATION FOR VESSEL PORT CALLS AND PORT CLEARANCE",
+   "refNo": "PC 10/2026",
+   "docType": "Port Marine Circular",
+   "date": "2026-09-02",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no-10-of-2026-submission-of-accurate-information-for-vessel-port-calls-and-port-clearance"
+  },
   {
    "title": "PORT MARINE CIRCULAR NO. 09 OF 2026 - BUSINESS CONTINUITY PLAN FOR HAZE",
    "refNo": "PC 09/2026",
