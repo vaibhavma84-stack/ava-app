@@ -1,0 +1,54 @@
+name: Vendor the OCR engine
+
+# Tesseract is several megabytes, so it is fetched here and committed rather
+# than pulled from a CDN by a phone at sea. Run by hand: the version is pinned,
+# and an engine that changes under the app without anyone noticing is the sort
+# of thing that works in port and fails on passage.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vendor-ocr
+  cancel-in-progress: false
+
+env:
+  BRANCH: claude/iphone-offline-storage-app-c14vtc
+
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch the engine
+        run: node tools/vendor-ocr.mjs
+
+      - name: Commit it
+        run: |
+          if [ -z "$(git status --porcelain vendor/ocr)" ]; then
+            echo "Already vendored."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vendor/ocr
+          git commit -m "Vendor the OCR engine"
+
+          # Same guard as the mirror: a push landing mid-run must not throw the
+          # download away.
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "Push rejected — rebasing onto what arrived (attempt $attempt)"
+            git pull --rebase origin "$BRANCH" || exit 1
+          done
+          exit 1
