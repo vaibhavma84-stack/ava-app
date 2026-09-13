@@ -98,7 +98,10 @@ export async function readFirstPage(buffer, { onProgress, scale = 2.5 } = {}) {
     if (text.replace(/\s/g, '').length < 16) {
       return { ok: false, status: STATUS.NO_TEXT, pages: [], pageCount, text: '' };
     }
-    return { ok: true, status: STATUS.INDEXED, pages: [text], pageCount, text };
+    // Shaped exactly as the text extractor shapes a page — { page, text } —
+    // because the search index reads them the same way whichever produced
+    // them. Handing back a bare string stored fine and matched nothing.
+    return { ok: true, status: STATUS.INDEXED, pages: [{ page: 1, text }], pageCount, text };
   } finally {
     try { await worker.terminate(); } catch { /* nothing useful to do */ }
   }

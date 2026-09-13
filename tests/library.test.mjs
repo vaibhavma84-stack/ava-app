@@ -1433,7 +1433,11 @@ try {
   await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
   // Address the card by name: the section order is configurable.
   const manualsCard = await page.locator('.section-card', { hasText: 'Manuals' }).innerText();
-  check('data survives a reload', /3 entries/.test(manualsCard), manualsCard.replace(/\n/g, ' / '));
+  // Counted, not pinned to a number: later sections add manuals of their own,
+  // and a reload test should be about what survived rather than about how many
+  // entries the suite happened to make before it.
+  const manualsHeld = Number((manualsCard.match(/(\d+) entr/) || [])[1] || 0);
+  check('data survives a reload', manualsHeld >= 3, manualsCard.replace(/\n/g, ' / '));
 
   await page.fill('#search', 'QUAYSIDEMARKER');
   await page.waitForSelector('.snippet', { timeout: 15000 });
