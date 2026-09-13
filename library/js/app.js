@@ -969,9 +969,78 @@ function attachmentRow(att, onRemove) {
         class: 'btn btn-sm btn-block', style: 'margin-top:8px',
         onclick: (e) => reReadText(att, e.target)
       }, ['Try reading the text again']));
+      // A scan has no text to find however often it is asked. Reading the
+      // letters out of the picture is a different thing, and costs a download.
+      row.append(el('button', {
+        class: 'btn btn-sm btn-block', style: 'margin-top:8px',
+        onclick: (e) => readScan(att, e.target)
+      }, ['Read the scan — first page']));
+      row.append(el('p', { class: 'hint', style: 'margin-top:6px',
+        text: 'Reads the first page as a picture to fill in the title and number. The reader is about 7 MB the first time and then works offline. It does not make the rest of the pages searchable.' }));
     }
   }
   return row;
+}
+
+/**
+ * Read a scan's first page, and fill the entry in from what it says.
+ *
+ * The first page is where a document states what it is, and it is seconds
+ * rather than the hour a whole manual would take. What is read is stored as
+ * the file's text, so it joins the search exactly as a text PDF's would —
+ * only the first page of it.
+ */
+async function readScan(att, button) {
+  const label = button.textContent;
+  button.disabled = true;
+
+  const note = el('p', { class: 'hint', style: 'margin-top:6px', text: 'Starting…' });
+  button.after(note);
+
+  try {
+    const { readFirstPage, describeFromText } = await import('./ocr.js');
+    const blob = await store.readFile(att);
+    const result = await readFirstPage(await blob.arrayBuffer(), {
+      onProgress: (said) => { note.textContent = said; }
+    });
+
+    if (!result.ok) {
+      toast('The reader could not make out this page');
+      return;
+    }
+    await store.storeText(att.id, result.pages);
+
+    const item = store.getItem(view.detailId);
+    if (!item) { toast(`Read ${result.text.length} characters`); return; }
+
+    const def = TYPES[item.type];
+    const described = describeFromText(result.text, result.pageCount);
+    const suggested = suggestFields(item.type, described, att.name, def.fields.map((f) => f.key));
+
+    const data = { ...item.data };
+    const filled = [];
+    for (const [key, value] of Object.entries(suggested)) {
+      if (String(data[key] || '').trim()) continue;      // never overwrite
+      data[key] = value;
+      filled.push(def.fields.find((f) => f.key === key)?.label || key);
+    }
+    data.attachments = (data.attachments || []).map((a) => a.id === att.id
+      ? { ...a, textPages: result.pages.length, pageCount: result.pageCount,
+          textStatus: result.status, textError: '', scanned: false }
+      : a);
+
+    await store.saveItem({ id: item.id, type: item.type, data });
+    openDetail(item.id);
+    toast(filled.length
+      ? `Read the page — filled in ${filled.join(', ')}. Check these.`
+      : 'Read the page — nothing new to fill in, but its words are searchable now');
+  } catch (ex) {
+    toast(`Could not read it: ${ex.message}`);
+  } finally {
+    note.remove();
+    button.disabled = false;
+    button.textContent = label;
+  }
 }
 
 /** Re-run extraction on a stored file, without needing it added again. */

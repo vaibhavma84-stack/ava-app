@@ -186,6 +186,34 @@ const NAMED_ALERT_PATH = path.join(tmp, 'Fleet Alert 077-2026 Gangway net riggin
   await maker.close();
 }
 
+// A scan: the page drawn into a canvas and put back as an image, so the PDF
+// holds a picture of the words and no text at all. This is what a photocopied
+// manual actually is, and why nothing can be read out of one without OCR.
+const SCAN_PATH = path.join(tmp, 'L-001 Operational Manual.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent(`
+    <canvas id="c" width="1240" height="1754"></canvas>
+    <script>
+      const ctx = document.getElementById('c').getContext('2d');
+      ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, 1240, 1754);
+      ctx.fillStyle = '#000';
+      ctx.font = 'bold 64px Helvetica, Arial, sans-serif';
+      ctx.fillText('FLEET ALERT', 90, 180);
+      ctx.font = '40px Helvetica, Arial, sans-serif';
+      ctx.fillText('Ref: FA 231 / 2026', 90, 300);
+      ctx.fillText('Subject: Mooring rope condition', 90, 380);
+      ctx.fillText('and inspection before arrival.', 90, 450);
+    <\/script>`, { waitUntil: 'load' });
+  await maker.waitForTimeout(300);
+  const image = await maker.evaluate(() => document.getElementById('c').toDataURL('image/png'));
+  await maker.setContent(
+    `<style>@page{size:A4;margin:0}img{width:100%}</style><img src="${image}">`,
+    { waitUntil: 'load' });
+  await maker.pdf({ path: SCAN_PATH, format: 'A4' });
+  await maker.close();
+}
+
 const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'allow' });
 const page = await context.newPage();
 const errors = [];
@@ -1234,6 +1262,45 @@ try {
     !/to check/i.test(synergyCard), synergyCard.replace(/\n/g, ' / '));
   await page.locator('.section-card', { hasText: 'Synergy' }).click();
   await page.waitForTimeout(200);
+
+  console.log('\nReading a scan');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card', { hasText: 'Manuals' }).click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'L-001 Operational Manual');
+  await page.setInputFiles('#filePicker', SCAN_PATH);
+  await page.waitForTimeout(2500);
+  await save();
+
+  await page.locator('.card', { hasText: 'L-001 Operational Manual' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const asScan = await page.locator('#detailBody').innerText();
+  check('a scan is named as one rather than left unexplained',
+    /no text layer|scan/i.test(asScan), asScan.slice(0, 200).replace(/\n/g, ' / '));
+  check('and reading it is offered',
+    await page.locator('#detailBody button:has-text("Read the scan")').count() === 1);
+
+  await page.click('#detailBody button:has-text("Read the scan")');
+  // The engine is megabytes and the page is a picture: this is not quick.
+  await page.locator('.toast', { hasText: /Read the page|could not/ }).waitFor({ timeout: 180000 });
+  const readSaid = await page.locator('.toast', { hasText: /Read the page|could not/ }).innerText();
+  check('the scan is read', /Read the page/.test(readSaid), readSaid);
+  await page.waitForTimeout(800);
+
+  const afterRead = await page.locator('#detailBody').innerText();
+  check('and its words are searchable now',
+    !/no text layer/i.test(afterRead), afterRead.slice(0, 200).replace(/\n/g, ' / '));
+  await closeDetail();
+
+  // The point of reading it: findable by what is printed on the page.
+  await page.fill('#search', 'mooring rope');
+  await page.waitForTimeout(900);
+  check('a phrase printed on the scan finds it',
+    await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
 
   console.log('\nImporting a stack at once');
   await page.click('#backBtn');

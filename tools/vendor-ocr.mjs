@@ -24,11 +24,15 @@ const FILES = [
   [`https://cdn.jsdelivr.net/npm/tesseract.js@${TESSERACT}/dist/tesseract.min.js`, 'tesseract.min.js'],
   [`https://cdn.jsdelivr.net/npm/tesseract.js@${TESSERACT}/dist/worker.min.js`, 'worker.min.js'],
 
-  // Two builds of the engine. Pages is served without the headers that allow
-  // shared memory, so the plain build is the one that will actually run; the
-  // SIMD build is kept because Tesseract picks between them itself.
+  // All four builds of the engine, because Tesseract chooses between them
+  // itself and only says which it wanted by asking for it. The reader is
+  // created in LSTM-only mode, so the -lstm pair is what actually gets
+  // fetched — vendoring only the other two got as far as the worker starting
+  // and then a 404 for a file nobody had mentioned.
   [`https://cdn.jsdelivr.net/npm/tesseract.js-core@${CORE}/tesseract-core.wasm.js`, 'tesseract-core.wasm.js'],
   [`https://cdn.jsdelivr.net/npm/tesseract.js-core@${CORE}/tesseract-core-simd.wasm.js`, 'tesseract-core-simd.wasm.js'],
+  [`https://cdn.jsdelivr.net/npm/tesseract.js-core@${CORE}/tesseract-core-lstm.wasm.js`, 'tesseract-core-lstm.wasm.js'],
+  [`https://cdn.jsdelivr.net/npm/tesseract.js-core@${CORE}/tesseract-core-simd-lstm.wasm.js`, 'tesseract-core-simd-lstm.wasm.js'],
 
   // The trained data. "fast" rather than "best": a quarter of the size, and
   // the difference on a printed manual is slight.

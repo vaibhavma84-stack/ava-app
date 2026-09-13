@@ -4,7 +4,7 @@
 // launch with no connection falls straight back to the cache. PDF.js is bundled
 // into the precache, so text extraction and search work with no signal.
 
-const VERSION = 'v30';
+const VERSION = 'v31';
 const CACHE = `library-shell-${VERSION}`;
 
 const SHELL = [
@@ -73,7 +73,11 @@ self.addEventListener('message', (event) => {
  * takes the shell down with it — the precache starts failing, the new worker
  * never installs, and the app quietly stops updating.
  */
-const isBulk = (url) => /\/library\/(docs|data)\//.test(url) || /version\.json/.test(url);
+const isBulk = (url) =>
+  /\/library\/(docs|data)\//.test(url) || /version\.json/.test(url)
+  // The OCR engine is megabytes and is only ever wanted by a phone that meets
+  // a scan. Caching it here would put it in the same store the app shell needs.
+  || /\/vendor\/ocr\//.test(url);
 
 async function networkFirst(request) {
   try {
