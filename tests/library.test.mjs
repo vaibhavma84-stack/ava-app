@@ -191,24 +191,33 @@ const NAMED_ALERT_PATH = path.join(tmp, 'Fleet Alert 077-2026 Gangway net riggin
 // manual actually is, and why nothing can be read out of one without OCR.
 const SCAN_PATH = path.join(tmp, 'L-001 Operational Manual.pdf');
 {
+  // Four pages. The first is a cover sheet that says nothing useful, which is
+  // exactly why the opening read is three pages and not one. Page four is
+  // beyond that, so it only becomes findable once the whole thing is read.
+  const sheets = [
+    ['CONTROLLED COPY', 'Uncontrolled when printed.'],
+    ['FLEET ALERT', 'Ref: FA 231 / 2026', 'Subject: Mooring rope condition', 'and inspection before arrival.'],
+    ['Section 1 — Inspection', 'Check the winch brake holding capacity.'],
+    ['Section 2 — Records', 'File the certificate in the chartroom cabinet.']
+  ];
   const maker = await browser.newPage();
-  await maker.setContent(`
-    <canvas id="c" width="1240" height="1754"></canvas>
-    <script>
+  const images = [];
+  for (const lines of sheets) {
+    await maker.setContent('<canvas id="c" width="1240" height="1754"></canvas>', { waitUntil: 'load' });
+    images.push(await maker.evaluate((rows) => {
       const ctx = document.getElementById('c').getContext('2d');
       ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, 1240, 1754);
       ctx.fillStyle = '#000';
-      ctx.font = 'bold 64px Helvetica, Arial, sans-serif';
-      ctx.fillText('FLEET ALERT', 90, 180);
-      ctx.font = '40px Helvetica, Arial, sans-serif';
-      ctx.fillText('Ref: FA 231 / 2026', 90, 300);
-      ctx.fillText('Subject: Mooring rope condition', 90, 380);
-      ctx.fillText('and inspection before arrival.', 90, 450);
-    <\/script>`, { waitUntil: 'load' });
-  await maker.waitForTimeout(300);
-  const image = await maker.evaluate(() => document.getElementById('c').toDataURL('image/png'));
+      rows.forEach((line, i) => {
+        ctx.font = i === 0 ? 'bold 64px Helvetica, Arial, sans-serif' : '40px Helvetica, Arial, sans-serif';
+        ctx.fillText(line, 90, 180 + i * 90);
+      });
+      return document.getElementById('c').toDataURL('image/png');
+    }, lines));
+  }
   await maker.setContent(
-    `<style>@page{size:A4;margin:0}img{width:100%}</style><img src="${image}">`,
+    `<style>@page{size:A4;margin:0}img{width:100%;display:block;page-break-after:always}</style>`
+    + images.map((src) => `<img src="${src}">`).join(''),
     { waitUntil: 'load' });
   await maker.pdf({ path: SCAN_PATH, format: 'A4' });
   await maker.close();
@@ -1282,6 +1291,9 @@ try {
   check('and reading it is offered',
     await page.locator('#detailBody button:has-text("Read the scan")').count() === 1);
 
+  check('and it says it reads the opening pages, not just one',
+    /first 3 pages/i.test(await page.locator('#detailBody').innerText()),
+    (await page.locator('#detailBody').innerText()).slice(0, 300));
   await page.click('#detailBody button:has-text("Read the scan")');
   // The engine is megabytes and the page is a picture: this is not quick.
   await page.locator('.toast', { hasText: /Read the page|could not/ }).waitFor({ timeout: 180000 });
@@ -1294,10 +1306,53 @@ try {
     !/no text layer/i.test(afterRead), afterRead.slice(0, 200).replace(/\n/g, ' / '));
   await closeDetail();
 
-  // The point of reading it: findable by what is printed on the page.
+  // The point of reading it: findable by what is printed on the page. This
+  // phrase is on page two, behind a cover sheet — which one page would miss.
   await page.fill('#search', 'mooring rope');
   await page.waitForTimeout(900);
-  check('a phrase printed on the scan finds it',
+  check('a phrase behind the cover sheet finds it',
+    await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // Page four is past the opening read, so it is the proof that the whole
+  // document read did something the quick one could not.
+  await page.fill('#search', 'chartroom cabinet');
+  await page.waitForTimeout(900);
+  check('a phrase past the opening pages is not found yet',
+    await page.locator('.card').count() === 0, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  await page.locator('.card', { hasText: 'L-001 Operational Manual' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  // Wait for the button rather than reading the pane while it is still the
+  // pane from before the opening read was stored. Matched without regard to
+  // case: the button is styled uppercase, and innerText reports what is on
+  // the screen rather than what is in the markup.
+  const rest = page.locator('#detailBody button:has-text("Read the rest")');
+  await rest.waitFor({ timeout: 15000 });
+  check('reading the rest is offered, from where it left off',
+    /Read the rest — from page 4/i.test(await rest.innerText()), await rest.innerText());
+
+  await rest.click();
+  await page.locator('.toast', { hasText: /Read all|Stopped at|Could not/ }).waitFor({ timeout: 240000 });
+  const whole = await page.locator('.toast', { hasText: /Read all|Stopped at|Could not/ }).innerText();
+  check('the whole document is read', /Read all 4 pages/.test(whole), whole);
+  await page.waitForTimeout(800);
+  await closeDetail();
+
+  await page.fill('#search', 'chartroom cabinet');
+  await page.waitForTimeout(900);
+  check('and now the last page is findable too',
+    await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // What was read earlier must survive the later read rather than be replaced.
+  await page.fill('#search', 'mooring rope');
+  await page.waitForTimeout(900);
+  check('the opening pages are still there afterwards',
     await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
   await page.fill('#search', '');
   await page.waitForTimeout(300);

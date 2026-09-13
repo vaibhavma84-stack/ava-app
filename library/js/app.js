@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.27';
+const APP_VERSION = '2026.09.28';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -974,9 +974,24 @@ function attachmentRow(att, onRemove) {
       row.append(el('button', {
         class: 'btn btn-sm btn-block', style: 'margin-top:8px',
         onclick: (e) => readScan(att, e.target)
-      }, ['Read the scan — first page']));
+      }, ['Read the scan — first 3 pages']));
       row.append(el('p', { class: 'hint', style: 'margin-top:6px',
-        text: 'Reads the first page as a picture to fill in the title and number. The reader is about 7 MB the first time and then works offline. It does not make the rest of the pages searchable.' }));
+        text: 'Reads the opening pages as pictures to fill in the title and number — three, because a manual often opens on a cover sheet. The reader is about 7 MB the first time and then works offline.' }));
+    }
+
+    // Offered whether or not the opening pages have been read: a scan is only
+    // properly searchable once every page of it has been.
+    if (state !== STATUS.INDEXED || (att.readTo || 0) < (att.pageCount || 1)) {
+      const done = att.readTo || 0;
+      const total = att.pageCount || 0;
+      row.append(el('button', {
+        class: 'btn btn-sm btn-block', style: 'margin-top:8px',
+        onclick: (e) => readWholeScan(att, e.target)
+      }, [done ? `Read the rest — from page ${done + 1}` : 'Read the whole document']));
+      row.append(el('p', { class: 'hint', style: 'margin-top:6px',
+        text: total
+          ? `Reads every page so all of it can be searched. ${total} pages at a few seconds each — it can be stopped at any point and picked up where it left off.`
+          : 'Reads every page so all of it can be searched. A few seconds a page — it can be stopped at any point and picked up where it left off.' }));
     }
   }
   return row;
@@ -998,9 +1013,9 @@ async function readScan(att, button) {
   button.after(note);
 
   try {
-    const { readFirstPage, describeFromText } = await import('./ocr.js');
+    const { readOpeningPages, describeFromText } = await import('./ocr.js');
     const blob = await store.readFile(att);
-    const result = await readFirstPage(await blob.arrayBuffer(), {
+    const result = await readOpeningPages(await blob.arrayBuffer(), {
       onProgress: (said) => { note.textContent = said; }
     });
 
@@ -1026,6 +1041,9 @@ async function readScan(att, button) {
     }
     data.attachments = (data.attachments || []).map((a) => a.id === att.id
       ? { ...a, textPages: result.pages.length, pageCount: result.pageCount,
+          // How far the reader has got, so carrying on later knows where to
+          // start rather than reading the opening pages again.
+          readTo: result.lastPage,
           textStatus: result.status, textError: '', scanned: false }
       : a);
 
@@ -1038,6 +1056,78 @@ async function readScan(att, button) {
     toast(`Could not read it: ${ex.message}`);
   } finally {
     note.remove();
+    button.disabled = false;
+    button.textContent = label;
+  }
+}
+
+/**
+ * Read every page of a scan, and keep each one as it is read.
+ *
+ * A manual is an evening's work at a few seconds a page, so the one thing this
+ * must not do is lose it. Each page is stored the moment it is read and how
+ * far it got is recorded, which means Stop keeps everything up to that point
+ * and the button afterwards says where it will resume from. Closing the app
+ * mid-read costs the page in progress and nothing more.
+ */
+async function readWholeScan(att, button) {
+  const label = button.textContent;
+  button.disabled = true;
+
+  const note = el('p', { class: 'hint', style: 'margin-top:6px', text: 'Starting…' });
+  const bar = el('div', { class: 'bar', style: 'margin-top:6px' }, [el('i')]);
+  let stopped = false;
+  const stop = el('button', { class: 'btn btn-sm btn-block', style: 'margin-top:8px' }, ['Stop']);
+  stop.addEventListener('click', () => { stopped = true; stop.textContent = 'Stopping…'; });
+  button.after(note, bar, stop);
+
+  // Whatever has already been read stays; this adds to it rather than
+  // replacing it, so a resumed read does not lose the pages before it.
+  const texts = await store.loadTexts();
+  const pages = [...(texts.get(att.id) || [])];
+  const from = (att.readTo || 0) + 1;
+  let lastKept = att.readTo || 0;
+
+  const keep = async (upTo) => {
+    pages.sort((a, b) => a.page - b.page);
+    await store.storeText(att.id, pages);
+    lastKept = upTo;
+    const item = store.getItem(view.detailId);
+    if (!item) return;
+    const next = (item.data.attachments || []).map((a) => a.id === att.id
+      ? { ...a, textPages: pages.length, readTo: upTo, textStatus: STATUS.INDEXED, scanned: false }
+      : a);
+    await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, attachments: next } });
+  };
+
+  try {
+    const { readAllPages } = await import('./ocr.js');
+    const blob = await store.readFile(att);
+    const walked = await readAllPages(await blob.arrayBuffer(), {
+      from,
+      shouldStop: () => stopped,
+      onProgress: (said) => { note.textContent = said; },
+      onPage: async ({ page, text }) => {
+        pages.push({ page, text });
+        // Kept as it goes, not at the end: the end may never come.
+        await keep(page);
+        if (att.pageCount) bar.firstChild.style.width = `${Math.round((page / att.pageCount) * 100)}%`;
+      }
+    });
+
+    // A run that ends without being stopped has seen every page, including the
+    // blank ones that were passed over.
+    if (!walked.stopped) await keep(walked.pageCount);
+    else if (walked.lastPage > lastKept) await keep(walked.lastPage);
+
+    openDetail(view.detailId);
+    toast(walked.stopped
+      ? `Stopped at page ${lastKept} of ${walked.pageCount} — what was read is kept`
+      : `Read all ${walked.pageCount} pages${walked.blank ? ` — ${walked.blank} had nothing on them` : ''}`);
+  } catch (ex) {
+    toast(`Could not read it: ${ex.message}`);
+  } finally {
+    note.remove(); bar.remove(); stop.remove();
     button.disabled = false;
     button.textContent = label;
   }
