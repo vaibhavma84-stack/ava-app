@@ -234,6 +234,7 @@ export const TYPES = {
       { keepCase: true, key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. FC-2026-014', group: 'ident' },
       { key: 'date', label: 'Date issued', type: 'date', group: 'ident' },
       { key: 'issuer', label: 'Issued by', type: 'text', placeholder: 'e.g. Fleet Technical' },
+      { key: 'relatedTo', label: 'Related to', type: 'text', placeholder: 'e.g. Tank cleaning' },
       { key: 'category', label: 'Category', type: 'select', options: CIRCULAR_CATEGORIES },
       { key: 'vessel', label: 'Applies to', type: 'text', placeholder: 'e.g. All vessels' },
       { ...NOTES, label: 'Summary' },

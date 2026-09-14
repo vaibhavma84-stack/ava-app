@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.02';
+const APP_VERSION = '2026.10.03';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -771,12 +771,14 @@ function cardFor(item, snippets, matchInfo) {
       dcell('Edition', item.data.edition || '—', !item.data.edition)
     ]));
   }
-  // The date and who sent it, side by side under the subject. The category is
-  // no longer repeated here: it is the first thing on the card now.
-  if (circular && (item.data.date || item.data.issuer)) {
+  // The date and what it is about, side by side under the subject. Who issued
+  // it is on the entry itself rather than here: on a list of circulars it is
+  // nearly always the same name, so it takes a line and tells you nothing.
+  // What the circular relates to is what tells one from another at a glance.
+  if (circular && (item.data.date || item.data.relatedTo)) {
     card.append(el('div', { class: 'dgrid' }, [
       dcell('Date', item.data.date ? displayDate(item.data.date) : '—', !item.data.date),
-      dcell('Issued by', item.data.issuer || '—', !item.data.issuer)
+      dcell('Related to', item.data.relatedTo || '—', !item.data.relatedTo)
     ]));
   }
   if (item.type === 'notice' && item.data.date) {

@@ -1396,6 +1396,7 @@ try {
   await set('refNo', 'FC-2026-014');
   await set('date', '2026-05-12');
   await set('issuer', 'Fleet Technical');
+  await set('relatedTo', 'Bunkering operations');
   await pick('category', 'QHSE');
   await save();
   check('saves a circular', (await page.locator('.card').count()) === 1);
@@ -1409,14 +1410,29 @@ try {
   check('the subject is the title under it',
     /Revised Bunkering Procedure/i.test(await circularCard.locator('.card-title').innerText()),
     await circularCard.locator('.card-title').innerText());
-  const cardCells = await circularCard.locator('.dcell').allInnerTexts();
-  check('the date and who issued it are the row beneath',
-    /Date/i.test(cardCells.join(' ')) && /Issued by/i.test(cardCells.join(' '))
-      && /Fleet Technical/i.test(cardCells.join(' ')),
-    cardCells.join(' | ').replace(/\n/g, ' '));
+  const cardCells = (await circularCard.locator('.dcell').allInnerTexts()).join(' | ').replace(/\n/g, ' ');
+  check('the date and what it relates to are the row beneath',
+    /Date/i.test(cardCells) && /Related to/i.test(cardCells)
+      && /Bunkering Operations/i.test(cardCells), cardCells);
+  // On a list of circulars the issuer is nearly always the same name, so it
+  // takes a line and tells you nothing. It belongs on the entry, not the card.
+  check('who issued it is not on the card',
+    !/Issued by|Fleet Technical/i.test(cardCells), cardCells);
   check('and the number is not repeated underneath',
     (await circularCard.locator('.card-sub').count()) === 0,
     String(await circularCard.locator('.card-sub').count()));
+
+  // Off the card, but not lost: it is still on the entry itself.
+  await circularCard.click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const circularDetail = await page.locator('#detailBody').innerText();
+  check('but it is still there inside the entry',
+    /Issued by/i.test(circularDetail) && /Fleet Technical/i.test(circularDetail),
+    circularDetail.replace(/\n/g, ' / ').slice(0, 260));
+  check('and so is what it relates to',
+    /Related to/i.test(circularDetail) && /Bunkering Operations/i.test(circularDetail),
+    circularDetail.replace(/\n/g, ' / ').slice(0, 260));
+  await closeDetail();
 
   // Circulars filed before the list changed are the ones already on the
   // phone, so replacing the list must not strand them. The stored value is
