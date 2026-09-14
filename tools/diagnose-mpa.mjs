@@ -1,66 +1,74 @@
-// Is the circular in the detail page's markup, or only the menu around it?
+// What does a detail page ask for, to draw the circular?
 //
-// There is no per-item API — four shapes, all 404. The detail page serves
-// 236 KB of markup and 6,689 characters of text, but the opening of that text
-// is MPA's site menu ("Who We Are", "Whistleblowing Channel"), and 6,689
-// characters of navigation is entirely plausible. So this looks past the menu:
-// it hunts the markup for the circular's own words, names whichever container
-// holds them, and prints what is in it.
+// Settled so far: main_content is a fifty-character header, there is no
+// per-item API at any of the obvious shapes, and the served markup holds the
+// menu and not the notice — <main> has 384 characters in it. The page is drawn
+// by script.
 //
-// If the words are there, 565 notices can be held for the cost of 565 plain
-// fetches. If they are not, the page is drawn by script and the only way in is
-// a browser, 565 times — worth knowing before spending it.
+// Which is how the listing endpoint was found in the first place: render one
+// page and log everything it asks for. A page drawing a circular is fetching
+// that circular from somewhere. If that somewhere can be read directly, 565
+// notices cost 565 plain fetches instead of 565 browser loads.
 //
-// Reads only. Downloads nothing, commits nothing.
+// One page. Reads only, downloads nothing, commits nothing.
 
 import { textFromHtml } from './mirror-docs.mjs';
 
 const MPA = 'https://www.mpa.gov.sg';
 const LIST = '63fc1321-c383-4bc1-8cda-a7718c8eb28c';
 
-const first = await fetch(`${MPA}/api/items/media_releases_and_circulars?type=${LIST}&year=All&limit=3&page=1`)
+let chromium;
+try { ({ chromium } = await import('playwright')); }
+catch { console.log('no browser available'); process.exit(1); }
+
+const first = await fetch(`${MPA}/api/items/media_releases_and_circulars?type=${LIST}&year=All&limit=1&page=1`)
   .then((r) => r.json());
 const items = Array.isArray(first) ? first : first?.data || first?.items || [];
+const item = items[0];
+console.log(`Rendering: ${String(item.title).slice(0, 80)}`);
+console.log(`  ${MPA}/media-centre/details/${item.slug}\n`);
 
-for (const item of items.slice(0, 2)) {
-  console.log(`\n${'='.repeat(70)}`);
-  console.log(String(item.title).slice(0, 90));
+const browser = await chromium.launch();
+const page = await browser.newPage();
 
-  const html = await fetch(`${MPA}/media-centre/details/${item.slug}`).then((r) => r.text());
-  console.log(`  markup ${(html.length / 1024).toFixed(1)} KB · text ${textFromHtml(html).length} characters`);
+const seen = [];
+page.on('response', async (res) => {
+  const url = res.url();
+  if (!/mpa\.gov\.sg|cms\./i.test(url)) return;
+  if (/\.(png|jpe?g|gif|svg|woff2?|ttf|css|ico|webp)(\?|$)/i.test(url)) return;
+  let body = '';
+  try { body = await res.text(); } catch { return; }
+  if (body.length < 200) return;
+  seen.push({ url, status: res.status(), body });
+});
 
-  // Containers a CMS usually puts the body in.
-  const containers = [
-    ['<main', /<main\b[^>]*>([\s\S]*?)<\/main>/i],
-    ['role="main"', /<[^>]+role=["']main["'][^>]*>([\s\S]*?)<\/\w+>/i],
-    ['<article', /<article\b[^>]*>([\s\S]*?)<\/article>/i],
-    ['class~=content', /<div[^>]+class=["'][^"']*(?:content-body|rte|rich-text|article-body|cms-content|detail-content)[^"']*["'][^>]*>([\s\S]*?)<\/div>/i]
-  ];
-  for (const [label, re] of containers) {
-    const found = html.match(re);
-    console.log(`  ${label.padEnd(14)} ${found ? `${textFromHtml(found[1]).length} characters of text` : 'not found'}`);
-  }
+await page.goto(`${MPA}/media-centre/details/${item.slug}`, { waitUntil: 'networkidle', timeout: 60000 });
+await page.waitForTimeout(2500);
 
-  // The decisive test: does any of the circular's own language appear in the
-  // markup at all, outside the <title>? Take distinctive words from the title.
-  const words = String(item.title)
-    .replace(/[^A-Za-z0-9 ]/g, ' ')
-    .split(/\s+/)
-    .filter((w) => w.length > 5 && !/^(RESOLUTIONS|CIRCULAR|NOTICE|MARINE)$/i.test(w))
-    .slice(0, 4);
-  console.log(`  looking for: ${words.join(', ')}`);
-  const body = html.replace(/<title>[\s\S]*?<\/title>/i, '').replace(/<head>[\s\S]*?<\/head>/i, '');
-  for (const w of words) {
-    const count = (body.match(new RegExp(w, 'gi')) || []).length;
-    console.log(`    "${w}" appears ${count} time(s) in the body markup`);
-  }
+// What the page ended up showing, so there is something to compare against.
+const shown = await page.evaluate(() => {
+  const main = document.querySelector('main') || document.body;
+  return (main.innerText || '').replace(/\n{3,}/g, '\n\n').trim();
+});
+console.log(`=== what the rendered page shows: ${shown.length} characters ===`);
+console.log(shown.slice(0, 900).split('\n').filter(Boolean).slice(0, 20).map((l) => '  | ' + l).join('\n'));
 
-  // And the tail of the page text, which is where the body would sit if the
-  // menu comes first.
-  const text = textFromHtml(html);
-  const lines = text.split('\n').filter((l) => l.trim().length > 30);
-  console.log('  --- the 12 longest lines of the page text ---');
-  for (const line of lines.sort((a, b) => b.length - a.length).slice(0, 12)) {
-    console.log(`    | ${line.slice(0, 150)}`);
+console.log(`\n=== ${seen.length} responses worth looking at ===`);
+// A response that carries the circular will carry its distinctive words.
+const words = String(item.title).replace(/[^A-Za-z0-9 ]/g, ' ').split(/\s+/)
+  .filter((w) => w.length > 6).slice(0, 3);
+console.log(`  (looking for: ${words.join(', ')})\n`);
+
+for (const res of seen) {
+  const text = /json/i.test(res.body.slice(0, 200)) || res.body.trim().startsWith('{') || res.body.trim().startsWith('[')
+    ? res.body : textFromHtml(res.body);
+  const hits = words.filter((w) => new RegExp(w, 'i').test(res.body)).length;
+  const flag = hits === words.length ? '  <<< carries the circular' : '';
+  console.log(`  [${res.status}] ${(res.body.length / 1024).toFixed(0)} KB  ${res.url.replace(MPA, '').slice(0, 110)}${flag}`);
+  if (hits === words.length && res.url.includes('/api/')) {
+    console.log('      --- what it holds ---');
+    console.log(textFromHtml(text).slice(0, 500).split('\n').filter(Boolean).slice(0, 10).map((l) => '      | ' + l).join('\n'));
   }
 }
+
+await browser.close();
