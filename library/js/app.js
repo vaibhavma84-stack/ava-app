@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.07';
+const APP_VERSION = '2026.10.08';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -665,6 +665,42 @@ async function applyFileIndex(admin) {
   return told;
 }
 
+/**
+ * Mark the notices the administration's list no longer carries.
+ *
+ * The sync never deletes — an entry here may hold your own notes and files,
+ * and a list that prunes itself would take them with it. But a notice that has
+ * been withdrawn then sits among the current ones looking exactly like them,
+ * and a superseded copy read as current is the thing this app exists to
+ * prevent.
+ *
+ * So it is marked, not removed. Only entries that came from a sync in the
+ * first place — anything typed in by hand has no source URL and is left
+ * entirely alone.
+ */
+async function markWithdrawn(admin, notices) {
+  const current = new Set();
+  for (const n of notices) {
+    if (n.refNo) current.add(n.refNo.toUpperCase());
+    if (n.sourceUrl) current.add(n.sourceUrl.toUpperCase());
+  }
+
+  let marked = 0;
+  for (const item of store.itemsOfType('flag')) {
+    if (item.data.flagState !== admin || !item.data.sourceUrl) continue;
+    const known = current.has(String(item.data.refNo || '').toUpperCase())
+      || current.has(String(item.data.sourceUrl || '').toUpperCase());
+
+    if (known === !item.data.notInList) continue;   // already says the right thing
+    const data = { ...item.data };
+    if (known) delete data.notInList;
+    else data.notInList = new Date().toISOString().slice(0, 10);
+    await store.saveItem({ id: item.id, type: item.type, data });
+    if (!known) marked++;
+  }
+  return marked;
+}
+
 async function syncAdmin(admin, button, out) {
   const label = button.textContent;
   button.disabled = true;
@@ -679,13 +715,19 @@ async function syncAdmin(admin, button, out) {
     // because a notice that cannot say where its document is simply never
     // offers it and gives no hint why.
     const told = await applyFileIndex(admin);
+    // Only when the whole list was read. A group that failed means notices are
+    // missing from `notices` for that reason alone, and marking them withdrawn
+    // on the strength of a failed read would be worse than saying nothing.
+    const withdrawn = failed.length ? 0 : await markWithdrawn(admin, notices);
     // A partial result is still a result: file what came back, and say plainly
     // which classes of document did not.
     const missed = failed.length ? ` Could not read: ${failed.join('; ')}.` : '';
     view.lastSync = {
       ok: true,
       text: `${admin}: ${summary.added} new, ${summary.updated} updated, ${summary.unchanged} already held.`
-        + (told ? ` ${told} now know where their document is.` : '') + missed
+        + (told ? ` ${told} now know where their document is.` : '')
+        + (withdrawn ? ` ${withdrawn} no longer on the administration's list — kept, and marked.` : '')
+        + missed
     };
     render();   // redraws the list, and the panel with the summary in it
   } catch (ex) {
@@ -824,6 +866,7 @@ function cardFor(item, snippets, matchInfo) {
     kind ? el('p', { class: 'card-kind', text: kind }) : null,
     el('div', { class: 'card-head' }, [
       el('h2', { class: 'card-title', text: title }),
+      item.data.notInList ? el('span', { class: 'pill pill-warn', text: 'Withdrawn' }) : null,
       rev ? el('span', {
         class: 'pill ' + (rev.state === 'ok' ? 'pill-sage' : 'pill-warn'),
         text: rev.state === 'ok' ? 'Current' : rev.state === 'never' ? 'Unverified' : 'Check'
@@ -1004,6 +1047,14 @@ function openDetail(id) {
     shown++;
   }
   if (shown) body.append(section);
+
+  if (item.data.notInList) {
+    body.append(el('div', { class: 'detail-sec' }, [
+      el('h4', { text: 'No longer on the administration\u2019s list' }),
+      el('p', { class: 'hint', text:
+        `This was on ${item.data.flagState || 'the administration'}\u2019s list when it was last read, and is not on it now — withdrawn, replaced, or moved. Noticed on ${displayDate(item.data.notInList)}. It is kept here with anything you added to it; check against the source before relying on it.` })
+    ]));
+  }
 
   const atts = item.data.attachments || [];
   if (atts.length) {

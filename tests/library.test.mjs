@@ -1220,6 +1220,98 @@ try {
     /Every notice whose document is held has it/.test(await page.locator(docPanel).innerText()),
     await page.locator(docPanel).innerText());
 
+  // ---- Ordered by number, not by date ------------------------------------
+  // A shelf of notices is looked along for the one you want. MGN 656 sitting
+  // above MGN 652 above MGN 718 above MGN 381 is no order at all.
+  const flagOrder = await page.evaluate(async () => {
+    const [{ TYPES }, store] = await Promise.all([
+      import('./js/schema.js'), import('./js/store.js')
+    ]);
+    return store.itemsOfType('flag')
+      .filter((i) => i.data.flagState === 'Singapore')
+      .map((i) => i.data)
+      .sort(TYPES.flag.sort)
+      .map((d) => d.refNo);
+  });
+  check('notices are ordered by their number',
+    flagOrder.join(' | ').includes('PC 01/2026'), flagOrder.join(' | '));
+
+  // The ordering itself, on the shapes that actually caused this.
+  const sorted = await page.evaluate(async () => {
+    const { byReference } = await import('./js/schema.js');
+    return ['MGN 656', 'MGN 652 (M+F)', 'MGN 718 (M+F)', 'MGN 381', 'MGN 1905', 'MGN 100']
+      .sort(byReference);
+  });
+  check('and by the number as a number, not as text',
+    sorted.join(' ') === 'MGN 100 MGN 381 MGN 652 (M+F) MGN 656 MGN 718 (M+F) MGN 1905',
+    sorted.join(' '));
+
+  // ---- A notice the administration has stopped listing -------------------
+  // The sync never deletes: an entry may hold your own notes and files. But a
+  // withdrawn notice sitting among the current ones, looking exactly like
+  // them, is the thing this app exists to prevent.
+  await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    await store.saveItem({
+      type: 'flag',
+      data: { title: 'Shipping Circular No. 3 of 2019 Withdrawn practice',
+              flagState: 'Singapore', refNo: 'SC 03/2019',
+              docType: 'Shipping Circular',
+              sourceUrl: 'https://www.mpa.gov.sg/media-centre/details/shipping-circular-no.-03-of-2019',
+              notes: 'My own note on this one.', attachments: [] }
+    });
+    // Typed in by hand, with no source: never touched by any of this.
+    await store.saveItem({
+      type: 'flag',
+      data: { title: 'Master\u2019s own standing order', flagState: 'Singapore',
+              refNo: 'OWN-1', attachments: [] }
+    });
+  });
+  await page.waitForTimeout(400);
+
+  await page.click(`${panel} button:text-is("Singapore")`);
+  await page.waitForSelector('.hint:has-text("Singapore:")', { timeout: 20000 });
+  await page.waitForTimeout(600);
+  const withdrawnRun = await page.locator(`${panel} .sync-result`).innerText();
+  check('a notice no longer on the list is reported',
+    /1 no longer on the administration's list/.test(withdrawnRun), withdrawnRun);
+
+  const withdrawnCard = page.locator('.card', { hasText: 'SC 03/2019' }).first();
+  check('and marked on the card',
+    /withdrawn/i.test(await withdrawnCard.innerText()),
+    (await withdrawnCard.innerText()).replace(/\n/g, ' / '));
+
+  await withdrawnCard.click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const withdrawnDetail = await page.locator('#detailBody').innerText();
+  check('the entry says what that means',
+    /No longer on the administration/i.test(withdrawnDetail),
+    withdrawnDetail.slice(0, 260).replace(/\n/g, ' / '));
+  check('and it is kept, with what was written on it',
+    /My own note on this one/.test(withdrawnDetail),
+    withdrawnDetail.slice(0, 300).replace(/\n/g, ' / '));
+  await closeDetail();
+
+  // An entry that was never synced has no business being judged by a list.
+  const ownCard = page.locator('.card', { hasText: 'Standing Order' }).first();
+  check('an entry of your own is never marked',
+    !/withdrawn/i.test(await ownCard.innerText()),
+    (await ownCard.innerText()).replace(/\n/g, ' / '));
+
+  // A notice still on the list must not be marked.
+  check('and a notice still listed is not marked',
+    !/withdrawn/i.test(await page.locator('.card', { hasText: 'PC 01/2026' }).first().innerText()),
+    (await page.locator('.card', { hasText: 'PC 01/2026' }).first().innerText()).replace(/\n/g, ' / '));
+
+  await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    for (const ref of ['SC 03/2019', 'OWN-1']) {
+      const made = store.itemsOfType('flag').find((i) => i.data.refNo === ref);
+      if (made) await store.deleteItem(made.id);
+    }
+  });
+  await page.waitForTimeout(300);
+
   // ---- The case that actually bit ---------------------------------------
   // A notice filed before its document existed carries no file path, so the
   // app cannot find a document the site is holding — and from the phone that

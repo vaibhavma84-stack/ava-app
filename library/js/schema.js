@@ -41,6 +41,38 @@ export const SYNERGY_DOC_TYPES = [
 export const FLAG_STATES = ['MCA', 'Panama', 'Singapore', 'Other'];
 
 /**
+ * Order references the way a person reads them.
+ *
+ * "MGN 381" before "MGN 652" before "MGN 1905" — where comparing the strings
+ * puts 1905 between 100 and 370, because '1' sorts before '3'. A reference
+ * shelf in that order is no order at all: you cannot look along it for the one
+ * you want.
+ *
+ * Split into runs of letters and runs of digits, and compare the digits as
+ * numbers. That also does the right thing for "MMN 7-070" and "PC 01/2026"
+ * without knowing anything about either.
+ */
+export function byReference(a, b) {
+  const chunks = (text) => String(text || '').toUpperCase().match(/\d+|\D+/g) || [];
+  const left = chunks(a);
+  const right = chunks(b);
+
+  for (let i = 0; i < Math.max(left.length, right.length); i++) {
+    const x = left[i];
+    const y = right[i];
+    if (x === undefined) return -1;   // "MGN 652" before "MGN 652 (M+F)"
+    if (y === undefined) return 1;
+
+    if (/^\d/.test(x) && /^\d/.test(y)) {
+      if (Number(x) !== Number(y)) return Number(x) - Number(y);
+      continue;
+    }
+    if (x !== y) return x < y ? -1 : 1;
+  }
+  return 0;
+}
+
+/**
  * Where each administration publishes, for checking a held copy is still
  * current. These open in Safari, so they need a connection — the point is the
  * check you do alongside, not something the app can do at sea.
@@ -220,7 +252,13 @@ export const TYPES = {
     groupBy: { key: 'flagState', label: 'Flag / Administration', blank: 'No flag set' },
     sources: FLAG_SOURCES,
     filterBy: { key: 'docType', label: 'Type' },
-    sort: (a, b) => (b.date || '').localeCompare(a.date || '')
+    // By number, not by date. A shelf of notices is looked along for the one
+    // you want — "where is MGN 652" — and when it was issued says nothing
+    // about where to find it. Type first, so the MGNs sit together and the
+    // MSNs after them rather than interleaved by number.
+    sort: (a, b) => (a.docType || '').localeCompare(b.docType || '')
+                 || byReference(a.refNo, b.refNo)
+                 || (b.date || '').localeCompare(a.date || '')
   },
 
   circular: {
