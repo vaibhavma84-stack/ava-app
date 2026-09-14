@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.30';
+const APP_VERSION = '2026.10.01';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -979,9 +979,16 @@ function attachmentRow(att, onRemove) {
         text: 'Reads the opening pages as pictures to fill in the title and number — three, because a manual often opens on a cover sheet. The reader is about 7 MB the first time and then works offline.' }));
     }
 
-    // Offered whether or not the opening pages have been read: a scan is only
-    // properly searchable once every page of it has been.
-    if (state !== STATUS.INDEXED || (att.readTo || 0) < (att.pageCount || 1)) {
+    // Only where reading a picture is actually the way to get the text.
+    //
+    // readTo is set by the reader and by nothing else, so it is what separates
+    // a part-read scan from a PDF whose text was simply extracted. Testing the
+    // page count alone counted every ordinary PDF as unread — a document with
+    // its seven pages already indexed was still offered a read it did not
+    // need, which on a ship means a 6 MB download for nothing and worse text
+    // than it already had.
+    const partRead = (att.readTo || 0) > 0 && att.readTo < (att.pageCount || 1);
+    if (state !== STATUS.INDEXED || partRead) {
       const done = att.readTo || 0;
       const total = att.pageCount || 0;
       row.append(el('button', {
@@ -1084,18 +1091,21 @@ async function readWholeScan(att, button) {
   // Whatever has already been read stays; this adds to it rather than
   // replacing it, so a resumed read does not lose the pages before it.
   const texts = await store.loadTexts();
-  const pages = [...(texts.get(att.id) || [])];
+  // Keyed by page number rather than appended, so a page read twice replaces
+  // itself instead of being filed twice. A duplicated page is an index that
+  // matches the same words in two places and reports the wrong count.
+  const held = new Map((texts.get(att.id) || []).map((p) => [p.page, p]));
   const from = (att.readTo || 0) + 1;
   let lastKept = att.readTo || 0;
 
   const keep = async (upTo) => {
-    pages.sort((a, b) => a.page - b.page);
+    const pages = [...held.values()].sort((a, b) => a.page - b.page);
     await store.storeText(att.id, pages);
     lastKept = upTo;
     const item = store.getItem(view.detailId);
     if (!item) return;
     const next = (item.data.attachments || []).map((a) => a.id === att.id
-      ? { ...a, textPages: pages.length, readTo: upTo, textStatus: STATUS.INDEXED, scanned: false }
+      ? { ...a, textPages: held.size, readTo: upTo, textStatus: STATUS.INDEXED, scanned: false }
       : a);
     await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, attachments: next } });
   };
@@ -1108,7 +1118,7 @@ async function readWholeScan(att, button) {
       shouldStop: () => stopped,
       onProgress: (said) => { note.textContent = said; },
       onPage: async ({ page, text }) => {
-        pages.push({ page, text });
+        held.set(page, { page, text });
         // Kept as it goes, not at the end: the end may never come.
         await keep(page);
         if (att.pageCount) bar.firstChild.style.width = `${Math.round((page / att.pageCount) * 100)}%`;

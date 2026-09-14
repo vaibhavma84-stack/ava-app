@@ -302,6 +302,12 @@ try {
   check('the PDF was read and its pages indexed', /pages indexed/i.test(detail), detail.replace(/\n/g, ' / '));
   check('it was not misreported as a scan', !/no text layer/i.test(detail));
   check('a readable PDF offers no re-read prompt', !/reading the text again/i.test(detail));
+  // A PDF whose text was extracted is already searchable. Offering to read it
+  // as pictures invites a 6 MB download on a ship for text the app already
+  // has, and worse text than it already has.
+  check('and is not offered the reader it does not need',
+    !/Read the whole document|Read the scan|Read the rest/i.test(detail),
+    detail.replace(/\n/g, ' / ').slice(0, 240));
 
   // Extracting text must not alter the stored file. Diagrams and photographs
   // only survive if the original bytes come back exactly as they went in.
