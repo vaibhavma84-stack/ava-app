@@ -38,10 +38,9 @@ jobs:
           node-version: '20'
 
       - name: Install a browser
-        # Only the fallback needs this: MPA's own endpoint is read with a plain
-        # fetch, and rendering is what stands in if that endpoint ever moves.
-        # So a bad browser download must not take the whole run down with it.
-        continue-on-error: true
+        # Not optional any more. MPA's listing endpoint is read with a plain
+        # fetch, but its landing pages are served to a browser and to nothing
+        # else, and that is where each circular's PDF link is.
         run: |
           npm install --no-save playwright@1.49.1
           npx playwright install --with-deps chromium
@@ -49,18 +48,29 @@ jobs:
       - name: Read the catalogues
         run: node tools/mirror-notices.mjs
 
+      - name: Find where Singapore's documents are
+        # The one part that needs the browser. MPA serves its landing pages to
+        # a browser and refuses everything else, and the PDF link is on the
+        # page. The PDFs themselves are not protected, so this is only about
+        # learning the addresses — and only for notices that do not have one
+        # yet, so the first run does the lot and later runs do the new few.
+        run: node tools/mpa-links.mjs
+
       - name: Fetch the documents
         # The measurement came back at 139 MB for MCA and 23 MB for Panama,
         # which fits comfortably. The budget is well above both, so nothing is
         # truncated; it is there to stop a runaway if a host starts serving
         # something unexpected.
         #
-        # Singapore is left out for now: only 7 of its 563 notices link a PDF
-        # at all — MPA publishes the circular as the page itself — so there is
-        # nothing to fetch until that is handled as text rather than as files.
+        # Singapore is fetched too now. It was left out on the belief that MPA
+        # published its circulars as pages; it does not. The page is a landing
+        # page and the circular is a PDF on it, which the step above goes and
+        # finds.
         run: node tools/mirror-docs.mjs --budget=250 --only=MCA
       - name: Fetch Panama's documents
         run: node tools/mirror-docs.mjs --budget=250 --only=Panama
+      - name: Fetch Singapore's documents
+        run: node tools/mirror-docs.mjs --budget=250 --only=Singapore
 
       - name: Say what the site holds
         # Written from the catalogues, so it is right even on a run that

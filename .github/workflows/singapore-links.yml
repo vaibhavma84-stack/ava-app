@@ -1,0 +1,66 @@
+name: Find where Singapore's documents are
+
+# Renders MPA's landing pages to learn each circular's PDF address, then
+# measures what holding them would cost — without downloading any of them.
+#
+# Run by hand first, so the size is known before 565 documents are committed.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'How many to look up (blank for all 558)'
+        required: false
+        default: ''
+      commit:
+        description: 'Commit the addresses it finds (yes/no)'
+        required: false
+        default: 'no'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror-notices
+  cancel-in-progress: false
+
+env:
+  BRANCH: claude/iphone-offline-storage-app-c14vtc
+
+jobs:
+  look:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install a browser
+        run: |
+          npm install --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+
+      - name: Look up the addresses
+        run: node tools/mpa-links.mjs ${{ inputs.limit && format('--limit={0}', inputs.limit) || '' }}
+
+      - name: Measure what holding them would cost
+        run: node tools/mirror-docs.mjs --measure --only=Singapore
+
+      - name: Commit the addresses
+        if: ${{ inputs.commit == 'yes' }}
+        run: |
+          if [ -z "$(git status --porcelain library/data)" ]; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add library/data
+          git commit -m "Record where Singapore's documents are"
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase origin "$BRANCH" || exit 1
+          done
+          exit 1
