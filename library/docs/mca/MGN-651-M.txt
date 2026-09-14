@@ -1,4 +1,4 @@
-MGN 651 (M) MGN 651 (M) Bilge alarms on cargo ships 24m or more in length and under 500GT
+MGN 651 (M) Bilge alarms on cargo ships 24m or more in length and under 500GT
 2023-07-28
 Source: https://www.gov.uk/government/publications/mgn-651-m-bilge-alarms-on-cargo-ships-24m-or-more-in-length-and-under-500gt
 
@@ -36,35 +36,25 @@ Introduce a mandatory requirement for all vessels greater than 24m length and le
 
 3. Bilge Water Level Detector and Alarm Functions and Capabilities
 
-•
-3.1 A bilge water level detector must be fitted in any:
+• 3.1 A bilge water level detector must be fitted in any:
 
-•
-3.1.1 engine room; and
+• 3.1.1 engine room; and
 
-•
-3.1.2 any other space likely to accumulate bilge water.
+• 3.1.2 any other space likely to accumulate bilge water.
 
-•
-3.2 The level detector must emit an audible alarm warning. Where more than one bilge water level detector is fitted on a vessel, there must also be a visual alarm at the control position indicating which bilge alarm has been activated.
+• 3.2 The level detector must emit an audible alarm warning. Where more than one bilge water level detector is fitted on a vessel, there must also be a visual alarm at the control position indicating which bilge alarm has been activated.
 
-•
-3.3 In addition, in order to provide for circumstances when the central control position is unmanned, the alarm must be clearly audible in all accommodation spaces on the ship if it is not switched off at the central control position within 30 seconds of being activated.
+• 3.3 In addition, in order to provide for circumstances when the central control position is unmanned, the alarm must be clearly audible in all accommodation spaces on the ship if it is not switched off at the central control position within 30 seconds of being activated.
 
-•
-3.4 The volume of the alarm:
+• 3.4 The volume of the alarm:
 
-•
-3.4.1 on the control panel must be such that it is heard;
+• 3.4.1 on the control panel must be such that it is heard;
 
-•
-3.4.2 in the case of in the accommodation spaces be capable of waking a sleeping person;
+• 3.4.2 in the case of in the accommodation spaces be capable of waking a sleeping person;
 
-•
-3.4.3 should be such that it is heard in all weather and operational conditions applicable to the ship.
+• 3.4.3 should be such that it is heard in all weather and operational conditions applicable to the ship.
 
-•
-3.5 All bilge alarm systems must be capable of operating when the ship’s main power supply is inactive.
+• 3.5 All bilge alarm systems must be capable of operating when the ship’s main power supply is inactive.
 
 4. Exemptions
 

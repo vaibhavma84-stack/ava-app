@@ -1,4 +1,4 @@
-MGN 675 (M+F) MGN 675 (M+F) Amendment 2 The merchant shipping (control and management of ships’ ballast water and sediments) regulations 2022
+MGN 675 (M+F) Amendment 2 The merchant shipping (control and management of ships’ ballast water and sediments) regulations 2022
 2026-06-11
 Source: https://www.gov.uk/government/publications/mgn-675-mf-amendment-2-the-merchant-shipping-control-and-management-of-ships-ballast-water-and-sediments-regulations-2022
 
@@ -252,14 +252,11 @@ The following sections have been updated:
 
 20.4 The three accepted methods can be described as follows:
 
-•
-Sequential method – a process by which a ballast tank intended for the carriage of ballast water is first emptied and then refilled with replacement ballast water. Where this method of exchange is used it must achieve at least a 95% volumetric exchange (regulation 12(1)).
+• Sequential method – a process by which a ballast tank intended for the carriage of ballast water is first emptied and then refilled with replacement ballast water. Where this method of exchange is used it must achieve at least a 95% volumetric exchange (regulation 12(1)).
 
-•
-Flow-through method – a process by which replacement ballast water is pumped into a ballast tank intended for the carriage of ballast water, allowing water to flow through overflow or other arrangements.
+• Flow-through method – a process by which replacement ballast water is pumped into a ballast tank intended for the carriage of ballast water, allowing water to flow through overflow or other arrangements.
 
-•
-Dilution method – a process by which replacement ballast water is filled through the top of the ballast tank intended for the carriage of ballast water with simultaneous discharge from the bottom at the same flow rate and maintaining a constant level in the tank throughout the ballast exchange operation.
+• Dilution method – a process by which replacement ballast water is filled through the top of the ballast tank intended for the carriage of ballast water with simultaneous discharge from the bottom at the same flow rate and maintaining a constant level in the tank throughout the ballast exchange operation.
 
 20.5 Where a pump-through method of exchange (flow-through or dilution) is used, at least three times the volume of the ballast tank must be pumped through the ballast tank, or it must achieve 95% volumetric exchange (regulation 12(2)).
 

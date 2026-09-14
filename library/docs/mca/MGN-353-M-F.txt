@@ -1,4 +1,4 @@
-MGN 353 (M+F) MGN 353 (M+F) Control of vibration at work regulations 2007
+MGN 353 (M+F) Control of vibration at work regulations 2007
 2023-07-07
 Source: https://www.gov.uk/government/publications/mgn-353-mf-control-of-vibration-at-work-regulations-2007
 
@@ -46,32 +46,23 @@ The EU Directive 2002/44/EC - Vibration has been in effect in the UK prior to th
 
 4.1 When carrying out risk assessment as required by regulation 7 of the general duties regulations the employer’s risk assessment should:-
 
-•
-determine whether the vibration exposure limit values and action values are exceeded
+• determine whether the vibration exposure limit values and action values are exceeded
 
-•
-determine the level, type and duration of exposure, including exposure to intermittent vibration
+• determine the level, type and duration of exposure, including exposure to intermittent vibration
 
-•
-identify workers who may be particularly sensitive to mechanical vibration
+• identify workers who may be particularly sensitive to mechanical vibration
 
-•
-identify any indirect effect on worker safety which may be caused by interaction between equipment subject to mechanical vibration and the workplace or other work equipment
+• identify any indirect effect on worker safety which may be caused by interaction between equipment subject to mechanical vibration and the workplace or other work equipment
 
-•
-take account of information provided by the manufacturers of work equipment
+• take account of information provided by the manufacturers of work equipment
 
-•
-take account of the existence of replacement equipment designed to reduce exposure to vibration
+• take account of the existence of replacement equipment designed to reduce exposure to vibration
 
-•
-take account of the extension of exposure to whole body vibration beyond normal working hours
+• take account of the extension of exposure to whole body vibration beyond normal working hours
 
-•
-take account of the effect of specific working conditions, such as low temperatures; and
+• take account of the effect of specific working conditions, such as low temperatures; and
 
-•
-take account of appropriate information obtained from health surveillance, including published information, so far as possible.
+• take account of appropriate information obtained from health surveillance, including published information, so far as possible.
 
 4.2 Regard should also be had to the provisions of the schedule to the vibration regulations and the annexes to this MGN.
 
@@ -79,63 +70,45 @@ take account of appropriate information obtained from health surveillance, inclu
 
 5.1 The employer is required to ensure that the risks arising from exposure to vibration identified by the risk assessment are either eliminated or reduced as far as possible. If the risk assessment shows that an exposure action value is likely to be exceeded the vibration regulations list measures which the employer should take to reduce exposure. These include:
 
-•
-implementing alternative working methods that require less exposure to vibration
+• implementing alternative working methods that require less exposure to vibration
 
-•
-use of appropriate work equipment of appropriate ergonomic design which, taking account of the work to be done, produces the least possible vibration
+• use of appropriate work equipment of appropriate ergonomic design which, taking account of the work to be done, produces the least possible vibration
 
-•
-providing equipment which reduces the risk of injuries caused by vibration; e.g. seats which reduce whole body vibration and handles which reduce the vibration transmitted to hands/arms
+• providing equipment which reduces the risk of injuries caused by vibration; e.g. seats which reduce whole body vibration and handles which reduce the vibration transmitted to hands/arms
 
-•
-implementing appropriate maintenance programmes for work equipment, the workplace and workplace systems
+• implementing appropriate maintenance programmes for work equipment, the workplace and workplace systems
 
-•
-altering the design and layout of workplaces and work stations
+• altering the design and layout of workplaces and work stations
 
-•
-providing adequate information and training to workers to ensure that work equipment is used correctly and safely in order to reduce exposure to mechanical vibration to a minimum.
+• providing adequate information and training to workers to ensure that work equipment is used correctly and safely in order to reduce exposure to mechanical vibration to a minimum.
 
-•
-imposing limits on the duration and intensity of exposure to mechanical vibration
+• imposing limits on the duration and intensity of exposure to mechanical vibration
 
-•
-altering work schedules and rest periods
+• altering work schedules and rest periods
 
-•
-providing clothing to protect exposed workers from cold and damp; and
+• providing clothing to protect exposed workers from cold and damp; and
 
-•
-providing personal protective equipment against hand-arm vibration.
+• providing personal protective equipment against hand-arm vibration.
 
 6. Worker information and training (regulation 8)
 
 6.1 Employers are also responsible for providing workers with information and training as appropriate to ensure that they are aware of potential risks to health from exposure to vibration. Such information and training is to include:-
 
-•
-details of the measures taken in order to eliminate or reduce to a minimum the risks from mechanical vibration
+• details of the measures taken in order to eliminate or reduce to a minimum the risks from mechanical vibration
 
-•
-the exposure limit values and the exposure action values
+• the exposure limit values and the exposure action values
 
-•
-the results of the risk assessment carried out
+• the results of the risk assessment carried out
 
-•
-the circumstances in which workers are entitled to health surveillance under these regulations
+• the circumstances in which workers are entitled to health surveillance under these regulations
 
-•
-the potential injuries which may arise from the work equipment in use
+• the potential injuries which may arise from the work equipment in use
 
-•
-safe working practices to minimise exposure to mechanical vibration
+• safe working practices to minimise exposure to mechanical vibration
 
-•
-how to detect and report signs of injury; and
+• how to detect and report signs of injury; and
 
-•
-the importance of detecting and reporting signs of injury.
+• the importance of detecting and reporting signs of injury.
 
 7. Health surveillance and record keeping (regulation 9)
 
@@ -147,17 +120,13 @@ the importance of detecting and reporting signs of injury.
 
 8.1 There must be consultation with workers and their representatives on matters covered by the vibration regulations and in particular on:
 
-•
-the assessments, measurements and findings of the risks assessment
+• the assessments, measurements and findings of the risks assessment
 
-•
-measures taken to eliminate or reduce risks arising from exposure to vibration
+• measures taken to eliminate or reduce risks arising from exposure to vibration
 
-•
-worker information and training; and
+• worker information and training; and
 
-•
-the arrangements for health surveillance.
+• the arrangements for health surveillance.
 
 9. Persons on whom duties are imposed (regulation 11)
 
@@ -235,17 +204,13 @@ What are the early symptoms?
 
 4.Identifying signs and symptoms at an early stage is important as it will allow an employer, to take action to prevent the health effects from becoming serious for the worker(s) concerned. The symptoms can include any combination of:
 
-•
-tingling and numbness in the fingers
+• tingling and numbness in the fingers
 
-•
-not being able to feel things properly
+• not being able to feel things properly
 
-•
-loss of strength in the hands
+• loss of strength in the hands
 
-•
-fingers going white (blanching) and becoming red and painful on recovery (particularly in the cold and wet, and probably only in the tips at first).
+• fingers going white (blanching) and becoming red and painful on recovery (particularly in the cold and wet, and probably only in the tips at first).
 
 In some instances a worker’s symptoms may appear after only a few months of exposure, but for others they may take a few years. The symptoms are likely to get worse with continued exposure to vibration and may become permanent.
 
@@ -253,64 +218,47 @@ What effects do these symptoms have?
 
 5.The effects on workers of the symptoms identified in paragraph 8 can include:
 
-•
-pain, distress and sleep disturbance;
+• pain, distress and sleep disturbance;
 
-•
-inability to do fine work (e.g. assembling small components) or everyday tasks (e.g. fastening buttons);
+• inability to do fine work (e.g. assembling small components) or everyday tasks (e.g. fastening buttons);
 
-•
-reduced ability to work in cold or damp conditions (i.e. most outdoor work) which would trigger painful finger blanching attacks;
+• reduced ability to work in cold or damp conditions (i.e. most outdoor work) which would trigger painful finger blanching attacks;
 
-•
-reduced grip strength which might affect the ability to do work safely. These effects can severely limit the jobs an affected person is able to do, and may well cause problems in respect of many family and social activities.
+• reduced grip strength which might affect the ability to do work safely. These effects can severely limit the jobs an affected person is able to do, and may well cause problems in respect of many family and social activities.
 
 What kinds of tools and equipment can cause ill health from vibration?
 
 6.There are literally hundreds of different types of hand-held power tools and equipment which can cause ill health from hand-arm vibration. Some of the more common ones that could be, or are, used in the maritime sector are:
 
-•
-chainsaws
+• chainsaws
 
-•
-pedestal grinders
+• pedestal grinders
 
-•
-hammer drills
+• hammer drills
 
-•
-polishers
+• polishers
 
-•
-hand-held grinders
+• hand-held grinders
 
-•
-power hammers and chisels
+• power hammers and chisels
 
-•
-impact wrenches
+• impact wrenches
 
-•
-powered sanders
+• powered sanders
 
-•
-jigsaws
+• jigsaws
 
-•
-scabblers
+• scabblers
 
-•
-needle scalers
+• needle scalers
 
 What do the regulations require employers to do?
 
 7.The vibration regulations require employers to:
 
-•
-assess the vibration risk to workers
+• assess the vibration risk to workers
 
-•
-decide if workers are likely to be exposed above the daily exposure action value (EAV) and if they are:
+• decide if workers are likely to be exposed above the daily exposure action value (EAV) and if they are:
 
 i) introduce a programme of controls to eliminate risk, or reduce exposure to as low a level as is reasonably practicable;
 
@@ -320,20 +268,15 @@ ii) provide health surveillance (regular health checks) to those workers who con
 
 i) take immediate action to reduce their exposure below the limit value
 
-•
-provide information and training to workers on health risks and the actions being taken to control those risks
+• provide information and training to workers on health risks and the actions being taken to control those risks
 
-•
-consult the ship’s safety representative or workers on the proposals to control risk and to provide health surveillance
+• consult the ship’s safety representative or workers on the proposals to control risk and to provide health surveillance
 
-•
-keep a record of the risk assessment and control actions
+• keep a record of the risk assessment and control actions
 
-•
-keep health records for workers under health surveillance
+• keep health records for workers under health surveillance
 
-•
-review and update the risk assessment regularly
+• review and update the risk assessment regularly
 
 What is the exposure action value (EAV)?
 
@@ -347,14 +290,11 @@ What does an employer need to do to get started?
 
 10.As a first step employers will need to identify whether there is likely to be a significant risk to their workers from hand-arm vibration. To do so they should:
 
-•
-find out from their workers, supervisors etc which, if any, processes involve regular exposure to vibration (e.g. processes using the equipment listed in ‘What kinds of tools and equipment can cause ill health from vibration?’ or other vibrating equipment)
+• find out from their workers, supervisors etc which, if any, processes involve regular exposure to vibration (e.g. processes using the equipment listed in ‘What kinds of tools and equipment can cause ill health from vibration?’ or other vibrating equipment)
 
-•
-see whether there are any warnings of vibration risks in equipment handbooks
+• see whether there are any warnings of vibration risks in equipment handbooks
 
-•
-ask workers if they have any of the HAVS symptoms described in this leaflet and whether the equipment being used produces high levels of vibration or uncomfortable strains on hands and arms.
+• ask workers if they have any of the HAVS symptoms described in this leaflet and whether the equipment being used produces high levels of vibration or uncomfortable strains on hands and arms.
 
 Consultation
 
@@ -366,22 +306,17 @@ Assess who is at risk
 
 Employers can do the risk assessment themselves or appoint a competent person to do it for them. Whoever does the risk assessment should have read and understood the vibration regulations and this MGN, have a good knowledge of the work processes used on the vessel and be able to collect and understand relevant information. They should also be able to develop a plan of action based on their findings and ensure it is introduced and effective. To this end they will need to:
 
-•
-make a list of equipment that may cause vibration, and what sort of work it is used for
+• make a list of equipment that may cause vibration, and what sort of work it is used for
 
-•
-collect information about the equipment from equipment handbooks (make, model, power, vibration risks, vibration information etc)
+• collect information about the equipment from equipment handbooks (make, model, power, vibration risks, vibration information etc)
 
-•
-make a list of workers who use the vibrating equipment and which jobs they do
+• make a list of workers who use the vibrating equipment and which jobs they do
 
 i) note as accurately as possible how long workers’ hands are actually in contact with the equipment while it is vibrating – in some cases this ‘trigger time’ may only be a few minutes in several hours of work with the equipment
 
-•
-ask workers which equipment seems to have high levels of vibration and about any other problems they may have in using it, e.g. its weight, awkward postures needed to use the tool, difficulty in holding and operating it
+• ask workers which equipment seems to have high levels of vibration and about any other problems they may have in using it, e.g. its weight, awkward postures needed to use the tool, difficulty in holding and operating it
 
-•
-record the relevant information they have collected and their assessment of who is likely to be at risk.
+• record the relevant information they have collected and their assessment of who is likely to be at risk.
 
 How should employers use this information?
 
@@ -391,11 +326,9 @@ High risk (above the ELV)
 
 Workers who regularly operate:
 
-•
-hammer action tools for more than about one hour per day; or
+• hammer action tools for more than about one hour per day; or
 
-•
-some rotary and other action tools for more than about two hours per day.
+• some rotary and other action tools for more than about two hours per day.
 
 Workers in this group are likely to be above the exposure limit value set out in the regulations. These times should however only be considered as a guide as the limit value could be exceeded in a much shorter time in some cases, especially where the tools used are not the most suitable for the job.
 
@@ -403,11 +336,9 @@ Medium risk (above the EAV)
 
 Workers who regularly operate:
 
-•
-hammer action tools for more than about 15 minutes per day; or
+• hammer action tools for more than about 15 minutes per day; or
 
-•
-some rotary and other action tools for more than about one hour per day.
+• some rotary and other action tools for more than about one hour per day.
 
 Workers in this group are likely to be exposed above the exposure action value set out in the regulations.
 
@@ -419,14 +350,11 @@ Is it necessary to measure workers’ exposure to vibration?
 
 14.The rough groupings described in the preceding paragraph should be enough for an employer to do a basic risk assessment which will enable them to decide whether exposures are likely to exceed the exposure action value and exposure limit value and allow them to plan and prioritise their control actions effectively. Alternatively, they may choose either to use available vibration data or to have measurements made to estimate exposures if they want to be more certain of whether the risk is high, medium or low. A more detailed exposure assessment may help an employer:
 
-•
-decide which control actions might be most effective and practicable in reducing vibration exposure
+• decide which control actions might be most effective and practicable in reducing vibration exposure
 
-•
-be more certain whether exposures are likely to exceed the action or limit values
+• be more certain whether exposures are likely to exceed the action or limit values
 
-•
-check whether their controls are effective. If an employer decides to do this the following paragraph may be of assistance.
+• check whether their controls are effective. If an employer decides to do this the following paragraph may be of assistance.
 
 Estimating exposure
 
@@ -500,11 +428,9 @@ Points per hour (approximate)
 
 Multiply the points assigned to the tool vibration by the number of hours of daily ‘trigger time’ For the tool(s) and then compare the total with the exposure action value (EAV) and exposure limit value (ELV) points.
 
-•
-100 points per day = exposure action value (EAV)
+• 100 points per day = exposure action value (EAV)
 
-•
-400 points per day = exposure limit value (ELV)
+• 400 points per day = exposure limit value (ELV)
 
 Vibration measurements for equipment produced by the employer
 
@@ -514,17 +440,13 @@ What are the responsibilities of tool and machine manufacturers and suppliers in
 
 18.Manufacturers and suppliers of tools and machines and machines intended for use in the EC are obliged by the Supply of Machinery (Safety) Regulations 1992 (as amended) to design equipment which will reduce vibration risks to as low a level as possible, making use of the latest technology. The equipment should be UKCA or CE-marked to show that it complies with these requirements, and health and safety information should be provided in an instruction book. This should include:
 
-•
-warnings about any vibration-related risk from using the equipment
+• warnings about any vibration-related risk from using the equipment
 
-•
-information on safe use and, where necessary, training requirements
+• information on safe use and, where necessary, training requirements
 
-•
-information on how to maintain the equipment
+• information on how to maintain the equipment
 
-•
-a statement of the vibration emission (or a statement that the vibration test has produced a vibration emission of less than 2.5 m/s²) together with information on the test method used (see ‘estimating exposure’).
+• a statement of the vibration emission (or a statement that the vibration test has produced a vibration emission of less than 2.5 m/s²) together with information on the test method used (see ‘estimating exposure’).
 
 19.For most types of tool, manufacturers use internationally agreed test methods for vibration testing. These allow you to compare the vibration performance of different brands and models of the same type of tool. Unfortunately, many of these test methods do not represent the way tools perform at work and vibration levels in the workplace may be much higher than those in this type of ‘laboratory’ test. In some industries, employers’ organisations, equipment manufacturers and hire companies have adopted colour-coding systems to mark tools to show which high, medium and low risk are. These ‘traffic light’ systems are intended to help users manage the use of the tools to control risks from vibration.
 
@@ -534,68 +456,51 @@ How can the risks from hand-arm vibration be controlled?
 
 Alternative work methods
 
-•
-look for alternative work methods which eliminate or reduce exposure to vibration. Trade associations, other industry contacts, equipment suppliers and trade journals may help identify good practice.
+• look for alternative work methods which eliminate or reduce exposure to vibration. Trade associations, other industry contacts, equipment suppliers and trade journals may help identify good practice.
 
-•
-mechanise or automate the work.
+• mechanise or automate the work.
 
 Equipment selection
 
-•
-make sure that equipment selected or allocated for tasks is suitable and can do the work efficiently. Equipment that is unsuitable, too small or not powerful enough is likely to take much longer to complete the task and expose employees to vibration for longer than is necessary.
+• make sure that equipment selected or allocated for tasks is suitable and can do the work efficiently. Equipment that is unsuitable, too small or not powerful enough is likely to take much longer to complete the task and expose employees to vibration for longer than is necessary.
 
-•
-select the lowest vibration tool that is suitable and can do the work efficiently.
+• select the lowest vibration tool that is suitable and can do the work efficiently.
 
-•
-limit the use of high-vibration tools wherever possible.
+• limit the use of high-vibration tools wherever possible.
 
 Purchasing policy for replacing old equipment and tools
 
 Work equipment is likely to be replaced over time as it becomes worn out, and it is important that employers choose replacements, so far as is reasonably practicable, which are suitable for the work, efficient and of lower vibration. To this end:-
 
-•
-discuss requirements with a range of suppliers.
+• discuss requirements with a range of suppliers.
 
-•
-check with suppliers that their equipment is suitable and will be effective for the work, compare vibration emission information for different brands/models of equipment, ask for vibration information for the way you plan to use the equipment, and ask for information on any training requirements for safe operation.
+• check with suppliers that their equipment is suitable and will be effective for the work, compare vibration emission information for different brands/models of equipment, ask for vibration information for the way you plan to use the equipment, and ask for information on any training requirements for safe operation.
 
-•
-get workers to try the different models and brands of equipment and take account of their opinions before deciding which to buy.
+• get workers to try the different models and brands of equipment and take account of their opinions before deciding which to buy.
 
-•
-find out about the equipment’s vibration reduction features and how to use and maintain the equipment to make these features effective.
+• find out about the equipment’s vibration reduction features and how to use and maintain the equipment to make these features effective.
 
-•
-make sure the organisation has a policy on purchasing suitable equipment, taking account of vibration emission, efficiency and your specific requirements.
+• make sure the organisation has a policy on purchasing suitable equipment, taking account of vibration emission, efficiency and your specific requirements.
 
-•
-train purchasing staff on the issues relating to vibration so that they can deal effectively with equipment suppliers.
+• train purchasing staff on the issues relating to vibration so that they can deal effectively with equipment suppliers.
 
 Workstation design
 
-•
-improve the design of workstations to minimise loads on employees’ hands, wrists and arms caused by poor posture.
+• improve the design of workstations to minimise loads on employees’ hands, wrists and arms caused by poor posture.
 
-•
-use devices such as jigs and suspension systems to reduce the need to grip heavy tools tightly.
+• use devices such as jigs and suspension systems to reduce the need to grip heavy tools tightly.
 
 Maintenance
 
-•
-introduce appropriate maintenance programmes for equipment to prevent avoidable increases in vibration (following the manufacturer’s recommendations where appropriate).
+• introduce appropriate maintenance programmes for equipment to prevent avoidable increases in vibration (following the manufacturer’s recommendations where appropriate).
 
-•
-do not use blunt or damaged equipment and replace consumable items such as grinding wheels, so that equipment is efficient and keeps employee exposure as short as possible.
+• do not use blunt or damaged equipment and replace consumable items such as grinding wheels, so that equipment is efficient and keeps employee exposure as short as possible.
 
 Work schedules
 
-•
-limit the time that workers are exposed to vibration.
+• limit the time that workers are exposed to vibration.
 
-•
-plan work to avoid individual workers being exposed to vibration for long, continuous periods – several shorter periods are preferable.
+• plan work to avoid individual workers being exposed to vibration for long, continuous periods – several shorter periods are preferable.
 
 i) Where tools require continual or frequent use, introduce worker rotas to limit exposure times (workers should not be exposed for periods which are long enough to put them in the high risk group (see ‘High risk ‘(above the ELV)).
 
@@ -617,20 +522,15 @@ What are the health effects of whole body vibration?
 
 3.One of the primary health effects of whole body vibration may be back pain. In the UK as a whole over five million working days are lost each year due to back pain caused or made worse by work. However, these figures include land based workers, including those working on off-road mobile machinery, agricultural vehicles or industrial trucks and also include back pain caused by work and non-work activities where the latter is made worse by work. However caused back pain, can lead to time off work, loss of productivity and compensation claims. Workers on vessels operating at high speed, especially fast patrol type craft, such as police launches, customs cutters, pilot boats etc, and RIBS are likely to be at an increased risk from back pain, subject to the conditions in which they are operating, in addition to other health risks that may arise from exposure to whole body vibration. Such problems can be exacerbated by:-
 
-•
-poor design of controls, making it difficult for the helmsman at least to operate the vessel easily or to see properly without twisting or stretching
+• poor design of controls, making it difficult for the helmsman at least to operate the vessel easily or to see properly without twisting or stretching
 
-•
-incorrect adjustment of seat positions and any controls, so that it is necessary to continually twist, bend, lean and stretch during vessel operations
+• incorrect adjustment of seat positions and any controls, so that it is necessary to continually twist, bend, lean and stretch during vessel operations
 
-•
-sitting for long periods without being able to change position
+• sitting for long periods without being able to change position
 
-•
-poor worker posture
+• poor worker posture
 
-•
-excessive exposure to whole-body vibration, particularly to shocks and jolts
+• excessive exposure to whole-body vibration, particularly to shocks and jolts
 
 The risk increases where the workers are exposed to two or more of these factors together. Employers can go some way to help workers avoid the problem, but cannot prevent all back pain, especially where it is caused other than by work related vibration. Employers should therefore encourage workers to adopt early reporting of symptoms of back pain or other vibration induced health problems as proper treatment and suitable rehabilitation is essential.
 
@@ -654,17 +554,13 @@ decide if workers are likely to be exposed above the daily exposure action value
 
 i) take immediate action to reduce their exposure below the limit value
 
-•
-provide information and training on health risks and controls to workers at risk
+• provide information and training on health risks and controls to workers at risk
 
-•
-consult the ship’s safety representative or workers about the risks and what it is planned to do to alleviate them
+• consult the ship’s safety representative or workers about the risks and what it is planned to do to alleviate them
 
-•
-keep a record of the risk assessment and control actions
+• keep a record of the risk assessment and control actions
 
-•
-review and update the risk assessment regularly.
+• review and update the risk assessment regularly.
 
 What is the exposure action value (EAV)?
 
@@ -682,20 +578,15 @@ How is a risk assessment undertaken?
 
 10.Employers should collect the basic information needed by observing work tasks, talking to managers, workers and others on the ship. This should produce enough information to permit the making of a broad assessment of the risk to permit control measures to be introduced to reduce the risk to a reasonable level. Exposures may however be found to be high where one or more of the following is found:
 
-•
-vessel or engine manufacturers warn in the vessel/engine handbook of risks from whole-body vibration
+• vessel or engine manufacturers warn in the vessel/engine handbook of risks from whole-body vibration
 
-•
-the vessel and/or engine etc is unsuitable for the tasks for which they are being used (check the handbook or ask the supplier)
+• the vessel and/or engine etc is unsuitable for the tasks for which they are being used (check the handbook or ask the supplier)
 
-•
-the vessel is being operated at too high a speed for the prevailing sea conditions or the course being taken
+• the vessel is being operated at too high a speed for the prevailing sea conditions or the course being taken
 
-•
-workers are being jolted, continuously shaken or, when going over wave crests, rising visibly in their seats
+• workers are being jolted, continuously shaken or, when going over wave crests, rising visibly in their seats
 
-•
-workers report back problems.
+• workers report back problems.
 
 11.Employers should record their findings and assess which groups of their employees might be most at risk. This kind of broad risk assessment can be done without needing to estimate or measure vibration exposure. Most employers will not need to do any measurements or employ vibration specialists to help with the risk assessment. However, it is possible that whole-body vibration may not be the only cause, or the main cause, of back pain. Workers may identify vibration as the source of back pain because it is their exposure to vibration that causes them discomfort. However when investigated it may be found that something else is the most likely cause of the back pain and the vibration is only exacerbating the discomfort.
 
@@ -713,11 +604,9 @@ How can vessel and equipment manufacturers help?
 
 14.Employers should seek advice from suppliers on the vessels and equipment that are most suitable, and with the lowest vibration, for the work proposed by the employer. Employers should avoid any vessels or equipment reported to have unusually high vibration. Choosing unsuitable vessels or equipment could increase vibration exposure as well as being less efficient. Manufacturers of vessels (especially small craft), engines and equipment might be able to assist employers by:
 
-•
-designing and constructing vessels, engines and equipment which reduce whole-body vibration to the minimum that can be achieved
+• designing and constructing vessels, engines and equipment which reduce whole-body vibration to the minimum that can be achieved
 
-•
-providing a technical handbook giving information on:
+• providing a technical handbook giving information on:
 
 i) safe use of the vessel, engine or equipment in its intended application
 
@@ -735,86 +624,63 @@ How are the risks from whole-body vibration to be controlled?
 
 Train and instruct workers using vessels/equipment which can cause whole-body vibration. Such workers should:
 
-•
-where fitted, adjust the weight setting on suspension seats to minimise vibration transmission to the occupant and to avoid the seat suspension ‘bottoming out’ when travelling over rough seas
+• where fitted, adjust the weight setting on suspension seats to minimise vibration transmission to the occupant and to avoid the seat suspension ‘bottoming out’ when travelling over rough seas
 
-•
-adjust the seat position and controls correctly, where adjustable, to provide good lines of sight, adequate support and ease of reach for any foot or hand controls
+• adjust the seat position and controls correctly, where adjustable, to provide good lines of sight, adequate support and ease of reach for any foot or hand controls
 
-•
-adjust the vessel speed to suit the sea conditions to avoid excessive bumping and jolting
+• adjust the vessel speed to suit the sea conditions to avoid excessive bumping and jolting
 
-•
-steer, accelerate, or reduce speed smoothly.
+• steer, accelerate, or reduce speed smoothly.
 
 Choose machinery suitable for the job
 
-•
-select vessels, engines, equipment etc appropriate to the work to be undertaken and/or the sea conditions.
+• select vessels, engines, equipment etc appropriate to the work to be undertaken and/or the sea conditions.
 
-•
-consult trade associations, manufacturers etc. Handbooks prepared by manufacturers may include advice on the risks from whole-body vibration, how to reduce them and how to train workers to operate safely and efficiently.
+• consult trade associations, manufacturers etc. Handbooks prepared by manufacturers may include advice on the risks from whole-body vibration, how to reduce them and how to train workers to operate safely and efficiently.
 
 Maintenance
 
-•
-make sure that vessels, engines, equipment etc are properly maintained.
+• make sure that vessels, engines, equipment etc are properly maintained.
 
-•
-maintain correctly any suspension or damping systems intended to reduce the effect of whole body vibration.
+• maintain correctly any suspension or damping systems intended to reduce the effect of whole body vibration.
 
-•
-obtain appropriate advice (from seat manufacturers and/or vibration specialists) when replacing a seat designed to reduce exposure to whole body vibration.
+• obtain appropriate advice (from seat manufacturers and/or vibration specialists) when replacing a seat designed to reduce exposure to whole body vibration.
 
 Other measures
 
-•
-develop work schedules to avoid long periods of exposure in a single day and allow for breaks where possible.
+• develop work schedules to avoid long periods of exposure in a single day and allow for breaks where possible.
 
-•
-avoid high levels of vibration and/or prolonged exposure for older employees, people with back problems, young people and pregnant women.
+• avoid high levels of vibration and/or prolonged exposure for older employees, people with back problems, young people and pregnant women.
 
-•
-carry out health monitoring
+• carry out health monitoring
 
 How can it be established whether risk control measures are working?
 
-•
-ask workers if they are experiencing fewer and less severe shocks and jolts and note whether reports of back pain have been reduced.
+• ask workers if they are experiencing fewer and less severe shocks and jolts and note whether reports of back pain have been reduced.
 
-•
-check that the programme of controls you have introduced is being carried out properly by those delegated to ensure it is as well as the workers themselves.
+• check that the programme of controls you have introduced is being carried out properly by those delegated to ensure it is as well as the workers themselves.
 
-•
-use the results of health monitoring to assist in deciding if the controls are working.
+• use the results of health monitoring to assist in deciding if the controls are working.
 
 What information and training should be given to workers?
 
 16.Employers should provide workers with information on:
 
-•
-the possible link to back pain from exposure to whole-body vibration, including from large shocks and jolts
+• the possible link to back pain from exposure to whole-body vibration, including from large shocks and jolts
 
-•
-the likely sources of hazardous vibration
+• the likely sources of hazardous vibration
 
-•
-the risk factors (e.g. severity of vibration and length of exposure, increased risk from poor posture or manual handling of heavy objects)
+• the risk factors (e.g. severity of vibration and length of exposure, increased risk from poor posture or manual handling of heavy objects)
 
-•
-the findings of the risk assessment including the employer’s decisions on which worker’s vibration exposures need to be managed
+• the findings of the risk assessment including the employer’s decisions on which worker’s vibration exposures need to be managed
 
-•
-the measures being used to control the risks
+• the measures being used to control the risks
 
-•
-the role and system of health monitoring
+• the role and system of health monitoring
 
-•
-how to report back problems, or any other problems which might be linked to exposure to vibration
+• how to report back problems, or any other problems which might be linked to exposure to vibration
 
-•
-the ways they can help to minimise risk.
+• the ways they can help to minimise risk.
 
 Consultation
 
@@ -826,58 +692,43 @@ When should health surveillance be provided?
 
 1.MCA recommends that a system of health surveillance is set up for workers whose jobs carry a higher than average risk of exposure to vibration. Employers should:
 
-•
-agree with workers and safety representatives an ongoing system for early reporting of problems in hands/arms, back pain or other vibration related symptoms
+• agree with workers and safety representatives an ongoing system for early reporting of problems in hands/arms, back pain or other vibration related symptoms
 
-•
-review and analyse the results to identify vulnerable individuals and groups of workers
+• review and analyse the results to identify vulnerable individuals and groups of workers
 
-•
-periodically (MCA recommends once a year) complete a questionnaire checklist for employees at risk
+• periodically (MCA recommends once a year) complete a questionnaire checklist for employees at risk
 
-•
-refer employees with vibration related symptoms to the occupational health service provider, where available
+• refer employees with vibration related symptoms to the occupational health service provider, where available
 
-•
-treat personal information about the health of individual employees as confidential
+• treat personal information about the health of individual employees as confidential
 
-•
-consider the results to check if the risk controls are working
+• consider the results to check if the risk controls are working
 
-•
-make changes to the risk controls if necessary.
+• make changes to the risk controls if necessary.
 
 How can it be established if the steps taken to control risks are working?
 
 2.Employers should:-
 
-•
-check regularly that the programme of controls they have introduced are being carried out by managers and workers.
+• check regularly that the programme of controls they have introduced are being carried out by managers and workers.
 
-•
-talk regularly to managers, supervisors, workers and safety representatives about whether there are any vibration problems with the equipment or the way it is being used.
+• talk regularly to managers, supervisors, workers and safety representatives about whether there are any vibration problems with the equipment or the way it is being used.
 
-•
-check the results of health surveillance and discuss with the occupational health service provider whether the controls appear to be effective or need to be changed.
+• check the results of health surveillance and discuss with the occupational health service provider whether the controls appear to be effective or need to be changed.
 
 Providing health surveillance
 
 3.Employers must provide health surveillance for all workers who, despite action taken to control risks, are likely to be regularly exposed above the exposure action value or are considered to be at risk for any other reason. The purpose of health surveillance is to:
 
-•
-identify anyone exposed or about to be exposed to hand-arm vibration or whole body vibration who may be at particular risk, for example people with blood circulatory diseases, pregnant, young or older workers or workers suffering from back problems
+• identify anyone exposed or about to be exposed to hand-arm vibration or whole body vibration who may be at particular risk, for example people with blood circulatory diseases, pregnant, young or older workers or workers suffering from back problems
 
-•
-identify any vibration-related disease at an early stage in employees regularly exposed to hand-arm or whole body vibration
+• identify any vibration-related disease at an early stage in employees regularly exposed to hand-arm or whole body vibration
 
-•
-help prevent disease progression and eventual disability
+• help prevent disease progression and eventual disability
 
-•
-help people stay in work
+• help people stay in work
 
-•
-check the effectiveness of an employer’s vibration control measures.
+• check the effectiveness of an employer’s vibration control measures.
 
 4.Employers should consult with the ship’s safety representative, and the workers concerned before introducing health surveillance. It is important that workers understand that the aim of health surveillance is to protect them from developing advanced symptoms of ill health so that they can continue to work. Employers will need their understanding and co-operation if health surveillance is to be effective.
 
@@ -889,42 +740,31 @@ What can be expected from an occupational health service provider?
 
 6.A suitable occupational health service provider will have training and experience in health surveillance for hand-arm or whole body vibration. They should be able to:
 
-•
-advise on a suitable health surveillance programme for workers
+• advise on a suitable health surveillance programme for workers
 
-•
-set up the programme
+• set up the programme
 
-•
-provide the necessary training and supervision for staff if they are going to help with the basic health surveillance
+• provide the necessary training and supervision for staff if they are going to help with the basic health surveillance
 
-•
-provide suitably qualified and experienced staff to carry out the higher level health surveillance
+• provide suitably qualified and experienced staff to carry out the higher level health surveillance
 
-•
-provide employers with reports on their worker’ fitness to continue work which exposes them to vibration.
+• provide employers with reports on their worker’ fitness to continue work which exposes them to vibration.
 
 What do employers have to do with the results of health surveillance?
 
 7.Employers will need to:
 
-•
-keep records of the health surveillance and fitness for work advice provided for each worker (but not the confidential medical records which are kept by the doctor). An MCA surveyor is entitled to ask to see the health records as part of their checks that you are complying with the regulations
+• keep records of the health surveillance and fitness for work advice provided for each worker (but not the confidential medical records which are kept by the doctor). An MCA surveyor is entitled to ask to see the health records as part of their checks that you are complying with the regulations
 
-•
-make a worker’s records available to the worker if requested to do so
+• make a worker’s records available to the worker if requested to do so
 
-•
-act upon any recommendations made by the doctor about workers’ continued exposure to vibration
+• act upon any recommendations made by the doctor about workers’ continued exposure to vibration
 
-•
-help prevent disease progression and eventual disability
+• help prevent disease progression and eventual disability
 
-•
-help people stay in work
+• help people stay in work
 
-•
-check the effectiveness of an employer’s vibration control measures.
+• check the effectiveness of an employer’s vibration control measures.
 
 8.Employers should consult with the ship’s safety representative, and the workers concerned before introducing health surveillance. It is important that workers understand that the aim of health surveillance is to protect them from developing advanced symptoms of ill health so that they can continue to work. Employers will need their understanding and co-operation if health surveillance is to be effective.
 
@@ -936,58 +776,43 @@ What can be expected from an occupational health service provider?
 
 10.A suitable occupational health service provider will have training and experience in health surveillance for hand-arm or whole body vibration. They should be able to:
 
-•
-advise on a suitable health surveillance programme for workers
+• advise on a suitable health surveillance programme for workers
 
-•
-set up the programme
+• set up the programme
 
-•
-provide suitably qualified and experienced staff to carry out the higher level health surveillance
+• provide suitably qualified and experienced staff to carry out the higher level health surveillance
 
-•
-provide employers with reports on their worker’ fitness to continue work which exposes them to vibration.
+• provide employers with reports on their worker’ fitness to continue work which exposes them to vibration.
 
 What do employers have to do with the results of health surveillance?
 
 11.Employers will need to:
 
-•
-keep records of the health surveillance and fitness for work advice provided for each worker (but not the confidential medical records which are kept by the doctor). An MCA surveyor is entitled to ask to see the health records as part of their checks that you are complying with the regulations
+• keep records of the health surveillance and fitness for work advice provided for each worker (but not the confidential medical records which are kept by the doctor). An MCA surveyor is entitled to ask to see the health records as part of their checks that you are complying with the regulations
 
-•
-make a worker’s records available to the worker if requested to do so
+• make a worker’s records available to the worker if requested to do so
 
-•
-use the results to review and, if necessary, revise risk assessments, including plans to control risks
+• use the results to review and, if necessary, revise risk assessments, including plans to control risks
 
-•
-discuss any changes to the risk assessment with the ship’s safety representative or the workers themselves
+• discuss any changes to the risk assessment with the ship’s safety representative or the workers themselves
 
 What information and training should be given to workers?
 
 12.Employers should provide workers with information on:
 
-•
-the health effects of hand-arm or whole body vibration
+• the health effects of hand-arm or whole body vibration
 
-•
-sources of hand-arm or whole body vibration
+• sources of hand-arm or whole body vibration
 
-•
-whether they are at risk, and if so whether the risk is high (above the ELV), medium (above the EAV) or low
+• whether they are at risk, and if so whether the risk is high (above the ELV), medium (above the EAV) or low
 
-•
-the risk factors (eg the levels of vibration, daily exposure duration, regularity of exposure over weeks, months and years)
+• the risk factors (eg the levels of vibration, daily exposure duration, regularity of exposure over weeks, months and years)
 
-•
-how to recognise and report symptoms
+• how to recognise and report symptoms
 
-•
-the need for health surveillance, how it can help them remain fit for work, how it is planned to provide it, how it is planned to use the results and the confidentiality of the results
+• the need for health surveillance, how it can help them remain fit for work, how it is planned to provide it, how it is planned to use the results and the confidentiality of the results
 
-•
-ways to minimise risk including:
+• ways to minimise risk including:
 
 i) changes to working practices to reduce vibration exposure
 

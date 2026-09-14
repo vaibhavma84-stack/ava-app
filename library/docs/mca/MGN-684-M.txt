@@ -1,4 +1,4 @@
-MGN 684 (M) MGN 684 (M) Safety of powered watercraft
+MGN 684 (M) Safety of powered watercraft
 2024-02-01
 Source: https://www.gov.uk/government/publications/mgn-684-m-safety-of-powered-watercraft
 
@@ -16,11 +16,9 @@ These changes are effective from 31 March 2023 and are designed to ensure that t
 
 1.3 The Merchant Shipping (Watercraft) Order 2023 (“the Order”) closes this gap by applying the dangerous use provisions of the MSA to powered watercraft – that is, by ensuring those provisions cover not only vessels used in navigating from one place to another or for commercial fishing, but for other purposes as well. As a result, the Order applies these provisions to any type of craft of any size which is not a “ship” or a “fishing vessel”, so long as it:
 
-•
-is capable of moving under its own mechanical power;
+• is capable of moving under its own mechanical power;
 
-•
-is used, navigated or situated wholly or partly in or on water; and is capable of being used to carry one or more persons.
+• is used, navigated or situated wholly or partly in or on water; and is capable of being used to carry one or more persons.
 
 1.4 It does not matter what kind of power is used, so electrically-powered vessels of any size (including, for instance, eFoils) are “watercraft” and come within the Order’s reach.
 

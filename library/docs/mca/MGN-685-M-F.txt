@@ -1,4 +1,4 @@
-MGN 685 (M+F) MGN 685 (M+F) Issue of discharge books to seafarers
+MGN 685 (M+F) Issue of discharge books to seafarers
 2023-05-10
 Source: https://www.gov.uk/government/publications/mgn-685-mf-issue-of-discharge-books-to-seafarers
 
@@ -20,20 +20,15 @@ To apply for a discharge book, download the application form MSF 4509.
 
 1.2 Entries in a discharge book also meet the requirement under Regulation 12(6) of the Merchant Shipping (Maritime Labour Convention) (Minimum requirements for seafarers etc.) Regulations 2014 to provide seafarers with a written record of work on a ship. Such a record must contain as a minimum:
 
-•
-name, port of registry, gross or registered tonnage and official number of the ship.
+• name, port of registry, gross or registered tonnage and official number of the ship.
 
-•
-description of voyage.
+• description of voyage.
 
-•
-capacity in which seafarer worked on the ship.
+• capacity in which seafarer worked on the ship.
 
-•
-date on which seafarer started work on the ship.
+• date on which seafarer started work on the ship.
 
-•
-date and location of seafarer’s discharge from the ship.
+• date and location of seafarer’s discharge from the ship.
 
 1.3 However, the form of such a record is not prescribed.
 
@@ -61,26 +56,19 @@ date and location of seafarer’s discharge from the ship.
 
 3.7 The following are not eligible for a UK discharge book:
 
-•
-those working on non-seagoing vessels;
+• those working on non-seagoing vessels;
 
-•
-those working on pleasure vessels who are not paid for their work;
+• those working on pleasure vessels who are not paid for their work;
 
-•
-those working on unregistered vessels;
+• those working on unregistered vessels;
 
-•
-those working on a “light ship” belonging to a general lighthouse authority;
+• those working on a “light ship” belonging to a general lighthouse authority;
 
-•
-those other than UK seafarers, working on non-UK registered vessels;
+• those other than UK seafarers, working on non-UK registered vessels;
 
-•
-those working on ships on coastal voyages around the UK for the purposes of sea trials of the ship, its machinery or equipment; or solely in connection with the construction, alteration, repair or testing of the ship, and not engaged in the navigation of the ship;
+• those working on ships on coastal voyages around the UK for the purposes of sea trials of the ship, its machinery or equipment; or solely in connection with the construction, alteration, repair or testing of the ship, and not engaged in the navigation of the ship;
 
-•
-Crown employees who are not ordinarily employed as seafarers (e.g. MCA surveyors).
+• Crown employees who are not ordinarily employed as seafarers (e.g. MCA surveyors).
 
 3.8 The MCA reserves the right to ask applicants for further information from their employer, in order to establish whether they are a seafarer.
 
@@ -88,17 +76,13 @@ Crown employees who are not ordinarily employed as seafarers (e.g. MCA surveyors
 
 4.1 The MCA will require the following as evidence of eligibility of a seafarer for a UK discharge book:
 
-•
-evidence that applicant has right of abode in the UK: or
+• evidence that applicant has right of abode in the UK: or
 
-•
-if a seafarer who does not have right of abode in the UK, evidence that the seafarer is employed or engaged to work on a UK ship, and in either case;
+• if a seafarer who does not have right of abode in the UK, evidence that the seafarer is employed or engaged to work on a UK ship, and in either case;
 
-•
-evidence that the applicant is required to have a discharge book (i.e. does not fall into one of the categories listed in the previous section as not eligible)
+• evidence that the applicant is required to have a discharge book (i.e. does not fall into one of the categories listed in the previous section as not eligible)
 
-•
-any of the above evidence provided in support of an application for a discharge book must be valid at the date of issue of the discharge book.
+• any of the above evidence provided in support of an application for a discharge book must be valid at the date of issue of the discharge book.
 
 4.2 For more details see guidance on form MSF 4509.
 
@@ -108,28 +92,21 @@ any of the above evidence provided in support of an application for a discharge 
 
 5.2 The MCA does not consider the following to be seafarers:
 
-•
-privately contracted armed security personnel.
+• privately contracted armed security personnel.
 
-•
-contractors who attend the ship for commissioning, repair or decommissioning of its equipment
+• contractors who attend the ship for commissioning, repair or decommissioning of its equipment
 
-•
-those using the ship solely for accommodation at, or transport to, the place of work.
+• those using the ship solely for accommodation at, or transport to, the place of work.
 
 5.3 The applicant or their employer/sponsor must provide the following to demonstrate that they are a seafarer:
 
-•
-evidence of STCW personal safety and social responsibility training (PSSR);
+• evidence of STCW personal safety and social responsibility training (PSSR);
 
-•
-a seafarer employment agreement or equivalent terms and conditions of employment; and
+• a seafarer employment agreement or equivalent terms and conditions of employment; and
 
-•
-application form MSF 4509 signed by the shipowner or an authorised representative of the shipowner (e.g. listed on the shipowner’s DMLC part 2); or
+• application form MSF 4509 signed by the shipowner or an authorised representative of the shipowner (e.g. listed on the shipowner’s DMLC part 2); or
 
-•
-a letter from the shipowner, attesting that the applicant is engaged to work on board (name and flag of ship) for the period (provide dates or specify an unlimited period) and their normal place of work will be on board the ship (or ships).
+• a letter from the shipowner, attesting that the applicant is engaged to work on board (name and flag of ship) for the period (provide dates or specify an unlimited period) and their normal place of work will be on board the ship (or ships).
 
 5.4 For the avoidance of doubt, the signature of the master (unless the master is also the shipowner) or any member of ship’s crew will not be accepted.
 
@@ -242,5 +219,4 @@ A seafarer holding a discharge book or equivalent document issued by one of the 
 
 • Zambia
 
-•
-ILO Seafarers’ Identity Documents Convention, 1958 (No. 108) or ILO Seafarers’ Identity Documents Convention (Revised), 2003 (No. 185). ↩
+• ILO Seafarers’ Identity Documents Convention, 1958 (No. 108) or ILO Seafarers’ Identity Documents Convention (Revised), 2003 (No. 185). ↩

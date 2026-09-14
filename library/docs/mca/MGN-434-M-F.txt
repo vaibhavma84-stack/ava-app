@@ -1,4 +1,4 @@
-MGN 434 (M+F) MGN 434 (M+F) Amendment 2: Navigation: vessel traffic services (VTS) – training and certification of VTS personnel
+MGN 434 (M+F) Amendment 2: Navigation: vessel traffic services (VTS) – training and certification of VTS personnel
 2023-08-04
 Source: https://www.gov.uk/government/publications/mgn-434-mf-amendment-2-navigation-vessel-traffic-services-vts-training-and-certification-of-vts-personnel
 
@@ -98,8 +98,7 @@ To assess the aptitude, attributes and suitability of a candidate, the assistanc
 
 7.1 VTS training can only be provided by organisations that have been accredited by the MCA, have achieved approval of their courses through audit by the MCA in accordance with IALA Guidelines, and are in possession of a valid MCA Certificate of Approval. Following initial approval, all VTS courses are subject to intermediate / periodical audits between the 2nd and 3rd anniversary and a renewal audit every 5-years.
 
-•
-7.2 Organisations delivering VTS training should provide training services within the framework of a Training Management System (TMS), as prescribed by IALA Guideline No. 1014, that fulfils the requirements of an approved Quality Management System (QMS) standard. It is important to ensure that the programme for the training and assessment of VTS personnel, is:
+• 7.2 Organisations delivering VTS training should provide training services within the framework of a Training Management System (TMS), as prescribed by IALA Guideline No. 1014, that fulfils the requirements of an approved Quality Management System (QMS) standard. It is important to ensure that the programme for the training and assessment of VTS personnel, is:
 
 • • Able to meet and maintain the standard of competence as indicated in IALA Recommendation R0103
 
@@ -115,8 +114,7 @@ To assess the aptitude, attributes and suitability of a candidate, the assistanc
 
 • c. Reviews of recent accident reports, investigations, studies, and other emerging trends that may have an impact upon the delivery of VTS.
 
-•
-7.3 A current list of MCA accredited VTS Training Organisations is provided in a Marine Information Notice (MIN 554) published annually by the MCA.
+• 7.3 A current list of MCA accredited VTS Training Organisations is provided in a Marine Information Notice (MIN 554) published annually by the MCA.
 
 8. VTS Operator Training (C0103-1)
 
@@ -244,14 +242,11 @@ Certificates should display both IALA and MCA logos.
 
 IALA Model Course C0103-5 on the Revalidation process for VTS qualification and certification provides guidance on the implementation of VTS Refresher Training. Refresher Training, to enable the revalidation of qualification(s) contained within a VTS Certification Logbook, consists of three separate processes:
 
-•
-Recurrent Training should be carried out at regular intervals and is part of a structured training programme thereby enabling continual professional development and resulting in the maintenance of the VTS qualification.
+• Recurrent Training should be carried out at regular intervals and is part of a structured training programme thereby enabling continual professional development and resulting in the maintenance of the VTS qualification.
 
-•
-Adaptation Training is carried out whenever significant changes are expected or when changes have been made, concerning equipment, regulations, operational procedures, or any other matter which is relevant to the performance of VTSOs.
+• Adaptation Training is carried out whenever significant changes are expected or when changes have been made, concerning equipment, regulations, operational procedures, or any other matter which is relevant to the performance of VTSOs.
 
-•
-Updating Training is tailor made training following a training needs analysis indicating that VTSOs need additional training. Updating Training may be required after a break in service, unsatisfactory operational performance or other circumstances leading to a reduced level of competence.
+• Updating Training is tailor made training following a training needs analysis indicating that VTSOs need additional training. Updating Training may be required after a break in service, unsatisfactory operational performance or other circumstances leading to a reduced level of competence.
 
 13.2 The continual assessment of all VTS personnel by their respective VTS Providers should be carried out as well as a formal assessment annually. On-the-job formal assessment should be recorded at the rear of the VTS Certification Logbook under ‘Record of Annual Assessment’. This may take the form of a written and/or practical assessment which may be conducted through simulation or other means such as individual on-the-job assessment or a proficiency check. When determining which method of assessment to be used, consideration should be given to the fact that a written assessment will generally indicate the level of knowledge/insight whereas a practical assessment (e.g. in a simulator or on-the-job) will generally indicate a combination of both knowledge and skills. This assessment should be formal, standardised and well documented.
 
@@ -513,23 +508,17 @@ Portfolios should contain evidence of key traits and personal attributes of a su
 
 VTS Supervisor Advancement Training is based on the IALA Model Course C0103-2. The Model Course consists of the following six modules:
 
-•
-Module 1: Advanced Traffic Management - Data used in VTS/ Marine Organisations/ Traffic & Port Management/ Dangerous Cargoes.
+• Module 1: Advanced Traffic Management - Data used in VTS/ Marine Organisations/ Traffic & Port Management/ Dangerous Cargoes.
 
-•
-Module 2: VTS Equipment - Operation of equipment and systems/ Maintenance procedures/ Rectification of defects/ Redundancy of equipment/ Health & Safety requirements
+• Module 2: VTS Equipment - Operation of equipment and systems/ Maintenance procedures/ Rectification of defects/ Redundancy of equipment/ Health & Safety requirements
 
-•
-Module 3: Additional Personal Attributes - Leadership/ Communication Skills/ Stress management
+• Module 3: Additional Personal Attributes - Leadership/ Communication Skills/ Stress management
 
-•
-Module 4: Responding to Emergency Situations - Description and purpose of contingency plans/ Implementation of contingency plans/ Special circumstances/ Delegation of responsibility
+• Module 4: Responding to Emergency Situations - Description and purpose of contingency plans/ Implementation of contingency plans/ Special circumstances/ Delegation of responsibility
 
-•
-Module 5: Administrative Functions - Allied services/ Traffic schedules/ Preparation of reports (internal & external)/ Performance of a VTS centre/ Performance of VTS personnel
+• Module 5: Administrative Functions - Allied services/ Traffic schedules/ Preparation of reports (internal & external)/ Performance of a VTS centre/ Performance of VTS personnel
 
-•
-Module 6: Legal Knowledge - Legal basis for VTS in International Law/ Legal liabilities and their implications to VTS/ Legal liabilities and their implications to others in a VTS area/ Shipping Acts and Regulations relating to VTS
+• Module 6: Legal Knowledge - Legal basis for VTS in International Law/ Legal liabilities and their implications to VTS/ Legal liabilities and their implications to others in a VTS area/ Shipping Acts and Regulations relating to VTS
 
 There is no mandatory time interval between undertaking a VTS Operator course and VTS Supervisor course. When selecting candidates for VTS Supervisor training, VTS Providers should be mindful of the necessity for candidates:
 

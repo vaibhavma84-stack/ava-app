@@ -1,4 +1,4 @@
-MGN 690 (M+F) MGN 690 (M+F) Approval and acceptance of electronic record books and recording requirements under SOLAS chapter V/Reg 28
+MGN 690 (M+F) Approval and acceptance of electronic record books and recording requirements under SOLAS chapter V/Reg 28
 2023-11-21
 Source: https://www.gov.uk/government/publications/mgn-690-mf-approval-and-acceptance-of-electronic-record-books-and-recording-requirements-under-solas-chapter-vreg-28
 
@@ -56,59 +56,43 @@ The following section is intended to clarify the UK requirements with regards to
 
 4.1 Exporting of Data
 
-•
-The system shall include a feature which allows for the reproduction of records in hard copy/printed format on request of the administration or port state control.  Such hard copies shall be printed in ‘non-editable’ PDF format or similar.
+• The system shall include a feature which allows for the reproduction of records in hard copy/printed format on request of the administration or port state control.  Such hard copies shall be printed in ‘non-editable’ PDF format or similar.
 
-•
-If the system allows for data export, this shall be in an international standard format such as XML and should not allow for transference of edited data to be placed back into the Electronic Record Book.
+• If the system allows for data export, this shall be in an international standard format such as XML and should not allow for transference of edited data to be placed back into the Electronic Record Book.
 
-•
-On vessels fitted with VDR, the electronic deck logbook shall be connected to the VDR as a data storage element.
+• On vessels fitted with VDR, the electronic deck logbook shall be connected to the VDR as a data storage element.
 
 4.2 Recording of Entries
 
-•
-All entries shall be controlled and tracked so that each entry is linked to an identified user onboard.
+• All entries shall be controlled and tracked so that each entry is linked to an identified user onboard.
 
-•
-Each user account shall be controlled by means of username and password to ensure accurate individual entries.
+• Each user account shall be controlled by means of username and password to ensure accurate individual entries.
 
-•
-All entries shall be protected from deletion and any subsequent amendments made to approved entries shall be identifiable via a clear auditable trail.
+• All entries shall be protected from deletion and any subsequent amendments made to approved entries shall be identifiable via a clear auditable trail.
 
-•
-The system shall have the capability for the Master to countersign and/or endorse entries made.
+• The system shall have the capability for the Master to countersign and/or endorse entries made.
 
-•
-All entries are to be made in English only.
+• All entries are to be made in English only.
 
 4.3 Backup Facilities
 
-•
-The system hardware shall be powered from both the main and an emergency source of power and;
+• The system hardware shall be powered from both the main and an emergency source of power and;
 
-•
-Data shall be protected from damage if power is lost or transferred.
+• Data shall be protected from damage if power is lost or transferred.
 
-•
-The hardware shall include an adequate back-up system which ensures the preservation of all data during the event of hard drive failure or power failure.  The hardware shall be able to recover and utilize data from a back-up source.
+• The hardware shall include an adequate back-up system which ensures the preservation of all data during the event of hard drive failure or power failure.  The hardware shall be able to recover and utilize data from a back-up source.
 
-•
-Hard-copy logbooks which allow for the record of Navigational activities as stipulated within IMO Resolution A.916(22) shall be available onboard for use during any interim periods where the electronic system have become inoperable.
+• Hard-copy logbooks which allow for the record of Navigational activities as stipulated within IMO Resolution A.916(22) shall be available onboard for use during any interim periods where the electronic system have become inoperable.
 
 4.4 Procedural Requirements
 
-•
-Familiarisation of any Electronic Record Book installed in accordance with this guidance notice shall form part of the Officer/Crew familiarisation procedure and be clearly documented within the ships Safety Management System (SMS).
+• Familiarisation of any Electronic Record Book installed in accordance with this guidance notice shall form part of the Officer/Crew familiarisation procedure and be clearly documented within the ships Safety Management System (SMS).
 
-•
-Operating procedures detailing the use of and the maintenance of the hardware and software encompassing any Electronic Record Book installed in accordance with this guidance note shall be available within the ships SMS.
+• Operating procedures detailing the use of and the maintenance of the hardware and software encompassing any Electronic Record Book installed in accordance with this guidance note shall be available within the ships SMS.
 
-•
-Clearly defined backup and data retention policies shall be stipulated within the ships SMS.
+• Clearly defined backup and data retention policies shall be stipulated within the ships SMS.
 
-•
-The use of an Electronic Record Book for the purpose of recording information required by SOLAS Chapter V/Reg 28 shall form a part of the ship owner/managers internal verification and audit process to ensure the continued effectiveness of the system.
+• The use of an Electronic Record Book for the purpose of recording information required by SOLAS Chapter V/Reg 28 shall form a part of the ship owner/managers internal verification and audit process to ensure the continued effectiveness of the system.
 
 5. Approval and Verification Process
 
@@ -122,11 +106,9 @@ The use of an Electronic Record Book for the purpose of recording information re
 
 6.1 UK Flagged vessels may utilise Electronic Record Books for the purpose of recording information as required by SOLAS Chapter V/Reg 28 on the proviso that:
 
-•
-The Electronic Record Book is of an approved type (See Section 5)
+• The Electronic Record Book is of an approved type (See Section 5)
 
-•
-The vessel is in possession of a valid Conformity Assessment Certificate for the system in use (See Section 5)
+• The vessel is in possession of a valid Conformity Assessment Certificate for the system in use (See Section 5)
 
 and
 

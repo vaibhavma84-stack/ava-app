@@ -1,4 +1,4 @@
-MGN 550 (M+F) MGN 550 (M+F) Amendment 1: Electrical installations - guidance for safe design, installation and operation of lithium-ion batteries
+MGN 550 (M+F) Amendment 1: Electrical installations - guidance for safe design, installation and operation of lithium-ion batteries
 2024-01-03
 Source: https://www.gov.uk/government/publications/mgn-550-mf-amendment-1-electrical-installations-guidance-for-safe-design-installation-and-operation-of-lithium-ion-batteries
 
@@ -50,110 +50,75 @@ The intent of this Marine Guidance Note (MGN) is to provide the marine industry 
 
 2. Battery System Design
 
-•
-2.1 A battery system or Electrical Energy Storage (ESS) is a device that stores energy and is made up of cells, cell assemblies, modules, packs, electrical circuits and associated electronic equipment, such as a Battery Management System (BMS). A battery system could also include associated cooling or propagation prevention technology.
+• 2.1 A battery system or Electrical Energy Storage (ESS) is a device that stores energy and is made up of cells, cell assemblies, modules, packs, electrical circuits and associated electronic equipment, such as a Battery Management System (BMS). A battery system could also include associated cooling or propagation prevention technology.
 
-•
-2.2 A key hazard of lithium-ion battery installation is that a single cell defect may cascade through a module, and an entire battery system, quickly turning into a thermal runaway event and a full fire incident. Therefore, battery system design should be considered at cellular and module levels.
+• 2.2 A key hazard of lithium-ion battery installation is that a single cell defect may cascade through a module, and an entire battery system, quickly turning into a thermal runaway event and a full fire incident. Therefore, battery system design should be considered at cellular and module levels.
 
-•
-2.3 The design and installation of the propulsion system and batteries should be suitable for marine use and should comply with the latest standard (see Annex 1 of this MGN).
+• 2.3 The design and installation of the propulsion system and batteries should be suitable for marine use and should comply with the latest standard (see Annex 1 of this MGN).
 
-•
-2.4 It is recommended that all cells are tested taking into consideration the appropriate United Nations Recommendations on the Transport of Dangerous Goods, Model Regulations (see section 8) (UN38.3, UN3840 and UN3841) and the batteries should be certified to the applicable United Nations Dangerous Goods regulations. It is also recommended to obtain the cell manufacturer’s Material Safety Data Sheet and/or cell Technical Specification which may detail maximum charge/discharge currents, maximum state of discharge, temperature limits for separators or current intercept devices (CID), acceptable values of cell drift, etc.
+• 2.4 It is recommended that all cells are tested taking into consideration the appropriate United Nations Recommendations on the Transport of Dangerous Goods, Model Regulations (see section 8) (UN38.3, UN3840 and UN3841) and the batteries should be certified to the applicable United Nations Dangerous Goods regulations. It is also recommended to obtain the cell manufacturer’s Material Safety Data Sheet and/or cell Technical Specification which may detail maximum charge/discharge currents, maximum state of discharge, temperature limits for separators or current intercept devices (CID), acceptable values of cell drift, etc.
 
-•
-2.5. Battery manufacturers should ensure that batteries are designed with due consideration to safe design. It is strongly recommended that batteries are built by the cell manufacturer or by a manufacturer with a detailed knowledge of the cell chemical properties and the overarching requirements of the battery and its intended use. Modifications to a cell, battery or power management systems should always be in accordance with the manufacturer’s recommendations. Where a battery module manufacturer has incorporated battery cells from a different manufacturer, certification for the cells should be appropriate (IEC 62133-2) in addition to certification for the battery module (IEC 62619).
+• 2.5. Battery manufacturers should ensure that batteries are designed with due consideration to safe design. It is strongly recommended that batteries are built by the cell manufacturer or by a manufacturer with a detailed knowledge of the cell chemical properties and the overarching requirements of the battery and its intended use. Modifications to a cell, battery or power management systems should always be in accordance with the manufacturer’s recommendations. Where a battery module manufacturer has incorporated battery cells from a different manufacturer, certification for the cells should be appropriate (IEC 62133-2) in addition to certification for the battery module (IEC 62619).
 
-•
-2.6 The chemistry of lithium-ion cells can vary considerably between manufacturers and may even vary between production runs from a single manufacturer and therefore, battery cells of different physical characteristics, chemistries, and electrical parameters should have special consideration by manufacturers.
+• 2.6 The chemistry of lithium-ion cells can vary considerably between manufacturers and may even vary between production runs from a single manufacturer and therefore, battery cells of different physical characteristics, chemistries, and electrical parameters should have special consideration by manufacturers.
 
-•
-2.7 Batteries can only safely operate within the operating limitations of the lowest common denominator of the cells and therefore, it should be ensured that the selected cells (and any replacements or spares) have compatible cell chemistries if mixed within one battery.
+• 2.7 Batteries can only safely operate within the operating limitations of the lowest common denominator of the cells and therefore, it should be ensured that the selected cells (and any replacements or spares) have compatible cell chemistries if mixed within one battery.
 
-•
-2.8 Battery systems, including any back up battery system, should satisfy the designed electrical requirements of the vessel. Fuses, cables and circuit breakers should comply with a recognised standard (see Annex 1 of this MGN).
+• 2.8 Battery systems, including any back up battery system, should satisfy the designed electrical requirements of the vessel. Fuses, cables and circuit breakers should comply with a recognised standard (see Annex 1 of this MGN).
 
-•
-2.9 Battery enclosures/casings and connected systems should be designed to remain in a safe state in event of exposure to seawater. Batteries and their connections should have an Ingress Protection (IP) rating which is appropriate to the risks associated with the:
+• 2.9 Battery enclosures/casings and connected systems should be designed to remain in a safe state in event of exposure to seawater. Batteries and their connections should have an Ingress Protection (IP) rating which is appropriate to the risks associated with the:
 
-•
-2.9.1 fire-fighting medium within the battery module;
+• 2.9.1 fire-fighting medium within the battery module;
 
-•
-2.9.2 location in which the batteries are installed; and
+• 2.9.2 location in which the batteries are installed; and
 
-•
-2.9.3 risk of ingress.
+• 2.9.3 risk of ingress.
 
-•
-An IP rating as a minimum should be an IP44 rating, however, in many circumstances, a higher IP rating would be advised.
+• An IP rating as a minimum should be an IP44 rating, however, in many circumstances, a higher IP rating would be advised.
 
-•
-2.10 Exposed battery casing should be constructed of adequately durable, flame-resistant, moisture-resistant materials which are suitable for use in the marine environment.
+• 2.10 Exposed battery casing should be constructed of adequately durable, flame-resistant, moisture-resistant materials which are suitable for use in the marine environment.
 
-•
-2.11 Materials and arrangement of battery cells, modules and packs should be given due consideration to the prevention of thermal runaway, pressure and explosion.
+• 2.11 Materials and arrangement of battery cells, modules and packs should be given due consideration to the prevention of thermal runaway, pressure and explosion.
 
-•
-2.12 A battery design should have an emergency shut-down mechanism that is recommended to be independent of any control, alarm or monitoring systems and should be accessible remotely and from the battery room/space. The BMS should have appropriate alternative power to allow its operation to monitor and control the batteries in the event of power failure to the main battery.
+• 2.12 A battery design should have an emergency shut-down mechanism that is recommended to be independent of any control, alarm or monitoring systems and should be accessible remotely and from the battery room/space. The BMS should have appropriate alternative power to allow its operation to monitor and control the batteries in the event of power failure to the main battery.
 
-•
-2.13 Battery cooling systems should be designed to maintain battery cells within their required operational range, including during fault events, where cell temperature spikes but remains within operational limits. Cooling systems should be designed effectively to prevent thermal runaway due to a single overheating cell, module, or entire battery.
+• 2.13 Battery cooling systems should be designed to maintain battery cells within their required operational range, including during fault events, where cell temperature spikes but remains within operational limits. Cooling systems should be designed effectively to prevent thermal runaway due to a single overheating cell, module, or entire battery.
 
-•
-2.14 A vessel which uses batteries as a source of power for propulsion and/or can be charged by an onshore mains power source, should have adequate number of electric charging points installed in an appropriate location on the vessel. Consideration should be given to IEC PAS 80005-3:2014, material, protection from water ingress, height above deck and position of ventilation or exhaust vents for hybrid propulsion systems.
+• 2.14 A vessel which uses batteries as a source of power for propulsion and/or can be charged by an onshore mains power source, should have adequate number of electric charging points installed in an appropriate location on the vessel. Consideration should be given to IEC PAS 80005-3:2014, material, protection from water ingress, height above deck and position of ventilation or exhaust vents for hybrid propulsion systems.
 
-•
-2.15 In the case of a hybrid propulsion vessel, there should be a spare battery to provide back-up power for starting of the propulsion system, (for example, where the sole means of starting the propulsion is by batteries, i.e. for a diesel-electric). Charging facilities for the spare battery should be available. The vessel owner/operator should have a contingency plan in place which details actions to be taken if the designated back-up power source fails.
+• 2.15 In the case of a hybrid propulsion vessel, there should be a spare battery to provide back-up power for starting of the propulsion system, (for example, where the sole means of starting the propulsion is by batteries, i.e. for a diesel-electric). Charging facilities for the spare battery should be available. The vessel owner/operator should have a contingency plan in place which details actions to be taken if the designated back-up power source fails.
 
-•
-2.16 The BMS should ensure that lithium-ion cells should not exceed overcharge and over discharge. Generally, lithium-ion batteries are charged between 20% and 90% to avoid any uncertainties in the measurement of state of charge, both of which can destabilise the battery causing failure of the electrodes and possible thermal runaway. Therefore, the battery system should be designed to prevent over charging and discharging.
+• 2.16 The BMS should ensure that lithium-ion cells should not exceed overcharge and over discharge. Generally, lithium-ion batteries are charged between 20% and 90% to avoid any uncertainties in the measurement of state of charge, both of which can destabilise the battery causing failure of the electrodes and possible thermal runaway. Therefore, the battery system should be designed to prevent over charging and discharging.
 
-•
-2.17 Batteries and the BMS should:
+• 2.17 Batteries and the BMS should:
 
-•
-2.17.1 be fully compatible with the electromagnetic emissions they will be exposed to during a vessel’s anticipated range of operating conditions;
+• 2.17.1 be fully compatible with the electromagnetic emissions they will be exposed to during a vessel’s anticipated range of operating conditions;
 
-•
-2.17.2 not produce electromagnetic emissions that will affect the operation of all other equipment on board the vessel; and
+• 2.17.2 not produce electromagnetic emissions that will affect the operation of all other equipment on board the vessel; and
 
-•
-2.17.3 be certified to an appropriate standard for EMC emissions and EMC impact from other sources (i.e. IEC 6180-3:2017).
+• 2.17.3 be certified to an appropriate standard for EMC emissions and EMC impact from other sources (i.e. IEC 6180-3:2017).
 
-•
-2.18 Batteries should be positioned so that all parts requiring inspection or replacement, if appropriate, whilst in service can be safely accessed.
+• 2.18 Batteries should be positioned so that all parts requiring inspection or replacement, if appropriate, whilst in service can be safely accessed.
 
-•
-2.19 Consideration should be given to protecting batteries against the risks of overheating of batteries even when disconnected from a power source or isolated.
+• 2.19 Consideration should be given to protecting batteries against the risks of overheating of batteries even when disconnected from a power source or isolated.
 
-•
-2.20 Means shall be provided to fully isolate a battery, and to electrically isolate a battery at the pack level for maintenance, or to address a fault, with means to lock the system off or otherwise ensure that it cannot be reactivated during maintenance.
+• 2.20 Means shall be provided to fully isolate a battery, and to electrically isolate a battery at the pack level for maintenance, or to address a fault, with means to lock the system off or otherwise ensure that it cannot be reactivated during maintenance.
 
-•
-2.21 Outgoing circuits from batteries should have switchgear or equivalent means to electrically isolate the circuits, the granularity of isolation should be dependable on electrical system architecture.
+• 2.21 Outgoing circuits from batteries should have switchgear or equivalent means to electrically isolate the circuits, the granularity of isolation should be dependable on electrical system architecture.
 
-•
-2.22 An emergency power-off circuit should be installed to allow isolation and remote isolation of batteries from outside, or remotely to, the battery box or battery room.
+• 2.22 An emergency power-off circuit should be installed to allow isolation and remote isolation of batteries from outside, or remotely to, the battery box or battery room.
 
-•
-2.23 All electrical equipment associated with batteries and connected systems should:
+• 2.23 All electrical equipment associated with batteries and connected systems should:
 
-•
-2.23.1 operate in all expected operating conditions;
+• 2.23.1 operate in all expected operating conditions;
 
-•
-2.23.2 minimise the risk of initiating fire or explosion;
+• 2.23.2 minimise the risk of initiating fire or explosion;
 
-•
-2.23.3 have an appropriate IP rating (see section 2.9);
+• 2.23.3 have an appropriate IP rating (see section 2.9);
 
-•
-2.23.4 enable maintenance and repair; and
+• 2.23.4 enable maintenance and repair; and
 
-•
-2.23.5 be appropriately protected against humidity, temperature, and degradation due to seawater and vibration [footnote 1].
+• 2.23.5 be appropriately protected against humidity, temperature, and degradation due to seawater and vibration [footnote 1].
 
 2.24 Equipment and spares used for maintenance of batteries, connected systems and electrical equipment should be manufacturer approved and to the satisfaction of the Certifying Authority or Recognised Organisation.
 
@@ -179,8 +144,7 @@ An IP rating as a minimum should be an IP44 rating, however, in many circumstanc
 
 4.5 A Battery Management System should, as a minimum, calculate, transmit and display the State of Charge (SOC), Sate of Health (SOH) estimate and key warnings such as ‘overtemperature’ at key locations (including the control position(s)).
 
-•
-4.6 The BMS should detect, respond, and produce an auditory and visual alarm to any fault or equipment failure within the battery. Such detections should include but are not limited to:
+• 4.6 The BMS should detect, respond, and produce an auditory and visual alarm to any fault or equipment failure within the battery. Such detections should include but are not limited to:
 
 • 4.6.1 Operational conditions:
 
@@ -190,8 +154,7 @@ An IP rating as a minimum should be an IP44 rating, however, in many circumstanc
 
 • • current (at string level);
 
-•
-4.6.2 Loss of communication;
+• 4.6.2 Loss of communication;
 
 • 4.6.3 Fault or failure of:
 
@@ -203,14 +166,11 @@ An IP rating as a minimum should be an IP44 rating, however, in many circumstanc
 
 • • ventilation system;
 
-•
-4.6.4 low remaining battery;
+• 4.6.4 low remaining battery;
 
-•
-4.6.5 poor state of health;
+• 4.6.5 poor state of health;
 
-•
-4.6.6 temperature threshold exceeds requirements; and
+• 4.6.6 temperature threshold exceeds requirements; and
 
 • 4.6.7 a build up of explosive gases are detected as per the ventilation detection system.
 
@@ -238,106 +198,73 @@ An IP rating as a minimum should be an IP44 rating, however, in many circumstanc
 
 5.5 Gas detection, fire detection and firefighting equipment within the battery space should be appropriate to detect, prevent, suppress and fight a fire, taking into account the ventilation system(s) on board, and to avoid the formation of a vapour cloud.
 
-•
-5.6 Any detection of gas or heat above manufacturer’s specified limits within the battery room or battery box, should activate an auditory and visual alarm at the control position(s).
+• 5.6 Any detection of gas or heat above manufacturer’s specified limits within the battery room or battery box, should activate an auditory and visual alarm at the control position(s).
 
-•
-5.7 Construction standards for battery boxes and battery rooms should be in accordance with the battery manufacturers recommendations, and be located within either a:
+• 5.7 Construction standards for battery boxes and battery rooms should be in accordance with the battery manufacturers recommendations, and be located within either a:
 
-•
-5.7.1 steel, or equivalent, plated battery box; or
+• 5.7.1 steel, or equivalent, plated battery box; or
 
-•
-5.7.2 dedicated steel, or equivalent, plated battery room.
+• 5.7.2 dedicated steel, or equivalent, plated battery room.
 
-•
-Both with A60 fire integrity, or equivalent.
+• Both with A60 fire integrity, or equivalent.
 
-•
-5.8 Risk assessments should be carried out when designing and positioning the battery room and/or battery box.
+• 5.8 Risk assessments should be carried out when designing and positioning the battery room and/or battery box.
 
-•
-5.9 Any penetrations through battery box or battery room insulation should be of an equal fire rating to the insulation it passes through.
+• 5.9 Any penetrations through battery box or battery room insulation should be of an equal fire rating to the insulation it passes through.
 
-•
-5.10 Lithium-ion batteries approved by the battery manufacturer to be safely co-located with other equipment within a battery box or battery room may be co-located with the following:
+• 5.10 Lithium-ion batteries approved by the battery manufacturer to be safely co-located with other equipment within a battery box or battery room may be co-located with the following:
 
-•
-5.10.1 critical equipment;
+• 5.10.1 critical equipment;
 
-•
-5.10.2 fuel tanks;
+• 5.10.2 fuel tanks;
 
-•
-5.10.3 fire hazards; and
+• 5.10.3 fire hazards; and
 
-•
-5.10.4 electrical equipment,
+• 5.10.4 electrical equipment,
 
-•
-subject to completion of a risk assessment carried out by the vessel owner/operator, and submitted via the Certifying Authority or Recognised Organisation to the Administration for consideration and approval.
+• subject to completion of a risk assessment carried out by the vessel owner/operator, and submitted via the Certifying Authority or Recognised Organisation to the Administration for consideration and approval.
 
-•
-5.11 Only electrical equipment required either for operational reasons or for lighting within the space itself should be installed within battery boxes, battery rooms or ventilation exhaust ducts, and should not contribute any additional overall fire risk. Such equipment should be Ex-rated and IIC atmosphere certified.
+• 5.11 Only electrical equipment required either for operational reasons or for lighting within the space itself should be installed within battery boxes, battery rooms or ventilation exhaust ducts, and should not contribute any additional overall fire risk. Such equipment should be Ex-rated and IIC atmosphere certified.
 
-•
-5.12 Electrical equipment should be located appropriately in relation to the battery box or battery room ventilation outlets, ideally not within 1.5m. Electrical equipment should, as far as practicable, be located in non-hazardous areas.
+• 5.12 Electrical equipment should be located appropriately in relation to the battery box or battery room ventilation outlets, ideally not within 1.5m. Electrical equipment should, as far as practicable, be located in non-hazardous areas.
 
-•
-5.13 Light fittings in a battery box or battery room should be appropriately protected (e.g. by glass) to reduce the risk of sparking, and be Ex-rated. Light fittings should be isolated if the protection fails.
+• 5.13 Light fittings in a battery box or battery room should be appropriately protected (e.g. by glass) to reduce the risk of sparking, and be Ex-rated. Light fittings should be isolated if the protection fails.
 
-•
-5.14 If a risk of static in the battery box or battery room is identified, and cannot be suitably mitigated, it is strongly recommended that the walls of the box or room be painted with anti-static paint.
+• 5.14 If a risk of static in the battery box or battery room is identified, and cannot be suitably mitigated, it is strongly recommended that the walls of the box or room be painted with anti-static paint.
 
-•
-5.15 Openings to battery boxes or battery rooms where exhaust gas build-up is a risk should be gas tight. Openings should not be located next to spaces containing combustible or flammable materials.
+• 5.15 Openings to battery boxes or battery rooms where exhaust gas build-up is a risk should be gas tight. Openings should not be located next to spaces containing combustible or flammable materials.
 
-•
-5.16 The ambient temperature of a battery box or battery room should be monitored by the Battery Management System, Energy Management System or Power Management System, as appropriate, to allow management of the battery system and should be displayed at the control position(s).
+• 5.16 The ambient temperature of a battery box or battery room should be monitored by the Battery Management System, Energy Management System or Power Management System, as appropriate, to allow management of the battery system and should be displayed at the control position(s).
 
-•
-5.17 A walk-in battery room should meet the means of escape requirements for Category A machinery spaces from the vessel specific requirements.
+• 5.17 A walk-in battery room should meet the means of escape requirements for Category A machinery spaces from the vessel specific requirements.
 
-•
-5.18 Battery boxes and battery rooms should not form a means of access to any other compartment, or form part of an escape route.
+• 5.18 Battery boxes and battery rooms should not form a means of access to any other compartment, or form part of an escape route.
 
-•
-5.19 Where battery modules or systems are contained within gastight containers, a safety pressure relief valve or weak point should be included within the container design.
+• 5.19 Where battery modules or systems are contained within gastight containers, a safety pressure relief valve or weak point should be included within the container design.
 
-•
-5.20 It is recommended that person(s) working in in a battery room, or in a space containing a battery box, should carry an Emergency Escape Breathing Device (EEBD).
+• 5.20 It is recommended that person(s) working in in a battery room, or in a space containing a battery box, should carry an Emergency Escape Breathing Device (EEBD).
 
-•
-5.21 The following information should be clearly displayed in or on, both the battery box or battery room and in its immediate vicinity. Internationally recognised signage should be used where appropriate:
+• 5.21 The following information should be clearly displayed in or on, both the battery box or battery room and in its immediate vicinity. Internationally recognised signage should be used where appropriate:
 
-•
-5.21.1 battery cell chemistry;
+• 5.21.1 battery cell chemistry;
 
-•
-5.21.2 high voltage equipment;
+• 5.21.2 high voltage equipment;
 
-•
-5.21.3 fire suppression system requirements and method of operation;
+• 5.21.3 fire suppression system requirements and method of operation;
 
-•
-5.21.4 maximum charging and discharging characteristics;
+• 5.21.4 maximum charging and discharging characteristics;
 
-•
-5.21.5 safe upper and lower ambient temperature;
+• 5.21.5 safe upper and lower ambient temperature;
 
-•
-5.21.6 what protective device(s) and/or safety feature(s) are installed, if applicable;
+• 5.21.6 what protective device(s) and/or safety feature(s) are installed, if applicable;
 
-•
-5.21.7 battery manufacturer’s name; and
+• 5.21.7 battery manufacturer’s name; and
 
-•
-5.21.8 any other appropriate warning signs.
+• 5.21.8 any other appropriate warning signs.
 
 6. Ventilation
 
-•
-6.1. Ventilation of battery boxes and battery rooms should be appropriate to risks, battery size and battery storage location:
+• 6.1. Ventilation of battery boxes and battery rooms should be appropriate to risks, battery size and battery storage location:
 
 • 6.1.1 batteries located in a battery box may be ventilated by either:
 
@@ -347,32 +274,21 @@ subject to completion of a risk assessment carried out by the vessel owner/opera
 
 • 6.1.2 batteries located in a battery room should be ventilated by active ventilation.
 
-•
-6.2 The number of air changes per hour required for a battery box or battery room should not be less than 6 and should be calculated [footnote 2] taking into account, at a minimum, the following variables:
+• 6.2 The number of air changes per hour required for a battery box or battery room should not be less than 6 and should be calculated [footnote 2] taking into account, at a minimum, the following variables:
 
-•
+• • 6.2.1 battery box or battery room volume;
 
-•
-6.2.1 battery box or battery room volume;
+• 6.2.2 distance between vent and battery box roof or battery room ceiling;
 
-•
-6.2.2 distance between vent and battery box roof or battery room ceiling;
+• 6.2.3 maximum volume of battery gas released during a thermal runaway event;
 
-•
-6.2.3 maximum volume of battery gas released during a thermal runaway event;
+• 6.2.4 battery size(s); and
 
-•
-6.2.4 battery size(s); and
+• 6.2.5 design pressure of the bulkhead or deck.
 
-•
-6.2.5 design pressure of the bulkhead or deck.
+• 6.3 If a fire is detected ventilators should stop automatically, except in the presence of an explosive atmosphere or detection of vapour cloud [footnote 3]. Ventilators should be able to continue operating safely in the presence of an explosive atmosphere or vapour cloud and in the event of equipment failure or emergency conditions. Active ventilation is essential for the disposal of gas rich atmospheres and mitigation of vapour cloud explosion.
 
-•
-6.3 If a fire is detected ventilators should stop automatically, except in the presence of an explosive atmosphere or detection of vapour cloud [footnote 3]. Ventilators should be able to continue operating safely in the presence of an explosive atmosphere or vapour cloud and in the event of equipment failure or emergency conditions. Active ventilation is essential for the disposal of gas rich atmospheres and mitigation of vapour cloud explosion.
-
-•
-
-• 6.4 For active ventilation, air inlet(s) and an exhaust outlet(s) should be positioned to ensure effective distribution of air through the space.
+• • 6.4 For active ventilation, air inlet(s) and an exhaust outlet(s) should be positioned to ensure effective distribution of air through the space.
 
 6.5 Exhaust ducts should, during normal operations, prevent exhaust gases, rainwater or seawater from being drawn through air intakes.
 
@@ -392,20 +308,15 @@ subject to completion of a risk assessment carried out by the vessel owner/opera
 
 7. Cooling Systems
 
-•
-7.1 Batteries may be cooled by air or liquid cooling means and should be cooled by either:
+• 7.1 Batteries may be cooled by air or liquid cooling means and should be cooled by either:
 
-•
-7.1.1 passive or active ventilation of the battery box or battery room (see section 6 of this document); or
+• 7.1.1 passive or active ventilation of the battery box or battery room (see section 6 of this document); or
 
-•
-7.1.2 direct cooling (such as liquid cooling) from a dedicated battery cooling system.
+• 7.1.2 direct cooling (such as liquid cooling) from a dedicated battery cooling system.
 
-•
-7.2 Battery cooling systems should be able to maintain battery cells within their required operational temperature range, including during fault events where cell temperature spikes but remains within operational limits as per IEC 62619:2022 and the manufacturer’s guidelines.
+• 7.2 Battery cooling systems should be able to maintain battery cells within their required operational temperature range, including during fault events where cell temperature spikes but remains within operational limits as per IEC 62619:2022 and the manufacturer’s guidelines.
 
-•
-7.3 Auditory and visual alarms should be activated at the control position(s) if the cooling system fails or develops a fault, including where high coolant temperature or reduced coolant flow is detected.
+• 7.3 Auditory and visual alarms should be activated at the control position(s) if the cooling system fails or develops a fault, including where high coolant temperature or reduced coolant flow is detected.
 
 8. Operation and Handling
 
@@ -413,29 +324,21 @@ subject to completion of a risk assessment carried out by the vessel owner/opera
 
 8.2 Lithium-ion batteries should be safely handled, and this includes but is not limited to, never throwing batteries in a fire or exposing to high temperatures, not exposing batteries to strong oxidisers, not exposing batteries to mechanical shock and puncture from sharp objects and never disassembling, modifying or deforming batteries.
 
-•
-8.3 United Nation’s Model of Regulations should be considered for all aspects of transportation of lithium-ion batteries, specifically the Recommendations on the Transport of Dangerous Goods. Transporting and storing of lithium-ion batteries should be tested according to UN transportation UN DOT 38.3 as per the requirements for UN3480 or UN3481. In addition, consideration should be given to the following:
+• 8.3 United Nation’s Model of Regulations should be considered for all aspects of transportation of lithium-ion batteries, specifically the Recommendations on the Transport of Dangerous Goods. Transporting and storing of lithium-ion batteries should be tested according to UN transportation UN DOT 38.3 as per the requirements for UN3480 or UN3481. In addition, consideration should be given to the following:
 
-•
-8.3.1 Damaged cells/batteries require special precautions to be taken prior to transportation.
+• 8.3.1 Damaged cells/batteries require special precautions to be taken prior to transportation.
 
-•
-8.3.2 When in storage, cells should be stored as per manufacturer’s instructions – this is likely to require: the protection of live terminals, a well ventilated area with low humidity and out of direct sunlight, and a consistent ambient temperature as many cells experience a longer shelf life when kept cool.
+• 8.3.2 When in storage, cells should be stored as per manufacturer’s instructions – this is likely to require: the protection of live terminals, a well ventilated area with low humidity and out of direct sunlight, and a consistent ambient temperature as many cells experience a longer shelf life when kept cool.
 
-•
-8.3.3 Cells should be stored in an isolated area away from combustible materials or dangerous goods. Depleted cells should be stored separately.
+• 8.3.3 Cells should be stored in an isolated area away from combustible materials or dangerous goods. Depleted cells should be stored separately.
 
-•
-8.3.4 Care should be taken to ensure that heavy items to not crush or puncture the cell cases.
+• 8.3.4 Care should be taken to ensure that heavy items to not crush or puncture the cell cases.
 
-•
-8.3.5 All risks to the cells, the storage area and other stored goods should be considered prior to storage.
+• 8.3.5 All risks to the cells, the storage area and other stored goods should be considered prior to storage.
 
-•
-8.3.6 The number of cells stored in any storage area should be monitored and limited as necessary.
+• 8.3.6 The number of cells stored in any storage area should be monitored and limited as necessary.
 
-•
-8.4 Training and operational work related to the battery, BMS or other battery components, should be carried out as per the manufacturer’s specification.
+• 8.4 Training and operational work related to the battery, BMS or other battery components, should be carried out as per the manufacturer’s specification.
 
 8.5 Consideration should be given to the specific firefighting method of an individual vessel fitted with a battery, taking into account persons on board, vessel use, manufacturer guidance, ventilation system/s and the location and size of the battery; appropriate firefighting training should be given to those working on board.
 
@@ -453,68 +356,47 @@ subject to completion of a risk assessment carried out by the vessel owner/opera
 
 9.2 The hazards associated with a lithium-ion fire emphasise that it may not be feasible to access a battery compartment during a fire and therefore structural fire protection and fixed fire suppression systems may be relied upon.
 
-•
-9.3 An installed fire extinguishing system should be suitable for lithium-ion battery fires. All vessels should have a fixed fire suppression system installed for battery boxes and battery rooms in accordance with the battery manufacturer’s requirements, taking into account but not limited to, the following:
+• 9.3 An installed fire extinguishing system should be suitable for lithium-ion battery fires. All vessels should have a fixed fire suppression system installed for battery boxes and battery rooms in accordance with the battery manufacturer’s requirements, taking into account but not limited to, the following:
 
-•
-9.3.1 Battery size
+• 9.3.1 Battery size
 
-•
-9.3.2 System design;
+• 9.3.2 System design;
 
-•
-9.3.3 Battery use/purpose;
+• 9.3.3 Battery use/purpose;
 
-•
-9.3.4 Vessel use;
+• 9.3.4 Vessel use;
 
-•
-9.3.5 Ventilation system; and
+• 9.3.5 Ventilation system; and
 
-•
-9.3.6 Cooling system.
+• 9.3.6 Cooling system.
 
-•
-9.4 Suitable fire detection equipment, gas and vapour detectors should be fitted in a battery room or battery box giving due consideration to the following:
+• 9.4 Suitable fire detection equipment, gas and vapour detectors should be fitted in a battery room or battery box giving due consideration to the following:
 
-•
-9.4.1 Battery size;
+• 9.4.1 Battery size;
 
-•
-9.4.2 Battery power;
+• 9.4.2 Battery power;
 
-•
-9.4.3 Ventilation system;
+• 9.4.3 Ventilation system;
 
-•
-9.4.4 Location of detectors;
+• 9.4.4 Location of detectors;
 
-•
-9.4.5 Cooling system; and
+• 9.4.5 Cooling system; and
 
-•
-9.4.6 Fixed fire extinguishing system.
+• 9.4.6 Fixed fire extinguishing system.
 
-•
-These should include smoke, heat, gas, vapour and flame detectors which should activate auditory and visual alarms in the affected space and at the control position(s).
+• These should include smoke, heat, gas, vapour and flame detectors which should activate auditory and visual alarms in the affected space and at the control position(s).
 
-•
-9.5 The location of fire, gas and vapour detectors should give due consideration to the following:
+• 9.5 The location of fire, gas and vapour detectors should give due consideration to the following:
 
-•
-9.5.1 Battery size;
+• 9.5.1 Battery size;
 
-•
-9.5.2 Ventilation system ducts;
+• 9.5.2 Ventilation system ducts;
 
-•
-9.5.3 Varying density of a vapour cloud; and
+• 9.5.3 Varying density of a vapour cloud; and
 
-•
-9.5.4 Gas detectors in battery room(s) large enough to be entered should have gas detectors positioned at breathing height.
+• 9.5.4 Gas detectors in battery room(s) large enough to be entered should have gas detectors positioned at breathing height.
 
-•
-9.6 It is recommended that gas detector(s) able to detect the gases likely produced by the battery’s specific chemistry, or type, should be fitted in battery boxes and battery rooms, as per the manufacturer’s instructions.
+• 9.6 It is recommended that gas detector(s) able to detect the gases likely produced by the battery’s specific chemistry, or type, should be fitted in battery boxes and battery rooms, as per the manufacturer’s instructions.
 
 9.7 Gas detectors in battery boxes and battery rooms should be located where gas may accumulate and in the ventilation outlets (a gas dispersal analysis or physical smoke test may be used to identify the most suitable locations for gas detectors).
 
@@ -566,17 +448,12 @@ Website: www.gov.uk/mca
 
 Please note that all addresses and telephone numbers are correct at time of publishing.
 
-•
-IEC 60092 Electrical installations in ships ↩
+• IEC 60092 Electrical installations in ships ↩
 
-•
-UL 9540A Battery Energy Storage System (ESS) Test Method ↩
+• UL 9540A Battery Energy Storage System (ESS) Test Method ↩
 
-•
-NFPA 855 Standard for the Installation of Stationary Energy Storage Systems ↩
+• NFPA 855 Standard for the Installation of Stationary Energy Storage Systems ↩
 
-•
-To be a certified battery recycler in the UK an organisation must first obtain official approval from the Environment Agency to treat lithium-ion batteries ↩
+• To be a certified battery recycler in the UK an organisation must first obtain official approval from the Environment Agency to treat lithium-ion batteries ↩
 
-•
-For information - EU rules on batteries aim to make batteries sustainable throughout their entire life cycle introduced through Regulation (EU) 2023/1542 of the European Parliament and of the Council of 12 July 2023 concerning batteries and waste batteries ↩
+• For information - EU rules on batteries aim to make batteries sustainable throughout their entire life cycle introduced through Regulation (EU) 2023/1542 of the European Parliament and of the Council of 12 July 2023 concerning batteries and waste batteries ↩

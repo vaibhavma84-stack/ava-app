@@ -1,4 +1,4 @@
-MGN 349 (M+F) MGN 349 (M+F) Amendment 1 Carriage and use of radar reflectors on small vessels
+MGN 349 (M+F) Amendment 1 Carriage and use of radar reflectors on small vessels
 2022-10-04
 Source: https://www.gov.uk/government/publications/mgn-349-mf-amendment-1-carriage-and-use-of-radar-reflectors-on-small-vessels
 
@@ -8,11 +8,9 @@ Summary
 
 ‘if less than 150 gross tonnage and if practicable, a radar reflector, or other means, to enable detection by ships navigating by radar at both 9 and 3 GHz’.
 
-•
-The loss of the yacht ‘Ouzo’ and her crew highlighted the potentially fatal consequences of poor radar visibility of small vessels.
+• The loss of the yacht ‘Ouzo’ and her crew highlighted the potentially fatal consequences of poor radar visibility of small vessels.
 
-•
-All small craft should consider fitting, where practicable, the most effective and appropriate radar reflector or radar target enhancer (RTE) for their circumstances; and ensure those comply with international standards.
+• All small craft should consider fitting, where practicable, the most effective and appropriate radar reflector or radar target enhancer (RTE) for their circumstances; and ensure those comply with international standards.
 
 1. Introduction
 
@@ -38,14 +36,11 @@ Note: It is prudent to check the test data provided by the reflector manufacture
 
 3.1.1 An important parameter of a radar reflector is the echoing area, the equivalent RCS, as this determines the amount of radar energy that is reflected back. Ideally achieving a sufficient RCS in all horizontal directions regardless of heel. The following are the basic requirements of the IMO MSC.164(78) performance standard:
 
-•
-The radar reflector should have a RCS of at least 7.5m2 at X-Band and 0.5m2 at S-band when mounted at a minimum height of 4m above sea level;
+• The radar reflector should have a RCS of at least 7.5m2 at X-Band and 0.5m2 at S-band when mounted at a minimum height of 4m above sea level;
 
-•
-The RCS should be maintained over a total angle of at least 280° of azimuth and not below this level over any angles greater than 10° (a null). There should not be a distance of less than 20° between nulls; For power driven vessels and sailing vessels designed to operate with little heel (catamaran/trimaran), this performance should be maintained through angles of (athwartships) heel 10° either side of vertical;
+• The RCS should be maintained over a total angle of at least 280° of azimuth and not below this level over any angles greater than 10° (a null). There should not be a distance of less than 20° between nulls; For power driven vessels and sailing vessels designed to operate with little heel (catamaran/trimaran), this performance should be maintained through angles of (athwartships) heel 10° either side of vertical;
 
-•
-For other vessels, the reflector should maintain this performance over 20° either side of vertical
+• For other vessels, the reflector should maintain this performance over 20° either side of vertical
 
 3.1.2 Radar Reflectors meeting the above requirements should comply with ISO 8729-1:2010.
 
@@ -95,5 +90,4 @@ General enquiries: infoline@mcga.gov.uk
 
 Please note that all addresses and telephone numbers are correct at time of publishing.
 
-•
-The Radar Cross Section is a measure of the ability of an object to return microwave energy to the interrogating radar when compared to the actual reflectivity of a metal sphere ↩
+• The Radar Cross Section is a measure of the ability of an object to return microwave energy to the interrogating radar when compared to the actual reflectivity of a metal sphere ↩

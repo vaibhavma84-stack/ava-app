@@ -1,4 +1,4 @@
-MGN 652 (M+F) MGN 652 (M+F) Amendment 1 infectious disease at sea
+MGN 652 (M+F) Amendment 1 infectious disease at sea
 2026-09-09
 Source: https://www.gov.uk/government/publications/mgn-652-mf-infectious-disease-at-sea
 
@@ -16,14 +16,11 @@ This guidance note provides information and recommendations on:
 
 Annexes are attached as follows:
 
-•
-Annex 1: Useful references for further information
+• Annex 1: Useful references for further information
 
-•
-Annex 2: UK routine and job specific immunisations and geographical requirements
+• Annex 2: UK routine and job specific immunisations and geographical requirements
 
-•
-Annex 3: Insect borne diseases including malaria
+• Annex 3: Insect borne diseases including malaria
 
 Amendment 1 includes no substantive changes, other than removal of specific links for www.gov.uk and www.nhs.uk for COVID-19 information. Some minor editing has been carried out for greater clarify.
 
@@ -159,42 +156,31 @@ Wellbeing at Sea: A Pocket Guide for Seafarers published 2020 by TSO (as above).
 
 Travel Health advice
 
-•
-Foreign and Commonwealth Office, General travel health and safety www.fco.gov.uk/travel/
+• Foreign and Commonwealth Office, General travel health and safety www.fco.gov.uk/travel/
 
-•
-National Travel Health Network and Centre (NaTHNaC), Travel Health Pro section https://travelhealthpro.org.uk/
+• National Travel Health Network and Centre (NaTHNaC), Travel Health Pro section https://travelhealthpro.org.uk/
 
-•
-The World Health Organization: International Travel and Health; Vaccination Requirements and Health https://www.who.int/travel-advice
+• The World Health Organization: International Travel and Health; Vaccination Requirements and Health https://www.who.int/travel-advice
 
-•
-“Fit for Travel” is a public access website provided by the NHS which gives travel health information for people travelling abroad from the UK www.fitfortravel.scot.nhs.uk
+• “Fit for Travel” is a public access website provided by the NHS which gives travel health information for people travelling abroad from the UK www.fitfortravel.scot.nhs.uk
 
-•
-The International Society of Travel Medicine: an information resource for both travel medicine practitioners and travellers www.istm.org
+• The International Society of Travel Medicine: an information resource for both travel medicine practitioners and travellers www.istm.org
 
-•
-Royal College of Nursing Travel Health advice https://www.rcn.org.uk/clinical-
+• Royal College of Nursing Travel Health advice https://www.rcn.org.uk/clinical-
 
-•
-World Health Organization International Health Regulations (2005)
+• World Health Organization International Health Regulations (2005)
 
 ISBN-13 9789241580410. International health regulations (who.int) Cruise ships
 
-•
-CDC Travellers’ Health. Cruise Ship Travel: Health recommendations. https://wwwnc.cdc.gov/travel/page/cruise-ship
+• CDC Travellers’ Health. Cruise Ship Travel: Health recommendations. https://wwwnc.cdc.gov/travel/page/cruise-ship
 
-•
-CDC. Vessel Sanitation Program. http://www.cdc.gov/nceh/vsp
+• CDC. Vessel Sanitation Program. http://www.cdc.gov/nceh/vsp
 
 Immunisations
 
-•
-Department of Health, Immunisation against infectious disease - ‘The Green Book’.
+• Department of Health, Immunisation against infectious disease - ‘The Green Book’.
 
-•
-For the UK Immunisation schedule see Chapter 11
+• For the UK Immunisation schedule see Chapter 11
 
 Medications and vaccines
 

@@ -1,4 +1,4 @@
-MGN 601 (M) MGN 601 (M) Amendment 1 MLC, 2006 crew accommodation for small vessels of less than 200GT
+MGN 601 (M) Amendment 1 MLC, 2006 crew accommodation for small vessels of less than 200GT
 2026-01-06
 Source: https://www.gov.uk/government/publications/mgn-601-m-amendment-1-mlc-2006-crew-accommodation-for-small-vessels-of-less-than-200gt
 
@@ -182,11 +182,9 @@ See also section 21.2 of the Codes.
 
 10.5 Berths for seafarers must have a minimum inside dimension of either:
 
-•
-not less than 190 centimetres by 70 centimetres, with no tapering, where it is satisfied that that this is reasonable and will not result in discomfort to the seafarers; or
+• not less than 190 centimetres by 70 centimetres, with no tapering, where it is satisfied that that this is reasonable and will not result in discomfort to the seafarers; or
 
-•
-not less than 198 centimetres in length and not less than 80 centimetres in width over half the length of the berth. A taper is permitted from half the length of the berth towards the foot of the berth but under no circumstances is the berth permitted to be narrower at any point than 50 centimetres.
+• not less than 198 centimetres in length and not less than 80 centimetres in width over half the length of the berth. A taper is permitted from half the length of the berth towards the foot of the berth but under no circumstances is the berth permitted to be narrower at any point than 50 centimetres.
 
 10.6 Where considered appropriate, means for preventing the occupants from falling out, shall be provided.
 
@@ -234,17 +232,13 @@ not less than 198 centimetres in length and not less than 80 centimetres in widt
 
 18.1 There shall be weekly documented inspections carried out on-board vessels, by or under the authority of the Master, with respect to:
 
-•
-supplies of food and drinking water
+• supplies of food and drinking water
 
-•
-all spaces and equipment used for the storage and handling of food and drinking water
+• all spaces and equipment used for the storage and handling of food and drinking water
 
-•
-galley and other equipment used for the preparation and service of meals; and
+• galley and other equipment used for the preparation and service of meals; and
 
-•
-that seafarer accommodation is clean, decently habitable and maintained in a good state of repair.
+• that seafarer accommodation is clean, decently habitable and maintained in a good state of repair.
 
 18.2 The results of each inspection shall be recorded and made available for review.
 
@@ -260,5 +254,4 @@ Annex 2 - List of relevant Codes and their equivalences
 
 • The Workboat Code Edition 2
 
-•
-MGN 280(M) Small vessels in commercial use for sport or pleasure, workboats or pilot boats – Alternative construction standards
+• MGN 280(M) Small vessels in commercial use for sport or pleasure, workboats or pilot boats – Alternative construction standards

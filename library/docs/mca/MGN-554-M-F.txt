@@ -1,4 +1,4 @@
-MGN 554 (M+F) MGN 554 (M+F) Amendment 2 – Procedure for becoming a UK approved body
+MGN 554 (M+F) Amendment 2 – Procedure for becoming a UK approved body
 2025-12-11
 Source: https://www.gov.uk/government/publications/mgn-554-mf-amendment-2-procedure-for-becoming-a-uk-approved-body
 
@@ -32,27 +32,21 @@ The Maritime and Coastguard Agency (MCA) is responsible for designating Approved
 
 2.5 the marine equipment product categories (as listed in MSN 1874(M+F) as amended) for which the CAB wishes to be designated.
 
-•
-UKAS accreditation certificate, schedule of accreditation and final assessment report
+• UKAS accreditation certificate, schedule of accreditation and final assessment report
 
-•
-evidence of civil liability and professional indemnity insurance cover for its activities
+• evidence of civil liability and professional indemnity insurance cover for its activities
 
 The MCA may request further information from UKAS regarding the applicant’s accreditation. The MCA will then make a final decision on designation based on all the evidence. If satisfied the applicant is fit for designation under the Regulations, the MCA will issue designation to the applicant as a UK Approved Body.
 
 2.6 The exact terms of the designation will be laid out in the individual designations, but they will include the following conditions that the applicant must agree to comply with for the period in which they are a UK Approved Body:
 
-•
-to partake in co-ordination activities at the national and international level
+• to partake in co-ordination activities at the national and international level
 
-•
-to periodically audit the activities of the manufacturers of whom the CAB has approved one or more products and/or services under the Regulations
+• to periodically audit the activities of the manufacturers of whom the CAB has approved one or more products and/or services under the Regulations
 
-•
-to periodically audit its own activities as a UK Approved Body to ensure ongoing compliance with the relevant requirements, including EN ISO/IEC 17065:2012
+• to periodically audit its own activities as a UK Approved Body to ensure ongoing compliance with the relevant requirements, including EN ISO/IEC 17065:2012
 
-•
-to a full reassessment every four years
+• to a full reassessment every four years
 
 2.7 Surveillance and reassessment will be carried out by UKAS in line with standard accreditation practices and 2.5 above. Surveillance and reassessment may also be carried out by the MCA, on behalf of the Secretary of State. UKAS will advise the MCA of the outcome of annual surveillance, four-yearly reassessments and any other audits conducted in intervening periods to ensure continued compliance with the specified requirements. The MCA may request further information about surveillance and reassessment activities and may choose to accompany UKAS when conducting surveillance/reassessment activities.
 
@@ -140,14 +134,11 @@ Email: marinetechnology@mcga.gov.uk
 
 11. Supporting Documentation
 
-•
-MSN 1874 Amendment 11
+• MSN 1874 Amendment 11
 
-•
-Merchant Shipping (Marine Equipment) Regulations 2025:
+• Merchant Shipping (Marine Equipment) Regulations 2025:
 
-•
-Copies of ISO/IEC 17065:2012 can be obtained from:
+• Copies of ISO/IEC 17065:2012 can be obtained from:
 
 BSI Customer Services
 389 Chiswick High Road

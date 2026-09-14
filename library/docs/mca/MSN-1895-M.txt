@@ -1,17 +1,14 @@
-MSN 1895 (M) MSN 1895 (M) The Red Ensign Group (REG) Yacht Code Part A
+MSN 1895 (M) The Red Ensign Group (REG) Yacht Code Part A
 2025-04-11
 Source: https://www.gov.uk/government/publications/msn-1895-m-the-red-ensign-group-reg-yacht-code-part-a
 
 Summary
 
-•
-The Red Ensign Group (REG) Yacht Code was launched in November 2017, and supersedes “The Large Commercial Yacht Code 3” and the “Passenger Yacht Code edition 6”.
+• The Red Ensign Group (REG) Yacht Code was launched in November 2017, and supersedes “The Large Commercial Yacht Code 3” and the “Passenger Yacht Code edition 6”.
 
-•
-The REG Yacht Code, Part A applies to yachts constructed on or after 1 January 2019, that are over 24m in length, operate commercially and carry no more than 12 passengers.
+• The REG Yacht Code, Part A applies to yachts constructed on or after 1 January 2019, that are over 24m in length, operate commercially and carry no more than 12 passengers.
 
-•
-Such vessels certificated to the REG Yacht Code, Part A, are deemed to satisfy applicable international standards.
+• Such vessels certificated to the REG Yacht Code, Part A, are deemed to satisfy applicable international standards.
 
 1. Introduction
 
@@ -77,33 +74,26 @@ A CODE OF PRACTICE FOR SAFETY OF LARGE COMMERICAL SAILING AND MOTOR VESSELS
 
 (Published pursuant to Regulations 2(2) and 4 of SI 1998/2771 -The Merchant Shipping (Vessels in Commercial Use for Sport or Pleasure) Regulations 1998)
 
-•
-This Code of Practice supersedes and replaces all previous editions.
+• This Code of Practice supersedes and replaces all previous editions.
 
-•
-Appendix 1 contains the REG Code, subject to the amendments specified there.  Appendix 2 contains transitional and saving provisions for existing vessels.
+• Appendix 1 contains the REG Code, subject to the amendments specified there.  Appendix 2 contains transitional and saving provisions for existing vessels.
 
-•
-All vessels other than existing vessels (as defined in Appendix 2) shall comply with Appendix I.
+• All vessels other than existing vessels (as defined in Appendix 2) shall comply with Appendix I.
 
-•
-Existing vessels may comply with:-
+• Existing vessels may comply with:-
 
 a. Appendix 1, the REG Code; or,
 b. Appendix 2, the Saving and Transitional Provisions.
 
-•
-Vessels seeking to comply with the requirements of an Appendix must comply in full, and cannot comply with part of one and part of another.
+• Vessels seeking to comply with the requirements of an Appendix must comply in full, and cannot comply with part of one and part of another.
 
 Appendix 1
 
 THE RED ENSIGN GROUP YACHT CODE, PART A (“REG Code”)
 
-•
-All vessels subject to this Annex shall comply with the REG Code, but subject to the following clarifications and amendments.
+• All vessels subject to this Annex shall comply with the REG Code, but subject to the following clarifications and amendments.
 
-•
-In the REG Code:
+• In the REG Code:
 
 a. Where the Code refers to “administration”, that should be taken to mean the UK Maritime and Coastguard Agency (MCA);
 
@@ -151,8 +141,6 @@ need to comply with the requirements set out in paragraph 1.6 (2) of the REG Yac
 
 3. To the extent necessary for the operation of this Annex, the standards within the previous Codes, listed at 2 above, are incorporated into this MSN. (For the avoidance of doubt, please note those standards are no longer available, after 1 January 2019, for new vessels as defined at paragraph 2.1 in the main text of this MSN.)
 
-•
-Crown Dependencies (Isle of Man, Guernsey and Jersey) and the UK Overseas Territories (Anguilla, Bermuda, British Virgin Islands, Cayman Islands, Falkland Islands, Gibraltar, Montserrat, St Helena and the Turks & Caicos Islands). ↩
+• Crown Dependencies (Isle of Man, Guernsey and Jersey) and the UK Overseas Territories (Anguilla, Bermuda, British Virgin Islands, Cayman Islands, Falkland Islands, Gibraltar, Montserrat, St Helena and the Turks & Caicos Islands). ↩
 
-•
-Article 8 of the International Convention on Load Lines, 1966; Regulation I-5 of the International Convention on Safety of Life at Sea; and, Article 9 of the International Convention on Standards of Training Certification and Watchkeeping for Seafarers 1978 as amended. Notification of equivalences can be found on the IMO website at https://gisis.imo.org. ↩
+• Article 8 of the International Convention on Load Lines, 1966; Regulation I-5 of the International Convention on Safety of Life at Sea; and, Article 9 of the International Convention on Standards of Training Certification and Watchkeeping for Seafarers 1978 as amended. Notification of equivalences can be found on the IMO website at https://gisis.imo.org. ↩

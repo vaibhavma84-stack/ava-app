@@ -1,37 +1,28 @@
-MSN 1850 (M) MSN 1850 (M) Amendment 1: Maritime Labour Convention, 2006: health and safety reporting of occupational diseases
+MSN 1850 (M) Amendment 1: Maritime Labour Convention, 2006: health and safety reporting of occupational diseases
 2022-07-25
 Source: https://www.gov.uk/government/publications/msn-1850-m-amendment-1-maritime-labour-convention-2006-health-and-safety-reporting-of-occupational-diseases
 
 Summary
 
-•
-This notice sets out the requirements for reporting occupational diseases, as required by the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations (S.I. No. 1997/2962) (“the Health and Safety Regulations (as amended)”), particularly in the light of the amendments made by the Merchant Shipping (Maritime Labour Convention) (Health and Safety) (Amendment) Regulations 2014.
+• This notice sets out the requirements for reporting occupational diseases, as required by the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations (S.I. No. 1997/2962) (“the Health and Safety Regulations (as amended)”), particularly in the light of the amendments made by the Merchant Shipping (Maritime Labour Convention) (Health and Safety) (Amendment) Regulations 2014.
 
-•
-The Health and Safety Regulations (as amended) require employers to report occupational diseases which are identified in seafarers serving on UK ships.
+• The Health and Safety Regulations (as amended) require employers to report occupational diseases which are identified in seafarers serving on UK ships.
 
-•
-The requirement to report arises only where a written diagnosis of a specified disease has been provided by a registered medical practitioner but see Annex B for guidance on reporting of cases of COVID-19 as an occupational disease.
+• The requirement to report arises only where a written diagnosis of a specified disease has been provided by a registered medical practitioner but see Annex B for guidance on reporting of cases of COVID-19 as an occupational disease.
 
-•
-This MSN details the reporting arrangements and includes at Annex A the table of reportable diseases and related work activities.
+• This MSN details the reporting arrangements and includes at Annex A the table of reportable diseases and related work activities.
 
-•
-The form for reporting a disease is MSF 4159.
+• The form for reporting a disease is MSF 4159.
 
-•
-Reports must be handed with due regard to confidentiality and in accordance with the International Labour Organization’s Code of Practice on Protection of Workers’ Personal Data.
+• Reports must be handed with due regard to confidentiality and in accordance with the International Labour Organization’s Code of Practice on Protection of Workers’ Personal Data.
 
 Relationship with the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations (S.I. 1997/2962) as amended
 
-•
-The Health and Safety Regulations (as amended) need to be read together with this Merchant Shipping Notice, as it set out some of the key details required to comply with legal obligations under those Regulations. Failure to comply with those obligations is a Criminal Offence.
+• The Health and Safety Regulations (as amended) need to be read together with this Merchant Shipping Notice, as it set out some of the key details required to comply with legal obligations under those Regulations. Failure to comply with those obligations is a Criminal Offence.
 
-•
-In order to assist the reader, section 4 identifies the provisions in the Regulations which refer to information specified in this Notice.
+• In order to assist the reader, section 4 identifies the provisions in the Regulations which refer to information specified in this Notice.
 
-•
-Amendment 1 includes COVID-19 as a reportable disease.
+• Amendment 1 includes COVID-19 as a reportable disease.
 
 1. Introduction/background
 
@@ -45,11 +36,9 @@ Amendment 1 includes COVID-19 as a reportable disease.
 
 2.1 The diseases which are reportable are listed in the table in Annex A of this Notice, which also states the type of work activity which may give rise to exposure to the disease and is accepted as a recognised risk. An employer must report a listed disease when:
 
-•
-It has been diagnosed in writing by a medical practitioner (doctor);
+• It has been diagnosed in writing by a medical practitioner (doctor);
 
-•
-The seafarer has been involved in an associated work activity
+• The seafarer has been involved in an associated work activity
 
 A report of a case will not necessarily signify that it is caused by work; it will mean that the seafarer affected works in a job where the disease is considered likely to have an occupational origin.
 
@@ -151,11 +140,9 @@ Incidental exposure can occur when working in environments where people are know
 
 The following should be reported:
 
-•
-a seafarer has been diagnosed as having COVID-19 attributed to an occupational exposure to COVID-19, through either deliberately working with the virus or being incidentally exposed to it
+• a seafarer has been diagnosed as having COVID-19 attributed to an occupational exposure to COVID-19, through either deliberately working with the virus or being incidentally exposed to it
 
-•
-a seafarer dies as a result of occupational exposure to COVID-19 through either deliberately working with the virus or being incidentally exposed to it
+• a seafarer dies as a result of occupational exposure to COVID-19 through either deliberately working with the virus or being incidentally exposed to it
 
 In such cases, the disease is reported as a case of disease as a result of exposure to a biological agent.
 
@@ -163,11 +150,8 @@ An occupational disease is normally reportable only if the employer has received
 
 The following should not be reported as cases of occupational disease:
 
-•
-cases of disease or deaths of members of the public, such as passengers, from COVID-19
+• cases of disease or deaths of members of the public, such as passengers, from COVID-19
 
-•
-cases where an employee has infected another employee with COVID-19 through general transmission in the workplace
+• cases where an employee has infected another employee with COVID-19 through general transmission in the workplace
 
-•
-cases where a member of the public has infected an employee with COVID-19 through general transmission in the workplace, unless infection is likely to have occurred from working in an environment with a person known to have COVID-19, for example in a medical setting
+• cases where a member of the public has infected an employee with COVID-19 through general transmission in the workplace, unless infection is likely to have occurred from working in an environment with a person known to have COVID-19, for example in a medical setting

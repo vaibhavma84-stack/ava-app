@@ -1,4 +1,4 @@
-MSN 1781 (M+F) MSN 1781 (M+F) Amendment 3 The Merchant Shipping regulations 1996 - COLREG
+MSN 1781 (M+F) Amendment 3 The Merchant Shipping regulations 1996 - COLREG
 2023-11-21
 Source: https://www.gov.uk/government/publications/msn-1781-mf-amendment-3-the-merchant-shipping-regulations-1996-colreg
 
@@ -24,14 +24,11 @@ The 2023 Order makes corresponding provision in relation to references to “Mas
 
 3.3 The 2023 Order defines a “watercraft” as any type of craft which;
 
-•
-is capable of moving under its own mechanical power,
+• is capable of moving under its own mechanical power,
 
-•
-is used, navigated, or situated wholly or partly in or on the water, and
+• is used, navigated, or situated wholly or partly in or on the water, and
 
-•
-is capable of being used to carry one or more persons.
+• is capable of being used to carry one or more persons.
 
 3.4 The application of the Rules of COLREG to watercraft which currently may not fall within the scope of the definitions in the Merchant Shipping Act 1995 and the 2023 Order will be subject to clarification in further legislation or guidance from the Maritime and Coastguard Agency (MCA).
 

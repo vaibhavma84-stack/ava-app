@@ -1,4 +1,4 @@
-MGN 524 (M+F) MGN 524 (M+F) Amendment 1 - Life-saving appliances – category C medical kits
+MGN 524 (M+F) Amendment 1 - Life-saving appliances – category C medical kits
 2021-12-10
 Source: https://www.gov.uk/government/publications/mgn-524-mf-amendment-1-life-saving-appliances-category-c-medical-kits
 
@@ -38,17 +38,13 @@ https://pclportal.mhra.gov.uk/
 
 The application is to include details about the company submitting the application, the quality system covering all activities regarding human medicines, the nomination of a Responsible Person or Responsible Person (import) and intentions regarding the distribution of human medicines.
 
-•
-2.1.2 An inspection will be arranged between MHRA and the applicant. During this inspection an MHRA Inspector will visit the premise(s) of the applicant and assess the suitability of the premises along with the personnel skills, including the knowledge and experience, of the Responsible Person or Responsible Person (import). The inspector will also seek to ensure the company’s familiarity with relevant legislation and the requirements of the Good Distribution Practice (GDP) are met. For more information on the inspection process applicants should contact MHRA directly.
+• 2.1.2 An inspection will be arranged between MHRA and the applicant. During this inspection an MHRA Inspector will visit the premise(s) of the applicant and assess the suitability of the premises along with the personnel skills, including the knowledge and experience, of the Responsible Person or Responsible Person (import). The inspector will also seek to ensure the company’s familiarity with relevant legislation and the requirements of the Good Distribution Practice (GDP) are met. For more information on the inspection process applicants should contact MHRA directly.
 
-•
-2.1.3 Subsequent to a successful inspection, the completion of any non-conformity highlighted at the inspection and all relevant fees being paid, the MHRA will recommend that a WDA be granted. A WDA will subsequently be issued by MHRA.
+• 2.1.3 Subsequent to a successful inspection, the completion of any non-conformity highlighted at the inspection and all relevant fees being paid, the MHRA will recommend that a WDA be granted. A WDA will subsequently be issued by MHRA.
 
-•
-2.1.4 MHRA will aim to process applications within 90 days of receipt through the correct route (the online portal), subject to delays from the applicants end.
+• 2.1.4 MHRA will aim to process applications within 90 days of receipt through the correct route (the online portal), subject to delays from the applicants end.
 
-•
-2.1.5 Applicants and holders of WDA are required to pay fees set out in the Medicines (Products for Human Use) (fees) Regulations. These include an application fee, an initial inspection fee, subsequent inspection fees and an annual retention fee. MHRA should be contacted regarding the specific applicable fees. A reduced rate fee is applicable for businesses that have a turnover of less than £35K in licenced medical products. It should be noted that any delays to fees being paid may delay the application process. Current MHRA fees can be found on the MHRA website
+• 2.1.5 Applicants and holders of WDA are required to pay fees set out in the Medicines (Products for Human Use) (fees) Regulations. These include an application fee, an initial inspection fee, subsequent inspection fees and an annual retention fee. MHRA should be contacted regarding the specific applicable fees. A reduced rate fee is applicable for businesses that have a turnover of less than £35K in licenced medical products. It should be noted that any delays to fees being paid may delay the application process. Current MHRA fees can be found on the MHRA website
 
 2.2 This outlined process gives a representation of what applicants may expect. For further information please contact MHRA: GDP.inspectorate@mhra.gov.uk or call 020 3080 6000
 
@@ -68,17 +64,13 @@ The application is to include details about the company submitting the applicati
 
 3.6 Regarding Category C medical kits produced in the UK and exposed for supply to the UK market MHRA requires the following to be met regardless as to the stage of application:
 
-•
-3.6.1 All human medicines to be detailed on outer packaging (name, strength, form, quantity)
+• 3.6.1 All human medicines to be detailed on outer packaging (name, strength, form, quantity)
 
-•
-3.6.2 A batch number (permitting all medicine components to be traced), expiry date and storage conditions to be applied to the pack.
+• 3.6.2 A batch number (permitting all medicine components to be traced), expiry date and storage conditions to be applied to the pack.
 
-•
-3.6.3 For the contents to contain products authorised for use in the UK.
+• 3.6.3 For the contents to contain products authorised for use in the UK.
 
-•
-3.6.4 For Category C medical kits currently in use, these will be accepted until their expiry date is met.
+• 3.6.4 For Category C medical kits currently in use, these will be accepted until their expiry date is met.
 
 3.7 Regarding Category C medical kits (and survival craft containing Category C medical kits) for export to non UK markets, the contents should contain products authorised for the use in the destination market.
 

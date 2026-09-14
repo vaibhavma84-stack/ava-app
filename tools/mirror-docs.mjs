@@ -117,6 +117,9 @@ export function textFromHtml(html) {
     .replace(/&([a-z][a-z0-9]*);/gi, (whole, name) => ENTITIES[name.toLowerCase()] ?? whole)
     .replace(/[ \t]+/g, ' ')
     .replace(/ ?\n ?/g, '\n')
+    // A list item holding a paragraph closed both, leaving the bullet stranded
+    // on a line of its own above the words it belongs to.
+    .replace(/\u2022\n+/g, '\u2022 ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
@@ -149,8 +152,14 @@ async function mcaText(notice) {
 
     // Headed by what it is, so the file reads as the notice and not as a
     // fragment of one, and so its number is in the text as well as the name.
-    return `${notice.refNo || ''} ${notice.title || ''}`.trim()
-      + `\n${notice.date || ''}\nSource: ${notice.sourceUrl}\n\n${text}\n`;
+    // Most MCA titles already open with the number — printing it again gave
+    // "MGN 652 (M+F) MGN 652 (M+F) Amendment 1 …".
+    const ref = notice.refNo || '';
+    const title = notice.title || '';
+    const heading = ref && !title.toLowerCase().startsWith(ref.toLowerCase())
+      ? `${ref} ${title}`.trim()
+      : (title || ref);
+    return `${heading}\n${notice.date || ''}\nSource: ${notice.sourceUrl}\n\n${text}\n`;
   } catch { return ''; }
 }
 

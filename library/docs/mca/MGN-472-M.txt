@@ -1,4 +1,4 @@
-MGN 472 (M) MGN 472 (M) Amendment 4 MLC applying for a substantial equivalence
+MGN 472 (M) Amendment 4 MLC applying for a substantial equivalence
 2025-12-17
 Source: https://www.gov.uk/government/publications/mgn-472-m-amendment-4-mlc-applying-for-a-substantial-equivalence
 
@@ -28,11 +28,9 @@ Amendment 4 updates references, and annex A list of substantial equivalents agre
 
 1.1 There are two kinds of substantial equivalence under UK regulations;
 
-•
-those embedded in Regulations, as an alternative means for UK ships to comply with the provisions of the Maritime Labour Convention, 2006 (MLC), which are available to all ships subject to any limitations of restrictions specified in the regulations, and
+• those embedded in Regulations, as an alternative means for UK ships to comply with the provisions of the Maritime Labour Convention, 2006 (MLC), which are available to all ships subject to any limitations of restrictions specified in the regulations, and
 
-•
-ship-specific substantial equivalences – generally relating to crew accommodation.
+• ship-specific substantial equivalences – generally relating to crew accommodation.
 
 1.2 The procedure for the approval of ship-specific substantial equivalences will follow the same arrangement that was used for exemptions under the Merchant Shipping (Crew Accommodation) Regulations 1997 (based on ILO 92 and ILO 133). These arrangements are (also detailed in flow chart in annex C) :
 
@@ -162,16 +160,12 @@ The 2010 Regulations therefore have a potentially wider application.
 
 The following example groups summarises the anticipated scenarios which are likely to be encountered, and whether SE007 (see Annex A) is applicable:
 
-•
-Post holders who previously were required to have ENG 1 Medical Certificates pre-MLC are still required to have ENG 1 Medical Certificates, with no effect of SE007.
+• Post holders who previously were required to have ENG 1 Medical Certificates pre-MLC are still required to have ENG 1 Medical Certificates, with no effect of SE007.
 
-•
-Post holders who are required to have UKOG Medical Certificates (or their Norwegian and Dutch equivalents) pre-MLC may have some brought within the definition of “seafarer” post MLC. The effect of SE007 for those post holders who are brought within the definition of “seafarer” for MLC purposes, but were not previously considered seafarers, the proposed equivalences would apply in circumstances described.
+• Post holders who are required to have UKOG Medical Certificates (or their Norwegian and Dutch equivalents) pre-MLC may have some brought within the definition of “seafarer” post MLC. The effect of SE007 for those post holders who are brought within the definition of “seafarer” for MLC purposes, but were not previously considered seafarers, the proposed equivalences would apply in circumstances described.
 
-•
-Post holders who previously were not required to have either an ENG 1 or UKOG Medical Certificate may be brought within the definition of “seafarer” post MLC. The effect of SE007 being that post holders in this group who are brought within the definition of “seafarer” for MLC purposes will be required to have an ENG 1.
+• Post holders who previously were not required to have either an ENG 1 or UKOG Medical Certificate may be brought within the definition of “seafarer” post MLC. The effect of SE007 being that post holders in this group who are brought within the definition of “seafarer” for MLC purposes will be required to have an ENG 1.
 
-•
-Post holders who have previously been required to have both an ENG 1 and a UKOG Medical Certificate pre-MLC, it is envisaged that if they are already required to have ENG 1s they will probably already be considered seafarers, regardless of the MLC legislation. No effect of SE007 is expected. Regardless of their post-MLC status this group will not be affected as the proposed substantial equivalences are aimed solely at relieving additional burdens brought about by the MLC.
+• Post holders who have previously been required to have both an ENG 1 and a UKOG Medical Certificate pre-MLC, it is envisaged that if they are already required to have ENG 1s they will probably already be considered seafarers, regardless of the MLC legislation. No effect of SE007 is expected. Regardless of their post-MLC status this group will not be affected as the proposed substantial equivalences are aimed solely at relieving additional burdens brought about by the MLC.
 
 Annex C - process map for applying for substantial equivalence

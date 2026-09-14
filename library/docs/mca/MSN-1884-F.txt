@@ -1,4 +1,4 @@
-MSN 1884 (F) MSN 1884 (F) ILO Work in fishing convention, working time
+MSN 1884 (F) ILO Work in fishing convention, working time
 2023-03-15
 Source: https://www.gov.uk/government/publications/msn-1884-f-ilo-work-in-fishing-convention-working-time
 
@@ -154,11 +154,9 @@ Guidance
 
 6.3 A night worker is one who:
 
-•
-as a normal part of their duties, works more than 3 hours of their daily work time at night; or
+• as a normal part of their duties, works more than 3 hours of their daily work time at night; or
 
-•
-is likely to work an agreed proportion of their annual working time during night time.
+• is likely to work an agreed proportion of their annual working time during night time.
 
 6.4 The employer must keep records which are sufficient to demonstrate that the requirements on health assessments for night workers have been complied with (Regulation 10).
 

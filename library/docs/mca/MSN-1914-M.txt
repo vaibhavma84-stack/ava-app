@@ -1,4 +1,4 @@
-MSN 1914 (M) MSN 1914 (M) The carriage of dangerous goods and marine pollutants: amendments to international standards
+MSN 1914 (M) The carriage of dangerous goods and marine pollutants: amendments to international standards
 2024-01-11
 Source: https://www.gov.uk/government/publications/msn-1914-m-the-carriage-of-dangerous-goods-and-marine-pollutants-amendments-to-international-standards
 
@@ -20,17 +20,13 @@ This MSN is an integral part of the regulations described above.
 
 2.1 The IMDG Code provides the international standard for the carriage of dangerous goods and marine pollutants by sea. The requirements of the IMDG Code are given legal effect in the United Kingdom through the Merchant Shipping (Dangerous Goods and Marine Pollutants) Regulations 1997 (SI No. 1997/2367). Amendment 41-22 of the IMDG Code has been agreed in and adopted by the International Maritime Organization (IMO) (Resolution MSC.501(105)) applying in whole or in part on a voluntary basis from 1st January 2023 and entering into force internationally on 1st January 2024.
 
-•
-2.2 From 1st January 2023 until 31st December 2023, dangerous goods and marine pollutants in packaged form must be shipped either:
+• 2.2 From 1st January 2023 until 31st December 2023, dangerous goods and marine pollutants in packaged form must be shipped either:
 
-•
-a) In accordance with the mandatory IMDG Code 2020 Edition incorporating Amendment 40-20; or
+• a) In accordance with the mandatory IMDG Code 2020 Edition incorporating Amendment 40-20; or
 
-•
-b) In accordance with the IMDG Code 2022 Edition incorporating Amendment 41-22.
+• b) In accordance with the IMDG Code 2022 Edition incorporating Amendment 41-22.
 
-•
-2.3 On or after 1st January 2024, dangerous goods and marine pollutants in packaged form must be shipped only in accordance with the IMDG Code 2022 Edition incorporating Amendment 41-22.
+• 2.3 On or after 1st January 2024, dangerous goods and marine pollutants in packaged form must be shipped only in accordance with the IMDG Code 2022 Edition incorporating Amendment 41-22.
 
 2.4 The IMDG Code 2022 Edition comprises two volumes. This edition of the Code incorporates changes made in the UN Recommendations on the Transport of Dangerous Goods Model Regulations 22nd edition.
 
@@ -44,17 +40,13 @@ b) In accordance with the IMDG Code 2022 Edition incorporating Amendment 41-22.
 
 3.1 The IMSBC Code enables the safe loading, stowage and shipment of solid bulk cargoes by providing information on the dangers related with the shipment of certain types of solid bulk cargoes. Amendment 06-21 of the IMSBC Code has been agreed in and adopted by the IMO (Resolution MSC.500 (105)) applying in whole or in part on a voluntary basis from 1st January 2023 and entering into force internationally on 1st December 2023.
 
-•
-3.2 From 1st January 2023 until 30th November 2023, solid bulk cargoes must be shipped either:
+• 3.2 From 1st January 2023 until 30th November 2023, solid bulk cargoes must be shipped either:
 
-•
-a)In accordance with the mandatory IMSBC Code 2020 Edition incorporating Amendment 05-19; or
+• a)In accordance with the mandatory IMSBC Code 2020 Edition incorporating Amendment 05-19; or
 
-•
-b) In accordance with the IMSBC Code 2022 Edition incorporating Amendment 06-21.
+• b) In accordance with the IMSBC Code 2022 Edition incorporating Amendment 06-21.
 
-•
-3.3 On or after 1st December 2023, solid bulk cargoes must be shipped only in accordance with the IMSBC Code 2022 edition, incorporating amendment 07-23.  
+• 3.3 On or after 1st December 2023, solid bulk cargoes must be shipped only in accordance with the IMSBC Code 2022 edition, incorporating amendment 07-23.  
 
 4. International Code for the Construction and Equipment of Ships Carrying Dangerous Chemicals in Bulk (IBC Code), 2020 Edition
 

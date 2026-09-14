@@ -1,4 +1,4 @@
-MGN 638 (M+F) MGN 638 (M+F) Amendment 1: Human element guidance - part 3 distraction
+MGN 638 (M+F) Amendment 1: Human element guidance - part 3 distraction
 2024-03-13
 Source: https://www.gov.uk/government/publications/mgn-638-mf-amendment-1-human-element-guidance-part-3-distraction
 
@@ -70,20 +70,15 @@ For operational purposes
 
 • Keep the conversation as short as possible. Reschedule calls for a more appropriate time.
 
-•
-3.2 The company should have written procedures in the SMS/DSM/standing orders for use of personal mobile devices on board and protocols for the use of company mobile / satellite phones – particularly during critical operations when these devices can become a distraction to personnel in the wheelhouse and / or engine control room.
+• 3.2 The company should have written procedures in the SMS/DSM/standing orders for use of personal mobile devices on board and protocols for the use of company mobile / satellite phones – particularly during critical operations when these devices can become a distraction to personnel in the wheelhouse and / or engine control room.
 
-•
-3.3 As a principle of best practice, the MCA recommends:
+• 3.3 As a principle of best practice, the MCA recommends:
 
-•
-3.3.1 That personal mobile phones and other personal electronic devices should not be allowed to be carried anywhere the workplace, especially at safety critical places, unless used for work purposes in accordance with company policies and
+• 3.3.1 That personal mobile phones and other personal electronic devices should not be allowed to be carried anywhere the workplace, especially at safety critical places, unless used for work purposes in accordance with company policies and
 
-•
-3.3.2 Robust measures and restrictions should be employed in safety critical areas and during safety critical operations such as on the navigational bridge, at mooring stations, when bunkering etc.
+• 3.3.2 Robust measures and restrictions should be employed in safety critical areas and during safety critical operations such as on the navigational bridge, at mooring stations, when bunkering etc.
 
-•
-3.4 Due attention is also drawn towards the dangers of distraction and interference caused by mobile phones at safety critical locations and safety critical times on board contained in MGN 299 (M+F) .
+• 3.4 Due attention is also drawn towards the dangers of distraction and interference caused by mobile phones at safety critical locations and safety critical times on board contained in MGN 299 (M+F) .
 
 For personal use                                                                                
 

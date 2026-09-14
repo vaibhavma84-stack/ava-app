@@ -1,4 +1,4 @@
-MGN 649 (M) MGN 649 (M) Amendment 1 Application of MARPOL Annex II to offshore support vessels
+MGN 649 (M) Amendment 1 Application of MARPOL Annex II to offshore support vessels
 2022-05-05
 Source: https://www.gov.uk/government/publications/mgn-649-m-amendment-1-application-of-marpol-annex-ii-to-offshore-support-vessels
 
@@ -24,24 +24,19 @@ This MGN has now been amended because the transitional period outlined in the or
 
 2.2 Regulation 11.2 of Annex II requires parties to establish appropriate measures in respect of ships other than chemical tankers and liquefied gas carriers which are certified to carry the noxious liquid substances in bulk set out in chapter 17 of the IBC Code, based on IMO guidelines. These guidelines include alternatives to the standards in the IBC Code for OSVs which carry certain hazardous and noxious liquid substances in bulk, and so OSVs will accordingly satisfy the carriage requirements under Chapter VII of the Annex to the International Convention for the Safety of Life at Sea, 1974 (SOLAS) and Annex II to MARPOL, provided that they meet the equivalent requirements of:
 
-•
-for OSVs, the keels of which were laid or which were at a similar stage of construction, on or after 19 April 1990 and before 1 July 2018, the OSV Guidelines, as amended;
+• for OSVs, the keels of which were laid or which were at a similar stage of construction, on or after 19 April 1990 and before 1 July 2018, the OSV Guidelines, as amended;
 
-•
-for OSVs, the keels of which were laid or which were at a similar stage of construction, on or after 1 July 2018, the OSV Chemical Code.
+• for OSVs, the keels of which were laid or which were at a similar stage of construction, on or after 1 July 2018, the OSV Chemical Code.
 
 2.3 Amendments to the IBC Code in IMO Resolution MEPC.318(74), came into force both internationally and in the UK on 1 January 2021 and imposed revised, and in many cases, stricter carriage requirements for products listed in Chapter 17 of the IBC Code and the latest edition of the MEPC.2/Circular (provisional categorization of liquid substances in accordance with MARPOL Annex II). These revised carriage requirements augmented existing measures to prevent pollution of the marine environment with measures aimed at safeguarding life, health and material values. Consequently, many products previously assigned only with a pollution hazard (P), have now also been assigned with a safety hazard (S), and in some cases have also been categorised as toxic products. Operators should also be aware that some product names have changed.
 
 2.4 These amendments to the IBC Code resulted in many of the products listed in Appendix 1 to A.673(16) (Table of Permitted Cargoes) having upgraded carriage requirements. Consequently, existing OSVs complying with the requirements of A.673(16) would only have been able to load and carry a more restricted range of products based on the following criteria:
 
-•
-products which for safety reasons may be assigned for carriage on a type 3 ship as defined in the IBC Code and which are not required to meet the requirements for toxic products in section 15.12 of that Code,
+• products which for safety reasons may be assigned for carriage on a type 3 ship as defined in the IBC Code and which are not required to meet the requirements for toxic products in section 15.12 of that Code,
 
-•
-noxious liquid substances which would be permitted for carriage on a type 3 ship;
+• noxious liquid substances which would be permitted for carriage on a type 3 ship;
 
-•
-flammable liquids.
+• flammable liquids.
 
 2.5 For OSVs intending to carry a broader, less restricted range of the products listed in Chapter 17 of the IBC Code or the latest edition of the MEPC.2/Circular from 1 January 2021 onwards, full compliance with the IBC Code, or alternatively full compliance with the OSV Chemical Code, would have been required. As such, further explanation and guidance for the carriage of products on existing OSVs has been developed and is set out below and in Annex I of this document.
 

@@ -174,6 +174,11 @@ check('no markup survives at all', !/[<>]/.test(read), read);
 check('it does not end up as one long line', read.split('\n').length >= 4, JSON.stringify(read));
 
 // Numbers are what a notice is asked for by, so they must survive intact.
+// A bullet belongs with its words, not on a line above them.
+check('a bullet stays with the words it introduces',
+  textFromHtml('<ul><li><p>Annex 1: references</p></li></ul>') === '\u2022 Annex 1: references',
+  JSON.stringify(textFromHtml('<ul><li><p>Annex 1: references</p></li></ul>')));
+
 check('a notice number is left exactly as written',
   textFromHtml('<p>MGN 652 (M+F) Amendment 1</p>') === 'MGN 652 (M+F) Amendment 1',
   textFromHtml('<p>MGN 652 (M+F) Amendment 1</p>'));

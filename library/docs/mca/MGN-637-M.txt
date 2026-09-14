@@ -1,4 +1,4 @@
-MGN 637 (M) MGN 637 (M) Amendment 1 - International code for ships operating in polar waters (Polar Code)
+MGN 637 (M) Amendment 1 - International code for ships operating in polar waters (Polar Code)
 2025-12-03
 Source: https://www.gov.uk/government/publications/mgn-637-m-amendment-1-international-code-for-ships-operating-in-polar-waters-polar-code
 
@@ -161,28 +161,17 @@ Ships constructed on or after 1st January 2026 must comply with the new requirem
 
 • 11.3.1 Ships to which this section applies must:
 
-•
+• • have the ability to receive up-to-date information including ice information for safe navigation;
 
-• have the ability to receive up-to-date information including ice information for safe navigation;
+• • have systems in place for providing reference headings and position fixing suitable for the intended areas;
 
-•
+• • have the ability to visually detect ice when operating in darkness;
 
-• have systems in place for providing reference headings and position fixing suitable for the intended areas;
+• • comply with SOLAS regulation V/22.1.9.4, irrespective of the date of construction and the size, and have a clear view astern;
 
-•
+• • have a means to prevent the accumulation of ice on antennas required for navigation and communication shall be provided.
 
-• have the ability to visually detect ice when operating in darkness;
-
-•
-
-• comply with SOLAS regulation V/22.1.9.4, irrespective of the date of construction and the size, and have a clear view astern;
-
-•
-
-• have a means to prevent the accumulation of ice on antennas required for navigation and communication shall be provided.
-
-•
-For ice-strengthened ships, the following applies:
+• For ice-strengthened ships, the following applies:
 
 • 11.3.2 ice-strengthened ships constructed on or after 1 January 2026, must have either two independent echo-sounding devices or one echo-sounding device with two separate independent transducers. Other devices capable of depth sounding which may be acceptable to the MCA, such as fish finders, may be used as equivalent means of meeting this requirement. Where equipment required by SOLAS Chapter V or chapter 9-1 have sensors that project below the hull, such sensors must be protected against ice;
 
@@ -278,17 +267,12 @@ Email: marinetechnology@mcga.gov.uk
 
 Website: www.gov.uk/mca
 
-•
-https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.385(94).pdf, https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.532(107).pdf and https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.538(107).pdf ↩
+• https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.385(94).pdf, https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.532(107).pdf and https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.538(107).pdf ↩
 
-•
-Polar Code, Part I-A, Chapter 1, 1.2 Definitions, 1.2.9 - Mean Daily Low Temperature (MDLT) means the mean value of the daily low temperature for each day of the year over a minimum 10 year period. A data set acceptable to the Administration may be used if 10 years of data is not available. ↩
+• Polar Code, Part I-A, Chapter 1, 1.2 Definitions, 1.2.9 - Mean Daily Low Temperature (MDLT) means the mean value of the daily low temperature for each day of the year over a minimum 10 year period. A data set acceptable to the Administration may be used if 10 years of data is not available. ↩
 
-•
-The classification societies currently recognised by the UK as Recognised Organisations are: Lloyds Register (LR), Det Norske Veritas – Germanischer Lloyd (DNV-GL), Bureau Veritas (BV), American Bureau of Shipping (ABS), Registro Italiano Navale (RINA) and Nippon Kaiji Kyokai (Class NK). ↩
+• The classification societies currently recognised by the UK as Recognised Organisations are: Lloyds Register (LR), Det Norske Veritas – Germanischer Lloyd (DNV-GL), Bureau Veritas (BV), American Bureau of Shipping (ABS), Registro Italiano Navale (RINA) and Nippon Kaiji Kyokai (Class NK). ↩
 
-•
-Note amendments to the 2016 Regulations: SI 2019/470, SI 2019/1304, SI 2020/1000 and SI 2024/504. ↩
+• Note amendments to the 2016 Regulations: SI 2019/470, SI 2019/1304, SI 2020/1000 and SI 2024/504. ↩
 
-•
-Polar Code, Part I-A, Chapter 1, 1.2 Definitions, 1.2.9 - Mean Daily Low Temperature (MDLT) means the mean value of the daily low temperature for each day of the year over a minimum 10 year period. A data set acceptable to the Administration may be used if 10 years of data is not available. ↩
+• Polar Code, Part I-A, Chapter 1, 1.2 Definitions, 1.2.9 - Mean Daily Low Temperature (MDLT) means the mean value of the daily low temperature for each day of the year over a minimum 10 year period. A data set acceptable to the Administration may be used if 10 years of data is not available. ↩

@@ -1,4 +1,4 @@
-MGN 369 (M+F) MGN 369 (M+F) – Amendment 1 Navigation Safety: Navigation practices relevant to restricted visibility
+MGN 369 (M+F) – Amendment 1 Navigation Safety: Navigation practices relevant to restricted visibility
 2024-03-21
 Source: https://www.gov.uk/government/publications/mgn-369-mf-amendment-1-navigation-safety-navigation-practices-relevant-to-restricted-visibility
 
@@ -280,20 +280,15 @@ The COLREGs do not define a minimum CPA or TCPA and similarly to ‘Safe Speed�
 
 9.1 Several accidents attributed to restricted visibility have occurred since the publication of the original version of this Guidance Note which have identified gaps within the safety management systems of operators, and potential non-compliance or poor knowledge of COLREG.  It is therefore recommended that Masters, Skippers and Deck Officers review the following reports available freely from the MAIB (Marine Accident Investigation Branch) website:
 
-•
-Red Falcon/Greylag (2018 – MAIB Report 06/2020). In 2018 a collision investigated by the MAIB involved a ro-ro passenger ferry and a moored yacht.  The collision and grounding occurred because the Master lost their orientation in dense fog and due to cognitive overload caused by stress, poor visibility, and poor bridge team management.
+• Red Falcon/Greylag (2018 – MAIB Report 06/2020). In 2018 a collision investigated by the MAIB involved a ro-ro passenger ferry and a moored yacht.  The collision and grounding occurred because the Master lost their orientation in dense fog and due to cognitive overload caused by stress, poor visibility, and poor bridge team management.
 
-•
-ANL Wyong/King Arthur (2018 – MAIB Report 07/2020). In 2018 a UK registered container vessel and an Italian registered gas carrier collided 4nm south-east of Europa Point, Gibraltar in dense fog.  The investigation found poor application of the COLREGs and an over reliance on AIS data and VHF communication in determining risk of collision.
+• ANL Wyong/King Arthur (2018 – MAIB Report 07/2020). In 2018 a UK registered container vessel and an Italian registered gas carrier collided 4nm south-east of Europa Point, Gibraltar in dense fog.  The investigation found poor application of the COLREGs and an over reliance on AIS data and VHF communication in determining risk of collision.
 
-•
-Arrow (2020 – MAIB Report 08/2021). In 2020 an Isle of Man Registered ro-ro freight ferry grounded in the approach channel of Aberdeen Harbour in dense fog.  The investigation identified potential gaps within procedures relating to pilotage and manoeuvring operations in restricted visibility and limitations in the ECS (Electronic Chart System) being used onboard.
+• Arrow (2020 – MAIB Report 08/2021). In 2020 an Isle of Man Registered ro-ro freight ferry grounded in the approach channel of Aberdeen Harbour in dense fog.  The investigation identified potential gaps within procedures relating to pilotage and manoeuvring operations in restricted visibility and limitations in the ECS (Electronic Chart System) being used onboard.
 
-•
-Achieve/Talis (2020 – MAIB Report 14/2021).  In 2020 a Panamanian registered general cargo vessel collided with a UK registered fishing vessel in fog approx. 3nm northeast of Tynemouth.  The investigation identified that neither vessel was maintaining a proper lookout as required by Rule 5, sounding signals in line with Rule 35, or took avoiding action as required by Rule 19.
+• Achieve/Talis (2020 – MAIB Report 14/2021).  In 2020 a Panamanian registered general cargo vessel collided with a UK registered fishing vessel in fog approx. 3nm northeast of Tynemouth.  The investigation identified that neither vessel was maintaining a proper lookout as required by Rule 5, sounding signals in line with Rule 35, or took avoiding action as required by Rule 19.
 
-•
-Petunia Seaways/Peggotty (2016 – MAIB Report 04/2017).  In 2016 a Danish registered ro-ro freight ferry collided with an historic motor launch in dense fog whilst proceeding outbound from the River Humber.  The subsequent investigation noted that the ro-ro ferry was proceeding at a speed assessed as excessive, did not effectively plot the motor launch even though it was detected by radar and was not sounding signals in line with Rule 35.  The motor launch was found to be operating without a passage plan and defective navigational equipment.
+• Petunia Seaways/Peggotty (2016 – MAIB Report 04/2017).  In 2016 a Danish registered ro-ro freight ferry collided with an historic motor launch in dense fog whilst proceeding outbound from the River Humber.  The subsequent investigation noted that the ro-ro ferry was proceeding at a speed assessed as excessive, did not effectively plot the motor launch even though it was detected by radar and was not sounding signals in line with Rule 35.  The motor launch was found to be operating without a passage plan and defective navigational equipment.
 
 Some of the key contributing factors identified in the above five incidents were poor lookout practices, excessive speed or a reluctance to reduce speed, poor use of radar to ascertain if a risk of collision exists, and poor bridge team management which resulted in crew becoming disorientated and slow to respond to developing situations.
 

@@ -1,4 +1,4 @@
-MSN 1920 (M) MSN 1920 (M) Code of safety for special purpose ships, 1983
+MSN 1920 (M) Code of safety for special purpose ships, 1983
 2025-12-09
 Source: https://www.gov.uk/government/publications/msn-1920-m-code-of-safety-for-special-purpose-ships-1983
 
@@ -42,38 +42,27 @@ Annex - Code of safety for special purpose ships, 1983
 
 Preamble
 
-•
-1.  The Code has been developed to provide an international standard of safety for special purpose ships of new construction the application of which will facilitate operation of such ships and result in a level of safety for the ships and their personnel equivalent to that required by the International Convention for the Safety of Life at Sea in force.
+• 1.  The Code has been developed to provide an international standard of safety for special purpose ships of new construction the application of which will facilitate operation of such ships and result in a level of safety for the ships and their personnel equivalent to that required by the International Convention for the Safety of Life at Sea in force.
 
-•
-2.  For the purposes of this Code a special purpose ship is a ship of not less than 500 gross tonnage which carries more than 12 special personnel, i.e. persons who are specially needed for the particular operational duties of the ship and are in addition to those persons required for the normal navigation, engineering and maintenance of the ship or engaged to provide services for the persons carried on board.
+• 2.  For the purposes of this Code a special purpose ship is a ship of not less than 500 gross tonnage which carries more than 12 special personnel, i.e. persons who are specially needed for the particular operational duties of the ship and are in addition to those persons required for the normal navigation, engineering and maintenance of the ship or engaged to provide services for the persons carried on board.
 
-•
-3.  Because special personnel are expected to be able bodied with a fair knowledge of the layout of the ship and have received some training in safety procedures and the handling of the ship’s safety equipment, the special purpose ships on which they are carried need not be considered or treated as passenger ships.
+• 3.  Because special personnel are expected to be able bodied with a fair knowledge of the layout of the ship and have received some training in safety procedures and the handling of the ship’s safety equipment, the special purpose ships on which they are carried need not be considered or treated as passenger ships.
 
-•
-4.  In developing the safety standards for this Code it has been necessary to consider:
+• 4.  In developing the safety standards for this Code it has been necessary to consider:
 
-•
-.1 the number of special personnel being carried; and
+• .1 the number of special personnel being carried; and
 
-•
-.2 the design and size of the ship in question.
+• .2 the design and size of the ship in question.
 
-•
-5.  Recognizing that  for certain limited areas of operation and service characteristics it would be unreasonable to apply the Code in full, the possibility of relaxations has been introduced by the concept of near-coastal voyages.
+• 5.  Recognizing that  for certain limited areas of operation and service characteristics it would be unreasonable to apply the Code in full, the possibility of relaxations has been introduced by the concept of near-coastal voyages.
 
-•
-6.  While the Code has been developed for new ships of 500 gross tonnage and above, Administrations may consider the application of the provisions of the Code also to ships of lesser tonnage. The term “new ship” has not been defined in order to give any Administration discretion to decide the effective date of entry into force.
+• 6.  While the Code has been developed for new ships of 500 gross tonnage and above, Administrations may consider the application of the provisions of the Code also to ships of lesser tonnage. The term “new ship” has not been defined in order to give any Administration discretion to decide the effective date of entry into force.
 
-•
-7.  For facilitating the operation of special purpose ships this Code provides for a certificate, called a Special Purpose Ship Safety Certificate, which should be issued to every special purpose ship. Where a special purpose ship is normally engaged on international voyages as defined in the 1974 SOLAS Convention it should, in addition, also carry SOLAS Safety Certificates, either:
+• 7.  For facilitating the operation of special purpose ships this Code provides for a certificate, called a Special Purpose Ship Safety Certificate, which should be issued to every special purpose ship. Where a special purpose ship is normally engaged on international voyages as defined in the 1974 SOLAS Convention it should, in addition, also carry SOLAS Safety Certificates, either:
 
-•
-.1 for a passenger ship with a SOLAS Exemption Certificate; or
+• .1 for a passenger ship with a SOLAS Exemption Certificate; or
 
-•
-.2 for a cargo ship with a SOLAS Exemption Certificate, where necessary; as the Administration deems appropriate.
+• .2 for a cargo ship with a SOLAS Exemption Certificate, where necessary; as the Administration deems appropriate.
 
 Contents
 
@@ -113,34 +102,25 @@ For the purpose of this Code the definitions given hereunder apply. For terms us
 
 1.3.1 “Crew” means all persons carried on board the ship to provide navigation and maintenance of the ship, its machinery, systems, and arrangements essential for propulsion and safe navigation or to provide services for other persons on board.
 
-•
-1.3.2 “Passenger” means every person other than:
+• 1.3.2 “Passenger” means every person other than:
 
-•
-.1 the master and the members of the crew or other persons employed or engaged in any capacity on board a ship on the business of that ship; and
+• .1 the master and the members of the crew or other persons employed or engaged in any capacity on board a ship on the business of that ship; and
 
-•
-.2 a child under one year of age.
+• .2 a child under one year of age.
 
 1.3.3. “Special personnel” means all persons who are not passengers or members of the crew or children under one year of age and who are carried on board in connection with the special purpose of that ship or because of special work being carried out aboard that ship. Wherever in this Code the number of special personnel appears as a parameter it should include the number of passengers carried on board which may not exceed 12.
 
-•
-1.3.4 Except as provided in 8.3, “special purpose ship” means a mechanically self-propelled ship which, by reason of its function, carries on board more than 12 special personnel including passengers. Special purpose ships to which this Code applies include the following types:
+• 1.3.4 Except as provided in 8.3, “special purpose ship” means a mechanically self-propelled ship which, by reason of its function, carries on board more than 12 special personnel including passengers. Special purpose ships to which this Code applies include the following types:
 
-•
-.1 ships engaged in research, expeditions and survey;
+• .1 ships engaged in research, expeditions and survey;
 
-•
-.2 ships for training of marine personnel;
+• .2 ships for training of marine personnel;
 
-•
-.3 whale and fish factory ships not engaged in catching;
+• .3 whale and fish factory ships not engaged in catching;
 
-•
-.4 ships processing other living resources of the sea, not engaged in catching;
+• .4 ships processing other living resources of the sea, not engaged in catching;
 
-•
-.5 other ships with design features and modes of operation similar to ships referred to in .1 to .4 which in the opinion of the Administration may be referred to this group.
+• .5 other ships with design features and modes of operation similar to ships referred to in .1 to .4 which in the opinion of the Administration may be referred to this group.
 
 1.3.5 “1974 SOLAS Convention as amended”, unless otherwise stated,  means the International Convention for the Safety of Life at Sea, 1974, as amended by resolution MSC.1(XLV) adopted on 20 November 1981.
 
@@ -230,68 +210,47 @@ Intended for voids    
 
 2.5.1 The damage waterline before the equalisation and/or in the process thereof should be below the lower edge of any opening through which progressive flooding may take place. Such openings include air-pipes, ventilators and openings which are closed by means of watertight manhole covers and flush scuttles, small watertight cargo tank hatch covers which maintain high integrity of the deck, remotely operated watertight sliding doors and sidescuttles of the non-opening type.
 
-•
-2.5.2 The angle of heel due to unsymmetrical flooding should not exceed 20˚ prior to equalisation and after equalisation should not exceed:
+• 2.5.2 The angle of heel due to unsymmetrical flooding should not exceed 20˚ prior to equalisation and after equalisation should not exceed:
 
-•
-7˚– in the case of flooding between adjacent transverse watertight bulkheads as required in 2.2.1 and 2.2.2
+• 7˚– in the case of flooding between adjacent transverse watertight bulkheads as required in 2.2.1 and 2.2.2
 
-•
-12˚ – in the case of flooding involving the collision bulkhead as required in 2.2.2. In special cases the Administration may allow additional heel due to the unsymmetrical moment but in no case should the final heel exceed 15˚.
+• 12˚ – in the case of flooding involving the collision bulkhead as required in 2.2.2. In special cases the Administration may allow additional heel due to the unsymmetrical moment but in no case should the final heel exceed 15˚.
 
-•
-2.5.3 The initial metacentric height of a ship in the final stage of flooding for the static equilibrium position in case of symmetrical flooding and for the upright position in case of unsymmetrical flooding as calculated by the constant displacement method should be not less than 0.05m before appropriate measures to increase the metacentric height have been taken.
+• 2.5.3 The initial metacentric height of a ship in the final stage of flooding for the static equilibrium position in case of symmetrical flooding and for the upright position in case of unsymmetrical flooding as calculated by the constant displacement method should be not less than 0.05m before appropriate measures to increase the metacentric height have been taken.
 
-•
-2.5.4 The righting lever curve at the final stage of flooding should have a minimum range of 20˚ beyond the position of equilibrium in association with a maximum righting lever of at least 100mm within this range. Unprotected openings should not be immersed within this range of residual stability except where the space concerned is included in damage stability calculations as a floodable space. Within this range the immersion of all openings listed in 2.5.1 and other openings capable of being closed watertight may be permitted.
+• 2.5.4 The righting lever curve at the final stage of flooding should have a minimum range of 20˚ beyond the position of equilibrium in association with a maximum righting lever of at least 100mm within this range. Unprotected openings should not be immersed within this range of residual stability except where the space concerned is included in damage stability calculations as a floodable space. Within this range the immersion of all openings listed in 2.5.1 and other openings capable of being closed watertight may be permitted.
 
-•
-2.5.5 The Administration should be satisfied that the damage stability and trim are sufficient during intermediate stages of flooding.
+• 2.5.5 The Administration should be satisfied that the damage stability and trim are sufficient during intermediate stages of flooding.
 
-•
-2.6 The ship should be designed so as to keep unsymmetrical flooding to a minimum consistent with efficient arrangements. The means adopted for equalisation of the ship should, where practicable, be self-acting, but in any case where controls to cross-flooding fittings are provided they should be operable from above the bulkhead deck. All such fittings and controls should be acceptable to the Administration.
+• 2.6 The ship should be designed so as to keep unsymmetrical flooding to a minimum consistent with efficient arrangements. The means adopted for equalisation of the ship should, where practicable, be self-acting, but in any case where controls to cross-flooding fittings are provided they should be operable from above the bulkhead deck. All such fittings and controls should be acceptable to the Administration.
 
-•
-2.7 The requirements in regulations 9 to 20 and 22 to 25 of part B of chapter II-1 of the 1974 SOLAS Convention as amended, should be met as follows:
+• 2.7 The requirements in regulations 9 to 20 and 22 to 25 of part B of chapter II-1 of the 1974 SOLAS Convention as amended, should be met as follows:
 
-•
-.1 Regulations 9, 12, 14, 18, 19, 22, 23, 24, 25 by all special purpose ships, as applicable;
+• .1 Regulations 9, 12, 14, 18, 19, 22, 23, 24, 25 by all special purpose ships, as applicable;
 
-•
-.2 Regulation 10 by special purpose ships carrying more than 50 special personnel;
+• .2 Regulation 10 by special purpose ships carrying more than 50 special personnel;
 
-•
-.3 Regulation 11 by special purpose ships carrying not more than 50 special personnel;
+• .3 Regulation 11 by special purpose ships carrying not more than 50 special personnel;
 
-•
-.4 Regulations 17 and 20 for all special purpose ships carrying more than 200 special personnel;
+• .4 Regulations 17 and 20 for all special purpose ships carrying more than 200 special personnel;
 
-•
-.5 Regulation 15 for all special purpose ships except that for special purpose ships of not more than 50m in length exemptions may be granted by the Administration;
+• .5 Regulation 15 for all special purpose ships except that for special purpose ships of not more than 50m in length exemptions may be granted by the Administration;
 
-•
-.6 Regulations 13 and 16 are not applicable.
+• .6 Regulations 13 and 16 are not applicable.
 
-•
-2.8 Bilge pumping arrangements.
+• 2.8 Bilge pumping arrangements.
 
-•
-2.8.1 A ship not carrying more than 50 special personnel should meet the requirements of regulation 21.1 and 21.3 of part B of Chapter II-1 of the 1974 SOLAS Convention as amended and the following:
+• 2.8.1 A ship not carrying more than 50 special personnel should meet the requirements of regulation 21.1 and 21.3 of part B of Chapter II-1 of the 1974 SOLAS Convention as amended and the following:
 
-•
-.1 The bilge pumping system required by regulation 21.1 should be capable of operation after side damage specified in 2.3 in the locations along the ship’s length specified in 2.2.1. For this purpose wing suctions should generally be fitted except in narrow compartments at the end of the ship, where one suction may be sufficient. In compartments of unusual form, additional suctions may be required. Arrangements should be made whereby water in the compartment may find its way to the suction pipes. Where, for particular compartments, the Administration is satisfied that the provision of drainage may be undesirable, it may allow such provisions to be dispensed with, provided the survival capability of the ship will not be impaired.
+• .1 The bilge pumping system required by regulation 21.1 should be capable of operation after side damage specified in 2.3 in the locations along the ship’s length specified in 2.2.1. For this purpose wing suctions should generally be fitted except in narrow compartments at the end of the ship, where one suction may be sufficient. In compartments of unusual form, additional suctions may be required. Arrangements should be made whereby water in the compartment may find its way to the suction pipes. Where, for particular compartments, the Administration is satisfied that the provision of drainage may be undesirable, it may allow such provisions to be dispensed with, provided the survival capability of the ship will not be impaired.
 
-•
-.2 Provision should be made to prevent the compartment served by any bilge suction pipe being flooded in the event of the pipe being severed or otherwise damaged by collision in any other compartment. For this purpose, where the pipe is at any part situated within the transverse extent of damage, as specified in 2.3 in the locations along the ship’s length as specified in 2.2.1, a nonreturn valve should be fitted to the pipe in the compartment containing the open end.
+• .2 Provision should be made to prevent the compartment served by any bilge suction pipe being flooded in the event of the pipe being severed or otherwise damaged by collision in any other compartment. For this purpose, where the pipe is at any part situated within the transverse extent of damage, as specified in 2.3 in the locations along the ship’s length as specified in 2.2.1, a nonreturn valve should be fitted to the pipe in the compartment containing the open end.
 
-•
-.3 Distribution boxes, cocks and valves in connection with the bilge pumping system should be arranged so that, in the event of flooding of a compartment other than the machinery space, one of the bilge pumps may be operative on any compartment; in addition, damage to a pump or pipe located outside the machinery space and connected to the bilge main outboard of the transverse extent of damage as specified in 2.3 in the locations along the ship’s length specified in 2.2.1 should not put the bilge pumping system out of action. The valves for controlling the bilge suctions for spaces other than the machinery space should be capable of being operated from within the machinery space or from above the bulkhead deck.
+• .3 Distribution boxes, cocks and valves in connection with the bilge pumping system should be arranged so that, in the event of flooding of a compartment other than the machinery space, one of the bilge pumps may be operative on any compartment; in addition, damage to a pump or pipe located outside the machinery space and connected to the bilge main outboard of the transverse extent of damage as specified in 2.3 in the locations along the ship’s length specified in 2.2.1 should not put the bilge pumping system out of action. The valves for controlling the bilge suctions for spaces other than the machinery space should be capable of being operated from within the machinery space or from above the bulkhead deck.
 
-•
-2.8.2 A special purpose ship of not more than 50m in length and carrying not more than 50 special personnel may be exempted from 2.8.1, provided that it complies with the safety requirements which the Administration may deem appropriate for the area of operation.
+• 2.8.2 A special purpose ship of not more than 50m in length and carrying not more than 50 special personnel may be exempted from 2.8.1, provided that it complies with the safety requirements which the Administration may deem appropriate for the area of operation.
 
-•
-2.8.3 A ship carrying more than 50 special personnel should meet the requirements of regulation 21.1 and 21.2 of part B of Chapter II-1 of the 1974 Convention as amended.
+• 2.8.3 A ship carrying more than 50 special personnel should meet the requirements of regulation 21.1 and 21.2 of part B of Chapter II-1 of the 1974 Convention as amended.
 
 Chapter 3 – Machinery Installations
 
@@ -335,142 +294,97 @@ Chapter 6 – Fire Protection
 
 Chapter 7 – Explosives Stowage
 
-•
-7.1 Explosives associated with the special purpose of the ship should be stored in one of the following categories of magazines:
+• 7.1 Explosives associated with the special purpose of the ship should be stored in one of the following categories of magazines:
 
-•
-.1 Integral magazines – those forming an integral part of the ship;
+• .1 Integral magazines – those forming an integral part of the ship;
 
-•
-.2 Independent magazines – that are non-integral, portable magazines with a capacity of 3m3 or greater;
+• .2 Independent magazines – that are non-integral, portable magazines with a capacity of 3m3 or greater;
 
-•
-.3 Magazine boxes – that are non-integral, portable magazines with a capacity of less than 3m3.
+• .3 Magazine boxes – that are non-integral, portable magazines with a capacity of less than 3m3.
 
-•
-7.2 The following minimum provisions should be applied bearing in mind that additional provisions may be required by the Administration dependent of the nature of the explosives.
+• 7.2 The following minimum provisions should be applied bearing in mind that additional provisions may be required by the Administration dependent of the nature of the explosives.
 
-•
-7.3 Integral magazines should not be located in close proximity to and never below accommodation spaces and not in close proximity to control spaces.
+• 7.3 Integral magazines should not be located in close proximity to and never below accommodation spaces and not in close proximity to control spaces.
 
-•
-7.4 Integral magazines should not be located adjacent to a boiler room, engine room, galley or other space presenting a fire hazard. If it is necessary to construct a magazine in proximity to these areas, a cofferdam of at least 0.6m should be provided separating the two spaces. Such a cofferdam should be provided with ventilation and should not be used for stowage. One of the bulkheads forming the cofferdam should be of A-15 construction unless there is adjacent machinery space of category A in which case A-30 is appropriate.
+• 7.4 Integral magazines should not be located adjacent to a boiler room, engine room, galley or other space presenting a fire hazard. If it is necessary to construct a magazine in proximity to these areas, a cofferdam of at least 0.6m should be provided separating the two spaces. Such a cofferdam should be provided with ventilation and should not be used for stowage. One of the bulkheads forming the cofferdam should be of A-15 construction unless there is adjacent machinery space of category A in which case A-30 is appropriate.
 
-•
-7.5 Access to integral magazines should preferably be from the open deck, but in no case through spaces mentioned in paragraphs 7.3 and 7.4.
+• 7.5 Access to integral magazines should preferably be from the open deck, but in no case through spaces mentioned in paragraphs 7.3 and 7.4.
 
-•
-7.6 Independent magazines and magazine boxes should be located on a weather deck in a location protected from direct impact of the sea. The location should provide sufficient protection against warm air or hazardous vapours being emitted from galleys, pump-rooms, etc. Due regard should be paid to the possible risk of subjecting certain explosives radio emissions.
+• 7.6 Independent magazines and magazine boxes should be located on a weather deck in a location protected from direct impact of the sea. The location should provide sufficient protection against warm air or hazardous vapours being emitted from galleys, pump-rooms, etc. Due regard should be paid to the possible risk of subjecting certain explosives radio emissions.
 
-•
-7.7 Magazine boxes should be located on a weather deck at least 0.1m from the deck and any deck-house and in a position suitable for jettisoning the contents.
+• 7.7 Magazine boxes should be located on a weather deck at least 0.1m from the deck and any deck-house and in a position suitable for jettisoning the contents.
 
-•
-7.8 Integral magazines should be of permanent watertight construction and formed by permanent A-15 class divisions. A-0 class divisions may be allowed if spaces adjacent to the magazine do not contain flammable products.
+• 7.8 Integral magazines should be of permanent watertight construction and formed by permanent A-15 class divisions. A-0 class divisions may be allowed if spaces adjacent to the magazine do not contain flammable products.
 
-•
-7.9 Magazines should be insulated with non-combustible material as necessary to prevent the condensation of moisture.
+• 7.9 Magazines should be insulated with non-combustible material as necessary to prevent the condensation of moisture.
 
-•
-7.10 Light fixtures installed in magazines should be equipped with globes and guards. Control of lighting systems should be from outside the magazine. An indicator light should be provided at the switch location to indicate when circuits are energised. Other electrical equipment and wiring should not be installed within or pass through magazines except electrical cables enclosed in a watertight trunk.
+• 7.10 Light fixtures installed in magazines should be equipped with globes and guards. Control of lighting systems should be from outside the magazine. An indicator light should be provided at the switch location to indicate when circuits are energised. Other electrical equipment and wiring should not be installed within or pass through magazines except electrical cables enclosed in a watertight trunk.
 
-•
-7.11 Piping of fresh or salt water and drainage systems and piping systems installed in the magazines themselves may be routed through magazines. Piping of other systems should be permitted only if they are enclosed in a watertight trunk.
+• 7.11 Piping of fresh or salt water and drainage systems and piping systems installed in the magazines themselves may be routed through magazines. Piping of other systems should be permitted only if they are enclosed in a watertight trunk.
 
-•
-7.12 Magazines should be provided with a means whereby they may be securely locked to prevent unauthorised access.
+• 7.12 Magazines should be provided with a means whereby they may be securely locked to prevent unauthorised access.
 
-•
-7.13 Racks, stanchions, battens, or other devices should be installed to provide safe stowage of explosives in their approved shipping containers with a minimum of dunnage.
+• 7.13 Racks, stanchions, battens, or other devices should be installed to provide safe stowage of explosives in their approved shipping containers with a minimum of dunnage.
 
-•
-7.14 Decks of magazines should be covered with a permanent non-slip, non-spark covering.
+• 7.14 Decks of magazines should be covered with a permanent non-slip, non-spark covering.
 
-•
-7.15 Independent magazines should be of weathertight metal construction. The interior should be insulated with a non-combustible insulation providing an A-15 standard.
+• 7.15 Independent magazines should be of weathertight metal construction. The interior should be insulated with a non-combustible insulation providing an A-15 standard.
 
-•
-7.16 The electrical terminals on independent magazines for connection to the ship’s electrical system should be of watertight construction and should bear a label plate denoting the power requirement of the magazine.
+• 7.16 The electrical terminals on independent magazines for connection to the ship’s electrical system should be of watertight construction and should bear a label plate denoting the power requirement of the magazine.
 
-•
-7.17 Independent magazines should bear a label plate stating light weight and maximum allowable weight of explosives.
+• 7.17 Independent magazines should bear a label plate stating light weight and maximum allowable weight of explosives.
 
-•
-7.18 Magazine boxes should be of watertight metal construction having a body and lid thickness of no less than 3mm. Where the box may be exposed to direct sun, sun shields should be provided.
+• 7.18 Magazine boxes should be of watertight metal construction having a body and lid thickness of no less than 3mm. Where the box may be exposed to direct sun, sun shields should be provided.
 
-•
-7.19 Integral magazines should be provided with natural or mechanical ventilation fitted with flame screen sufficient to maintain the magazine temperature below 38˚ C.
+• 7.19 Integral magazines should be provided with natural or mechanical ventilation fitted with flame screen sufficient to maintain the magazine temperature below 38˚ C.
 
-•
-7.20 Independent magazines should be provided with efficient natural ventilation fitted with flame screen.
+• 7.20 Independent magazines should be provided with efficient natural ventilation fitted with flame screen.
 
-•
-7.21 In integral and in independent magazines a sprinkler system should be installed with an application rate of 24 l/m2 per minute. Equivalent means may be accepted by the Administration. The controls should be clearly marked as to their function.
+• 7.21 In integral and in independent magazines a sprinkler system should be installed with an application rate of 24 l/m2 per minute. Equivalent means may be accepted by the Administration. The controls should be clearly marked as to their function.
 
-•
-7.22 Integral and independent magazines should be clearly labelled indicating:
+• 7.22 Integral and independent magazines should be clearly labelled indicating:
 
-•
-.1 the space is a magazine
+• .1 the space is a magazine
 
-•
-.2 open lights and flame should be kept away
+• .2 open lights and flame should be kept away
 
-•
-.3 the magazine door should be kept shut
+• .3 the magazine door should be kept shut
 
-•
-.4 matches and lighters should be removed prior to entering
+• .4 matches and lighters should be removed prior to entering
 
-•
-.5 not to lift with contents (in the case of independent magazines)
+• .5 not to lift with contents (in the case of independent magazines)
 
-•
-7.23 Magazine boxes should be clearly labelled indicating:
+• 7.23 Magazine boxes should be clearly labelled indicating:
 
-•
-.1 the container is a magazine box
+• .1 the container is a magazine box
 
-•
-.2 open lights and flame should be kept away
+• .2 open lights and flame should be kept away
 
-•
-.3 the box should be kept shut
+• .3 the box should be kept shut
 
-•
-7.24 Detonators should be stowed separately from the other explosives.
+• 7.24 Detonators should be stowed separately from the other explosives.
 
 Chapter 8 – Lifesaving appliances[footnote 1]
 
-•
-8.1 The requirements of chapter III of the 1974 SOLAS Convention, as amended, should be applied with the specifications given hereunder.
+• 8.1 The requirements of chapter III of the 1974 SOLAS Convention, as amended, should be applied with the specifications given hereunder.
 
-•
-8.2 A special purpose ship carrying more than 50 special personnel should comply with the requirements contained in chapter III of the 1974 SOLAS Convention for passenger ships engaged in international voyages which are not short international voyages.
+• 8.2 A special purpose ship carrying more than 50 special personnel should comply with the requirements contained in chapter III of the 1974 SOLAS Convention for passenger ships engaged in international voyages which are not short international voyages.
 
-•
-8.3 Notwithstanding the provisions of 8.2, sail training ships, whether mechanically self-propelled or not and irrespective of their gross tonnage carrying more than 50 special personnel (trainees), may in lieu of meeting the requirements of regulations 20.1.1, 20.1.2, or 20.1.3 of chapter III of the 1974 SOLAS Convention:
+• 8.3 Notwithstanding the provisions of 8.2, sail training ships, whether mechanically self-propelled or not and irrespective of their gross tonnage carrying more than 50 special personnel (trainees), may in lieu of meeting the requirements of regulations 20.1.1, 20.1.2, or 20.1.3 of chapter III of the 1974 SOLAS Convention:
 
-•
-.1 comply with the requirements of regulation 20.1.5 of chapter III of the 1974 SOLAS Convention including the provision of at least one rescue boat in accordance with regulation 20.2.2 of chapter III: and
+• .1 comply with the requirements of regulation 20.1.5 of chapter III of the 1974 SOLAS Convention including the provision of at least one rescue boat in accordance with regulation 20.2.2 of chapter III: and
 
-•
-.2 in addition, carry one immersion suit complying with regulation 33 of chapter III of the 1974 SOLAS Convention for each person on board, unless:
+• .2 in addition, carry one immersion suit complying with regulation 33 of chapter III of the 1974 SOLAS Convention for each person on board, unless:
 
-•
-.1 davits are provided for launching the liferafts; or
+• .1 davits are provided for launching the liferafts; or
 
-•
-.2 the ship is constantly engaged on voyages in warm climates where, in the opinion of the Administration, immersion suits are unnecessary. 
+• .2 the ship is constantly engaged on voyages in warm climates where, in the opinion of the Administration, immersion suits are unnecessary. 
 
-•
-8.4 A special purpose ship carrying not more than 50 special personnel should comply with the requirements contained in chapter III of the 1974 SOLAS Convention for cargo ships other than tankers. Such ships may however carry life-saving appliances in accordance with 8.2, if they comply with the subdivision requirements for ships carrying more than 50 special personnel.
+• 8.4 A special purpose ship carrying not more than 50 special personnel should comply with the requirements contained in chapter III of the 1974 SOLAS Convention for cargo ships other than tankers. Such ships may however carry life-saving appliances in accordance with 8.2, if they comply with the subdivision requirements for ships carrying more than 50 special personnel.
 
-•
-8.5 Regulations 2, 18.3.3, 20.1.2, 20.1.3, 26.1.6, 26.1.7, 45 and 46 of Chapter III of the 1974 SOLAS Convention are not applicable to special purpose ships.
+• 8.5 Regulations 2, 18.3.3, 20.1.2, 20.1.3, 26.1.6, 26.1.7, 45 and 46 of Chapter III of the 1974 SOLAS Convention are not applicable to special purpose ships.
 
-•
-8.6 Where in chapter III of the 1974 SOLAS Convention the term “passenger” is used, it should be read to mean “special personnel” for the purpose of this Code.
+• 8.6 Where in chapter III of the 1974 SOLAS Convention the term “passenger” is used, it should be read to mean “special personnel” for the purpose of this Code.
 
 Chapter 9 – Radiocommunications
 
@@ -480,5 +394,4 @@ Chapter 10 – Safety of navigation
 
 The special purpose ships should comply with the provisions of chapter V of the 1974 SOLAS Convention as amended.
 
-•
-All references in this chapter are references to regulations of the 1974 SOLAS Convention, as amended in 1983 ↩
+• All references in this chapter are references to regulations of the 1974 SOLAS Convention, as amended in 1983 ↩

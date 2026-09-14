@@ -1,4 +1,4 @@
-MGN 482 (M) MGN 482 (M) Amendment 2 MLC, 2006 - Medical care
+MGN 482 (M) Amendment 2 MLC, 2006 - Medical care
 2026-03-19
 Source: https://www.gov.uk/government/publications/mgn-482-m-amendment-2-mlc-2006-medical-care
 
@@ -30,11 +30,9 @@ Amendment 2 incorporates the requirements of the 2022 amendments to the Maritime
 
 The expenses covered are:
 
-•
-expenses for surgical, medical, dental or optical treatment (including the repair or replacement of any medical or therapeutic appliance); and
+• expenses for surgical, medical, dental or optical treatment (including the repair or replacement of any medical or therapeutic appliance); and
 
-•
-expenses for board and lodging.
+• expenses for board and lodging.
 
 3.2 This liability starts from the day that the illness or injury occurs and ends once the seafarer has recovered or been declared permanently unfit by a doctor approved to issue seafarer medical fitness certificates. It is however limited to a period of 16 weeks from the day on which the illness or injury first occurs. However, under the MLC Minimum Requirements Regulations, Part 6, the shipowner is liable for medical care for a seafarer until they have been repatriated, without any time limit. So, in the unusual circumstances that a seafarer is still overseas after 16 weeks of medical care, the shipowner’s liability continues until the seafarer is repatriated.
 
@@ -42,14 +40,11 @@ expenses for board and lodging.
 
 Those circumstances are:
 
-•
-where the injury incurred otherwise than in the service of the ship.
+• where the injury incurred otherwise than in the service of the ship.
 
-•
-where the injury or sickness arises from the wilful misconduct of the seafarer which is injured or sick, or;
+• where the injury or sickness arises from the wilful misconduct of the seafarer which is injured or sick, or;
 
-•
-where the injury or sickness was intentionally concealed by the seafarer prior to entering into the seafarer employment agreement.
+• where the injury or sickness was intentionally concealed by the seafarer prior to entering into the seafarer employment agreement.
 
 3.4 The shipowner’s liability under these regulations does not apply to any costs met by public authorities.
 
@@ -83,26 +78,19 @@ where the injury or sickness was intentionally concealed by the seafarer prior t
 
 7.3 Seafarers should be considered to be in need of immediate medical care in cases of, but not limited to:
 
-•
-any serious injury or disease
+• any serious injury or disease
 
-•
-any injury or disease which might lead to temporary or permanent disability
+• any injury or disease which might lead to temporary or permanent disability
 
-•
-any communicable disease which poses a risk of transmission to other members of the crew
+• any communicable disease which poses a risk of transmission to other members of the crew
 
-•
-any injury involving broken bones, severe bleeding, broken or inflamed teeth or severe burns
+• any injury involving broken bones, severe bleeding, broken or inflamed teeth or severe burns
 
-•
-severe pain which cannot be managed on board ship, taking account of the operational pattern of the ship, the availability of suitable analgesics and the health impacts of taking these for an extended period
+• severe pain which cannot be managed on board ship, taking account of the operational pattern of the ship, the availability of suitable analgesics and the health impacts of taking these for an extended period
 
-•
-suicide risk and
+• suicide risk and
 
-•
-a telemedical advisory service recommending treatment ashore.
+• a telemedical advisory service recommending treatment ashore.
 
 7.4 Shipowners can help to enable a prompt shoreside response by communicating with the port state at the earliest opportunity regarding the status of the casualty and port that they are destined for.
 

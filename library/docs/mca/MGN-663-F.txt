@@ -1,4 +1,4 @@
-MGN 663 (F) MGN 663 (F) Enclosed space entry on fishing vessels
+MGN 663 (F) Enclosed space entry on fishing vessels
 2023-03-21
 Source: https://www.gov.uk/government/publications/mgn663-f-enclosed-space-entry-on-fishing-vessels
 
@@ -47,14 +47,11 @@ $LegislativeList
 
 2. What is meant by an enclosed space?
 
-•
-2.1 According to the regulations an “enclosed space” means a space which is not designed for continuous worker occupancy and has either or both of the following characteristics –
+• 2.1 According to the regulations an “enclosed space” means a space which is not designed for continuous worker occupancy and has either or both of the following characteristics –
 
-•
-a) limited openings for entry and exit;
+• a) limited openings for entry and exit;
 
-•
-b) inadequate ventilation
+• b) inadequate ventilation
 
 2.2 Enclosed spaces can become hazardous if they develop an oxygen-deficient, oxygen-enriched, flammable and/or toxic atmosphere. These hazards can be found on fishing vessels; due to the decay of waste material, the exhaust from machinery, corrosion or rusting[footnote 1] of the vessel, and leaks of refrigerant gas. Build-up of toxic gases or reduction of oxygen can cause asphyxiation or loss of consciousness in a matter of minutes.
 
@@ -94,8 +91,7 @@ b) inadequate ventilation
 
 4.1 Unless it is absolutely necessary, DO NOT open or enter enclosed spaces whilst at sea.
 
-•
-4.2 Whilst it may seem that there will never be a need for crew to enter a space, consider what would happen in an emergency, or if urgent maintenance was needed. Consider:
+• 4.2 Whilst it may seem that there will never be a need for crew to enter a space, consider what would happen in an emergency, or if urgent maintenance was needed. Consider:
 
 • 4.2.1 If the space needs to be cleaned or inspected regularly?
 
@@ -212,20 +208,15 @@ Less than 50% of the WEL*
 
 • At 20°C, a “half and half mix” of rotting fish and sea water produced dangerous levels of hydrogen cyanide, hydrogen sulphide and carbon dioxide after just 64 hours; At 5°C, only traces of the three gases were measured after 10 days.
 
-•
-8.3 The research identifies the importance of the following procedure for the RSW tanks, particularly when operating in warmer waters:-
+• 8.3 The research identifies the importance of the following procedure for the RSW tanks, particularly when operating in warmer waters:-
 
-•
-.1 Immediately clean all un-chilled RSW tanks after use, removing all residues.
+• .1 Immediately clean all un-chilled RSW tanks after use, removing all residues.
 
-•
-.2 If cleaning has not occurred immediately and a mixture of fish and sea water has been left for more than a few hours, flush the tank through (using the appropriate sea water pump) and fully ventilate the tank.
+• .2 If cleaning has not occurred immediately and a mixture of fish and sea water has been left for more than a few hours, flush the tank through (using the appropriate sea water pump) and fully ventilate the tank.
 
-•
-.3 Ensure adequate ventilation exists in spaces adjacent to RSW tanks.
+• .3 Ensure adequate ventilation exists in spaces adjacent to RSW tanks.
 
-•
-.4 On no account open or enter RSW tanks known to contain sea water/decaying fish unless the full procedures for entry into an enclosed space have been carried out.
+• .4 On no account open or enter RSW tanks known to contain sea water/decaying fish unless the full procedures for entry into an enclosed space have been carried out.
 
 9. Examples of accidents involving enclosed spaces on fishing vessels
 
@@ -265,30 +256,22 @@ ANNEX A – Guidelines for inclusion in Register of Enclosed Spaces
 
 The following are suggestions for including in a Register of Enclosed Spaces (see paragraph 2.12 above):
 
-•
-the characteristics of the space, including physical layout of the space and access and egress points;
+• the characteristics of the space, including physical layout of the space and access and egress points;
 
-•
-any potential hazards;
+• any potential hazards;
 
-•
-measures to prevent entry, including locking and signage arrangements;
+• measures to prevent entry, including locking and signage arrangements;
 
-•
-procedures to follow when entering, including details such as estimated time needed to ventilate the area;
+• procedures to follow when entering, including details such as estimated time needed to ventilate the area;
 
-•
-information related to ventilation, including equipment and where the equipment is stored;
+• information related to ventilation, including equipment and where the equipment is stored;
 
-•
-lighting and requirements for temporary lighting; and
+• lighting and requirements for temporary lighting; and
 
-•
-requirements for atmospheric testing.
+• requirements for atmospheric testing.
 
 Any difficulties inherent in rescue from the space should also be considered, and solutions identified, so that in the event of an emergency, the crew is in the best position to respond quickly.
 
 The register should be reviewed regularly and should be available to any fisher who may need to enter the space. The register should also be available to those ashore – for reference when considering time required for entry and repairs.
 
-•
-Corrosion is the process by which certain materials, metals and non-metals, deteriorate as a result of oxidation. Rusting is oxidation of iron in the presence of air and moisture. ↩
+• Corrosion is the process by which certain materials, metals and non-metals, deteriorate as a result of oxidation. Rusting is oxidation of iron in the presence of air and moisture. ↩

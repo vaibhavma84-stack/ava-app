@@ -1,4 +1,4 @@
-MGN 544 MGN 544 Amendment 1 (M+F) Means of recovery of persons from the water by ships and boats - plans, procedures and acceptance of recovery equipment
+MGN 544 Amendment 1 (M+F) Means of recovery of persons from the water by ships and boats - plans, procedures and acceptance of recovery equipment
 2026-04-13
 Source: https://www.gov.uk/government/publications/mgn-544-amendment-1-mf-means-of-recovery-of-persons-from-the-water-by-ships-and-boats-plans-procedures-and-acceptance-of-recovery-equipment
 
@@ -129,5 +129,4 @@ Telephone: +44 (0)203 817 2000 
 
 Website: www.gov.uk/mca
 
-•
-Based on recommendations from MAIB report - Fall from a pilot ladder while attempting to board the cargo vessel Finnhawk from the pilot vessel Humber Saturn with loss of 1 life. ↩
+• Based on recommendations from MAIB report - Fall from a pilot ladder while attempting to board the cargo vessel Finnhawk from the pilot vessel Humber Saturn with loss of 1 life. ↩

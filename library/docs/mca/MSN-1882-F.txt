@@ -1,4 +1,4 @@
-MSN 1882 (F) MSN 1882 (F) ILO work in fishing convention minimum age
+MSN 1882 (F) ILO work in fishing convention minimum age
 2022-02-04
 Source: https://www.gov.uk/government/publications/msn-1882-f-ilo-work-in-fishing-convention-minimum-age
 
@@ -6,34 +6,25 @@ Summary
 
 This notice provides information about the minimum age for fishermen and the protection of young persons (under 18 years) working on board UK fishing vessels.
 
-•
-The minimum age for working on a UK seagoing fishing vessel is 16 years of age, but provision is made in certain circumstances for those aged 15 to do light work in school holidays.
+• The minimum age for working on a UK seagoing fishing vessel is 16 years of age, but provision is made in certain circumstances for those aged 15 to do light work in school holidays.
 
-•
-Additional safety measures are required to protect young persons (those under the age of 18 years), particularly for work which may jeopardise their health and safety.
+• Additional safety measures are required to protect young persons (those under the age of 18 years), particularly for work which may jeopardise their health and safety.
 
-•
-The employer must carry out a risk assessment with regard to the particular risks to young persons. Guidance is given on specific risks to young persons which may arise from their work on board fishing vessels.
+• The employer must carry out a risk assessment with regard to the particular risks to young persons. Guidance is given on specific risks to young persons which may arise from their work on board fishing vessels.
 
-•
-Where young persons are required to work at night, the fishing vessel owner must ensure that the vessel’s risk assessment records the steps they have taken to minimise the risks of nightwork and to protect the young person.
+• Where young persons are required to work at night, the fishing vessel owner must ensure that the vessel’s risk assessment records the steps they have taken to minimise the risks of nightwork and to protect the young person.
 
-•
-“night” means a period of at least nine consecutive hours including the hours between midnight and 5 a.m. (local time)
+• “night” means a period of at least nine consecutive hours including the hours between midnight and 5 a.m. (local time)
 
-•
-An employer must provide health surveillance for those under the age of 18 years who work at night.
+• An employer must provide health surveillance for those under the age of 18 years who work at night.
 
-•
-The minimum hours of rest are specified for fishermen under 18 years of age.
+• The minimum hours of rest are specified for fishermen under 18 years of age.
 
 Relationship with the merchant shipping (work in fishing convention) regulations 2018 (“the 2018 regulations”)
 
-•
-The 2018 regulations need to be read together with this merchant shipping notice. This notice contains details of the exceptions which apply to the night work prohibition under those regulations. Failure to comply with those obligations may be a criminal offence under the regulations.
+• The 2018 regulations need to be read together with this merchant shipping notice. This notice contains details of the exceptions which apply to the night work prohibition under those regulations. Failure to comply with those obligations may be a criminal offence under the regulations.
 
-•
-In order to assist with this, paragraph 11 identifies the provisions of this notice which relate to the relevant provisions in the regulations.
+• In order to assist with this, paragraph 11 identifies the provisions of this notice which relate to the relevant provisions in the regulations.
 
 The merchant shipping and fishing vessel (health and safety at work) (employment of young persons) regulations 1998 (SI 1998/2411) (“the young persons regulations”) implemented for the maritime sector EC Directive 94/33/EC on the protection of young people at work and form part of UK retained law. All the obligations in the EU legislation mentioned in the young persons regulations, which had effect in the UK prior to the 1st January 2021, are retained in UK law, with any necessary modifications, after the end of the EU Exit implementation period.
 
@@ -93,11 +84,9 @@ The merchant shipping (work in fishing convention) regulations 2018
 
 3.4 Work carried out at night as part of the following recognised training programmes and schedules of training is not considered detrimental to the health and well-being of fishermen under the age of 18 (see paragraph 3.1.2 above):
 
-•
-Any training leading towards an MCA fishing certificate of competency. More information can be found on the Gov.uk website - UK CoC fishing vessel officers
+• Any training leading towards an MCA fishing certificate of competency. More information can be found on the Gov.uk website - UK CoC fishing vessel officers
 
-•
-Any training leading to Seafish voluntary courses for new entrant fishermen, including;
+• Any training leading to Seafish voluntary courses for new entrant fishermen, including;
 
 • introduction to commercial fishing – a 3 week induction course for those wanting to begin a career in fishing
 
@@ -139,8 +128,7 @@ The merchant shipping and fishing vessel (health and safety at work) (employment
 
 • involving the risk of accidents which it may be assumed cannot be recognised or avoided by young workers owing to their insufficient attention to safety or lack of experience or training; or
 
-•
-involving a risk to health from –
+• involving a risk to health from –
 
 • extreme cold or heat, or
 

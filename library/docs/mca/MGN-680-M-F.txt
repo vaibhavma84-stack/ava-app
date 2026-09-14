@@ -1,4 +1,4 @@
-MGN 680 (M+F) MGN 680 (M+F) Amendment 1 – Procedure for becoming a UK Nominated Body
+MGN 680 (M+F) Amendment 1 – Procedure for becoming a UK Nominated Body
 2025-12-11
 Source: https://www.gov.uk/government/publications/mgn-680-mf-amendment-1-procedure-for-becoming-a-uk-nominated-body
 
@@ -40,17 +40,13 @@ The Maritime and Coastguard Agency (“the MCA”) is responsible for designatin
 
 3.1 In the first instance, an application should be made to the MCA via email to MEQA@mcga.gov.uk. The application must include the following:
 
-•
-Evidence of the applicant’s status as a legal entity established in the UK
+• Evidence of the applicant’s status as a legal entity established in the UK
 
-•
-The conformity assessment activities for which the Nominated Body wishes to be designated
+• The conformity assessment activities for which the Nominated Body wishes to be designated
 
-•
-The marine equipment products for which the Nominated Body wishes to be designated
+• The marine equipment products for which the Nominated Body wishes to be designated
 
-•
-Evidence of civil liability and professional indemnity insurance cover for its activities
+• Evidence of civil liability and professional indemnity insurance cover for its activities
 
 3.2 If satisfied the applicant is fit for designation under the Regulations based on the evidence supplied, the MCA will issue a designation to the applicant as a UK Nominated Body.
 
@@ -60,11 +56,9 @@ Evidence of civil liability and professional indemnity insurance cover for its a
 
 3.4 Nominated Bodies are required to:
 
-•
-periodically audit, at intervals determined by the Secretary of State  , the activities of the manufacturers of whom the UK Nominated Body has approved one or more products and/or services under the Regulations.
+• periodically audit, at intervals determined by the Secretary of State  , the activities of the manufacturers of whom the UK Nominated Body has approved one or more products and/or services under the Regulations.
 
-•
-periodically audit, at intervals determined by the Secretary of State, its own activities as a UK Nominated Body to ensure ongoing compliance with the relevant requirements.
+• periodically audit, at intervals determined by the Secretary of State, its own activities as a UK Nominated Body to ensure ongoing compliance with the relevant requirements.
 
 3.5 The Secretary of State will periodically audit the activities of the Nominated Bodies in line with the requirements laid out in the letter of designation. The period between audits will not exceed 2 years and will generally take place in the Nominated Body ‘s principal place of business in the United Kingdom.
 

@@ -1,4 +1,4 @@
-MGN 707 (M) MGN 707 (M) MLC, 2006 - provision of social connectivity and internet access
+MGN 707 (M) MLC, 2006 - provision of social connectivity and internet access
 2026-03-19
 Source: https://www.gov.uk/government/publications/mgn-707-m-mlc-2006-provision-of-social-connectivity-and-internet-access
 
@@ -18,17 +18,13 @@ This notice provides guidance regarding social connectivity and internet access 
 
 This requirement does not apply to any of the following:
 
-•
-seafarers who do not live and work on board the ship
+• seafarers who do not live and work on board the ship
 
-•
-seafarers who are not on board the ship
+• seafarers who are not on board the ship
 
-•
-seafarers who work on board a ship which starts and finishes a voyage on the same day
+• seafarers who work on board a ship which starts and finishes a voyage on the same day
 
-•
-seafarers who work on board a ship while the ship is operating within an area, or is transiting waters in an area, where availability of social connectivity services is absent, or inefficient, due to reasons beyond the control of the shipowner.
+• seafarers who work on board a ship while the ship is operating within an area, or is transiting waters in an area, where availability of social connectivity services is absent, or inefficient, due to reasons beyond the control of the shipowner.
 
 2.3 It is also recognised that there may be times when, for security reasons, social connectivity may be unavailable.
 
@@ -44,17 +40,13 @@ seafarers who work on board a ship while the ship is operating within an area, o
 
 3.4 When considering what reasonable access means, a number of factors should be considered:
 
-•
-options of technology available to all seafarers on board, e.g. PC, laptop, handheld devices.
+• options of technology available to all seafarers on board, e.g. PC, laptop, handheld devices.
 
-•
-awareness of areas on board which could impact network signals when using handheld devices.
+• awareness of areas on board which could impact network signals when using handheld devices.
 
-•
-charging areas for seafarer’s devices and their safe use (see Code of Safe Working Practices for Merchant Seafarers (COSWP) Chapter 3.15)
+• charging areas for seafarer’s devices and their safe use (see Code of Safe Working Practices for Merchant Seafarers (COSWP) Chapter 3.15)
 
-•
-spaces available for seafarers use whilst on breaks or when not working.
+• spaces available for seafarers use whilst on breaks or when not working.
 
 3.5 Options include, but are not limited to, increasing bandwidth sufficiently to absorb the increased use of onboard internet access on seafarers’ own devices, or providing access to a Wi-Fi or broadband-enabled device in a central location, such as a mess room. The number of shared devices needs to be adequate for the number of seafarers using them, and consideration should be given to the privacy of their location.
 
@@ -80,29 +72,21 @@ spaces available for seafarers use whilst on breaks or when not working.
 
 6.4 Tips for keeping yourself and others safe online:
 
-•
-make sure you follow company rules for internet use and use of personal devices on board.
+• make sure you follow company rules for internet use and use of personal devices on board.
 
-•
-update your computer’s anti-virus and firewall software regularly.
+• update your computer’s anti-virus and firewall software regularly.
 
-•
-don’t click on links from people or companies you don’t know.
+• don’t click on links from people or companies you don’t know.
 
-•
-don’t send money to people you don’t know or have never met in person.
+• don’t send money to people you don’t know or have never met in person.
 
-•
-change your passwords regularly and make sure they don’t include the names or dates of birth of loved ones, or an easy sequence like 12345.
+• change your passwords regularly and make sure they don’t include the names or dates of birth of loved ones, or an easy sequence like 12345.
 
-•
-keep social media profiles private.
+• keep social media profiles private.
 
-•
-don’t add people you don’t know on social media.
+• don’t add people you don’t know on social media.
 
-•
-ask for permission before sharing pictures of other crew members or the vessel.
+• ask for permission before sharing pictures of other crew members or the vessel.
 
 7. Making complaints under the MLC
 

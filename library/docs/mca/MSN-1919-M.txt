@@ -1,4 +1,4 @@
-MSN 1919 (M) MSN 1919 (M) - Code of Safety for Special Purpose Ships, 2008
+MSN 1919 (M) - Code of Safety for Special Purpose Ships, 2008
 2025-12-05
 Source: https://www.gov.uk/government/publications/msn-1919-m-code-of-safety-for-special-purpose-ships-2008
 
@@ -70,17 +70,13 @@ Annex                    Form of Safety Certificate for Speci
 
 Preamble
 
-•
-1. The Maritime Safety Committee, at its eighty-fourth session, revised the Code of Safety for Special Purpose Ships (SPS Code) adopted by resolution A.534(13) to bring it up to date with amendments to SOLAS and to extend the voluntary application of the revised Code to include training ships, whether or not covered by the application requirements of SOLAS.
+• 1. The Maritime Safety Committee, at its eighty-fourth session, revised the Code of Safety for Special Purpose Ships (SPS Code) adopted by resolution A.534(13) to bring it up to date with amendments to SOLAS and to extend the voluntary application of the revised Code to include training ships, whether or not covered by the application requirements of SOLAS.
 
-•
-2. The Code has been developed to provide an international standard of safety for special purpose ships of new construction, the application of which will facilitate operation of such ships and result in a level of safety for the ships and their personnel equivalent to that required by the International Convention for the Safety of Life at Sea, 1974.
+• 2. The Code has been developed to provide an international standard of safety for special purpose ships of new construction, the application of which will facilitate operation of such ships and result in a level of safety for the ships and their personnel equivalent to that required by the International Convention for the Safety of Life at Sea, 1974.
 
-•
-3. For the purposes of this Code, a special purpose ship is a ship of not less than 500 gross tonnage which carries more than 12 special personnel, i.e. persons who are specially needed for the particular operational duties of the ship and are carried in addition to those persons required for the normal navigation, engineering and maintenance of the ship or engaged to provide services for the persons carried on board.
+• 3. For the purposes of this Code, a special purpose ship is a ship of not less than 500 gross tonnage which carries more than 12 special personnel, i.e. persons who are specially needed for the particular operational duties of the ship and are carried in addition to those persons required for the normal navigation, engineering and maintenance of the ship or engaged to provide services for the persons carried on board.
 
-•
-4. Because special personnel are expected to be able bodied with a fair knowledge of the layout of the ship and have received some training in safety procedures and the handling of the ship’s safety equipment, the special purpose ships on which they are carried need not be considered or treated as passenger ships.
+• 4. Because special personnel are expected to be able bodied with a fair knowledge of the layout of the ship and have received some training in safety procedures and the handling of the ship’s safety equipment, the special purpose ships on which they are carried need not be considered or treated as passenger ships.
 
 • 5. In developing the safety standards for this Code it has been necessary to consider:
 
@@ -88,8 +84,7 @@ Preamble
 
 • .2 the design and size of the ship in question.
 
-•
-6. While the Code has been developed for new ships of 500 gross tonnage and above, Administrations may also consider the application of provisions of the Code to ships of lesser tonnage. The term “new ship” has not been defined in order to give any Administration discretion to decide the effective date of entry into force.
+• 6. While the Code has been developed for new ships of 500 gross tonnage and above, Administrations may also consider the application of provisions of the Code to ships of lesser tonnage. The term “new ship” has not been defined in order to give any Administration discretion to decide the effective date of entry into force.
 
 • 7. For facilitating the operation of special purpose ships, this Code provides for a certificate, called a Special Purpose Ship Safety Certificate, which should be issued to every special purpose ship. Where a special purpose ship is normally engaged on international voyages as defined in SOLAS it should, in addition, also carry SOLAS safety certificates, either:
 
@@ -139,23 +134,17 @@ Chapter 1 - General
 
 1.3.11 “Special personnel” means all persons who are not passengers or members of the crew or children under one year of age and who are carried on board in connection with the special purpose of that ship or because of special work being carried out aboard that ship. Wherever in this Code the number of special personnel appears as a parameter, it should include the number of passengers carried on board which may not exceed 12.
 
-•
-Special personnel are expected to be able bodied with a fair knowledge of the layout of the ship and to have received some training in safety procedures and the handling of the ship’s safety equipment before leaving port and include the following:
+• Special personnel are expected to be able bodied with a fair knowledge of the layout of the ship and to have received some training in safety procedures and the handling of the ship’s safety equipment before leaving port and include the following:
 
-•
-.1  Scientists, technicians and expeditionaries on ships engaged in research, non-commercial expeditions and survey;
+• .1  Scientists, technicians and expeditionaries on ships engaged in research, non-commercial expeditions and survey;
 
-•
-.2 personnel engaging in training and practical marine experience to develop seafaring skills suitable for a professional career at sea. Such training should be in accordance with a training programme approved by the Administration;
+• .2 personnel engaging in training and practical marine experience to develop seafaring skills suitable for a professional career at sea. Such training should be in accordance with a training programme approved by the Administration;
 
-•
-.3 personnel who process the catch of fish, whales or other living resources of the sea on factory ships not engaged in catching;
+• .3 personnel who process the catch of fish, whales or other living resources of the sea on factory ships not engaged in catching;
 
-•
-.4 salvage personnel on salvage ships, cable-laying personnel on cable-laying ships, seismic personnel on seismic survey ships; diving personnel on diving support ships; pipe-laying personnel on pipe-layers and crane operating personnel on floating cranes; and
+• .4 salvage personnel on salvage ships, cable-laying personnel on cable-laying ships, seismic personnel on seismic survey ships; diving personnel on diving support ships; pipe-laying personnel on pipe-layers and crane operating personnel on floating cranes; and
 
-•
-.5 other personnel similar to those referred to in .1 to .4 who, in the opinion of the Administration, may be referred to this group.
+• .5 other personnel similar to those referred to in .1 to .4 who, in the opinion of the Administration, may be referred to this group.
 
 1.3.12     “Special purpose ship”[footnote 1] means a mechanically self-propelled ship which by reason of its function carries on board more than 12 special personnel[footnote 2]
 
@@ -187,20 +176,15 @@ Every special purpose ship should be subject to the surveys specified for cargo 
 
 Chapter 2 - Stability and subdivision
 
-•
-2.1 The intact stability of special purpose ships shall comply with section 2.5 of Part B of the 2007 Intact Stability Code.
+• 2.1 The intact stability of special purpose ships shall comply with section 2.5 of Part B of the 2007 Intact Stability Code.
 
-•
-2.2 The subdivision and damage stability of special purpose ships should in general be in accordance with SOLAS chapter II-1 where the ship is considered a passenger ship, and special personnel are considered passengers, with an R-value calculated as follows:
+• 2.2 The subdivision and damage stability of special purpose ships should in general be in accordance with SOLAS chapter II-1 where the ship is considered a passenger ship, and special personnel are considered passengers, with an R-value calculated as follows:
 
-•
-.1 where the ship is certified to carry 240 persons or more, the R-value is assigned as R;
+• .1 where the ship is certified to carry 240 persons or more, the R-value is assigned as R;
 
-•
-.2 where the ship is certified to carry not more than 60 persons, the R-value is assigned as 0.8R; and
+• .2 where the ship is certified to carry not more than 60 persons, the R-value is assigned as 0.8R; and
 
-•
-.3 for more than 60 (but not more than 240) persons, the R-value should be determined by linear    interpolation between the R-values given in .1 and .2 above.
+• .3 for more than 60 (but not more than 240) persons, the R-value should be determined by linear    interpolation between the R-values given in .1 and .2 above.
 
 Where:
 
@@ -302,8 +286,6 @@ Annex Form of Safety Certificate for Special Purpose Ships
 
 Link to form of safety certificate for special purpose ships
 
-•
-Some sail training ships may be classified by the Administration as “not propelled by mechanical means” if fitted with mechanical propulsion for auxiliary and emergency purposes. ↩
+• Some sail training ships may be classified by the Administration as “not propelled by mechanical means” if fitted with mechanical propulsion for auxiliary and emergency purposes. ↩
 
-•
-Where a ship carries more than 12 passengers, as defined in SOLAS, the ship should not be considered a special purpose ship as it is a passenger ship as defined by SOLAS. ↩
+• Where a ship carries more than 12 passengers, as defined in SOLAS, the ship should not be considered a special purpose ship as it is a passenger ship as defined by SOLAS. ↩

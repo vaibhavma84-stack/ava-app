@@ -1,4 +1,4 @@
-MGN 701 (M) MGN 701 (M) - Application of the industrial personnel code and the special purpose ships code
+MGN 701 (M) - Application of the industrial personnel code and the special purpose ships code
 2025-12-11
 Source: https://www.gov.uk/government/publications/mgn-701-m-application-of-the-industrial-personnel-code-and-the-special-purpose-ships-code
 
@@ -28,72 +28,50 @@ This Marine Guidance Note provides advice concerning new requirements for the ca
 
 2. The International Code of Safety for Ships Carrying Industrial Personnel (IP Code)
 
-•
-Introduction
+• Introduction
 
-•
-2.1 The IP Code provides for the safe carriage of industrial personnel on ships and their safety during personnel transfer operations by considering the risks which are not adequately mitigated by the applicable safety standards in the SOLAS Convention. It is closely based on the SPS Code 2008, but with some adaptations and provisions for the training of industrial personnel, arrangements for the safe transfer of personnel and the carriage of dangerous goods while industrial personnel are on board.
+• 2.1 The IP Code provides for the safe carriage of industrial personnel on ships and their safety during personnel transfer operations by considering the risks which are not adequately mitigated by the applicable safety standards in the SOLAS Convention. It is closely based on the SPS Code 2008, but with some adaptations and provisions for the training of industrial personnel, arrangements for the safe transfer of personnel and the carriage of dangerous goods while industrial personnel are on board.
 
-•
-2.2  The IP Code provides a goal-based standard, in which goals and functional requirements are achieved through the application of specific regulations. The Code supplements the cargo ship requirements in the SOLAS Convention, i.e. in relation to cargo ships which are certified under SOLAS Chapter I, as the minimum standard. Likewise, for high-speed craft, the starting point is compliance with SOLAS Chapter X and the High-Speed Craft Code as the minimum standard, which is then enhanced by the additional requirements of the IP Code.
+• 2.2  The IP Code provides a goal-based standard, in which goals and functional requirements are achieved through the application of specific regulations. The Code supplements the cargo ship requirements in the SOLAS Convention, i.e. in relation to cargo ships which are certified under SOLAS Chapter I, as the minimum standard. Likewise, for high-speed craft, the starting point is compliance with SOLAS Chapter X and the High-Speed Craft Code as the minimum standard, which is then enhanced by the additional requirements of the IP Code.
 
-•
-2.3 Industrial personnel means “all persons transported or accommodated on board for the purpose of offshore industrial activities performed on board other ships and/or offshore facilities”. Thus, the emphasis is on work performed away from the ship which is providing the transport or accommodation for the industrial personnel.
+• 2.3 Industrial personnel means “all persons transported or accommodated on board for the purpose of offshore industrial activities performed on board other ships and/or offshore facilities”. Thus, the emphasis is on work performed away from the ship which is providing the transport or accommodation for the industrial personnel.
 
-•
-2.4 In this respect, “offshore industrial activities” means “the construction, maintenance, decommissioning, operation or servicing of offshore facilities related, but not limited, to exploration and exploitation of resources by the renewable or hydrocarbon energy sectors, aquaculture, ocean mining or similar activities.” Thus, these activities can include activities associated with both the oil and gas, and wind farm sectors.
+• 2.4 In this respect, “offshore industrial activities” means “the construction, maintenance, decommissioning, operation or servicing of offshore facilities related, but not limited, to exploration and exploitation of resources by the renewable or hydrocarbon energy sectors, aquaculture, ocean mining or similar activities.” Thus, these activities can include activities associated with both the oil and gas, and wind farm sectors.
 
-•
-2.5 Note that “offshore industrial activities” does not include within its scope, vessels which are engaged in the construction, maintenance and servicing of facilities located on offshore islands or other remote locations.  Such ships would need to comply with passenger ship requirements.
+• 2.5 Note that “offshore industrial activities” does not include within its scope, vessels which are engaged in the construction, maintenance and servicing of facilities located on offshore islands or other remote locations.  Such ships would need to comply with passenger ship requirements.
 
-•
-Application of the IP Code in the United Kingdom (regulations 9 and 10 of the 2025 Regulations)
+• Application of the IP Code in the United Kingdom (regulations 9 and 10 of the 2025 Regulations)
 
-•
-2.6 The IP Code applies to cargo ships and high-speed cargo craft of 500GT and above constructed on or after 1 July 2024, but the 2025 Regulations extend the application of the Code to all cargo ships under 500GT on both international and non-international voyages, subject to carrying an aggregate of more than 12 industrial personnel, special personnel and passengers.  For high-speed cargo craft, the 2025 Regulations provide the option to either comply with the Merchant Shipping (High Speed Offshore Service Craft) Regulations 2022 (SI 2022/41) (for those vessels under 500GT), or the IP Code as it applies to high-speed craft (as implemented under the 2025 Regulations) and the Merchant Shipping (High Speed Craft) Regulations 2022.
+• 2.6 The IP Code applies to cargo ships and high-speed cargo craft of 500GT and above constructed on or after 1 July 2024, but the 2025 Regulations extend the application of the Code to all cargo ships under 500GT on both international and non-international voyages, subject to carrying an aggregate of more than 12 industrial personnel, special personnel and passengers.  For high-speed cargo craft, the 2025 Regulations provide the option to either comply with the Merchant Shipping (High Speed Offshore Service Craft) Regulations 2022 (SI 2022/41) (for those vessels under 500GT), or the IP Code as it applies to high-speed craft (as implemented under the 2025 Regulations) and the Merchant Shipping (High Speed Craft) Regulations 2022.
 
-•
-2.7 Noting that cargo ships are already entitled to carry up to 12 passengers, the parameter of “more than 12” includes the aggregate number of industrial personnel, special personnel and passengers carried on board. Thus, a ship carrying a minimum of one industrial personnel, plus an aggregate of special personnel and/or passengers which in total exceeds 12, will result in the ship coming within the scope of the IP Code. The number of passengers being carried must not exceed 12, otherwise passenger ship requirements will apply. Industrial personnel are not considered to be passengers (see SOLAS XV/3.2 and the definitions of “industrial personnel” and “passenger” in regulation 3 of the 2025 Regulations) and are designated as a separate category of person on board. If a cargo ship never carries more than 12 industrial personnel, it is strongly recommended that the ship still complies with the IP Code requirements concerning industrial personnel and safe transfer arrangements (see regulations in Part III/1 and 2 respectively).    
+• 2.7 Noting that cargo ships are already entitled to carry up to 12 passengers, the parameter of “more than 12” includes the aggregate number of industrial personnel, special personnel and passengers carried on board. Thus, a ship carrying a minimum of one industrial personnel, plus an aggregate of special personnel and/or passengers which in total exceeds 12, will result in the ship coming within the scope of the IP Code. The number of passengers being carried must not exceed 12, otherwise passenger ship requirements will apply. Industrial personnel are not considered to be passengers (see SOLAS XV/3.2 and the definitions of “industrial personnel” and “passenger” in regulation 3 of the 2025 Regulations) and are designated as a separate category of person on board. If a cargo ship never carries more than 12 industrial personnel, it is strongly recommended that the ship still complies with the IP Code requirements concerning industrial personnel and safe transfer arrangements (see regulations in Part III/1 and 2 respectively).    
 
-•
-2.8 The IP Code recognises that special personnel may be carried at the same time as industrial personnel (SOLAS Chapter XV/3.2, or 3.3 if applicable). This does not change the position in relation to the application of the IP Code as the carriage of any industrial personnel at all triggers the higher standard of the IP Code.  However, a ship that is certified in accordance with the IP Code which carries only special personnel and no industrial personnel on a single exceptional voyage, may not also need certification as a Special Purpose Ship as well. This equivalence arrangement is subject to approval by the MCA. 
+• 2.8 The IP Code recognises that special personnel may be carried at the same time as industrial personnel (SOLAS Chapter XV/3.2, or 3.3 if applicable). This does not change the position in relation to the application of the IP Code as the carriage of any industrial personnel at all triggers the higher standard of the IP Code.  However, a ship that is certified in accordance with the IP Code which carries only special personnel and no industrial personnel on a single exceptional voyage, may not also need certification as a Special Purpose Ship as well. This equivalence arrangement is subject to approval by the MCA. 
 
-•
-Safe Transfer Arrangements
+• Safe Transfer Arrangements
 
-•
-2.9 The master has ultimate responsibility for all persons on board and therefore has the authority to halt the transfer of persons at any time if it is considered that the safety of the vessel or persons on board may be compromised.
+• 2.9 The master has ultimate responsibility for all persons on board and therefore has the authority to halt the transfer of persons at any time if it is considered that the safety of the vessel or persons on board may be compromised.
 
-•
-2.10 Regulation III/2 of the IP Code contains the requirements for the safe transfer of industrial personnel where the safe transfer arrangement is provided by the IP Code vessel. The safe transfer arrangement must be:
+• 2.10 Regulation III/2 of the IP Code contains the requirements for the safe transfer of industrial personnel where the safe transfer arrangement is provided by the IP Code vessel. The safe transfer arrangement must be:
 
-•
-.1 designed, constructed and maintained to withstand the loads the ship is
+• .1 designed, constructed and maintained to withstand the loads the ship is
 subjected to;
 
-•
-.2 designed and engineered to fail to a safe condition in the event of a loss or reduction in associated functionality; and
+• .2 designed and engineered to fail to a safe condition in the event of a loss or reduction in associated functionality; and
 
-•
-.3 capable of safely returning persons in transfer to a safe location after loss of power (see paragraph 2.2.2 in Part II of the IP Code – functional requirements).
+• .3 capable of safely returning persons in transfer to a safe location after loss of power (see paragraph 2.2.2 in Part II of the IP Code – functional requirements).
 
-•
-2.11 When the safe transfer arrangement is provided by the offshore structure, the following matters, in particular, should be taken into account:
+• 2.11 When the safe transfer arrangement is provided by the offshore structure, the following matters, in particular, should be taken into account:
 
-•
-.1 clear lines of communication to be maintained at all times between the supervising responsible officer on the offshore installation and the navigating bridge of the vessel during transfer operations;
+• .1 clear lines of communication to be maintained at all times between the supervising responsible officer on the offshore installation and the navigating bridge of the vessel during transfer operations;
 
-•
-.2 onboard procedures during personnel transfers should only be undertaken by properly trained personnel;
+• .2 onboard procedures during personnel transfers should only be undertaken by properly trained personnel;
 
-•
-.3 there should be a safe and unobstructed route for industrial personnel on the vessel in accordance with Regulation III/2.1.6 of the IP Code during transit to and from the safe transfer arrangement;
+• .3 there should be a safe and unobstructed route for industrial personnel on the vessel in accordance with Regulation III/2.1.6 of the IP Code during transit to and from the safe transfer arrangement;
 
-•
-.4 the deck area for personnel transfer should be designed and free from obstructions in accordance with Regulation III/2.1.8 of the IP Code; and,
+• .4 the deck area for personnel transfer should be designed and free from obstructions in accordance with Regulation III/2.1.8 of the IP Code; and,
 
-•
-.5 a job safety analysis should be carried out in accordance with Regulation III/2.1.9 of the IP Code.
+• .5 a job safety analysis should be carried out in accordance with Regulation III/2.1.9 of the IP Code.
 
 2.12 The following guidance regarding the safe transfer of industrial personnel, or approved alternative, must also be taken into account: IMCA M202 – Guidance on the Transfer of Personnel to and from Offshore Vessels and Structures [footnote 7] as amended, and MCA Code of Safe Working Practices for Merchant Seafarers, chapters 31 and 32 [footnote 8] as amended, (see Regulation III/2.1.10 of the IP Code).
 
@@ -111,62 +89,43 @@ Vessels <500GT and which undertake either international or non-international voy
 
 3. The Code of Safety for Special Purpose Ships (SPS Code)
 
-•
-Introduction
+• Introduction
 
-•
-3.1 The SPS Codes provide a standard for cargo ships of 500GT and above which carry an aggregate of more than 12 special personnel and passengers. However, IMO Member States are also encouraged to extend the application of the SPS Codes to vessels under 500GT. As such, the 2025 Regulations apply the SPS Codes to all Special Purpose Ships of all sizes and engaged on either international or non-international voyages. Special personnel are persons that are specifically needed for the particular operational purpose of the ship and are carried in addition to the crew. Because special personnel are on board in connection with the operational purpose of the ship, they work largely on board the ship, often in close association with the crew. This is in contrast to industrial personnel whose work takes place off the ship that transported them.
+• 3.1 The SPS Codes provide a standard for cargo ships of 500GT and above which carry an aggregate of more than 12 special personnel and passengers. However, IMO Member States are also encouraged to extend the application of the SPS Codes to vessels under 500GT. As such, the 2025 Regulations apply the SPS Codes to all Special Purpose Ships of all sizes and engaged on either international or non-international voyages. Special personnel are persons that are specifically needed for the particular operational purpose of the ship and are carried in addition to the crew. Because special personnel are on board in connection with the operational purpose of the ship, they work largely on board the ship, often in close association with the crew. This is in contrast to industrial personnel whose work takes place off the ship that transported them.
 
-•
-3.2 The types of activities undertaken by special personnel in accordance with the SPS Code include, but are not limited to the following:
+• 3.2 The types of activities undertaken by special personnel in accordance with the SPS Code include, but are not limited to the following:
 
-•
-.1 scientists or technicians engaged in research, hydrographic or oceanographic surveys, or expeditions;
+• .1 scientists or technicians engaged in research, hydrographic or oceanographic surveys, or expeditions;
 
-•
-.2 personnel engaged in training and practical marine experience to develop skills in special work activities suitable for a professional career at sea;
+• .2 personnel engaged in training and practical marine experience to develop skills in special work activities suitable for a professional career at sea;
 
-•
-.3 personnel who process the catch of fish, whales or other living resources of the sea on factory ships not engaged in catching;
+• .3 personnel who process the catch of fish, whales or other living resources of the sea on factory ships not engaged in catching;
 
-•
-.4 salvage personnel on salvage ships, cable-laying personnel on cable-laying ships, seismic personnel on seismic survey ships, diving personnel on diving support ships, pipe-laying personnel on pipe layers and crane operating personnel on floating cranes; and remotely operated vehicle technicians; and
+• .4 salvage personnel on salvage ships, cable-laying personnel on cable-laying ships, seismic personnel on seismic survey ships, diving personnel on diving support ships, pipe-laying personnel on pipe layers and crane operating personnel on floating cranes; and remotely operated vehicle technicians; and
 
-•
-.5 technicians that work on wind and tidal turbines (industrial personnel), or other emerging energy technologies.
+• .5 technicians that work on wind and tidal turbines (industrial personnel), or other emerging energy technologies.
 
-•
-3.3 As such, the SPS Codes can be applied to ships undertaking a wider variety of roles, beyond just providing support to the offshore sector.
+• 3.3 As such, the SPS Codes can be applied to ships undertaking a wider variety of roles, beyond just providing support to the offshore sector.
 
-•
-3.4 Special personnel cannot be regarded as part of the crew. The SPS Codes define the crew as “all persons carried on board the ship to provide navigation and maintenance of the ship, its machinery, systems and arrangements essential for propulsion and safe navigation or to provide services for other persons on board”.  Special personnel can be designated as passengers, so long as there are no more than 12 on board. If the number is higher than 12, the additional persons are classified as special personnel and the SPS Code applies. If any of this number comprises industrial personnel, the IP Code applies.
+• 3.4 Special personnel cannot be regarded as part of the crew. The SPS Codes define the crew as “all persons carried on board the ship to provide navigation and maintenance of the ship, its machinery, systems and arrangements essential for propulsion and safe navigation or to provide services for other persons on board”.  Special personnel can be designated as passengers, so long as there are no more than 12 on board. If the number is higher than 12, the additional persons are classified as special personnel and the SPS Code applies. If any of this number comprises industrial personnel, the IP Code applies.
 
-•
-3.5 Further, it should be noted that “seafarer” means any person, including the master, who is employed or engaged or works in any capacity on board the ship and whose normal place of work is on that ship. “Seafarer” does not apply to those persons whose work is not part of the routine business of the ship and whose primary place of work is ashore, for example, marine professionals such as harbour pilots, inspectors or superintendents, research scientists, divers, and specialist offshore technicians. However, it is to be noted that it is not the matter of the role that is the deciding factor; it is whether the normal place of work is on board a ship or not. See also paragraph 5.10 below.
+• 3.5 Further, it should be noted that “seafarer” means any person, including the master, who is employed or engaged or works in any capacity on board the ship and whose normal place of work is on that ship. “Seafarer” does not apply to those persons whose work is not part of the routine business of the ship and whose primary place of work is ashore, for example, marine professionals such as harbour pilots, inspectors or superintendents, research scientists, divers, and specialist offshore technicians. However, it is to be noted that it is not the matter of the role that is the deciding factor; it is whether the normal place of work is on board a ship or not. See also paragraph 5.10 below.
 
-•
-Application of the SPS Codes in the United Kingdom (regulations 11 and 12 of the 2025 Regulations)
+• Application of the SPS Codes in the United Kingdom (regulations 11 and 12 of the 2025 Regulations)
 
-•
-3.6. Ships carrying more than 12 special personnel and passengers (subject to a maximum of 12) in aggregate must:
+• 3.6. Ships carrying more than 12 special personnel and passengers (subject to a maximum of 12) in aggregate must:
 
-•
-.1 if constructed on or after 1 July 2009, comply with the 2008 SPS Code;
+• .1 if constructed on or after 1 July 2009, comply with the 2008 SPS Code;
 
-•
-.2 if constructed before 1 July 2009, may comply with the SPS Code 2008 OR the SPS Code 1983, but this is subject to paragraph 3.7 below (see also Section 4 below).
+• .2 if constructed before 1 July 2009, may comply with the SPS Code 2008 OR the SPS Code 1983, but this is subject to paragraph 3.7 below (see also Section 4 below).
 
-•
-3.7 Ships (irrespective of the date of construction), which were not certified in accordance with the SPS Code 1983 before 1st July 2024 must comply with the SPS Code 2008. When carrying industrial personnel (of any number) the ship must comply with the IP Code (Part 2 of the 2025 Regulations).
+• 3.7 Ships (irrespective of the date of construction), which were not certified in accordance with the SPS Code 1983 before 1st July 2024 must comply with the SPS Code 2008. When carrying industrial personnel (of any number) the ship must comply with the IP Code (Part 2 of the 2025 Regulations).
 
-•
-Vessels <500GT and which undertake either international or non-international voyages
+• Vessels <500GT and which undertake either international or non-international voyages
 
-•
-3.8 UK policy is to apply the SPS Codes to vessels <500GT, whether operating international or non-international voyages.  Such vessels must therefore comply with the 2025 Regulations, which incorporates the requirements of the SPS Codes.   
+• 3.8 UK policy is to apply the SPS Codes to vessels <500GT, whether operating international or non-international voyages.  Such vessels must therefore comply with the 2025 Regulations, which incorporates the requirements of the SPS Codes.   
 
-•
-3.9 The 2025 Regulations contain provision to grant an exemption from the requirements of the SPS Code 1983 and SPS Code 2008 for exceptional single voyages and also, in the case of the 1983 Code, for SPS ships on near-coastal voyages. For these regulations and in line with Schedule 2 of the Mercahnt Shipping (Standards of Training, Certification and Watchkeeping) Regulations 2022 (SI 2022/1342) “near coastal voyages” means a voyage during which the ship is not more than 150 nautical miles from a safe haven in the United Kingdom, or not more than 30 nautical miles from a safe haven in the Republic of Ireland.   The Regulations also implement the provision in the Codes for equivalences. Applications for exemptions and equivalences will be considered by the UK on a case-by-case basis. The application form for exemptions and equivalences (MSF1261) is available on Gov.UK: Apply for equivalence, exemption or alternative design and arrangement from statutory requirements - GOV.UK (www.gov.uk).  In this respect, compliance with the Code for the Construction and Equipment of Mobile Offshore Drilling Units 2009 (MODU Code) would be considered an equivalent standard to the SPS Code 2008 for vessels for which the MODU Code is suitable (vessels involved in offshore drilling).  
+• 3.9 The 2025 Regulations contain provision to grant an exemption from the requirements of the SPS Code 1983 and SPS Code 2008 for exceptional single voyages and also, in the case of the 1983 Code, for SPS ships on near-coastal voyages. For these regulations and in line with Schedule 2 of the Mercahnt Shipping (Standards of Training, Certification and Watchkeeping) Regulations 2022 (SI 2022/1342) “near coastal voyages” means a voyage during which the ship is not more than 150 nautical miles from a safe haven in the United Kingdom, or not more than 30 nautical miles from a safe haven in the Republic of Ireland.   The Regulations also implement the provision in the Codes for equivalences. Applications for exemptions and equivalences will be considered by the UK on a case-by-case basis. The application form for exemptions and equivalences (MSF1261) is available on Gov.UK: Apply for equivalence, exemption or alternative design and arrangement from statutory requirements - GOV.UK (www.gov.uk).  In this respect, compliance with the Code for the Construction and Equipment of Mobile Offshore Drilling Units 2009 (MODU Code) would be considered an equivalent standard to the SPS Code 2008 for vessels for which the MODU Code is suitable (vessels involved in offshore drilling).  
 
 4. Grandfathering arrangements for ships already operating in accordance with MGN 674(M)
 
@@ -198,130 +157,87 @@ Special Purpose Ships
 
 5. IP and SPS Code compliance with medical fitness, safety training, safety management, certification requirements and safe manning
 
-•
-5.1 The IP Code (Part III/1) sets out the standards which industrial personnel must meet before they can board a ship to which the IP Code applies, as follows:
+• 5.1 The IP Code (Part III/1) sets out the standards which industrial personnel must meet before they can board a ship to which the IP Code applies, as follows:
 
-•
-.1 must be at least 16 years of age;
+• .1 must be at least 16 years of age;
 
-•
-.2 must be medically fit;
+• .2 must be medically fit;
 
-•
-.3 must be able to communicate with the ship’s crew;
+• .3 must be able to communicate with the ship’s crew;
 
-•
-.4 must have received appropriate safety training covering personal survival, fire safety, and personal safety and social responsibility;
+• .4 must have received appropriate safety training covering personal survival, fire safety, and personal safety and social responsibility;
 
-•
-.5 must have received onboard ship-specific safety familiarisation; and
+• .5 must have received onboard ship-specific safety familiarisation; and
 
-•
-.6 must have received onboard familiarisation with the ship’s transfer arrangements and equipment.
+• .6 must have received onboard familiarisation with the ship’s transfer arrangements and equipment.
 
-•
-5.2 The SPS Code assumes that special personnel will be able-bodied with a fair knowledge of the layout of the ship and will have received some training in safety procedures and the handling of the ship’s safety equipment before leaving port, which the owner and master are responsible for arranging. Because the SPS Code does not provide specific requirements, appropriate training requirements are contained in regulation 12 of the 2025 Regulations. The MCA would expect the detail to be outlined in the vessel’s Safety Management System. Industrial personnel and special personnel are not considered to be part of the crew for the purposes of training, medical fitness and certification, and the standards in this MGN should be applied to any personnel who have no specific safety duties allocated on a ship’s Muster List. In addition to paragraphs 5.5 and 5.6 below, industrial personnel and special personnel are required to have basic safety training and security training in accordance with STCW Chapter VI and be medically certified as for the ship’s crew.
+• 5.2 The SPS Code assumes that special personnel will be able-bodied with a fair knowledge of the layout of the ship and will have received some training in safety procedures and the handling of the ship’s safety equipment before leaving port, which the owner and master are responsible for arranging. Because the SPS Code does not provide specific requirements, appropriate training requirements are contained in regulation 12 of the 2025 Regulations. The MCA would expect the detail to be outlined in the vessel’s Safety Management System. Industrial personnel and special personnel are not considered to be part of the crew for the purposes of training, medical fitness and certification, and the standards in this MGN should be applied to any personnel who have no specific safety duties allocated on a ship’s Muster List. In addition to paragraphs 5.5 and 5.6 below, industrial personnel and special personnel are required to have basic safety training and security training in accordance with STCW Chapter VI and be medically certified as for the ship’s crew.
 
-•
-Medical Fitness
+• Medical Fitness
 
-•
-5.3 Industrial personnel and special personnel should be able to demonstrate their medical fitness with either:
+• 5.3 Industrial personnel and special personnel should be able to demonstrate their medical fitness with either:
 
-•
-(a) an MLC compliant medical certificate[footnote 9] (e.g. ENG1);
+• (a) an MLC compliant medical certificate[footnote 9] (e.g. ENG1);
 
-•
-(b) for non-international voyages up to 60 miles from shore, an ML5 certificate is deemed to be acceptable (see MGN 640 for further information).
+• (b) for non-international voyages up to 60 miles from shore, an ML5 certificate is deemed to be acceptable (see MGN 640 for further information).
 
-•
-(c) a recognised equivalent medical fitness certificate specified in MSN 1815, as amended;
+• (c) a recognised equivalent medical fitness certificate specified in MSN 1815, as amended;
 
-•
-(d) subject to a risk assessment by the employer, another certificate of medical fitness appropriate to the duties and geographic location of the worker will be accepted; or
+• (d) subject to a risk assessment by the employer, another certificate of medical fitness appropriate to the duties and geographic location of the worker will be accepted; or
 
-•
-(e) either of the following options:
+• (e) either of the following options:
 
-•
-.1 Offshore Energies UK (OEUK) offshore medical (for offshore workers); or
+• .1 Offshore Energies UK (OEUK) offshore medical (for offshore workers); or
 
-•
-.2 medicals carried out in accordance with “The Renewable UK” Medical Fitness to Work Guidelines for near offshore projects (for wind farm workers).
+• .2 medicals carried out in accordance with “The Renewable UK” Medical Fitness to Work Guidelines for near offshore projects (for wind farm workers).
 
-•
+• • 5.4 With respect to .1 and .2 above, these standards are only acceptable for ships operating on domestic voyages. For ships operating internationally whilst carrying special personnel or industrial personnel, such personnel must obtain an ENG1.    
 
-•
-5.4 With respect to .1 and .2 above, these standards are only acceptable for ships operating on domestic voyages. For ships operating internationally whilst carrying special personnel or industrial personnel, such personnel must obtain an ENG1.    
+• Safety training
 
-•
-Safety training
+• 5.5 All industrial personnel and special personnel should be able to demonstrate safety training and abilities as follows:
 
-•
-5.5 All industrial personnel and special personnel should be able to demonstrate safety training and abilities as follows:
+• .1 ship familiarisation training defined in MGN 120(M);
 
-•
-.1 ship familiarisation training defined in MGN 120(M);
+• .2 ability to communicate in the working language of the ship; and
 
-•
-.2 ability to communicate in the working language of the ship; and
+• .3 completion of basic safety training in personal survival techniques, fire safety and personal safety and social responsibilities as set out in one of the following courses:
 
-•
-.3 completion of basic safety training in personal survival techniques, fire safety and personal safety and social responsibilities as set out in one of the following courses:
+• .1 Table A-VI/1-1 of the STCW Code; or
 
-•
-.1 Table A-VI/1-1 of the STCW Code; or
+• .2 the Global Wind Organization (GWO), Offshore Petroleum Industry Training Organisation (OPITO) approved Basic Offshore Safety Induction and Emergency Training (BOSIET); or
 
-•
-.2 the Global Wind Organization (GWO), Offshore Petroleum Industry Training Organisation (OPITO) approved Basic Offshore Safety Induction and Emergency Training (BOSIET); or
+• .3 courses developed for the industry that are of at least equal standard to the above, which the company has assessed and are acceptable for the purposes of the operations and occupational risks to which it is anticipated the industrial personnel or special personnel will be exposed. Such courses must adequately address the elements set out in Part III/1 of the IP Code.
 
-•
-.3 courses developed for the industry that are of at least equal standard to the above, which the company has assessed and are acceptable for the purposes of the operations and occupational risks to which it is anticipated the industrial personnel or special personnel will be exposed. Such courses must adequately address the elements set out in Part III/1 of the IP Code.
+• 5.6 Industrial personnel and special personnel who have been designated safety or pollution prevention duties in the operation of the ship must, before being assigned to duties in accordance with the muster list, receive:
 
-•
-5.6 Industrial personnel and special personnel who have been designated safety or pollution prevention duties in the operation of the ship must, before being assigned to duties in accordance with the muster list, receive:
+• .1 basic training as set out in Chapter VI/I of the STCW Code and be required to provide evidence of having completed the training at the required standard of competence to undertake the tasks, duties and responsibilities listed in column 1 of tables A-VI/1-1, A-VI/1-2, A-VI/1-3 and A-VI/1-4 of the Code.
 
-•
-.1 basic training as set out in Chapter VI/I of the STCW Code and be required to provide evidence of having completed the training at the required standard of competence to undertake the tasks, duties and responsibilities listed in column 1 of tables A-VI/1-1, A-VI/1-2, A-VI/1-3 and A-VI/1-4 of the Code.
+• .2 training as set out in Section A-VI/2, A-VI/3 and/or A-VI/4 of the STCW Code, based on their roles and responsibilities on the muster list.
 
-•
-.2 training as set out in Section A-VI/2, A-VI/3 and/or A-VI/4 of the STCW Code, based on their roles and responsibilities on the muster list.
+• Safety Management
 
-•
-Safety Management
+• 5.7 Procedures should be established to ensure proper familiarisation training for all new personnel, in accordance with the ship’s safety management system. For all personnel, instructions which are essential to be provided prior to sailing should be identified and documented. The company must be able to show evidence of training certification which complies with Part III/1.3 of the IP Code.
 
-•
-5.7 Procedures should be established to ensure proper familiarisation training for all new personnel, in accordance with the ship’s safety management system. For all personnel, instructions which are essential to be provided prior to sailing should be identified and documented. The company must be able to show evidence of training certification which complies with Part III/1.3 of the IP Code.
+• Occupational health, safety and welfare
 
-•
-Occupational health, safety and welfare
+• 5.8 Merchant shipping legislation covering living and working conditions protects seafarers. Whether industrial personnel and special personnel on board IP or SPS certificated ships (or ships accepted as equivalent), are “seafarers” for the purposes of the Maritime Labour Convention should be considered against the criteria in MGN 471(M) – Maritime Labour Convention 2006: Definitions.
 
-•
-5.8 Merchant shipping legislation covering living and working conditions protects seafarers. Whether industrial personnel and special personnel on board IP or SPS certificated ships (or ships accepted as equivalent), are “seafarers” for the purposes of the Maritime Labour Convention should be considered against the criteria in MGN 471(M) – Maritime Labour Convention 2006: Definitions.
+• 5.9 The occupational health and safety requirements that are applicable to employers, workers and others on board the ship are those in the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations 1997 (see MGN 636 (M+F) as amended, and MGN 492 (M)), whether such persons are considered seafarers or non-seafarers.
 
-•
-5.9 The occupational health and safety requirements that are applicable to employers, workers and others on board the ship are those in the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations 1997 (see MGN 636 (M+F) as amended, and MGN 492 (M)), whether such persons are considered seafarers or non-seafarers.
+• 5.10 It is recommended that the ship should also carry a statement from the MCA to support the industrial personnel and special personnel on board who are not defined as seafarers under the Maritime Labour Convention (MLC). Owners should apply through their local Marine Office/Customer Service Manager. These will be issued by MCA Headquarters, Maritime Security & MLC Branch in Technical Services (Operations). Further guidance on the interpretation of “seafarers” for MLC purposes can be found in MGN 471(M).
 
-•
-5.10 It is recommended that the ship should also carry a statement from the MCA to support the industrial personnel and special personnel on board who are not defined as seafarers under the Maritime Labour Convention (MLC). Owners should apply through their local Marine Office/Customer Service Manager. These will be issued by MCA Headquarters, Maritime Security & MLC Branch in Technical Services (Operations). Further guidance on the interpretation of “seafarers” for MLC purposes can be found in MGN 471(M).
+• 5.11 For foreign flagged vessels operating in the UK EEZ, MCA would expect an equivalent statement to paragraph 5.10 from the ship’s flag administration.
 
-•
-5.11 For foreign flagged vessels operating in the UK EEZ, MCA would expect an equivalent statement to paragraph 5.10 from the ship’s flag administration.
+• Safe Manning
 
-•
-Safe Manning
+• 5.12 It is the responsibility of the owner or operator to ensure that the ship is adequately manned, taking into account the number of persons on board and the area of operation. Ships undergoing relocation voyages when they may not be carrying industrial personnel or special personnel may need fewer crew to deal with any emergency.
 
-•
-5.12 It is the responsibility of the owner or operator to ensure that the ship is adequately manned, taking into account the number of persons on board and the area of operation. Ships undergoing relocation voyages when they may not be carrying industrial personnel or special personnel may need fewer crew to deal with any emergency.
+• 5.13 The need to handle large numbers of industrial personnel who may be unfamiliar with the marine environment must be taken into account in determining manning levels. Personnel must be appropriately trained: the owner must ensure that evidence of the training is available and the master must ensure that this has been provided before personnel go on board.  Owners and operators must give attention to the requirements for minimum numbers of trained crew to take charge of survival craft and to deal with any emergencies.
 
-•
-5.13 The need to handle large numbers of industrial personnel who may be unfamiliar with the marine environment must be taken into account in determining manning levels. Personnel must be appropriately trained: the owner must ensure that evidence of the training is available and the master must ensure that this has been provided before personnel go on board.  Owners and operators must give attention to the requirements for minimum numbers of trained crew to take charge of survival craft and to deal with any emergencies.
+• 5.14 Owners and operators must ensure that the masters, officers, ratings and other personnel have completed the training required by the Merchant Shipping (Standards of Training, Certification and Watchkeeping) Regulations 2022 Regulations (SI 2022/1342), specified in Merchant Shipping Notice (MSN) 1866 Amendment 1:
 
-•
-5.14 Owners and operators must ensure that the masters, officers, ratings and other personnel have completed the training required by the Merchant Shipping (Standards of Training, Certification and Watchkeeping) Regulations 2022 Regulations (SI 2022/1342), specified in Merchant Shipping Notice (MSN) 1866 Amendment 1:
-
-•
-https://www.gov.uk/government/publications/msn-1866-m-amendment-1-training-requirements-for-seafarers-on-tankers-igf-code-ships-ships-that-operate-in-polar-waters-and-passenger-ships
+• https://www.gov.uk/government/publications/msn-1866-m-amendment-1-training-requirements-for-seafarers-on-tankers-igf-code-ships-ships-that-operate-in-polar-waters-and-passenger-ships
 
 • 5.15 Further information on safe manning can also be found in MSN 1868 Amendment 1.
 
@@ -347,29 +263,20 @@ Email: VesselStandards@mcga.gov.uk
 
 Website: www.gov.uk/mca
 
-•
-https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.521(106).pdf ↩
+• https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.521(106).pdf ↩
 
-•
-https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.527(106).pdf ↩
+• https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.527(106).pdf ↩
 
-•
-The SPS Code 1983 is published in Merchant Shipping Notice 1920. ↩
+• The SPS Code 1983 is published in Merchant Shipping Notice 1920. ↩
 
-•
-The SPS Code 2008 is published in Merchant Shipping Notice 1919. ↩
+• The SPS Code 2008 is published in Merchant Shipping Notice 1919. ↩
 
-•
-SI 2022/0041 – The Merchant Shipping (High Speed Offshore Service Craft) Regulations 2022 ↩
+• SI 2022/0041 – The Merchant Shipping (High Speed Offshore Service Craft) Regulations 2022 ↩
 
-•
-SI 2023/1216 – The Merchant Shipping (Small Workboats and Pilot Boats) Regulations 2023 ↩
+• SI 2023/1216 – The Merchant Shipping (Small Workboats and Pilot Boats) Regulations 2023 ↩
 
-•
-https://www.imca-int.com/product/guidance-on-the-transfer-of-personnel-to-and-from-offshore-vessels-and-structures/ ↩
+• https://www.imca-int.com/product/guidance-on-the-transfer-of-personnel-to-and-from-offshore-vessels-and-structures/ ↩
 
-•
-https://www.gov.uk/government/publications/code-of-safe-working-practices-for-merchant-seafarers-coswp-amendment-7-2022 ↩
+• https://www.gov.uk/government/publications/code-of-safe-working-practices-for-merchant-seafarers-coswp-amendment-7-2022 ↩
 
-•
-See the Merchant Shipping (Maritime Labour Convention) (Medical Certification) Regulations 2010 ↩
+• See the Merchant Shipping (Maritime Labour Convention) (Medical Certification) Regulations 2010 ↩

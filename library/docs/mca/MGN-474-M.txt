@@ -1,4 +1,4 @@
-MGN 474 (M) MGN 474 (M) Amendment 1 retention of crew agreements where appropriate
+MGN 474 (M) Amendment 1 retention of crew agreements where appropriate
 2026-01-29
 Source: https://www.gov.uk/government/publications/mgn-474-m-amendment-1-retention-of-crew-agreements-where-appropriate
 
@@ -226,14 +226,11 @@ The notice required from each party to terminate a seafarer’s employment under
 
 8.1 In the case of those vessels not subject to the MLC there remains an obligation to have a crew agreement, exemptions from that requirement will remain in force although employers must apply for them to be renewed to bring them in line with MCA’s current requirements if they are:-
 
-•
-not recorded on the exemption database
+• not recorded on the exemption database
 
-•
-do not have a time limit of 5 years or less
+• do not have a time limit of 5 years or less
 
-•
-are not ship specific
+• are not ship specific
 
 8.2.1 Any exemptions which do not meet these criteria will need to be referred to Seafarer Safety and Health Branch of MCA for renewal where appropriate.
 

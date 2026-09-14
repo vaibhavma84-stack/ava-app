@@ -1,4 +1,4 @@
-MGN 324 (M+F) MGN 324 (M+F) Amendment 2 navigation: watchkeeping safety – use of Very High Frequency (VHF) radio and Automatic Identification System (AIS)
+MGN 324 (M+F) Amendment 2 navigation: watchkeeping safety – use of Very High Frequency (VHF) radio and Automatic Identification System (AIS)
 2022-03-22
 Source: https://www.gov.uk/government/publications/mgn-324-mf-amendment-2-navigation-watchkeeping-safety-use-of-very-high-frequency-vhf-radio-and-automatic-identification-system-ais
 
@@ -56,14 +56,11 @@ Source: https://www.gov.uk/government/publications/mgn-324-mf-amendment-2-naviga
 
 To this end they are advised to:
 
-•
-initiate action to correct any known improper installation;
+• initiate action to correct any known improper installation;
 
-•
-ensure the correct information on the vessel’s identity, position, and movements (including voyage-specific) is transmitted; and
+• ensure the correct information on the vessel’s identity, position, and movements (including voyage-specific) is transmitted; and
 
-•
-ensure that the AIS, if being off for any reason, is turned on, at least within 100 nautical miles of the coastline of the United Kingdom.
+• ensure that the AIS, if being off for any reason, is turned on, at least within 100 nautical miles of the coastline of the United Kingdom.
 
 4.3. The simplest means of checking whether ownship is transmitting correct information on identity, position and movements is by contacting other vessels or shore stations. Increasingly, UK maritime rescue coordination centres and port authorities are being equipped as AIS base stations. As more base stations are established ashore, AIS may be used to provide a functional monitoring system in conjunction with Vessel Traffic Services and Ship Reporting (SOLAS Chapter V, Regulations 11 and 12 refer).
 
@@ -73,23 +70,17 @@ ensure that the AIS, if being off for any reason, is turned on, at least within 
 
 4.6. The routine updating of data into the AIS, at the start of the voyage and whenever changes occur, should be covered in the navigating officer’s checklist and should consist of:
 
-•
-ship’s draught;
+• ship’s draught;
 
-•
-hazardous cargo, if any;
+• hazardous cargo, if any;
 
-•
-destination and ETA;
+• destination and ETA;
 
-•
-route plan (way points);
+• route plan (way points);
 
-•
-correct navigational status; and
+• correct navigational status; and
 
-•
-short safety-related messages.
+• short safety-related messages.
 
 4.7. The quality and reliability of position data obtained from targets will vary depending on the accuracy of the transmitting vessel’s Electronic Position Fixing System (EPFS) receiver. It should be noted that older EPFS equipment (before 2003) may not produce Course Over Ground and Speed Over Ground (COG/SOG) data to the same accuracy as newer equipment.
 

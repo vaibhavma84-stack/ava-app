@@ -1,4 +1,4 @@
-MGN 631 (M+F) MGN 631 (M+F) Amendment 1: The merchant shipping (prevention of pollution by sewage from ships) regulations 2020
+MGN 631 (M+F) Amendment 1: The merchant shipping (prevention of pollution by sewage from ships) regulations 2020
 2023-08-16
 Source: https://www.gov.uk/government/publications/mgn-631-mf-amendment-1-the-merchant-shipping-prevention-of-pollution-by-sewage-from-ships-regulations-2020
 
@@ -24,35 +24,25 @@ The purpose of this MGN is to provide guidance and clarification with respect to
 
 3. Definitions
 
-•
-3.1 “Sewage” means –
+• 3.1 “Sewage” means –
 
-•
-i) Drainage and other wastes from any form of toilets and urinals;
+• i) Drainage and other wastes from any form of toilets and urinals;
 
-•
-ii) Drainage from medical premises (dispensary, sick bay, etc.) via wash basins, wash tubs and scuppers located in such premises;
+• ii) Drainage from medical premises (dispensary, sick bay, etc.) via wash basins, wash tubs and scuppers located in such premises;
 
-•
-iii) Drainage from spaces containing living animals; or
+• iii) Drainage from spaces containing living animals; or
 
-•
-iv) Other waste waters when mixed with the drainages defined above.
+• iv) Other waste waters when mixed with the drainages defined above.
 
-•
-3.2 “Discharge”, in relation to sewage, means any release howsoever caused from a ship, and includes any escape, disposal, spilling, leaking, pumping, emitting or emptying.
+• 3.2 “Discharge”, in relation to sewage, means any release howsoever caused from a ship, and includes any escape, disposal, spilling, leaking, pumping, emitting or emptying.
 
-•
-3.3 A “discharge’ does not include –
+• 3.3 A “discharge’ does not include –
 
-•
-i) Dumping within the meaning of the Convention of the Prevention of Marine Pollution by Dumping of Wastes and Other Matters, signed at London on 13 November 1972, as amended by the 1996 Protocol; or
+• i) Dumping within the meaning of the Convention of the Prevention of Marine Pollution by Dumping of Wastes and Other Matters, signed at London on 13 November 1972, as amended by the 1996 Protocol; or
 
-•
-ii) The release of sewage for the purposes of legitimate scientific research into pollution abatement control.
+• ii) The release of sewage for the purposes of legitimate scientific research into pollution abatement control.
 
-•
-3.4 Please see regulation 3 (interpretation) of the UK Regulations for all other relevant definitions.
+• 3.4 Please see regulation 3 (interpretation) of the UK Regulations for all other relevant definitions.
 
 4. Prohibition on the Discharge of Sewage
 
@@ -62,14 +52,11 @@ ii) The release of sewage for the purposes of legitimate scientific research int
 
 4.3 UK passenger ships operating in the Baltic Sea special area need to note that the Baltic Sea special area takes effect on:
 
-•
-1 June 2019 for new passenger ships;
+• 1 June 2019 for new passenger ships;
 
-•
-1 June 2021 for existing passenger ships other than those specified in paragraph .3 below; and
+• 1 June 2021 for existing passenger ships other than those specified in paragraph .3 below; and
 
-•
-1 June 2023 for existing passenger ships enroute directly to or from a port located outside the special area and to or from a port located east of longitude 28°10’ E within the special area that do not make another port calls within the special area.
+• 1 June 2023 for existing passenger ships enroute directly to or from a port located outside the special area and to or from a port located east of longitude 28°10’ E within the special area that do not make another port calls within the special area.
 
 4.4 The requirements in relation to United Kingdom ships operating in polar waters are shown in regulation 7(1)(c) of the UK Regulations, which refers to chapter 4 of part II-A of the Polar Code.
 
@@ -89,20 +76,15 @@ ii) The release of sewage for the purposes of legitimate scientific research int
 
 • a holding tank.
 
-•
-5.2 For the purposes of regulation 9 of Annex IV (equipment) –
+• 5.2 For the purposes of regulation 9 of Annex IV (equipment) –
 
-•
-i) Any sewage treatment plant will be considered to be approved by the Administration if it is of a type approval under the Merchant Shipping (Marine Equipment) Regulations 2016 (S.I. 2016/1025), as amended. This will take into consideration where the ship is operating (i.e. inside or outside special areas);
+• i) Any sewage treatment plant will be considered to be approved by the Administration if it is of a type approval under the Merchant Shipping (Marine Equipment) Regulations 2016 (S.I. 2016/1025), as amended. This will take into consideration where the ship is operating (i.e. inside or outside special areas);
 
-•
-ii) a sewage comminuting and disinfecting system will be considered to have been approved by the Administration if the MCA has provided a letter of approval confirming that approval has been granted (see paragraph 5.3); and,
+• ii) a sewage comminuting and disinfecting system will be considered to have been approved by the Administration if the MCA has provided a letter of approval confirming that approval has been granted (see paragraph 5.3); and,
 
-•
-iii) the capacity and construction of a holding tank will be considered to be satisfactory to the Administration if it meets the standards set out in part 2 of Annex A of this MGN.
+• iii) the capacity and construction of a holding tank will be considered to be satisfactory to the Administration if it meets the standards set out in part 2 of Annex A of this MGN.
 
-•
-Sewage Comminuting and Disinfecting Systems
+• Sewage Comminuting and Disinfecting Systems
 
 5.3 Ship owners applying to the MCA for confirmation that their comminuting and disinfecting system meets the standards set out in Annex A should submit their applications to the MCA, Clean Ship Operations, Bay 2/23, Spring Place, 105 Commercial Road, Southampton. SO15 1EG or email: environment@mcga.gov.uk. The application must include:
 

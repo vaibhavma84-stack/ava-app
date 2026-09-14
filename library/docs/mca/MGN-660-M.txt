@@ -1,4 +1,4 @@
-MGN 660 (M) MGN 660 (M) Special measures to enhance maritime safety for merchant ships
+MGN 660 (M) Special measures to enhance maritime safety for merchant ships
 2024-03-13
 Source: https://www.gov.uk/government/publications/mgn-660-m-special-measures-to-enhance-maritime-safety-for-merchant-ships
 
@@ -20,22 +20,17 @@ In this document, reference is made to the application process for the issue of 
 
 2.1 IMO Resolution A.1117(30) states that the Administration should apply the scheme to new and existing ships under its flag engaged in international voyages. An Administration may also assign IMO numbers to ships engaged solely on domestic voyages and to insert the numbers in their certificates.
 
-•
-2.2 The United Kingdom flag administration is the Maritime & Coastguard Agency (MCA). In accordance with the requirements of SOLAS, the MCA requires all passenger ships of 100 gross tonnage and upwards and all cargo ships of 300 gross tonnage and upwards engaged on international voyages to have an IMO number and places the obligation for obtaining this on each of the Company, owner and master (see section 1 above). Additionally, the MCA has decided that the following types of domestic ships must also have IMO numbers (see regulations 4(1) and 7(1) of the 2024 Regulations):
+• 2.2 The United Kingdom flag administration is the Maritime & Coastguard Agency (MCA). In accordance with the requirements of SOLAS, the MCA requires all passenger ships of 100 gross tonnage and upwards and all cargo ships of 300 gross tonnage and upwards engaged on international voyages to have an IMO number and places the obligation for obtaining this on each of the Company, owner and master (see section 1 above). Additionally, the MCA has decided that the following types of domestic ships must also have IMO numbers (see regulations 4(1) and 7(1) of the 2024 Regulations):
 
-•
-a) United Kingdom Class A passenger ships
+• a) United Kingdom Class A passenger ships
 
-•
-b) United Kingdom Class B passenger ships which are certified to carry more than 250 passengers
+• b) United Kingdom Class B passenger ships which are certified to carry more than 250 passengers
 
-•
-c) United Kingdom tankers of 300 gt and above engaged on non-international           voyages which proceed to sea
+• c) United Kingdom tankers of 300 gt and above engaged on non-international           voyages which proceed to sea
 
 3. Marking a ship with the IMO Ship Identification Number
 
-•
-3.1 Regulation 7(4) of the 2024 Regulations requires that the IMO number must be permanently marked on United Kingdom ships constructed of steel or metal:
+• 3.1 Regulation 7(4) of the 2024 Regulations requires that the IMO number must be permanently marked on United Kingdom ships constructed of steel or metal:
 
 • a)in a visible place–
 
@@ -61,8 +56,7 @@ c) United Kingdom tankers of 300 gt and above engaged on non-international   
 
 • c) by raising lettering or by cutting it in or centre-punching it or by any other equivalent method accepted by the MCA in writing of marking the ship identification number in order to ensure the permanency of the marking.
 
-•
-3.2 The marking of the identification number must be—
+• 3.2 The marking of the identification number must be—
 
 • i) plainly visible;
 
@@ -70,8 +64,7 @@ c) United Kingdom tankers of 300 gt and above engaged on non-international   
 
 • iii) painted in a contrasting colour.
 
-•
-3.3 The marking referred to in paragraph 3.1 above must comply with the following requirements:
+• 3.3 The marking referred to in paragraph 3.1 above must comply with the following requirements:
 
 • a) in the case of paragraph 3.1(a), the marking must be not less than 200 millimetres in height;
 
@@ -79,11 +72,9 @@ c) United Kingdom tankers of 300 gt and above engaged on non-international   
 
 • (c) the width of the marks must be proportionate to the height.
 
-•
-3.4 On United Kingdom ships constructed of material other than steel or metal, the method of marking the identification number on the ship must be approved by the Secretary of State before such marking is undertaken. Approval must be obtained in writing and MCA Survey and Inspection Branch must be contacted for the purposes of obtaining this approval.
+• 3.4 On United Kingdom ships constructed of material other than steel or metal, the method of marking the identification number on the ship must be approved by the Secretary of State before such marking is undertaken. Approval must be obtained in writing and MCA Survey and Inspection Branch must be contacted for the purposes of obtaining this approval.
 
-•
-3.5 Failure to mark the ship’s identification number on a ship in accordance with regulation 7(4) of the 2024 Regulations is a criminal offence by the Company, owner and master of the ship.
+• 3.5 Failure to mark the ship’s identification number on a ship in accordance with regulation 7(4) of the 2024 Regulations is a criminal offence by the Company, owner and master of the ship.
 
 4. Who is required to have a Company and Registered Owner Identification Number?
 

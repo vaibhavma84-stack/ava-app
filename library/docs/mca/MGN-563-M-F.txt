@@ -1,4 +1,4 @@
-MGN 563 (M+F) MGN 563 (M+F) Amendment 2 Port waste reception facilities and management planning
+MGN 563 (M+F) Amendment 2 Port waste reception facilities and management planning
 2024-04-30
 Source: https://www.gov.uk/government/publications/mgn-563-mf-amendment-2-port-waste-reception-facilities-and-management-planning
 
@@ -20,20 +20,15 @@ This revised MGN has updated payment information. Previous updates to the MGN in
 
 3. Requirements for ships
 
-•
-3.1 The major requirements of the 2003 Regulations as amended are as follows:
+• 3.1 The major requirements of the 2003 Regulations as amended are as follows:
 
-•
-a) Ships must notify the port (harbour) authority or terminal operator (terminal) before entry into the port/terminal of the waste they will discharge, including information on types and quantities. The Waste Notification Form (WNF) is set out in Annex A. Ships do not have to notify about sewage if they intend to discharge it at sea in accordance with MARPOL.
+• a) Ships must notify the port (harbour) authority or terminal operator (terminal) before entry into the port/terminal of the waste they will discharge, including information on types and quantities. The Waste Notification Form (WNF) is set out in Annex A. Ships do not have to notify about sewage if they intend to discharge it at sea in accordance with MARPOL.
 
-•
-b) Ships must deliver their waste to port reception facilities before leaving the port/terminal, unless it is sewage or they have sufficient dedicated storage capacity for the waste that has accumulated and is expected to accumulate during the voyage to the next port of call.
+• b) Ships must deliver their waste to port reception facilities before leaving the port/terminal, unless it is sewage or they have sufficient dedicated storage capacity for the waste that has accumulated and is expected to accumulate during the voyage to the next port of call.
 
-•
-c) Ships must pay a mandatory charge to significantly contribute to the cost of port reception facilities for ship generated waste, whether they use them or not.
+• c) Ships must pay a mandatory charge to significantly contribute to the cost of port reception facilities for ship generated waste, whether they use them or not.
 
-•
-d) Recreational craft authorised to carry, or designed to carry, no more than 12 passengers, and fishing vessels, must deliver their waste (other than sewage) to port reception facilities but are exempted from the requirement to notify before entry into port and the requirement to pay a mandatory charge.
+• d) Recreational craft authorised to carry, or designed to carry, no more than 12 passengers, and fishing vessels, must deliver their waste (other than sewage) to port reception facilities but are exempted from the requirement to notify before entry into port and the requirement to pay a mandatory charge.
 
 4. Applicability to Ships
 
@@ -69,11 +64,9 @@ In addition to notifying, ships must separately make whatever arrangements are n
 
 8.1 All ships must deliver all ship-generated wastes to a waste reception facility before they leave a port or terminal. These are wastes that are generated during the service of the ship and consist of garbage, sewage, oil, cargo residues and oily mixtures. The only exceptions to this are as follows:
 
-•
-First, if the waste is sewage and the Master is not required to notify under regulation 11 of the 2003 Regulations as amended. This may be because the ship is not within the scope of regulation 11, or because it is within the scope, but it is intending to discharge at sea in accordance with MARPOL Annex IV.
+• First, if the waste is sewage and the Master is not required to notify under regulation 11 of the 2003 Regulations as amended. This may be because the ship is not within the scope of regulation 11, or because it is within the scope, but it is intending to discharge at sea in accordance with MARPOL Annex IV.
 
-•
-Or secondly, if the ship has sufficient dedicated storage capacity on board to hold the current waste and any additional waste that will be generated in the period until the ship reaches the port/terminal at which it proposes to deliver its waste. Masters must land waste when the foreseeable production of waste on board on the next voyage will exceed the remaining storage capacity. The WNF information supplied must demonstrate that the ship has sufficient storage capacity and that the proposed destination port/terminal has adequate reception facilities. Where there is any cause for concern that the destination port/terminal has inadequate facilities, the destination is unknown or the ship does not have sufficient capacity and could pollute during its next voyage, then an MCA surveyor may be tasked to investigate. If MCA officials believe there is a risk that waste could be disposed of into the sea, then (acting on behalf of the Secretary of State) they may direct a ship to deliver its waste before it leaves the port or terminal.
+• Or secondly, if the ship has sufficient dedicated storage capacity on board to hold the current waste and any additional waste that will be generated in the period until the ship reaches the port/terminal at which it proposes to deliver its waste. Masters must land waste when the foreseeable production of waste on board on the next voyage will exceed the remaining storage capacity. The WNF information supplied must demonstrate that the ship has sufficient storage capacity and that the proposed destination port/terminal has adequate reception facilities. Where there is any cause for concern that the destination port/terminal has inadequate facilities, the destination is unknown or the ship does not have sufficient capacity and could pollute during its next voyage, then an MCA surveyor may be tasked to investigate. If MCA officials believe there is a risk that waste could be disposed of into the sea, then (acting on behalf of the Secretary of State) they may direct a ship to deliver its waste before it leaves the port or terminal.
 
 In the case of sewage, ships may deliver their sewage to the port or discharge into the sea in accordance with MARPOL (and any other local Regulations which may apply).
 
@@ -135,23 +128,17 @@ However, if the exempt ship lands any waste in a UK port/terminal to that port�
 
 15.2 When a ship is applying for an exemption, it should liaise with the port/terminal to discuss how such an exemption will affect their port/terminal dues which the ship will have to pay, as an exempted ship should not be charged the mandatory element of the port/terminal charges.
 
-•
-15.3 To be exempted, a ship must be engaged in “scheduled traffic with frequent and regular port calls” and there needs to be sufficient evidence of an arrangement ensuring the delivery of ship-generated waste (this now includes sewage) and payment of charges in a port along the ship’s route. (Regulation 15(3)).
+• 15.3 To be exempted, a ship must be engaged in “scheduled traffic with frequent and regular port calls” and there needs to be sufficient evidence of an arrangement ensuring the delivery of ship-generated waste (this now includes sewage) and payment of charges in a port along the ship’s route. (Regulation 15(3)).
 
-•
-15.4 The MCA uses the following descriptions of “scheduled”, “regular” and “frequent” when considering whether an exemption will be granted:
+• 15.4 The MCA uses the following descriptions of “scheduled”, “regular” and “frequent” when considering whether an exemption will be granted:
 
-•
-Scheduled: The ship in question must have a published or planned list of times of departures and arrivals, between nominated ports or terminals. This schedule or equivalent can also take the form of declarations of sailing times for example that the ship will leave daily at high tide. It should be noted that the ship’s schedule should be set in advance and remain stable over the course of the year – a ferry with pre-planned timetables for the year that incorporates seasonal destinations would be acceptable while a ship whose route is dependent upon commercial concerns and is planned a week in advance would not normally be accepted as scheduled.
+• Scheduled: The ship in question must have a published or planned list of times of departures and arrivals, between nominated ports or terminals. This schedule or equivalent can also take the form of declarations of sailing times for example that the ship will leave daily at high tide. It should be noted that the ship’s schedule should be set in advance and remain stable over the course of the year – a ferry with pre-planned timetables for the year that incorporates seasonal destinations would be acceptable while a ship whose route is dependent upon commercial concerns and is planned a week in advance would not normally be accepted as scheduled.
 
-•
-Regular: The ship must make repeated voyages between those nominated ports or terminals and no others (except in the case of an emergency, maintenance or for safety reasons)
+• Regular: The ship must make repeated voyages between those nominated ports or terminals and no others (except in the case of an emergency, maintenance or for safety reasons)
 
-•
-Frequent: The ship must visit the port/terminal for which the exemption applies at least once a fortnight. This requires that a ship must demonstrate that it will visit the port/terminal at least twice within a calendar month and that these calls are spaced in such a way that there will be no more than 12 calendar days between each visit. For the other port/terminals on the route for which an exemption has not been requested there are no such requirements. For example, a ship applying at port A could call once a month at ports B and C and still qualify for exemption as long as the route was also scheduled and regular.
+• Frequent: The ship must visit the port/terminal for which the exemption applies at least once a fortnight. This requires that a ship must demonstrate that it will visit the port/terminal at least twice within a calendar month and that these calls are spaced in such a way that there will be no more than 12 calendar days between each visit. For the other port/terminals on the route for which an exemption has not been requested there are no such requirements. For example, a ship applying at port A could call once a month at ports B and C and still qualify for exemption as long as the route was also scheduled and regular.
 
-•
-15.5 It is expected that ferries and regular short sea shipping will fall into this category. Ships applying for exemption must fulfil all three requirements discussed above before an exemption can be granted. It should be understood that the exemption system is intended to be restrictive and the majority of ships will be expected to fulfil the requirements of the 2003 Regulations as amended.
+• 15.5 It is expected that ferries and regular short sea shipping will fall into this category. Ships applying for exemption must fulfil all three requirements discussed above before an exemption can be granted. It should be understood that the exemption system is intended to be restrictive and the majority of ships will be expected to fulfil the requirements of the 2003 Regulations as amended.
 
 16. Applying for an Exemption
 
@@ -159,29 +146,21 @@ Frequent: The ship must visit the port/terminal for which the exemption applies 
 
 16.2 An application can be made for one or more ports/terminals along a ship’s route. It is possible in some circumstances for a ship to be exempt at all ports of call on its route if it has a contractual arrangement for waste reception within one of those ports. It should be understood that this arrangement will require the ship to show robust waste management arrangements and provide full details of how the waste is to be landed, removed and paid for. 
 
-•
-16.3 The application for an exemption should consist of the following:
+• 16.3 The application for an exemption should consist of the following:
 
-•
-a) A completed exemption application form (Annex B). Care should be taken to ensure that all sections of the form are completed fully, or the application is likely to be rejected.
+• a) A completed exemption application form (Annex B). Care should be taken to ensure that all sections of the form are completed fully, or the application is likely to be rejected.
 
-•
-b) Evidence of the scheduled, regular and frequent nature of the trade of the ship, and if there is a third or fourth port involved evidence of exemptions (or exemption application) for the ports in question. This evidence should take the form of schedules, lists of ports and frequency of visits at each location and any other applicable evidence that demonstrates compliance with the definitions of scheduled, frequent and regular.
+• b) Evidence of the scheduled, regular and frequent nature of the trade of the ship, and if there is a third or fourth port involved evidence of exemptions (or exemption application) for the ports in question. This evidence should take the form of schedules, lists of ports and frequency of visits at each location and any other applicable evidence that demonstrates compliance with the definitions of scheduled, frequent and regular.
 
-•
-c) Evidence of a contract with the port or company to which the waste is to be delivered or landed. This can take the form of a written agreement between the port and the ship in question, a contract arranging provision of waste services to the ship or a comparable arrangement. This can also include arrangements involving a ship which is calling into a port owned/operated by the ship’s owner/operator where facilities are provided to the ships by the owner/operator directly. If waste is landed to another port under the mandatory delivery requirements of the 2003 Regulations as amended this should be communicated in writing outlining where each waste type is landed.
+• c) Evidence of a contract with the port or company to which the waste is to be delivered or landed. This can take the form of a written agreement between the port and the ship in question, a contract arranging provision of waste services to the ship or a comparable arrangement. This can also include arrangements involving a ship which is calling into a port owned/operated by the ship’s owner/operator where facilities are provided to the ships by the owner/operator directly. If waste is landed to another port under the mandatory delivery requirements of the 2003 Regulations as amended this should be communicated in writing outlining where each waste type is landed.
 
-•
-d) Receipts and other proof that this contract/arrangement is active. This should incorporate written evidence from waste contractors/ports, copies of waste transfer notes (if applicable) and copies of invoices.
+• d) Receipts and other proof that this contract/arrangement is active. This should incorporate written evidence from waste contractors/ports, copies of waste transfer notes (if applicable) and copies of invoices.
 
-•
-e) Evidence that these arrangements are acceptable to the receiving port – for example correspondence with the port/terminal confirming that waste will be landed there, or an agreement with the port/terminal that the ship will use a waste contractor operating within the port.
+• e) Evidence that these arrangements are acceptable to the receiving port – for example correspondence with the port/terminal confirming that waste will be landed there, or an agreement with the port/terminal that the ship will use a waste contractor operating within the port.
 
-•
-16.4 Only one application should be made per ship – if multiple agents are involved in a ship’s waste management practices then these should be consulted, and a single application made for all ports/terminals for which the ship requires exemption.
+• 16.4 Only one application should be made per ship – if multiple agents are involved in a ship’s waste management practices then these should be consulted, and a single application made for all ports/terminals for which the ship requires exemption.
 
-•
-16.5 If a ship application has been rejected previously any reapplication should include the MCA reasons for rejection and indicate how these have been overcome in the new application.
+• 16.5 If a ship application has been rejected previously any reapplication should include the MCA reasons for rejection and indicate how these have been overcome in the new application.
 
 17. Charges for applying for an Exemption
 
@@ -193,23 +172,17 @@ e) Evidence that these arrangements are acceptable to the receiving port – for
 
 17.4 On receipt of an exemption application the MCA will initially review the documentation to determine if it has been completed fully. It should be understood that incomplete applications are liable to be rejected immediately by the office and that no refund will be given. Therefore, it is in the interests of the applicant to ensure that the application is compliant with the requirements and is completed fully. If an application is judged to be lacking in minor details MCA Headquarters may opt to contact the applicant for clarification without rejecting the application but this is dependent upon the application being otherwise complete.
 
-•
-17.5 Exemptions will normally be valid for five years unless there is a change in the circumstances of the trade or route of the ship or a major alteration in waste management practices. For example, if a ship was employed on a scheduled, regular and frequent route between Hull and Rotterdam and had an exemption in Hull, the exemption would immediately become void if the route had to change to Hull and Oslo. If a ship alters its waste management practices significantly – for example landing waste to a different port, then the exemption would also cease to apply (Section 18.3). In this case a new application is required including the void exemption certificate. However, the following cases should be noted:
+• 17.5 Exemptions will normally be valid for five years unless there is a change in the circumstances of the trade or route of the ship or a major alteration in waste management practices. For example, if a ship was employed on a scheduled, regular and frequent route between Hull and Rotterdam and had an exemption in Hull, the exemption would immediately become void if the route had to change to Hull and Oslo. If a ship alters its waste management practices significantly – for example landing waste to a different port, then the exemption would also cease to apply (Section 18.3). In this case a new application is required including the void exemption certificate. However, the following cases should be noted:
 
-•
-a) If the ship calls at a different port for reasons of force majeure, refuge, shelter, emergency maintenance or safety reasons on its scheduled journey, the ship would be subject to the internationally accepted arrangements for entry into that port.
+• a) If the ship calls at a different port for reasons of force majeure, refuge, shelter, emergency maintenance or safety reasons on its scheduled journey, the ship would be subject to the internationally accepted arrangements for entry into that port.
 
-•
-b) If an exempt ship needs to be replaced temporarily by another comparable ship due to a breakdown, accident or scheduled maintenance, the exemption will still be valid and pass over to the new ship on that route for the period of replacement. The replacement ship should be identified when the application to the MCA for the exemption is made. The exemption letter from the MCA will state that the exempted ship may be replaced for up to 1 month for the above reasons. If the replacement ship remains on the scheduled route for longer than 1 month the MCA needs to be informed of the reasons for this, to assess whether a new exemption is needed.
+• b) If an exempt ship needs to be replaced temporarily by another comparable ship due to a breakdown, accident or scheduled maintenance, the exemption will still be valid and pass over to the new ship on that route for the period of replacement. The replacement ship should be identified when the application to the MCA for the exemption is made. The exemption letter from the MCA will state that the exempted ship may be replaced for up to 1 month for the above reasons. If the replacement ship remains on the scheduled route for longer than 1 month the MCA needs to be informed of the reasons for this, to assess whether a new exemption is needed.
 
-•
-c) Exempt ships may still opt to offload waste after notifying the port/terminal in the manner described for non-exempt ships and upon payment of the ports waste related charges. This may be necessary if a ship is weather-bound or unexpectedly laid up for example.
+• c) Exempt ships may still opt to offload waste after notifying the port/terminal in the manner described for non-exempt ships and upon payment of the ports waste related charges. This may be necessary if a ship is weather-bound or unexpectedly laid up for example.
 
-•
-17.6 Once an exemption certificate is given for a port/terminal in the UK, the MCA will inform the relevant ports. The MCA must be notified in writing of any changes to the route of the ship or the arrangements for the disposing of or paying for waste disposal. Ships must carry a copy of the exemption certificate on board and the MCA will hold a database of ships that have been given an exemption.
+• 17.6 Once an exemption certificate is given for a port/terminal in the UK, the MCA will inform the relevant ports. The MCA must be notified in writing of any changes to the route of the ship or the arrangements for the disposing of or paying for waste disposal. Ships must carry a copy of the exemption certificate on board and the MCA will hold a database of ships that have been given an exemption.
 
-•
-17.7 If an exempted ship calls at a non-UK port within Europe on its route the MCA will contact the Port State point of contact to inform them of the exemption within the UK.
+• 17.7 If an exempted ship calls at a non-UK port within Europe on its route the MCA will contact the Port State point of contact to inform them of the exemption within the UK.
 
 18. Renewal of an Exemption
 
@@ -260,5 +233,4 @@ Website: www.gov.uk/mca
 
 Please note that all addresses and telephone numbers are correct at time of publishing.
 
-•
-Further information can be found within MSN 1899 (M+F) Vessel traffic monitoring notification and reporting requirements for ships and ports and The Merchant Shipping (Vessel Traffic Monitoring and Reporting Requirements) Regulations 2004 (SI 2004/2210). ↩
+• Further information can be found within MSN 1899 (M+F) Vessel traffic monitoring notification and reporting requirements for ships and ports and The Merchant Shipping (Vessel Traffic Monitoring and Reporting Requirements) Regulations 2004 (SI 2004/2210). ↩

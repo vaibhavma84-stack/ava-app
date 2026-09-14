@@ -1,4 +1,4 @@
-MGN 691 (M) MGN 691 (M) Navigation and radar training requirements for workboat code 3
+MGN 691 (M) Navigation and radar training requirements for workboat code 3
 2024-05-16
 Source: https://www.gov.uk/government/publications/mgn-691-m-navigation-and-radar-training-requirements-for-workboat-code-3
 
@@ -112,8 +112,6 @@ Email: codes@mcga.gov.uk
 
 Website: www.gov.uk/mca
 
-•
-“Existing vessel” means a vessel which does not meet the definition of a “new vessel” under Workboat Code Edition 3. ↩
+• “Existing vessel” means a vessel which does not meet the definition of a “new vessel” under Workboat Code Edition 3. ↩
 
-•
-Submission to the Administration of an email booking confirmation or letter demonstrating that the course was booked and paid for at a date prior to this MGN publication, as well as a course completion certificate indication successful completion of the course before 31 May 2024 will be accepted as meeting the Navigation and Radar requirements for UK registered small commercial vessels certified to Workboat Code Edition 3. ↩
+• Submission to the Administration of an email booking confirmation or letter demonstrating that the course was booked and paid for at a date prior to this MGN publication, as well as a course completion certificate indication successful completion of the course before 31 May 2024 will be accepted as meeting the Navigation and Radar requirements for UK registered small commercial vessels certified to Workboat Code Edition 3. ↩

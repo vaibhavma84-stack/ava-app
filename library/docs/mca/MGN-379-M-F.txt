@@ -1,4 +1,4 @@
-MGN 379 (M+F) MGN 379 (M+F) Amendment 1: use of electronic navigational aids
+MGN 379 (M+F) Amendment 1: use of electronic navigational aids
 2024-01-09
 Source: https://www.gov.uk/government/publications/mgn-379-mf-amendment-1-use-of-electronic-navigational-aids
 
@@ -513,38 +513,27 @@ The accuracy and functionality of electronic navigational aids has increased con
 
 8. Relevant MCA references
 
-•
-MGN 285 (M+F) - Electronic Charts: The Use of Risk Assessment Methodology when Operating ECDIS in the RASTER Chart Display System
+• MGN 285 (M+F) - Electronic Charts: The Use of Risk Assessment Methodology when Operating ECDIS in the RASTER Chart Display System
 
-•
-MGN 293 (M+F) - Alternative Arrangements for Meeting Paper Chart Carriage Requirements on MCA Code Vessels under 24 metres in Length and Fishing Vessels under 24 metres in Length
+• MGN 293 (M+F) - Alternative Arrangements for Meeting Paper Chart Carriage Requirements on MCA Code Vessels under 24 metres in Length and Fishing Vessels under 24 metres in Length
 
-•
-MGN 313 (F) - Keeping a Safe Navigational Watch on Fishing Vessels
+• MGN 313 (F) - Keeping a Safe Navigational Watch on Fishing Vessels
 
-•
-MGN 315 (M) - Keeping a Safe Navigational Watch on Merchant Vessels
+• MGN 315 (M) - Keeping a Safe Navigational Watch on Merchant Vessels
 
-•
-MGN 319 (M+F) (As amended) - Acceptance of Electronic Chart Plotting Systems for Fishing Vessels under 24 Metres and Small Vessels in Commercial Use (Code Boats) up to 24 Metres Load Line Length
+• MGN 319 (M+F) (As amended) - Acceptance of Electronic Chart Plotting Systems for Fishing Vessels under 24 Metres and Small Vessels in Commercial Use (Code Boats) up to 24 Metres Load Line Length
 
-•
-MGN 324 (M+F) (As amended) - Navigation: Watchkeeping Safety - Use of VHF Radio and AIS
+• MGN 324 (M+F) (As amended) - Navigation: Watchkeeping Safety - Use of VHF Radio and AIS
 
-•
-MGN 360 (M+F) - Navigation: Implementation of Changes to Routeing Measures in Electronic Navigational Charts (ENCs)
+• MGN 360 (M+F) - Navigation: Implementation of Changes to Routeing Measures in Electronic Navigational Charts (ENCs)
 
-•
-MGN 364 (M+F) (As amended) - Navigation: Traffic Separation Schemes - Application of Rule 10 and Navigation in the Dover Strait
+• MGN 364 (M+F) (As amended) - Navigation: Traffic Separation Schemes - Application of Rule 10 and Navigation in the Dover Strait
 
-•
-MGN 369 (M+F) - Navigation: Navigation in Restricted Visibility
+• MGN 369 (M+F) - Navigation: Navigation in Restricted Visibility
 
-•
-MGN 610 (M+F) - Navigation: SOLAS Chapter V - Guidance on the Merchant Shipping (Safety of Navigation) Regulations 2020
+• MGN 610 (M+F) - Navigation: SOLAS Chapter V - Guidance on the Merchant Shipping (Safety of Navigation) Regulations 2020
 
-•
-MSN 1781 (M+F) (As amended) - The Merchant Shipping (Distress Signals and Prevention of Collisions) Regulations 1996: COLREG
+• MSN 1781 (M+F) (As amended) - The Merchant Shipping (Distress Signals and Prevention of Collisions) Regulations 1996: COLREG
 
 Note: the above are correct at the time of publishing, subsequent amendments or new editions may be in force at time of reading.
 

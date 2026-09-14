@@ -6,20 +6,15 @@ Source: https://www.gov.uk/government/publications/mgn-306m-amendment-1-designin
 
 1.1 Disabled people account for 20% to 25% of the population. Whilst greater numbers of children are being born and living with disabilities than ever before, levels of disability also increase with age. Some examples of disabilities are:
 
-•
-difficulty walking and/or climbing steps;
+• difficulty walking and/or climbing steps;
 
-•
-hearing loss;
+• hearing loss;
 
-•
-vision loss;
+• vision loss;
 
-•
-learning disabilities;
+• learning disabilities;
 
-•
-other mental health-related issues.
+• other mental health-related issues.
 
 1.2 Disabled people are not a homogenous group with identical needs. For example, the needs of people with mental health problems or learning disabilities are distinct from those of wheelchair users. Even within disabilities needs vary; for example, a profoundly deaf person will not benefit from an induction loop.
 
@@ -41,37 +36,27 @@ NB: For further information on non-MCA documents mentioned in this MGN, see Sect
 
 2.3 As far as defining what steps are reasonable and practicable, this will depend on all the circumstances of the case. It will vary according to:
 
-•
-the type of services being provided;
+• the type of services being provided;
 
-•
-the nature of the service provider and its size and resources;
+• the nature of the service provider and its size and resources;
 
-•
-the effect of the disability on the individual disabled person.
+• the effect of the disability on the individual disabled person.
 
 2.4 However, without intending to be exhaustive, the following are some of the factors that might be taken into account when considering what is reasonable:
 
-•
-whether taking any particular steps would be effective in overcoming the difficulty that disabled people face in accessing the services in question;
+• whether taking any particular steps would be effective in overcoming the difficulty that disabled people face in accessing the services in question;
 
-•
-the extent to which it is practicable for the service provider to take the steps;
+• the extent to which it is practicable for the service provider to take the steps;
 
-•
-the financial and other costs of making the adjustment;
+• the financial and other costs of making the adjustment;
 
-•
-the extent of any disruption which taking the steps would cause;
+• the extent of any disruption which taking the steps would cause;
 
-•
-the extent of the service provider’s financial and other resources;
+• the extent of the service provider’s financial and other resources;
 
-•
-the amount of any resources already spent on making adjustments;
+• the amount of any resources already spent on making adjustments;
 
-•
-the availability of financial or other assistance.
+• the availability of financial or other assistance.
 
 2.5 It is important that service providers do not assume that the only way to make services accessible to disabled people is to make a physical alteration to their premises (such as installing a ramp or widening a doorway). Often, minor measures such as allowing more time to serve a disabled customer or serving at their location, will help disabled people to use a service. Disability awareness training for staff is strongly encouraged. However, physical alterations may be the only answer if other measures are not sufficient to overcome barriers to access.
 

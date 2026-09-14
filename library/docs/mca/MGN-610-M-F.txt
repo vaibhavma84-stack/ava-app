@@ -1,4 +1,4 @@
-MGN 610 (M+F) MGN 610 (M+F) Amendment 1 SOLAS chapter V – guidance on the merchant shipping (safety of navigation) regulations 2020
+MGN 610 (M+F) Amendment 1 SOLAS chapter V – guidance on the merchant shipping (safety of navigation) regulations 2020
 2025-02-13
 Source: https://www.gov.uk/government/publications/mgn-610-mf-amendment-1-solas-chapter-v-guidance-on-the-merchant-shipping-safety-of-navigation-regulations-2020
 
@@ -1650,29 +1650,20 @@ Master’s discretion in decision making not to be compromised  
 Misuse of Distress Signals  
   
 
-•
-Refer to the Guidance on the IMO/IHO World-Wide Navigational Warning Service adopted by the Organization by resolution A.706(17), as amended. ↩
+• Refer to the Guidance on the IMO/IHO World-Wide Navigational Warning Service adopted by the Organization by resolution A.706(17), as amended. ↩
 
-•
-Refer to the International Convention on Maritime Search and Rescue (SAR), 1979, and to the following resolutions adopted by the Organization: Homing capability of search and rescue (SAR) aircraft (resolution A.225(VII)), Use of radar transponders for search and rescue purposes (resolution A.530(13)), Search and rescue homing capability (resolution A.616(15)) and International Aeronautical and Maritime Search and Rescue (IAMSAR) Manual (resolution A.894(21), as amended). ↩
+• Refer to the International Convention on Maritime Search and Rescue (SAR), 1979, and to the following resolutions adopted by the Organization: Homing capability of search and rescue (SAR) aircraft (resolution A.225(VII)), Use of radar transponders for search and rescue purposes (resolution A.530(13)), Search and rescue homing capability (resolution A.616(15)) and International Aeronautical and Maritime Search and Rescue (IAMSAR) Manual (resolution A.894(21), as amended). ↩
 
-•
-Refer to the General provisions on ships’ routeing (resolution A.572(14), as amended). ↩
+• Refer to the General provisions on ships’ routeing (resolution A.572(14), as amended). ↩
 
-•
-The IMO Standard Marine Communications Phrases (SMCPs) (Resolution A.918(22), may be used in this respect. ↩
+• The IMO Standard Marine Communications Phrases (SMCPs) (Resolution A.918(22), may be used in this respect. ↩
 
-•
-The 55m minimum length and the definition of “length” as being length overall came into force on 1 July 2006 (IMO Resolution MSC 142(77)) ↩
+• The 55m minimum length and the definition of “length” as being length overall came into force on 1 July 2006 (IMO Resolution MSC 142(77)) ↩
 
-•
-Such life-saving signals are described in the International Aeronautical and Maritime Search and Rescue (IAMSAR) Manual, volume III, Mobile Facilities, and illustrated in the International Code of Signals, as amended ↩
+• Such life-saving signals are described in the International Aeronautical and Maritime Search and Rescue (IAMSAR) Manual, volume III, Mobile Facilities, and illustrated in the International Code of Signals, as amended ↩
 
-•
-(MSC 128(75)- 4.1.3.3):To initiate the reset function, an input representing a single operator action by the OOW is required. Many BNWAS manufacturers offer motion-based reset devices. It is important that such devices do not provide false resets from inanimate objects, e.g. a revolving fan or ribbons tied to output grills of air-conditioner units. Elimination of false reset can only be achieved through design, correct installation and regular monitoring by the ship’s staff. It is also important that motion detectors are installed according to the manufacturers’ instructions. ↩
+• (MSC 128(75)- 4.1.3.3):To initiate the reset function, an input representing a single operator action by the OOW is required. Many BNWAS manufacturers offer motion-based reset devices. It is important that such devices do not provide false resets from inanimate objects, e.g. a revolving fan or ribbons tied to output grills of air-conditioner units. Elimination of false reset can only be achieved through design, correct installation and regular monitoring by the ship’s staff. It is also important that motion detectors are installed according to the manufacturers’ instructions. ↩
 
-•
-VDR Performance Standard, A.861(20) adopted on 27 November 1997, includes a reference to A.830(19) (Code on Alarms and Indicators) and includes capture of all main alarms but does not include BNWAS. The new Code on Alerts & Indicators, A.1021(26), referred also within the revised VDR performance standards, MSC.333(90) in force since 1 July 2014, superseded A.830(19) on 2 December 2009. The capture of BNWAS stage-alarms is required for VDRs installed from 2 December 2009. Electrical output(s) to VDR from the BNWAS uniquely identify each stage alarm status. Where these outputs are available via an IEC 61162 series interface, volt-free contacts or their isolated solid-state equivalent, then the ship should find a solution to connect them to the VDR. It is acceptable to wait until the VDR annual-test, following installation of the BNWAS, to implement the above connections. ↩
+• VDR Performance Standard, A.861(20) adopted on 27 November 1997, includes a reference to A.830(19) (Code on Alarms and Indicators) and includes capture of all main alarms but does not include BNWAS. The new Code on Alerts & Indicators, A.1021(26), referred also within the revised VDR performance standards, MSC.333(90) in force since 1 July 2014, superseded A.830(19) on 2 December 2009. The capture of BNWAS stage-alarms is required for VDRs installed from 2 December 2009. Electrical output(s) to VDR from the BNWAS uniquely identify each stage alarm status. Where these outputs are available via an IEC 61162 series interface, volt-free contacts or their isolated solid-state equivalent, then the ship should find a solution to connect them to the VDR. It is acceptable to wait until the VDR annual-test, following installation of the BNWAS, to implement the above connections. ↩
 
-•
-Chart Radar is an additional facility built on the commercial radars, by an OEM (Original Equipment Manufacturer), capable of displaying ENCs with some basic ECDIS functionality on the radar screen. ↩
+• Chart Radar is an additional facility built on the commercial radars, by an OEM (Original Equipment Manufacturer), capable of displaying ENCs with some basic ECDIS functionality on the radar screen. ↩

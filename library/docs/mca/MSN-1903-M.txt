@@ -1,4 +1,4 @@
-MSN 1903 (M) MSN 1903 (M) The Global Maritime Distress and Safety System (GMDSS) ship requirements
+MSN 1903 (M) The Global Maritime Distress and Safety System (GMDSS) ship requirements
 2021-12-06
 Source: https://www.gov.uk/government/publications/msn-1903-m-the-global-maritime-distress-and-safety-system-gmdss-ship-requirements
 
@@ -10,11 +10,9 @@ Source: https://www.gov.uk/government/publications/msn-1903-m-the-global-maritim
 
 1.3 In this Notice:
 
-•
-1.3.1 Unless a term is defined in paragraph 1.4, it has the same meaning as that set out in regulations 2 and 7 of the 1998 Regulations;
+• 1.3.1 Unless a term is defined in paragraph 1.4, it has the same meaning as that set out in regulations 2 and 7 of the 1998 Regulations;
 
-•
-1.3. 2 A reference to a numbered paragraph is, unless otherwise stated, a reference to the relevant paragraph in this Notice.
+• 1.3. 2 A reference to a numbered paragraph is, unless otherwise stated, a reference to the relevant paragraph in this Notice.
 
 1.4 In this Notice:
 
@@ -24,84 +22,59 @@ Source: https://www.gov.uk/government/publications/msn-1903-m-the-global-maritim
 
 2.1 Every ship, while at sea, must be capable of –
 
-•
-2.1.1 transmitting ship-to-shore distress alerts by at least two separate and independent means, each using a different radio communication service;
+• 2.1.1 transmitting ship-to-shore distress alerts by at least two separate and independent means, each using a different radio communication service;
 
-•
-2.1.2 receiving shore-to-ship distress alerts;
+• 2.1.2 receiving shore-to-ship distress alerts;
 
-•
-2.1.3 transmitting and receiving ship-to-ship distress alerts;
+• 2.1.3 transmitting and receiving ship-to-ship distress alerts;
 
-•
-2.1.4 transmitting and receiving search and rescue co-ordinating communications;
+• 2.1.4 transmitting and receiving search and rescue co-ordinating communications;
 
-•
-2.1.5 transmitting and receiving on-scene communications;
+• 2.1.5 transmitting and receiving on-scene communications;
 
-•
-2.1.6 transmitting and, as required by Regulation 5(1) of the Merchant Shipping (Safety of Navigation) Regulations 2020 (SI 2020/673), receiving signals for locating;
+• 2.1.6 transmitting and, as required by Regulation 5(1) of the Merchant Shipping (Safety of Navigation) Regulations 2020 (SI 2020/673), receiving signals for locating;
 
-•
-2.1.7 transmitting and receiving maritime safety information;
+• 2.1.7 transmitting and receiving maritime safety information;
 
-•
-2.1.8 transmitting and receiving general radiocommunications to and from shore-based radio systems or networks;
+• 2.1.8 transmitting and receiving general radiocommunications to and from shore-based radio systems or networks;
 
-•
-2.1.9 transmitting and receiving bridge-to-bridge communications
+• 2.1.9 transmitting and receiving bridge-to-bridge communications
 
 3. Radio Equipment to be provided for all sea areas
 
 3.1 Every ship must be provided with –
 
-•
-3.1.1 a VHF radio installation capable of transmitting and receiving –
+• 3.1.1 a VHF radio installation capable of transmitting and receiving –
 
-•
-3.1.1.1 DSC on the frequency 156.525 MHz (channel 70). Means must be provided to initiate the transmission of distress alerts on channel 70 from the position from which the ship is normally navigated; and
+• 3.1.1.1 DSC on the frequency 156.525 MHz (channel 70). Means must be provided to initiate the transmission of distress alerts on channel 70 from the position from which the ship is normally navigated; and
 
-•
-3.1.1.2 radiotelephony on the frequencies 156.300 MHz (channel 6), 156.650 MHz (channel 13) and 156.800 MHz (channel 16);
+• 3.1.1.2 radiotelephony on the frequencies 156.300 MHz (channel 6), 156.650 MHz (channel 13) and 156.800 MHz (channel 16);
 
-•
-3.1.2 a VHF radio installation capable of maintaining a continuous DSC watch on channel 70 which may be separate from, or combined with, that required by sub-paragraph 6.1.1.1 of this paragraph;
+• 3.1.2 a VHF radio installation capable of maintaining a continuous DSC watch on channel 70 which may be separate from, or combined with, that required by sub-paragraph 6.1.1.1 of this paragraph;
 
-•
-3.1.3 a search and rescue locating device capable of operating in the 9 GHz band or on frequencies dedicated for AIS, which –
+• 3.1.3 a search and rescue locating device capable of operating in the 9 GHz band or on frequencies dedicated for AIS, which –
 
-•
-3.1.3.1 must be so stowed that it can be easily utilised; and
+• 3.1.3.1 must be so stowed that it can be easily utilised; and
 
-•
-3.1.3.2 are required for a survival craft in accordance with the Merchant Shipping (Life-Saving Appliances and Arrangements) Regulations 2020 (SI 2020/501);
+• 3.1.3.2 are required for a survival craft in accordance with the Merchant Shipping (Life-Saving Appliances and Arrangements) Regulations 2020 (SI 2020/501);
 
-•
-3.1.4 if the ship is at sea in any area in which an international NAVTEX service is provided, a receiver capable of receiving international NAVTEX service broadcasts;
+• 3.1.4 if the ship is at sea in any area in which an international NAVTEX service is provided, a receiver capable of receiving international NAVTEX service broadcasts;
 
-•
-3.1.5 a radio facility for reception of maritime safety information by a recognised mobile satellite service enhanced group calling system, if the ship is at sea in any area of a recognised mobile satellite service coverage but in which an international NAVTEX service is not provided.
+• 3.1.5 a radio facility for reception of maritime safety information by a recognised mobile satellite service enhanced group calling system, if the ship is at sea in any area of a recognised mobile satellite service coverage but in which an international NAVTEX service is not provided.
 
-•
-3.1.6 A satellite EPIRB provided pursuant to this Notice must be –
+• 3.1.6 A satellite EPIRB provided pursuant to this Notice must be –
 
-•
-3.1.6.1 capable of transmitting a distress alert through the Cospas-Sarsat satellite distress alerting service on 406 MHz band;
+• 3.1.6.1 capable of transmitting a distress alert through the Cospas-Sarsat satellite distress alerting service on 406 MHz band;
 
-•
-3.1.6.2 installed in an easily accessible position;
+• 3.1.6.2 installed in an easily accessible position;
 
-•
-3.1.6.3 ready to be manually released and capable of being carried by one person into a survival craft;
+• 3.1.6.3 ready to be manually released and capable of being carried by one person into a survival craft;
 
-•
-3.1.6.4 capable of floating free if the ship sinks;
+• 3.1.6.4 capable of floating free if the ship sinks;
 
-•
-3.1.6.5 capable of being activated manually; and
+• 3.1.6.5 capable of being activated manually; and
 
-•
-3.1.6.6 automatically activated when afloat.
+• 3.1.6.6 automatically activated when afloat.
 
 3.2 Every passenger ship to which this paragraph applies must be provided with means for two-way on-scene radio communications for search and rescue purposes capable of operating solely on the aeronautical frequencies 121.5 MHz and 123.1 MHz from the position from which the ship is normally navigated.
 
@@ -109,26 +82,19 @@ Source: https://www.gov.uk/government/publications/msn-1903-m-the-global-maritim
 
 4.1 In addition to meeting the requirements of paragraph 3, every ship on voyages exclusively in sea area A1 must be provided with a radio installation capable of initiating the transmission of ship-to-shore distress alerts by operation from the position from which the ship is normally navigated, operating either -
 
-•
-4.1.1 on VHF using DSC; or
+• 4.1.1 on VHF using DSC; or
 
-•
-4.1.2 a satellite EPIRB, using the Cospas-Sarsat satellite distress alerting service on 406 MHz; as required by paragraph 3.1.6 if it is installed close to, or capable of remote activation from, the position from which the ship is normally navigated; or
+• 4.1.2 a satellite EPIRB, using the Cospas-Sarsat satellite distress alerting service on 406 MHz; as required by paragraph 3.1.6 if it is installed close to, or capable of remote activation from, the position from which the ship is normally navigated; or
 
-•
-4.1.3 if the ship is at sea within coverage of MF coast stations equipped with DSC, on MF using DSC; or
+• 4.1.3 if the ship is at sea within coverage of MF coast stations equipped with DSC, on MF using DSC; or
 
-•
-4.1.4 on HF using DSC; or
+• 4.1.4 on HF using DSC; or
 
-•
-4.1.5 through a recognised mobile satellite service; this requirement may be fulfilled by:
+• 4.1.5 through a recognised mobile satellite service; this requirement may be fulfilled by:
 
-•
-4.1.5.1 a ship earth station; or
+• 4.1.5.1 a ship earth station; or
 
-•
-4.1.5.2 the satellite EPIRB, required by paragraph 3.1.6, either by installing the satellite EPIRB close to, or by remote activation from, the position from which the ship is normally navigated.
+• 4.1.5.2 the satellite EPIRB, required by paragraph 3.1.6, either by installing the satellite EPIRB close to, or by remote activation from, the position from which the ship is normally navigated.
 
 4.2 The VHF radio installation required by paragraph 3.1.1 must also be capable of transmitting and receiving general radiocommunications using radiotelephony.
 
@@ -136,39 +102,29 @@ Source: https://www.gov.uk/government/publications/msn-1903-m-the-global-maritim
 
 5.1 In addition to meeting the requirements of paragraph 3, every ship engaged on voyages beyond sea area A1 but remaining within sea area A2, must be provided with –
 
-•
-5.1.1 an MF radio installation capable of transmitting and receiving, for distress and safety purposes, on the frequencies –
+• 5.1.1 an MF radio installation capable of transmitting and receiving, for distress and safety purposes, on the frequencies –
 
-•
-5.1.1.1 2,187.5 kHz using DSC; and
+• 5.1.1.1 2,187.5 kHz using DSC; and
 
-•
-5.1.1.2 2,182 kHz using radiotelephony;
+• 5.1.1.2 2,182 kHz using radiotelephony;
 
-•
-5.1.2 a radio installation capable of maintaining a continuous DSC watch on the frequency 2,187.5 kHz; such installation may be separate from, or combined with, that required by sub-paragraph 5.1.1.1; and
+• 5.1.2 a radio installation capable of maintaining a continuous DSC watch on the frequency 2,187.5 kHz; such installation may be separate from, or combined with, that required by sub-paragraph 5.1.1.1; and
 
-•
-5.1.3 means of initiating the transmission of ship-to-shore distress alerts by a radio service other than MF operating either –
+• 5.1.3 means of initiating the transmission of ship-to-shore distress alerts by a radio service other than MF operating either –
 
-•
-5.1.3.1 a satellite EPIRB using the Cospas-Sarsat satellite distress alerting service on 406 MHz; required by paragraph 3.1.6 if it is installed close to, or capable of remote activation from, the position from which the ship is normally navigated; or
+• 5.1.3.1 a satellite EPIRB using the Cospas-Sarsat satellite distress alerting service on 406 MHz; required by paragraph 3.1.6 if it is installed close to, or capable of remote activation from, the position from which the ship is normally navigated; or
 
-•
-5.1.3.2 on HF using DSC; or
+• 5.1.3.2 on HF using DSC; or
 
-•
-5.1.3.3 through a recognised mobile satellite service by a ship earth station.
+• 5.1.3.3 through a recognised mobile satellite service by a ship earth station.
 
 5.2 Means must be provided to initiate transmission of distress alerts by the radio installations specified in sub-paragraphs 5.1.1 and 5.1.3 from the position from which the ship is normally navigated.
 
 5.3 The ship must, in addition, be capable of transmitting and receiving general radiocommunications using radiotelephony or direct-printing telegraphy by either –
 
-•
-5.3.1 a radio installation operating on working frequencies in the bands between 1,605 kHz and 4,000 kHz or between 4,000 kHz and 27,500 kHz; this requirement may be fulfilled by the addition of this capability to the equipment required by sub-paragraph 5.1.1; or
+• 5.3.1 a radio installation operating on working frequencies in the bands between 1,605 kHz and 4,000 kHz or between 4,000 kHz and 27,500 kHz; this requirement may be fulfilled by the addition of this capability to the equipment required by sub-paragraph 5.1.1; or
 
-•
-5.3.2 a recognised mobile satellite service ship earth station.
+• 5.3.2 a recognised mobile satellite service ship earth station.
 
 6. Additional radio equipment to be provided for sea area A3
 
@@ -176,74 +132,52 @@ Source: https://www.gov.uk/government/publications/msn-1903-m-the-global-maritim
 
 Alternative A
 
-•
-6.1.1 a recognised mobile satellite service ship earth station capable of –
+• 6.1.1 a recognised mobile satellite service ship earth station capable of –
 
-•
-6.1.1.1 transmitting and receiving distress and safety communications using direct printing telegraphy;
+• 6.1.1.1 transmitting and receiving distress and safety communications using direct printing telegraphy;
 
-•
-6.1.1.2 initiating and receiving distress priority calls;
+• 6.1.1.2 initiating and receiving distress priority calls;
 
-•
-6.1.1.3 maintaining watch for shore-to-ship distress alerts, including those directed to specifically defined geographical areas;
+• 6.1.1.3 maintaining watch for shore-to-ship distress alerts, including those directed to specifically defined geographical areas;
 
-•
-6.1.1.4 transmitting and receiving general radiocommunications, using either radiotelephony or direct-printing telegraphy; and
+• 6.1.1.4 transmitting and receiving general radiocommunications, using either radiotelephony or direct-printing telegraphy; and
 
-•
-6.1.2 an MF radio installation capable of transmitting and receiving, for distress and safety purposes, on the frequencies –
+• 6.1.2 an MF radio installation capable of transmitting and receiving, for distress and safety purposes, on the frequencies –
 
-•
-6.1.2.1 2,187.5 kHz using DSC; and
+• 6.1.2.1 2,187.5 kHz using DSC; and
 
-•
-6.1.2.2 2,182 kHz using radiotelephony; and
+• 6.1.2.2 2,182 kHz using radiotelephony; and
 
-•
-6.1.3 a radio installation capable of maintaining a continuous DSC watch on the frequency 2,187.5 kHz which may be separate from or combined with that required by sub-paragraph 6.1.2.1; and
+• 6.1.3 a radio installation capable of maintaining a continuous DSC watch on the frequency 2,187.5 kHz which may be separate from or combined with that required by sub-paragraph 6.1.2.1; and
 
-•
-6.1.4 means of initiating the transmission of ship-to-shore distress alerts by a radio service operating either –
+• 6.1.4 means of initiating the transmission of ship-to-shore distress alerts by a radio service operating either –
 
-•
-6.1.4.1 a satellite EPIRB using the Cospas-Sarsat satellite distress alerting service on 406 MHz; required by paragraph 3.1.6. if it is installed close to, or capable of remote activation from, the position from which the ship is normally navigated; or
+• 6.1.4.1 a satellite EPIRB using the Cospas-Sarsat satellite distress alerting service on 406 MHz; required by paragraph 3.1.6. if it is installed close to, or capable of remote activation from, the position from which the ship is normally navigated; or
 
-•
-6.1.4.2 on HF using DSC; or
+• 6.1.4.2 on HF using DSC; or
 
-•
-6.1.4.3 through a recognised mobile satellite service by an additional ship earth station.
+• 6.1.4.3 through a recognised mobile satellite service by an additional ship earth station.
 or the following equipment -
 
 Alternative B
 
-•
-6.1.5 an MF/HF radio installation capable of transmitting and receiving, for distress and safety purposes, on all distress and safety frequencies in the bands between 1,605 kHz and 4,000 kHz and between 4,000 kHz and 27,500 kHz –
+• 6.1.5 an MF/HF radio installation capable of transmitting and receiving, for distress and safety purposes, on all distress and safety frequencies in the bands between 1,605 kHz and 4,000 kHz and between 4,000 kHz and 27,500 kHz –
 
-•
-6.1.5.1 using DSC;
+• 6.1.5.1 using DSC;
 
-•
-6.1.5.2 using radiotelephony; and
+• 6.1.5.2 using radiotelephony; and
 
-•
-6.1.5.3 using direct-printing telegraphy; and
+• 6.1.5.3 using direct-printing telegraphy; and
 
-•
-6.1.6 equipment capable of maintaining DSC watch on 2,187.5 kHz, 8,414.5 kHz and on at least one of the distress and safety DSC frequencies 4,207.5 kHz, 6312 kHz, 12,577 kHz or 16,804.5 kHz; the equipment must be such that it must be possible at any time to select any of these DSC distress and safety frequencies. This equipment may be separate from, or combined with, the equipment required by sub-paragraph 6.1.5 above;
+• 6.1.6 equipment capable of maintaining DSC watch on 2,187.5 kHz, 8,414.5 kHz and on at least one of the distress and safety DSC frequencies 4,207.5 kHz, 6312 kHz, 12,577 kHz or 16,804.5 kHz; the equipment must be such that it must be possible at any time to select any of these DSC distress and safety frequencies. This equipment may be separate from, or combined with, the equipment required by sub-paragraph 6.1.5 above;
 
-•
-6.1.7 means of initiating the transmission of ship-to-shore distress alerts by a radiocommunication service other than HF operating either –
+• 6.1.7 means of initiating the transmission of ship-to-shore distress alerts by a radiocommunication service other than HF operating either –
 
-•
-6.1.7.1 a satellite EPIRB through using the Cospas-Sarsat satellite distress alerting service on 406 MHz; this requirement may be fulfilled by the satellite EPIRB, required by paragraph 3.1.6 if it is installed close to, or capable of remote activation from, the position from which the ship is normally navigated; or
+• 6.1.7.1 a satellite EPIRB through using the Cospas-Sarsat satellite distress alerting service on 406 MHz; this requirement may be fulfilled by the satellite EPIRB, required by paragraph 3.1.6 if it is installed close to, or capable of remote activation from, the position from which the ship is normally navigated; or
 
-•
-6.1.7.2 through a recognised mobile satellite service by a ship earth station; and
+• 6.1.7.2 through a recognised mobile satellite service by a ship earth station; and
 
-•
-6.1.8 in addition, means of transmitting and receiving general radiocommunications using radiotelephony or direct-printing telegraphy must be provided by an MF/HF radio installation operating on working frequencies in the bands between 1,605 kHz and 4,000 kHz and between 4,000 and 27,500 kHz; this requirement may be fulfilled by the addition of this capability in the equipment required by sub-paragraph 6.1.5.
+• 6.1.8 in addition, means of transmitting and receiving general radiocommunications using radiotelephony or direct-printing telegraphy must be provided by an MF/HF radio installation operating on working frequencies in the bands between 1,605 kHz and 4,000 kHz and between 4,000 and 27,500 kHz; this requirement may be fulfilled by the addition of this capability in the equipment required by sub-paragraph 6.1.5.
 
 6.2 Means must be provided to initiate transmissions of distress alerts from the position from which the ship is normally navigated by the radio installations specified in sub-paragraphs 6.1.1, 6.1.2 and 6.1.4 of ALTERNATIVE A and 6.1.5 and 6.1.7 of ALTERNATIVE B of this paragraph.
 

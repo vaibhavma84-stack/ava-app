@@ -1,4 +1,4 @@
-MGN 681 (M) MGN 681 (M) Amendment 1 Fire safety and storage of small electric powered craft on yachts
+MGN 681 (M) Amendment 1 Fire safety and storage of small electric powered craft on yachts
 2026-01-13
 Source: https://www.gov.uk/government/publications/mgn-681-m-amendment-1-fire-safety-and-storage-of-small-electric-powered-craft-on-yachts
 
@@ -260,17 +260,13 @@ As a comparison a small electric car will have a battery of 25 kWh and larger el
 
 9.5 In recognition that Li-ion battery fires are extremely difficult to extinguish, all crew should be trained in identifying the early signs of battery problems before they become a serious hazard to the ship, including but not limited to:
 
-•
-the potential for sudden onset of thermal runaway;
+• the potential for sudden onset of thermal runaway;
 
-•
-the difficulty in extinguishing due to the self-sufficient nature Li-ion batteries and their ability to continue to burn without access to additional oxygen;
+• the difficulty in extinguishing due to the self-sufficient nature Li-ion batteries and their ability to continue to burn without access to additional oxygen;
 
-•
-the hazardous gases produced during battery fires, and;
+• the hazardous gases produced during battery fires, and;
 
-•
-the potential for re-ignition for a long period after any fire has been supressed.
+• the potential for re-ignition for a long period after any fire has been supressed.
 
 9.6 A post-incident action plan for the quarantine or disposal of batteries following any battery fire along with a clean-up plan that is cognisant of local regulations for run-off including toxic elements should be developed and included in staff training as part of the vessel’s safety management system.
 
@@ -292,8 +288,6 @@ Email: regyachtcode@mcga.gov.uk
 
 Website: www.gov.uk/mca
 
-•
-Approval will be to a relevant standard by a UK Nominated body as listed in MSN 1874 as amended. Multiple standards may be used to satisfy different performance parameters (for example temperature rise detection will be satisfied against a relevant detection standard, and fire containment to a recognised containment standard) until a recognised battery charging case standard is developed. ↩
+• Approval will be to a relevant standard by a UK Nominated body as listed in MSN 1874 as amended. Multiple standards may be used to satisfy different performance parameters (for example temperature rise detection will be satisfied against a relevant detection standard, and fire containment to a recognised containment standard) until a recognised battery charging case standard is developed. ↩
 
-•
-ATEX ZONE 2 DEFINITION – Zone 2 is a hazardous area classified as an atmosphere where a mixture of air and flammable substances in the form of gas, vapour or mist is not likely to occur in normal operation, but if it does occur, will persist for a short period only. ↩
+• ATEX ZONE 2 DEFINITION – Zone 2 is a hazardous area classified as an atmosphere where a mixture of air and flammable substances in the form of gas, vapour or mist is not likely to occur in normal operation, but if it does occur, will persist for a short period only. ↩

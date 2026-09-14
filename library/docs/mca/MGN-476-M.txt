@@ -1,4 +1,4 @@
-MGN 476 (M) MGN 476 (M) MLC 2006 advice signing on non-MLC ratified country's ships
+MGN 476 (M) MLC 2006 advice signing on non-MLC ratified country's ships
 2024-07-05
 Source: https://www.gov.uk/government/publications/mgn-476-m-mlc-2006-advice-signing-on-non-mlc-ratified-countrys-ships
 
@@ -18,14 +18,11 @@ Amendment 2 has been adjusted to include all seafarers on merchant ships and yac
 
 1.2 The MLC provides protection for seafarers because:
 
-•
-a) it sets out clearly the responsibilities of shipowners to their seafarers. The shipowner is ultimately responsible for meeting MLC requirements, even when the seafarer is employed by/recruited through a recruitment and placement service.
+• a) it sets out clearly the responsibilities of shipowners to their seafarers. The shipowner is ultimately responsible for meeting MLC requirements, even when the seafarer is employed by/recruited through a recruitment and placement service.
 
-•
-b) documentation is required that makes the standards of living and working conditions that apply on board clear
+• b) documentation is required that makes the standards of living and working conditions that apply on board clear
 
-•
-c) it requires flag States to carry out a maritime labour inspection twice in every five-year period to ensure those living and working conditions are being fully met by the shipowner, and that where complaints are made by the seafarers, steps are taken to ensure they are investigated and resolved.
+• c) it requires flag States to carry out a maritime labour inspection twice in every five-year period to ensure those living and working conditions are being fully met by the shipowner, and that where complaints are made by the seafarers, steps are taken to ensure they are investigated and resolved.
 
 1.3 The MLC inspection covers all aspects of the seafarer’s living and working conditions as defined by the MLC. Following a successful inspection the ship may be issued with a certificate valid for five years.
 
@@ -41,20 +38,15 @@ c) it requires flag States to carry out a maritime labour inspection twice in ev
 
 3.1 If the vessel’s flag state has not ratified the MLC, the seafarer might not enjoy the benefit of a clear, individual, seafarer employment agreement (SEA), which sets out the important aspects of a seafarer’s contract of employment. This includes:
 
-•
-a) seafarer’s employment agreement is accessible for review by officers of competent authorities including those in ports (A2.1, paragraph 11(d))
+• a) seafarer’s employment agreement is accessible for review by officers of competent authorities including those in ports (A2.1, paragraph 11(d))
 
-•
-b) collective bargaining agreement (s) incorporated into the seafarers employment agreement is/are available on board (A2.1, paragraph 2))
+• b) collective bargaining agreement (s) incorporated into the seafarers employment agreement is/are available on board (A2.1, paragraph 2))
 
-•
-c) a requirement that the seafarers employment agreement contains particulars of applicable heath and social security provisions (A2.1, paragraph 4(h))
+• c) a requirement that the seafarers employment agreement contains particulars of applicable heath and social security provisions (A2.1, paragraph 4(h))
 
-•
-d) the seafarers entitlement to repatriation (A2.1, paragraph 4(i))
+• d) the seafarers entitlement to repatriation (A2.1, paragraph 4(i))
 
-•
-e) important protections concerning the minimum notice periods, including termination by the seafarer on compassionate grounds (A2.1, paragraph 4(5) and (6)).
+• e) important protections concerning the minimum notice periods, including termination by the seafarer on compassionate grounds (A2.1, paragraph 4(5) and (6)).
 
 3.2 The seafarer also has the right to review their SEA before signing it, and must be given the opportunity to review it.
 
@@ -90,14 +82,11 @@ e) important protections concerning the minimum notice periods, including termin
 
 6.3 Under the MLC, a seafarer is entitled to be repatriated at no cost to them (A2.5, paragraph 1), for example if (there are exceptions in certain circumstances):
 
-•
-a) their employment agreement expires when they are abroad
+• a) their employment agreement expires when they are abroad
 
-•
-b) it is terminated by the shipowner or
+• b) it is terminated by the shipowner or
 
-•
-c) the seafarer for justified reasons can no longer carry out their duties
+• c) the seafarer for justified reasons can no longer carry out their duties
 
 7. Compensation in the event of injury or loss of employment arising from the loss or foundering of the ship
 

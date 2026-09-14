@@ -1,4 +1,4 @@
-MGN 424 (M) MGN 424 (M) Safety responsibilities on board dive boats
+MGN 424 (M) Safety responsibilities on board dive boats
 2023-05-16
 Source: https://www.gov.uk/government/publications/mgn-424-m-safety-responsibilities-on-board-dive-boats
 
@@ -6,14 +6,11 @@ Summary
 
 This notice gives advice on procedures for the safe conduct of diving operations especially on vessels contracted to carry out these operations where the diving operation is not controlled by the owner, operator or crew of the vessel. The main points are:
 
-•
-the duties of the owner/operator, master/crew, diving contractor and diving supervisor and their relationship to each other and individual responsibilities;
+• the duties of the owner/operator, master/crew, diving contractor and diving supervisor and their relationship to each other and individual responsibilities;
 
-•
-particular emphasis on ensuring that there is a coherent diving plan and risk assessments are carried out;
+• particular emphasis on ensuring that there is a coherent diving plan and risk assessments are carried out;
 
-•
-ensuring that the divers are competent and properly qualified.
+• ensuring that the divers are competent and properly qualified.
 
 Amendment 1 updates references only.
 
@@ -65,60 +62,43 @@ Amendment 1 updates references only.
 
 4.2 The diving contractor is responsible for:
 
-•
-assessing risks and ensuring a diving project plan is prepared;
+• assessing risks and ensuring a diving project plan is prepared;
 
-•
-appointing a suitable diving supervisor, in writing;
+• appointing a suitable diving supervisor, in writing;
 
-•
-ensuring there are sufficient numbers of competent divers, capable of undertaking the work involved with the diving project;
+• ensuring there are sufficient numbers of competent divers, capable of undertaking the work involved with the diving project;
 
-•
-ensuring that all divers involved in the diving project are suitably qualified, certificated by a doctor as medically fit and hold a valid HSE approved diving at work medical certificate;
+• ensuring that all divers involved in the diving project are suitably qualified, certificated by a doctor as medically fit and hold a valid HSE approved diving at work medical certificate;
 
-•
-ensuring divers’ certification, as above, is readily available for inspection;
+• ensuring divers’ certification, as above, is readily available for inspection;
 
-•
-ensuring the diving team is familiar with the diving project plan;
+• ensuring the diving team is familiar with the diving project plan;
 
-•
-providing sufficient, suitable, properly maintained and certified plant and equipment;
+• providing sufficient, suitable, properly maintained and certified plant and equipment;
 
-•
-ensuring test certificates for the plant and equipment are readily available for inspection;
+• ensuring test certificates for the plant and equipment are readily available for inspection;
 
-•
-ensuring that the place from which diving is to be undertaken is suitable and safe;
+• ensuring that the place from which diving is to be undertaken is suitable and safe;
 
-•
-ensuring adequate arrangements exist for first aid and medical treatment;
+• ensuring adequate arrangements exist for first aid and medical treatment;
 
-•
-maintaining a written record of all relevant details of the project, including all dives, for a minimum of two years;
+• maintaining a written record of all relevant details of the project, including all dives, for a minimum of two years;
 
-•
-ensuring compliance with all relevant regulations.
+• ensuring compliance with all relevant regulations.
 
 5. Diving project plan
 
 5.1 A diving project plan is essential for every diving project. It should consist of the diving contractor’s standard operating rules and the site specific risk assessment. This includes measures to control risks, procedures, availability of emergency support services and the responsibility structure in the event of an emergency. Many factors need consideration when preparing a diving project plan, in particular identifying possible hazards and assessing their risks followed by measures for risk reduction. For example:
 
-•
-effect of water flowing through sea water intakes or discharges affecting divers or their equipment during the project;
+• effect of water flowing through sea water intakes or discharges affecting divers or their equipment during the project;
 
-•
-weather conditions, including surface visibility, necessitating suspension of the project;
+• weather conditions, including surface visibility, necessitating suspension of the project;
 
-•
-effect of rotating propellers, thrusters or pumps, particularly from vessels using dynamic positioning systems and associated machinery that may start manually or automatically during the project;
+• effect of rotating propellers, thrusters or pumps, particularly from vessels using dynamic positioning systems and associated machinery that may start manually or automatically during the project;
 
-•
-taking account of diver disorientation, particularly when working beneath flat bottom vessels;
+• taking account of diver disorientation, particularly when working beneath flat bottom vessels;
 
-•
-risk of divers being struck by objects falling into the water.
+• risk of divers being struck by objects falling into the water.
 
 5.2 The diving project plan should cover the general principles of diving techniques. It should incorporate contingency plans in the event of foreseeable emergencies, including the evacuation of the parent craft and retrieval of an injured or unconscious diver from the water. It should also include procedures to deal with injuries to divers and support personnel and the availability of external medical assistance.
 
@@ -130,26 +110,19 @@ risk of divers being struck by objects falling into the water.
 
 6.2 Diving supervisor responsibilities include:
 
-•
-checking the divers are competent and qualified to dive and undertake the work of the diving project;
+• checking the divers are competent and qualified to dive and undertake the work of the diving project;
 
-•
-ensuring everyone in the diving operation is familiar with the diving project plan;
+• ensuring everyone in the diving operation is familiar with the diving project plan;
 
-•
-ensuring the diving project plan is appropriate and up to date;
+• ensuring the diving project plan is appropriate and up to date;
 
-•
-maintaining accurate records of all diving operations;
+• maintaining accurate records of all diving operations;
 
-•
-ensuring there are adequate means of communication with divers in the water;
+• ensuring there are adequate means of communication with divers in the water;
 
-•
-checking the dive site on the day of the dive and, if conditions change, confirming that the risk assessment still applies;
+• checking the dive site on the day of the dive and, if conditions change, confirming that the risk assessment still applies;
 
-•
-checking the diving equipment is appropriate for the project.
+• checking the diving equipment is appropriate for the project.
 
 6.3 The supervisor may order the start and finish of a dive in consultation with the master.
 

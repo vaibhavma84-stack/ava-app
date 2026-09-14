@@ -1,4 +1,4 @@
-MGN 673 (M+F) MGN 673 (M+F): Radio communications: non-SOLAS vessel
+MGN 673 (M+F): Radio communications: non-SOLAS vessel
 2023-09-15
 Source: https://www.gov.uk/government/publications/mgn-673-mf-radio-communications-non-solas-vessel
 
@@ -230,8 +230,6 @@ self-test). Attention is drawn to section 3 on the prevention of false distress 
 
 13.3 Before returning the beacon to the owner, or when providing a replacement beacon, the SBM provider should check the registration details with the beacon registry, where practicable. See MGN 665 (M+F).
 
-•
-Contact information is available at: https://cospas-sarsat.int/en/contacts-pro/contacts-details-all ↩
+• Contact information is available at: https://cospas-sarsat.int/en/contacts-pro/contacts-details-all ↩
 
-•
-Contact information is available at: https://cospas-sarsat.int/en/contacts-pro/contacts-details-all ↩
+• Contact information is available at: https://cospas-sarsat.int/en/contacts-pro/contacts-details-all ↩

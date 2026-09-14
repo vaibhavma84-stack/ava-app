@@ -1,4 +1,4 @@
-MGN 710 (M) MGN 710 (M) safety management systems for small workboats and pilot boats
+MGN 710 (M) safety management systems for small workboats and pilot boats
 2026-01-02
 Source: https://www.gov.uk/government/publications/mgn-710-m-safety-management-systems-for-small-workboats-and-pilot-boats
 
@@ -40,13 +40,11 @@ Annexe A provides a self-assessment that owners/operators may use to demonstrate
 
 3.5 Owners/operators may choose to categorise findings from the self-assessment, which can help prioritise actions and support continuous improvement:
 
-•
-A major non-conformity is an identifiable deviation that poses a serious threat to the safety of personnel or the ship, or a serious risk to the environment, that requires immediate corrective action or reflects the lack of effective and systematic implementation of a requirement of the Code.
+• A major non-conformity is an identifiable deviation that poses a serious threat to the safety of personnel or the ship, or a serious risk to the environment, that requires immediate corrective action or reflects the lack of effective and systematic implementation of a requirement of the Code.
 
 • A non-conformity is a deviation from a requirement of the code.
 
-•
-An observation is a reference to circumstances which may, in future, lead to a deviation from a requirement.
+• An observation is a reference to circumstances which may, in future, lead to a deviation from a requirement.
 
 • A point for improvement is an advisory note recorded during a self-assessment when a situation is identified that does not meet the threshold for a formal finding, or where the assessor is uncertain whether a non-conformity exists, but indicates potential to enhance safety management practices
 
@@ -112,8 +110,6 @@ Email: Infoline@mcga.gov.uk
 
 Website: www.gov.uk/mca
 
-•
-MGN 520 (M) Amendment 2 human element guidance - the deadly dozen - GOV.UK ↩
+• MGN 520 (M) Amendment 2 human element guidance - the deadly dozen - GOV.UK ↩
 
-•
-Code of safe working practices for merchant seafarers 2025 edition - GOV.UK ↩
+• Code of safe working practices for merchant seafarers 2025 edition - GOV.UK ↩

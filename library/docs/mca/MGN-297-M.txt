@@ -1,4 +1,4 @@
-MGN 297 (M) MGN 297 (M) amendment 2 the carriage of defibrillators on ships
+MGN 297 (M) amendment 2 the carriage of defibrillators on ships
 2026-04-02
 Source: https://www.gov.uk/government/publications/mgn-297-m-amendment-2-the-carriage-of-defibrillators-on-ships
 
@@ -18,17 +18,13 @@ Amendment 2 includes updated references and editorial changes in section 4.
 
 Such a risk assessment should include but is not limited to:
 
-•
-the number of people (passengers and crew) on board at any given time. The larger the number, the greater the risk.
+• the number of people (passengers and crew) on board at any given time. The larger the number, the greater the risk.
 
-•
-the number of crew on board compared to passengers. As crew undergo regular medical examination to ensure they meet the statutory standards to work at sea their risk may be lower than passengers of the same age etc,
+• the number of crew on board compared to passengers. As crew undergo regular medical examination to ensure they meet the statutory standards to work at sea their risk may be lower than passengers of the same age etc,
 
-•
-the age range of those on board, noting that the highest incidence of a cardiac arrest increases with age.
+• the age range of those on board, noting that the highest incidence of a cardiac arrest increases with age.
 
-•
-any other risk factors on board that may increase the risk of a cardiac event, e.g. the use of toxic chemicals.
+• any other risk factors on board that may increase the risk of a cardiac event, e.g. the use of toxic chemicals.
 
 2.2 Defibrillators and consumables, where carried, should be tested in accordance with the manufacturer’s recommendations. In addition, first aiders onboard should receive suitable familiarisation training in the use of AEDs, as well as their training in cardiopulmonary resuscitation.
 

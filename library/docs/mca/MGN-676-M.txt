@@ -1,4 +1,4 @@
-MGN 676 (M) MGN 676 (M) Unmanned non-self-propelled barges – MARPOL Annexes I and IV Exemptions
+MGN 676 (M) Unmanned non-self-propelled barges – MARPOL Annexes I and IV Exemptions
 2023-02-13
 Source: https://www.gov.uk/government/publications/mgn-676-m-unmanned-non-self-propelled-barges-marpol-annexes-i-and-iv-exemptions
 
@@ -30,20 +30,15 @@ Source: https://www.gov.uk/government/publications/mgn-676-m-unmanned-non-self-p
 
 2.5. In order to qualify for the MARPOL Annex I exemption, a UNSP barge must meet the following criteria:
 
-•
-it is not propelled by mechanical means;
+• it is not propelled by mechanical means;
 
-•
-it carries no oil (as defined in regulation 1.1 of MARPOL Annex I);
+• it carries no oil (as defined in regulation 1.1 of MARPOL Annex I);
 
-•
-it has no machinery fitted that may use oil or generate oil residue (sludge);
+• it has no machinery fitted that may use oil or generate oil residue (sludge);
 
-•
-it has no oil fuel tank, lubricating oil tank, oily bilge water holding tank and oil residue (sludge) tank; and
+• it has no oil fuel tank, lubricating oil tank, oily bilge water holding tank and oil residue (sludge) tank; and
 
-•
-it has neither persons nor living animals on board.
+• it has neither persons nor living animals on board.
 
 2.6 Where an internationally operating ship is surveyed and found to meet all of the requirements for the exemption, an International Oil Pollution Prevention Exemption Certificate for Unmanned Non-self-propelled Barges will be issued by the Administration (in the UK, the Maritime & Coastguard Agency), or a person duly authorised by the Administration, for a period not exceeding five years. This exemption certificate replaces the IOPP certificate.
 
@@ -63,17 +58,13 @@ it has neither persons nor living animals on board.
 
 3.4 In order to qualify for the MARPOL Annex IV exemption, an UNSP barge must meet the following criteria:
 
-•
-it is not propelled by mechanical means;
+• it is not propelled by mechanical means;
 
-•
-it has neither persons nor living animals on board;
+• it has neither persons nor living animals on board;
 
-•
-it is not used for holding sewage during transport; and
+• it is not used for holding sewage during transport; and
 
-•
-it has no arrangements that could produce sewage as defined in regulation 1.3 of MARPOL Annex IV.
+• it has no arrangements that could produce sewage as defined in regulation 1.3 of MARPOL Annex IV.
 
 3.5 Where a ship is surveyed and found to meet all the requirements for the exemption, an International Sewage Pollution Prevention Exemption Certificate for Unmanned Non-self-propelled Barges will be issued by the Administration, or a person duly authorised by the Administration, for a period not exceeding five years. This exemption certificate replaces the ISPP certificate.
 
@@ -129,17 +120,12 @@ Please note that all addresses and telephone numbers are correct at time of publ
 Published: January 2023
 © Crown Copyright 2021
 
-•
-Annex II covers pollution by noxious liquid substances in bulk, Annex III covers harmful substances in packaged form, Annex V covers garbage and Annex VI covers air pollution. ↩
+• Annex II covers pollution by noxious liquid substances in bulk, Annex III covers harmful substances in packaged form, Annex V covers garbage and Annex VI covers air pollution. ↩
 
-•
-Oil tankers of 150gt and above and ships of 400gt and above which are not oil tankers. ↩
+• Oil tankers of 150gt and above and ships of 400gt and above which are not oil tankers. ↩
 
-•
-See section 10 of the Merchant Shipping (Prevention of Oil Pollution) Regulations 2019 for further details. ↩
+• See section 10 of the Merchant Shipping (Prevention of Oil Pollution) Regulations 2019 for further details. ↩
 
-•
-See section 10 of the Merchant Shipping (Prevention of Oil Pollution) Regulations 2019 for further details. ↩
+• See section 10 of the Merchant Shipping (Prevention of Oil Pollution) Regulations 2019 for further details. ↩
 
-•
-See section 6 of the Merchant Shipping (Prevention of Pollution by Sewage from Ships) Regulations 2020 for further details. ↩
+• See section 6 of the Merchant Shipping (Prevention of Pollution by Sewage from Ships) Regulations 2020 for further details. ↩

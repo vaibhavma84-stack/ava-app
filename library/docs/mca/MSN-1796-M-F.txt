@@ -1,17 +1,14 @@
-MSN 1796 (M+F) MSN 1796 (M+F) Amendment 4 Designation of Vessel Traffic Services (VTS)
+MSN 1796 (M+F) Amendment 4 Designation of Vessel Traffic Services (VTS)
 2022-08-08
 Source: https://www.gov.uk/government/publications/msn-1796-mf-amendment-4-designation-of-vessel-traffic-services-vts
 
 Summary
 
-•
-This notice identifies and designates UK VTS for the purpose of requiring compliance by shipping with regulations 6 and 7 of the Merchant Shipping (Vessel Traffic Monitoring and Reporting Requirements) Regulations 2004, implementing European Parliament and Council Directive 2002/59/EC.
+• This notice identifies and designates UK VTS for the purpose of requiring compliance by shipping with regulations 6 and 7 of the Merchant Shipping (Vessel Traffic Monitoring and Reporting Requirements) Regulations 2004, implementing European Parliament and Council Directive 2002/59/EC.
 
-•
-Provides the formal identification of UK vessel traffic services (VTS) within UK waters for the benefit of the compliance of shipping with the Regulations and SOLAS Chapter V, Regulation 12.
+• Provides the formal identification of UK vessel traffic services (VTS) within UK waters for the benefit of the compliance of shipping with the Regulations and SOLAS Chapter V, Regulation 12.
 
-•
-VTS contributes to safety of life at sea, safety and efficiency of navigation and protection of the marine environment, adjacent shore areas, work sites and offshore installations.
+• VTS contributes to safety of life at sea, safety and efficiency of navigation and protection of the marine environment, adjacent shore areas, work sites and offshore installations.
 
 1. Statutory requirements
 
@@ -59,14 +56,11 @@ However all vessels irrespective of size and type may be required to comply with
 
 5.2 Designation by the MCA will be subject to the receipt of:
 
-•
-Confirmation by the port and VTS authority that the VTS will be operated in accordance with the MGN 401 (as amended).
+• Confirmation by the port and VTS authority that the VTS will be operated in accordance with the MGN 401 (as amended).
 
-•
-Satisfactory details about the VTS; and
+• Satisfactory details about the VTS; and
 
-•
-Confirmation of the statutory UK powers required for operation of the VTS in question.
+• Confirmation of the statutory UK powers required for operation of the VTS in question.
 
 6. Promulgation of information on designated VTS
 
@@ -96,71 +90,48 @@ Please note that all addresses and telephone numbers are correct at time of publ
 
 Annex 1: Designated VTS centres
 
-•
-Aberdeen
+• Aberdeen
 
-•
-Belfast
+• Belfast
 
-•
-Bristol
+• Bristol
 
-•
-Channel Navigation Information Service
+• Channel Navigation Information Service
 
-•
-Dover Port
+• Dover Port
 
-•
-Forth and Tay Navigation Service
+• Forth and Tay Navigation Service
 
-•
-Harwich Haven
+• Harwich Haven
 
-•
-Humber Estuary
+• Humber Estuary
 
-•
-Liverpool
+• Liverpool
 
-•
-London Port Control Centre (Gravesend)
+• London Port Control Centre (Gravesend)
 
-•
-London Thames Barrier (Woolwich)
+• London Thames Barrier (Woolwich)
 
-•
-Medway
+• Medway
 
-•
-Milford Haven
+• Milford Haven
 
-•
-Southampton & Nab
+• Southampton & Nab
 
-•
-Orkney
+• Orkney
 
-•
-Peterhead
+• Peterhead
 
-•
-Plymouth
+• Plymouth
 
-•
-Poole
+• Poole
 
-•
-Portsmouth
+• Portsmouth
 
-•
-Sullom Voe
+• Sullom Voe
 
-•
-Sunk
+• Sunk
 
-•
-Tees and Hartlepool
+• Tees and Hartlepool
 
-•
-Tyne
+• Tyne

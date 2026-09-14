@@ -1,4 +1,4 @@
-MSN 1838 (M) MSN 1838 (M) Amendment 2 MLC, 2006 Minimum Age
+MSN 1838 (M) Amendment 2 MLC, 2006 Minimum Age
 2025-11-03
 Source: https://www.gov.uk/government/publications/msn-1838-m-amendment-2-mlc-2006-minimum-age
 
@@ -50,38 +50,27 @@ Amendment 2 amends references and contact details.
 
 3. The Merchant Shipping (Maritime Labour Convention) (Minimum Requirements for Seafarers etc.) Regulations 2014  
 
-•
-3.1 Seafarer to be of minimum age (Regulation 4):
+• 3.1 Seafarer to be of minimum age (Regulation 4):
 
-•
-3.1.1 No seafarer may be employed or engaged or work on board a UK sea-going ship under the age of 16 years.
+• 3.1.1 No seafarer may be employed or engaged or work on board a UK sea-going ship under the age of 16 years.
 
-•
-3.1.2 Work experience on a ship is considered by the Maritime and Coastguard Agency to constitute work and accordingly the same limits apply. However, “work shadowing” where children observe but do not participate in any work on ships is permitted, subject to the risk assessments having been undertaken and appropriate safety measures put in place.
+• 3.1.2 Work experience on a ship is considered by the Maritime and Coastguard Agency to constitute work and accordingly the same limits apply. However, “work shadowing” where children observe but do not participate in any work on ships is permitted, subject to the risk assessments having been undertaken and appropriate safety measures put in place.
 
-•
-3.2 Young Persons on night duty (Regulation 5):
+• 3.2 Young Persons on night duty (Regulation 5):
 
-•
-3.2.1 In addition, the MLC Minimum Requirements Regulations prohibit those under the age of 18 being employed or engaged to work at night on a ship except in specified circumstances, which are when: 
+• 3.2.1 In addition, the MLC Minimum Requirements Regulations prohibit those under the age of 18 being employed or engaged to work at night on a ship except in specified circumstances, which are when: 
 
-•
-• effective training of the seafarer, in accordance with established programmes and schedules would be impaired, or
+• • effective training of the seafarer, in accordance with established programmes and schedules would be impaired, or
 
-•
-• the specific nature of the duty or of a recognised training programme requires that the seafarers perform duties at night, and the work involved in those duties is specified in this notice as not being detrimental to the health and well-being of seafarers under the age of 18 (see paragraph 4.3).
+• • the specific nature of the duty or of a recognised training programme requires that the seafarers perform duties at night, and the work involved in those duties is specified in this notice as not being detrimental to the health and well-being of seafarers under the age of 18 (see paragraph 4.3).
 
-•
-3.2.2 Night means a period:
+• 3.2.2 Night means a period:
 
-•
-• the duration of which is not less than nine consecutive hours, and
+• • the duration of which is not less than nine consecutive hours, and
 
-•
-• which starts no later than midnight and ends no earlier than 5.a.m. (local time)
+• • which starts no later than midnight and ends no earlier than 5.a.m. (local time)
 
-•
-3.2.3 Work carried out at night as part of the following recognised training programmes and schedules of training is not detrimental to the health and well-being of seafarers under the age of 18 (see paragraph 4.1.2 above and regulation 5(2)(b) of the MLC Minimum Requirements Regulations:
+• 3.2.3 Work carried out at night as part of the following recognised training programmes and schedules of training is not detrimental to the health and well-being of seafarers under the age of 18 (see paragraph 4.1.2 above and regulation 5(2)(b) of the MLC Minimum Requirements Regulations:
 
 • • any Deck Officer training under STCW Regulations II/1, II/2 and II/3
 
@@ -101,22 +90,17 @@ Amendment 2 amends references and contact details.
 
 • • any training for alternative certification under STCW Regulation VII
 
-•
-3.2.4 This list of training programmes has been agreed following consultation with the shipowners’ and seafarers’ organisations concerned.
+• 3.2.4 This list of training programmes has been agreed following consultation with the shipowners’ and seafarers’ organisations concerned.
 
 4. The Merchant Shipping and Fishing Vessel (Health and Safety at Work) (Employment of Young Persons) Regulations 1998
 
-•
-4.1 Persons on whom duties are imposed - risk assessment:
+• 4.1 Persons on whom duties are imposed - risk assessment:
 
-•
-4.1.1 References in this section to duties in the Young Persons Regulations should be read as including the extension of those duties imposed on the shipowner by the MLC H&S Regulations as discussed in para 1.4.
+• 4.1.1 References in this section to duties in the Young Persons Regulations should be read as including the extension of those duties imposed on the shipowner by the MLC H&S Regulations as discussed in para 1.4.
 
-•
-4.1.2 As with the General Duties Regulations, the Young Persons Regulations place duties on the employer or, where the employer is not “in control of the matter” because he does not have responsibility for the operation of the ship, additionally on any person who is in control of the matter.
+• 4.1.2 As with the General Duties Regulations, the Young Persons Regulations place duties on the employer or, where the employer is not “in control of the matter” because he does not have responsibility for the operation of the ship, additionally on any person who is in control of the matter.
 
-•
-4.1.3 In carrying out the risk assessment required by regulation 7 of the General Duties Regulations, the Young Persons Regulations require the employer to take particular account of the risks which might arise to young persons as a result of their inexperience, lack of awareness of risks, immaturity etc. In this context the Young Persons Regulations specify the following areas for particular attention:
+• 4.1.3 In carrying out the risk assessment required by regulation 7 of the General Duties Regulations, the Young Persons Regulations require the employer to take particular account of the risks which might arise to young persons as a result of their inexperience, lack of awareness of risks, immaturity etc. In this context the Young Persons Regulations specify the following areas for particular attention:
 
 • • the fitting out and layout of working areas
 
@@ -130,11 +114,9 @@ Amendment 2 amends references and contact details.
 
 • • risks from agents, processes and work listed in the schedule to the regulations
 
-•
-4.1.4 Annex 1 provides advice on the risks covered by the schedule and ways of avoiding or reducing them.
+• 4.1.4 Annex 1 provides advice on the risks covered by the schedule and ways of avoiding or reducing them.
 
-•
-4.1.5 In the context of risk assessment, employers are required to ensure that no young persons are engaged in work specified below, as it is likely to jeopardise their health or safety. Such prohibited work is any work:
+• 4.1.5 In the context of risk assessment, employers are required to ensure that no young persons are engaged in work specified below, as it is likely to jeopardise their health or safety. Such prohibited work is any work:
 
 • • which is objectively beyond their physical or psychological capacity
 
@@ -142,97 +124,67 @@ Amendment 2 amends references and contact details.
 
 • • involving harmful exposure to radiation
 
-•
-• involving the risk of accidents which it may be assumed cannot be recognised or avoided by young workers owing to their insufficient attention to safety or lack of experience or training; or involving a risk to health from:
+• • involving the risk of accidents which it may be assumed cannot be recognised or avoided by young workers owing to their insufficient attention to safety or lack of experience or training; or involving a risk to health from:
 
-•
-• extreme cold or heat
+• • extreme cold or heat
 
-•
-• noise
+• • noise
 
-•
-• vibration
+• • vibration
 
-•
-• optical radiation
+• • optical radiation
 
-•
-• electromagnetic fields
+• • electromagnetic fields
 
-•
-4.1.6 Employers are also required to inform young persons of any risks to their health and safety identified in these areas. This is in addition to any information supplied under the General Duties Regulations with regard to the general risk assessment for all workers.
+• 4.1.6 Employers are also required to inform young persons of any risks to their health and safety identified in these areas. This is in addition to any information supplied under the General Duties Regulations with regard to the general risk assessment for all workers.
 
-•
-4.1.7 The assessment of risks to young persons under these regulations may be carried out as an integral part of the assessment process required by the General Duties Regulations, or as a separate exercise. It might be helpful to consider developing generic risk assessments for the employment of young people. These will be pertinent where young people typically undertake a series of tasks or duties. A generic risk assessment would need to be revised to address additional work not covered by the original assessment or if an individual young person might face greater risks e.g. as a result of a medical condition.
+• 4.1.7 The assessment of risks to young persons under these regulations may be carried out as an integral part of the assessment process required by the General Duties Regulations, or as a separate exercise. It might be helpful to consider developing generic risk assessments for the employment of young people. These will be pertinent where young people typically undertake a series of tasks or duties. A generic risk assessment would need to be revised to address additional work not covered by the original assessment or if an individual young person might face greater risks e.g. as a result of a medical condition.
 
-•
-4.1.8 Exceptions are allowed to the above restrictions and prohibition where the activity in question is indispensable for vocational training and is performed under the supervision of a competent person. This means, for example, that a trainee who is following a structured training programme and is working alongside an experienced person or under direct supervision, may, as a part of that training, carry out activities which fall within the criteria listed. This in no way detracts from the principle that the employer has a duty to ensure the health and safety of the young person at work at all times. Appropriate controls must be in place which reduces any risk to the minimum that is reasonably practicable.
+• 4.1.8 Exceptions are allowed to the above restrictions and prohibition where the activity in question is indispensable for vocational training and is performed under the supervision of a competent person. This means, for example, that a trainee who is following a structured training programme and is working alongside an experienced person or under direct supervision, may, as a part of that training, carry out activities which fall within the criteria listed. This in no way detracts from the principle that the employer has a duty to ensure the health and safety of the young person at work at all times. Appropriate controls must be in place which reduces any risk to the minimum that is reasonably practicable.
 
-•
-4.1.9 The competent person appointed to assist the employer with health and safety under the General Duties Regulations must under those regulations be provided with any information relevant to that role.  This should include being notified of any young persons employed on the ship and of any risks identified specifically in relation to them under regulation 5.
+• 4.1.9 The competent person appointed to assist the employer with health and safety under the General Duties Regulations must under those regulations be provided with any information relevant to that role.  This should include being notified of any young persons employed on the ship and of any risks identified specifically in relation to them under regulation 5.
 
-•
-4.2 Rest periods for young persons:
+• 4.2 Rest periods for young persons:
 
-•
-4.2.1 Regulation 6 stipulates minimum daily and weekly rest periods and rest breaks for young workers.  
+• 4.2.1 Regulation 6 stipulates minimum daily and weekly rest periods and rest breaks for young workers.  
 
-•
-4.2.2 The basic principle is that young persons should be provided with a minimum of 12 consecutive hours rest in every 24-hour period; and a rest period of at least 2 days in every week.  Where a young person’s daily working time is more than four and half hours, they should be provided with a rest break of at least 30 minutes which should be consecutive if possible.
+• 4.2.2 The basic principle is that young persons should be provided with a minimum of 12 consecutive hours rest in every 24-hour period; and a rest period of at least 2 days in every week.  Where a young person’s daily working time is more than four and half hours, they should be provided with a rest break of at least 30 minutes which should be consecutive if possible.
 
-•
-4.2.3 It is recognised that if applied rigidly, the minimum rest requirements could restrict the employment of young persons on board ship, since they cannot be fitted into the operating schedules of many ships. There is therefore provision for the daily and weekly rest periods to be interrupted where periods of work are split up over the day or of short duration; and for the 2-day weekly rest period to be reduced to no less than 36 hours where this is justified by technical or organisational reasons.
+• 4.2.3 It is recognised that if applied rigidly, the minimum rest requirements could restrict the employment of young persons on board ship, since they cannot be fitted into the operating schedules of many ships. There is therefore provision for the daily and weekly rest periods to be interrupted where periods of work are split up over the day or of short duration; and for the 2-day weekly rest period to be reduced to no less than 36 hours where this is justified by technical or organisational reasons.
 
-•
-4.2.4 In addition, derogations are built into the regulations where the young person concerned is working to a properly agreed schedule of duties. This may either be a schedule complying with the merchant shipping rules on hours of work, or another “relevant agreement”. Annex 2 gives guidance on “relevant agreements”. In either case, where such a schedule or other relevant agreement is in place, the rest periods above do not apply provided that schedule or agreement provides for compensatory rest time and that the employer ensures that the hours worked do not put at risk the health and safety of the young person.
+• 4.2.4 In addition, derogations are built into the regulations where the young person concerned is working to a properly agreed schedule of duties. This may either be a schedule complying with the merchant shipping rules on hours of work, or another “relevant agreement”. Annex 2 gives guidance on “relevant agreements”. In either case, where such a schedule or other relevant agreement is in place, the rest periods above do not apply provided that schedule or agreement provides for compensatory rest time and that the employer ensures that the hours worked do not put at risk the health and safety of the young person.
 
-•
-4.2.5 Time spent training constitutes working time. This includes time spent undergoing formal instruction at college or on training courses away from the ship, as well as training received on board. It does not include private study time either on board or ashore.
+• 4.2.5 Time spent training constitutes working time. This includes time spent undergoing formal instruction at college or on training courses away from the ship, as well as training received on board. It does not include private study time either on board or ashore.
 
 5. The Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations 1997 (“The General Duties” Regulations)
 
-•
-5.1 Health surveillance:
+• 5.1 Health surveillance:
 
-•
-5.1.1 Under the General Duties Regulations the employer is required to provide for health surveillance of workers where appropriate. Chapter 7 of the Code of Safe Working Practices for Merchant Seafarers provides guidance on when surveillance is appropriate.
+• 5.1.1 Under the General Duties Regulations the employer is required to provide for health surveillance of workers where appropriate. Chapter 7 of the Code of Safe Working Practices for Merchant Seafarers provides guidance on when surveillance is appropriate.
 
-•
-5.1.2 Where the risk assessment carried out under regulation 5(2) of the General Duties Regulations identifies a risk to the health and safety of young persons, or where any young person is required to work at night (other than in exceptional circumstances), the young persons concerned are entitled to free assessment of their health and capacities before starting work and regular monitoring thereafter. This monitoring is required only so long as night work continues, unless there are other factors arising from the work which may have long term consequences to health. 
+• 5.1.2 Where the risk assessment carried out under regulation 5(2) of the General Duties Regulations identifies a risk to the health and safety of young persons, or where any young person is required to work at night (other than in exceptional circumstances), the young persons concerned are entitled to free assessment of their health and capacities before starting work and regular monitoring thereafter. This monitoring is required only so long as night work continues, unless there are other factors arising from the work which may have long term consequences to health. 
 
-•
-5.2 General health and safety:
+• 5.2 General health and safety:
 
-•
-5.2.1 When considering young persons working on board, shipowners and employers should have regard to all current health and safety regulations produced by the Maritime and Coastguard Agency as well as the related merchant shipping notices and marine guidance notes.
+• 5.2.1 When considering young persons working on board, shipowners and employers should have regard to all current health and safety regulations produced by the Maritime and Coastguard Agency as well as the related merchant shipping notices and marine guidance notes.
 
-•
-5.2.2 Measures should also be taken by the shipowner and the employer to bring to the attention of young persons information concerning the prevention of accidents and the protection of their health on board ships. Such measures could include adequate instruction in courses, official accident prevention publicity intended for young persons and professional instruction and supervision of young persons.
+• 5.2.2 Measures should also be taken by the shipowner and the employer to bring to the attention of young persons information concerning the prevention of accidents and the protection of their health on board ships. Such measures could include adequate instruction in courses, official accident prevention publicity intended for young persons and professional instruction and supervision of young persons.
 
-•
-5.2.3 Education and training of young persons both ashore and on board a ship should include guidance on the detrimental effects on their health and well-being of the abuse of alcohol and drugs and other potentially harmful substances, and the risk and concerns relating to HIV/AIDS and of other health risk related activities.
+• 5.2.3 Education and training of young persons both ashore and on board a ship should include guidance on the detrimental effects on their health and well-being of the abuse of alcohol and drugs and other potentially harmful substances, and the risk and concerns relating to HIV/AIDS and of other health risk related activities.
 
-•
-5.3 Other requirements applying to young persons:
+• 5.3 Other requirements applying to young persons:
 
-•
-5.3.1 Young persons’ Medical certificates - any young person employed on a UK ship must be in possession of a current medical fitness certificate. This means a fitness certificate which complies with the requirements of the Merchant Shipping (Medical Certification) (Maritime Labour Convention) Regulations 2010. Such certificates are valid for 1 year for those under the age of 18. Further information is contained in Merchant Shipping Notice 1886 (M+F) and MSN 1887(M).
+• 5.3.1 Young persons’ Medical certificates - any young person employed on a UK ship must be in possession of a current medical fitness certificate. This means a fitness certificate which complies with the requirements of the Merchant Shipping (Medical Certification) (Maritime Labour Convention) Regulations 2010. Such certificates are valid for 1 year for those under the age of 18. Further information is contained in Merchant Shipping Notice 1886 (M+F) and MSN 1887(M).
 
-•
-5.3.2 Record of young persons - the master is required to hold a record, as part of the List of Crew, of any young persons engaged as workers on the ship together with their dates of birth and date of engagement on the ship. A summary of the provisions of the Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Employment of Young Persons) Regulations 1998 must be included in the folder enclosing the list of crew.
+• 5.3.2 Record of young persons - the master is required to hold a record, as part of the List of Crew, of any young persons engaged as workers on the ship together with their dates of birth and date of engagement on the ship. A summary of the provisions of the Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Employment of Young Persons) Regulations 1998 must be included in the folder enclosing the list of crew.
 
-•
-5.3.3 The MCA have published a recommended format for the List of Young Persons. Alternatively ship or company versions may be produced providing they replicate the wording in the MCA recommended version.
+• 5.3.3 The MCA have published a recommended format for the List of Young Persons. Alternatively ship or company versions may be produced providing they replicate the wording in the MCA recommended version.
 
-•
-5.3.4 Further guidance for the well-being of young persons:
+• 5.3.4 Further guidance for the well-being of young persons:
 
-•
-if, after a seafarer under the age of 18 years has served on a ship for at least four months during their first foreign-going voyage, it becomes apparent that they are unsuited to life at sea, they should be given the opportunity of being repatriated at no expense to themselves from the first suitable port of call in which there are consular services of the flag State, or the State of nationality or residence of the young seafarer.
+• if, after a seafarer under the age of 18 years has served on a ship for at least four months during their first foreign-going voyage, it becomes apparent that they are unsuited to life at sea, they should be given the opportunity of being repatriated at no expense to themselves from the first suitable port of call in which there are consular services of the flag State, or the State of nationality or residence of the young seafarer.
 
-•
-further guidance on specific risks is available on the HSE website under ‘Risks to young people at work’.
+• further guidance on specific risks is available on the HSE website under ‘Risks to young people at work’.
 
 6. References to this notice in the Merchant Shipping (Maritime Labour Convention) (Minimum Requirements for Seafarers etc) Regulations 2014:
 
@@ -582,14 +534,11 @@ Guidance on the precautions for work in hot climates is given in section 3.7 of 
 
 Annex 2: Relevant agreements
 
-•
-A relevant agreement is defined in the Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Employment of Young Persons) Regulations 1998 as follows:
+• A relevant agreement is defined in the Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Employment of Young Persons) Regulations 1998 as follows:
 
-•
-“relevant agreement”, in relation to a worker, means a workforce agreement which applies to him, any provision of a collective agreement which forms part of a contract between him and his employer, or any other agreement in writing which is legally enforceable as between the worker and his employer.
+• “relevant agreement”, in relation to a worker, means a workforce agreement which applies to him, any provision of a collective agreement which forms part of a contract between him and his employer, or any other agreement in writing which is legally enforceable as between the worker and his employer.
 
-•
-“workforce agreement”, means an agreement between an employer and workers employed by him or their representatives in respect of which the conditions set out in the Schedule to the Working Time Regulations 1998 are satisfied.
+• “workforce agreement”, means an agreement between an employer and workers employed by him or their representatives in respect of which the conditions set out in the Schedule to the Working Time Regulations 1998 are satisfied.
 
 The following guidance describes workforce agreements as defined in the schedule.
 
@@ -601,41 +550,30 @@ As a first step, employers should determine at what level they wish to make an a
 
 To arrange the election of workforce representatives, the employer should:
 
-•
-decide on the number of representatives – this will depend on the size of the workforce or the group to be represented; it is suggested that the number be sufficiently large to be representative of the workers concerned, though not so large as to make negotiations unwieldy;
+• decide on the number of representatives – this will depend on the size of the workforce or the group to be represented; it is suggested that the number be sufficiently large to be representative of the workers concerned, though not so large as to make negotiations unwieldy;
 
-•
-ensure so far as is reasonably practicable that the elections must be conducted by secret ballot; in practice it would be rare for this not to be possible;
+• ensure so far as is reasonably practicable that the elections must be conducted by secret ballot; in practice it would be rare for this not to be possible;
 
-•
-ensure that the votes are counted fairly and accurately; the employer may wish to consider enlisting an independent body to verify this;
+• ensure that the votes are counted fairly and accurately; the employer may wish to consider enlisting an independent body to verify this;
 
-•
-allow each worker a vote for each representative to be elected to represent them; and
+• allow each worker a vote for each representative to be elected to represent them; and
 
-•
-ensure that candidates are members of the workforce on the date of the election, or, in the case of a group, a member of the group to whom the agreement is to apply.
+• ensure that candidates are members of the workforce on the date of the election, or, in the case of a group, a member of the group to whom the agreement is to apply.
 
 No member of the workforce should unreasonably be excluded from standing as a candidate.
 
 To be valid, a workforce agreement must:
 
-•
-be in writing
+• be in writing
 
-•
-have been circulated in draft to all workers to whom it applies together with guidance to assist their understanding of it;
+• have been circulated in draft to all workers to whom it applies together with guidance to assist their understanding of it;
 
-•
-be signed, before it comes into effect, either:
+• be signed, before it comes into effect, either:
 
-•
-by all the representatives of the members of the workforce or group of workers; or
+• by all the representatives of the members of the workforce or group of workers; or
 
-•
-if there are 20 workers or fewer employed by a company, either by all the representatives of the workforce or by a majority of the workforce;
+• if there are 20 workers or fewer employed by a company, either by all the representatives of the workforce or by a majority of the workforce;
 
-•
-have effect for no more than five years.
+• have effect for no more than five years.
 
 It will be possible for an elected representative to be elected for other purposes, for example as a safety representative under the MS and FV (Health and Safety at Work) Regulations 1997. However, it would have to be made clear to those voting that the representatives were being elected for both purposes.

@@ -1,4 +1,4 @@
-MGN 602 (M) MGN 602 (M) Amendment 1 MLC substantial equivalence for crew accommodation for 200GT to <500GT
+MGN 602 (M) Amendment 1 MLC substantial equivalence for crew accommodation for 200GT to <500GT
 2025-10-02
 Source: https://www.gov.uk/government/publications/mgn-602-m-amendment-1-mlc-substantial-equivalence-for-crew-accommodation-for-200gt-to-500gt
 
@@ -80,29 +80,21 @@ The purpose of this section is to implement substantially equivalent arrangement
 
 All workboats and other vessels of 200GT to less than 500GT shall comply with the seafarer accommodation requirements of the Maritime Labour Convention, 2006, transposed in the UK as the Merchant Shipping (Maritime Labour Convention) (Minimum Requirements for Seafarers, etc.) Regulations 2014 and MSN 1844(M), except as permitted below.
 
-•
-Sleeping rooms may be provided below the reference load line if it can be shown that compliance with Standard A3.1, paragraph 6(c) of the MLC (MSN 1844(M) paragraph 2.1(b)) would compromise the functionality, safety or stability of the ship.
+• Sleeping rooms may be provided below the reference load line if it can be shown that compliance with Standard A3.1, paragraph 6(c) of the MLC (MSN 1844(M) paragraph 2.1(b)) would compromise the functionality, safety or stability of the ship.
 
-•
-The floor of the sleeping room may be up to 2000 mm below the reference load line provided that:
+• The floor of the sleeping room may be up to 2000 mm below the reference load line provided that:
 
-•
-adequate continuous climate control is provided, partly aimed at controlling of condensation and moisture related odours;
+• adequate continuous climate control is provided, partly aimed at controlling of condensation and moisture related odours;
 
-•
-at least two adequate escape routes are present;
+• at least two adequate escape routes are present;
 
-•
-a bilge alarm which has its audible alarm in the watertight compartment of the sleeping room is available;
+• a bilge alarm which has its audible alarm in the watertight compartment of the sleeping room is available;
 
-•
-adequate, adjustable lighting is provided; the lack of daylight shall be compensated according to the needs of the seafarer;
+• adequate, adjustable lighting is provided; the lack of daylight shall be compensated according to the needs of the seafarer;
 
-•
-appropriate materials and colours for wall and floor coverings are applied, which provide improved space perception;
+• appropriate materials and colours for wall and floor coverings are applied, which provide improved space perception;
 
-•
-a minimum of 203 cm headroom in the accommodation must be provided. Further notes: The reference load line is defined as follows:
+• a minimum of 203 cm headroom in the accommodation must be provided. Further notes: The reference load line is defined as follows:
 
 Further notes: The reference load line is defined as follows:
 

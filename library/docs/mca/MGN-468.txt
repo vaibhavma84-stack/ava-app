@@ -1,4 +1,4 @@
-MGN 468 MGN 468 - Amendment 1 (M) - Voluntary Towage Endorsement Scheme
+MGN 468 - Amendment 1 (M) - Voluntary Towage Endorsement Scheme
 2023-05-11
 Source: https://www.gov.uk/government/publications/mgn-468-amendment-1-m-voluntary-towage-endorsement-scheme
 
@@ -24,17 +24,14 @@ required by the Port Marine Safety Code.
 
 Key points:
 
-•
-The towage endorsement scheme is voluntary and there is no statutory obligation to hold
+• The towage endorsement scheme is voluntary and there is no statutory obligation to hold
 a towage endorsement to work in the towage industry.
 
-•
-Voluntary towage endorsements are intended to be used in conjunction with an
+• Voluntary towage endorsements are intended to be used in conjunction with an
 appropriate Certificate of Competency (CoC) and are not in themselves a substitute for
 such a certificate.
 
-•
-There are three towage endorsements:
+• There are three towage endorsements:
 
 a. General Towage
 
@@ -42,8 +39,7 @@ b. Ship Assist Towage
 
 c. Sea Towage
 
-•
-The general towage endorsement will be accepted as meeting the competence standard
+• The general towage endorsement will be accepted as meeting the competence standard
 required for the issue of a ‘towing and pushing’ endorsement under the Boatmasters’
 Regulations [SI 2006 No. 3223 - The Merchant Shipping (Inland Waterway and Limited
 Coastal Operations) (Boatmasters’ Qualifications and Hours of Work) Regulations 2006].
@@ -153,11 +149,8 @@ Website Address: www.gov.uk/government/organisations/maritime-and-coastguard-age
 
 General Enquiries: infoline@mcga.gov.uk
 
-•
-The Voluntary Towage Endorsement Scheme is not intended to replace the BTA sponsored training or tug training route currently being developed by the MCA and our tug industry partners leading to the issue of a tug specific Certificate of Competence under STCW. ↩
+• The Voluntary Towage Endorsement Scheme is not intended to replace the BTA sponsored training or tug training route currently being developed by the MCA and our tug industry partners leading to the issue of a tug specific Certificate of Competence under STCW. ↩
 
-•
-Refer to MSN 1837 (M) Amendment 2– Categorisation of Waters. ↩
+• Refer to MSN 1837 (M) Amendment 2– Categorisation of Waters. ↩
 
-•
-Limited coastal area, as defined in the Boatmasters’ Regulations, means an area of the sea where the vessel is neither more than 15 miles (exclusive of waters of category A, B, C or D) from its point of departure nor more than 3 miles from land. ↩
+• Limited coastal area, as defined in the Boatmasters’ Regulations, means an area of the sea where the vessel is neither more than 15 miles (exclusive of waters of category A, B, C or D) from its point of departure nor more than 3 miles from land. ↩

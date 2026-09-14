@@ -1,4 +1,4 @@
-MGN 398 (M+F) MGN 398 (M+F) Amendment 1: The merchant shipping (anti-fouling systems) regulations 2024
+MGN 398 (M+F) Amendment 1: The merchant shipping (anti-fouling systems) regulations 2024
 2024-04-18
 Source: https://www.gov.uk/government/publications/mgn-398-mf-amendment-1-the-merchant-shipping-anti-fouling-systems-regulations-2024
 
@@ -145,26 +145,19 @@ Cancellation of Certificates
 
 6.2 However, the survey and certification regime set out in the 2024 Regulations does not apply to this category of ships.
 
-•
-6.3 For the purpose of ensuring that compliance with the 2024 Regulations can be checked, the UK Administration (MCA) has developed guidance for ships that are not subject to the survey and certificate regime i.e., fixed or floating platforms, FSUs or FPSOs.
+• 6.3 For the purpose of ensuring that compliance with the 2024 Regulations can be checked, the UK Administration (MCA) has developed guidance for ships that are not subject to the survey and certificate regime i.e., fixed or floating platforms, FSUs or FPSOs.
 
-•
-6.4 The following implementation regime applies to these ships regarding the prohibition of cybutryne:
+• 6.4 The following implementation regime applies to these ships regarding the prohibition of cybutryne:
 
-•
-a) Fixed or Floating Platforms, FSUs and FPSO’s constructed on or after 1 January 2023: these must either not bear an anti-fouling system containing cybutryne at all, or if they do, then they must have a barrier coating to prevent leaching. Contravention of this requirement is an offence under the 2024 Regulations.
+• a) Fixed or Floating Platforms, FSUs and FPSO’s constructed on or after 1 January 2023: these must either not bear an anti-fouling system containing cybutryne at all, or if they do, then they must have a barrier coating to prevent leaching. Contravention of this requirement is an offence under the 2024 Regulations.
 
-•
-b) Fixed or Floating Platforms, FSUs and FPSOs constructed before 1 January 2023 and which have been in dry dock on or after 1 January 2023: similarly, these must either not bear an anti-fouling system containing cybutryne at all, or if they do, then they must have a barrier coating to prevent the leaching; contravention of this requirement is an offence under the 2024 Regulations.
+• b) Fixed or Floating Platforms, FSUs and FPSOs constructed before 1 January 2023 and which have been in dry dock on or after 1 January 2023: similarly, these must either not bear an anti-fouling system containing cybutryne at all, or if they do, then they must have a barrier coating to prevent the leaching; contravention of this requirement is an offence under the 2024 Regulations.
 
-•
-c) Fixed or Floating Platforms, FSU’s and FPSO’s constructed before 1 January 2023 but which have not been in dry dock since that date: If the anti-fouling system containing cybutryne was applied or re-applied before the date the 2024 Regulations come into force, no offence is committed under the 2024 Regulations even if the ship is still bearing the compound as at that date. However, the MCA recommend that these ships do comply if and when it is reasonably practicable to do so.
+• c) Fixed or Floating Platforms, FSU’s and FPSO’s constructed before 1 January 2023 but which have not been in dry dock since that date: If the anti-fouling system containing cybutryne was applied or re-applied before the date the 2024 Regulations come into force, no offence is committed under the 2024 Regulations even if the ship is still bearing the compound as at that date. However, the MCA recommend that these ships do comply if and when it is reasonably practicable to do so.
 
-•
-d) All Fixed or Floating Platforms, FSU’s and FPSO’s which are not fixed to the sea bed e.g. drilling rigs on voyages are recommended to have some form of documentary evidence readily available on board in order to be able to demonstrate compliance with the 2024 Regulations from the date that the 2024 Regulations come into force.
+• d) All Fixed or Floating Platforms, FSU’s and FPSO’s which are not fixed to the sea bed e.g. drilling rigs on voyages are recommended to have some form of documentary evidence readily available on board in order to be able to demonstrate compliance with the 2024 Regulations from the date that the 2024 Regulations come into force.
 
-•
-e) If a Fixed or Floating Platform, FSU and FPSO still has an anti-fouling system containing cybutryne, then the owner or manager is advised to contact the MCA to discuss whether an Environmental Impact Assessment should be undertaken and what documentary evidence should be carried on board in order to be able to demonstrate compliance with the UK Regulations. This only applies to ships that fall into points A or B above and that have been repositioned after entering dry dock after 1 January 2023.
+• e) If a Fixed or Floating Platform, FSU and FPSO still has an anti-fouling system containing cybutryne, then the owner or manager is advised to contact the MCA to discuss whether an Environmental Impact Assessment should be undertaken and what documentary evidence should be carried on board in order to be able to demonstrate compliance with the UK Regulations. This only applies to ships that fall into points A or B above and that have been repositioned after entering dry dock after 1 January 2023.
 
 More information
 
@@ -184,11 +177,8 @@ Website: www.gov.uk/mca
 
 Please note that all addresses and telephone numbers are correct at time of publishing.
 
-•
-https://www.legislation.gov.uk/ukpga/1995/21/section/85 ↩
+• https://www.legislation.gov.uk/ukpga/1995/21/section/85 ↩
 
-•
-https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32003R0782 ↩
+• https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32003R0782 ↩
 
-•
-https://www.gov.uk/guidance/uk-authorised-recognised-organisations-ros ↩
+• https://www.gov.uk/guidance/uk-authorised-recognised-organisations-ros ↩

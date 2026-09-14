@@ -1,4 +1,4 @@
-MGN 683 (M+F) MGN 683 (M+F) IMO carbon reduction measures
+MGN 683 (M+F) IMO carbon reduction measures
 2023-04-03
 Source: https://www.gov.uk/government/publications/mgn-683-mf-imo-carbon-reduction-measures
 
@@ -36,85 +36,59 @@ This notice provides an overview of technical and operational measures to reduce
 
 1.9 The EEDI, EEXI and CII regimes generally apply to the following ship types:
 
-•
-bulk carriers;
+• bulk carriers;
 
-•
-combination carriers;
+• combination carriers;
 
-•
-containerships;
+• containerships;
 
-•
-cruise passenger ships;
+• cruise passenger ships;
 
-•
-gas carriers;
+• gas carriers;
 
-•
-general cargo ships;
+• general cargo ships;
 
-•
-LNG carriers;
+• LNG carriers;
 
-•
-refrigerated cargo carriers;
+• refrigerated cargo carriers;
 
-•
-ro-ro cargo ships;
+• ro-ro cargo ships;
 
-•
-ro-ro cargo ships (vehicle carriers);
+• ro-ro cargo ships (vehicle carriers);
 
-•
-ro-ro passenger ships;
+• ro-ro passenger ships;
 
-•
-tankers.
+• tankers.
 
 1.10 The IMO has developed a package of guidance associated with the measures that supports the implementation of the Energy Efficiency chapter of Annex VI including:
 
-•
-Resolution MEPC.212(63) – Guidelines on the method of calculation of the attained Energy Efficiency Design Index (EEDI) for new ships;
+• Resolution MEPC.212(63) – Guidelines on the method of calculation of the attained Energy Efficiency Design Index (EEDI) for new ships;
 
-•
-Resolution MEPC.346(78) - 2022 Guidelines for the development of a Ship Energy Efficiency Management Plan (SEEMP);
+• Resolution MEPC.346(78) - 2022 Guidelines for the development of a Ship Energy Efficiency Management Plan (SEEMP);
 
-•
-Resolution MEPC.365(79) – 2022 Guidelines on survey and certification of the Energy Efficiency Design Index (EEDI);
+• Resolution MEPC.365(79) – 2022 Guidelines on survey and certification of the Energy Efficiency Design Index (EEDI);
 
-•
-Resolution MEPC.231(65)– 2013 Guidelines for calculation of reference lines for use with the Energy Efficiency Design Index (EEDI);
+• Resolution MEPC.231(65)– 2013 Guidelines for calculation of reference lines for use with the Energy Efficiency Design Index (EEDI);
 
-•
-Resolution MEPC.364(79) – 2022 Guidelines on the method of calculation of the attained Energy Efficiency Design Index (EEDI) for new ships;
+• Resolution MEPC.364(79) – 2022 Guidelines on the method of calculation of the attained Energy Efficiency Design Index (EEDI) for new ships;
 
-•
-Resolution MEPC.350(78) – 2022 Guidelines on the method of calculation of the attained Energy Efficiency Existing Ship Index (EEXI);
+• Resolution MEPC.350(78) – 2022 Guidelines on the method of calculation of the attained Energy Efficiency Existing Ship Index (EEXI);
 
-•
-Resolution MEPC.351(78) - 2022 Guidelines on survey and certification of the Energy Efficiency Existing Ship Index (EEXI);
+• Resolution MEPC.351(78) - 2022 Guidelines on survey and certification of the Energy Efficiency Existing Ship Index (EEXI);
 
-•
-Resolution MEPC.335(76) 2021 Guidelines on the shaft / engine power limitation system to comply with the EEXI requirements and use of a power reserve;
+• Resolution MEPC.335(76) 2021 Guidelines on the shaft / engine power limitation system to comply with the EEXI requirements and use of a power reserve;
 
-•
-Resolution MEPC.352(78) - 2022 Guidelines on operational Carbon Intensity Indicators and the calculation methods (CII Guidelines, G1);
+• Resolution MEPC.352(78) - 2022 Guidelines on operational Carbon Intensity Indicators and the calculation methods (CII Guidelines, G1);
 
-•
-Resolution MEPC.353(78) - 2022 Guidelines on the reference lines for use with Operational Carbon Intensity Indicators (CII Reference Lines Guidelines, G2);
+• Resolution MEPC.353(78) - 2022 Guidelines on the reference lines for use with Operational Carbon Intensity Indicators (CII Reference Lines Guidelines, G2);
 
-•
-Resolution MEPC.338(76) - 2021 Guidelines on the Operational Carbon Intensity reduction factors relative to reference lines (CII Reduction Factors Guidelines, G3);
+• Resolution MEPC.338(76) - 2021 Guidelines on the Operational Carbon Intensity reduction factors relative to reference lines (CII Reduction Factors Guidelines, G3);
 
-•
-Resolution MEPC.354(78) - 2022 Guidelines on the Operational Carbon Intensity Rating of ships (CII Rating Guidelines, G4);
+• Resolution MEPC.354(78) - 2022 Guidelines on the Operational Carbon Intensity Rating of ships (CII Rating Guidelines, G4);
 
-•
-Resolution MEPC.355(78) - 2022 Interim Guidelines on correction factors and voyage adjustments for CII calculation (CII Guidelines, G5);
+• Resolution MEPC.355(78) - 2022 Interim Guidelines on correction factors and voyage adjustments for CII calculation (CII Guidelines, G5);
 
-•
-Resolution MEPC.348(78) – 2022 Guidelines for administration verification of ship Fuel Oil Consumption Data and Operational Carbon Intensity.
+• Resolution MEPC.348(78) – 2022 Guidelines for administration verification of ship Fuel Oil Consumption Data and Operational Carbon Intensity.
 
 All the above guidelines are available on the IMO website at Index of IMO Resolutions.
 
@@ -126,14 +100,11 @@ All the above guidelines are available on the IMO website at Index of IMO Resolu
 
 2.3 As per MARPOL Annex VI, a “new” ship is defined as a vessel:
 
-•
-for which the building contract is placed on or after 1 January 2013; or
+• for which the building contract is placed on or after 1 January 2013; or
 
-•
-in the absence of a building contract, the keel of which is laid or which is at a similar stage of construction on or after 1 July 2013; or
+• in the absence of a building contract, the keel of which is laid or which is at a similar stage of construction on or after 1 July 2013; or
 
-•
-the delivery of which is on or after 1 July 2015.
+• the delivery of which is on or after 1 July 2015.
 
 2.4 The EEDI requirements are generally applicable to all new ships of 400GT and above, of the relevant types, as well as existing ships which have undergone a major conversion that is so extensive that the ship is regarded by the Administration as a newly constructed ship.
 
