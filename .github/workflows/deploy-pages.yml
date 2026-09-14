@@ -49,7 +49,10 @@ jobs:
         # Ship only what the app needs; tests and tooling stay out of the deploy.
         run: |
           mkdir -p _site
-          cp index.html manifest.webmanifest sw.js _site/
+          # reset.html is the way out of a copy that will not update. It has to
+          # be here, at the root above /library/, or the Library's own worker
+          # answers for it from the cache that is the problem.
+          cp index.html reset.html manifest.webmanifest sw.js _site/
           cp -r css js fonts icons vendor _site/
           # Library is a second installable app served from /library/.
           mkdir -p _site/library
@@ -62,6 +65,19 @@ jobs:
           [ -d library/data ] && cp -r library/data _site/library/ || true
           # The documents themselves, for the flags whose hosts publish them.
           [ -d library/docs ] && cp -r library/docs _site/library/ || true
+          # This list is written by hand, so a new page is published only if
+          # someone remembers to add it here — and a deploy that quietly ships
+          # nothing new goes green exactly like one that works. Name the files
+          # the apps cannot do without and fail loudly if one is missing.
+          missing=
+          for f in index.html reset.html sw.js library/index.html library/sw.js library/version.json; do
+            [ -f "_site/$f" ] || missing="$missing $f"
+          done
+          if [ -n "$missing" ]; then
+            echo "Not staged:$missing" >&2
+            exit 1
+          fi
+
           echo "Deploying:" && find _site -type f | sort
 
       - uses: actions/upload-pages-artifact@v3
