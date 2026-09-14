@@ -978,9 +978,9 @@ try {
     notices: [
       { title: 'PORT MARINE CIRCULAR NO. 01 OF 2026 List of active port marine circulars',
         refNo: 'PC 01/2026', docType: 'Port Marine Circular', date: '2026-01-05',
-        sourceUrl: 'https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-01-of-2026',
-        // The mirror holds this one's document; the other's it does not.
-        file: 'docs/singapore/PC-01-2026.pdf' },
+        // No file path here on purpose: a list says what exists, never what
+        // this site keeps. Where the documents are is published separately.
+        sourceUrl: 'https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-01-of-2026' },
       { title: 'Shipping Circular No. 9 of 2025 Ballast water management',
         refNo: 'SC 09/2025', docType: 'Shipping Circular', date: '2025-09-09',
         sourceUrl: 'https://www.mpa.gov.sg/docs/mpalibraries/circulars-and-notices/sc25-09.pdf' },
@@ -989,8 +989,7 @@ try {
       // to take them, read them and show them like anything else.
       { title: 'Port Marine Notice No. 44 of 2026 Bunkering in the western anchorage',
         refNo: 'PN 44/2026', docType: 'Port Marine Notice', date: '2026-03-02',
-        sourceUrl: 'https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-44-of-2026',
-        file: 'docs/singapore/PN-44-2026.txt' }
+        sourceUrl: 'https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-44-of-2026' }
     ]
   };
   // Served as a real file rather than stubbed: the mirror is same-origin, so
@@ -998,6 +997,19 @@ try {
   // suite writes it, then puts back whatever was there before.
   fs.mkdirSync(MIRROR_DIR, { recursive: true });
   fs.writeFileSync(MIRROR_FILE, JSON.stringify(SG_MIRROR));
+  // What the site holds, published apart from the list. This is the only
+  // thing that knows: the notice lists come from the administrations, which
+  // have no idea what this site keeps a copy of.
+  fs.writeFileSync(path.join(MIRROR_DIR, 'singapore-files.json'), JSON.stringify({
+    administration: 'Singapore',
+    urlPrefix: 'https://www.mpa.gov.sg/',
+    filePrefix: 'docs/singapore/',
+    held: 2, listed: 3,
+    files: {
+      'media-centre/details/port-marine-circular-no.-01-of-2026': 'PC-01-2026.pdf',
+      'media-centre/details/port-marine-notice-no.-44-of-2026': 'PN-44-2026.txt'
+    }
+  }));
   // MCA and Panama reach their mirror only once every live route has failed,
   // which is what the refusal cases below arrange. Empty ones there keep those
   // cases about the live routes rather than about this file — and the real
@@ -1044,6 +1056,12 @@ try {
   page.off('request', sgWatch);
   const sgRun = await page.locator(`${panel} .sync-result`).innerText();
   check('Singapore files what its listing names', /Singapore: 3 new/.test(sgRun), sgRun);
+  // The fault this fixes: a list read from the administration knows nothing
+  // about what this site holds, so without this step not one notice could ever
+  // be told to fetch its document — and updating the list again would not have
+  // helped, because the list was never the thing that knew.
+  check('and the notices are told where their documents are',
+    /2 now know where their document is/.test(sgRun), sgRun);
 
   const sgCards = await page.locator('.card').allInnerTexts();
   check('a spelt-out Singapore reference is parsed',
@@ -1223,11 +1241,8 @@ try {
   await page.locator('.card', { hasText: 'MGN 718' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
   const staleNote = await page.locator('#detailBody').innerText();
-  check('a notice filed before its document is told to update the list',
-    /Update the list from the administration first/i.test(staleNote),
-    staleNote.slice(0, 400).replace(/\n/g, ' / '));
-  check('and is not told outright that no document exists',
-    !/^[\s\S]*there is nothing to download\./.test(staleNote.split('Update the list')[0]),
+  check('a notice the site holds nothing for says so plainly',
+    /Nothing is held on the site for this one/i.test(staleNote),
     staleNote.slice(0, 400).replace(/\n/g, ' / '));
   await closeDetail();
   await page.evaluate(async () => {

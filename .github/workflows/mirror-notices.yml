@@ -62,6 +62,11 @@ jobs:
       - name: Fetch Panama's documents
         run: node tools/mirror-docs.mjs --budget=250 --only=Panama
 
+      - name: Say what the site holds
+        # Written from the catalogues, so it is right even on a run that
+        # fetched nothing new.
+        run: node tools/write-file-index.mjs
+
       - name: Commit anything that changed
         # A source that gave nothing leaves its file alone, so a quiet week is
         # simply no commit — and no commit means no deploy.

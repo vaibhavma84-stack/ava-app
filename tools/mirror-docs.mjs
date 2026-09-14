@@ -18,6 +18,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { indexFor } from './write-file-index.mjs';
 
 const DATA = 'library/data';
 const DOCS = 'library/docs';
@@ -324,6 +325,12 @@ async function run() {
         + (dropped ? ` — ${dropped} previously fetched file removed` : ''));
       if (unresolved) console.log(`  ${unresolved} had nothing to fetch at all`);
       if (changed) writeFileSync(catalogue, JSON.stringify(data, null, 1) + '\n');
+      // Published every run, changed or not: the phone reads this rather than
+      // the whole catalogue to learn where the documents are, and it must not
+      // be allowed to fall behind what is actually on disk.
+      const index = indexFor(data);
+      writeFileSync(join(DATA, `${admin.toLowerCase()}-files.json`), JSON.stringify(index) + '\n');
+      console.log(`  index: ${index.held} of ${index.listed} held`);
     }
   }
 }

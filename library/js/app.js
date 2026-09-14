@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.06';
+const APP_VERSION = '2026.10.07';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -520,7 +520,7 @@ function documentPanel() {
   if (!anyHeld) {
     if (!store.itemsOfType('flag').some((i) => i.data.flagState)) return null;
     panel.append(el('p', { class: 'hint', text:
-      'None of the notices filed here knows where its document is. That is what a list filed before the documents existed looks like — update the list above and they will.' }));
+      'None of the notices filed here knows where its document is yet. Update the list above once and they will — that read also asks the site which documents it holds.' }));
     return panel;
   }
   if (!outstanding) {
@@ -624,6 +624,47 @@ async function syncAll(button, out) {
 }
 
 /** Run one administration's fetch, reporting whatever actually happened. */
+/**
+ * Tell each notice where its document is.
+ *
+ * The lists and the documents come from different places. MCA's list is read
+ * live from GOV.UK, which is the right source for it — but GOV.UK has no idea
+ * where a copy sits on this site, so a list fetched from it leaves every
+ * notice unable to say where its document is. Updating the list again could
+ * never fix that: the list was never the thing that knew.
+ *
+ * The site publishes the answer separately, keyed by source URL — the one
+ * field every list carries whichever source it came from. Small: tens of
+ * kilobytes against the hundred-odd megabytes of documents it points at.
+ */
+async function applyFileIndex(admin) {
+  const url = new URL(`../data/${admin.toLowerCase()}-files.json`, import.meta.url);
+  url.searchParams.set('asked', Date.now());   // never a stale answer from the cache
+  let index;
+  try {
+    const r = await fetch(url.href, { cache: 'reload' });
+    if (!r.ok) return 0;
+    index = await r.json();
+  } catch { return 0; }
+  if (!index?.files) return 0;
+
+  let told = 0;
+  for (const item of store.itemsOfType('flag')) {
+    if (item.data.flagState !== admin) continue;
+    const source = item.data.sourceUrl || '';
+    if (!source.startsWith(index.urlPrefix || '')) continue;
+    const name = index.files[source.slice((index.urlPrefix || '').length)];
+    if (!name) continue;
+    const held = `${index.filePrefix || ''}${name}`;
+    if (item.data.mirrorFile === held) continue;
+    await store.saveItem({
+      id: item.id, type: item.type, data: { ...item.data, mirrorFile: held }
+    });
+    told++;
+  }
+  return told;
+}
+
 async function syncAdmin(admin, button, out) {
   const label = button.textContent;
   button.disabled = true;
@@ -633,12 +674,18 @@ async function syncAdmin(admin, button, out) {
   try {
     const { notices, failed } = await fetchNotices(admin);
     const summary = await mergeNotices(notices, admin);
+    // Whichever source the list came from, the documents are on this site, and
+    // only this site knows where. Done here rather than left to the user,
+    // because a notice that cannot say where its document is simply never
+    // offers it and gives no hint why.
+    const told = await applyFileIndex(admin);
     // A partial result is still a result: file what came back, and say plainly
     // which classes of document did not.
     const missed = failed.length ? ` Could not read: ${failed.join('; ')}.` : '';
     view.lastSync = {
       ok: true,
-      text: `${admin}: ${summary.added} new, ${summary.updated} updated, ${summary.unchanged} already held.${missed}`
+      text: `${admin}: ${summary.added} new, ${summary.updated} updated, ${summary.unchanged} already held.`
+        + (told ? ` ${told} now know where their document is.` : '') + missed
     };
     render();   // redraws the list, and the panel with the summary in it
   } catch (ex) {
@@ -985,7 +1032,7 @@ function openDetail(id) {
         ? 'MINs are listed and numbered here but never downloaded, as you asked. The link below opens it at the administration, which needs a connection.'
         : singapore
           ? 'Singapore publishes its circulars as pages rather than files, and they are not mirrored yet. The link below opens it at the administration, which needs a connection.'
-          : 'Update the list from the administration first: a notice filed here before its document was available carries no document, and updating brings it in. If it still says this afterwards, the administration publishes this one as a spreadsheet or a page and there is nothing to download.' })
+          : 'Nothing is held on the site for this one — the administration publishes it as a spreadsheet or a page rather than a document. The link below opens it at the administration, which needs a connection.' })
     ]));
   }
 
