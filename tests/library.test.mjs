@@ -32,7 +32,16 @@ const APP_VERSION_IN_SOURCE =
 
 const MIRROR_DIR = path.join(ROOT, 'library', 'data');
 const MIRROR_FILE = path.join(MIRROR_DIR, 'singapore.json');
-const mirrorBefore = new Map(['mca.json', 'panama.json', 'singapore.json'].map((name) => {
+// Every mirrored file this suite writes over, snapshotted so the real ones
+// come back. The index files were added to the suite without being added here,
+// and a test run quietly replaced the real Singapore index — 552 documents'
+// worth of addresses — with a fixture holding two. It was committed before
+// anyone looked. Anything the suite writes into library/data belongs on this
+// list.
+const mirrorBefore = new Map([
+  'mca.json', 'panama.json', 'singapore.json',
+  'mca-files.json', 'panama-files.json', 'singapore-files.json'
+].map((name) => {
   const file = path.join(MIRROR_DIR, name);
   return [file, fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null];
 }));
@@ -1005,9 +1014,12 @@ try {
     urlPrefix: 'https://www.mpa.gov.sg/',
     filePrefix: 'docs/singapore/',
     held: 2, listed: 3,
+    // Named so they cannot collide with a real mirrored document. They did:
+    // the fixture wrote PC-01-2026.pdf, which is exactly what the mirror calls
+    // Singapore's own PC 01/2026, and the cleanup then deleted the real one.
     files: {
-      'media-centre/details/port-marine-circular-no.-01-of-2026': 'PC-01-2026.pdf',
-      'media-centre/details/port-marine-notice-no.-44-of-2026': 'PN-44-2026.txt'
+      'media-centre/details/port-marine-circular-no.-01-of-2026': 'TEST-FIXTURE-PC-01-2026.pdf',
+      'media-centre/details/port-marine-notice-no.-44-of-2026': 'TEST-FIXTURE-PN-44-2026.txt'
     }
   }));
   // MCA and Panama reach their mirror only once every live route has failed,
@@ -1095,8 +1107,8 @@ try {
   // the whole directory would take that with it every time the tests run.
   const docsRoot = path.join(ROOT, 'library', 'docs');
   const docsDir = path.join(docsRoot, 'singapore');
-  const docFile = path.join(docsDir, 'PC-01-2026.pdf');
-  const docText = path.join(docsDir, 'PN-44-2026.txt');
+  const docFile = path.join(docsDir, 'TEST-FIXTURE-PC-01-2026.pdf');
+  const docText = path.join(docsDir, 'TEST-FIXTURE-PN-44-2026.txt');
   const madeRoot = !fs.existsSync(docsRoot);
   const madeDir = !fs.existsSync(docsDir);
   fs.mkdirSync(docsDir, { recursive: true });
@@ -1150,6 +1162,9 @@ try {
   await page.waitForSelector('#detail:not([hidden])');
   const withDoc = await page.locator('#detailBody').innerText();
   check('the document is attached to its notice', /\.pdf/i.test(withDoc), withDoc.slice(0, 200));
+  // The fixture's own file, not a real mirrored one that happens to share a name.
+  check('and it is the fixture\u2019s own file',
+    /TEST-FIXTURE/.test(withDoc), withDoc.slice(0, 240).replace(/\n/g, ' / '));
   await closeDetail();
 
   // The text is the point: a document held but unread cannot be found again.
