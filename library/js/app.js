@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.01';
+const APP_VERSION = '2026.10.02';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -729,14 +729,25 @@ function emptyState(title, text) {
 function cardFor(item, snippets, matchInfo) {
   const def = TYPES[item.type];
   const title = item.data[def.titleKey] || 'Untitled';
-  const sub = (def.listFields || []).map((k) => item.data[k]).filter(Boolean).join(' · ');
   const atts = item.data.attachments || [];
+
+  // A circular is read by what kind it is and what number it carries — "Fleet
+  // Alert 032/2026" is how one is asked for and how it is filed. That goes
+  // above the subject rather than under it with the rest of the small print.
+  const circular = item.type === 'circular';
+  const kind = circular
+    ? [item.data.category, item.data.refNo].filter(Boolean).join(' \u2014 ')
+    : '';
+  const sub = circular
+    ? ''
+    : (def.listFields || []).map((k) => item.data[k]).filter(Boolean).join(' \u00b7 ');
 
   const rev = def.tracksRevision ? revisionStatus(item.data) : null;
   const card = el('article', {
     class: 'card' + (rev && rev.state !== 'ok' ? ' due' : ''),
     onclick: () => openDetail(item.id)
   }, [
+    kind ? el('p', { class: 'card-kind', text: kind }) : null,
     el('div', { class: 'card-head' }, [
       el('h2', { class: 'card-title', text: title }),
       rev ? el('span', {
@@ -760,11 +771,18 @@ function cardFor(item, snippets, matchInfo) {
       dcell('Edition', item.data.edition || '—', !item.data.edition)
     ]));
   }
-  if ((item.type === 'circular' || item.type === 'notice') && item.data.date) {
+  // The date and who sent it, side by side under the subject. The category is
+  // no longer repeated here: it is the first thing on the card now.
+  if (circular && (item.data.date || item.data.issuer)) {
+    card.append(el('div', { class: 'dgrid' }, [
+      dcell('Date', item.data.date ? displayDate(item.data.date) : '—', !item.data.date),
+      dcell('Issued by', item.data.issuer || '—', !item.data.issuer)
+    ]));
+  }
+  if (item.type === 'notice' && item.data.date) {
     card.append(el('div', { class: 'dgrid' }, [
       dcell('Date', displayDate(item.data.date)),
-      dcell(item.type === 'notice' ? 'Source' : 'Category',
-        item.data[item.type === 'notice' ? 'source' : 'category'] || '—')
+      dcell('Source', item.data.source || '—')
     ]));
   }
 
@@ -797,7 +815,10 @@ function matchList(item, snippets, info) {
         // Tapping a hit opens the document at that page rather than page one.
         onclick: (e) => { e.stopPropagation(); if (att) openAttachment(att, snip.page); }
       }, [
-        el('span', { class: 'snippet-page', text: `${snip.file} · page ${snip.page}` })
+        // Said plainly, because a word read out of a diagram is a guess in a
+        // way the document's own text is not.
+        el('span', { class: 'snippet-page',
+          text: `${snip.file} · page ${snip.page}${snip.inPicture ? ' · in a picture' : ''}` })
       ]);
       // Built from text nodes, so a document's own words cannot become markup.
       for (const part of snip.parts) {
@@ -926,6 +947,12 @@ function openDetail(id) {
   $('#detailBody').scrollTop = 0;
 }
 
+/** A picture in its own right: a photograph, a screenshot, a scanned diagram. */
+function isImage(att) {
+  return /^image\//i.test(att.type || '')
+    || /\.(jpe?g|png|heic|heif|webp|gif|bmp|tiff?)$/i.test(att.name || '');
+}
+
 function textStatusOf(att) {
   // Older records predate textStatus and only carry a page count.
   if (att.textStatus) return att.textStatus;
@@ -964,6 +991,18 @@ function attachmentRow(att, onRemove) {
       el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => openAttachment(att) }, ['Open'])]),
       el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => shareAttachment(att) }, ['Save to Files'])])
     ]));
+    if (isImage(att)) {
+      if (state !== STATUS.INDEXED) {
+        row.append(el('button', {
+          class: 'btn btn-sm btn-block', style: 'margin-top:8px',
+          onclick: (e) => readPicture(att, e.target)
+        }, ['Read the words in this picture']));
+        row.append(el('p', { class: 'hint', style: 'margin-top:6px',
+          text: 'Reads any words printed in the photograph — a nameplate, a label, a diagram — so they can be searched. The reader is about 7 MB the first time and then works offline.' }));
+      }
+      return row;
+    }
+
     if (state !== STATUS.INDEXED) {
       row.append(el('button', {
         class: 'btn btn-sm btn-block', style: 'margin-top:8px',
@@ -999,6 +1038,25 @@ function attachmentRow(att, onRemove) {
         text: total
           ? `Reads every page so all of it can be searched. ${total} pages at a few seconds each — it can be stopped at any point and picked up where it left off.`
           : 'Reads every page so all of it can be searched. A few seconds a page — it can be stopped at any point and picked up where it left off.' }));
+    }
+
+    // A PDF can have every word of its text and still hide words in its
+    // pictures: the labels on a diagram, a scanned form pasted into a page, the
+    // writing in a photograph. Those are drawn, not typed, so extraction never
+    // saw them and no amount of re-reading the text will find them.
+    //
+    // Offered rather than done: it costs the reader download and a few seconds
+    // a page, and most documents do not need it.
+    const picturesDone = (att.picturesTo || 0) > 0
+      && att.picturesTo >= (att.pageCount || 1);
+    if (state === STATUS.INDEXED && !picturesDone) {
+      const done = att.picturesTo || 0;
+      row.append(el('button', {
+        class: 'btn btn-sm btn-block', style: 'margin-top:8px',
+        onclick: (e) => readWholeScan(att, e.target, { into: 'pictures' })
+      }, [done ? `Read the rest of the pictures — from page ${done + 1}` : 'Read the pictures and diagrams too']));
+      row.append(el('p', { class: 'hint', style: 'margin-top:6px',
+        text: 'The text of this document is already searchable. This reads the words inside its pictures as well — labels on a diagram, writing in a photograph — which are not in the text. It can be stopped at any point.' }));
     }
   }
   return row;
@@ -1069,6 +1127,48 @@ async function readScan(att, button) {
 }
 
 /**
+ * Read the words in a photograph.
+ *
+ * One image, so there is nothing to resume and nothing to stop — it is over in
+ * a few seconds. What it finds is stored as that file's text, which puts a
+ * photograph of a nameplate or a diagram into the search alongside the
+ * documents.
+ */
+async function readPicture(att, button) {
+  const label = button.textContent;
+  button.disabled = true;
+  const note = el('p', { class: 'hint', style: 'margin-top:6px', text: 'Starting\u2026' });
+  button.after(note);
+
+  try {
+    const { readImage } = await import('./ocr.js');
+    const blob = await store.readFile(att);
+    const result = await readImage(blob, { onProgress: (said) => { note.textContent = said; } });
+
+    if (!result.ok) {
+      toast('No words could be made out in this picture');
+      return;
+    }
+    await store.storeText(att.id, [{ page: 1, text: result.text }]);
+
+    const item = store.getItem(view.detailId);
+    if (!item) { toast('Read the picture'); return; }
+    const next = (item.data.attachments || []).map((a) => a.id === att.id
+      ? { ...a, textPages: 1, pageCount: 1, readTo: 1, textStatus: STATUS.INDEXED, textError: '' }
+      : a);
+    await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, attachments: next } });
+    openDetail(item.id);
+    toast('Read the picture — its words are searchable now');
+  } catch (ex) {
+    toast(`Could not read it: ${ex.message}`);
+  } finally {
+    note.remove();
+    button.disabled = false;
+    button.textContent = label;
+  }
+}
+
+/**
  * Read every page of a scan, and keep each one as it is read.
  *
  * A manual is an evening's work at a few seconds a page, so the one thing this
@@ -1077,7 +1177,12 @@ async function readScan(att, button) {
  * and the button afterwards says where it will resume from. Closing the app
  * mid-read costs the page in progress and nothing more.
  */
-async function readWholeScan(att, button) {
+async function readWholeScan(att, button, { into = 'text' } = {}) {
+  // 'text' is a scan with no words in it at all. 'pictures' is a PDF that has
+  // its text but whose diagrams and photographs carry words of their own —
+  // drawn rather than typed, so extraction never saw them. Same walk over the
+  // pages, kept in a different place, so one never overwrites the other.
+  const mark = into === 'pictures' ? 'picturesTo' : 'readTo';
   const label = button.textContent;
   button.disabled = true;
 
@@ -1095,8 +1200,8 @@ async function readWholeScan(att, button) {
   // itself instead of being filed twice. A duplicated page is an index that
   // matches the same words in two places and reports the wrong count.
   const held = new Map((texts.get(att.id) || []).map((p) => [p.page, p]));
-  const from = (att.readTo || 0) + 1;
-  let lastKept = att.readTo || 0;
+  const from = (att[mark] || 0) + 1;
+  let lastKept = att[mark] || 0;
 
   const keep = async (upTo) => {
     const pages = [...held.values()].sort((a, b) => a.page - b.page);
@@ -1105,7 +1210,7 @@ async function readWholeScan(att, button) {
     const item = store.getItem(view.detailId);
     if (!item) return;
     const next = (item.data.attachments || []).map((a) => a.id === att.id
-      ? { ...a, textPages: held.size, readTo: upTo, textStatus: STATUS.INDEXED, scanned: false }
+      ? { ...a, textPages: held.size, [mark]: upTo, textStatus: STATUS.INDEXED, scanned: false }
       : a);
     await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, attachments: next } });
   };
@@ -1118,7 +1223,10 @@ async function readWholeScan(att, button) {
       shouldStop: () => stopped,
       onProgress: (said) => { note.textContent = said; },
       onPage: async ({ page, text }) => {
-        held.set(page, { page, text });
+        // Whichever half this run is filling, the other half of the page is
+        // kept exactly as it was.
+        const had = held.get(page) || { page, text: '' };
+        held.set(page, into === 'pictures' ? { ...had, pictures: text } : { ...had, text });
         // Kept as it goes, not at the end: the end may never come.
         await keep(page);
         if (att.pageCount) bar.firstChild.style.width = `${Math.round((page / att.pageCount) * 100)}%`;
@@ -1131,9 +1239,11 @@ async function readWholeScan(att, button) {
     else if (walked.lastPage > lastKept) await keep(walked.lastPage);
 
     openDetail(view.detailId);
+    const what = into === 'pictures' ? 'the pictures on ' : '';
     toast(walked.stopped
       ? `Stopped at page ${lastKept} of ${walked.pageCount} — what was read is kept`
-      : `Read all ${walked.pageCount} pages${walked.blank ? ` — ${walked.blank} had nothing on them` : ''}`);
+      : `Read ${what}all ${walked.pageCount} pages${walked.blank
+          ? ` — ${walked.blank} had ${into === 'pictures' ? 'no words in their pictures' : 'nothing on them'}` : ''}`);
   } catch (ex) {
     toast(`Could not read it: ${ex.message}`);
   } finally {

@@ -116,19 +116,45 @@ export function search(query, items, texts, { type = null, perPage = 2 } = {}) {
       for (const att of item.data?.attachments || []) {
         const pages = texts.get(att.id);
         if (!pages) continue;
-        for (const { page, text } of pages) {
+        for (const { page, text, pictures } of pages) {
           const lower = text.toLowerCase();
           const present = words.filter((w) => lower.includes(w));
-          if (!present.length) continue;
-          present.forEach((w) => contentWords.add(w));
+          if (present.length) {
+            present.forEach((w) => contentWords.add(w));
 
-          const positions = hitPositions(text, words);
-          matchCount += positions.length;
-          pagesWithHits++;
-          // A page mentioning a term twenty times does not need twenty
-          // snippets; a couple shows the context and the rest is noise.
-          for (const at of positions.slice(0, perPage)) {
-            snippets.push({ attachmentId: att.id, file: att.name, page, parts: snippetAt(text, at, words) });
+            const positions = hitPositions(text, words);
+            matchCount += positions.length;
+            pagesWithHits++;
+            // A page mentioning a term twenty times does not need twenty
+            // snippets; a couple shows the context and the rest is noise.
+            for (const at of positions.slice(0, perPage)) {
+              snippets.push({ attachmentId: att.id, file: att.name, page, parts: snippetAt(text, at, words) });
+            }
+          }
+
+          // Words read out of the pictures on the page — the labels on a
+          // diagram, the text in a photograph — which the page's own text
+          // layer never held.
+          //
+          // Only terms the text layer does not already have. Reading a page as
+          // a picture reads all of it, body text included, so counting both
+          // would report every ordinary word twice and show the same sentence
+          // in two snippets. What is genuinely new here is what was drawn
+          // rather than typed.
+          if (!pictures) continue;
+          const inPicture = pictures.toLowerCase();
+          const only = words.filter((w) => inPicture.includes(w) && !lower.includes(w));
+          if (!only.length) continue;
+          only.forEach((w) => contentWords.add(w));
+
+          const found = hitPositions(pictures, only);
+          matchCount += found.length;
+          if (!present.length) pagesWithHits++;
+          for (const at of found.slice(0, perPage)) {
+            snippets.push({
+              attachmentId: att.id, file: att.name, page,
+              inPicture: true, parts: snippetAt(pictures, at, only)
+            });
           }
         }
       }

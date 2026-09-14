@@ -185,6 +185,12 @@ select.field {
   margin: 0; flex: 1; min-width: 0; overflow-wrap: anywhere; color: var(--text);
 }
 .card-sub { color: var(--text-dim); font-size: 13px; margin: 3px 0 0; overflow-wrap: anywhere; }
+/* What kind of circular it is and its number, above the subject. */
+.card-kind {
+  font-family: var(--display); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--copper-bright);
+  margin: 0 0 5px; overflow-wrap: anywhere;
+}
 .dgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px 10px; margin-top: 9px; }
 .dcell { min-width: 0; }
 .dkey { font-family: var(--display); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 1px; }

@@ -223,6 +223,61 @@ const SCAN_PATH = path.join(tmp, 'L-001 Operational Manual.pdf');
   await maker.close();
 }
 
+// A PDF that is not a scan: its text is real and selectable, and it also
+// carries a diagram. The label on the diagram is drawn into the picture, so it
+// is pixels — exactly like a P&ID or a general arrangement, where the words
+// that matter most are the ones printed on the drawing. Extraction gets the
+// prose and cannot get the label, which is the whole point of this fixture.
+const DIAGRAM_PATH = path.join(tmp, 'Hydraulic System Overview.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent('<canvas id="c" width="900" height="500"></canvas>', { waitUntil: 'load' });
+  const drawing = await maker.evaluate(() => {
+    const ctx = document.getElementById('c').getContext('2d');
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, 900, 500);
+    ctx.strokeStyle = '#000'; ctx.lineWidth = 6;
+    ctx.strokeRect(60, 120, 780, 260);
+    ctx.fillStyle = '#000';
+    ctx.font = 'bold 58px Helvetica, Arial, sans-serif';
+    ctx.fillText('STARBOARD BILGE VALVE', 90, 230);
+    ctx.font = 'bold 48px Helvetica, Arial, sans-serif';
+    ctx.fillText('MANIFOLD 47B', 90, 320);
+    return document.getElementById('c').toDataURL('image/png');
+  });
+  await maker.setContent(
+    `<style>@page{size:A4;margin:24px}body{font:16px Helvetica,Arial,sans-serif}`
+    + `img{width:100%;display:block;margin-top:18px}</style>`
+    + `<h1>Hydraulic System Overview</h1>`
+    + `<p>This section describes the hydraulic power pack and its distribution`
+    + ` to the deck machinery. Isolation procedures are given in section four.</p>`
+    + `<img src="${drawing}">`,
+    { waitUntil: 'load' });
+  await maker.pdf({ path: DIAGRAM_PATH, format: 'A4' });
+  await maker.close();
+}
+
+// A photograph attached on its own — a nameplate, the sort of thing that gets
+// taken on a phone and dropped into an entry. Not a PDF at all, so nothing was
+// ever read out of it.
+const PHOTO_PATH = path.join(tmp, 'Emergency generator plate.png');
+{
+  const maker = await browser.newPage();
+  await maker.setContent('<canvas id="c" width="900" height="520"></canvas>', { waitUntil: 'load' });
+  const png = await maker.evaluate(() => {
+    const ctx = document.getElementById('c').getContext('2d');
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, 900, 520);
+    ctx.fillStyle = '#000';
+    ctx.font = 'bold 62px Helvetica, Arial, sans-serif';
+    ctx.fillText('NAMEPLATE', 70, 160);
+    ctx.font = 'bold 52px Helvetica, Arial, sans-serif';
+    ctx.fillText('SERIAL 8842', 70, 270);
+    ctx.fillText('RATING 440V', 70, 380);
+    return document.getElementById('c').toDataURL('image/png').split(',')[1];
+  });
+  fs.writeFileSync(PHOTO_PATH, Buffer.from(png, 'base64'));
+  await maker.close();
+}
+
 const context = await browser.newContext({ ...devices['iPhone 13'], serviceWorkers: 'allow' });
 const page = await context.newPage();
 const errors = [];
@@ -1220,6 +1275,117 @@ try {
   await page.click('#editorCancel');
   await page.waitForTimeout(200);
 
+  // ── words that were drawn rather than typed ──────────────────────────────
+  console.log('\nPictures and diagrams');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card', { hasText: 'Manuals' }).click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await page.setInputFiles('#filePicker', DIAGRAM_PATH);
+  await page.waitForSelector('#editorBody .attach', { timeout: 25000 });
+  await set('title', 'Hydraulic System Overview');
+  await save();
+
+  await page.locator('.card', { hasText: 'Hydraulic System Overview' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const diagramDetail = await page.locator('#detailBody').innerText();
+  check('a PDF with real text is indexed as usual',
+    /pages indexed/i.test(diagramDetail), diagramDetail.replace(/\n/g, ' / ').slice(0, 160));
+  check('and is offered the reading of its pictures',
+    /Read the pictures and diagrams too/i.test(diagramDetail),
+    diagramDetail.replace(/\n/g, ' / ').slice(0, 300));
+  await closeDetail();
+
+  // The prose is findable from the start; the label on the drawing is not,
+  // because it is pixels.
+  await page.fill('#search', 'deck machinery');
+  await page.waitForTimeout(900);
+  check('its typed text is searchable straight away',
+    await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  await page.fill('#search', 'bilge');
+  await page.waitForTimeout(900);
+  check('but a word printed on the diagram is not found yet',
+    await page.locator('.card').count() === 0, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  await page.locator('.card', { hasText: 'Hydraulic System Overview' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailBody button:has-text("Read the pictures and diagrams too")');
+  await page.locator('.toast', { hasText: /Read the pictures on|Stopped at|Could not/ })
+    .waitFor({ timeout: 240000 });
+  const pictureRead = await page.locator('.toast', { hasText: /Read the pictures on|Stopped at|Could not/ }).innerText();
+  check('the pictures are read', /Read the pictures on all/.test(pictureRead), pictureRead);
+  await page.waitForTimeout(800);
+  await closeDetail();
+
+  await page.fill('#search', 'bilge');
+  await page.waitForTimeout(900);
+  check('now the word on the diagram finds the document',
+    await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
+  const pictureHit = await page.locator('.snippet-page').first().innerText();
+  check('and the result says it came from a picture',
+    /in a picture/i.test(pictureHit), pictureHit);
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // Reading the pictures must not cost the text that was already there.
+  await page.fill('#search', 'deck machinery');
+  await page.waitForTimeout(900);
+  check('the document text still matches afterwards',
+    await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // Reading the whole page reads the prose too, but the prose is already
+  // indexed — counting both would report every ordinary word twice.
+  const doubleCounted = await page.evaluate(async () => {
+    const [{ search }, store] = await Promise.all([
+      import('./js/search.js'), import('./js/store.js')
+    ]);
+    const texts = await store.loadTexts();
+    const hits = search('hydraulic', store.allItems(), texts);
+    const found = hits.find((h) => /Hydraulic System Overview/.test(h.item.data.title));
+    return found ? found.snippets.filter((s) => s.inPicture).length : -1;
+  });
+  check('a word already in the text is not counted again from the picture',
+    doubleCounted === 0, `picture snippets for a word in the text: ${doubleCounted}`);
+
+  // A photograph attached on its own.
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'Emergency Generator');
+  await page.setInputFiles('#filePicker', PHOTO_PATH);
+  await page.waitForTimeout(1200);
+  await save();
+  await page.locator('.card', { hasText: 'Emergency Generator' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const photoDetail = await page.locator('#detailBody').innerText();
+  check('a photograph is offered its own reading',
+    /Read the words in this picture/i.test(photoDetail),
+    photoDetail.replace(/\n/g, ' / ').slice(0, 300));
+  check('and is not offered the PDF readers',
+    !/Read the scan|Try reading the text again|whole document/i.test(photoDetail),
+    photoDetail.replace(/\n/g, ' / ').slice(0, 300));
+
+  await page.click('#detailBody button:has-text("Read the words in this picture")');
+  await page.locator('.toast', { hasText: /searchable now|No words|Could not/ }).waitFor({ timeout: 180000 });
+  const photoSaid = await page.locator('.toast', { hasText: /searchable now|No words|Could not/ }).innerText();
+  check('the photograph is read', /searchable now/.test(photoSaid), photoSaid);
+  await page.waitForTimeout(800);
+  await closeDetail();
+
+  await page.fill('#search', 'nameplate');
+  await page.waitForTimeout(900);
+  check('and the words in it are findable',
+    await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
   console.log('\nOther sections');
   await page.click('#backBtn');
   await page.waitForTimeout(200);
@@ -1233,6 +1399,24 @@ try {
   await pick('category', 'QHSE');
   await save();
   check('saves a circular', (await page.locator('.card').count()) === 1);
+
+  // The card as it is read on the ship: what kind of circular and its number
+  // first, then the subject, then the date and who sent it.
+  const circularCard = await page.locator('.card').first();
+  check('the kind and number head the card',
+    /QHSE\s+\u2014\s+FC-2026-014/i.test(await circularCard.locator('.card-kind').innerText()),
+    await circularCard.locator('.card-kind').innerText());
+  check('the subject is the title under it',
+    /Revised Bunkering Procedure/i.test(await circularCard.locator('.card-title').innerText()),
+    await circularCard.locator('.card-title').innerText());
+  const cardCells = await circularCard.locator('.dcell').allInnerTexts();
+  check('the date and who issued it are the row beneath',
+    /Date/i.test(cardCells.join(' ')) && /Issued by/i.test(cardCells.join(' '))
+      && /Fleet Technical/i.test(cardCells.join(' ')),
+    cardCells.join(' | ').replace(/\n/g, ' '));
+  check('and the number is not repeated underneath',
+    (await circularCard.locator('.card-sub').count()) === 0,
+    String(await circularCard.locator('.card-sub').count()));
 
   // Circulars filed before the list changed are the ones already on the
   // phone, so replacing the list must not strand them. The stored value is

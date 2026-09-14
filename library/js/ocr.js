@@ -181,6 +181,28 @@ export async function readAllPages(buffer, {
   }
 }
 
+/**
+ * Read a picture — a photograph or a screenshot attached on its own.
+ *
+ * No page to render first: the file is already the image, so it goes straight
+ * to the reader. A nameplate, a whiteboard, a diagram saved as a JPEG — none
+ * of it was searchable before, because only PDFs were ever read.
+ */
+export async function readImage(blob, { onProgress } = {}) {
+  const say = (note) => { try { onProgress?.(note); } catch { /* never break the read */ } };
+  let worker = null;
+  try {
+    say('Loading the reader\u2026');
+    worker = await reader();
+    say('Reading the picture\u2026');
+    const { data } = await worker.recognize(blob);
+    const text = tidy(data?.text);
+    return { ok: !tooLittle(text), text };
+  } finally {
+    try { await worker?.terminate(); } catch { /* nothing useful to do */ }
+  }
+}
+
 /** How many pages a PDF has, without reading any of them. */
 export async function countPages(buffer) {
   const pdfjs = await pdfLib();
