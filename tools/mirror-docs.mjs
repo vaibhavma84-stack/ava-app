@@ -206,6 +206,40 @@ const fileNameFor = (notice) =>
 const textNameFor = (notice) => fileNameFor(notice).replace(/\.pdf$/, '.txt');
 
 /**
+ * Remove the documents no notice points at any more.
+ *
+ * A reference read wrongly once left 87 files behind — 32 MB filed under
+ * circular numbers that do not exist — and nothing would ever have removed
+ * them, because the fetcher only adds.
+ *
+ * Guarded, because a sweep that runs on a bad day is how a mirror deletes
+ * itself: nothing goes unless the catalogue actually holds documents. Its own
+ * function so it can be tested without a network, which the first version of
+ * it was not — it shipped with a line that had never once run.
+ */
+export function sweepUnreferenced(dir, data, { keepAtLeast = 8 } = {}) {
+  const wanted = new Set((data?.notices || []).filter((n) => n.file).map((n) => n.file));
+  if (wanted.size < keepAtLeast || !existsSync(dir)) return { swept: 0, bytes: 0, skipped: true };
+
+  // The catalogue records a document as "docs/panama/MMC-1.pdf", so what has
+  // to match is the last two segments of the directory. Deriving it by
+  // stripping a literal "library/" off the front worked only when the caller
+  // happened to pass a repo-relative path: given an absolute one it matched
+  // nothing and swept the lot. The test found that; a mirror run would have
+  // found it by deleting 1,349 documents.
+  const parts = dir.split(/[\\/]/).filter(Boolean);
+  const prefix = parts.slice(-2).join('/');
+  let swept = 0, bytes = 0;
+  for (const name of readdirSync(dir)) {
+    if (wanted.has(`${prefix}/${name}`)) continue;
+    bytes += statSync(join(dir, name)).size;
+    rmSync(join(dir, name));
+    swept++;
+  }
+  return { swept, bytes, skipped: false };
+}
+
+/**
  * Notices that are listed but never fetched.
  *
  * MINs are information notes rather than requirements, and they are not wanted
@@ -326,26 +360,9 @@ async function run() {
       if (unresolved) console.log(`  ${unresolved} had nothing to fetch at all`);
       if (changed) writeFileSync(catalogue, JSON.stringify(data, null, 1) + '\n');
 
-      // Files no notice refers to any more. A reference read wrongly once left
-      // 87 of them — 32 MB of documents filed under circular numbers that do
-      // not exist — and nothing would ever have removed them, because the
-      // fetcher only ever adds.
-      //
-      // Guarded, because a sweep that runs on a bad day is how a mirror
-      // deletes itself: nothing is removed unless this administration read a
-      // catalogue that actually holds documents.
-      const held = new Set(data.notices.filter((n) => n.file).map((n) => n.file));
-      const dir = join(DOCS, admin.toLowerCase());
-      if (held.size >= 8 && existsSync(dir)) {
-        let swept = 0, sweptBytes = 0;
-        for (const name of readdirSync(dir)) {
-          const rel = `${DOCS}/${admin.toLowerCase()}/${name}`.replace('library/', '');
-          if (held.has(rel)) continue;
-          sweptBytes += statSync(join(dir, name)).size;
-          rmSync(join(dir, name));
-          swept++;
-        }
-        if (swept) console.log(`  swept ${swept} file(s) no notice refers to, ${mb(sweptBytes)} MB`);
+      const sweptUp = sweepUnreferenced(join(DOCS, admin.toLowerCase()), data);
+      if (sweptUp.swept) {
+        console.log(`  swept ${sweptUp.swept} file(s) no notice refers to, ${mb(sweptUp.bytes)} MB`);
       }
       // Published every run, changed or not: the phone reads this rather than
       // the whole catalogue to learn where the documents are, and it must not

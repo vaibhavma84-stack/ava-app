@@ -6,7 +6,10 @@
 // pinning down: a regex over markup is easy to get subtly wrong.
 
 import { readFeed, readLinks, readPanamaPage } from '../tools/mirror-notices.mjs';
-import { textFromHtml, listOnly } from '../tools/mirror-docs.mjs';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { textFromHtml, listOnly, sweepUnreferenced } from '../tools/mirror-docs.mjs';
 import { singaporeRef, singaporeLooseRef, SG_TYPES, MPA, panamaRef } from '../library/js/updates.js';
 
 let passed = 0, failed = 0;
@@ -321,6 +324,49 @@ check('Panama no longer points at the page that 404s',
   panama);
 check('and points into the section Panama actually uses',
   FLAG_SOURCES.Panama.every((l) => /\/segumar\//.test(l.url)), panama);
+
+// ── sweeping the documents nothing points at ────────────────────────────────
+//
+// This exists because a reference read wrongly left 87 files filed under
+// circular numbers that do not exist, and the fetcher only ever adds. It is
+// tested here rather than only in a mirror run because the first version of it
+// shipped with a line that had never once executed — it read fine, passed a
+// syntax check, and failed the moment it ran.
+console.log('\nSweeping documents nothing points at');
+
+const sweepDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ava-sweep-'));
+const docs = path.join(sweepDir, 'library', 'docs', 'panama');
+fs.mkdirSync(docs, { recursive: true });
+const write = (name, size) => fs.writeFileSync(path.join(docs, name), Buffer.alloc(size, 1));
+
+for (let i = 1; i <= 10; i++) write(`MMC-${i}.pdf`, 1024);
+write('MMC-270-03.pdf', 2048);          // the shape that caused this
+write('brochure.pdf', 512);
+
+const catalogue = {
+  notices: Array.from({ length: 10 }, (_, i) => ({ refNo: `MMC ${i + 1}`, file: `docs/panama/MMC-${i + 1}.pdf` }))
+};
+const sweptResult = sweepUnreferenced(path.join(sweepDir, 'library', 'docs', 'panama'), catalogue);
+check('it removes what nothing points at', sweptResult.swept === 2, JSON.stringify(sweptResult));
+check('and counts the space it gave back', sweptResult.bytes === 2560, String(sweptResult.bytes));
+check('the documents in the catalogue are left alone',
+  fs.readdirSync(docs).length === 10, fs.readdirSync(docs).join(' '));
+check('and the phantom one is gone',
+  !fs.existsSync(path.join(docs, 'MMC-270-03.pdf')));
+
+// The guard: a catalogue that came back thin must never empty the directory.
+const thin = sweepUnreferenced(path.join(sweepDir, 'library', 'docs', 'panama'),
+  { notices: [{ refNo: 'MMC 1', file: 'docs/panama/MMC-1.pdf' }] });
+check('a thin catalogue sweeps nothing at all', thin.swept === 0 && thin.skipped, JSON.stringify(thin));
+check('and the documents are still there',
+  fs.readdirSync(docs).length === 10, String(fs.readdirSync(docs).length));
+
+const empty = sweepUnreferenced(path.join(sweepDir, 'library', 'docs', 'panama'), { notices: [] });
+check('an empty catalogue sweeps nothing either', empty.swept === 0 && empty.skipped, JSON.stringify(empty));
+check('and the documents survive that too',
+  fs.readdirSync(docs).length === 10, String(fs.readdirSync(docs).length));
+
+fs.rmSync(sweepDir, { recursive: true, force: true });
 
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);
