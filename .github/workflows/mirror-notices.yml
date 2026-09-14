@@ -70,7 +70,12 @@ jobs:
       - name: Fetch Panama's documents
         run: node tools/mirror-docs.mjs --budget=250 --only=Panama
       - name: Fetch Singapore's documents
-        run: node tools/mirror-docs.mjs --budget=250 --only=Singapore
+        # 400 rather than 250. A 250 MB budget stopped at 438 of 565 and left
+        # the oldest 114 behind — the measurement that set it was taken from a
+        # sample of the newest circulars, which are half the size of the
+        # average. Measuring the cheap end and calling it the average is how a
+        # budget ends up being a limit nobody chose.
+        run: node tools/mirror-docs.mjs --budget=400 --only=Singapore
 
       - name: Say what the site holds
         # Written from the catalogues, so it is right even on a run that
