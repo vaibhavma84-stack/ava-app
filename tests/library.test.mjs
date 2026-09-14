@@ -796,7 +796,8 @@ try {
   page.off('request', watch);
 
   check('no documents are offered before a list has been fetched',
-    await page.locator('.doc-panel').count() === 0);
+    await page.locator('.doc-panel button').count() === 0,
+    await page.locator('.doc-panel').innerText().catch(() => '(no panel)'));
 
   const panel = '.panel:has-text("Update from the administration")';
   for (const admin of ['MCA', 'Panama', 'Singapore']) {
@@ -1200,6 +1201,41 @@ try {
   check('with nothing left outstanding, the panel says so and offers nothing',
     /Every notice whose document is held has it/.test(await page.locator(docPanel).innerText()),
     await page.locator(docPanel).innerText());
+
+  // ---- The case that actually bit ---------------------------------------
+  // A notice filed before its document existed carries no file path, so the
+  // app cannot find a document the site is holding — and from the phone that
+  // is indistinguishable from the site holding nothing. The note must send the
+  // reader to update the list rather than assert what the administration
+  // publishes, which the app has no way to check and which is wrong for every
+  // notice filed before the mirror ran.
+  await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    await store.saveItem({
+      type: 'flag',
+      data: { title: 'MGN 718 (M+F): 2026 IMO amendment to PSSR', flagState: 'MCA',
+              docType: 'MGN (Marine Guidance Note)', refNo: 'MGN 718 (M+F)',
+              fileLink: 'https://www.gov.uk/government/publications/mgn-718-mf-2026-imo-amendment-to-pssr',
+              attachments: [] }
+    });
+  });
+  await page.waitForTimeout(400);
+  await page.locator('.card', { hasText: 'MGN 718' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const staleNote = await page.locator('#detailBody').innerText();
+  check('a notice filed before its document is told to update the list',
+    /Update the list from the administration first/i.test(staleNote),
+    staleNote.slice(0, 400).replace(/\n/g, ' / '));
+  check('and is not told outright that no document exists',
+    !/^[\s\S]*there is nothing to download\./.test(staleNote.split('Update the list')[0]),
+    staleNote.slice(0, 400).replace(/\n/g, ' / '));
+  await closeDetail();
+  await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    const made = store.itemsOfType('flag').find((i) => /MGN 718/.test(i.data.refNo || ''));
+    if (made) await store.deleteItem(made.id);
+  });
+  await page.waitForTimeout(300);
 
   docsCleanup();
 

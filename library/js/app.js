@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.05';
+const APP_VERSION = '2026.10.06';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -513,9 +513,16 @@ function documentPanel() {
   const outstanding = counts.reduce((n, [, c]) => n + c, 0);
   const anyHeld = store.itemsOfType('flag').some((i) => i.data.mirrorFile);
 
-  // Nothing to offer until the list has been updated at least once, and until
-  // the site actually holds documents for it.
-  if (!anyHeld) return null;
+  // Notices are filed here, but not one of them knows where its document is.
+  // That is what a list filed before the documents existed looks like, and the
+  // panel used to answer it by vanishing — leaving no way to tell "there are
+  // no documents" from "this phone has not been told about them".
+  if (!anyHeld) {
+    if (!store.itemsOfType('flag').some((i) => i.data.flagState)) return null;
+    panel.append(el('p', { class: 'hint', text:
+      'None of the notices filed here knows where its document is. That is what a list filed before the documents existed looks like — update the list above and they will.' }));
+    return panel;
+  }
   if (!outstanding) {
     panel.append(el('p', { class: 'hint', text: 'Every notice whose document is held has it.' }));
     return panel;
@@ -966,11 +973,19 @@ function openDetail(id) {
     const singapore = item.data.flagState === 'Singapore';
     body.append(el('div', { class: 'detail-sec' }, [
       el('h4', { text: 'No document held' }),
+      // Two of these the app knows for certain — a MIN by its type, a Singapore
+      // circular by its flag. The third it does not: an entry carries no file
+      // path either because the site holds nothing for it or because this
+      // phone's list was filed before the site held it, and from here those
+      // look identical. Saying the administration publishes no document would
+      // be asserting the one it cannot check, and would be wrong far more
+      // often than right — every notice synced before the documents existed
+      // looks exactly like this.
       el('p', { class: 'hint', text: min
         ? 'MINs are listed and numbered here but never downloaded, as you asked. The link below opens it at the administration, which needs a connection.'
         : singapore
           ? 'Singapore publishes its circulars as pages rather than files, and they are not mirrored yet. The link below opens it at the administration, which needs a connection.'
-          : 'The administration publishes this one as something other than a document — a spreadsheet or a page — so there is nothing to download. The link below opens it at the administration, which needs a connection.' })
+          : 'Update the list from the administration first: a notice filed here before its document was available carries no document, and updating brings it in. If it still says this afterwards, the administration publishes this one as a spreadsheet or a page and there is nothing to download.' })
     ]));
   }
 
