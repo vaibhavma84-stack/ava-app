@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.09';
+const APP_VERSION = '2026.10.10';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1068,7 +1068,6 @@ function openDetail(id) {
   // question to ask of it. Say which of the three reasons it is.
   if (item.type === 'flag' && !atts.length && !item.data.mirrorFile && item.data.flagState) {
     const min = /^MIN\b/i.test(item.data.docType || '') || /^MIN\b/i.test(item.data.refNo || '');
-    const singapore = item.data.flagState === 'Singapore';
     body.append(el('div', { class: 'detail-sec' }, [
       el('h4', { text: 'No document held' }),
       // Two of these the app knows for certain — a MIN by its type, a Singapore
@@ -1079,11 +1078,12 @@ function openDetail(id) {
       // be asserting the one it cannot check, and would be wrong far more
       // often than right — every notice synced before the documents existed
       // looks exactly like this.
+      // Singapore had its own line here, saying MPA published its circulars as
+      // pages rather than files. It does not, and never did — the page is a
+      // landing page with the PDF on it. All 552 that have one are held.
       el('p', { class: 'hint', text: min
         ? 'MINs are listed and numbered here but never downloaded, as you asked. The link below opens it at the administration, which needs a connection.'
-        : singapore
-          ? 'Singapore publishes its circulars as pages rather than files, and they are not mirrored yet. The link below opens it at the administration, which needs a connection.'
-          : 'Nothing is held on the site for this one — the administration publishes it as a spreadsheet or a page rather than a document. The link below opens it at the administration, which needs a connection.' })
+        : 'Nothing is held on the site for this one — the administration publishes no document for it. The link below opens it at the administration, which needs a connection.' })
     ]));
   }
 

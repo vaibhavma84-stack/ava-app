@@ -1202,6 +1202,11 @@ try {
   const nothingHeld = await page.locator('#detailBody').innerText();
   check('a notice with no document says so',
     /No document held/i.test(nothingHeld), nothingHeld.slice(0, 300).replace(/\n/g, ' / '));
+  // Singapore used to get a line of its own saying MPA published pages rather
+  // than files. It never did, and all 552 with a document are held now.
+  check('and is not told Singapore publishes pages rather than files',
+    !/publishes its circulars as pages/i.test(nothingHeld),
+    nothingHeld.slice(0, 300).replace(/\n/g, ' / '));
   check('and says it needs a connection to reach it',
     /needs a connection/i.test(nothingHeld), nothingHeld.slice(0, 400).replace(/\n/g, ' / '));
   await closeDetail();
