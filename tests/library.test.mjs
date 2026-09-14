@@ -1236,15 +1236,32 @@ try {
   check('notices are ordered by their number',
     flagOrder.join(' | ').includes('PC 01/2026'), flagOrder.join(' | '));
 
-  // The ordering itself, on the shapes that actually caused this.
+  // The ordering itself, on the shapes that actually caused this. Highest
+  // number first, and the number compared as a number: as text, MGN 1905
+  // lands between MGN 100 and MGN 370 because '1' sorts before '3'.
   const sorted = await page.evaluate(async () => {
-    const { byReference } = await import('./js/schema.js');
+    const { TYPES } = await import('./js/schema.js');
     return ['MGN 656', 'MGN 652 (M+F)', 'MGN 718 (M+F)', 'MGN 381', 'MGN 1905', 'MGN 100']
-      .sort(byReference);
+      .map((refNo) => ({ refNo, docType: 'MGN (Marine Guidance Note)' }))
+      .sort(TYPES.flag.sort)
+      .map((r) => r.refNo);
   });
-  check('and by the number as a number, not as text',
-    sorted.join(' ') === 'MGN 100 MGN 381 MGN 652 (M+F) MGN 656 MGN 718 (M+F) MGN 1905',
+  check('and by the number as a number, highest first',
+    sorted.join(' ') === 'MGN 1905 MGN 718 (M+F) MGN 656 MGN 652 (M+F) MGN 381 MGN 100',
     sorted.join(' '));
+
+  // The types still stay together rather than interleaving by number.
+  const mixed = await page.evaluate(async () => {
+    const { TYPES } = await import('./js/schema.js');
+    return [
+      { refNo: 'MSN 1905 (M+F)', docType: 'MSN (Merchant Shipping Notice)' },
+      { refNo: 'MGN 100', docType: 'MGN (Marine Guidance Note)' },
+      { refNo: 'MIN 738 (M+F)', docType: 'MIN (Marine Information Note)' },
+      { refNo: 'MGN 718 (M+F)', docType: 'MGN (Marine Guidance Note)' }
+    ].sort(TYPES.flag.sort).map((r) => r.refNo);
+  });
+  check('with each class kept together',
+    mixed.join(' ') === 'MGN 718 (M+F) MGN 100 MIN 738 (M+F) MSN 1905 (M+F)', mixed.join(' '));
 
   // ---- A notice the administration has stopped listing -------------------
   // The sync never deletes: an entry may hold your own notes and files. But a

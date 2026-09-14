@@ -256,8 +256,11 @@ export const TYPES = {
     // you want — "where is MGN 652" — and when it was issued says nothing
     // about where to find it. Type first, so the MGNs sit together and the
     // MSNs after them rather than interleaved by number.
+    //
+    // Highest number first within each type: the newest notice carries the
+    // highest number, so the top of the list is where this year's are.
     sort: (a, b) => (a.docType || '').localeCompare(b.docType || '')
-                 || byReference(a.refNo, b.refNo)
+                 || -byReference(a.refNo, b.refNo)
                  || (b.date || '').localeCompare(a.date || '')
   },
 
