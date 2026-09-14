@@ -16,7 +16,7 @@
 // --budget is megabytes per administration. Newest first, so a budget that
 // cannot hold everything holds the part most likely to be wanted.
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, rmSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { indexFor } from './write-file-index.mjs';
 
@@ -325,6 +325,28 @@ async function run() {
         + (dropped ? ` — ${dropped} previously fetched file removed` : ''));
       if (unresolved) console.log(`  ${unresolved} had nothing to fetch at all`);
       if (changed) writeFileSync(catalogue, JSON.stringify(data, null, 1) + '\n');
+
+      // Files no notice refers to any more. A reference read wrongly once left
+      // 87 of them — 32 MB of documents filed under circular numbers that do
+      // not exist — and nothing would ever have removed them, because the
+      // fetcher only ever adds.
+      //
+      // Guarded, because a sweep that runs on a bad day is how a mirror
+      // deletes itself: nothing is removed unless this administration read a
+      // catalogue that actually holds documents.
+      const held = new Set(data.notices.filter((n) => n.file).map((n) => n.file));
+      const dir = join(DOCS, admin.toLowerCase());
+      if (held.size >= 8 && existsSync(dir)) {
+        let swept = 0, sweptBytes = 0;
+        for (const name of readdirSync(dir)) {
+          const rel = `${DOCS}/${admin.toLowerCase()}/${name}`.replace('library/', '');
+          if (held.has(rel)) continue;
+          sweptBytes += statSync(join(dir, name)).size;
+          rmSync(join(dir, name));
+          swept++;
+        }
+        if (swept) console.log(`  swept ${swept} file(s) no notice refers to, ${mb(sweptBytes)} MB`);
+      }
       // Published every run, changed or not: the phone reads this rather than
       // the whole catalogue to learn where the documents are, and it must not
       // be allowed to fall behind what is actually on disk.
