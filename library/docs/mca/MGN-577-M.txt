@@ -1,0 +1,107 @@
+MGN 577 (M) MGN 577 (M) Amendment 2 maintenance of lists of crew ashore
+2026-01-08
+Source: https://www.gov.uk/government/publications/mgn-577-m-amendment-2-maintenance-of-lists-of-crew-ashore
+
+Summary
+
+This note advises shipowners, employers, masters of merchant vessels of their obligations to maintain a list of crew, including all changes, at an address in the United Kingdom.
+
+It also advises on the requirements to deliver on demand, a list of crew to the Registrar-General of Shipping and Seamen.
+
+Annex 1 provides the details to be specified in a list of crew.
+
+This note does not apply to fishing vessels – see MGN 1891 (F),
+
+Amendment 2 updates reference information only.
+
+1. Introduction
+
+1.1 Regulation 15 of the Merchant Shipping (Crew Agreements, Lists of Crew and Discharge of Seamen) Regulations 1991 (S.I. 1991/2144) (referred to as the “1991 Regulations”) require that a copy of every list of crew, including all changes notified to the shipowner should be maintained at an address in the United Kingdom.
+
+1.2 The requirement for a list of crew under the 1991 Regulations is separate from the IMO Crew List, known as FAL Form 5, which is required by port authorities for immigration and customs reasons. There is nothing to prevent shipowners or companies creating a database or form which records the data for both purposes, but it should be capable of providing the information in the correct format for each purpose.
+
+2. Maintaining a list of crew ashore
+
+2.1 The master of any UK registered ship should ensure that an up-to-date copy of the list of crew is passed to the shipowner at the commencement of each voyage. The master is subsequently required, in addition to noting any changes of crew in the list of crew carried on board, to notify, as soon as practicable and in any case within 3 days, the changes to the shipowner for entering in the list of crew maintained ashore.
+
+2.2 Only changes notified by the master may be entered into the list of crew maintained ashore and it is important that the copy should be maintained in the form required as set out in annex 1.
+
+2.3 It is vital the copy of the list of crew maintained ashore is to be kept up-to-date and that the details specified in annex 1 are included since in the event of the loss or abandonment of the ship to which it relates, it will be this which is used to establish whether any crew are missing. Certified extracts may also be required by the Registrar-General of Shipping and Seamen and may enable the death of a person on the vessel to be recorded to avoid any delay in settling their estate.
+
+2.4 When a person has in their possession the copy of a list of crew and has reason to believe the merchant ship to which it relates has been lost or abandoned, they shall immediately hand the copy to any MCA Marine Office or send it by post to:-
+
+Registrar-General of Shipping and Seamen
+Registry of Shipping and Seamen
+Anchor Court Keen Road
+Cardiff
+CF24 5JW.
+
+3. Delivery of list of crew to Registrar-General (Regulation 18, 1991 Regulations)
+
+3.1 The shipowner or employer shall on demand, deliver to the Registrar-General of Shipping and Seamen within 28 days of such demand being made a list of crew on board the ship at a date specified by the Registrar-General of Shipping and Seamen.
+
+4. Duration of the list of crew (Regulation 19, 1991 Regulations)
+
+4.1 A list of crew remains in force until all persons employed on the ship, whose particulars are contained on the list have been discharged.
+
+5. Delivery of list of crew (Regulation 20, 1991 Regulations)
+
+5.1 The master must, within 3 days after a list of crew has ceased to be in force, or if it is not practicable within that period, as soon as practicable thereafter, deliver the list of crew to the Registry of Shipping and Seamen when the list of crew ceases to be in force.
+
+6. Production of lists of crew (Regulation 21, 1991 Regulations)
+
+6.1 A list of crew must be made available to authorised persons on demand. This includes MCA surveyors, Border Force officers, and those authorised by HMRC, the Royal Navy and Harbour Masters.
+
+7. More information
+
+Seafarer Safety and Health Branch
+Maritime and Coastguard Agency
+Bay 2/17
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: mlc@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing
+
+Annex 1 – Particulars to be specified in a list of crew
+
+The regulatory requirement for a list of crew is outlined within regulation 14, of the 1991 Regulations.
+
+The following outlines the principal content for a list of crew;
+
+1.the name of the ship, its port of registry and official number
+
+2.the name of the owner of the ship, their address and of any other registered owner with responsibility for the vessel and their address.
+
+3.only for ships of traditional build and vessels not ordinarily engaged in commercial activities;
+
+• the number of the certificate evidencing an exemption granted by the Secretary of State from the requirements of section 25 of the Merchant Shipping Act 1995 (which relates to crew agreements) with respect to the ship or any person in it
+
+4.details required of any other person on the ship, at any time, whether they have a seafarers employment agreement or not:-
+
+• address;
+
+• discharge book number (if any) or date and place of birth;
+
+• the name of the ship in which the seafarer was last employed, and if discharged from that ship more than 12 months before becoming employed in the ship to which the List of Crew relates, the year in which the seafarer was discharged
+
+• the capacity in which the seafarer is employed
+
+• the grade, including all endorsements (e.g. Restrictions, Dangerous Cargo Endorsements), country of issue and number of any Certificate of Competency or Certificate of Equivalent Competency held by the seafarer
+
+• the date on which the seafarer first boarded the ship to commence their employment
+
+• the date and place at which the seafarer left the ship and if they left on discharge, the reason for their discharge
+
+• if the seafarer is left behind otherwise than on discharge, the date and place of and reason (if known to the master) for this being done
+
+• the name, relationship and address (if different) to the seafarer’s of the seafarer’s next of kin
+
+There are provisions within regulation 14(2),(3) and (4) relating to the application to different types of vessels.

@@ -1,0 +1,189 @@
+MGN 554 (M+F) MGN 554 (M+F) Amendment 2 – Procedure for becoming a UK approved body
+2025-12-11
+Source: https://www.gov.uk/government/publications/mgn-554-mf-amendment-2-procedure-for-becoming-a-uk-approved-body
+
+Summary
+
+This Note sets out the procedure for Conformity Assessment Bodies (CABs) to follow in seeking designation as a UK Approved Body under the Merchant Shipping (Marine Equipment) Regulations 2025.
+
+The Maritime and Coastguard Agency (MCA) is responsible for designating Approved Bodies on behalf of the Secretary of State. Organisations wishing to obtain designation as a UK Approved Body should follow the procedures laid out in this note. Any queries should be sent to the relevant MCA department, contact details of which can be found at the end of this note.
+
+1. Introduction
+
+1.1 This note describes the requirements applicable in the United Kingdom for the assessment and appointment of approved bodies under the Merchant Shipping (Marine Equipment) Regulations 2025 (“the Regulations”).
+
+1.2 This note applies to all Conformity Assessment Bodies (CABs) applying for designation as approved bodies under the Regulations.
+
+1.3 The conformity assessment procedures (modules of conformity) can be found in Schedule 2 of the Regulations.
+
+1.4 In the UK, the MCA, an executive agency of the Department for Transport, is responsible for designating approved bodies on the authority of the Secretary of State for Transport.
+
+2. Criteria, Application and Designation
+
+2.1 An organisation wishing to be designated as an approved body in the UK must meet the requirements set out in Schedule 3 of the Regulations. However, it should be noted that meeting these requirements will not necessarily lead to designation as a UK approved body. This decision will be at the discretion of the Secretary of State for Transport.
+
+2.2 Applicants should in the first instance make an application for accreditation to the United Kingdom Accreditation Service (UKAS), which will undertake an assessment of the applicant against the relevant standards. Further information on these standards can be found below in part 3 of this note. Applications should be submitted using the relevant UKAS forms (AC1 to AC4 – available to download from the UKAS website at www.ukas.com/applications).
+
+2.3 At the same time as applying for accreditation to UKAS, the applicant must also send a copy of their application to the MCA. Submissions should be sent to the following email address: MEQA@mcga.gov.uk This will provide the MCA with advance notice of the intention to apply for designation.
+
+2.4 Once UKAS has completed the accreditation assessment, if successful, they will issue the organisation with an accreditation certificate and a schedule of accreditation. The CAB should then apply to the MCA for designation as a UK Approved Body, using the email addresses in 2.3 above. The application should include the following information:
+
+• the conformity assessment activities and modules the CAB wishes to be designated
+
+2.5 the marine equipment product categories (as listed in MSN 1874(M+F) as amended) for which the CAB wishes to be designated.
+
+•
+UKAS accreditation certificate, schedule of accreditation and final assessment report
+
+•
+evidence of civil liability and professional indemnity insurance cover for its activities
+
+The MCA may request further information from UKAS regarding the applicant’s accreditation. The MCA will then make a final decision on designation based on all the evidence. If satisfied the applicant is fit for designation under the Regulations, the MCA will issue designation to the applicant as a UK Approved Body.
+
+2.6 The exact terms of the designation will be laid out in the individual designations, but they will include the following conditions that the applicant must agree to comply with for the period in which they are a UK Approved Body:
+
+•
+to partake in co-ordination activities at the national and international level
+
+•
+to periodically audit the activities of the manufacturers of whom the CAB has approved one or more products and/or services under the Regulations
+
+•
+to periodically audit its own activities as a UK Approved Body to ensure ongoing compliance with the relevant requirements, including EN ISO/IEC 17065:2012
+
+•
+to a full reassessment every four years
+
+2.7 Surveillance and reassessment will be carried out by UKAS in line with standard accreditation practices and 2.5 above. Surveillance and reassessment may also be carried out by the MCA, on behalf of the Secretary of State. UKAS will advise the MCA of the outcome of annual surveillance, four-yearly reassessments and any other audits conducted in intervening periods to ensure continued compliance with the specified requirements. The MCA may request further information about surveillance and reassessment activities and may choose to accompany UKAS when conducting surveillance/reassessment activities.
+
+2.8 To be eligible for designation as a UK Approved Body under the Regulations, an applicant must meet all requirements set out in Schedule 3 of the Regulations. It may, however, conduct technical activities, or have technical activities conducted overseas on its behalf.
+
+3. Meeting the Criteria – Accreditation
+
+3.1 Applicants are required to demonstrate compliance with ISO/IEC 17065:2012 which contains requirements for bodies issuing certificates, performing inspections, and conducting tests. As part of the accreditation process, applicants may need to meet additional requirements as set out in these guidelines or as required by the MCA or UKAS.
+
+3.2 As previously indicated, applicants will need to state for which products specified in MSN 1874(M+F) as amended, they wish to be designated. The scope of accreditation and subsequent designation will be determined by reference to the categories of products specified.
+
+3.3 Applicants will need to demonstrate to UKAS and the MCA that they can determine whether products presented for conformity assessment comply with the applicable regulations and testing standards as laid out in the Regulations and MSN 1874 as amended by demonstrating their professional capabilities and thorough knowledge and understanding of the Regulations.
+
+4. Quality System
+
+4.1 All applicants will need to have a Quality System, usually specified in a Quality Manual and associated documentation, appropriate to the conformity assessment modules and types of products the organisation wishes to issue certification for. The Quality System will need to ensure that all the relevant requirements of ISO/IEC 17065:2012 are met along with any further requirements for designation as a UK Approved Body, in accordance with the Regulations or as stipulated by UKAS and/or the MCA.
+
+4.2 An applicant’s Quality System must state its policies and procedures for the control and issuing of certificates and associated conformity numbers.
+
+5. Sub-contracting
+
+5.1 Where an applicant wishes to sub-contract any part of the assessment process, the Quality Manual of the applicant will need to describe the procedures to be followed to ensure compliance by the sub-contractors with the relevant requirements. The applicant will need to demonstrate that the sub-contractor is competent to carry out the task(s) for which it has been engaged. The applicant must maintain documented procedures for the assessment and monitoring of sub-contractors, and a list of sub-contractors and their associated facilities.
+
+5.2 An Approved Body remains responsible for ensuring that the conformity assessment procedures are conducted in accordance with the relevant requirements of the Regulations and is responsible for the activities carried out by sub-contractors on its behalf. An Approved Body shall notify UKAS and the MCA (using the contact details in part 10 below) of any sub-contracting arrangements that concern conformity assessment activities for which the Approved Body is responsible.
+
+6. Insurance
+
+6.1 All applicants must demonstrate that they have valid public liability and professional indemnity insurance cover for the activities they wish to carry out. Evidence of this must be submitted to UKAS and the MCA at the application stage. Thereafter, the Approved Body must ensure it maintains adequate insurance cover for its activities and informs UKAS and the MCA of any changes to their insurance arrangements. The Secretary of State will not under any circumstances cover an Approved Body’s liability.
+
+7. Duties of UK Approved Bodies
+
+7.1 UK Approved Bodies shall assess the conformity of products or quality systems, which are within the scope of their individual designations, against the requirements of the Regulations. When an Approved Body assesses a product to comply with the Regulations, it shall issue the appropriate conformity assessment documentation as specified in the Regulations. This may include a certificate of conformity, a test report, or an evaluation report, depending on the specific module(s) the product is being assessed against.
+
+7.2 UK Approved Bodies must maintain documented procedures covering all aspects of its work relating to the conformity assessment activities for which it is designated to perform. Approved Bodies must inform UKAS and the MCA of any changes to their organisation that could affect their ability to conduct the duties expected of them under the Regulations. This includes, but is not limited to, any changes in status, ownership, location, key personnel, organisational structure, technical competence, or facility arrangements.
+
+7.3 UK Approved Bodies are expected to maintain an accurate record of all conformity assessment activities they perform as well as any certificates issued under the Regulations. These records should be made available, when requested, to the Secretary of State or any other such person(s) who may be acting on behalf of the Secretary of State.
+
+8. Use of UKAS symbols
+
+8.1 UK Approved Bodies may reference their UKAS accreditation status and/or include the relevant symbol(s) on certificates issued when performing duties as a UK Approved Body under the Regulations.
+
+8.2 The use of national accreditation logos and symbols must comply with the conditions set out by UKAS in their guidance, a link to which can be found below:
+
+https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/958495/guidance-ukas-accreditation-logo-and-symbols.pdf
+
+9. United Kingdom/United States Mutual Recognition Agreement (UK-US MRA)
+
+9.1 Applicants should be aware of the Agreement between the United Kingdom of Great Britain and Northern Ireland and the United States of America on the Mutual Recognition of Certificates of Conformity for Marine Equipment. This agreement sets out the conditions whereby the United States will accept and recognise certificates of conformity issued by UK Approved Bodies as prima facie evidence that the United States’ requirements on marine equipment have been met.
+
+9.2 Further information on the UK-US MRA can be found in Annex 6 of MSN 1874 (M+F) as amended, and at the link below:
+
+https://www.gov.uk/government/publications/cs-usa-no42019-ukusa-agreement-on-the-mutual-recognition-of-certificates-of-conformity-for-marine-equipment
+
+10. Points of Contact
+
+10.1 UKAS contact details:
+
+United Kingdom Accreditation Service
+2 Pine Trees
+Chertsey Lane
+Staines upon Thames
+TW18 3HR
+
+Tel: 01784 429000
+
+Tel: 01784 428855
+
+Email: info@ukas.com
+
+10.2 MCA contact details:
+
+Marine Equipment Quality Assurance
+Maritime and Coastguard Agency
+Spring Place Bay 2/21
+105 Commercial Road
+Southampton
+Hampshire
+SO15 1EG
+
+Tel: 0203 817 2000
+
+Email: MEQA@mcga.gov.uk
+
+Email: marinetechnology@mcga.gov.uk
+
+11. Supporting Documentation
+
+•
+MSN 1874 Amendment 11
+
+•
+Merchant Shipping (Marine Equipment) Regulations 2025:
+
+•
+Copies of ISO/IEC 17065:2012 can be obtained from:
+
+BSI Customer Services
+389 Chiswick High Road
+London
+W4 4AL
+
+Tel: +44 (0) 345 086 9001
+
+Web: www.bsigroup.com
+
+Or:
+
+International Organization for Standardization
+ISO Central Secretariat
+Chemin de Blandonnet 8
+CP 401
+1214 Vernier
+Geneva
+Switzerland
+
+Tel: +41 22 749 01 11
+
+Email: customerservice@iso.org
+
+More Information
+
+Marine Equipment and Quality Assurance
+Maritime and Coastguard Agency
+Bay 2/21
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: MEQA@mcga.gov.uk.
+
+Website: www.gov.uk/mca

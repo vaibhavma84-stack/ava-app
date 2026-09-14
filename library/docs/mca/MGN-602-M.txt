@@ -1,0 +1,127 @@
+MGN 602 (M) MGN 602 (M) Amendment 1 MLC substantial equivalence for crew accommodation for 200GT to <500GT
+2025-10-02
+Source: https://www.gov.uk/government/publications/mgn-602-m-amendment-1-mlc-substantial-equivalence-for-crew-accommodation-for-200gt-to-500gt
+
+Summary
+
+This notice outlines the substantially equivalent accommodation standards agreed by the UK Tripartite Working Group for vessels of 200GT to less than 500GT.
+
+It applies to coded vessels and other new seagoing vessels in commercial use, built after 7 August 2014 (see section 2).
+
+New vessel means a vessel built after 7 August 2014 (see section 2) or any vessel for which there has not been a valid code certificate, or which has otherwise not been engaged in commercial operations, in the last five years.
+
+Such vessels over 200GT must comply with the crew accommodation standards in MSN 1844(M) which, for new coded vessels, supersedes chapter 21 of the codes and their equivalences (see Annex 2). However, annex 1 to this MGN provides a substantially equivalent accommodation standard with respect to the position of crew accommodation (MSN 1844(M) paragraph 2.1(b)).
+
+To note that the Workboat Code Industry Working Group Technical Standard of 2014, the Workboat Code Edition 3 include the standard from annex 1 (referred to hereafter as “the substantially equivalent standard”).
+
+Vessels to which this MGN applies operating within 60 miles of a safe haven in the United Kingdom on domestic voyages, which are not required to be surveyed/inspected for compliance with the Maritime Labour Convention, 2006 are nevertheless required to comply with the crew accommodation standards of MSN 1844(M), and may apply this substantially equivalent standard. Any voyage to or from a port outside the UK is not a domestic voyage.
+
+Amendment 1 updates references only.
+
+1. Introduction
+
+1.1 The Maritime Labour Convention, 2006 (MLC) came into force internationally on the 20th August 2013. The MLC consolidates and updates over 60 maritime labour instruments adopted by the International Labour Organization (ILO), introduces some new standards, as well as consolidating and updating existing requirements. The MLC applies standards on seafarer living and working conditions to vessels which have not previously been covered by international convention. The MLC provides a comprehensive set of global maritime standards for all seafarers on vessels to which the MLC applies.
+
+1.2 Information on the application of the MLC to UK vessels, and the meaning of “seafarer”, and “shipowner” are in MGN 471(M).
+
+1.3 The MLC has been fully in force in international law for UK vessels since 7th August 2014, a year after the date the UK ratified the Convention. When a UK shipowner wishes to operate their ship in a country other than the UK, it is their responsibility to ensure that they can demonstrate that their ship is compliant with the MLC.
+
+1.4 Provision is made in the MLC for “substantial equivalence” where it is not practical to comply with the full MLC standards set out in part A of the MLC code, and annex 1 to this MGN contains the UK’s substantially equivalent standards for crew accommodation on vessels of 200GT to less than 500GT.
+
+2. Application of this notice
+
+2.1 This notice applies to vessels operating under the codes listed at annex 2 and other seagoing vessels of between 200GT and 500GT in commercial use.
+
+2.2 The crew accommodation standards in annex 1 apply to vessels the keel of which was laid on or after 7th August 2014.
+
+2.3 Vessels constructed of fibre reinforced plastic, or similar materials, will be considered to be at a similar stage of construction to having their keel laid if they have had more than 5% of the hull resin and reinforcement laid.
+
+2.4 Vessels to which this MGN applies operating within 60 miles of a safe haven in the United Kingdom on domestic voyages, which are not required to be surveyed/inspected for compliance with the Maritime Labour Convention, 2006 are nevertheless required to comply with the crew accommodation standards of MSN 1844(M), and may apply this substantially equivalent standard.
+
+3. Substantially equivalent accommodation standards
+
+3.1 Article VI (3) of the MLC allows a Member State to implement provisions in its laws and regulations or other measures which are substantially equivalent to the provisions of Part A of the MLC. The UK government has consulted shipowners’ and seafarers’ representatives and developed substantially equivalent standards for the accommodation on new vessels of 200GT to less than 500GT.
+
+3.2 These substantially equivalent standards are published as annex 1 to this guidance. The measures are considered substantially equivalent to MLC Standard A3.1, paragraph 6(c) and may be applied where the MCA is satisfied that compliance with MLC A3.1.6(c) would compromise the functionality, safety or stability of the ship. Annex 1 therefore applies instead of MSN 1844(M) paragraph 2.1(b). All other aspects of MSN 1844(M) apply.
+
+3.3 Existing vessels (those constructed before 7th August 2014) will not be required to comply with the accommodation standards in the MLC, or the substantial equivalence, subject to them complying with the applicable statutory standards at the time of their construction, unless they are substantially reconstructed or altered or undergo a major modification after that date.
+
+3.4 The substantially equivalent standard adopted in this notice is similar to that adopted by the Netherlands for workboats and similar vessels. This is intended to provide a consistent approach for shipbuilders, shipowners and seafarers.
+
+4. Other MLC 2006 Standards
+
+4.1 The MLC covers a wide range of standards for the protection and welfare of seafarers. Other than the requirements for crew accommodation, which are constrained by the physical size of the vessel, other requirements of the MLC apply as they would to all other ships.
+
+4.2 A full list of the regulations and guidance implementing MLC standards into UK law is published in MGN 470(M).
+
+5. More information
+
+Seafarer Safety and Health Branch
+Maritime and Coastguard Agency
+Bay 2/17
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: <mlc@mcga,gov.uk>
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing
+
+Annex 1 - Accommodation – substantially equivalent standards – new workboats, tugs and other vessels of 200GT to less than 500GT
+
+Objective: The aim of the MLC is to provide a comprehensive set of global maritime labour standards for all seafarers, including accommodation standards.
+
+The purpose of this section is to implement substantially equivalent arrangements to the crew accommodation requirements of the Maritime Labour Convention, 2006, to new vessels built after the UK’s Merchant Shipping (Maritime Labour Convention) (Minimum Requirements for Seafarers, etc.) Regulations 2014 come into force. Part 7 of those Regulations and Merchant Shipping Notice 1844(M) cover crew accommodation requirements for ships on which seafarers are required to sleep on board.
+
+All workboats and other vessels of 200GT to less than 500GT shall comply with the seafarer accommodation requirements of the Maritime Labour Convention, 2006, transposed in the UK as the Merchant Shipping (Maritime Labour Convention) (Minimum Requirements for Seafarers, etc.) Regulations 2014 and MSN 1844(M), except as permitted below.
+
+•
+Sleeping rooms may be provided below the reference load line if it can be shown that compliance with Standard A3.1, paragraph 6(c) of the MLC (MSN 1844(M) paragraph 2.1(b)) would compromise the functionality, safety or stability of the ship.
+
+•
+The floor of the sleeping room may be up to 2000 mm below the reference load line provided that:
+
+•
+adequate continuous climate control is provided, partly aimed at controlling of condensation and moisture related odours;
+
+•
+at least two adequate escape routes are present;
+
+•
+a bilge alarm which has its audible alarm in the watertight compartment of the sleeping room is available;
+
+•
+adequate, adjustable lighting is provided; the lack of daylight shall be compensated according to the needs of the seafarer;
+
+•
+appropriate materials and colours for wall and floor coverings are applied, which provide improved space perception;
+
+•
+a minimum of 203 cm headroom in the accommodation must be provided. Further notes: The reference load line is defined as follows:
+
+Further notes: The reference load line is defined as follows:
+
+• for ships to which an International Load Line Certificate is issued: the minimum assignable summer freeboard as defined in the Load Line Convention, Annex 1, Regulation 6.2.a
+
+• for ships to which no International Load Line Certificate is issued: a line parallel to the designed load waterline located at a distance of 20% of the depth of the ship, as defined in the International Load Line Convention Annex I, Regulation 3(5), with a maximum of 1000 mm below the freeboard deck as defined in the International Load Line Convention, Annex I, Regulation 3(9).
+
+Annex 2 - List of relevant Codes and their equivalences
+
+The Code of practice for the safety of small commercial motor vessels (the Blue Code)
+
+The Code of practice for the safety of small commercial sailing vessels (the Yellow Code)
+
+The Code of practice for the safety of small vessels in commercial use for sport or pleasure operating from a nominated departure point (the Red Code)
+
+The Code of practice for the safety of small workboats and pilot boats (the Brown Code)
+
+The Workboat Code Industry Working Group Technical Standard 2014
+
+The Workboat Code Edition 3
+
+Marine Guidance Note 280(M) Small vessels in commercial use for sport or pleasure, workboats or pilot boats – Alternative construction standards

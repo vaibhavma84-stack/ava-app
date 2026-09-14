@@ -1,0 +1,100 @@
+MGN 557 (M+F) MGN 557 (M+F) Amendment 2 Marine equipment - market surveillance - strategy, reporting and enforcement
+2025-12-11
+Source: https://www.gov.uk/government/publications/mgn-557-mf-amendment-2-marine-equipment-market-surveillance-strategy-reporting-and-enforcement
+
+Summary
+
+This Guidance Note gives information regarding the MCA’s policy for enforcing the requirements of the Merchant Shipping (Marine Equipment) Regulations 2025, as amended (commonly known as ‘Market Surveillance’). This concerns those involved in the purchase and inspection of marine equipment, which has been issued UK conformity assessment in accordance with the Merchant Shipping (Marine Equipment) Regulations 2025, as amended. It also gives information regarding action that should be taken if such equipment is suspected to be non-compliant.
+
+ 1. Introduction
+
+1.1 Where one of the IMO Conventions (SOLAS[footnote 1], COLREG[footnote 2] or MARPOL[footnote 3]) requires equipment to be approved, the Merchant Shipping (Marine Equipment) Regulations 2025, as amended, (“the Regulations”) require that equipment be certificated by an independent body (an “Approved Body”) when installed on a United Kingdom ship. These items of equipment are marked with the UK’s mark of conformity for marine equipment (the “Red Ensign”) and have certification issued by an Approved Body.
+
+1.2  The UK has a Market Surveillance regime in place, against the requirements of MSN 1874(M+F) as amended. This allows monitoring of equipment offered for supply to UK ships to ensure the equipment meets the required standards and will function correctly in a maritime operational environment or emergency.
+
+1.3  Market surveillance activities do not involve the type approval or pre-production quality assurance of equipment. They only apply to products after they are placed on the market[footnote 4] or on board a ship and does not replicate the conformity assessment of the UK’s Approved Bodies.
+
+ 2. UK Market Surveillance of Marine Equipment
+
+2.1 Market surveillance will be carried out by the Maritime and Coastguard Agency (“the MCA”) on behalf of the Secretary of State for Transport. UK law[footnote 5] provides for the Secretary of State to carry out sample checks on equipment marked with the UK conformity mark for marine equipment (the Red Ensign).
+
+2.2 This sample checking of marine equipment offered for supply in the UK will take place in the following ways:
+
+    2.2.1  By MCA personnel visiting chandleries, marine equipment suppliers, distributors, importers and manufacturers’ storage facilities to inspect finished products available; verifying details relevant to any approval issued pertinent to the Regulations and assess the overall safety, performance or compliance of the product (where practicable). Particular attention will be paid to the presence of the UK conformity mark, the approved body details, year of manufacture, applicable testing standards and the presence of (and details in) the Declaration of Conformity. In carrying out this activity, MCA personnel will work with manufacturers, manufacturers’ authorised representatives, importers and distributors in carrying out market surveillance activities, and as a last resort, will explore and utilise suitable legal avenues for entering premises via the MCA’s Enforcement Unit.
+
+    2.2.2    By owners, superintendents or masters of ships and vessels reporting to the MCA, any equipment they are offered which they consider does not meet the applicable standards or otherwise does not comply with the standards of the Regulations.
+
+    2.2.3    By ships’ chandleries or other marine equipment outlets including manufacturers of equipment reporting objective evidence regarding equipment not in compliance with the Regulations, especially when markings such as the UK conformity mark or Approved Body details are missing or incomplete, or a Declaration of Conformity is not available.
+
+2.3 Equipment may be evaluated after installation on board a UK ship providing that only operational performance tests required by the IMO Conventions for safety and / or pollution prevention equipment are conducted and do not duplicate the conformity-assessment procedures already carried out by an Approved body. This aspect of market surveillance will be carried out by:
+
+    2.3.1    MCA surveyors and inspectors undertaking safety surveys or general inspections.
+
+    2.3.2    Owners, superintendents or masters reporting problems with equipment    after installation leading to the MCA undertaking follow up action.
+
+    2.3.3    Recognised Organisation surveyors conducting surveys on behalf of the MCA and reporting their findings to the MCA, which will then undertake follow up action.
+
+    2.3.4    Small Commercial Vessel Certifying Authority surveyors conducting surveys on behalf of the Certifying Authority they represent and reporting their concern to the MCA which will then undertake follow up action.
+
+2.4 Annex 1 to this Note is a form which may be used by those external to the MCA to report any failings found with UK approved equipment or equipment purporting to be UK approved in any of the circumstances mentioned. On completion, this should be sent to the MCA’s Marine Equipment Quality Assurance (MEQA) team at the address below or email to: MEQA@mcga.gov.uk
+
+2.5      
+
+Marine Equipment Quality Assurance
+Maritime and Coastguard Agency
+Bay 2/21
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+ 3. MCA Market Surveillance Strategy
+
+3.1 The MCA will carry out its inspections and other investigatory work using a risk-based system. This will take into account considerations such as, but not limited to; the number of complaints received regarding a particular product type; the number of non-compliant articles previously found; the size and nature of the equipment; and the number of products produced / placed on board ships, as well as the potential consequence of such equipment failing to operate correctly.
+
+ 4. Enforcement
+
+4.1 Those involved in the manufacture, distribution, importation and otherwise offering marine equipment for supply to the UK market are reminded that the Regulations set out offences with regard to this activity.
+
+4.2 Where an offence is committed, the MCA will seek correction in a proportionate method, but the reader is reminded that any offence in accordance with the Regulations is liable to a penalty, which may include imprisonment.
+
+4.3 MCA inspectors (for the purpose of Market Surveillance) are those that are responsible for inspections at the locations cited in 2.2 above.
+
+4.4 Before an inspection begins, the MCA inspector(s) will make themselves known to the representatives of the facility being inspected as soon as they are on site and will seek invitation of the representatives of the site to enter the premises.
+
+4.5 Should an inspector become aware of any non-compliance with the Regulations or the Act with regards to marine equipment, the inspector will gather evidence in any way deemed fit and will make the premises representative aware of any such issue.
+
+4.6 Should an inspector be denied access to the premises, the inspector will seek assistance from the MCA’s Enforcement Unit which holds extensive enforcement powers.
+
+4.7 The reader is reminded that the MCA market surveillance strategy is to use enforcement powers only as a last resort and instead will look to work with UK industry in ensuring the safety to the life of those on-board UK ships and to the UK marine environment.
+
+More information
+
+Marine Equipment Quality Assurance
+Maritime and Coastguard Agency
+Bay 2/21
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: MEQA@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+•
+The International Convention for the Safety of Life at Sea, 1974. ↩
+
+•
+The Convention on the International Regulations for Preventing Collisions at Sea, 1972. ↩
+
+•
+The International Convention for the Prevention of Pollution from Ships, 1973/78. ↩
+
+•
+Defined in the Merchant Shipping (Marine Equipment) Regulations 2025, as amended, as: “supply of marine equipment on the United Kingdom market in the course of a commercial activity, whether in return for payment or free of charge”. ↩
+
+•
+Regulation 22 of the Regulations and the Merchant Shipping Act 1995 (“the Act”), specifically section 258 of the Act. ↩

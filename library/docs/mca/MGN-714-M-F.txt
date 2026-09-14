@@ -1,0 +1,64 @@
+MGN 714 (M+F) MGN 714 (M+F) - adoption of amendments to the life saving appliances (LSA) Code.
+2026-01-02
+Source: https://www.gov.uk/government/publications/mgn-714-mf-adoption-of-amendments-to-the-life-saving-appliances-lsa-code
+
+Summary 
+
+The purpose of this Marine Guidance Note (MGN) is to advise of amendments to the Life Saving Appliance (LSA) Code and application date. These amendments make a number of changes to the LSA Code, some of which are outlined below, as well as consequential amendments to MSC.402(96).   
+
+1. Introduction 
+
+The Life Saving Appliances (LSA) Code
+
+1.1 The LSA Code became mandatory on an international basis when it came into force in June 1996. The Code provides international standards for the life-saving appliances required by chapter III of the 1974 SOLAS Convention. The LSA Code is implemented in the UK by The Merchant Shipping (Life-Saving Appliances and Arrangements) Regulations 2020. 
+
+1.2 The purpose of this MGN is to advise of the latest amendments to the LSA Code that have been adopted by means of IMO Resolutions MSC.535(107), MSC.554(107), MSC.559(108). 
+
+1.3 The amendments to the LSA Code will become mandatory on an international basis from 01 January 2026, and mandatory in the UK on the same date. A summary of these amendments is set out below.   
+
+Ambulatory Reference Provisions 
+
+1.4 Ambulatory Reference (AR) is a tool used in some UK secondary legislation which enables the automatic implementation of amendments to international instruments into UK legislation. Where the UK legislation refers to an international instrument, such as a provision in a convention or a code forming part of that convention (for example, the LSA Code), this reference is ‘ambulatory’, that is, a reference to the most up to date version of that provision or code. 
+
+1.5 AR provisions help to ensure that UK legislation does not fall behind international standards. The amendments detailed will become mandatory in the UK by way of the AR provision in regulation 5 of The Merchant Shipping (Life-Saving Appliances and Arrangements) Regulations 2020. 
+
+2. Summary of amendments to the LSA Code  
+
+2.1  IMO Resolutions MSC.535(107), MSC.554(107), MSC.559(108) make several changes to the LSA Code and associated instruments. The following is a summary of the key changes. 
+
+2.2 The Resolution MSC.535(107) makes amendments to the LSA Code. This requires sufficient provision of a means to achieve a defined ventilation rate (5 m3/h) for the number of persons a totally enclosed lifeboat is permitted to accommodate, for a period of 24 hours. The measure also provides technical detail on means of closing and opening the ventilation system in various types of enclosed lifeboats.  
+
+2.3 Resolution MSC.554(108) makes amendments to the LSA Code The amendment to the Code requires lifejackets to turn an unconscious casualty into a safe and correct orientation in the water but revokes any allowance for a failure to right a person in the testing of the lifejacket. The same resolution specifies additional detailed design and use requirements for lifeboat or rescue boat release hooks. This is to prevent any inadvertent release of a lifeboat or rescue boat by implementing design safeguards. Finally, the resolution provides a safe maximum and minimum lowering speed for launching appliances for use with survival craft or rescue boats.   
+
+2.4 Resolution MSC.559(108) makes consequential amendments to annual thorough examination and operational test for lifeboats as a result of the adoption of MSC.535(107) – the new ventilation requirements for enclosed lifeboats. This requires the checking for satisfactory condition and operation of the ventilation system as part of the wider annual testing of lifeboats. (This resolution does not make amendments to SOLAS Chapter III or the LSA Code, but as Resolution MSC 402(96) is mandatory under SOLAS Chap III, any amendment is binding). 
+
+3. Application Dates 
+
+3.1  The amendments to the LSA Code will enter into force on an international basis on 1 January 2026 and will enter force in the UK on the same date.   
+
+3.2  The application of MSC.535(107) – ventilation requirements for totally enclosed lifeboats – is to be applied to totally enclosed lifeboats installed on or after 1 January 2029. 
+
+3.3 With respect to this resolution the expression “installed on or after 1 January 2029” means: (a) for ships for which the building contract is placed on or after 1 January 2029, or in the absence of the contract, constructed on or after 1 January 2029, any installation date on the ship; or (b) for ships other than those ships prescribed in (a) above, a contractual delivery date for the equipment or, in the absence of a contractual delivery date, the actual delivery date of the equipment to the ship on or after 1 January 2029. 
+
+3.4  The application of MSC.554(108) - amendments to Personal Life Saving Appliances, lifeboat fittings and launching appliances - are to be applied to life-saving appliances installed on or after 1 January 2026. 
+
+3.5  With respect to this resolution the expression “installed on or after 1 January 2026” means: (a) for ships for which the building contract is placed on or after 1 January 2026, or in the absence of the contract, the keels of which are laid or which are at a similar stage of construction on or after 1 January 2026, all installations of the specified type on board those ships; or (b) for ships other than those ships specified in (a) above, all installations of the specified type, having a contractual delivery date for the equipment or, in the absence of a contractual delivery date to the ship, actually delivered to the ship on or after 1 January 2026; 
+
+4. Further Information   
+
+4.1 The LSA Code is available from the IMO, 1 Albert Embankment, London SE1 7SR. The Annex to IMO Resolution MSC.535(107), MSC.559(108) and MSC.554(108) contain the consolidated text including the detailed amendments to the Code.   
+
+More information 
+
+UK Technical Services Ship Standards 
+Maritime and Coastguard Agency 
+Spring Place 
+105 Commercial Road 
+Southampton 
+SO15 1EG 
+
+Email: MarineTechnology@mcga.gov.uk 
+
+Telephone: +44 (0)203 817 2000  
+
+Website: www.gov.uk/mca

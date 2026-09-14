@@ -1,0 +1,142 @@
+MGN 638 (M+F) MGN 638 (M+F) Amendment 1: Human element guidance - part 3 distraction
+2024-03-13
+Source: https://www.gov.uk/government/publications/mgn-638-mf-amendment-1-human-element-guidance-part-3-distraction
+
+Summary
+
+Despite previous guidance issued in 2005, accidents where casualties were using mobile phones or other personal electronic devices are still a cause for concern. This note provides guidance to mariners about appropriate use of such devices and the dangers to themselves, shipmates and their vessel of using them inappropriately.
+
+1. Mobile phones and personal devices implicated in maritime accidents
+
+1.1 Use of mobile phones and other personal devices has been found to be a significant contributory factor in maritime accidents and incidents. Accident investigations have found that inappropriate use of mobile phones and personal devices has resulted in a number of serious marine casualties, including:
+
+• Death of individuals working on vehicle decks and other working areas of ships.
+
+• Injury to individuals whilst working on board.
+
+• Grounding of vessels.
+
+1.2 In light of recent accident investigations and Marine Accident Investigation Branch (MAIB) recommendations, and the ever-increasing use of personal devices on board vessels, the Maritime and Coastguard Agency (MCA) is issuing the following guidance regarding use of such devices on board vessels and in the associated port infrastructure.
+
+1.3 This notice deals only with the human element risks of using such devices at work. Guidance on other risks can be found in the Code of safe work practices for merchant seafarers.
+
+2. Distraction, situational awareness and human ability
+
+2.1 MGN 520 (M) provided guidance on the deadly dozen – 12 of the top causes of accidents and incidents. These included “distraction” and “loss of situational awareness”. Loss of situational awareness was identified as the single biggest cause of maritime incidents reported to the Confidential Human Factors Incident Reporting Programme (CHIRP). Distraction is one of the causes of loss of situational awareness.
+
+2.2 Inappropriate use of mobile phones and other personal devices is a major cause of distraction and loss of awareness. In a safety critical environment this has led to death, injury and serious damage. While this notice deals with the risks from mobile devices, the points made in this section apply equally to other sources of distraction such as preoccupation with ECDIS and alarm systems onboard.
+
+2.3 Humans have a finite ability to pay attention to their surroundings and activities. Operating ships and ships’ equipment demands a great deal of this attentional ability. Similarly, holding a conversation by mobile phone or operating a personal electronic device for entertainment also demand a considerable amount of human attentional ability. Using such devices while operating vessels places increased demands on the human brain which can lead to cognitive overload and impairment leading to reduced performance, for instance;
+
+• Reduced situational awareness.
+
+• Failure to recognise vessels or navigational hazards.
+
+• Slower reaction times.
+
+• Impaired risk assessment.
+
+• Taking more risks.
+
+• Loss of concentration, concentrating on the conversation rather than the job.
+
+• Greater stress and fatigue.
+
+• Inattentional blindness (see paragraph 2.4 below).
+
+2.4 There are various psychological theories that explain how and why individuals may become distracted. One such theory and a key concern of using mobile devices is the impact on “inattentional blindness” (explained further in the MCA publication “being human in safety critical organisations”). Inattentional blindness occurs when someone is paying attention to something that is important or interesting– a phone call or streaming videos – but misses huge amounts of information that may be critical.
+
+         Inattentional blindness – although we see, we are not aware.
+
+2.5 It is estimated that someone using a mobile device may miss up to 50% of other information that is in plain sight and may be critical. For example, pedestrians using mobile phones often pay no attention to fast moving traffic near them. Onboard a vessel this is particularly critical on vehicle decks, during cargo operations, near vehicles on the jetty, navigating confined waterways etc.
+
+3. Safe use of mobile phones and other devices
+
+For operational purposes
+
+3.1 Mobile phones, two-way radios etc are legitimately used for communication during ships’ operations. However, the potential for distraction and loss of awareness should be recognised and those using them should adopt appropriate safe behaviours. The most effective safeguard is to prohibit the use of personal devices as far as practicable. Where this is not possible, risk assessments should be in place to mitigate the potential hazards. Individuals using personal devices should consider the following:
+
+• Ensure you are in a safe place away from moving vehicles, machinery, equipment, cargo working.
+
+• Keep still, do not wander about.
+
+• If possible, stand/sit with your back to a solid wall/bulkhead, enabling you to face and observe any operations in the vicinity, and prevent the risk of vehicles or machinery approaching you from behind.
+
+• Consider informing nearby colleagues that you are taking a call, but do not rely on them to watch your surroundings for you.
+
+• Alert others who may be distracted by personal devices and be putting themselves at risk.
+
+• Advise the other person of your location/situation and that you may have to break the conversation at short notice.
+
+• Keep the conversation as short as possible. Reschedule calls for a more appropriate time.
+
+•
+3.2 The company should have written procedures in the SMS/DSM/standing orders for use of personal mobile devices on board and protocols for the use of company mobile / satellite phones – particularly during critical operations when these devices can become a distraction to personnel in the wheelhouse and / or engine control room.
+
+•
+3.3 As a principle of best practice, the MCA recommends:
+
+•
+3.3.1 That personal mobile phones and other personal electronic devices should not be allowed to be carried anywhere the workplace, especially at safety critical places, unless used for work purposes in accordance with company policies and
+
+•
+3.3.2 Robust measures and restrictions should be employed in safety critical areas and during safety critical operations such as on the navigational bridge, at mooring stations, when bunkering etc.
+
+•
+3.4 Due attention is also drawn towards the dangers of distraction and interference caused by mobile phones at safety critical locations and safety critical times on board contained in MGN 299 (M+F) .
+
+For personal use                                                                                
+
+3.5 It is understood that ships operate 24/7 across all time zones and communicating with family, friends or for personal business reasons maybe difficult at certain times. When using mobile phones and other devices for personal use;
+
+• Only use them when off duty.
+
+• Use them in a safe environment e.g. in your cabin, rest area, non-working part of the ship.
+
+• Do not wander about into working areas of the ship.
+
+• Do not distract or interrupt other crew members with your call.
+
+3.6 If you do need to take/make a personal call when on duty:
+
+• Ensure your colleagues know you are making a phone call and can cover for you in your absence.
+
+• Do not distract or interrupt other crew members with your call.
+
+4. Other human element aspects of mobile phones and personal electronic devices
+
+4.1 Most electronic devices emit a quantity of blue light from their screens. It is thought that blue light can interfere with the body’s natural rhythms and production of hormones, particularly melatonin which is key in helping us sleep. Using electronic devices shortly before an intended period of sleep is not recommended, as:
+
+• It may delay the onset of sleep.
+
+• It may reduce the quality of sleep.
+
+• You may wake up feeling less refreshed.
+
+• Regular use before sleep may lead to sleep debt and increased fatigue – MGN 505 (M) amendment 1.
+
+• Increased fatigue can lead to reduced performance, making more mistakes and increased stress.
+
+4.2 The immersive nature of modern electronic devices can be addictive and over stimulating which can lead to fatigue and limited attention span in daily tasks due to increased mental workload. Routine tasks may also become uninteresting as they struggle to provide as much mental stimulation as the use of electronic devices. This can lead to complacency and greater opportunity for error to occur.
+
+4.3 Mobile phones and other personal devices are useful way for seafarers to communicate for their job, and with family and friends. In an increasing connected world, use of these devices is likely to increase. The purpose of this guidance is to highlight the potential dangers of the use of personal devices whilst at work and advise on their safe use if such devices are needed during work.
+
+More information
+
+Seafarer Safety and Health Branch 
+Maritime and Coastguard Agency
+Bay 2/17
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72114
+
+Email: human.element@mcga.gov.uk.
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

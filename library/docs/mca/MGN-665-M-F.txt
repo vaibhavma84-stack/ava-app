@@ -1,0 +1,164 @@
+MGN 665 (M+F) MGN 665 (M+F) Amendment 1 Mandatory registration of EPIRBs and PLBs
+2026-03-24
+Source: https://www.gov.uk/government/publications/mgn-665-mf-amendment-1-mandatory-registration-of-epirbs-and-plbs
+
+1. Summary
+
+This Notice draws attention to and gives guidance regarding the Merchant Shipping (EPIRB and PLB Registration and Radiocommunications) (Amendment) Regulations 2026 (“the 2026 Regulations”) and the Merchant Shipping (Watercraft) Order 2023 (“the 2023 Order”).
+
+Key Points –
+
+1.1 406 MHz beacons (EPIRBs and PLBs) fitted or carried on (as the case may be) United Kingdom flagged ships and hovercraft, and on watercraft, must be registered with the UK 406 MHz Beacon Registry.
+
+1.2 “EPIRB” means an emergency position-indicating radio beacon that is either manually or automatically activated, operating in the frequency band 406.0-406.1 MHz capable of transmitting a distress alert via satellite to a rescue coordination centre and transmitting signals for on-scene locating. EPIRBs must float in an upright position to enable transmissions. The battery life allows for operation for at least 48 hours. They are normally installed on ships in float free brackets.
+
+1.3 “PLB”, means a personal locator beacon which is a small portable device that is manually activated, operating in the frequency band 406.0-406.1 MHz capable of transmitting a distress alert via satellite to a rescue coordination centre and is not normally fitted to a ship.  PLBs are not required to float, although some can do so to enable them to be retrieved should they be dropped in the water. They must be held out of the water to enable transmissions. The battery life typically allows for 24 hours of operation. They are normally fitted to lifejackets or worn by a person.
+
+1.4 “PLB Owner”, means a person (which may be an individual, a company or another entity) that legally owns the PLB. This could be an individual who has, for example, bought a PLB for their use, whether that be a fisher, leisure sailor, diver etc., or a company, which may have bought a number of PLBs to issue to staff as part of their PPE, for example, offshore wind companies, which issue PPE to staff on maintenance vessels.
+
+1.5 Changes to registered beacons must be notified promptly using the online, customer self-service or, for offline users or where accessibility assistance is required, via the Beacon Registry, as shown in section 4.4.
+
+1.6 It is an offence by the ship owner, master or the PLB owner (whichever applies) not to comply with registration requirements.
+
+2. Introduction/background
+
+2.1 This Marine Guidance Note draws attention to the requirement for mandatory registration of all EPIRBs and 406 MHz PLBs carried on UK registered ships and hovercraft, and on watercraft.
+
+2.2 The registration requirement derives from the United Kingdom’s obligations in international law. SOLAS Chapter IV Regulation 5-1 provides:
+
+“Each Contracting Government undertakes to ensure that suitable arrangements are made for registering global maritime distress and safety system (GMDSS) identities and for making information on these identities available to rescue coordination centres on a 24-hour basis. Where appropriate, international organizations maintaining a registry of these identities shall be notified by the Contracting Government of these identity assignments.”
+
+2.3 The registration requirements form an important part of the Search and Rescue framework which is described in more detail in section 3 below. As such, these requirements ensure that details held on the database are as accurate as possible for Search & Rescue (SAR) purposes. This, in turn, ensures the registration requirements meet their underlying critical aim, the prevention of loss of life at sea.
+
+2.4 The registration requirements apply in relation to watercraft and to UK registered ships and hovercraft, such as cargo ships, passenger ships, fishing vessels and pleasure vessels. The requirements do not apply to certain apparatus not propelled by mechanical means, such as kayaks and paddleboards. Nevertheless, we would encourage anyone who is carrying out activities on water using such apparatus to register their 406 MHz PLBs as this would assist if rescue were to be required. If you are unsure about the status of the vessel or apparatus you intend to use on water, please seek independent advice.
+
+2.5 The carriage requirements for EPIRBs and 406 MHz PLBs are set out in detail in various other regulations. The 2026 Regulations, and the 2023 Order, make it a requirement that if an EPIRB or a 406 MHz PLB is carried on board a United Kingdom registered ship or hovercraft, or a watercraft, they must be registered.
+
+2.6 Therefore, the 2026 Regulations or the 2023 Order do not themselves require a person or organisation to obtain an EPIRB or PLB (although other regulations prescribe circumstances where such devices must be carried on board e.g. most ships engaged on international voyages), but if a person does obtain such a device and it is used onboard a UK flagged ship or hovercraft, or a watercraft, it is mandatory to register it.
+
+3. Need for accurate and timely registration details
+
+3.1 When a 406 MHz beacon is activated and the distress alert is received by His Majesty’s Coastguard (HMCG), there are several actions that take place including:
+
+• Deploy lifeboat(s) and/or SAR Helicopter(s) to affect a rescue
+
+• Gather intelligence to support the rescue efforts
+
+3.2 When deploying lifeboat(s) and SAR Helicopter(s) to rescue someone, HMCG tasks both volunteers and SAR professionals to go out into potentially hazardous conditions that may risk their lives. This is the nature of the work. However, with 92% of UK distress alerts received via 406 MHz beacons in 2024 being false alerts, it is essential to be able to gather intelligence quickly to minimise the risks to everyone.
+
+3.3 Gathering intelligence rapidly to support any rescue efforts, understanding the nature of the incident, the type of vessel, the potential number of casualties involved are all essential to be able to task the right resources to the right places. SAR resources are finite and HMCG has to decide what resources to deploy where; the more intelligence available to support that decision making facilitates the best possible outcomes.
+
+3.4 The effectiveness of a 406 MHz beacon as a SAR aid during an active incident depends upon the correct information being readily available. If information is inaccurate or out of date, there is the potential to jeopardise SAR operations, including looking for the wrong vessel, or stopping a search because it might appear that the vessel associated with that beacon registration is not in distress.
+
+4. Procedure for Registration
+
+4.1 When registering an EPIRB or PLB, please provide as much information as possible to assist HMCG should the beacon ever be activated. If a PLB is used on ships, whilst it is not mandatory to provide the ship details, the MCA would encourage that you provide details of all ships that the PLB will be used on.  The emergency contact is used to gather information when the EPIRB/PLB is activated.  The emergency contact should know who is using the PLB, and where it is being used, including information about the ship.
+
+4.2 The beacon registry is quite flexible and allows:
+
+4.2.1 A beacon owner to register multiple beacons.
+
+4.2.2 Each beacon can have multiple operational domains (Maritime, Aviation, Land)
+
+4.3 A beacon which is registered for use in the maritime domain, can have multiple vessels or uses.
+
+4.4 UK coded EPIRBs and 406 MHz PLBs are to be registered with the UK Beacon Registry, part of the Maritime and Coastguard Agency (MCA), by using the online customer self-service website at: www.gov.uk/register-406-beacons
+
+4.5 Offline customers or those requiring assistance can contact the Beacon Registry for advice and support. The preferred method is by email.
+
+The UK 406 MHz Beacon Registry
+
+UKBeacons@mcga.gov.uk
+
+Tel +44 (0)20 381 72006
+
+Fax +44 (0)1326 319264
+
+Monday to Friday, 9am to 5pm (except public holidays), or write to us at:
+
+The UK 406 MHz Beacon Registry
+
+Falmouth MRCC
+
+Castle Drive,
+
+Pendennis Point
+
+Falmouth
+
+Cornwall
+
+TR11 4WZ
+
+5. Beacon Coding
+
+5.1 The UK only accepts EPIRBs and PLBs coded with country codes (MID codes) 232, 233, 234, or 235, using protocols as listed in the UK section of C/S S.007, Cospas-Sarsat Handbook of Beacon Regulations, downloadable at: https://www.cospas-sarsat.int/en/documents-pro/system-documents
+
+5.2 UK Serialised – where the beacon has a unique serial number.
+
+5.3 UK Maritime Mobile Service Identity (MMSI) – allocated to the vessel.
+
+5.4 UK Location protocols – for GNSS models.
+
+Further programming advice can be provided by the Beacon Registry or the beacon manufacturer.
+
+6. Change of Details
+
+6.1 It is essential that any changes are registered to ensure that the objectives described in section 3 can continue to be fulfilled. Offline customers or those requiring assistance may use the procedure outlined in section 4.
+
+7. Frequent transfer of a Beacon
+
+7.1 For those who regularly transfer EPIRBs from one UK ship or hovercraft, or watercraft, to another (such as beacon hire companies, yacht delivery companies, programmer’s spare service beacons and race competitors), changes to the registration details are to be made online as described in section 4 by the beacon registration account holder as soon as practicable. Offline customers may use the procedure outlined in paragraph 4.5.
+
+7.2 For frequent transfers of PLBs from one United Kingdom ship or hovercraft, or watercraft, to another, registration of ship details is not mandatory. However, registering these details can assist search and rescue operations if needed.
+
+7.3 The emergency contact should know who is using the PLB, and where it is being used, including information about the ship.
+
+8. Proof of Registration
+
+8.1 Once registration details have been entered onto the self-service system, the beacon owner will be sent an automatic acknowledgement by e-mail.
+
+You will also be sent by post:
+
+• Beacon registration certificate
+
+• Waterproof registration ‘sticky’ labels to put onto your beacon
+
+Note: labels should not cover the battery housing that may be replaced during servicing.
+
+8.2 Existing customers must confirm their beacon details on the new service by logging in using the email with which they registered their beacon. If this registration occurred between 2013 and 2021, the Beacon Registry will be in contact by e-mail or letter with advice as to how to do this and how to manage their data in the future.
+
+9. Enforcement
+
+9.1 The MCA, like any United Kingdom regulator in respect of each area of activity it oversees, must ensure that the maritime regulatory framework is capable of being enforced effectively. This derives in part from the United Kingdom’s obligations under international law as well as in accordance with its duties under domestic public law.
+
+9.2 Enforcement comprises a range of responses, which include prosecution or detention of a ship for breach of a prescribed requirement. Prosecution could result in the imposition of a fine or a custodial sentence (as explained in paragraph 9.3).  However, the MCA must act reasonably, fairly and proportionately in exercising its enforcement functions. Therefore, prosecution would only be pursued in the more egregious cases of breach, and the maximum prescribed penalties would only be available for imposition by the courts in the most exceptional cases (e.g. where a failure to register a beacon is proven to have caused loss of life).
+
+9.3 Offences and penalties:
+
+9.3.1 A maximum of an unlimited fine (England and Wales) or fine not exceeding the statutory maximum (Scotland and Northern Ireland) and/or imprisonment for 2 years for contravention of Regulations 5(1) and (3) (the requirements that the owner or master register an EPIRB carried on a ship).
+
+9.3.2 A maximum of an unlimited fine (England and Wales) or fine not exceeding the statutory maximum (Scotland and Northern Ireland) and/or imprisonment for 2 years for contravention of Regulation 6(1) and (3) (the requirement that the owner of a PLB register a PLB carried on a ship).
+
+9.4 Detention:
+
+9.4.1 A ship may be detained if it does not comply with the requirement of the 2026 Regulations.
+
+More information
+
+UK Technical Maritime Services
+Maritime and Coastguard Agency
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: radio@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

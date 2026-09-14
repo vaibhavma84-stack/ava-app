@@ -1,0 +1,212 @@
+MGN 632 (M+F) MGN 632 (M+F) Amendment 2: The merchant shipping (prevention of pollution by garbage from ships) regulations 2020
+2024-05-22
+Source: https://www.gov.uk/government/publications/mgn-632-mf-amendment-2-the-merchant-shipping-prevention-of-pollution-by-garbage-from-ships-regulations-2020
+
+Summary
+
+The purpose of this MGN is to provide guidance and clarification with respect to certain aspects of MARPOL Annex V (referred to as “Annex V”), the Polar Code and the Merchant Shipping (Prevention of Pollution by Garbage from Ships) Regulations 2020 (S.I. 2020/621) (referred to as “the UK Regulations”). Future amendments to the international requirements in Annex V and the Polar Code will be incorporated into UK law by way of ambulatory reference, where appropriate.
+
+Amendment 2 includes the extension to the requirement to provide a Garbage Record Book from ships of 400 gross tonnage (“GT”) and above to ships of 100 GT and above.
+
+1. Introduction/background
+
+1.1 The UK Regulations implement Annex V of MARPOL, including all the amendments to that Annex to date.
+
+1.2 The purpose of the UK Regulations is to, by reference, incorporate the text of Annex V in its most up to date form into UK domestic law. The references in the UK Regulations to Annex V are ambulatory; this means that they will incorporate future technical amendments to Annex V (as agreed in the International Maritime Organization (“IMO”)) into UK law at the point they come into force internationally, without the need for further UK legislation. Proposed changes to Annex V will continue to be scrutinised in the IMO, and the impact of these changes will continue to be assessed well before any amendment is due to come into force. The Secretary of State at all stages retains the power to prepare additional secondary legislation in order to prevent an amendment becoming part of United Kingdom law by way of ambulatory reference. An amendment will be publicised in advance of the date that it comes into force by means of a Parliamentary Statement to both Houses of Parliament and by way of a Marine Guidance Note.
+
+1.3 The above approach refers the reader of the UK Regulations directly to the international text, avoiding the need to transpose detailed technical obligations into the UK Regulations. This MGN supplements that approach by amplifying any aspects of the international text which are thought to lack clarity or need additional detail. The amount of documentation to be read is therefore kept to a minimum.
+
+2. Application
+
+2.1 The UK Regulations apply to United Kingdom ships wherever they may be (regulation 4). They also apply to non-UK ships, when they are in UK waters and controlled waters (i.e., the UK’s Exclusive Economic Zone) (regulation 4).
+
+2.2 The Regulations do not apply to any warship, naval auxiliary or other ship owned or operated by a State and used, for the time being, only on Government, non-commercial service (regulation 4).
+
+2.3 Shippers of solid bulk cargo on a ship to which the UK Regulations apply must make a declaration to the owner, master or forwarder as to whether the solid bulk cargo is harmful to the marine environment (regulation 9). Where such a declaration is made to a forwarder, he must provide it to the owner or master (regulation 9).
+
+2.4 All ships of 12 metres or more in overall length and fixed or floating platforms are required to display placards which notify the crew and any passengers of the requirements for the disposal of garbage (regulation 10).
+
+2.5 The requirement for a ship to complete a Garbage Management Plan applies to all ships of 100 GT or above, every ship which carries 15 or more persons and fixed or floating platforms (regulation 11).
+
+2.6 The requirement for a ship to carry and fill in a Garbage Record Book applies to all ships of 100 GT or above, every ship which carries 15 or more persons and is engaged on voyages to ports or offshore terminals under the jurisdiction of a Party to the Convention other than its flag State, and fixed or floating platforms (regulation 12).
+
+2.7 Regulation 14 provides the Secretary of State with the power to grant an exemption from the requirements for a Garbage Record Book. The exemption can be granted to fixed or floating platforms and any ship engaged on voyages of one hour or less in duration which carry 15 or more persons.
+
+2.8 Ships which are not required to have a Garbage Record Book must nonetheless record certain discharges or accidental losses of garbage in their log-books (regulation 15).
+
+3. Definitions
+
+3.1 Regulation 1 and regulation 13 of Annex V provide clear definitions of terms used in the Annex. Section 5.1 of chapter 5 of part II-A of the Polar Code provides further definitions relevant to the discharge of garbage in polar waters.
+
+3.2 To ensure that there is no ambiguity as to what is controlled, Annex V defines both ‘garbage’ and each individual garbage type. For the former, Annex V provides that:
+
+“Garbage means all kinds of food wastes, domestic wastes and operational wastes, all plastics, cargo residues, incinerator ashes, cooking oil, fishing gear, and animal carcasses generated during the normal operation of the ship and liable to be disposed of continuously or periodically except those substances which are defined or listed in other Annexes to the present Convention. Garbage does not include fresh fish and parts thereof generated as a result of fishing activities undertaken during the voyage, or as a result of aquaculture activities which involve the transport of fish including shellfish for placement in the aquaculture facility and the transport of harvested fish including shellfish from such facilities to shore for processing.”
+
+4. General Prohibition
+
+4.1 A significant change to the approach taken by the Annex since the UK Regulations in 2008[footnote 1] is the reversal of the historical presumption that garbage may be discharged into the sea based on the nature of the garbage, defined distances from shore and treatment. Instead, regulation 3.1 of Annex V now prohibits the discharge of all garbage into the sea, with limited exceptions. This requirement is implemented in the UK Regulations in regulation 5.
+
+5. Plastics and Cooking oil
+
+5.1 Plastic has been prohibited from discharge into the sea since Annex V entered into force over 30 years ago. To ensure there is no confusion on discharge requirements for plastic or cooking oil, regulations 3.2 and 3.3 were added to Annex V. The intention of these regulations is to clearly show that discharge of plastic or cooking oil is only permitted in the circumstances set out in regulation 7 in Annex V (Exceptions). However, this does not mean that other garbage types that have not been specifically identified in regulation 3.1 can be discharged; this is not the case. Please refer to regulations 4, 5, 6 and 7 of Annex V, as well as chapter 5 of part II-A of the Polar Code to see the limited categories of garbage which can legally be discharged, and the conditions with which these discharges must comply. Further information about these is set out below.
+
+6. Limited Discharges
+
+6.1 Annex V does permit limited discharges[footnote 2] of garbage into the sea subject to conditions set out in regulations 4 (Discharge of garbage outside special areas), 5 (Special requirements for discharge of garbage from fixed or floating platforms), 6 (Discharge of garbage within special areas) and 7 (Exceptions) of Annex V. There are additional conditions for the discharge of garbage in polar waters pursuant to chapter 5 of part II-A of the Polar Code. The IMO have developed comprehensive Guidelines to assist in the implementation of, and compliance with, Annex V; the “2017 Guidelines on the Implementation of MARPOL Annex V” (“the 2017 Guidelines”) is a published document and can be purchased (ISBN 9789280115642).[footnote 3]
+
+6.2 Ordinarily there are only four garbage categories that are permitted to be discharged into the sea, and only then in certain circumstances. These are food waste, solid bulk cargo residues which are not harmful to the marine environment (HME), animal carcasses and cleaning agents or additives which are not HME.
+
+7. Food Waste
+
+7.1 Food waste is the more widely acceptable garbage category that can be discharged into the sea. Its discharge is governed by:
+
+• Outside special areas (excluding polar waters): regulations 4.1.1 and 4.1.2 of Annex V;
+
+• From fixed or floating platforms: regulation 5.2 of Annex V;
+
+• Inside special areas (excluding polar waters): regulation 6.1.1 of Annex V;
+
+• In polar waters: regulation 4.1.1 and 4.1.2 or 6.1.1 of Annex V and chapter 5 of part II-A of the Polar Code.
+
+7.2 Regulation 6.1.1 of Annex V provides that within in the Antarctic area the discharge of avian products is further restricted. The term ‘avian products’ includes all bird related products such as poultry and poultry parts. Food waste comprising of avian products needs to be sterilized to destroy microorganisms in or on the product. This can be done by cooking the product at a high temperature e.g. microwaving, boiling etc.
+
+8. Residues of Solid Bulk Cargoes
+
+8.1 The conditions for when cargo residues can be discharged are governed by:
+
+• Outside special areas (excluding polar waters): regulation 4.1.3 of Annex V;
+
+• Inside special areas (excluding polar waters): regulation 6.1.2 of Annex V;
+
+• In polar waters: regulation 4.1.3 or 6.1.2 of Annex V and chapter 5 of Part II-A of the Polar Code.
+
+8.2 One of these conditions is that only those cargo residues which cannot be recovered using ‘commonly available methods for unloading’ can be discharged. Variable methods are used to load and unload ships which carry solid bulk cargoes, depending on the design of the ship, size, cargo and logistics of the port infrastructure. Commonly available methods of unloading cargo from a ship may be a broom, brush, grabbers, conveyor belts, etc. Only where these commonly available methods cannot recover cargo residues can the remaining cargo residue be discharged into the sea.
+
+8.3 Solid bulk cargoes require classification to determine whether they are HME; the criteria for classification are set out in Appendix I to Annex V. The shipper will need to undertake such classification and provide the shipowner or master with a declaration as to whether they are HME. All shippers of solid bulk cargoes will be required to provide a declaration in the form required in section 4.2.3 of the IMSBC Code (regulation 9 of the UK Regulations).
+
+8.4 Further information can be found in the 2017 Guidelines which provide a dedicated section on solid bulk cargoes.
+
+9. Animal carcasses
+
+9.1 Animal carcasses may only be discharged outside of special areas, except that they cannot be discharged in Arctic waters (see regulation 4.1.4 of Annex V and paragraph 5.2.1.4 of chapter 5 of part II-A of the Polar Code and UK regulation 5(1)). Annex V applies to mortalities which may gradually accrue over the voyage of the ship due to illness, refusal to feed, exhaustion etc.; as such it covers mortalities which are generated during the normal operation of the ship. Animals which die or are euthanized onboard during the voyage due to these factors are considered to be garbage and will need to be recorded in the Garbage Record Book when they are discharged or incinerated. Carcasses of animals resulting from mortalities in excess of those generated during the normal operation of the ship will need to be treated as spoilt cargo.[footnote 4] The 2017 Guidelines provides a dedicated section on animal carcasses.
+
+10. Cleaning agents or additives
+
+10.1 The conditions for when cleaning agents or additives can be discharged into the sea, if they are not HME, are governed by:
+
+• Outside special areas (excluding polar waters): regulation 4.2 of Annex V;
+
+• Inside special areas (excluding polar waters): regulation 6.2;
+
+• In polar waters: regulation 4.2 or 6.2 or Annex V and chapter 5 of part II-A of the Polar Code.
+
+10.2 The HME criteria for cleaning agents or additives are different to that of solid bulk cargoes, as the criteria does not include two of the criteria in Appendix 1 of Annex V, namely:
+
+• Specific Target Organ Toxicity Repeated Exposure Category 1 combined with not being rapidly degradable and having high bioaccumulation;
+
+• Solid Bulk Cargoes containing or consisting of synthetic polymers, rubber, plastics, or plastic feedstock pellets (this includes materials that are shredded, milled, chopped or macerated or in similar materials) of the solid bulk cargoes criteria.
+
+10.3 Regulation 5(2) of the UK Regulations sets out when a cleaning agent or additive will be considered to be HME.
+
+10.4 The 2017 Guidelines provides details of the criteria and the evidence required to show that the products used are complying with the requirement not to be HME.
+
+10.5 Cleaning agents and additives used under Annex V do not require to be assessed through the Joint Group of Experts on the Scientific Aspects of Marine Environmental Protection (GESAMP) advisory body.
+
+11. Mixed or contaminated Garbage
+
+11.1 Regulations 4.4 and 6.4 of Annex V cover the eventuality that garbage that can be discharged might be mixed with or contaminated by a prohibited garbage category (e.g. plastic) or a substance covered by another Annex of MARPOL.[footnote 5] Where this happens the most stringent discharge requirements apply to the mixture. For example:
+
+• if plastic is mixed with food waste then the mixture must be treated as if it were all plastic;
+
+• if cooking oil is mixed with oil and stored in oil sludge tank then the mixture must be treated as if were all cooking oil.
+
+11.2 This principle applies to substances from across the MARPOL Annexes. The same requirements for mixed or contaminated garbage apply to discharges outside and within special areas and from fixed or floating platforms. This requirement is given effect in the UK Regulations in regulation 6.
+
+12. Exceptions
+
+12.1 Regulation 7 of Annex V (UK regulation 8) provides exceptions to the prohibition on the discharge of garbage in emergency situations. Under these provisions all garbage categories can be discharged for the purposes of securing the safety of the ship and those onboard or saving life at sea. This regulation also provides an exception for the accidental loss of garbage as a result of damage to a ship or its equipment provided that all reasonable precautions have been taken before and after the loss to prevent or minimize the loss. It also provides exceptions for the accidental loss of fishing gear provided that all reasonable precautions have been taken to prevent the accidental loss and for the discharge of fishing gear for the protection of the marine environment (see paragraphs 15.1 - 15.4 below on reporting such loss or discharge). The provisions on mixed or contaminated garbage do not apply to garbage discharged or lost under an exception.
+
+13. Garbage Management Plans
+
+13.1 Regulation 10.2 of Annex V (UK regulation 11) requires every ship of 100 GT and over, every ship carrying 15 or more persons and fixed or floating platforms to carry a Garbage Management Plan.
+
+13.2 This document must set out procedures for minimizing, collecting, storing, processing and disposing of garbage, including the use of any garbage-related equipment on board. It must also designate the person or persons in charge of carrying out the Plan. The Garbage Management Plan must be set out in accordance with the IMO’s 2012 Guidelines for the Development of Garbage Management Plans.[footnote 6] The crew should be trained in garbage management and be aware of the contents of the Plan, and the Master of the ship is responsible for ensuring that this Plan is followed and implemented. The 2017 Guidelines provide further comprehensive guidance to assist crews minimize waste and on how to handle waste. The 2017 Guidelines cover collection, processing, storage and discharge and also provide details on shipboard equipment such as compaction, grinding and incineration equipment.
+
+14. Garbage Record Books/Electronic Record Book
+
+14.1 Regulation 10.3 of Annex V (UK regulation 12) requires every ship of 100 GT and above, every ship carrying 15 or more persons engaged in voyages to ports or offshore terminals under the jurisdiction of another Party to the Convention, and fixed or floating platforms to maintain a Garbage Record Book whether as a part of the ship’s official log-book, a separate document or an Electronic Record Book.
+
+14.2 Regulation 10.3 was amended by IMO Resolution MEPC.314(74)[footnote 7] to allow for the use of Electronic Record Books (ERB) from 1 October 2020. This amendment to Annex V was incorporated into UK law at the same time that the amendment came into force internationally (1 October 2020) by way of the ambulatory reference provision in the UK Regulations (regulation 3). If you choose to use an ERB, it must be approved in line with the ‘Guidelines for the Use of Electronic Record Books’ Under MARPOL.[footnote 8] Companies wishing to develop and market an ERB for use on a UK ship will be able to obtain approval of their electronic system against the Guidelines from one of the UK’s delegated Recognised Organisations.
+
+15. Reporting of accidental loss or discharge of fishing gear
+
+15.1 The amount of marine debris resulting from the fishing industry is significant, hence specific regulations have been introduced into Annex V to control this category of garbage. Regulation 10.3.6 of Annex V (UK regulations 13(2) and 15) requires ships (including fishing vessels) to record any discharge or accidental loss referred to in regulation 7 of Annex V, which includes the accidental loss and certain other discharges of fishing gear, in the Garbage Record Book or, in the case of a ship of less than 100 GT[footnote 9], the ship’s logbook.
+
+15.2 Regulation 10.6 of Annex V (UK regulation 8(3)) requires ships (including fishing vessels) to report the accidental loss or discharge of fishing gear which poses a significant threat to the marine environment or navigation. The 2017 Guidelines have a dedicated section on fishing gear, which provides factors to consider when assessing whether lost or abandoned fishing gear could be considered to pose a significant threat to the marine environment or navigation. Whole or nearly whole large fishing gear or other large portions of gear is likely to constitute such a threat.
+
+15.3 Reports of fishing gear which poses a significant threat to the marine environment or navigation need to be made to the flag State, and where appropriate to the coastal State in whose jurisdiction the loss of the fishing gear occurred. For the purposes of the UK, details of such losses or discharges need to be sent to environment@mcga.gov.uk
+
+15.4 The details required to be submitted will be the same as required in the Garbage Record Book, i.e., the ship’s name, distinctive number or letters, IMO No., etc. The details should include the amount and nature of the gear lost or discharged, the position of the ship (longitude/latitude) and the conditions of the marine environment where it was lost or discharged.
+
+16. Garbage Record Books: Exemptions/Equivalence
+
+16.1 Regulation 10.4 of Annex V (UK regulation 14) allows the Administration (in the UK the Maritime and Coastguard Agency (MCA), acting on behalf of the Secretary of State) to waive the requirements in relation to Garbage Record Books. The following may be exempted:
+
+a) Ships engaged on a voyage of one hour or less which are certified to carry 15 or more persons. It should be noted that the MCA policy is that a Garbage Record Book will still need to be held on board the ship, but those in charge of the ship can apply for an exemption from making entries in the Book. Applications for the exemption should be made to your local MCA Marine Office. The applicant will need to declare that over the period of time the exemption is being applied for, the ship will only undertake voyages of one hour or less in duration. If an exemption is granted, it will need to be attached to the Garbage Record Book and the exemption will not have effect at any time when the ship engages in a voyage of over one hour in duration. In these situations, entries will need to be make in the Garbage Record Book as set out in Annex V.
+
+b) Fixed or floating platforms – Fixed or floating offshore installations engaged in exploration and exploitation of the seabed must have a Garbage Record Book or equivalent. The equivalent accepted by the MCA are the waste manifest records, special waste pre-notification consignment notes (for special wastes) and duty of care transfer notes (for non-special wastes) which are already maintained and held by fixed or floating platforms. This also applies to unmanned installations. Where unmanned installations do not have a premise to maintain records then the required records must be held at the operator’s premises onshore.
+
+17. The International Code for Ships Operating in Polar Waters (Polar Code)
+
+17.1 Antarctic and Arctic waters are defined in Annex V in regulation 1.14.7 and regulation 13.2 respectively. Annex V applies to ships in Antarctic and Arctic waters (polar waters). However, the Polar Code sets additional requirements in relation to discharges into the sea in polar waters.
+
+17.2 The UK Regulations apply to discharges into polar waters from United Kingdom ships which are operating, or which intend to operate, in polar waters, and non-United Kingdom ships which begin or end a voyage from or in a United Kingdom port and during that voyage operate, or intend to operate, in polar waters. The effect of regulation 5(1)(d) is that the discharge of garbage from a United Kingdom ship into the sea in polar waters is prohibited except as provided in section 5.2 of Chapter 5 of part II-A of the Polar Code. Section 5.2 only allows the discharge of garbage where the discharge meets the requirements of regulation 4 of Annex V (in the case of Arctic waters) or regulation 6 of Annex V (in the case of Antarctic waters). It then sets out additional requirements which must also be met.
+
+17.3 As the Antarctic is a special area under Annex V regulation 6.1, the amendments for the Antarctic in the Polar Code set out appropriate geographical changes such as stipulating the distances that discharges must be from ice-shelves, fast ice and ice concentration exceeding 1/10. In addition, a United Kingdom ship must not enter the Antarctic area unless it has sufficient capacity for the retention on board of all garbage while operating in that area and has concluded arrangements for the discharge of that retained garbage at a reception facility outside of the Antarctic area (UK regulation 7). In the UK, reception facilities, and ships’ obligations in respect of the delivery of garbage to them, are governed by the Merchant Shipping and Fishing Vessels (Port Waste Reception Facilities) Regulations 2003 (S.I. 2003/1809) as amended and MGN 563 (M+F) Amendment 1.
+
+17.4 As Arctic waters fall outside special area waters under Annex V, the Polar Code sets out more stringent provisions in addition to those in regulation 4 of Annex V. This brings Arctic waters more in line with the Antarctic standard, as well as setting out appropriate geographical changes to the discharge requirements.
+
+More information
+
+Clean Ship Operations Team
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 8172448
+
+Email: environment@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+•
+The Merchant Shipping (Prevention of Pollution by Sewage and Garbage from Ships) Regulations 2008, S.I. 2008/3257. ↩
+
+•
+https://wwwcdn.imo.org/localresources/en/OurWork/Environment/Documents/Simplified%20overview%20of%20the%20discharge%20provisions%20of%20the%20revised%20MARPOL%20Annex%20V.pdf ↩
+
+•
+The Guidelines were published in IMO Resolution MEPC.295(71). ↩
+
+•
+See the IMO ‘Revised Guidance on the Management of Spoilt Cargoes’ contained in LC-LP.1/Circ.58 dated 3 July 2013: https://wwwcdn.imo.org/localresources/en/OurWork/Environment/Documents/58.pdf ↩
+
+•
+Other Annexes to MARPOL regulate: oil (Annex I); noxious liquid substances in bulk (Annex II); harmful substances carried by sea in packaged form (Annex III); sewage (Annex IV); and air pollution (Annex VI). ↩
+
+•
+The Guidelines were published in IMO Resolution MEPC.220(63). ↩
+
+•
+IMO Resolution MEPC.314(74) is available from the IMO and also from the MCA upon request. It will also be available on the Foreign and Commonwealth Treaties Database (https://treaties.fco.gov.uk/responsive/app/consolidatedSearch/) but this may not be available at the time of the publication of this Notice. ↩
+
+•
+The Guidelines were published in IMO Resolution MEPC.321(74). ↩
+
+•
+Regulation 10.3.6 of Annex V was amended by IMO Resolution 360(79) to replace “400 GT” with “100GT” and this was given effect in the UK by regulation 13(2) of the Merchant Shipping (Prevention of Pollution by Garbage from Ships) Regulations 2020. ↩

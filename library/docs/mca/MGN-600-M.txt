@@ -1,0 +1,332 @@
+MGN 600 (M) MGN 600 (M) Amendment 3 Maritime Labour Convention - Inspection of coded vessels
+2025-02-25
+Source: https://www.gov.uk/government/publications/mgn-600-m-maritime-labour-convention-inspection-of-coded-vessels
+
+Summary
+
+This note applies to vessels certificated or seeking certification under
+
+The merchant shipping (vessels in commercial use for sport or pleasure) regulations 1998 (SI 1998/2771), as amended; and
+
+The merchant shipping (small workboats and pilot boats) regulations 1998 (SI 1998/1609), as amended; and operating under one of the following codes or alterative construction standards:
+
+• the code of practice for the safety of small commercial motor vessels (the Blue Code)
+
+• the code of practice for the safety of small commercial sailing vessels (the Yellow Code)
+
+• the code of practice for the safety of small vessels in commercial use for sport or pleasure operating from a nominated point departure point (the Red Code)
+
+• the code of practice for the safety of small workboats and pilot boats (the Brown Code)
+
+• the workboat code industry working group technical standard 2014
+
+• the workboat code edition 2
+
+• MGN 280(M) small vessels in commercial used for sport or pleasure, workboats or pilot boats – alternative construction standards.
+
+Any reference to “the Codes” in this notice refers to the codes and their equivalences listed above.
+
+It contains guidance on the arrangements in place for inspection for compliance with the Maritime Labour Convention, 2006 (“the MLC”).
+
+Inspection for compliance with the MLC is not required for vessels operating exclusively on domestic voyages and within 60 miles of a safe haven in the United Kingdom.
+
+However, such vessels are required to comply with the relevant standards. Annex 1 to this notice may be used as a checklist of the standards which apply.
+
+Any voyage to or from a port outside the UK is not a domestic voyage.
+
+Substantially equivalent crew accommodation standards are contained in MGN 601(M) (for vessels under 200GT) and MGN 602(M) (for vessels between 200GT and 500GT).
+
+Amendment 3 updates contact details for those applying for Maritime Labour Certificates and updates references.
+
+1. Introduction
+
+1.1 The Maritime Labour Convention, 2006 (MLC) came into force internationally on 20 August 2013. The MLC consolidates and updates over 60 maritime labour instruments adopted by the International Labour Organization (ILO), introduces some new standards, as well as consolidating and updating existing requirements. The MLC applies to all ships operating commercially, other than fishing vessels and ships of traditional build (see paragraphs 2.9 and 2.10. It does not apply to warships or naval auxiliaries (Article II.6). It applies standards for seafarer living and working conditions in respect of vessels which were not previously covered by international conventions. The MLC provides a comprehensive set of global maritime standards for all seafarers on vessels to which the MLC applies.
+
+1.2 Information on the application of the MLC to UK vessels, and the meaning of “seafarer”, and “shipowner” are in MGN 471(M). The application of UK MLC regulations to small vessels is in Section 2 of this notice.
+
+1.3 The MLC has been in force for UK vessels since 7th August 2014, twelve months after the date on which the UK ratified the Convention. When a UK shipowner wishes to operate in a country other than the UK, it is their responsibility to ensure that they can demonstrate that their ship is compliant with the MLC.
+
+1.4 Provision is made in the MLC for “substantial equivalence” where it is not practical to comply with the full MLC standards set out in part A of the MLC Code. The UK government, along with shipowner and seafarer representatives in a tripartite working group has developed crew accommodation standards for small vessels which are substantially equivalent to the accommodation standards in the MLC. These are published in MGN 601(M) (for vessels under 200GT) and MGN 602(M) (for vessels between 200GT and 500GT).
+
+1.5 While the shipowner is legally responsible for ensuring that the operation of their vessel complies with all provisions of the MLC, the seafarer also has responsibility to comply with the relevant conditions for employment set by the MLC (e.g. minimum age, medical fitness).
+
+1.6 Inspection of small commercial vessels for MLC compliance by the Certifying Authority is acceptable to the MCA wherever the vessel operates, provided the vessel 1. continues to meet the conditions of their inspection. However, other Maritime Administrations or Port State Authorities are under no obligation to accept the UK MLC Small Vessel Inspection Report and have the right to refuse to allow such vessels to operate in their waters. Some Maritime Administrations or Port State Authorities may accept UK MLC arrangements for small commercial vessels if they consider them equivalent to their own. Owners and operators should check before accepting work abroad.
+
+2. Application of the MLC, 2006 to small vessels
+
+2.1 The UK has interpreted “all ships ordinarily engaged in commercial activities” to mean all vessels that are not pleasure vessels[footnote 1]. The Convention explicitly excludes registered fishing vessels, pleasure vessels, ships of traditional build, warships or naval auxiliaries (see section 3).
+
+2.2 The Merchant Shipping (Maritime Labour Convention) (Survey and Certification) Regulations 2013 (“the 2013 Regulations”) apply to all United Kingdom ships on international voyages. This includes United Kingdom ships which operate in the waters of another State. The 2013 Regulations also apply to United Kingdom ships on domestic voyages which proceed further than 60 miles from a UK safe haven[footnote 2].
+
+2.3 Any UK vessel to which the MLC applies in the waters of a State for which the MLC is in force may be inspected by the port State for compliance with the MLC. Furthermore, any UK vessel to which the MLC applies, operating in the waters of a State that has ratified the MLC may receive no more favourable treatment than a vessel flying the flag of that State under Article V (7) of the MLC.
+
+2.4 Non-UK vessels to which the MLC applies, operating around the UK, including those that do not make other international voyages are required to comply with the MLC.
+
+2.5 Vessels which are not covered by the MLC – area of operation
+
+2.5.1 The MLC does not apply to vessels navigating exclusively within inland or sheltered waters or areas where port regulations apply. The UK interpretation of this is that, under the 2013 Regulations, United Kingdom ships[footnote 3] operating on domestic voyages within 60 miles of a UK safe haven do not require an inspection for compliance with the MLC. A domestic voyage for a UK ship is a voyage that starts and finishes in the UK without the vessel going to another State.
+
+2.5.2 However, earlier UK legislation overing most of the standards laid down in the MLC already applied to all seagoing ships regardless of their area of operation, and therefore the UK’s legislation implementing the MLC also applies to those vessels. Annex 1 to this notice provides a checklist of those standards as they apply to Coded vessels.
+
+2.6 Vessels which are not covered by the MLC – types of vessel
+
+2.6.1 The MLC does not apply to registered fishing vessels, pleasure vessels, ships of traditional build, warships, or naval auxiliaries. However, for the application of individual provisions of UK law, see the relevant statutory instrument and supporting guidance.
+
+2.7 MGN 470(M) Amendment 1 lists all the implementing legislation and supporting guidance. Merchant Shipping Notices (MSN) and Marine Guidance Notes (MGN) have been issued to accompany legislative changes. For any MLC requirements other than crew accommodation, reference should be made to those documents for guidance on the standards that apply and how to comply with them.
+
+2.8 See Table 1 below which illustrates which small vessels the MLC inspection regime applies to.
+
+ 
+Pleasure vessel
+Small vessel (coded)
+Small vessel (non-coded)
+Large workboat less than 500GT
+Registered fishing vessel
+Ship of traditional build
+Warship
+Naval auxiliary
+ 
+
+UK Inland Waters[footnote 4]
+
+X
+X
+X
+X
+X
+X
+X
+X
+X
+
+UK vessel on a domestic voyage no more than 60 miles from a UK safe haven
+X
+X
+X
+X
+X
+X
+X
+X
+ 
+
+UK vessel on a domestic voyage operating more than 60 miles from a UK safe haven
+X
+Y
+Y
+Y
+X
+X
+X
+X
+ 
+
+UK vessel on an international voyage
+X
+Y
+Y
+Y
+X
+X
+X
+X
+ 
+
+Non-UK vessel operating in the UK
+X
+Y
+Y
+Y
+X
+X
+X
+X
+ 
+
+Y = the MLC applies in these circumstances
+
+X = the MLC does not apply in these circumstances
+
+For the purposes of this table:
+
+“small” means <24m load line length, or <150grt if the vessel was built before 21 July 1968.
+
+“Large” means ≥24m load line length, or ≥150grt if the vessel was built before 21 July 1968.
+
+Ships of traditional build
+
+2.9 “Ship of traditional build” means a ship built using traditional construction techniques that were common when that style of vessel was first built. It does not mean a traditional style of ship built using modern construction techniques. The purpose of this clause in the MLC is to preserve traditional ship building techniques.
+
+2.10 The UK will determine case by case whether a particular vessel is a ship of traditional build and discuss with the owner the application of MLC standards. While it may not be practicable to apply the accommodation standards to ships of traditional build, the requirements for SEAs, wages, and other provisions relating to seafarers may still be applied – or where appropriate, shore-based equivalents – as part of the determination.
+
+3. Flag State inspection
+
+3.1 MCA has authorised the recognised Certifying Authorities to carry out the required MLC inspections on the vessels that they certify under the Codes. Any owner who wishes to have their vessel inspected to demonstrate compliance with the requirements of the MLC should contact their Certifying Authority, to arrange for an inspection to take place.
+
+3.2 The MLC requires each vessel to be inspected at least every 36 months. This fits with the renewal/intermediate survey regime applied under the Codes, and it is anticipated that vessels will receive an inspection and be issued with a new inspection report at each initial/renewal and intermediate survey. However, this is not always the case and MLC inspections may be completed at any time during the vessel’s Code certification cycle.
+
+3.3 There are 16 inspection items under the MLC, which cover between them all provisions of the MLC:
+
+• minimum age
+
+• medical certification
+
+• qualifications of seafarers
+
+• seafarers’ employment agreements
+
+• use of any licensed or certified or regulated private recruitment and placement service
+
+• hours or work or rest
+
+• manning levels for the ship
+
+• accommodation
+
+• on-board recreational facilities
+
+• food and catering
+
+• health and safety and accident prevention
+
+• on-board medical care
+
+• on-board complaint procedures
+
+• payment of wages
+
+• financial security for repatriation
+
+• financial security relating to shipowners liability
+
+3.4 The Certifying Authorities will expect to see evidence of compliance for all elements of the inspection. Some of the items are hardware items which should be easily demonstrable during the on-board inspection; other elements may be submitted by other means, such as by electronic means or by post, to demonstrate compliance with the applicable provisions of the legislation. Further details on what may be inspected and what evidence of compliance should be provided, as a minimum, may be found in Annex 1 to this Notice. A list of UK legislation implementing the MLC and supporting guidance is published in MGN 470(M).
+
+3.5 Shipowners are encouraged to provide the following documents (where applicable) to the inspector to demonstrate their compliance with the requirements under United Kingdom legislation implementing the Maritime Labour Convention, 2006:
+
+3.5.1 If applicable, a list of hazardous work for young persons, risk assessment for workers under 18 years of age, specific to the risks for young persons (see MSN 1838(M) Amendment 1).
+
+3.5.2 Evidence that any Recruitment and Placement Service used was based in a country which has ratified the MLC, or other evidence of MLC compliance such as certification by a flag State administration or a report of a successful and sufficiently thorough audit by the shipowner or suitable third party organisation.
+
+3.5.3 Copy of any applicable Collective Bargaining Agreement.
+
+3.5.4 A copy of the Seafarer Employment Agreement(s) for seafarers serving on that ship.
+
+3.5.5 Where the Seafarers Employment Agreement is signed by a representative of the shipowner, a copy of the manning agreement between the shipowner and the representative of the shipowner.
+
+3.5.6 A copy of the shipowner’s evidence of financial security for repatriation of seafarers including provision for abandonment of seafarers (e.g. Certificate and Document of Insurance).
+
+3.5.7 A copy of the shipowner’s evidence of financial security to assure compensation in case of seafarer’s death or long-term disability due to an occupation injury, illness or hazard (e.g. Certificate and Document of Insurance).
+
+3.5.8 A copy of the schedule of ship board working arrangements for use on-board the ship.
+
+3.5.9 A copy of the record of daily hours of rest for use on-board the ship.
+
+3.5.10 A copy of the shipowner’s health and safety policy (more than five workers only).
+
+3.5.11 A copy of the shipowner’s on-board complaint procedures.
+
+3.6 MCA has provided the model format for an Inspection Report to Certifying Authorities for their surveyors to complete and issue to owners/operators following inspection. A blank version can be found at annex 1 to this Note. This report will indicate to port State control inspectors that the UK/MCA is satisfied that the vessel is compliant with the UK’s national legislation implementing the MLC. Such a report shall not be issued until the vessel owner has demonstrated that all elements of the inspection are being complied with to the satisfaction of the Certifying Authority. A Small Commercial Vessel Certificate or Workboat Certificate will contain the following statement:
+
+“This certificate is only valid for commercial operation on international voyages or voyages of more than 60 miles from a UK safe haven with seafarers on board if the certificate is accompanied by a valid MLC inspection report demonstrating compliance.”
+
+“International voyages” includes, for a UK vessel, voyages to and from a non-UK port. The vessel is still required to comply with the operating limits set by its Code certification (Cat 0 to Cat 6).
+
+3.7 Certifying Authorities may charge for the additional work they will need to undertake to confirm that a vessel is compliant with the MLC.
+
+3.8 MCA retains its right to inspect vessels at any time where there are reasonable grounds. Seafarers have the right to make a complaint to the MCA if they feel they are not receiving their entitlements under the MLC, as set out in MGN 487(M).
+
+3.9 If in exceptional circumstances the owner needs to engage a Certifying Authority other than the Certifying Authority for their vessel to carry out the inspection for compliance with the MLC, they should obtain agreement from their own Certifying Authority in advance, to ensure that they will accept the evidence of compliance provided by another party for the purposes of issuing the certificate of compliance under the Codes. Assurance should also be obtained that the inspection will verify compliance with UK MLC standards for the vessel, including the substantially equivalent standards for crew accommodation as set out in MGN 601(M) or MGN 602(M).
+
+4. Certification of small commercial vessels
+
+4.1 Although vessels under 500GT do not need to carry a Maritime Labour Certificate on-board, the shipowner is entitled to request one. The UK has a substantial fleet of small commercial vessels that operate overseas that may be subject to inspection, and a Maritime Labour Certificate provides prima facie evidence of compliance with the MLC to Port State Control officers.
+
+4.2 Where the inspection report referred to in 3.6 above is not considered sufficient and where a full Maritime Labour Certificate is requested for a vessel, this must be issued by the MCA in the UK. Applications should be made to the MCA for such a certificate to be issued, along with the inspection report issued by the Certifying Authority for the vessel and copies of the applicable documentary evidence listed in paragraph 3.5 of this notice. The owner must also provide a draft MLC Declaration of Maritime Labour Compliance Part II (see MSN 1848(M) Amendment 3) to the inspector during the inspection who will duly approve it after a satisfactory MLC inspection. MCA reserves the right to make any final checks and on-board inspections considered necessary to verify compliance before issuing a Maritime Labour Certificate. There will be a charge levied by MCA for verifying compliance and issuing the Maritime Labour Certificate. This will be at the current fee rate at the time.
+
+4.3 Applications for Maritime Labour Certificate should be made to:
+
+Maritime Security & MLC Branch
+Maritime Coastguard Agency
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email: hq_maritimesecurity@mcga.gov.uk
+
+5. Port State inspection
+
+5.1 Port State inspectors are required to accept a Maritime Labour Certificate and should normally accept documentation issued by or on behalf of the UK declaring that a UK vessel is compliant with the MLC as prima facie evidence of its compliance. Unless there are reasonable grounds for the Port State to believe the vessel is not compliant they should not unduly delay the vessel, but if they have concerns about the validity of the MCA compliance regime, they should be requested to contact the MCA.
+
+5.2 If there are reasonable grounds for the port State authority to believe that the vessel is not compliant with the MLC, or the UK’s substantially equivalent standards, they may require rectification of any deficiencies found prior to the vessel’s departure from port.
+
+5.3 Article V (7) of the MLC requires States to ensure that vessels that fly the flag of any State that has not ratified the MLC do not receive more favourable treatment than the ships that fly the flag of any State that has ratified it. MCA may inspect non-UK flagged vessels to which the Codes apply while operating in UK waters[footnote 5] in the UK under this provision, where the flag state has not ratified the MLC, or there is no evidence of MLC inspection by the flag state.
+
+More information
+
+Seafarer Services – Safety and Health
+
+Maritime and Coastguard Agency
+
+Bay 2/17
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: mlc@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Published: June 2022
+
+© Crown Copyright 2022
+
+Annex 1 is separately attached
+
+In this definition “immediate family” means, in relation to an individual, the spouse or civil partner of the individual, and a relative of the individual or the individual’s spouse or civil partner, and “relative” means brother, sister, ancestor or lineal descendent.
+
+• A United Kingdom ship within the meaning of section 85(2) of the Act; or
+
+• A Government ship within the meaning of section 308(4) of the Act which is ordinarily engaged in commercial maritime operations; or
+
+• A hovercraft registered under the Hover Craft Act 1968
+
+•
+Pleasure vessel means –
+
+(a) Any vessel which at the time is being used is:
+
+a. In the case of a vessel wholly owned by –
+
+i. An individual or individuals, used only for the sport or pleasure of the owner or the immediate family or friends of the owner; or
+
+11. A body corporate, used only for sport or pleasure and on which the persons on board are employees or officers of the body corporate, their immediate family or friends; and
+
+b. On a voyage or excursion which is one for which the owner does not receive money for or in connection with the operating the vessel or carrying any person, other than as a contribution to the direct expenses of the operation of the vessel incurred during the voyage or excursion; or
+
+(b) Any vessel wholly owned by or on behalf of a members’ club formed for the purpose of sport or pleasure which, at the time it is being used, is used only for the sport of pleasure of members of that club or their immediate family, and for the use of which any charges levied are paid into club funds and applied for the general used of the club; and
+
+(c) In the case of any vessel referred to in paragraph (a) or (b) above, no other payments are made by or on behalf of users of the vessel other than by the owner ↩
+
+•
+“Safe Haven” means a habour or shelter of any kind which affords safe entry and protection from the force of weather. ↩
+
+•
+“United Kingdom ship” means a ship which is – ↩
+
+•
+Inland waters means waters listed in the latest amendment of MSN 1837(M) on the Categorisation of Waters. The latest amendment at the time of publication of this notice is Amendment 2. ↩
+
+•
+See regulation 4(1)(b) of SI 1998/1609 and regulation 3(2)(b) of SI 1998/2771 ↩

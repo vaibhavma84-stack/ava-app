@@ -1,0 +1,376 @@
+MGN 375 (M+F) MGN 375 (M+F) Maritime safety information Amendment 1
+2022-12-19
+Source: https://www.gov.uk/government/publications/mgn-375-mf-maritime-safety-information-amendment-1
+
+Notice to all Shipowners, Masters, Superintendents and Skippers of Fishing Vessels, Yachts and Other Seagoing Craft.
+
+This notice replaces This notice replaces Marine Guidance Notes 23, and 44 and 375.
+
+Summary
+
+Maritime Safety Information (MSI) is defined in the Safety of Life at Sea (SOLAS) Convention, Chapter IV as “navigational and meteorological warnings, meteorological forecasts and other urgent safety related messages broadcast to ships.”
+
+The Global Maritime Distress and Safety System (GMDSS) supports two systems for broadcasting MSI:
+
+• The International NAVTEX Service
+
+• The International Enhanced Group Calling (EGC) Service
+
+• The International SafetyNET Service
+
+• The Iridium SafetyCast Service
+
+The United Kingdom NAVTEX station coverage area is given in section 4.3 and is complemented by VHF and MF radiotelephony.
+
+This Notice provides guidance about the principal sources of relevant information. Masters, skippers and others should refer to Maritime and Coastguard Agency (MCA/064) leaflet via the MCA website at www.mcga.gov.uk for details, copies can also be obtained from MCA offices.
+
+Masters, skippers and others should use every available means to obtain the latest MSI.
+
+1. Introduction/background
+
+1.1 The Maritime and Coastguard Agency (MCA) is responsible in the UK for the broadcast of Maritime Safety Information (MSI) on NAVTEX, VHF and MF and for the provision of the Telemedical Assistance (TMAS) Service.
+
+1.2 To ensure that the user knows when to receive MSI for a given area and subject, many MSI broadcasts are scheduled in accordance with International Maritime Organization (IMO) guidance. For example, all navigational warnings and meteorological forecasts are scheduled broadcasts, while meteorological warning and distress alerts and certain urgent navigational warnings are unscheduled broadcasts.
+
+1.3 NAVTEX receivers should be programmed to receive information from the Radio Stations covering the area in which the ship is navigating, is about to enter, or adjacent NAVTEX transmission sites. The International EGC Facility (SafetyNet and SafetyCast services) should be logged on to the appropriate satellite for broadcasting MSI to the area in which the ship is navigating or is about to enter; this may require monitoring broadcasts from separate satellites.
+
+2. Navigational Warnings
+
+2.1 Full use should be made of NAVTEX, International EGC Service (SafetyNET or SafetyCast), HF, MF and VHF radio to obtain the most up-to-date Radio Navigational Warnings.
+
+2.2 Details of the UK COASTAL and NAVAREA elements of the Worldwide Navigational Warnings Service (WWNWS) are set out in the Admiralty List of Radio Signals volume 3 (NP 283).
+
+2.3 A list of current UK Coastal and NAVAREA I Warnings is published in Section III of Admiralty Weekly Notices to Mariners and are also available on the UKHO website at www.ukho.gov.uk. Although this list may be kept updated, it should be borne in mind that approved method of receiving MSI is as noted in 2.1 above.
+
+3. Weather Information
+
+3.1 Weather information for commercial shipping can be obtained at a number of UK ports or direct from the Met Office by telephoning 0370 900 0100. Forecasts are also available via the Met Office website at www.metoffice.gov.uk
+
+3.2 At sea, full use should be made of weather information (including gale and storm warnings and strong wind warnings for inshore waters) broadcast on NAVTEX, International EGC Services, MF and VHF radio.
+
+3.3 His Majesty’s Coastguard Maritime Rescue Co-ordination Centres (MRCC) broadcast weather information on Radio Telephony (RT) as follows:
+
+• Sea Area (Shipping Forecast)- twice a day
+
+• Gale Warnings – on receipt and every 3 days
+
+• Strong Wind Warnings – on receipt becoming part of the next Inshore Forecast; and
+
+• Inshore Forecasts up to 12 nautical miles offshore – new every 6 hours, repeated after 3 hours.
+
+3.4 Skippers of yachts, in particular, should listen to weather forecasts broadcast on local and national radio, the repetition of meteorological information relayed by the MRCC service, and refer to other sources which can be found in all good nautical almanacs.
+
+3.5 The definitions of visibility in nautical miles (nm) have been standardised and based on the following:
+
+• Very Poor: less than 0.5nm
+
+• Poor: 0.5nm to 2 nm
+
+• Moderate: 2nm to 5nm
+
+• Good: greater than 5nm
+
+4. NAVTEX
+
+4.1 The coverage area of a NAVTEX station is an arc of a circle having a radius from the transmitter where signals may be received, whereas the service area is the area for which MSI is available from a NAVTEX transmitter
+
+4.2 Full details of these service and coverage areas can be found in Admiralty List of Radio Signals Volumes 3 and 5. Masters should satisfy themselves that the Officers of the Watch are aware of the need to inform them of the content of navigational and meteorological warnings and weather forecasts.
+
+4.3 NAVTEX SERVICE AREAS (Refer to Annex 1 diagram)
+
+Cullercoats
+S. North Sea, E. Coast of England and E.& N. Coasts of Scotland to 62°N.
+
+Portpatrick
+N.W. Approaches to UK, W. Scotland, N. Channel, Irish Sea and St George’s Channel and E. Coast of Ireland.
+
+Niton
+S.W. Approaches N. of 48°27’N, English Channel, Celtic Sea and Dover Strait.
+
+Oostende
+S. North Sea and Dover Strait.
+
+4.4 The 518 kHz NAVTEX service provides MSI and additional weather information as follows:
+
+Activity
+Cullercoats – 518 kHz [G]
+Niton – 518 kHz [E]
+Portpatrick - 518 kHz [O]
+
+Gale Warnings on receipt and at
+0100, 0500, 0900, 1300, 1700, 2100
+0040, 0440, 0840, 1240, 1640, 2040
+0220, 0620, 1020, 1420, 1820, 2220
+
+Shipping Forecast 24 Hour Forecast & 24 Hour Outlook
+0900, 2100
+0840, 2040
+0620, 1820
+
+Extended Outlook (3-5 days)
+0100
+0040
+0220
+
+WZ Navigational Warnings
+0100, 0500, 0900, 1300, 1700, 2100
+0040, 0440, 0840, 1240, 1640, 2040
+0220, 0620, 1020, 1420, 1820, 2220
+
+Tidal Surge Warnings S. North Sea
+On receipt
+On receipt
+On receipt
+
+SUBFACTS
+-
+0440, 1640
+0620, 1820
+
+NAVAREA I Warnings
+0500, 1700
+0440, 1640
+0220, 1420
+
+4.5 The National 490kHz NAVTEX service also provides the Inshore Waters Forecast (IWF) and Strong Wind Warnings on receipt. Weather Actual Reports are broadcast once only at the next available broadcast schedule as indicated below.
+
+Activity
+Cullercoats – 490 kHz [U]
+Niton – 490 kHz [I]
+Portpatrick - 490 kHz [C]
+
+Inshore Forecast
+0720, 1920
+0520, 1720
+0820, 2020
+
+Weather Actual – latest observations
+0320, 1120, 1520, 2320
+0120, 0920, 1320, 2120
+0020, 0420, 1220, 1620
+
+4.6 The broadcast of MSI may be interrupted or delayed as a result of Search and Rescue operations. Any broadcast issues relating to NAVTEX should be addressed to the nearest HMCG MRCC or the SAR Communications Manager on 0344 382 0043.
+
+4.7 Use of Abbreviations in NAVTEX Weather Broadcasts (Refer to Annex 2 table)
+
+From 1 November 2006 a range of standard abbreviations were introduced to weather forecasts broadcast on the international NAVTEX (518 kHz) service. This change has been necessary to reduce the length of forecasts and overrunning.
+
+More information
+
+UK Technical Services Navigation Branch
+
+Maritime and Coastguard Agency
+
+Bay 2/25
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: marinesafetyinformation@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Annex 1
+
+Navtex MSI Broadcast Areas in NAVAREA 1
+
+(c) Crown Copyright 2020. All rights reserved. Source: Admiralty List of Radio Signals Volume 5 3rd Edition, page 292
+
+Annex 2
+
+Common Abbreviations for international NAVTEX service
+
+NAVTEX Abbreviations
+Terminology in full
+
+N
+North or Northerly
+
+NE
+Northeast or Northeasterly
+
+E
+East or Easterly
+
+SE
+Southeast or Southeasterly
+
+S
+South or Southerly
+
+SW
+Southwest or Southwesterly
+
+W
+West or Westerly
+
+NW
+Northwest or Northwesterly
+
+DECR
+Decreasing
+
+INCR
+Increasing
+
+VRB
+Variable
+
+BECMG
+Becoming
+
+LOC
+Locally
+
+MOD
+Moderate
+
+OCNL
+Occasionally
+
+SCT
+Scattered
+
+TEMPO
+Temporarily/Temporary
+
+ISOL
+Isolated
+
+FRQ
+Frequent/Frequency
+
+SHWRS or SH
+Showers
+
+C-FRONT or CFNT
+Cold Front
+
+W-FRONT or WFNT
+Warm Front
+
+O-FRONT or OFNT
+Occlusion Front
+
+WKN
+Weakening
+
+BLDG
+Building
+
+FLN
+Filling
+
+DPN
+Deepening
+
+INTSF
+Intensifying/Intensify
+
+IMPR
+Improving/Improve
+
+STNR
+Stationary
+
+QSTNR
+Quasi-Stationary
+
+MVG or MOV
+Moving/Move
+
+VEER
+Veering
+
+BACK
+Backing
+
+SLWY
+Slowly
+
+QCKY
+Quickly
+
+RPDY
+Rapidly
+
+KT
+Knots
+
+KMH
+Km/h
+
+NM
+Nautical miles
+
+M
+Metres
+
+HPA
+HectoPascal
+
+MET
+Meteo
+
+FCST
+Forecast
+
+TEND
+Further outlooks
+
+VIS
+Visibility
+
+SLGT or SLT
+Slight
+
+QUAD
+Quadrant
+
+POSS
+Possible
+
+PROB
+Probability/Probable
+
+SIG
+Significant
+
+NC
+No change
+
+NOSIG
+No significant change
+
+FLW
+Following
+
+NXT
+Next
+
+HVY
+Heavy
+
+SEV or SVR
+Severe
+
+STRG
+Strong
+
+FM
+From
+
+EXP
+Expected
+
+LAT/LONG
+Latitude/Longitude

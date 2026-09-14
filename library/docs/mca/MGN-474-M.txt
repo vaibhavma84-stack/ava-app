@@ -1,0 +1,301 @@
+MGN 474 (M) MGN 474 (M) Amendment 1 retention of crew agreements where appropriate
+2026-01-29
+Source: https://www.gov.uk/government/publications/mgn-474-m-amendment-1-retention-of-crew-agreements-where-appropriate
+
+Summary
+
+This notice outlines the requirement for crew agreements to be maintained on UK sea-going ships and yachts which were previously required to maintain them and which are not subject to the MLC requirement.
+
+The MLC requires that seafarers on UK registered sea-going ships, ordinarily engaged in commercial activities, must have individual seafarer employment agreements instead of a crew agreement.
+
+Amendment 1 updates references and refines the guidance to current requirements.
+
+1. Introduction
+
+1.1 Most UK sea-going ships, hovercraft, yachts and other vessels, which operate commercially , are required under the Merchant Shipping (Maritime Labour Convention) (Minimum Requirements for Seafarers etc.) Regulations 2014 (“the MLC Minimum Requirements Regulations”), to have individual seafarer employment agreements for all seafarers.
+
+1.2 The MLC Minimum Requirements Regulations do not apply to:-
+
+• pleasure vessels (except those operating commercially at any time which will need to comply with the MLC Minimum Requirements Regulations)
+
+• fishing vessels
+
+• ships of traditional build
+
+• warships or naval auxiliaries
+
+• vessels which are not ordinarily engaged in commercial activities
+
+The provisions of the Merchant Shipping (Crew Agreements, Lists of Crew and Discharge of Seamen) Regulations 1991 (SI 1991/2144) (the “Crew Agreement Regulations”) will continue to remain in force for vessels in those categories which were previously required to have crew agreements.
+
+1.3 Fishing vessels remain subject to the Merchant Shipping (Crew Agreements, List of Crew and Discharge of Seamen) (Fishing Vessels) Regulations 1972 (as amended) and Royal Navy warships are not subject to merchant shipping legislation.
+
+1.3.1 Naval auxiliaries, such as Royal Fleet Auxiliary vessels, which are registered as merchant vessels but do not operate commercially, will however continue to require crew agreements unless they voluntarily choose to adopt seafarer employment agreements instead.
+
+1.4 Pleasure vessels as defined in the MLC Minimum Requirements Regulations, whilst falling outside the requirement to have seafarer employment agreements, will continue to require crew agreements if they undertake voyages, other than a coastal voyage, for which more than 4 members of the crew receive wages for their employment.
+
+NOTE - “coastal voyage” in this context means a voyage between places in the British Isles (including the Republic of Ireland), or from and returning to such a place where no call is made at any place outside those islands.
+
+1.5 “Ships of traditional build” were not previously excluded from the requirement to have a crew agreement, so the requirement to do so will continue to apply, unless they also fall within one of the exempted categories referred to above.
+
+2. Form of crew agreement
+
+2.1 Section 25(3) of the Merchant Shipping Act 1995 states that the provisions and form of a crew agreement must be of a kind approved by the Secretary of State (in practice the Maritime and Coastguard Agency (MCA)) and different provisions and forms may be so approved for different circumstances.
+
+2.2 The “Non-Federated Crew Agreement” and the “Yacht Crew Agreement”, were replaced by a combined document, which can be used on any vessel which must have crew agreements for their crew.
+
+3. Documents comprising a crew agreement
+
+Documents which form a crew agreement for a UK ship
+
+3.1 Outer cover – suggested format at annex 1
+
+This should take the form of an outer protective cover of sufficient size to protect the crew agreement and associated documentation. Provision should be made on the front of the cover for the recording of the following information:-
+
+• name of the ship
+
+• port of choice
+
+• official number
+
+• gross tonnage
+
+• net tonnage
+
+• kilowatt power of the engine
+
+• name and address of shipowner (i.e. registered owner or manager)
+
+• description of the ship, e.g. motor vessel, steamship, motor yacht, sailing yacht; cruiser etc.
+
+• dates and places of commencement and termination of the agreement’
+
+3.1.2 Provision should also be made on the outside of the cover for the signature of the master upon the opening and closing of the crew agreement as well as the date and place at which the crew agreement was opened and closed. Provision should additionally be made on the inside of the outer cover for entries to be made by MCA superintendents and surveyors as well as proper officers and UK Consuls.
+
+3.2 Contractual clauses - suggested format at annex 2
+
+3.2.1 The contractual provisions should include the clauses shown at annex 2 and require insertion of additional information before they are used. Once that has been done they should be enclosed in the outer cover and attached to it. Further information to be entered into the contractual clauses comprises the following:-
+
+• the name and address of the employer
+
+• the limits of the voyage(s) to be undertaken during the period of validity of the crew agreement. This can be achieved by quoting the geographical limits e.g. by quoting the relevant latitudes and longitudes or specific ports and/or countries or by stating that the voyage will be within the “Near Coastal” or “Unlimited” trading areas
+
+• the period of notice to be given by either party to terminate a seafarer’s employment under the crew agreement
+
+• the place where such notice is to take effect
+
+3.2.2 Provision should also be made for the contractual clauses to be signed and dated by the master, or other representative of the employer, upon a crew agreement being opened.
+
+3.3 Lists of crew - suggested formats annexes 3 and 4
+
+3.3.1 Two lists of crew are required. One is for seafarers who are parties to the crew agreement (i.e. the majority of the crew) and the other is for seafarers (e.g. masters) who are exempt from the requirement to sign a crew agreement. Suggested formats for both lists of crew in A4 format are at annexes 3 and 4.
+
+Annex 3: List of crew and signatures of seafarers who are parties to the crew agreement
+
+This should make provision for the recording of the following information for each seafarer:-
+
+•    reference number in log book
+
+•    name of Seafarer
+
+•    discharge book number (or date and place of birth)
+
+•    name of ship on which last employed
+
+•    address of seafarer
+
+•    name and relationship of next of kin and address if different to seafarer
+
+•    rate of wages:–
+
+NOTE - Provision must be made for the actual rate of wages of a seafarer to be inserted at the time of engagement. If more convenient company pay scales, or individual agreements with seafarers, from which this may be determined may be annexed to the agreement however the entry “as agreed” is not acceptable.
+
+•    date of commencement of employment on board
+
+•    date and place of leaving the ship
+
+•    if discharged the reason for discharge
+
+•    signature of seafarer on engagement
+
+•    signature of seafarer on discharge
+
+•    signature of person before whom the seafarer is discharged
+
+•    capacity in which seafarer is employed
+
+•    number of certificate of competency, equivalent competency etc held
+
+•    full description of certificate of competency, equivalent competency held including all endorsements (e.g. restrictions, dangerous cargo endorsements etc) and the country of Issue
+
+Annex 4: List of crew relating to seafarers exempted from the requirement to sign a crew agreement
+
+This normally covers the master of a vessel and should make provision for the recording of the following information for each seafarer:-
+
+•    reference number in log book
+
+•    name of seafarer
+
+•    discharge book number (or date and place of birth)
+
+•    name of ship on which last employed
+
+•    address of seafarer
+
+•    name and relationship of next of kin
+
+•    address of next of kin if different to seafarer
+
+•    date of commencement of employment on board
+
+•    date and place of leaving the ship
+
+•    if discharged the reason for discharge
+
+•    signature of seafarer on engagement
+
+•    signature of seafarer on discharge
+
+•    signature of person before whom the seafarer is discharged
+
+•    capacity in which seafarer is employed
+
+•    number of certificate of competency, equivalent competency etc held
+
+•    full description of certificates of competency and equivalent competency held including all endorsements (e.g. restrictions, dangerous cargo endorsements etc) and the Country of Issue
+
+3.4 List of young persons - suggested format at annex 5
+
+3.4.1 In accordance with section 55 of the Merchant Shipping Act 1995, and the Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Employment of Young Persons) Regulations 1998, a summary of the provisions of the regulations and a list of all young persons under the age of 18 must be included in every crew agreement. This applies irrespective of whether or not any young persons are employed on the vessel. Where no young persons are employed the word “NIL” should be written on the form.
+
+The information to be included in each list of young persons is:-
+
+•    reference number in list of crew
+
+•    family name and other names in full
+
+•    date of birth
+
+•    place of birth
+
+•    capacity in which employed
+
+3.5 Copy of crew agreement - suggested format at annex 6
+
+3.5.1 A copy of the crew agreement, or more accurately the completed contractual clauses, is required to be posted up in an accessible place on a ship or other vessel for reference by the crew as required.
+
+4. Non-standard crew agreements
+
+4.1 Employers who wish to use a crew agreement other than in the standard form (e.g. an “Indefinite crew agreement”) or who wish to use a modified version of the standard form or a modified version of a previously approved non-standard agreement, will be required to submit them to the MCA for approval not less than 28 days before the agreement is intended to be used. To be approved by MCA such agreements must comply with ILO Convention 22 (Seamen’s Articles of Agreement) and must not conflict with the general law of the United Kingdom nor place the UK in breach of its international obligations. Any agreements that do not comply with these requirements will not receive MCA approval.
+
+4.2 All non-standard crew agreements must be in a similar form to that prescribed for standard agreements and contain contractual provisions dealing with the matters set out previously in  3.2. In considering requests for approval of non-standard agreements the MCA will have regard to the need to ensure that the seafarers are as adequately protected under these agreements as they would be under the standard form of agreement. Before approving a non-standard agreement the MCA will wish to know the views of any organisation(s) representing the seafarers concerned on the proposed agreement or modification.
+
+5. Indefinite crew agreements
+
+5.1 Whilst most crew agreements will run for a set period of time, MCA can consider approving agreements which will run without a time limit. However, the concept of “indefinite” crew agreements raises issues which are not covered in the standard “fixed term” crew agreements so in addition to the provisions in the “fixed term” agreement, an indefinite crew agreement must state:
+
+• the intervals at which wages are to be paid
+
+• the method of calculating leave entitlement
+
+• the maximum period that a seafarer can be required to remain on board between leave periods (in many cases a copy of the duty rosters will be sufficient)
+
+The notice required from each party to terminate a seafarer’s employment under the agreement, should be not less favourable than the provisions of Employment Protection Legislation applicable to land-based workers, except in the following circumstances:
+
+• by mutual consent
+
+• if medical evidence indicates that a seafarer is incapable of continuing to perform his duties by reason of illness or injury
+
+• if, in the opinion of the Master, the continued employment of the seafarer would be likely to endanger the ship or any person on board
+
+• if a seafarer, having been notified of the time the vessel is due to sail, is absent without leave at the time fixed for sailing and the vessel proceeds to sea without him or if substitutes have been engaged. Substitutes shall not, however, be engaged on a crew agreement more than 2 hours before the time fixed for sailing.
+
+5.2 In addition, given that a seafarer employed under an indefinite crew agreement will be able to give notice at any time irrespective of the location of the ship, MCA will normally only approve such agreements, which are restricted to the Near Coastal Area in order to protect employers from unexpectedly high repatriation costs. It may however be possible to approve indefinite agreements in the “Unlimited” Area provided the employer indicates to MCA in writing that it will accept responsibility for repatriation of seafarers irrespective of the location of the vessel at the time.
+
+5.2.1 The provisions of the Merchant Shipping (Repatriation) Regulations 1979 apply to paid crew employed on UK registered yachts and require the employer to repatriate and maintain crew in accordance with those regulations. Where such action is not taken by the employer, UK Consuls and MCA surveyors are able to take the necessary steps, at the employer’s expense.
+
+6. Exemption from requirement to have a crew agreement  
+
+6.1. The Secretary of State may grant exemptions from the requirement to have a crew agreement, when satisfied that the seafarers to be employed other than under a crew agreement, e.g. under a company contract, will be adequately protected.
+
+7. Approval of non-standard agreements or exemptions
+
+7.1 Non-standard agreements, indefinite agreements, modifications to standard agreements or applications for an exemption from the requirement to have a crew agreement, should be submitted in writing to Seafarer Safety and Health Branch, Maritime & Coastguard Agency, Spring Place, 105 Commercial Road, Southampton, SO15 1EG.
+
+8. Revocation of crew agreement exemptions under the crew agreement regulations for ships subject to the MLC regulations 2014.
+
+8.1 In the case of those vessels not subject to the MLC there remains an obligation to have a crew agreement, exemptions from that requirement will remain in force although employers must apply for them to be renewed to bring them in line with MCA’s current requirements if they are:-
+
+•
+not recorded on the exemption database
+
+•
+do not have a time limit of 5 years or less
+
+•
+are not ship specific
+
+8.2.1 Any exemptions which do not meet these criteria will need to be referred to Seafarer Safety and Health Branch of MCA for renewal where appropriate.
+
+9. Voluntary adoption of seafarer employment agreements
+
+9.1 Vessels not subject to the MLC but required to maintain a crew agreement can voluntarily adopt seafarer employment agreements for each seafarer in place of crew agreements if the vessel owner(s) would like to. This will however require submission of the proposed seafarer employment agreement to the MCA seeking the issue of an exemption from the crew agreement regulations, which will permit individual seafarer employment agreements to be used instead of a crew agreement.
+
+9.1.1 A ship specific exemption may be issued by the MCA where the seafarer employment agreements contain all the information required and are considered to provide protection for seafarers that at least equals the protection afforded by a crew agreement.
+
+9.2 All requests for the issue of an exemption permitting use of an SEA in place of a crew agreement must be accompanied by a specimen of the generic SEA it is proposed to use which must contain the information set out in annex 1 - MGN 477 (M). Additionally, the following information should be provided for each of the vessels for which an exemption is sought:-
+
+• name of ship
+
+• port of registry/operation
+
+• official number
+
+• gross tonnage
+
+• IMO number
+
+• UK vessel class
+
+10. Printing and supply of crew agreement documentation
+
+10.1 It is the responsibility of the employer, or shipowner to produce the relevant forms or arrange production of crew agreements. Suggested formats for the various documents forming a crew agreement are, available as annex’s 1-6 to this MGN available to download.
+
+NOTE - the period of validity for a standard “crew agreement” is 12 months.
+
+11. Submission of crew agreements, list of crew and official log books
+
+11.1 Crew agreements generally have a fixed period of validity, unless an indefinite agreement has been agreed previously by MCA.  The lists of crew, list of young persons and official log book have the same period of validity, following which they are required to be sent to the Registry of Shipping and Seamen (RSS).
+
+Contact details for the Registry of Shipping and Seamen are as follows:-
+
+Registry of Shipping and Seamen Anchor Court
+Keen Road
+Cardiff
+CF24 5JW
+
+Tel: 029 20448800
+
+Email: seafarer_registry@mcga.gov.uk
+
+12. Crew lists on demand
+
+12.1. In order that the MCA can have up to date information on the composition of the crews of vessels, the Registrar General of Shipping and Seamen is empowered to demand a list of crew at any given date and this must be supplied within 28 days. These checks will be made on a random basis or whenever there is cause to question the composition of the crew of a particular vessel.
+
+13. More information
+
+Seafarer Safety and Health Branch
+Maritime and Coastguard Agency
+Bay 2/17
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: mlc@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

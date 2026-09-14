@@ -1,0 +1,201 @@
+MGN 653 (M) MGN 653 (M) Amendment 1 electric vehicles onboard passenger roll-on/roll-off (ro-ro) ferries
+2023-08-06
+Source: https://www.gov.uk/government/publications/mgn-653-m-amendment-1-electric-vehicles-onboard-passenger-roll-onroll-off-ro-ro-ferries
+
+Summary
+
+This Marine Guidance Note provides the UK shipping industry with best practice guidance to facilitate safe carriage, and potential charging of, electric vehicles onboard roll-on roll-off (ro-ro) passenger ferries. The MCA has developed this guidance in conjunction with, and at the request of industry.
+
+Amendment 1 includes new guidance in section 4 on the carriage of light electric vehicles such as e-bikes and e-scooters.
+
+1. Introduction
+
+1.1 This guidance is provided to raise awareness of the risks and mitigations for the carriage of electric vehicles on board passenger roll-on roll-off (ro-ro) ferries. Guidance is provided on fire detection and firefighting measures for electric vehicles onboard, the carriage of electric vehicles other than cars, carriage of damaged electric vehicles and advice on charging of electric vehicles onboard.
+
+1.2 Electric Vehicles are commonly carried onboard UK ro-ro ferries. Fires in these vehicles do not release significantly more energy than fires of traditionally fuelled vehicles and are not at greater risk of fire although such fires may last longer and be more liable to re-ignite. However, there are significant differences in the best practices for fire detection and firefighting for electric vehicles.
+
+1.3 There are currently no requirements from the International Maritime Organisation (IMO) specific to the carriage of electric vehicles on passenger or cargo ro-ro vessels. This guidance is provided in advance of any potential future regulation which may be developed at the IMO, which the UK would be engaged with.
+
+1.4 Damaged vehicles can represent an increased fire risk and special measures should be in place before they are taken onboard (e.g. recovering an accident-damaged vehicle from an island).
+
+1.5 Currently there are few requirements specific to the charging of electric vehicles onboard UK vessels. However, noting the increasing popularity of the electric vehicle, it has become apparent that there is a potential for both the users of these vehicles and the operators of vessels to charge vehicles onboard. Charging should be from dedicated charging stations and offered at the discretion of the ships’ master. Charging is already being offered by some operators serving UK ports and guidance is required to ensure there is awareness of minimum expected safety provisions.
+
+1.6 The limited capacity for charging on board and the charging fuel source of the ro-ro ferry, normally marine fuel oil, should be considered when making decisions on charging of electric vehicles, and may partly negate the environmental benefits of electric vehicles. Charging operations in the port before and / or after the sea-journey, may be more efficient, environmentally friendly, cost effective and have a lower risk profile, than charging onboard, even if that would be more convenient for the vehicle owners.
+
+1.7 There are two main areas within the IMO’s Safety of Life at Sea (SOLAS) (1974) convention, as amended, where there are requirements that are applicable to charging operations onboard; SOLAS regulation II-1/45 which is the generic regulation covering precautions against shock, fire and other hazards of electrical origin, and SOLAS regulation II-2/20.3 which covers fire safety of vehicle spaces. There is further guidance in the IMO Maritime Safety Committee Circular 1615 “Interim Guidelines for Minimizing the Incidence and Consequences of Fires in Ro-Ro Spaces and Special Category Spaces of New and Existing Ro-Ro Passenger Ships”, the contents of which are not mandatory regulations.
+
+1.8 The following guidance is in accordance with the SOLAS regulations and should help provide a framework for the safe carriage of electric vehicles, and also for charging operations onboard, should operators choose to offer this. Operators should perform a thorough risk-assessment in conjunction with these guidelines, regulations and operational aspects. On short routes, where the SOLAS requirements are not wholly required, and where significant firefighting capability would be provided by shore-side local fire and rescue services, this approach should not change due to the carriage of electric vehicles. The operational guidance included in this document should be applied in a proportionate manner for the route being served.
+
+1.9 Operators should discuss their incident response plan with the ports they serve and the fire service local to each port to develop a plan for the best possible joint response.
+
+2. Identification and Vehicle Positioning
+
+2.1 Operators should consider the use of driver self-identification of electric vehicles during the booking process to aid the understanding of numbers of electric vehicles carried onboard and may include details to separate pure electric vehicles from hybrid vehicles. Hybrid vehicles will need to incorporate firefighting elements from both traditional fuelled vehicles and electric vehicles. The driver should also self-identify if there are any error messages or other indications of possible faults on the vehicle for example dashboard warnings before loading the electric vehicle on to the vessel.
+
+2.2 Electric Vehicles are on average 25% heavier than similar sized conventional vehicles and have a different centre of gravity. This should be considered in weight and stability calculations.
+
+2.3 The use of wing mirror cards or other identifying markers would aid in the quick identification of electric vehicles by deck patrols and during loading.
+
+2.4 Operators may wish to position electric vehicles under drenchers, on weather decks or away from dangerous goods. Vehicle positioning is at the discretion of the operator.
+
+3. Electric Vehicle Fires – Background, Detection and Fire Prevention Measures
+
+3.1 Not all fires in vehicles (traditional or electric) will involve the battery or fuel system, for example interior fabrics catching fire, the existing response plan already developed for traditional vehicles should be followed. Timely response to incidents is vital in reducing the risk of vehicle fires becoming more serious e.g. the fuel or battery igniting.
+
+3.2 Electric vehicles are most commonly powered by high-voltage Lithium-ion (Li-Ion) batteries. Li-ion battery fires can be self-sufficient and continue to burn without access to additional oxygen, they may also continue to generate high amounts of heat following fire-extinction and are at risk of re-ignition. In hybrid vehicles the risks from both battery and hydrocarbon fires exist simultaneously.
+
+3.3 The common high-voltage battery consists of Li-ion cells. These cells are considered dry-cells. If damaged, usually only a small amount of clear fluid will leak. The high-voltage battery and drive-unit are liquid-cooled with a typical glycol-based automotive coolant. If this blue coolant is found to leak the high-voltage battery casing may be damaged. Either a blue or clear fluid leak may indicate that the battery is damaged and should prompt further action.
+
+3.4 Thermal-runaway is the event most associated with catastrophic electric vehicle fires and occurs when the heat generated within a battery exceeds the amount of heat that is dissipated to its surroundings. Internal battery temperature will continue to rise which will cause the battery current to rise; without intervention (such as cooling) this feedback loop continues causing further heat rises and potential fire spread or explosion. The likelihood of this is reduced by modern Li-Ion battery design which allows the battery to vent instead of exploding.
+
+3.5 Immediately preceding and during thermal-runaway, off-gassing occurs - this is a release of various gases from the battery, including carbon dioxide, carbon monoxide, hydrogen, and volatile organic compounds. During the early phase of their generation the off-gases can be heavier than air and accumulate at deck-level or be lighter than air and dissipate, or accumulate at deck-head level, and it is not possible to predict which will dominate. Detectors for the heavier gases could be deployed near to deck level, or at an area provided for charging electric vehicles, however care must be taken to protect these from accidental damage. When considering the use of off-gas detectors for early thermal-runaway detection the presence of other conventionally fuelled vehicles, which also produce many of the same gases in their exhaust on the ro-ro deck, will likely cause false alarms until the deck is cleared of exhaust gases. Air circulation systems and natural ventilation may result in the off-gases being mixed with air and being difficult to detect at lower concentrations. If off-gas detectors are used, it is recommended that they are used to detect gases not normally present in exhaust fumes, such as the long chain hydrocarbons and droplets of volatile organic compounds or after exhaust gases have been vented following embarkation. However, the use of off-gas detectors in early-stage thermal runaway detection is a developing area; such specialised detectors are expensive and there is not yet strong evidence for their efficacy in a ro-ro deck environment where many factors can influence the concentration of gases.
+
+3.6 As well as the above listed gases produced when a Li-ion battery burns, the following can be released as vapours or particulates in the gases: Hydrogen chloride, hydrogen cyanide, soot, oxides of nickel, aluminium, lithium, copper, cobalt, and hydrogen fluoride. It should be noted that most of these gases are also present in traditional vehicle fires and the same protective measures are required. These vapour clouds are potentially explosive.
+
+3.7 A damaged high-voltage battery can create rapid heating of the battery cells. If you notice hissing, whistling, or popping, a possible sweet chemical smell, then black “smoke” (nanoparticles of heavy metals, not smoke) then white vapour coming from the high-voltage battery or the vehicle generally, assume that it is heating and take appropriate firefighting measures.
+
+3.8 Fire patrols should pay special attention to look for evidence of smoke or heat from the areas of vehicles where a battery is normally located, for example the underside. They should also listen for “popping sounds” which may be indicative of a potential thermal-runaway event.
+
+3.9 The crew involved in car deck inspections may be supplied with and trained in the use of thermal imaging cameras. This should be included if charging is permitted onboard. These can be used to check floor pans of electric vehicles to detect any overheating, before embarking and during crossings. Increase in battery temperature will be anticipated during charging so care should be taken in determining what temperature rise should trigger alarms. Thermal imaging investigations should be undertaken if there are any concerns over a vehicle raised by the fire patrol. Early warning of overheating vehicles may be possible with periodic use of thermal imaging cameras and recording of results. Manufacturers estimate that the minimum temperature in the battery where potential exists for thermal runaway to begin are between 60 °C and 70 °C.
+
+3.10 Furthermore, operators should also consider the addition of closed-circuit television (CCTV) which can incorporate a flame recognition system.
+
+3.11 The fixed fire-extinguishing system, where fitted, will usually be the most effective first response in dealing with an electric vehicle fire as it will provide boundary cooling and reduce the likelihood of fire spread to nearby vehicles, however a localised manual response may be more effective in certain circumstances and will be required to supress the fire in the vehicle the fire originates from. This should be considered as part of the emergency response plan. The decision to send crew to engage in manual firefighting activities should be carefully considered, especially where there is already fire spread to nearby vehicles, limited visibility or other hazards that would increase the risk to crew undertaking firefighting.
+
+3.12 In case of fire involving the Li-Ion batteries only water supplied in large quantities can cool the batteries. It is possible that this will have to be manually applied as the pressurized fixed water-drench in the vehicle spaces may not satisfy the fire suppression needs for electric vehicles due to the limits of the scope of the spray, though it will help to slow the spread of fire. The use of water monitors to provide water to the vehicle is recommended where available.
+
+3.13 With the battery pack being the seat of the most severe electric vehicle fires, and usually being located on the underside of the vehicle, means to provide cooling-water directly to the vehicle underside may be considered. Devices connected to fire hoses providing upwards spray, which could be placed under a vehicle, are an effective means of providing this direct cooling water effect. Fixed water monitors may be used to provide boundary cooling to allow firefighting teams to carry out other activities. Traditionally fuelled vehicles require approximately 4,000 litres of water to suppress a fire while electric vehicles can require around 10,000 litres depending on battery size and application method.
+
+3.14 Additionally, similar devices may be used as portable water curtains to reduce the risk of fire-spread to nearby vehicles. These portable water curtains would attach to a fire hose and contain an array of nozzles that would be directed upwards to create a water boundary between the burning vehicle and those vehicles in neighbouring lanes. These should be light enough to be moved in to place by a crew member in full firefighting suit using an extended pole to maintain maximum distance from the burning vehicle when situating this device.
+
+3.15 Extinguishing lances are specialist pieces of equipment which can deliver water directly into a vehicle’s battery enclosure by piercing the casings and provide direct cooling to the cells by supplying water or other firefighting mediums inside the battery enclosure. However, the use of these systems may damage the battery even more and thus provoke further ignition. Their use should be carefully considered against the risks from penetrating the battery enclosure and it is recommended that their use is reserved for firefighting professionals.
+
+3.16 To control and supress fires in electric vehicles it may be necessary to use specialized firefighting equipment, such as foam fire extinguishers, car fire blankets, or water monitors on weather decks. Suitable fire extinguishing equipment should be readily available at / by the location or located practicably close to any access points likely to be used for firefighting.
+
+3.17 Other methods to restrict the flame and heat spread such as specialist vehicle fire blankets or other specialist textile boundaries may be used until sufficient water quantity is available. The use of fire blankets and other specialist textile boundaries must be carefully considered due to the restricted access around vehicles on a ro-ro deck and the risks to crew to deploy a fire blanket. These may be best suited as a precautionary measure deployed where a vehicle has been identified as being at increased fire risk. While vehicle fire blankets will contain flame, the thermal-runaway event will continue, and this may generate vapour clouds that contain an explosive gas mix. All crew involved in firefighting activities should understand the difference between white pre-ignition vapour clouds and grey/black post ignition smoke to determine if the battery is in pre-ignition thermal-runaway or if this is a developed fire. Due to the risk of side venting of the batteries to avoid explosion crew involved in firefighting activities should maintain an appropriate distance from the vehicle while applying fire suppression mediums.
+
+3.18 It is critical that personnel expected to respond to vehicle fires are made aware of the risk posed by high-voltage electric equipment in electric vehicles. It is essential, as part of the firefighting measures, to ensure that the ships electrical supply to any vehicle being charged, has been cut/isolated before attempting to fight the fire. Where the electric vehicle is isolated from the ship electrical supply (i.e. is not being charged) the risk of electric shocks during electric vehicle firefighting is very low.
+
+3.19 Reignition post successful suppression of an electric vehicle fire is a risk and vehicles should be monitored by crew trained in firefighting ready to undertake additional fire suppression measures until the vehicle has been removed from the vessel.
+
+3.20 It is recommended that all ro-ro operators, except those on very short routes who are not required to carry firefighting suits, consider the use of firefighting suits with level 2 heat protection, water penetration and water vapor resistance according to BS EN 469:2020. While the minimum firefighting suit requirements permits level 1, the fire intensity from all vehicle fires is high and the greater degree of protection offered by the level 2 suits is recommended. Additional fire personal protective equipment (PPE) such as hoods / balaclavas approved to BS EN 13911:2017 and full coverage undergarments should be considered.
+
+3.21 Responders should always protect themselves with full PPE, including a self-contained breathing apparatus (SCBA), which should be worn whenever at risk of exposure to the smoke from an electric vehicle battery fire, and take appropriate measures to protect crew and passengers downwind from the incident. Muster points should be used that are not exposed to smoke where practicable.
+
+3.22 Procedures should be developed for decontamination of firefighters and handling of contaminated clothes and equipment after any firefighting operation where there was exposure to smoke from an electric vehicle. The smoke produced by a burning electric vehicle may contain hydrogen fluoride, a hazardous substance that may penetrate protective clothing. It is highly corrosive and toxic and will cause chemical burns if it permeates through clothing and comes in to contact with skin. As such the procedures for dealing with clothing and equipment exposed to battery fires may be more onerous than those exposed to traditional vehicle fires. Crew supporting firefighters in removal of their firefighting PPE should also be equipped with PPE to avoid skin contact with the firefighters clothing and equipment.
+
+3.23 Any specialised response to electric vehicle fires should be incorporated into the vessels established fire drills.
+
+3.24 A response plan for electric vehicle fires should be included in the vessels Safety Management System (SMS) and be regularly reviewed be the operator. The response plan should be risk assessed by the operator.
+
+3.25 Fire detection and firefighting of electric vehicles is a developing area and may see significant changes in the recommended approach. This MGN is representative of the currently accepted approach. This MGN will be reviewed regularly and updated where appropriate as the best practice evolves. Operators should review their own procedures and processes regularly.
+
+4. Carriage of Electric Vehicles other than cars
+
+4.1 Larger electric vehicles such as trucks, vans and commercial vehicles should be treated in the same way as electric cars with consideration given to the firefighting methods appropriate to the vehicle type.
+
+4.2 Small electric vehicles such as bicycles (pedal cycles with an electric motor), scooters, electric personal watercraft and self-balancing vehicles (electric unicycles, “hoverboards”, etc.) must be carried on vehicle, special category and ro-ro spaces or on the weather deck of a ro-ro ship or a cargo space fulfilling the requirements of SOLAS II-2 regulation 20.
+
+4.3 Small electric vehicles are not subject to the same approval and acceptance regime as electric cars and trucks and as such there is higher incidence of lower quality battery installations with increased ignition risk. While the battery sizes are significantly smaller than those found in electric cars the potential for poorly designed/installed batteries and through-life damage to the batteries gives rise to an increased fire risk from these vehicles. It is recommended that these vehicles are carried on the weather deck where available and not stowed in car boots or other similar spaces where any ignition could lead to a larger fire developing quickly. While the batteries in small electric vehicles are not inherently more dangerous by design they do present a higher fire risk due to the higher potential for “grey market” components in the battery system.
+
+4.4 Any electric scooters, electric bikes or other small electric vehicles should not be charged on board due to increased risk of fire or explosion.
+
+4.5 Small electric vehicles should be secured effectively to avoid movement during transit.
+
+4.6 Small electric vehicles should be declared as part of the booking process to aid with identification and ensure carriage in compliance with the relevant requirements in paragraphs 4.2 and 4.3.
+
+4.7 Mobility Scooters are not classified as small electric vehicles and the requirements for carriage above do not apply to them.
+
+4.8 Small electric vehicles which have been damaged should be subject to the guidance found in Section 5 of this MGN.
+
+5. Carriage of Damaged Electric Vehicles
+
+5.1 Damaged electric vehicles such as crash-damaged vehicles being repatriated or returned to the mainland from an island may be at a significantly higher risk of catching fire than undamaged vehicles, primarily depending upon whether the battery is damaged.
+
+5.2 Electric vehicles which are damaged in any way that may impact on the battery system should not be charged on board. Bodywork scrapes, damaged headlights, windscreen cracks etc. do not impact the battery system and would be acceptable.
+
+5.3 Electric Vehicles that have been damaged sufficiently to indicate that battery damage might have occurred, should be thoroughly inspected by a competent person before being allowed to be transported on board. The inspection should assess the risk of fire, and subsequently the risk to the vessel. Ships’ crew are not likely to be suitably trained in identification of these hazards and declarations from suitably qualified persons should be provided before carriage. Competent persons may include those recognised by the Institute of the Motor Industry (IMI) “TechSafe” accreditation, the Original Equipment Manufacturers recognised service agents, or similar.
+
+5.4 Due to the potential increased fire risk from damaged electric vehicles, consideration should be given to these being carried on weather decks, rather than in partly or wholly enclosed vehicle decks. This should be considered in conjunction with the full stowage plan including any dangerous goods that may be being transported. It is not recommended to transport damaged electric vehicles on the same sailing as dangerous goods.
+
+5.5 Where vehicles are being towed or carried by a car transporter, disconnection of the battery pack should be considered, due to the uncertainty around the battery’s performance. This should be undertaken by a suitably qualified person. Qualified persons may include those recognised by the Institute of the Motor Industry (IMI) “TechSafe” accreditation or similar.
+
+5.6 Where there is suspicion that the battery pack may be damaged then the battery should be disconnected and carried separately in compliance with the international code for the maritime transport of dangerous goods in packaged form (IMDG code), in accordance with the provisions of SP376 of Chapter 3.3. If it is unclear if the battery is damaged the recommendation is to apply this provision and not accept it for transport. Carriage, as always, is at the discretion of the ship’s master.
+
+6. Design, arrangement, and location of charging equipment
+
+6.1 The following paragraphs are a combination of the current legislative requirements and additional recommended guidelines.
+
+6.2 The location for charging should be preferably on the weather deck, or if charging is undertaken in a closed ro-ro space SOLAS II-2/20.3.2.2 shall apply. The regulatory requirements for this space according to SOLAS II-2 are; ingress protection rating 55 (IP55)* (or greater). Electrical equipment and wiring shall not be situated less than 450 mm above deck level (including ramps unless there is good air flow around the ramp), ventilated with no less than 10 air-changes per hour during charging operations. The hazardous area space shall have safe type equipment suitable for the hazardous area classification determined from the risk assessment as per SOLAS II-2/20.3.2.1.
+
+*For reference IP55 means: Complete protection against contact with live or moving parts inside the enclosure. Protection against harmful deposits of dust. The ingress of dust is not totally prevented but cannot enter in an amount sufficient to interfere with satisfactory operation of the machine. Water projected by a nozzle against the enclosure from any direction shall have no harmful effect.
+
+6.3 The equipment for charging should be designated for charging, have a minimum of IP55, be protected against mechanical damage and be designed so that the circuit can be disconnected when any potential error is anticipated for example by way of an isolation switch between the charging station and the ship’s main electrical system.
+
+6.4 Personnel managing the garaging (moving around deck) and charging of electric vehicles should be competent to do so. The condition of equipment and cables should be regularly checked and documented as part of the ships’ Safety Management System.
+
+6.5 No open flames to be permitted within hazardous areas and no combustibles should be stored nearby.
+
+6.6 If operators chose to offer charging on board this should be done in a dedicated part of the deck.
+
+6.7 Dedicated electric vehicle charging systems should be used which include functionality for communication between the charging station and the electric vehicle battery. These systems will offer increased protection by immediately ceasing charging operations if a fault is identified by the vehicles battery management system.
+
+7. Wiring Arrangements
+
+7.1 Wiring arrangements should comply with the relevant requirements within SOLAS and the standards published by the International Electrotechnical Commission (IEC) appropriate to the location on board the ship. Where these are not aligned, the prescriptive requirements in SOLAS and other relevant IMO instruments should take precedence and be applied.
+
+7.2 The electric vehicle charging system should have armoured cables for ducts subject to movement or without any mechanical protection.
+
+7.3 The risk of impact between rusty iron and aluminium or other light metals causing thermite reaction should be considered in the area identified as a hazardous zone.
+
+7.4 Vibration is undesirable as it can cause premature deterioration of equipment if allowed to persist. Electrical connections should be considered for inclusion in installation and maintenance management systems as connectors may be less effective when subjected to ship vibrations.
+
+7.5 “Safe type” equipment should be used which have specific design and safety measures concerning the electrical system such as connectors, sensors and control units. All those non-electric parts that could generate high temperatures or sparks, such as brakes and sources of static charge, should be considered and mitigated for in the identified hazardous zone.
+
+8. Connections to the ship and charging operations
+
+8.1 Vessel operators and electric vehicle experts have identified that there is a risk associated with the charging of electric vehicles if they are not in a suitable condition. Ship owners / operators should consider how decisions are made whether to charge or not charge an electric vehicle on their vessel, which may involve policies such as:
+
+8.1.1 To only charge un-modified vehicles from reputable manufacturers.
+
+8.1.2 To test (such as running a test current to determine circuit integrity etc.) any electric vehicle before charging commences. This could be integrated to the charging points control system.
+
+8.2 The use of an operator developed checklist or flow chart is recommended for consistency of application in decision making with regards charging operations.
+
+8.3 Areas designated for charging should be monitored by CCTV and regularly inspected by appropriately trained vessel crew.
+
+8.4 Ship owned cables are the preferred method of connection to the ship system, however vehicle owner cables presented for use can be used provided they are from an original equipment manufacturer, comply with IEC 62196 and are free of visible damage.
+
+8.5 Ground fault detection systems, or other technology that provides discrimination detection and protection for earth and short circuit faults, should be provided on electric circuits along with an alarm to the engine control room or other monitoring station.
+
+8.6 Socket outlets, regardless of the rating, should be provided with a switch, and be interlocked in such a way that the plug cannot be inserted or withdrawn when the switch is in the “on” position. Plugs should be inserted into the vehicle charging point before being switched on - similar to that for a shore supply cable.
+
+8.7 A separate final sub-circuit should be provided for each socket outlet. Each final sub-circuit should be automatically disconnected in case of overcurrent, overload, or earth fault.
+
+8.8 It may be accepted to group final sub-circuits so they can be automatically disconnected in case of earth fault, e.g. with an earth fault breaker. In that case, relevant operational procedures should also be in place.
+
+8.9 The temperature rise on the live parts of socket outlet and plugs should not exceed 30°C. Socket outlets and plugs should be so constructed that they cannot readily short-circuit whether the plug is in or out, and so that a pin of the plug cannot be made to earth at either pole of the socket outlet.
+
+8.10 The equipment should be provided with means to maintain the same degree of protection after the plug is removed from the socket-outlet. Where a loose cover is used for this purpose, it should be anchored to its socket-outlet, for example by means of a chain.
+
+8.11 In addition to SOLAS regulation II-1/45.5, electric cables that may be damaged by vehicles or cargo units during loading and unloading operations should be suitably protected by protective casings, even when armoured, unless the ships’ structure affords adequate protection. Metal protective casings if used should be efficiently protected against corrosion and effectively earthed.
+
+8.12 All of the above should be considered along with the environmental impact from charging electric vehicles from marine fuel oil and the limited efficacy of charging during transit before offering charging of electric vehicles on board ro-ro vessels. The use of existing, and provision of new, charging infrastructure on shore should be considered instead of charging at sea, especially when the fire risk profile is still being developed for electric vehicles during charging operations.
+
+More Information
+
+Ship Standards
+Maritime and Coastguard Agency,
+Bay 2/23
+Spring Place,
+105 Commercial Road,
+Southampton,
+SO15 1EG.
+
+Tel: +44 (0) 203 8172000
+
+Email: infoline@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

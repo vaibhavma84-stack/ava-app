@@ -1,0 +1,103 @@
+MGN 635 (M) MGN 635 (M): Inspections of Ro-Ro passenger ships and high-speed passenger craft
+2023-09-26
+Source: https://www.gov.uk/government/publications/mgn-635-m-inspections-of-ro-ro-passenger-ships-and-high-speed-passenger-craft
+
+Summary
+
+This notice relates to ro-ro passenger ships and high-speed passenger craft operating a regular service out of a UK port. For vessels operating a regular service at sea between UK ports or between UK and non-EU ports the provisions require:
+
+• A pre-commencement inspection to be carried out before a Ro-Ro passenger ship or High-Speed Passenger Craft begins operating on an applicable regular service to or from a United Kingdom port;
+
+• Regular inspections to be carried out in every 12 month period (the intervals between the in-port and in-service inspections not to be less than 4 months or more than 8 months), or where the circumstances of the ships change (repairs, alterations or modifications of a major character, change of management or change of classification society);
+
+• Prohibition of Departure (Detention) Notices to be issued to ships which are found to have deficiencies which are clearly hazardous to health or safety;
+
+• The Prohibition of Departure (Detention) Notice is not to be lifted until the deficiencies have been rectified to the satisfaction of the inspector and full payment of costs has been made.
+
+1. Introduction/ background
+
+1.1 The Merchant Shipping (Inspections of Ro-Ro Passenger Ships and High-Speed Passenger Craft) Regulations 2023 (“The Regulations”) apply a specific inspection regime to ro-ro passenger ships and high-speed passenger craft (HSC) operating a regular service at sea out of a UK port to another UK port or to a port in a country other than an EU Member State.
+
+1.2. The Regulations simplify the existing inspection regime for ro-ro passenger ships and high-speed craft and ensure a high level of safety. They take account of the progress made in the implementation of the Port State Control regime under the Paris Memorandum of Understanding for Port State Control.
+
+1.3. The Regulations set out the system of inspections, whereby, unless the vessel is specifically excluded by the Secretary of State under regulation 6, every ro-ro passenger ferry and high-speed passenger craft on an applicable route is subjected to a pre-commencement inspection before being permitted to operate a regular service. This consists of verification of compliance with the requirements of Schedule 2 of the Regulations.
+
+1.4. These ships will also be subject to two regular inspections in every 12-month period. One of these inspections will be carried out in port in accordance with Schedule 2 of the Regulations. The other will be an inspection during a regular service covering the items listed in Schedule 3 of the Regulations and what, in the professional judgement of the inspector constitutes a sufficient number of the items listed in Schedule 2 of the Regulations to ensure that the vessel continues to fulfil all the necessary requirements for safe operation. The interval between these two annual inspections should not be less than 4 months and should not exceed 8 months from the previous inspection.
+
+2. Scope
+
+2.1. These regulations apply to all ro-ro passenger ferries or high-speed passenger craft which operate a regular service to or from a port in the United Kingdom either on an international voyage to a non-EU port or to another UK port in sea areas designated Class A in accordance with the Merchant Shipping (Passenger Ships on Domestic Voyages) Regulations 2000. Inspections of foreign flagged ro-ro passenger ferries or high-speed passenger craft on a regular service between the UK and a port in the European Union will be carried out under the Port State Control regime in accordance with Merchant Shipping (Port State Control) Regulations 2011.
+
+3. Co-operation with other Flag States
+
+3.1 The MCA may, upon request, invite a representative of the Flag State to attend the inspection conducted under these Regulations as an observer.
+
+4. Changes from the Present Inspection Regime.
+
+4.1 Although the inspection regime remains the same in substance, the following changes are noteworthy:
+
+4.1.1 Flag State representatives may attend the inspections conducted by the UK as observers.
+
+4.1.2 The regular specific surveys are now called regular inspections and the interval between the regular inspections has now been defined (refer para 1.4).
+
+4.1.3 The term “survey” has been replaced by the term “inspection”.
+
+4.1.4 UK flagged ships operating to non-EU ports and those operating between UK ports in sea areas designated Class A will be inspected by the MCA under the Regulations.
+
+4.1.5 UK flagged ships operating from the UK to an EU member state will be inspected by the EU member state under the Port State Control Directive and the EU Ferry Directive.
+
+4.1.6 Foreign flagged ships operating between UK ports in sea areas designated Class A will be inspected by the MCA under these Regulations.
+
+4.1.7 Foreign flagged ships operating between the UK and an EU member State, where the Flag of the vessel is that of the EU member State will be inspected by the MCA under the Port State Control Regulations and the other EU member state under the EU Ferry Directive regime.
+
+4.1.8 Foreign flagged ships operating between the UK and an EU member State, where the Flag of the vessel is not that of the EU member State will be subject to the Port State Control Inspection Regime by either Port State, and EU Ferry Directive by the EU Member State.
+
+5. Practice in terms of Inspection Deficiencies
+
+5.1 The Schedules to the Regulations set out the requirements to be fulfilled by companies and ships and guidelines for inspectors undertaking inspections.
+
+5.2 Where deficiencies which do not pose an immediate danger to the ship are detected, rectification is to be completed within the agreed time frame with the inspector.
+
+5.3 Where deficiencies that pose an immediate danger to the ship are detected or other deficiencies are not rectified within the specified time period for rectification, a Prohibition of Departure (Detention) Notice will be served. All procedures in relation to detentions under the Merchant Shipping Act 1995 would then be applicable.
+
+6. MCA Policy on Exceptions
+
+6.1 Exception provisions to the pre-commencement inspection obligations are contained in regulation 6 of the 2023 Regulations. Any such applications will be taken forward on a case-by-case basis.
+
+7. Appeal Process
+
+7.1 Where a Prohibition of Departure (Detention) Notice is served, the appeal process will be the same as those that apply for detentions under the Merchant Shipping Act 1995.
+
+8. Fees
+
+8.1 Where serious deficiencies are revealed during an inspection which lead to the issue of a Prohibition of Departure (Detention) Notice, all MCA costs relating to that inspection and any subsequent inspection relating to those deficiencies raised shall be paid by the company. Fees will be charged at the rate currently in force. A deposit will be required before further inspection. The MCA will require that the rectification of deficiencies has been carried out to its full satisfaction before the Prohibition of Departure Notice is lifted.
+
+9. Contact Details
+
+9.1 Issues related to inspections of specific ships should be directed to the local Marine Office normally dealing with the ship.
+
+9.2 Questions of a general nature should be directed to the contact point below.
+
+More information
+
+HQ Inspection Operations Branch
+
+Maritime and Coastguard Agency
+
+Bay 2/20
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Telephone: +44 (0)203 81 85228
+
+Email: HQ_inspectionops@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

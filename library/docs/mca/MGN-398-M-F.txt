@@ -1,0 +1,194 @@
+MGN 398 (M+F) MGN 398 (M+F) Amendment 1: The merchant shipping (anti-fouling systems) regulations 2024
+2024-04-18
+Source: https://www.gov.uk/government/publications/mgn-398-mf-amendment-1-the-merchant-shipping-anti-fouling-systems-regulations-2024
+
+Summary
+
+The purpose of this Marine Guidance Notice is to provide guidance on certain aspects of the Merchant Shipping (Anti-Fouling Systems) Regulations 2024 (“the 2024 Regulations”). The 2024 Regulations replace Regulation (EC) No 782/2003 of the European Parliament and of the Council of 14th April 2003 on the prohibition of organotin compounds on ships and the Merchant Shipping (Anti-Fouling Systems) Regulations 2009. The 2024 Regulations implement the requirements of the International Convention on the Control of Harmful Anti-fouling Systems on Ships, 2001 including all amendments to it.
+
+1. Introduction
+
+1.1 Anti-fouling systems (“AFS”) are used to keep the hulls of ships clean and free from fouling organisms so that they can travel faster through the water and consume less fuel. In order to do this, biocides are added to anti-fouling systems to prevent biofouling. Some biocides have been scientifically proven to have adverse effects on ecologically and economically important marine organisms.
+
+1.2 In 2001, the International Convention on the Control of Harmful Anti-Fouling Systems on Ships was adopted to introduce control measures on the use of organotin compounds which act as biocides (“the Convention”). Regulation (EC) No 782/2003 of the European Parliament and of the Council of 14th April 2003 on the prohibition of organotin compounds on ships (“the EC Regulation”) and the Merchant Shipping (Anti-Fouling Systems) Regulations 2009 together implemented the Convention requirements in the UK.
+
+1.3 In 2020 the Marine Protection Environment Committee (MEPC) of the International Maritime Organization (“the IMO”) amended the Convention to also prohibit the use of cybutryne in AFS. The UK was unable to amend the Merchant Shipping (Anti-Fouling Systems) Regulations 2009 because this instrument was made using legal powers to implement EU obligations which now no longer exist. The Government therefore decided to replace the existing legislation with a new combined statutory instrument that includes the existing requirements and the amendments made in 2020 (and which came into force internationally on 1 January 2023) to prohibit the use of cybutryne. This keeps all of the relevant regulations in one place making it much easier to use.
+
+2. Definitions
+
+2.1 “Anti-fouling system” (AFS) means a coating, paint, surface treatment, surface or device that is used on a ship to control or prevent attachment of unwanted organisms.
+
+2.2 “Ship” (except in the expression “UK ship”) means a vessel of any type whatsoever operating in the marine environment and includes hydrofoil boats, air-cushion vehicles, submersibles, floating craft, fixed or floating platforms, floating storage units (FSUs) and floating production storage and off-loading units (FPSOs).
+
+2.3 “UK ship” has the same meaning as in section 85(2) of the Merchant Shipping Act 1995[footnote 1].
+
+2.4 “UK waters” means the sea or other waters within the seaward limits of the territorial sea of the UK.
+
+3. Application
+
+3.1 The 2024 Regulations apply to all UK ships (wherever they may be), and to other ships operating in UK waters or controlled waters (which in broad terms are the areas of sea within which the jurisdiction and rights of the UK are exercisable, meaning the waters above the UK’s Continental Shelf).
+
+3.2 The UK Regulations do not apply to warships, naval auxiliary or other ships owned or operated by a State and used only on governmental non-commercial service.
+
+4. Controls on Anti-Fouling Systems
+
+4.1 There is no requirement to use an AFS but where one is used on a ship to which the 2024 Regulations apply the owner and master have a duty to ensure that the AFS is compliant with the prohibitions and requirements in regulation 6 and is maintained to a sufficient standard to ensure continued compliance.
+
+4.2 Offences and penalties for breaches of these obligations are prescribed in regulation 12 of the 2024 Regulations.
+
+4.3 All prohibited compounds are listed in Annex I to the Convention and replicated for ease below:
+
+Anti-fouling system
+Control Measures
+Application
+Effective Date
+
+Organotin compounds which act as biocides in anti-fouling systems
+Ships shall not apply or re-apply such compounds
+All ships
+1 July 2003[footnote 2]
+
+Organotin compounds which act as biocides in anti-fouling systems
+Ships must not bear such compounds on their hulls or external parts or surfaces unless they bear a coating that forms a barrier to such compounds leaching from the underlying noncompliant anti-fouling system
+All ships (except fixed and floating platforms, FSUs and FPSOs that have been constructed prior to 1 January 2003 and that have not been in dry-dock on or after 1 January 2003)
+1 January 2008
+
+Cybutryne
+
+CAS No. 28159-98-0
+Ships shall not apply or re-apply anti-fouling systems containing this substance.
+All ships
+1 January 2023
+
+Cybutryne
+
+CAS No. 28159-98-0
+Ships bearing an anti-fouling system that contains this substance in the external coating layer of their hulls or external parts or surfaces on 1 January 2023 shall either:
+
+(1) remove the anti-fouling system; or
+
+(2) apply a coating that forms a barrier to this substance leaching from the underlying non-compliant anti-fouling
+All ships except:
+
+(1) fixed and floating platforms, FSUs, and FPSOs that have been constructed prior to 1 January 2023 and that have not been in dry-dock on or after 1 January 2023;
+
+(2) ships not engaged in international voyages; and
+
+(3) ships of less than 400 gross tonnage engaged in international voyages, if accepted by the coastal State(s)
+At the next scheduled renewal of the anti-fouling system after 1 January 2023, but no later than 60 months following the last application to the ship of an anti-fouling system containing cybutryne
+
+5. Survey and Certification
+
+5.1 A UK ship may only proceed to sea or remain at sea if it has a valid AFS-Certificate or AFS-Declaration depending on the size of the ship. Part 3 of the 2024 Regulations prescribe the survey and other requirements that must be met.
+
+Ships of 400GT and above engaged in international voyages
+
+5.2 Ships of 400GT and over, engaged on international voyages, require an AFS-Certificate and must be surveyed under the following regime:
+
+• an initial survey before the ship is put into service or when the ship is for the first time in dry dock for the application of an anti-fouling system; and
+
+• a survey when the anti-fouling system is changed or replaced, undertaken to enable the endorsement of the Certificate.
+
+5.3 Details on fixed, floating platforms, FSUs and FPSOs can be found in section 6.
+
+5.4 Repairs (touch ups) do not generally require a survey. However, repairs affecting approximately 25% or more of the anti-fouling system are considered by the Maritime & Coastguard Agency (“MCA”) to be a change or replacement of the anti-fouling system. An anti-fouling system that undergoes repair must be repaired or replaced with a compliant anti-fouling system.
+
+Ships of less than 400GT but of 24m or more in length engaged in international voyages
+
+5.5 Ships of 24 metres or more in length but less than 400 gross tonnage, engaged on international voyages, must carry an AFS Declaration signed by the owner or authorised agent. This excludes fixed or floating platforms, FSUs and FPSOs (in respect of which see section 6).
+
+5.6 The AFS Declaration must be accompanied by appropriate documentation supporting the fact that the AFS is compliant with the 2024 Regulations, e.g. a paint receipt or contractor invoice, or contain an appropriate endorsement. An appropriate endorsement means anything that verifies the information on the declaration about the anti-fouling system applied.
+
+5.7 Operators of ships of less than 24m in length should consider whether the ship should carry an AFS declaration if travelling internationally.
+
+Ships with no Anti-Fouling System
+
+5.8 Ships which trade internationally and fall into the survey and certification regime will be expected to carry either a Certificate or a Declaration. On the Certificate or Declaration, the part headed “Details of anti-fouling system(s) applied” or “Type(s) of anti-fouling system(s) used………” should be filled out stating that the ship does not have an AFS system. The MCA consider this should help to eliminate potential problems with foreign Port State Control for UK registered ships without AFS.
+
+Availability of Certificates and other Documents
+
+5.9 The owner or Master of the ship must ensure that the following documents are readily available on-board ship for examination at all times –
+
+• in the case of ships of 400 GT and above, an AFS-Certificate or
+
+• in the case of ships of less than 400 GT but of 24 metres or more in length, an AFS Declaration and the appropriate documentation (e.g., a paint receipt or contractor’s invoice) or an appropriate endorsement. An appropriate endorsement means anything that verifies the information on the declaration about the anti-fouling system applied.
+
+5.10 UK ships on voyages between foreign ports should check with the country that they are sailing to as to their national requirements in relation to AFS.
+
+5.11 Any ship relocating to the UK will be embarking on an international voyage and therefore must be in possession of an AFS-certificate or AFS-declaration depending on its size.
+
+Recognised Organisations
+
+5.12 Survey and Certification of AFS for UK Flagged ships has been delegated to the following UK Certifying Authorities [footnote 3]:
+
+• ABS Europe Ltd;
+
+• Bureau Veritas SA;
+
+• Class NK;
+
+• DNV;
+
+• Lloyds Register Marine; and
+
+• RINA UK Ltd.
+
+5.13 Ships which are not classed by one of the above recognised organisations should approach their local Marine Office for survey and certification.
+
+Cancellation of Certificates
+
+5.14 Certificates may be cancelled by the Secretary of State if there is reason to believe that the certificate was issued on the basis of false or erroneous information or if barrier coating in the AFS has sustained damage or otherwise is deficient.
+
+6. Fixed or Floating Platforms, FSUs and FPSOs
+
+6.1 The 2024 Regulations apply to any Fixed or Floating Platform, FSU or FPSO as these fall into the definition of a “ship” (see section 2 above). They are therefore prohibited from having any substance listed in Annex I to the Convention applied or re-applied to them.
+
+6.2 However, the survey and certification regime set out in the 2024 Regulations does not apply to this category of ships.
+
+•
+6.3 For the purpose of ensuring that compliance with the 2024 Regulations can be checked, the UK Administration (MCA) has developed guidance for ships that are not subject to the survey and certificate regime i.e., fixed or floating platforms, FSUs or FPSOs.
+
+•
+6.4 The following implementation regime applies to these ships regarding the prohibition of cybutryne:
+
+•
+a) Fixed or Floating Platforms, FSUs and FPSO’s constructed on or after 1 January 2023: these must either not bear an anti-fouling system containing cybutryne at all, or if they do, then they must have a barrier coating to prevent leaching. Contravention of this requirement is an offence under the 2024 Regulations.
+
+•
+b) Fixed or Floating Platforms, FSUs and FPSOs constructed before 1 January 2023 and which have been in dry dock on or after 1 January 2023: similarly, these must either not bear an anti-fouling system containing cybutryne at all, or if they do, then they must have a barrier coating to prevent the leaching; contravention of this requirement is an offence under the 2024 Regulations.
+
+•
+c) Fixed or Floating Platforms, FSU’s and FPSO’s constructed before 1 January 2023 but which have not been in dry dock since that date: If the anti-fouling system containing cybutryne was applied or re-applied before the date the 2024 Regulations come into force, no offence is committed under the 2024 Regulations even if the ship is still bearing the compound as at that date. However, the MCA recommend that these ships do comply if and when it is reasonably practicable to do so.
+
+•
+d) All Fixed or Floating Platforms, FSU’s and FPSO’s which are not fixed to the sea bed e.g. drilling rigs on voyages are recommended to have some form of documentary evidence readily available on board in order to be able to demonstrate compliance with the 2024 Regulations from the date that the 2024 Regulations come into force.
+
+•
+e) If a Fixed or Floating Platform, FSU and FPSO still has an anti-fouling system containing cybutryne, then the owner or manager is advised to contact the MCA to discuss whether an Environmental Impact Assessment should be undertaken and what documentary evidence should be carried on board in order to be able to demonstrate compliance with the UK Regulations. This only applies to ships that fall into points A or B above and that have been repositioned after entering dry dock after 1 January 2023.
+
+More information
+
+Clean Ship Operations
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 85139
+
+Email: environment@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+•
+https://www.legislation.gov.uk/ukpga/1995/21/section/85 ↩
+
+•
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32003R0782 ↩
+
+•
+https://www.gov.uk/guidance/uk-authorised-recognised-organisations-ros ↩

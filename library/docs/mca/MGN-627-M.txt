@@ -1,0 +1,105 @@
+MGN 627 (M) MGN 627(M) Amendment 2 - Guidance on changes and available exemptions against requirements introduced by the Merchant Shipping (Safety Standards for Passenger Ships on Domestic Voyages) (Miscellaneous amendments) Regulations 2022
+2024-12-04
+Source: https://www.gov.uk/government/publications/mgn-627m-amendment-2-guidance-on-changes-and-available-exemptions-against-requirements-introduced-by-the-merchant-shipping-safety-standards-for-p
+
+Summary
+
+This MGN provides guidance on:
+
+a) changes implemented by the Merchant Shipping (Safety Standards for Passenger Ships on Domestic Voyages) (Miscellaneous Amendments) Regulations 2022 (UK Statutory Instruments 2022 No. 1269) (“the amending Regulations”) as a result of the older domestic passenger vessels Grandfather Rights review; and
+
+b) amendments to the exemption provision made by the amending Regulations.
+
+The exemptions dealt with in this MGN include:
+
+a) permanent exemptions, which allow alternative arrangements in the circumstances specified;
+
+b) temporary exemptions permitted against some or all of the new requirements introduced by the amending Regulations to facilitate an extension of the two-year phase-in period afforded by the Regulations.
+
+This Amendment 2 gives clarifications in the following paragraphs:
+
+a) 2.4 on fire detection requirements.
+
+b) 2.5 on the application of fixed firefighting requirements.
+
+c) 2.6 on the requirements for powered bilge-pumps.
+
+d) 2.7 on the requirements for bilge alarms.
+
+1. Introduction / background
+
+1.1 The Merchant Shipping (Safety Standards for Passenger Ships on Domestic Voyages) (Miscellaneous Amendments) Regulations 2022 (“the amending Regulations”) implement legislative changes which have arisen from the review of standards for older domestic passenger vessels. The review examined the differences between the standards to which older and newer vessels were required to comply and sought to make changes to the technical requirements which would, where possible, close that gap.
+
+1.2 The amending Regulations do this by amending the following existing Regulations
+
+1.2.1 the Merchant Shipping (Life-Saving Appliances for Passenger Ships of Classes III to VI(A) Regulations 1999 (SI 1999/2723);
+
+1.2.2 the Merchant Shipping (Fire Protection: Small Ships) Regulations 1998 (SI 1998/1011);
+
+1.2.3 the Merchant Shipping (Passenger Ship Construction: Ships of Classes III to VI(A) Regulations 1998 (SI 1998/2515).
+
+1.3 These changes do not affect vessels operating under, and in compliance with, MSN 1823(M).
+
+2. Main changes
+
+2.1 Liferafts. The amending Regulations amend the Merchant Shipping (Life-Saving Appliances for Passenger Ships of Classes III to VI(A)) Regulations 1999 to broaden the existing requirement, so that all domestic passenger vessels operating at sea or on Category C and/or D waters are required to carry 100% liferaft provision for all persons onboard. The aim of this is to achieve 100% dry-shod evacuation. It should be noted that the buoyant apparatus capacity requirement will normally have changed when the liferaft capacity requirement has changed, so it is strongly recommended that the relevant table in the above Regulations is consulted.
+
+2.2. Lifejackets/ Buoyancy Aids. The amending Regulations amend the Merchant Shipping (Life-Saving Appliances for Passenger Ships of Classes III to VI(A)) Regulations 1999 to extend the lifejacket / buoyancy aid carriage obligations such that all the relevant domestic passenger vessels operating on Category B waters are required to carry lifejacket / buoyancy aids for 100% of persons onboard. The existing Regulations permit the issue of exemptions to Life-Saving Appliance requirements which may be subject to conditions, including up to an equivalent level of safety where necessary. The Maritime and Coastguard Agency (“the MCA”) will consider issuing an exemption from the requirement to carry 100% lifejacket / buoyancy aids provision where a vessel operating on Category B waters can be evacuated directly to the bank without need for persons to enter the water. For this exemption to be granted, the evacuation arrangements must be to the satisfaction of the MCA – this approval may require a practical demonstration at a location on the vessel’s normal route, specified by the surveyor. For example, this may be where the vessel is at highest risk, or a dry-shod evacuation is most challenging.
+
+2.3 Lifejacket lights. The amending Regulations amend the Merchant Shipping (Life-Saving Appliances for Passenger Ships of Classes III to VI(A) Regulations 1999 to require that lifejackets (and, where applicable, Buoyancy Aids) on all relevant passenger vessels operating on Category C and D waters be fitted with approved, automatically activated lights (MSN 1874 (as amended) provides details on the approval of marine equipment). The MCA will consider issuing an exemption from the requirement that lifejackets must be fitted with lights when a vessel does not sail more than one hour before sunrise, or more than one hour after sunset, and that this restriction is recorded on the passenger ship safety certificate. The exemption will only be issued when the MCA is satisfied that adequate arrangements have been recorded in the ship’s Domestic Safety Management system to ensure the Master has the authority to return the vessel to a berth in deteriorating daylight conditions.
+
+2.4 Fire detection. The amending Regulations amend the Merchant Shipping (Fire Protection: Small Ships) Regulations 1998 to require that Class III-VI(A) vessels be fitted with a fixed, fully addressable fire detection system in any passenger sleeping accommodation, installed and arranged to detect the presence of fire in that space and in the corridors, stairways and escape routes associated with such space. Any unmanned machinery space which is located underdeck, or which is not situated at the control position, also requires a fully addressable fire detection system. These systems must be of a kind approved by the Secretary of State, but do not need to be Marine Equipment Directive or UK Marine Equipment Regulation approved. If they comply with the British Standards Organisation’s BS EN 54 standard, this will normally be considered satisfactory. Fire detection systems provide a valuable early awareness of fire and hence increase the chances of extinguishing it promptly.
+
+2.5 Fixed Firefighting. The amending Regulations amend the Merchant Shipping (Fire Protection: Small Ships) Regulations 1998 to require fixed firefighting systems to be fitted in every Class III to VI(A) passenger vessel, including those which are not fully-decked. Fixed firefighting systems are a proven effective method of fighting fires within machinery spaces and are extensively required throughout modern standards. All fixed firefighting systems must be of a kind approved by the Secretary of State, through the MCA. A list of indicative standards for fixed firefighting systems is provided in the Annex. For vessels of less than 24 metres in length with boxed engines, the fixed firefighting requirement may be met with alternative arrangements (such as a permanently fixed fire extinguisher utilising fixed pipework). Such alternative arrangements are conditional on the proviso that opening the machinery space is not required to fight the fire, and that the MCA surveyor is satisfied with the alternative arrangements. Where the requirement for a fixed firefighting system is satisfied by the use of an aerosol fixed firefighting system, the system shall be installed in accordance with section 5 of MGN 657 (M/F): Requirements for fixed aerosol fire extinguishing systems for use in small vessel machinery spaces, as amended. For vessels with non-standard methods of propulsion, e.g., steam, exemptions against this requirement will be considered on a case-by-case basis. To avoid any uncertainty around the classification of machinery spaces, it is noted that only spaces containing internal combustion machinery greater than 375kW in aggregate or those containing oil-fired boilers or other oil-fired units are Category A machinery spaces, irrespective of whether such machinery is used for main propulsion machinery or not.
+
+2.6 Powered bilge pumps. The amending Regulations amend the Merchant Shipping (Passenger Ship Construction: Ships of Classes III to VI(A) Regulations 1998 to require the carriage of powered bilge pumps to meet the minimum bilge pump requirement. This requirement increases the efficiency of bilge pumping, and does not preclude the carriage of additional hand-powered bilge pumps which are in excess of the minimum requirements. It should be noted that, where a second means of powered pumping is required, it must be powered from a source independent of the main engine pump. The sources of power themselves are not required to be in separate locations.
+
+2.7 Bilge alarms. The amending Regulations amend the Merchant Shipping (Passenger Ship Construction: Ships of Classes III to VI(A) Regulations 1998 to require that bilge alarms be fitted in all compartments containing propulsion machinery, and in any other compartment where bilge water can accumulate unseen (void spaces, i.e. a space with no penetrations or skin fittings, are excluded from this requirement). Alarms shall include an audible, and a separate visual, warning at the control position for each space in which an alarm is fitted. Such systems facilitate the detection of water ingress and hence can help to prevent catastrophic flooding or foundering. Once activated, the audible alarm must continue to sound until acknowledged by positive action, and shall not automatically cease sounding of its own accord. When vessels are not carrying passengers and are not in use, the alarm may be isolated. The Domestic Safety Management system must clearly state the circumstances in which the alarm may be isolated, and the action that must be taken by the crew to reinstate the alarm prior to operation. For vessels which are surveyed before 31 March 2025, a maximum of 3 months from the date of survey may be permitted to install a compliant system. For vessels which are surveyed after 31 March 2025, the arrangement would be expected to comply with the requirements of the amending Regulations.
+
+For vessels where a non-latching alarm has been installed in accordance with the previous advice given in MGN 627 Amendment 1, there are two options:
+
+• Fit a simple relay to the audible alarm, which will cause the audible alarm to latch on when activated. In many cases, this will not require changing the existing alarm system.
+
+• For vessels under 24m load line length, seek an exemption from this requirement from the local Marine Office.
+
+This issue will be explored further in the post implementation review required for all new Regulations, in this case in 2027.
+
+2.8 Damage stability. Merchant Shipping Notice 1699(M) has been amended to require that relevant passenger vessels operating on Category C waters meet either the one-compartment stability standard or achieve compliance with the buoyancy test (110% buoyancy). Where vessels are assessed for compliance with the buoyancy test standard, it is expected that the operator demonstrates that the required extent of residual buoyancy is available when considering the effect of completely flooding the vessel’s largest space or compartment, at or below the waterline, by flooding, or a damage that breaches the hull below the waterline. Supporting calculations may be carried out by computer modelling, or by direct volumetric calculation from first principles.
+
+This requirement does not apply to Class V vessels operating on non-tidal waters in daylight or Class VI passenger vessels. Additionally, Class V vessels built before 31st October 1992 operating on tidal Category C waters in daylight hours which are considered low operational risk – as demonstrated by an assessment carried out to an agreed standard and covering an agreed set of minimum considerations – may be exempted from the requirements. A risk assessment and request for exemption should be submitted to the MCA detailing the operational risk profile of the ship.
+
+3. Temporary exemptions enabling extension
+
+3.1 The amending Regulations require vessels to comply with the updated requirements by the date of the first passenger ship renewal survey after 29 December 2024. However, existing Regulations allow the Secretary of State, through the MCA, to issue exemptions. The MCA will consider issuing exemptions from any of the new requirements at the point they come into force if an alternative timescale for implementation is contained in an implementation plan, produced by the owner, and that plan is agreed with the Secretary of State, through the MCA. The policy intention of this approach is to allow flexibility to a vessel owner who is striving to comply with the new requirements but is encountering genuine and intractable obstacles to bringing their vessel or vessels into timely compliance. Exemptions will not be issued on the basis of convenience alone.
+
+3.2 The default position will be that the MCA will require compliance with all obligations by the deadline date. Exemptions will only be permitted where the MCA considers the owner has valid reasons for not implementing the new requirements by the specified date, taking into account all circumstances, and as part of an overall implementation plan which the owner has agreed with the MCA.
+
+3.3 Any owner wishing to agree a staged implementation plan with the MCA is advised to do so well in advance of the deadline date, to avoid a situation where a plan is not agreed, and the owner’s vessel is unable to gain a certificate to operate.
+
+4. General
+
+4.1 Owners are reminded that the MCA cannot guarantee the granting of an exemption in every case, and also that such exemptions will not be issued to allow a vessel’s continued operation simply because of delay by an owner. Owners wishing to obtain an exemption are therefore encouraged to contact their local MCA Marine Office with a proposed implementation plan at the earliest possible opportunity so that, should the desired exemption not be granted, they have time to comply with the new requirements prior to the default deadline date.
+
+More information
+
+UK Ship Services, Ship Standards
+
+Maritime and Coastguard Agency
+
+Bay 2/23
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: dpv@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk

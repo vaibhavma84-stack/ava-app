@@ -1,0 +1,119 @@
+MGN 710 (M) MGN 710 (M) safety management systems for small workboats and pilot boats
+2026-01-02
+Source: https://www.gov.uk/government/publications/mgn-710-m-safety-management-systems-for-small-workboats-and-pilot-boats
+
+Summary
+
+This Marine Guidance Note provides guidance on the Safety Management System (SMS) requirements set out in Section 31 and Appendix 8 of Workboat Code Edition 3 (WB3). The guidance explains how owners/operators can demonstrate that their SMS is implemented and operational on board, including practical options for providing evidence at vessel examinations. It also outlines the process for conducting periodic SMS reviews, which are essential for maintaining safety, compliance, and continuous improvement.
+
+The Certifying Authority (CA) role is defined: CAs are not required to audit the SMS; instead, they perform a sample of the operator’s chosen method for demonstrating SMS implementation, ensuring that the system is operational and that the owner/operator can meet their responsibilities under the Code. This sample forms part of the overall certification process, as the vessel’s certificate confirms that all applicable elements of the Code, including those related to safety management, are satisfactorily implemented.
+
+Annexe A provides a self-assessment that owners/operators may use to demonstrate SMS implementation.
+
+1. Introduction/background
+
+1.1 The Merchant Shipping (Small Workboats and Pilot Boats) Regulations 2023, which came into force on 13 December 2023, give effect to WB3. These regulations represent a significant update to the safety framework for small workboats and pilot boats certified in the UK, reflecting industry developments and lessons learned from previous codes.
+
+1.2 All vessels certificated under WB3 are required to implement a SMS that is proportionate to the size, complexity and risk profile of their operations by 13 December 2026. However, all Remotely Operated Unmanned Vessels certificated under this Code are required to implement a SMS from the date WB3 entered into force. Proportionate SMS means the system should be tailored to the specific needs and activities of each vessel and owner/operator, ensuring safety management is practical and effective without being unnecessarily burdensome.
+
+1.3 The purpose of the SMS is to support safety, regulatory compliance, and operational efficiency by providing a structured approach to identifying and managing risks to the vessel, its personnel and the environment. This includes establishing clear policies, procedures, and checklists relevant to the vessel’s type and operations.
+
+1.4 Owners/operators are encouraged to develop their SMS to address all aspects of their operations, including the human element[footnote 1], drawing on best practices[footnote 2] and lessons learned. The CA responsible for issuing vessel code certification should sample the SMS to verify that it is implemented and operational, but must remain independent of its development or production. The CA’s role is to ensure that the owner/operator can meet their responsibilities under the Code and that the SMS is implemented, without involvement in its production, consultation, or detailed auditing.
+
+1.5 Where the vessel holds a valid certification under the International Safety Management (ISM) Code, this certification shall be accepted in lieu of the SMS requirements detailed within WB3. This acceptance is conditional upon the certification being issued by the MCA or an MCA-recognised organisation, and it applies equally to mandatory and voluntary ISM certifications. For such acceptance to apply to vessels conducting ROUV operations, the ISM SMS must ensure that it adequately covers these operations.
+
+2. Demonstration of Safety Management Implementation
+
+2.1 To achieve certification under WB3, owners/operators should be able to demonstrate that their SMS is implemented onboard. This demonstration confirms that safety management arrangements are operational and, as part of the certification process, assures the CA that the vessel meets the applicable code requirements, including those for safety management.
+
+2.2 The primary method for demonstrating safety management implementation is the Self-Assessment (see Section 3). If an owner/operator chooses an alternative method, that method must provide a comparable level of structure, clarity, and evidence. In all cases, documentation demonstrating SMS implementation shall be made available to the CA for sampling at each examination.
+
+3. Self-Assessment
+
+3.1 A self-assessment is an effective means of demonstrating SMS implementation carried out by the owner/operator and is primarily intended to assure that their SMS is being implemented as intended; to identify any gaps or deviations; and to support continual improvement in safety management practices. In addition, it provides a documented method to demonstrate that safety management arrangements are implemented on board, supporting the demonstration described in Section 2.
+
+3.2 While other methods may be used to demonstrate that the SMS is implemented, a self-assessment offers distinct advantages. It promotes a consistent approach, provides an opportunity for reflection and improvement, and creates a clear record that can be made available to the CA during examinations. Systematically checking compliance with regulatory and owner/operator requirements helps ensure the SMS remains effective in practice.
+
+3.3 If the owner/operator chooses to use a self-assessment, at least one assessment should be completed for each vessel within the relevant year. For this purpose, the relevant year is defined as the 12 months following the previous self-assessment (or another operator-defined reference point, such as the certificate anniversary). This ensures that a current and relevant self-assessment is always available for sampling by the CA at any examination
+
+3.4 The self-assessment may be carried out by the owner/operator or by an independent person with suitable knowledge and experience of coded vessel operations. It should broadly reflect the content of Section 31 and Appendix 8 of WB3 and be sufficiently comprehensive to cover relevant aspects of safety management. The assessment should be tailored to the vessel (s) ‘specific risks, policies, procedures, and operational practices. Operators are encouraged to use the template provided in Annexe A as a starting point. For Remote Operation Centres (ROC), see Section 5 for additional guidance.
+
+3.5 Owners/operators may choose to categorise findings from the self-assessment, which can help prioritise actions and support continuous improvement:
+
+•
+A major non-conformity is an identifiable deviation that poses a serious threat to the safety of personnel or the ship, or a serious risk to the environment, that requires immediate corrective action or reflects the lack of effective and systematic implementation of a requirement of the Code.
+
+• A non-conformity is a deviation from a requirement of the code.
+
+•
+An observation is a reference to circumstances which may, in future, lead to a deviation from a requirement.
+
+• A point for improvement is an advisory note recorded during a self-assessment when a situation is identified that does not meet the threshold for a formal finding, or where the assessor is uncertain whether a non-conformity exists, but indicates potential to enhance safety management practices
+
+3.6 Where findings (other than observations and points for improvement) are identified, owners/operators are encouraged to record close-out actions and associated timeframes to support effective follow-up and continuous improvement.
+
+3.7 All findings identified during the owner/operators’ self-assessment or internal audit process are the responsibility of the company to address and resolve internally. The identification of findings during an internal process does not require immediate external reporting to the CA or the MCA, unless the finding or the underlying condition triggers a separate statutory reporting requirement. The company should retain records of the corrective actions taken and their close-out, which the CA may sample during the subsequent scheduled examination (as per Section 4).
+
+3.8 A self-assessment should be completed before the first compliance examination. At this stage, specific items in the assessment may reflect ongoing development, as full implementation of all the necessary systems is underway. This approach ensures that the self-assessment remains a constructive tool for continuous improvement and supports the effective establishment of safety management practices.
+
+4. Role of the Certifying Authority
+
+4.1 The CA is responsible for providing independent assurance that the owner/operator has implemented a SMS. The CA does this by sampling the operator’s self-assessment or an alternative method of demonstrating SMS implementation at each vessel examination.
+
+4.2 It is important to note that the role of the CA of the vessel is strictly assurance-based and does not extend to producing, consulting, or auditing the SMS in detail. This maintains the CA’s independence and ensures that the owner/operator retains full responsibility for the development and operation of their SMS.
+
+4.3 Sampling is intended to be brief and focused; it does not assess the effectiveness of the SMS. Instead, sampling verifies that the demonstration accurately reflects implementation in practice. The CA’s sample, when based on a self-assessment, should focus on items explicitly referenced in the self-assessment. Some items may require brief follow-up, such as asking how a response was determined or viewing simple supporting evidence.
+
+4.4 Where an owner/operator chooses to demonstrate their safety management implementation in an alternative way, the CA should apply the same principles of proportionality and practicality, adapting the sample to the type of evidence provided.
+
+4.5 Whichever means is used to demonstrate implementation, the attending CA examiner must be satisfied that the scope of their sample confirms that the safety management system is implemented.
+
+4.6 When a CA examines SMS implementation, they should record that in the SWB2. This provides a record of the CA’s assurance activity without accepting responsibility for the content or outcome of the SMS
+
+4.7 Samples provide limited assurance of the operator’s implementation of their SMS based on the information available during the examination. They do not constitute an audit and do not transfer responsibility for the SMS or its outcomes to the CA. However, samples should be sufficient to satisfy the CA that the owner/operator can meet their responsibilities, duties, and obligations under the relevant sections of the Code.
+
+5. Application of SMS Requirements to Remote Operation Centres for ROUVs
+
+5.1 For ROUVs, the WB3 Annexe 2 section 8 requires that the SMS documentation is available at the ROC and that ROCs are subject to annual internal audit. The internal audit should fulfil the intent of the self-assessment described in this guidance. Hence, operators should not be required to conduct a separate self-assessment for the ROC.
+
+5.2 Owners/operators should ensure that the SMS covers both vessel and ROC operations and that records of internal audits and other relevant SMS activities are maintained and available for review by the CA.
+
+5.3 It is expected that the examiner will visit the ROUV and the ROC as part of the examination process.
+
+6. Review
+
+6.1 In accordance with Appendix 8 Section 13, the periodic review conducted by the owner/operator at least once every three years, is a key component of effective safety management, providing a structured opportunity to evaluate the SMS’s performance, ensure it remains relevant and comprehensive, and verify that procedures are functioning as intended. It supports accountability, drives continual improvement in safety management practices ashore and on board, and helps identify opportunities for enhancement.
+
+6.2 During the periodic review, the owner/operator should critically examine all relevant documentation and records, including examination reports, non-conformities, accident and incident reports, risk assessments, permits to work, near-miss reports, and complaints. The objective is to identify trends, root causes, and areas of concern, enabling the operator to address underlying issues and improve SMS effectiveness.
+
+6.3 The periodic review should be conducted in accordance with documented procedures and form part of the company’s overall safety management strategy. For larger companies, management review meetings should be formally recorded, and any corrective actions or improvements should be allocated to responsible individuals and tracked to completion. For smaller operators, including single-person owner/operator enterprises, the periodic review may be incorporated into other regular safety management activities, provided that records are kept demonstrating that the review has been completed and that any changes to the SMS have been summarised.
+
+6.4 Records of periodic reviews and any resulting changes to the SMS should be retained and made available for inspection, ensuring transparency and accountability in the ongoing compliance with the SMS. These records are not intended for audit purposes but should be sufficient to demonstrate that the review has taken place and that the SMS is being actively managed and improved.
+
+More information
+
+Safety Management Operations Branch
+
+Maritime and Coastguard Agency
+
+Bay 2/20
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Telephone: +44 (0)20 390 85181
+
+Email: Infoline@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+•
+MGN 520 (M) Amendment 2 human element guidance - the deadly dozen - GOV.UK ↩
+
+•
+Code of safe working practices for merchant seafarers 2025 edition - GOV.UK ↩

@@ -1,0 +1,77 @@
+MGN 666 (M) MGN 666 (M) Guidance for Merchant Shipping Notice (MSN) 1900 (M)
+2023-06-14
+Source: https://www.gov.uk/government/publications/mgn-666-m-guidance-for-merchant-shipping-notice-msn-1900-m
+
+Summary
+
+This Marine Guidance Note provides guidance on the construction requirements in Merchant Shipping Notice (MSN) 1900 (M), which contains the technical requirements relating to fire protection, fire detection and fire extinction for ships constructed before 1st July 2002 and which are subject to the Merchant Shipping (Fire Protection) Regulations 2023 (“the 2023 Regulations”). It provides information to assist with the interpretation of the requirements contained in MSN 1900 (M), including those matters that are stated to be within the discretion of the Secretary of State – for example, where something is expressed to be “to the satisfaction of the Secretary of State”.
+
+Guidance on MSN 1900 (M)
+
+In general, MSN 1900 (M) should be read in conjunction with the Merchant Shipping Instructions for the guidance of surveyors – Fire Protection “MSIS 12” - in its entirety, and with the 2023 Regulations; MSN 1900 (M) is made mandatory by Part 2 of the 2023 Regulations. MSIS 12 is issued by the Maritime and Coastguard Agency (MCA) for the guidance of surveyors in surveying fire protection arrangements to ensure compliance with the statutory requirements covering merchant ships.
+
+References in the text below to paragraphs are to paragraphs in MSN 1900 (M).
+
+1. Paragraph 1.3 Definitions – “rooms”- surface floor coverings
+
+MSIS 12 Chapter 12; paragraph 12.11.1.1 refers – These are required to be approved to British Standard 476: Part 7: 1997. (Note: a Class I standard by BS476: Part 7: 1997 may be accepted as an equivalent to a ‘pass’ by IMO Resolution A.653(16)).
+
+2. Paragraph 1.3 Definitions – “rooms” - upholstered furniture
+
+MSIS 12 Chapter 11; paragraph 11.2.9.2 refers - For compliance, the upholstered parts of furniture are required to be tested in accordance with British Standard 5852: Part 1:79 and satisfy the cigarette and butane flame tests.
+
+3. Paragraph 5.4(a) - inert gas systems
+
+MSIS 12 Chapter 8; paragraph 8.2 refers - Inert gas system components are subject to the Merchant Shipping (Marine Equipment) Regulations 2016 (SI 2016/1025), which provides that such components must comply with the FSS Code. IACS Unified Rule F20 contains more detailed requirements than those in the FSS Code for boiler flue, oil fired gas generator and nitrogen generator systems.
+
+4. Paragraphs 5.17 and 5.18 - fixed deck foam alternative for chemical tankers or gas carriers
+
+MSIS 12 Chapter 8 refers - Chemical Tankers paragraph 8.1.1.4. These Instructions apply in general to chemical tankers, although provisions of the ‘Code for the Construction and Equipment of Ships carrying Dangerous Chemicals in Bulk’ or the ‘International Code for the Construction and Equipment of Ships Carrying Dangerous Chemicals in Bulk’, as appropriate, should be taken into account; see the Instructions to Surveyors on Chemical Tankers. Should any difficulty arise in complying with both the provisions in MSN 1900 and the above Codes, the matter should be referred to the appropriate Headquarters Branch.
+
+MSIS 12 Chapter 8 refers - Liquefied Gas Carriers paragraph 8.1.1.5. Liquefied gas carriers which have a valid Certificate of Fitness need not be provided with a fixed deck foam system or an inert gas system other than as required in accordance with the provisions of the ‘Code for the Construction and Equipment of Ships carrying Liquefied Gases in Bulk’ or the ‘International Code for the Construction and Equipment of Ships carrying Liquefied Gases in Bulk’, as appropriate; see the Instructions to Surveyors on Gas Carriers. As per paragraph 8.1.6 (fixed dry powder system), the specification for fixed dry powder systems is contained in the International Code for the Construction and Equipment of Ships Carrying Liquefied Gases in Bulk (IGC Code), as amplified by MSC Circular 1315, and are not currently covered by the Merchant Shipping (Marine Equipment) Regulations 2016.
+
+5. Paragraph 6.26 - requirements for ships constructed on or after 25th May 1980 (fire extinguishing system)
+
+MSIS Chapter 1; paragraph 1.6 refers - Fire Appliances Carried in Excess of Statutory Requirements
+
+Ships may carry fire appliances additional to the requirements of the 2023 Regulations and MSN 1900 provided they do not detract from the safety of the ship and personnel. Surveyors should see that they are safe, suitable for their intended purpose and maintained in good condition.
+
+6. Paragraph 7.7 - requirements for ships constructed on or after 1st February 1992 and before 1st July 1998 with regard to the standard of fire protection to be applied to helicopter decks where space below is of high fire risk.
+
+The standard of insulation for the boundary between a helideck and a space of high fire risk should be in accordance with SOLAS Chapter II-2 Regulation 18.3.1; it must be insulated to A60 Class standard.
+
+7. Paragraph 7.20 - doubt in determining the fire integrity of structure
+
+SOLAS II-2. Regulation 9.2.2.3.2.2 refers- “For determining the appropriate fire integrity standards to be applied to boundaries between adjacent spaces, such spaces are classified according to their fire risk as shown in categories (1) to (14). Where the contents and use of a space are such that there is a doubt as to its classification for the purpose of this regulation, or where it is possible to assign two or more classifications to a space, it shall be treated as a space within the relevant category having the most stringent boundary requirements.”
+
+8. Paragraph 7.55(a)(iii) and (iv) - surface spread of flame on pipe insulations and vapour barriers
+
+MSIS 12 Chapter 12; paragraph 12.11.1.1 refers – These are required to be approved to British Standard 476: Part 7: 1997. (Note: a Class I standard by BS476: Part 7: 1997 may be accepted as an equivalent to a ‘pass’ by IMO Resolution A.653(16)).
+
+9. Paragraphs 8.31, 8.33, 8.34(a)(iii) and (iv) - surface spread of flame on interior surfaces of ships constructed before 1st July 1998
+
+MSIS 12 Chapter 12; paragraph 12.11.1.1 refers – These are required to be approved to British Standard 476: Part 7: 1997. (Note: a Class I standard by BS476: Part 7: 1997 may be accepted as an equivalent to a ‘pass’ by IMO Resolution A.653(16)).
+
+10. Paragraph 8.47(f) – width and continuity of the means of escape
+
+MSIS 12 Chapter 15.6 refers.
+
+More information
+
+Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 8172000
+
+Email: marinetechnology@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

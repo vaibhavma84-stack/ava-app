@@ -1,0 +1,63 @@
+MGN 693 (M+F) MGN 693 (M+F) Amendments to SOLAS chapter II-1 (IGF code)
+2024-01-05
+Source: https://www.gov.uk/government/publications/mgn-693-mf-amendments-to-solas-chapter-ii-1-igf-code
+
+Summary
+
+This MGN provides information on amendments to the International Code of Safety for Ships using Gases or other Low-Flashpoint Fuels (IGF Code), made mandatory internationally by Chapter II-1 in the Annex to the International Convention for the Safety of Life at Sea, 1974 (SOLAS), which relates to the construction of ships. Chapter II-1 is implemented in the United Kingdom by the Merchant Shipping (Cargo and Passenger Ship Construction and Miscellaneous Amendments) Regulations 2023 (SI 2023/246) (“the 2023 Regulations”) and, as such, the implementation includes the IGF Code. Amendments have been made to Chapter II-1, along with changes to the IGF Code, that affect ships constructed on or after 1st January 2024. These amendments will come into force on 1 January 2024 and can be found in IMO Resolutions MSC.458(101) and MSC.475(102).  This Notice describes the changes to the IGF Code.
+
+1. Introduction/background
+
+1.1 The purpose of the IGF Code is to provide an international standard for ships operating with gas or low-flashpoint liquids as fuel by making provisions for the arrangement, installation, control and monitoring of machinery, equipment and systems using low-flashpoint fuel to minimize the risk to the ship, its crew and the environment.
+
+1.2 Gases and other low-flashpoint fuels emit very low levels of air pollutants making them desirable as a cleaner alternative to fossil fuels, however, these fuels pose their own safety challenges, which need to be properly managed.
+
+1.3 To accommodate rapidly evolving fuel technology the Code is periodically reviewed taking into account both experience and technical developments. Changes to the IGF Code that impact ships constructed on or after 1st January 2024 and other changes are summarised below and attached to this document in full, at Annexes 1 and 2.
+
+1.4 The changes outlined below were made by way of amendments to the IGF Code contained in International Maritime Organization (IMO) Resolutions MSC.458(101) and MSC.475(102). These changes have been implemented in the United Kingdom by way of the ambulatory reference provision in the 2023 Regulations which makes reference to SOLAS Chapter II-1 (which includes the IGF Code) and will take effect from 1 January 2024.
+
+2. Changes to the IGF Code applicable to ships constructed on or after 1st January 2024
+
+2.1 Amendments to the IGF Code which come into force on 1st January 2024 and which are applicable to ships constructed on or after 1st January 2024 are as follows:
+
+• Clarification on the definition of fv when using the calculation as an alternative to determine the acceptable location of the fuel tanks.
+
+• Permitting a higher loading limit for liquefied gas fuel tanks on new ships with special considerations.
+
+• New requirements for fuel distribution outside of machinery space.
+
+• Improvements to the requirements for explosion relief systems for ships with piston type internal combustion engines.
+
+• Improvements to the requirements for fire protection for fuel storage hold space.
+
+• A requirement for fuel preparation rooms with potential ignition sources to be provided with a fixed fire-extinguishing system.
+
+3. Other changes to the IGF Code applicable to all ships
+
+3.1 Other amendments to the IGF Code applicable to all vessels which will come into force on 1st January 2024 are:
+
+• Improvements to the method of calculating liquefied gas fuel tank locations, aimed at preventing explosions.
+
+• Amendment to the list of suitable pressure relief systems.
+
+• Amendments to materials that can be used for the welding of metallic materials and non-destructive testing.
+
+Further details are contained within Annexes 1 and 2.
+
+More information
+
+Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: infoline@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

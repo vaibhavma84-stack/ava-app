@@ -1,0 +1,199 @@
+MGN 319 (M+F) MGN 319 (M+F) Amendment 2 - Acceptance of electronic chart systems for fishing vessels and small vessels in commercial use (code boats) up to 24 metres in load line length (SV-ECS)
+2025-01-13
+Source: https://www.gov.uk/government/publications/mgn-319-mf-amendment-2-acceptance-of-electronic-chart-systems-for-fishing-vessels-and-small-vessels-in-commercial-use-code-boats-up-to-24-metre
+
+Summary
+
+The Maritime and Coastguard Agency (MCA) will accept electronic chart systems complying with the Small Vessel Electronic Chart System (SV-ECS) performance standard as satisfying the chart carriage requirements stipulated within SOLAS Chapter V Regulation 19 for vessels to which this guidance notice applies.
+
+The SV-ECS performance standard is published by the MCA only and this guidance notice should be read in conjunction with it.
+
+The SV-ECS performance standard (version 1.0) is available to view and download on the following page: Small vessel ECS performance standard (SV-ECS).
+
+All references to “SV-ECS performance standard” within the guidance notice refer to this performance standard.
+
+Original Equipment Manufacturers (OEMs) are required to provide a signed self-declaration, a certified copy of which must be kept on board the vessel.
+
+To satisfy the statutory requirements vessels must comply with these standards, including the provision of suitable back up arrangements.
+
+Electronic chart systems conforming to the SV-ECS performance standard are not a substitute for approved Electronic Chart Display and Information Systems (ECDIS) for vessels which are mandated to carry ECDIS, and they are not accepted for use other than prescribed in this notice.
+
+1. Introduction/background
+
+1.1 Prior to the introduction of ‘Mini-ECDIS’, the precursor to ‘SV-ECS’, it was noted that there was a widespread use of chart plotting systems using privately produced electronic chart data within the fishing and small commercial vessel market. Such systems do not satisfy the international carriage requirements for charts.  The carriage requirements and associated costs and practicality of fitting an ECDIS were assessed as being prohibitive for small vessel operators and therefore a suitable alternative was deemed necessary.
+
+1.2 HM Treasury funded a project, with the Sea Fish Industry Authority (SFIA) as the lead authority, for the development of technical specifications for an electronic chart system which became known as ‘Mini-ECDIS’ with the specification being released in 2006.
+
+1.3 The performance standard was primarily for use on UK-registered fishing vessels under 24m in length. After review, The Maritime and Coastguard Agency (MCA) took the view that this specification was also suitable for various small vessels in commercial use (Code Vessels) up to 24 metres load line length.
+
+1.4 Industry feedback resulted in the decision in 2024 to review the ‘Mini-ECDIS’ performance standard to ensure it remained relevant to modern operational requirements as well as future proofing the system for potential wider use within the industry.
+
+1.5 The latest SV-ECS performance standard has been written in collaboration with industry representatives and OEMs under direction of the UK Safety of Navigation Committee (UKSoN).
+
+1.6 Part of the review process also included consultation on the validity of the naming terminology and the continued use of the name ‘Mini-ECDIS’.  It has been determined that the naming convention had the potential to create ambiguity and confusion when assessing the system against an ECDIS which is a SOLAS defined, and type approved, electronic chart system.  New naming terminology has been agreed, with Small Vessel Electronic Chart System (SV-ECS) being identified as the naming strategy for systems built in compliance with the SV-ECS performance standard.
+
+ 2. Carriage Requirements
+
+2.1 The chart carriage requirements are specified in the following documents, or any document amending or replacing them:
+
+   i) Fishing Vessels – Merchant Shipping Notice No. 1871(F) The Code of Practice for the Safety of Small Fishing Vessels of less than 15m length overall (As amended)
+
+    ii) Fishing vessels - Merchant Shipping Notice No. 1872(F) The Code of Safe Working Practices for the Construction and Use of Fishing Vessels of 15m Length Overall to less that 24m Registered Length (As amended)
+
+    iii) Small Vessels in Commercial Use - Code of Practice for sport or pleasure, workboat and pilot boats (MGN 280) – Section 19.
+
+    iv) The Workboat Code Edition 3, The Safety of Small Workboats and Pilot Boats – A Code of Practice (as amended).
+
+    v) Small Commercial vessels in commercial use for sport and pleasure complying with the Sport and Pleasure Vessel Code
+
+    vi) Mini-MASS up to 4.5mtr in length which comply with the approval routes identified in MGNs 702 and 705.
+
+ 3. The Acceptance Process
+
+3.1 When utilising SV-ECS to meet the statutory chart carriage requirements as stipulated within the relevant vessel code (see section 2), the operator shall ensure the following;
+
+    i) All SV-ECS hardware is issued with a statement of compliance which states compliance with the performance standard, and;
+
+    ii) If the software is issued by a different OEM to the hardware, an additional statement of compliance, stating compliance with the performance standard is maintained alongside the hardware self-declaration, and;
+
+    iii) Where additional, non-SV-ECS OEM equipment is utilised to provide critical equipment identified in section 1.10.5 (KVM Switches) and 1.16.8 (Connections) of the performance standard, the OEM, supplier, or installer of this additional equipment should also provide a statement of compliance for the elements they provided.
+
+3.2 Statement of compliance letters shall include the following information, from both the relevant OEM and the vessel Master as follows:
+
+To be completed by the OEM:
+
+• Name and contact details of the OEM
+
+• Hardware Model
+
+• Software Version
+
+• Design operational limitations (Protected Bridge/Exposed Cockpit)
+
+• Signed statement of compliance
+
+To be completed by the vessel Master:
+
+• Vessel Name
+
+• Vessel Identification Number (IMO or UKSR number)
+
+• SV-ECS Hardware Serial number
+
+• SV-ECS Software Serial number (if applicable)
+
+• Proposed backup arrangement
+
+• Date, name, and signature of the Master completing the form
+
+3.3 The statement of compliance letter(s) shall be maintained onboard the vessel and available for review by the certifying authority.
+
+3.4 An example statement of compliance can be found in Annex 1 of this guidance note.
+
+3.5 If any elements (hardware, software, or ancillary equipment) are replaced, the operator shall ensure an updated statement of compliance is issued and maintained.
+
+ 4. Timelines for application
+
+4.1 The MCA will accept the installation of SV-ECS complying with the SV-ECS performance standard from 1 July 2025.
+
+4.2 From 31 July 2026 the MCA will no longer accept installation of Mini-ECDIS systems.  SV-ECS in compliance with the requirements of this MGN and the SV-ECS performance standard will be required.
+
+4.3 Mini-ECDIS systems installed onboard existing vessels prior to 31 July 2026 and in conformance with the Seafish performance standard as described in MGN 319 Amendment 1 and found on www.mini-ecdis.org.uk shall remain accepted by the MCA as conforming to chart carriage requirements until such time the equipment is replaced, at which point the requirements stated in 4.2 - 4.4 apply.
+
+4.4 Operators may continue to fit Mini-ECDIS systems as stated in section 4.3 until 31 July 2026.
+
+5. Chart Requirements
+
+5.1 When utilised to satisfy the chart carriage requirements of the relevant code as stipulated in Section 2, SV-ECS shall utilise Electronic Navigational Charts (ENCs) which have been published by an accepted National Hydrographic Office.
+
+5.2 The SV-ECS performance standard does not allow the use of Raster Navigational Charts (RNC) and therefore if a vessel is operating in an area with limited or no ENC coverage, Standard Nautical Charts (SNC), i.e. paper charts, are required for primary navigation.
+
+5.3 The use of S-57 Vector charts issued by commercial operators and not a National Hydrographic Office are not accepted as satisfying the chart carriage requirements.
+
+5.4 ENC charts are to be kept up-to-date in line with National Hydrographic Office guidelines and records shall be maintained for potential review by the certifying authority.   The records shall include, as a minimum, the cell licence number, cell expiry date and date of latest update.
+
+6. Backup Arrangements
+
+6.1 When utilising SV-ECS to satisfy chart carriage requirements, a backup arrangement complying with Appendix 5 of the SV-ECS performance standard is required.
+
+6.2 The MCA accept the following: -
+
+    i) An additional SV-ECS ; or;
+
+    ii) A selection of paper charts, corrected up-to-date, of suitable scale and sufficient for the vessel to navigate to a safe haven; or
+
+    iii) A portable device complying with the technical requirements stipulated within Appendix 5 of the performance standard, sufficient for the vessel to navigate to a safe haven, except for;
+
+    - Small commercial vessels (e.g. Workboat Code 3, Sport and Pleasure Vessel Code) certified to operate in Area Category 0 or 1. Or;
+
+    - Other vessels, including fishing vessels, certified to operate in GMDSS Sea Areas A3 or A4,
+
+where the back-up arrangements stipulated in 6.2(i) or 6.2(ii) shall apply.
+
+7. Training
+
+7.1 Effective navigation utilising electronic chart systems such as SV-ECS requires the operator to be sufficiently trained and familiarised with the system.
+
+7.2 Operators of vessels certified under a code referenced in Section 2 of this guidance notice should ensure compliance with the training requirements stipulated within the applicable code.
+
+7.3 Where a code does not specify specific course requirements for the use of electronic chart systems or if the vessel is a pleasure vessel which does not comply with one of the specified codes, the MCA strongly recommend all Masters, and crew responsible for navigation complete an MCA approved Small Ships Navigation and Radar Course .
+
+7.4 In addition, all vessel owner/operators and Masters should ensure that all crew including the Master is appropriately familiar with the specific electronic chart system equipment on-board the vessel
+
+8. Systems found not to be in compliance
+
+8.1 These fall into three categories: -
+
+    i) Systems supplied that are subsequently found not to be in compliance with the SV-ECS performance standard as declared by the supplier and/or system manufacturer.
+
+    ii) Systems that are found on survey or inspection not to display correctly the ENCs of the intended areas, or such charts have not been kept corrected and up-to-date, or the system is using unofficial electronic charts that have not been authorised or issued by the National Hydrographic Office.
+
+    iii) Systems that are found on survey or inspection not to have an adequate backup arrangement as defined in Section 6 of this guidance note.
+
+8.2 Vessels found to have SV-ECS not in compliance with the requirements stipulated within this guidance note maybe deemed not safe to proceed to sea and face further action from the MCA.
+
+9. Remote Operation Centres
+
+9.1 ROUVs certified under the Workboat Code, or by other means of certification by the certifying authority, may satisfy the chart carriage requirements by utilising an SV-ECS which complies with the requirements of this note.
+
+9.2 Remote Operations Centre (ROC) Workstations may be comprised of specialist hardware and human machine interfaces which are located primarily in shore-based environments which may make some aspects of SV-ECS hardware requirements obsolete.
+
+9.3 The MCA therefore accept that hardware utilised within a Remote Operator Centre (ROC) does not have to comply with the requirements of the performance standard and does not require an OEM self-declaration under the following conditions:
+
+    i) The SV-ECS software is provided with an OEM self-declaration
+
+    ii) The ROC is situated in an environmentally protected, shore-based compartment.  A ROC situated on another vessel shall comply fully with the hardware requirements of the performance standard.
+
+    iii) Backup arrangements are aligned with the requirements stipulated in 6.2 (i) or 6.2 (ii) or 6.2(iii).
+
+10. Caution
+
+10.1 Users of these systems should note the following points:
+
+    i) Whilst there is a statutory requirement for fishing vessels and small vessels under 24m in commercial service to carry “charts”, there is no statutory requirement for the carriage of electronic chart systems;
+
+    ii) Electronic chart plotting systems conforming to the SV-ECS performance standard are not a substitute for approved Electronic Chart Display and Information Systems (ECDIS) and they are not accepted for use as an equivalent to ECDIS on vessels mandated to carry ECDIS under SOLAS Chapter V Reg 19.
+
+    iii) Only electronic charts (ENCs) authorised or issued by / or on the authority of a government, authorised Hydrographic Office or other relevant government institution, are acceptable for use in such systems to satisfy statutory carriage requirements.
+
+11. Feedback
+
+11.1 To ensure continual improvement of the SV-ECS standard and the guidance contained within this guidance notice the MCA request that any operational feedback on the effectiveness of the system and the standard is sent to the following email address navigationsafety@mcga.gov.uk.
+
+11.2 Feedback is welcome from OEMs, vessel operators, or vessel Masters/Skippers.
+
+11.3 Please note however that providing feedback does not guarantee a change will occur in future performance standard reviews but will help identify trends which ultimately may shape future performance standard and guidance reviews.
+
+More information
+
+Technical Services Navigation
+Maritime and Coastguard Agency
+Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: navigationsafety@mcga.gov.uk

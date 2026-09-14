@@ -1,0 +1,367 @@
+MGN 587 (F) MGN 587 (F) Amendment 2 ILO health and safety responsibilities
+2025-10-01
+Source: https://www.gov.uk/government/publications/mgn-587-f-amendment-2-ilo-health-and-safety-responsibilities
+
+Summary
+
+This Notice contains information and guidance on responsibilities of the fishing vessel owner (which includes the manager), skipper and fishermen for health and safety on board UK fishing vessels.  
+
+•
+This includes: 
+
+•
+The owner’s responsibility to provide a safe working environment, suitable accommodation and sufficient resources on board the fishing vessel to ensure that everyone can work and stay on board safely and without risk to their health; 
+
+•
+The skipper’s responsibility for the safety of fishers on board, and the safe operation of the vessel; 
+
+•
+The right of the skipper to take any decision necessary for the safety of the vessel, its navigation, operation and those on board; 
+
+•
+The responsibility of fishermen to comply with the orders of the skipper and any safety and health measures on board. 
+
+•
+The fishing vessel owner must ensure the health and safety of all fishermen (both employed and share fishermen); section 4 sets out the principles to be applied and some of the key measures to be taken to do this. 
+
+•
+A documented risk assessment is required, and safety measures put in place. 
+
+•
+For vessels over 24m, there must be documented safety procedures. 
+
+•
+All fishermen must have enough training so that they can work safely on board, including familiarization with on-board equipment and procedures. 
+
+•
+The fishing vessel owner should consult with fishermen working on the vessel on the health and safety measures on board.  
+
+•
+Each fisherman has a duty to look after their own health and safety and that of others working with them, and comply with the measures put in place for their safety.
+
+Amendment 2 updates references only.
+
+1. Introduction 
+
+1.1 The Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations 1997 (as amended1) (“the Regulations”) cover the work activities of anyone working on fishing vessels, regardless of their employment status. Employed fishermen and self-employed share fishermen are all protected by the International Labour Organisation Work in Fishing Convention (ILO 188), and the fishing vessel owner has responsibilities towards anyone working on their vessel. The sections of the Regulations which all fishing vessels must now comply with are set out in this notice.  
+
+1.2 Commercial fishing carries high risk to health and safety.  Accident, death and serious injury rates are over 20 times higher than other sectors. While there are significant inherent risks in working at sea, and in the work carried out on board a fishing vessel, many MAIB reports conclude that most accidents in fishing vessels could have been avoided through appropriate and systematic application of health and safety regulations. 
+
+2. Application – General 
+
+2.1 Except where indicated, the Regulations apply to all UK-flagged fishing vessels of any length, wherever they may be, and to non-UK fishing vessels when in a UK port or UK waters (territorial waters).   
+
+2.2 The following definitions apply:  
+
+“fisherman” includes every person employed or engaged in any capacity on board any fishing vessel, but does not include a person solely engaged as a pilot for the vessel; 
+
+“fishing vessel” means a vessel for the time being used for or in connection with fishing for sea fish other than a vessel used for fishing otherwise than for profit; and for the purposes of this definition “sea fish” includes shellfish, salmon and migratory trout (as defined by section 44 of the Fisheries Act 1981); 
+
+“fishing vessel owner” means the owner of the fishing vessel or any other organisation or person such as the manager, agent or bareboat charterer, who has assumed the responsibility for the operation of the vessel from the owner and who, on assuming such responsibility, has agreed to take over the duties and responsibilities imposed on fishing vessel owners in accordance with the Convention, regardless of whether any other organisation or person fulfils certain of the duties or responsibilities on behalf of the fishing vessel owner. 
+
+3. Duty of fishing vessel owner and skipper
+
+3.1 The fishing vessel owner (which includes the manager if they have assumed responsibility for the operation of the vessel – see the definition in paragraph 2.2) has overall responsibility to ensure that the skipper is provided with the necessary resources and facilities to comply with the Regulations. The fishing vessel owner should set the health and safety policy for the vessel so that the skipper is clear what is expected. 
+
+3.2 The fishing vessel owner’s responsibility extends to all fishermen, whether they are employed or share fishermen. 
+
+3.3 While the fishing vessel owner always has overall responsibility, it is recognised that if they are not onboard their fishing vessel, they may have limited control of day to day activities. The Regulations provide that responsibility for health and safety also rests with any person who is in control of any particular matter. This will most likely be the skipper in respect of day to day running of the vessel. 
+
+3.4 The skipper therefore has responsibility for the safety of fishermen on board the vessel and the safe operation of the vessel. In fulfilling their responsibility the MCA expects skippers to  -   
+
+a) Provide supervision to ensure that fishermen work safely at all times; 
+
+b) Manage fishermen in a manner which respects safety and health, including prevention of fatigue; 
+
+c) Arrange regular on-board occupational safety and health awareness training; and 
+
+d) Ensure compliance with safety of navigation, watchkeeping and associated good seamanship standards. 
+
+3.5 The skipper must not be constrained by the fishing vessel owner from taking any decision which, in the professional judgement of the skipper, is necessary for the safety of the vessel and its safe navigation and safe operation, of the safety of the fishermen on board. 
+
+4. General duties (regulation 5(1)) 
+
+4.1 The fishing vessel owner has a duty to ensure the health and safety of fishermen and other persons so far as is reasonably practicable.  
+
+4.2 In fulfilling this duty, the following principles must be applied –  
+
+(a) avoiding risks – this includes combating risks at source, replacing dangerous practices, substances or equipment by non-dangerous or less dangerous practices, substances or equipment; 
+
+(b) evaluation of unavoidable risks and the taking of action to reduce them; 
+
+See section 5 of this notice.   
+
+(c) adopting work patterns and procedures which:health 
+
+•
+take account of the capacity of the individual, especially in respect of the design of the workplace and the choice of work equipment 
+
+•
+alleviate monotonous work; and  
+
+•
+reduce any consequent adverse effect on workers’ health and safety; 
+
+MSN 1884(F) and MGN 505 (M+F) provide guidance on organising working time and prevention of fatigue. 
+
+(d) adapting procedures to take account of new technology and other changes in working practices, equipment, the working environment and any other factors which may affect health and safety; 
+
+The risk assessments for the vessel require regular review which should trigger consideration of such changes (see section 5 of this notice). 
+
+(e) adopting a coherent approach to management of the vessel or undertaking, taking account of health and safety at every level of the organisation; 
+
+Adopting a safety management system provides a framework for this – see section 6 of   this notice and MIN 558(F).
+
+(f) giving collective protective measures priority over individual protective measures; It is better to put in place safety measures (e.g. insulation on hot pipes) which protect everyone, than to rely on personal protective equipment (PPE e.g. gloves) which only protect the person wearing them. PPE should always be the last line of defence where risks cannot be removed in other, more effective ways.  
+
+MSN 1870 gives information and guidance on provision and use of personal protective equipment. 
+
+(g) the provision of appropriate and relevant information and instruction for workers. See section 7 of this notice. 
+
+4.3 In particular, in order to fulfil their duty to ensure health and safety, the measures taken by the fishing vessel owner should include, but are not limited to, the following: 
+
+(a) providing and maintaining plant, machinery and equipment and systems of work that are, so far as is reasonably practicable, safe and without risk to health; 
+
+(b) making arrangements to ensure, so far as is reasonably practicable, safety and absence of risk to health in connection with the use, handling, stowage and transport of            articles and substances; 
+
+(c) making appropriate arrangements for the effective planning, organisation, control, monitoring and review of safety measures; the arrangements should be appropriate for the nature of the activities on board, any substances used and the size of the operation; 
+
+(d) providing any necessary information, instruction, training and supervision to ensure the health and safety of fishermen and that of other persons on board the fishing vessel who may be affected by their acts or omissions; 
+
+(e) maintaining all places of work on the vessel in a condition that is, so far as is   reasonably practicable, safe and without risk to health; 
+
+(f) arrangements to ensure, so far as is reasonably practicable, that no person has access to any area of the fishing vessel to which it is necessary to restrict access on grounds of health and safety unless the individual concerned has received adequate and appropriate health and safety instruction; 
+
+(g) providing and maintaining an environment for persons on board the fishing vessel that is, so far as is reasonably practicable, safe and without risk to health; 
+
+(h) collaborating with any other owners or employers where appropriate to protect, so far as is reasonably practicable, the health and safety of all authorised persons aboard the fishing vessel or engaged in loading or unloading activities to or from the fishing vessel.
+
+5. Risk assessment (Regulation 7) 
+
+5.1 The fishing vessel owner must ensure that a suitable and sufficient risk assessment   has been carried out and documented (see para 5.7) for all work activities on the fishing vessel. Measures should be taken to reduce risks as far as is reasonably   practicable.  
+
+5.2 The concept of “so far as is reasonably practicable” involves weighing a risk against the trouble, time and money needed to control it. So if, having taken measures to reduce a risk, the remaining risk to workers is minor and could only be further reduced at high cost, it may be reasonable to say that no more needs to be done to reduce that risk. But measures should always be taken to reduce a risk with severe consequences. There is no easy formula for deciding what is reasonably practicable – it involves an element of judgement. The judgement should always be weighed in favour of safety. 
+
+5.3 Any employer other than the fishing vessel owner, and any self-employed share fisherman, has a duty to inform the fishing vessel owner of any risks arising from their undertaking or their work activity on the vessel. The fishing vessel owner should review these risks and amend or adapt their risk assessment accordingly. 
+
+5.4 The skipper and crew should be closely involved with the risk assessment, to take advantage of their practical knowledge and experience of the work, what can go wrong,         and how to prevent that. But the fishing vessel owner has overall responsibility for ensuring that the risk assessment has been done and acted upon.   
+
+5.5 The assessment must be reviewed if:      
+
+(a) there is reason to suspect that it is no longer valid; or 
+
+(b) there has been a significant change in any of the matters to which it relates, 
+
+It is good practice to review the risk assessment at least every year, to ensure that any changes affecting its validity are identified. If the review identifies a need to change any procedures or practices to ensure safety is maintained, those changes must be made, and recorded. 
+
+5.6 The crew should be informed of the findings of the risk assessment and any measures taken for their protection and should be involved in reviewing the risk assessment (see section 10.2).  
+
+5.7 The risk assessment must be documented so that it is available to the skipper and crew of the vessel, and to authorised persons during inspections. A written risk       assessment (hard copy or electronic) will help to ensure that when it is reviewed nothing is missed. Even if no changes are required, any documentation should be annotated to show that a review has been carried out.
+
+5.8 As well as the documented risk assessment, it is important to consider any additional particular risks which may arise day to day, and where appropriate put in place additional or alternative safety measures. For example, weather conditions and other factors affecting the safe operation of the vessel such as equipment defects or shortcomings, reduced stability, and the proximity of hazards to navigation may require normal working practices to be modified. 
+
+5.9Further guidance on risk assessment is available at; https://www.gov.uk/guidance/fishing-vessel-health-and-safety#risk-assessment-for-fishing-vessels  
+
+6. Safety procedures 
+
+6.1 One of the principles to be applied in complying with duties under the Regulations is the adoption of a coherent approach to management of the vessel, taking account of health and safety at every level of the organisation (regulation 5(1)(e)).  
+
+6.2 ILO 188 specifies how this should be done for fishing vessels which are – 
+
+•
+24m in length or over; or 
+
+•
+which normally remain at sea for more than 3 days. 
+
+6.3 The fishing vessel owner should establish on-board procedures for the prevention of occupational accidents, taking into account the findings of the risk assessment, including:– 
+
+a) Ensuring every fishermen working on board has received basic safety training; see MGN 411 Training and Certification Requirements for the Crew of Fishing Vessels and their Applicability to Small Commercial Vessels and Large Yachts 
+
+b) Training and information for the crew, including on risk assessment; 
+
+c) Records of training and familiarisation on board;
+
+d) provision of appropriate personal protective equipment for all those working on board, based on the risk assessment for working on the vessel. 
+
+6.4 MGN 594(F) gives guidance on creating a safety management system. MCA strongly recommends putting a safety management system in place on vessel of 24m in length or over, or which remain at sea for more than 72 hours. 
+
+6.5 A Safety Management System will provide a framework to ensure that documentation is up to date, and that inspections, servicing or maintenance of equipment is carried out on time.  
+
+6.6 It can also help to ensure that everyone on board carries out their work safely, by providing guidance to the fishing vessel owner and skipper to improve the safety of    their vessel, the maintenance and servicing of safety equipment that relates to the   vessel and the operation of the vessel. It will greatly assist in complying with statutory safety obligations and provide a means to demonstrate this to a surveyor.  
+
+6.7 Further guidance is available in MGN 594(F) and at https://www.safetyfolder.co.uk/ 
+
+6.8 “Normally remain at sea for more than 3 days” means not returning to port within a 72 hour period. 
+
+7. Capabilities and training (regulation 12) 
+
+7.1 When allocating duties on board, account shall be taken of the capabilities of crew members as regards health and safety. The risk assessment should identify those tasks which require specific training or familiarisation.  
+
+7.2 Fishermen shall be provided with adequate and appropriate health and safety training and instruction – 
+
+a) before being assigned to shipboard duties; 
+
+b) if they are being exposed to new (different) or increased risks, compared to what they are used to because of –  
+
+(i) a change of responsibilities, 
+
+(ii) the introduction of new equipment or a change to equipment already in use, 
+
+(iii) the introduction of new technology, or 
+
+(iv) the introduction of new shipboard practices, a new system of work or a change to a system of work already in use. 
+
+7.3 Health and safety training must: 
+
+a) be repeated periodically where appropriate; 
+
+b) be adapted to take account of any new or changed risks to the health or safety of the workers concerned; and 
+
+c) take place during the working hours of the worker concerned. 
+
+7.4 Where a crew member is employed through an employment agency, the fishing vessel owner must provide the employment agency with information on –  
+
+a) any special occupational qualifications required by workers to carry out their work safely; 
+
+b) the specific features of the jobs to be filled by those workers (in so far as those features are likely to affect their health and safety); and 
+
+c) any health surveillance required to be provided to workers under these or other relevant regulations. 
+
+7.5 Where crew are employed through an employment agency, the employment agency concerned must ensure that the information provided is given to the crew members they provide to the vessel. 
+
+8. Co-ordination (regulation 13) 
+
+8.1 Where there are workers on board a fishing vessel who are not employed by the fishing vessel owner, the fishing vessel owner must –  
+
+a) consult every other employer of those workers regarding the arrangements for health and safety; 
+
+b) co-ordinate arrangements for the protection of all fishermen and other workers and the prevention of risk to their health and safety; and 
+
+c) ensure that all fishermen and other workers are informed of the significant and relevant findings of the risk assessment (see section 5), and of the arrangements for their protection. 
+
+9. Extension of duties in other Regulations as regards seafarers who are not    workers (Regulation 13A) 
+
+9.1 The fishing vessel owner also owes a duty to all fishermen on board under other health and safety regulations (listed in the Annex to this Notice).  Wherever the regulations refer to the duty of employers towards workers, in accordance with the responsibilities set out in section 1, the fishing vessel owner owes the same duty towards share fishermen. 
+
+10. Other duties of the fishing vessel owner  
+
+10.1 Protective and preventive services (reg 14) 
+
+a) The fishing vessel owner must ensure that sufficient resources are available to ensure health and safety on their vessels and that a competent person takes charge of this (referred to in the Regulations as “protective and preventive services”) to enable them to comply with the requirements of these Regulations. The competent person may be the fishing vessel owner themselves or the skipper, or they may engage external help. If external help is engaged, the fishing vessel owner and the skipper must provide support. This includes –  
+
+•
+providing access to any necessary information, documents and similar material including relevant legislation and Merchant Shipping Notices;
+
+• providing them with relevant information about –
+
+• (i) the risks and measures for protection identified through risk assessment (section 5 of this notice),
+
+(ii) factors known, or suspected, by them to affect the health and safety of the workers on board the ship, and
+
+(iii) arrangements for fire-fighting, first aid and other emergency procedures;
+
+•
+ensuring that the competent person has the necessary resources and means to carry out their functions and duties; 
+
+•
+allow the competent person such absence from ship duties without loss of pay as may be necessary to enable them to fulfil their functions, or to undertake any necessary training in health and safety matters; 
+
+•
+receive at any reasonable time, representations about health and safety from the crew, discuss their representations with them and implement any agreed measures as soon as may be reasonable and practicable. 
+
+b) The fishing vessel owner must ensure that every accident involving death, major or serious injury, and every dangerous occurrence is recorded and made available on request to any crew member and any investigator of accidents (MAIB inspector). 
+
+10.2 Consultation with workers (regulation 20) 
+
+a) The fishing vessel owner must consult the crew on all matters relating to their health and safety, and in particular on –  
+
+•
+appointing a competent person to provide protective and preventive services; 
+
+•
+the findings of the risk assessment; 
+
+•
+arrangements for health and safety training; 
+
+•
+the introduction of new technology. 
+
+b) Fishermen must be able to make representations about health and safety, and the owner must implement any agreed measures as soon as may be     reasonable and practicable. 
+
+c) Fishermen shall be given access by the fishing vessel owner to any relevant information about –  
+
+•
+health and safety matters from inspection agencies and health and safety authorities; and 
+
+•
+every accident involving death, major or serious injury, and every dangerous occurrence.
+
+10.3 Any fishermen with health and safety functions shall be given adequate time off work without loss of pay in order to exercise those functions, and shall be provided with appropriate training. They shall not be placed at a disadvantage (whether economic or otherwise) because of their health and safety activities. 
+
+11. General duties of fishermen (Regulation 21) 
+
+11.1 Every fisherman working on board a fishing vessel must —  
+
+a) take reasonable care for their own health and safety and that of any other person aboard ship who may be affected by their acts or omissions; and co-operate with the owner and the skipper in respect on health and safety matters. This includes complying with the lawful orders of the skipper and applicable safety and health measures.  
+
+11.2 In particular, no fisherman shall—  
+
+a) use any machinery, equipment, dangerous substance, transport equipment, means of production or safety device provided by their employer or the fishing vessel owner unless they do so in accordance with any relevant training or instructions which have been received or provided by the owner or the skipper; disconnect, change or remove or otherwise interfere with any safety device provided by the employer or the fishing vessel owner. 
+
+11.3 Every fisherman must immediately inform the fishing vessel owner, skipper or another competent person (such as the competent person engaged for preventive or protective services)  
+
+•
+of any matter they consider a deficiency in arrangements for health and safety on board the ship; and 
+
+•
+of any work situation which they think represents a serious and immediate danger to health and safety. 
+
+12. More information
+
+Seafarer Safety and Health Branch
+Maritime and Coastguard Agency
+Bay 2/17
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 7200
+
+Email: workinfishing.convention@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Annex - Merchant Shipping Health and Safety Regulations containing duties in respect of workers which regulation 13A extends to all seafarers 
+
+The Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Artificial Optical Radiation) Regulations 2010 
+
+The Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Asbestos) Regulations 2010 
+
+The Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Work at Height) Regulations 2010 
+
+The Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Chemical Agents) (Amendment) Regulations 2012
+
+The Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Biological Agents) Regulations 2010 
+
+The Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Carcinogens and Mutagens) Regulations 2007 
+
+The Merchant Shipping and Fishing Vessels (Control of Vibration at Work) Regulations 2007 
+
+The Merchant Shipping and Fishing Vessels (Control of Noise at Work) Regulations 2007 
+
+The Merchant Shipping and Fishing Vessels (Lifting Operations and Lifting Equipment) Regulations 2006 
+
+The Merchant Shipping and Fishing Vessels (Provision and Use of Work Equipment) Regulations 2006 
+
+The Merchant Shipping and Fishing Vessels (Safety Signs and Signals) Regulations 2001 
+
+The Merchant Shipping and Fishing Vessels (Personal Protective Equipment) Regulations 1999 
+
+The Merchant Shipping and Fishing Vessels (Manual Handling Operations) Regulations 1998 
+
+The Merchant Shipping and Fishing Vessels (Health and Safety at Work) (Employment of Young Persons) Regulations 1998

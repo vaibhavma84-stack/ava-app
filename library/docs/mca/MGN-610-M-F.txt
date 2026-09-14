@@ -1,0 +1,1678 @@
+MGN 610 (M+F) MGN 610 (M+F) Amendment 1 SOLAS chapter V – guidance on the merchant shipping (safety of navigation) regulations 2020
+2025-02-13
+Source: https://www.gov.uk/government/publications/mgn-610-mf-amendment-1-solas-chapter-v-guidance-on-the-merchant-shipping-safety-of-navigation-regulations-2020
+
+Summary
+
+1.1       This Marine Guidance Note (MGN) provides clarification and guidance on the Merchant Shipping (Safety of Navigation) Regulations 2020 (S.I. 2020/0673), which implement Chapter V of the International Convention for the Safety of Life at Sea,1974 (SOLAS) in its most recently amended form into UK law.
+
+1.2       Future amendments to Chapter V will be incorporated into UK Law by way of ambulatory reference. The 2020 Regulations revoke the Merchant Shipping (Safety of Navigation) Regulations 2002 (S.I. 2002/1473) (the “2002 Regulations”).
+
+1.3       This MGN also includes clarification and guidance on the Merchant Shipping (Safety of Navigation) (Amendment) Regulations 2025 (S.I. 2025/134)
+
+1.4       This MGN also includes the following minor amendments and clarifications
+
+   i. Updated links and reference to other guidance notices
+
+   ii. Clarification on the term ‘responsible officer’ in relation to pilot operations
+
+   iii. Updated guidance on the compliance requirements for UK Class IV Domestic Passenger Vessels.
+
+Introduction/background
+
+2.1       The Merchant Shipping (Safety of Navigation) Regulations 2020 (“the 2020 Regulations”) implement Chapter V of the Convention for the Safety of Life at Sea, 1974 (“SOLAS” or “the Convention”) and all outstanding amendments to Chapter V. Chapter V was negotiated and agreed in the International Maritime Organization (IMO).
+
+2.2       Chapter V focuses on measures which improve safety of navigation, and to reduce the risk of accidents occurring at sea, specifically in the areas of the carriage and use of equipment to assist in safe navigation, the receipt of vital safety information and communications, including emergency communications and signals.
+
+2.3       The 2020 Regulations use cross-referencing of the Convention requirements to refer the reader to obligations contained in Chapter V itself. Additionally, the 2020 Regulations use ambulatory reference to transpose future amendments to the Chapter V requirements into UK law, rather than transposing them directly. This approach is designed to allow the mandatory text to be available to shipowners and other interested parties at a much earlier stage than the traditional transposition approach would have done.
+
+2.4       However, it is recognised that in some cases the text of international instruments may not provide sufficient clarity for the requirements to be fully understood and implemented domestically. This includes, for example, where an international obligation provides that a shipowner or shipbuilder must do something “to the satisfaction of the Administration”. Therefore, Annex A of this MGN provides additional guidance on, and clarification of, the international obligations.
+
+2.5       Certain aspects of the regime contained in the 2020 Regulations will not be altered by future amendments coming into force by way of ambulatory reference. Examples include powers to grant exemptions and equivalences, and provisions for penalties for non-compliance.
+
+2.6       The 2020 Regulations revoke the Merchant Shipping (Safety of Navigation) Regulations 2002 (S.I. 2002/1473) (“the 2002 Regulations”).
+
+2.7       The Merchant Shipping (Safety of Navigation) (Amendment) Regulations 2025 (S.I. 2025/134) came into force in February 2025 and supplement the 2020 regulations.  Details are found within the 2025 amendment itself, and the guidance within this notice.
+
+Supplementary Guidance
+
+3.1       Additional annexes are provided with this MGN by way of supplementary guidance on areas associated with SOLAS Chapter V. These are:
+
+   i) Annex A: Guidance on aspects of SOLAS Chapter V where additional clarification is required to assist with compliance with the international convention text;
+
+    ii) Annex B: Guidance on Nautical Charts and publications;
+
+    iii) Annex C: Digital Nautical Publications;
+
+    iv) Annex D: Guidance on Magnetic Compasses;
+
+   v) Annex E: Guidance on Radar Reflectors;
+
+   vi) Annex F: Guidance on Bridge Navigational Watch Alarm System; and
+
+   vii) Annex G: Guidance on Electronic Chart Display and Information System (ECDIS).
+
+   viii) Annex H: Table of Requirements for Ships – an application overview. This is to assist the reader with the application of the Regulations and SOLAS Chapter V;
+
+3.2       This Note replaces online guidance previously provided by the Maritime and Coastguard Agency (MCA) on SOLAS Chapter V.
+
+More information
+
+Technical Services Navigation
+
+Maritime and Coastguard Agency
+
+Bay 2/24
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Email: navigationsafety@mcga.gov.uk 
+
+Website: www.gov.uk/mca
+
+Annex A
+
+CLARIFICATION AND GUIDANCE ON SPECIFIC REGULATIONS IN CHAPTER V OF THE INTERNATIONAL CONVENTION FOR THE SAFETY OF LIFE AT SEA, 1974 (SOLAS)
+
+(References to Chapter V are to Chapter V in its most up to date form at the time the 2020 Regulations come into force, unless otherwise stated.)
+
+Not all SOLAS V regulations have guidance associated with them as guidance is not necessary in all cases. There will therefore be numerical gaps in the regulation numbers in the tables below. The tables are split into sections: (i) the international regulation itself (which contains either the text of the regulation or sub-regulation, or, in some cases for the sake of clarity, a description of it) followed by (ii) guidance on it. (Text in italics is directly quoted from the Convention.)
+
+Regulation 1 Paragraph (1) of SOLAS Chapter V
+
+1.1       Although naval vessels, auxiliaries and government service vessels are exempt, regulation 1 encourages them to comply as closely as possible with the provisions of SOLAS V. It is UK policy, spelt out in a letter of understanding between the Ministry of Defence (MOD) and MCA, that UK naval auxiliary ships comply as closely as possible with the requirements of SOLAS.
+
+1.2       Foreign-flagged vessels on government service are exempted in UK waters.
+
+1.3       Also exempted are vessels operating in the Great Lakes of North America.
+
+Guidance/Clarification of application in UK context
+
+1.4       The Administration may decide to what extent Chapter V shall apply to ships operating solely in waters landward of the baselines which are established by coastal States under the 1982 United Nations Convention on the Law of the Sea (UNCLOS).
+
+1.5       Guidance with regard to “UK, UK Overseas Territories and UK Crown Dependencies Maritime Limits and Law of the Sea” is available on gov.uk website at this link.
+
+1.6       UKHO Annual Notice to Mariners No. 12 gives some information on national claims to maritime jurisdiction of Countries and States under UNCLOS.
+
+1.7       In the UK, SOLAS Chapter V generally applies in these waters unless the waters are Categorised, which includes inland waters. The UK does not apply the provisions of Chapter V to vessels operating solely in Categorised Waters.
+
+Regulation 1 paragraph (4) of SOLAS Chapter V
+
+2.1       The Administration shall determine to what extent the provisions of regulations 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, and 28 do not apply to the following categories of ships:
+
+   .1 ships below 150 gross tonnage engaged on any voyage;
+
+   .2 ships below 500 gross tonnage not engaged on international voyages; and
+
+   .3 fishing vessels.
+
+2.2       Certain types of ships are subject to requirements in the MCA Codes of Practice (Code), listed below. However, if a vessel does not comply fully with the requirements of a relevant MCA Code, then it must comply fully with the relevant Regulations of SOLAS V.
+
+2.3       Fishing Vessels of 24m or more in length must comply with the Fishing Vessels (Codes of Practice) Regulations (SI 2017/943).
+
+Guidance/Clarification of application in UK context
+
+2.4       Empowers Administrations to determine the extent to which certain Regulations (which relate to specific navigational equipment, layout, pilot transfer access etc.) apply to fishing vessels and to classes of smaller vessels - i.e. those less than 150 GT on any voyage and those vessels under 500 GT not engaged on international voyages (which will essentially comprise cargo ships as passenger ships on domestic voyages are covered by different legislation.
+
+2.5       The UK has exercised the right to derogate in relation to some of these regulations but not all. By inference, these classes of vessel must comply in full with those regulations NOT listed in paragraph 4. Of these, regulations 29 (Life-saving Signals), 31 (Danger Messages), 32 (Information required in danger messages), 33 (Distress messages), 34 (Safe navigation and avoidance of dangerous situations), 34-1 (Master’s discretion) and 35 (Misuse of distress signals) apply to all vessels. Compliance with regulations 10 (Ship’s routeing), 11 (Ship reporting) and 12 (Vessel Traffic Services) may be required depending on the size and category of vessel.
+
+Regulation 2 paragraph (3) of SOLAS Chapter V
+
+3.1       All ships mean any ship, vessel or craft irrespective of type and purpose.
+
+Guidance/Clarification of application in UK context
+
+3.2       Paragraph 3: the definition of “all ships” means that the Chapter is applicable to vessels other than simply merchant vessels. These include fishing vessels, hovercraft and pleasure craft. Refer also to Guidance Notes to regulation 1 for exceptions for certain classes of vessel and which regulations may apply to them.
+
+Regulation 3 paragraph (1) of SOLAS Chapter V
+
+4.1      The Administration may grant general exemptions from the requirements of regulations 15, 16, 17, 18, 19 (except 19.2.1.7), 20, 22, 24, 25, 26, 27 and 28 to ships without mechanical propulsion.
+
+Guidance/Clarification of application in UK context
+
+4.2       This allows Administrations to grant general exemptions to vessels with no means of propulsion (e.g. certain types of vessel used in the offshore industry such as jack-up rigs, storage or offloading units etc.) from the specified regulations. The UK will grant exemptions to such UK-flagged ships.
+
+Regulation 3 paragraph (2) of SOLAS Chapter V
+
+5.1       The Administration may grant to individual ships exemptions or equivalents of a partial or conditional nature, when any such ship is engaged on a voyage where the maximum distance of the ship from the shore, the length and nature of the voyage, the absence of general navigational hazards, and other conditions affecting safety are such as to render the full application of this chapter unreasonable or unnecessary, provided that the Administration has taken into account the effect such exemptions and equivalents may have upon the safety of all other ships.
+
+Guidance/Clarification of application in UK context
+
+5.2       In order for the UK to utilise this provision, the MCA must be satisfied that safety is not compromised and a formal application detailing the request is made.
+
+Regulation 3 paragraph (3) of SOLAS Chapter V
+
+6.1       Each Administration shall submit to the Organization, as soon as possible after 1 January in each year, a report summarizing all new exemptions and equivalents granted under paragraph 2 of this regulation during the previous calendar year and giving the reasons for granting such exemptions and equivalents. The Organization shall circulate such particulars to other Contracting Governments for information.
+
+Guidance/Clarification of application in UK context
+
+6.2       Exemptions and equivalences are granted for a specified period. They will not be granted indefinitely.
+
+6.3       Owners seeking an exemption or equivalency for navigational equipment should contact their MCA designated Customer Service Manager or their local Marine and Fishing Survey Office.
+
+Regulation 4 of SOLAS Chapter V
+
+7.1       Each Contracting Government shall take all steps necessary to ensure that, when intelligence of any dangers is received from whatever reliable source, it shall be promptly brought to the knowledge of those concerned and communicated to other interested Governments[footnote 1]
+
+Guidance/Clarification of application in UK context
+
+7.2       Mariners should refer to regulations 31 and 32 which lay down the Masters’ obligations to report dangers to navigation (regulation 31) and provide the correct reporting format (reg 32.)
+
+7.3       Navigational warnings are promulgated in the UK under a Memorandum of Understanding between the MCA and the UK Hydrographic Office (UKHO). The service meets the requirements of regulation 4 as well as IMO Resolution A.706(17), as amended, which implements the Worldwide Navigational Warning Service (WWNWS). The UKHO acts as the “national co-ordinator” for the UK in collating and issuing coastal warnings and acts as coordinator for NAVAREA 1.
+
+7.4       Mariners are requested to inform the UKHO immediately when new dangers or changes / defects in aids to navigation are identified. Full contact details and instructions, together with copies of the UKHO reporting form (Hydrographic Note) are provided in the weekly copy of the Admiralty Notices to Mariners.
+
+Contact points for navigational information are:
+
+Radio Navigational Warnings
+Email: navwarnings@ukho.gov.uk  
+Tel: +44 (0)1823 353448 (direct line)
+Fax: +44 (0)1823 322352
+
+Other navigational information, email: sdr@ukho.gov.uk
+Tel: +44 (0)1823 723315
+Fax: +44(0)1823 322352
+
+7.5       Details of the WWNWS are given in the UKHO Annual Notice to Mariners No.13
+
+Notices to Mariners: www.ukho.gov.uk  
+Tel: +44(0)1823 723315
+Fax: +44(0)1823 322352
+
+Regulation 5 paragraph (1) of SOLAS Chapter V
+
+8.1       Contracting Governments undertake to encourage the collection of meteorological data by ships at sea and to arrange for their examination, dissemination and exchange in the manner most suitable for the purpose of aiding navigation.  Administrations shall encourage the use of meteorological instruments of a high degree of accuracy and shall facilitate the checking of such instruments upon request. Arrangements may be made by appropriate national meteorological services for this checking to be undertaken, free of charge to the ship.
+
+Guidance/Clarification of application in UK context
+
+8.2       The Met Office, the UK national meteorological service, provides shipping forecasts for north European sea areas and UK inshore waters, which are promulgated throughout the day on radio, NAVTEX, recognised mobile satellite services and Internet. Severe weather warnings are broadcast as soon as possible. Navigational Warnings are promulgated by the UKHO.
+
+8.3       Weather conditions can also affect a ship’s navigation, and in 1983 IMO adopted resolution A.528(13), Recommendation on Weather Routeing, which recognizes that weather routeing - by which ships are provided with “optimum routes” to avoid bad weather - can aid safety.
+
+8.4       IMO member Governments are urged to support the World Meteorological Organization’s (WMO) Voluntary Observing Ship Programme (VOS). The MCA strongly encourages UK companies to volunteer their vessels. Despite technological developments, ship meteorological reports still play an essential role in providing accurate forecasts and will continue to do so for the foreseeable future. UK shipowners should contact the Met Office to nominate their ships for the Voluntary Observing fleet.
+
+8.5       MSC.1/Circ.1293, Rev.1 - Participation in the WMO Voluntary Observing Ships’ Scheme, underlines the importance of the Scheme.
+
+8.6       See also:
+
+    i)      MGN 375 (M+F), Navigation: Maritime Safety Information (MSI) – Amendment 1,
+
+   ii)     Weather broadcasts and Maritime safety information: leaflet on Gov.UK,
+
+   iii)   World Meteorological Organization
+
+Regulation 6 paragraph (1) of SOLAS Chapter V
+
+9.1       The Ice Patrol contributes to safety of life at sea, safety and efficiency of navigation and protection of the marine environment in the North Atlantic. Ships transiting the region of icebergs guarded by the Ice Patrol during the ice season are required to make use of the services provided by the Ice Patrol.
+
+Guidance/Clarification of application in UK context
+
+9.2       For full details of the Service and reporting requirements for ships in the ice area refer to the Admiralty List of Radio Signals Vol.3 part 2.
+
+9.3       More information about the service with regularly updated ice reports can be found on the US Coastguard website under “International Ice Patrol”: https://www.navcen.uscg.gov
+
+9.4       Paragraph 5 refers to the rules for the management, operation and financing of the North Atlantic Ice Patrol which form an integral part of Chapter V. These are set out in the Appendix to Chapter V following the regulations.
+
+Regulation 7 paragraph (1) of SOLAS Chapter V
+
+10.1     Each Contracting Government undertakes to ensure that necessary arrangements are made for distress communication and co-ordination in their area of responsibility and for the rescue of persons in distress at sea around its coasts. These arrangements shall include the establishment, operation and maintenance of such search and rescue facilities as are deemed practicable and necessary, having regard to the density of the seagoing traffic and the navigational dangers, and shall, so far as possible, provide adequate means of locating and rescuing such persons. [footnote 2]
+
+Guidance/Clarification of application in UK context
+
+10.2     Civil maritime Search and Rescue is co-ordinated by HM Coastguard within the UK Search and Rescue Region (UKSRR), which maintains a continuous distress watch on international distress frequencies, digital selective calling and satellite communications. HM Coastguard collates and broadcasts maritime safety information on VHF and MF radio and NAVTEX. Radio medical advice and assistance is provided through HM Coastguard Operations Centres.
+
+Regulation 7 paragraph (3) of SOLAS Chapter V
+
+11.1     Passenger ships to which Chapter I applies, shall have on board a plan for co-operation with appropriate search and rescue services in the event of an emergency. The plan shall be developed in co-operation between the ship, the company, as defined in regulation IX/1, and the search and rescue services. The plan shall include provisions for periodic exercises to be undertaken to test its effectiveness. The plan shall be developed based on the guidelines developed by the Organization.
+
+Guidance/Clarification of application in UK context
+
+11.2     “Search and rescue service” means the search and rescue services responsible for the initiation and co-ordination of all maritime search and rescue activity required to provide assistance to persons in distress at sea.
+
+11.3     “Appropriate search and rescue services” means, in relation to a ship, the search and rescue service responsible for the initiation and co-ordination of all search and rescue activity for the area of operation of the ship, as specified in Merchant Shipping Notice (MSN) 1878(M)- Arrangements for the Carriage of Agreed Search and Rescue Co-operation Plans aboard UK Passenger Vessels.
+
+11.4     All UK passenger ships are required to comply with the requirements of SOLAS V/7.3. Full details of the requirements for SAR Cooperation Plans on UK passenger ships and how they are to be implemented are contained in “MSN 1878(M) – Arrangements for the carriage of agreed search and rescue co-operation plans onboard UK passenger vessels” , which includes requirements of IMO Resolution MSC.1/Circ.1079/Rev.1 - Guidelines for Preparing Plans for Cooperation between Search and Rescue Services and Passenger Ships (in accordance with SOLAS regulation V/7.3).
+
+Regulation 8 paragraph SOLAS Chapter V
+
+12.1     Contracting Governments undertake to arrange that life-saving signals are used by search and rescue facilities engaged in search and rescue operations when communicating with ships or persons in distress.
+
+Guidance/Clarification of application in UK context
+
+12.2     The international lifesaving signals are contained in the IAMSAR Manual and the International Code of Signals. This can be obtained from IMO Publications http://www.imo.org/en/Publications/Pages/Home.aspx
+
+12.3     Refer to regulation 29 which requires the ready availability to the Officer of the Watch (OOW) of a table describing the lifesaving signals.
+
+12.4     Details of lifesaving signals are provided in the MCA leaflet “Life Saving Signals for Ships, Aircraft or Persons in Distress”.
+
+Regulation 9 SOLAS Chapter V
+
+13.1     This regulation details contracting governments’ obligations to provide hydrographic services.
+
+Guidance/Clarification of application in UK context
+
+13.2     Mariners are requested to inform the UKHO immediately when new dangers or changes / defects in aids to navigation are identified. Full contact details and instructions, together with copies of the UKHO reporting form (Hydrographic Note-H.102) are provided in the weekly edition of the Admiralty Notices to Mariners.
+
+13.3     More information on the UK’s civil hydrography programme is available at:
+
+ UK Civil Hydrography Programme (CHP) - GOV.UK 
+
+13.4     Hydrographic Notes can also be downloaded and submitted electronically through the UKHO website: https://www.admiralty.co.uk/maritime-safety-information/hydrographic-notes
+
+13.5     Notices to Mariners can be found on the UKHO’s searchable website at: www.nmwebsearch.com
+
+13.6     Notices to Mariners Website: https://www.admiralty.co.uk/maritime-safety-information/admiralty-notices-to-mariners
+
+Tel: +44(0)1823 723315
+Fax: +44(0)1823 322352
+
+Urgent navigational information -       e-mail: navwarnings@btconnect.com  
+Other navigational information -         e-mail: hdcfiles@ukho.gov.uk  
+generalenquiries@ukho.gov.uk  
+
+13.7     See also:
+
+MSC/Circ. 1118 - Implementation of SOLAS Regulation V/9 - Hydrographic Services; and
+
+MSC/Circ. 1179 - Deficiencies in Hydrographic Surveying and Nautical Charting.
+
+Regulation 10 paragraph (1) SOLAS Chapter V
+
+14.1     Ships’ routeing systems contribute to safety of life at sea, safety and efficiency of navigation and protection of the marine environment. Ships’ routeing systems are recommended for use by, and may be made mandatory for, all ships, certain categories of ships or ships carrying certain cargoes, when adopted and implemented in accordance with the guidelines and criteria developed by the International Maritime Organization (IMO).[footnote 3]
+
+Guidance/Clarification of application in UK context
+
+14.2     IMO Resolution A.572(14) (as amended) sets out the General Provisions on Ships’ Routeing which are followed by Contracting Governments when submitting routeing schemes for consideration.
+
+14.3     “IMO Ships’ Routeing” contains details of all IMO-adopted ships’ routeing schemes as well as the General Provisions. All details of adopted schemes are shown on the relevant UKHO charts, with any special requirements set out in chart notes. Paragraphs 1 to 6 lay down the requirements and procedures for submitting proposals for schemes.
+
+Regulation 10 paragraph (7) SOLAS Chapter V
+
+15.1     A ship shall use a mandatory ships’ routeing system adopted by the Organization as required for its category or cargo carried and in accordance with the relevant provisions in force unless there are compelling reasons not to use a particular ships’ routeing system. Any such reason shall be recorded in the ships’ log.
+
+Guidance/Clarification of application in UK context
+
+15.2     Paragraph 7 refers to mandatory ships’ routeing systems with which ships must comply. These are the IMO adopted systems for mandatory use by ships or certain categories of ships. Such a system will be shown on official navigational charts as a “Mandatory Ships’ Routeing System”. The only example of such a system in or adjacent to UK waters is in the southern North Sea where there is a mandatory route for tankers from North Hinder to the German Bight and vice versa. Part of the route passes through UK jurisdictional waters. (Refer to “IMO Ships’ Routeing”, Part G)
+
+15.3     For MCA Guidance on use of Traffic Separation Schemes refer to MGN 364(M+F) – Amendment 2 Navigation: Traffic Separation Schemes – Application of Rule 10 and Navigation in the Dover Strait.
+
+15.4     See also the International Regulations for Preventing Collisions at Sea,1972, (as amended) which are contained in MSN 1781 (M+F) Amendment 3 The Merchant Shipping (Distress Signals and Prevention of Collisions) Regulations 1996 (COLREG).
+
+Regulation 11 paragraph (7) SOLAS Chapter V
+
+16.1     The master of a ship shall comply with the requirements of adopted ship reporting systems and report to the appropriate authority all information required in accordance with the provisions of each such system.
+
+Guidance/Clarification of application in UK context
+
+16.2     United Kingdom ships anywhere in the world must comply with any mandatory ship reporting system adopted by the IMO which applies to them.
+
+16.3     Details of mandatory ship reporting schemes are promulgated through the Admiralty List of Radio Signals, including any amendments, corrections or replacements. Entries are annotated with the words: “Mandatory system under SOLAS Regulation V/11-1”. The locations of ship reporting systems are shown on the relevant Admiralty Charts.
+
+16.4     Ships to which a mandatory ship reporting system applies should report to the shore-based authority without delay when entering and, if necessary, when leaving the area covered by the system. A ship may be required to provide additional reports or information to update or modify an earlier report.
+
+16.5     Failure of a ship’s radiocommunications equipment would not, in itself, be considered as a failure to comply with the rules of a mandatory ship-reporting system. However, masters should endeavour to restore communications as soon as practicable. If a technical failure prevents a ship from reporting, the master should enter the fact and reasons for not reporting in the ship’s log. Masters of ships which contravene mandatory ship reporting requirements may be liable to prosecution.
+
+16.6     The following IMO-Adopted Mandatory Ship Reporting Systems are in place in adjacent UK jurisdictional waters:
+
+    i. In the Dover Strait / Pas de Calais (CALDOVREP);
+
+    ii. Off Les Casquets and the adjacent coastal area (MANCHEREP); and
+
+    iii. Off Ushant (OUESSREP).
+
+16.7     In addition, reporting requirements for certain classes of oil tanker entering the Western European Particularly Sensitive Sea Area came into force on 1 July 2005. The reporting area extends from southern Portugal to the Shetland Islands. Full details of this scheme (West European Tanker reporting System - WETREP) are given in IMO Circular SN/Circ.242.
+
+16.8     There are also several Voluntary Reporting Schemes around the coast of the UK. Ships are strongly urged to comply with the requirements of these voluntary schemes, details of which will be found on the relevant charts, IMO Ships’ Routeing, Admiralty List of Radio Signals vol 6 and sailing directions.
+
+16.9     UK Voluntary Reporting Schemes are in place in the following areas:
+
+    i. Fair Isle Channel;
+
+    ii. Pentland Firth;
+
+    iii. The Minches;
+
+    iv. Kyle of Lochalsh; and
+
+    v. Isles of Scilly.
+
+16.10   Further information will be found in the following publications:
+
+    i. Admiralty List of Radio Signals Vol.6 part 1 (UKHO).
+
+    ii. MGN 364 (M+F) Amendment 2 Navigation: Traffic separation schemes - Application of Rule 10 and Navigation in the Dover Strait
+
+Regulation 12 SOLAS Chapter V
+
+17.1     This Regulation deals with Vessel Traffic Services (VTS)
+
+Guidance/Clarification of application in UK context
+
+17.2     A VTS is a service designated by the MCA with the capability to interact with vessel traffic and respond to developing situations within a VTS area, to improve safety and efficiency of navigation, contribute to the safety of life at sea and support the protection of the environment. Reference is made to the IMO Guidelines for VTS (Resolution A.1158 (32)), which offer guidance on design and operation of VTS systems.
+
+17.3    In most ports and within territorial seas, participation in VTS is mandatory under local regulations. Information on available Vessel Traffic Services is given in the Admiralty List of Radio Signals (ALRS) Volume 6 parts 1, 2, 3 and 4 and the IALA VTS Manual. MCA strongly urges all UK ships to make use of any VTS that is provided. The MCA will keep compliance of vessels with VTS under review and if performance is considered unacceptable, a more regulatory approach may be taken.
+
+17.4     The Guidelines on Vessel Traffic Services (Resolution A.1158(32)) refer to the IALA Guidelines on VTS - see IALA Website http://www.iala-aism.org/
+
+17.5     Reference should also be made to the following UK Regulations and M-Notices, which explain the relevant Guidelines set out in IMO Resolution A1158(32).
+
+17.6     SI 2004 No. 2110: The Merchant Shipping (Vessel Traffic Monitoring and Reporting Requirements) Regulations 2004
+
+    i. MSN 1796 (M&F) (Amendment 4) - Designation of VTS Centres
+
+    ii. MGN 401 (M&F) Amendment 3 - Navigation: Vessel Traffic Services (VTS) and Local Port Services (LPS) in the United Kingdom
+
+    iii. MGN 434 (M+F) Amendment 2 - Navigation: Vessel Traffic Services (VTS) - Training and Certification of VTS Personnel
+
+    iv. MIN 692 (M+F) Navigation: vessel traffic services (VTS) – accreditation of prior learning
+
+Regulation 13 SOLAS Chapter V
+
+18.1     This regulation deals with aids to navigation.
+
+Guidance/Clarification of application in UK context
+
+18.2     Aids to navigation (AtoN) services are provided in accordance with the international recommendations and Guidelines published by the International Association of Marine Aids to Navigation and Lighthouses (IALA). Further information including the IALA Guidelines can be found on the IALA Website: http://www.iala-aism.org/
+
+18.3     The General Lighthouse Authorities (GLAs) are responsible for the superintendence and management of all AtoNs around the coast of the UK and the Republic of Ireland (RoI), in their respective areas, subject to certain provisions regarding AtoNs in Local Lighthouse Authority Areas. The GLAs comprise:
+
+    i. Trinity House for England, Wales, the Channel Islands and Gibraltar,
+
+    ii. The Northern Lighthouse Board responsible for the coast of Scotland and adjacent islands, and the Isle of Man,
+
+    iii. The Commissioners of Irish Lights, for the coast of the whole of Ireland.
+
+18.4     Information on the GLAs can be found on their respective websites as follows:
+
+    i. Trinity House: www.trinityhouse.co.uk/
+
+    ii. Northern Lighthouse Board: http://www.nlb.org.uk
+
+    iii. Commissioners of Irish Lights: http://www.irishlights.ie/
+
+Regulation 14 paragraph (4) SOLAS Chapter V
+
+19.1     On ships to which Chapter I applies, English shall be used on the bridge as the working language for bridge-to-bridge and bridge-to-shore safety communications as well as for communications on board between the pilot and bridge watchkeeping personnel[footnote 4], unless those directly involved in the communication speak a common language other than English.
+
+Guidance/Clarification of application in UK context
+
+19.2     Paragraph 4 requires English to be used as the common language on the bridge of all SOLAS compliant ships unless a common working language has been established on board and between ship and shore. The working language on the bridge of UK-flagged ships will normally be English. Under section 51 of the Merchant Shipping Act 1995, UK ships may be detained if crew members cannot understand orders given in English and there are no arrangements for giving orders in a language which they understand.
+
+19.3     The regulation also draws attention to the use of the IMO publication Standard Marine Communication Phrases (SMCP), which is annexed to IMO Resolution A.918(22).
+
+19.4     The mandatory UK requirements for ships’ safe manning are contained in the Merchant Shipping (Standards of Training, Certification and Watchkeeping) Regulations 2015. The Regulations implement the requirements of the 1978 International Convention on Standards of Training, Certification and Watchkeeping for Seafarers (STCW 78), as amended in 1995 (STCW 95) and 2010 (the Manila Amendments, 2010). For further information refer to:  MSN 1877(M) Amendment 2 - Maritime Labour Convention, 2006: Hours of Work and Entitlement to Leave.
+
+19.5     Safe manning should take into account the minimisation of fatigue. For further information and guidance refer to MGN 505 (M) – Human Element Guidance – Part 1; Fatigue and Fitness for Duty: Statutory Duties, Causes of Fatigue and Guidance on Good Practice.
+
+19.6     The MCA will consider a ship to be safely manned if the crew includes sufficiently competent and certified officers and ratings with appropriate skills and experience to ensure that the principles set out in IMO Resolution A.1047(27), as amended, are complied with and that the capabilities spelt out in that Resolution are demonstrable. The Resolution should be consulted when determining safe manning levels.
+
+Regulation 15 SOLAS Chapter V
+
+20.1     This regulation deals with principles to be followed in the design and layout of ships’ bridges and the establishment of bridge procedures using ergonomic criteria, and applies mainly to companies, ship builders, naval architects and Classification Societies. The latter are often given status of Recognised Organisation to ascertain compliance with this regulation on behalf of a flag State Administration.
+
+Guidance/Clarification of application in UK context
+
+20.2     These criteria are detailed in IMO MSC/Circ.982. Where ships are fitted with Integrated Navigational Systems (INS) the appropriate IMO Performance Standards should be referred to. Additionally, Guidelines for bridge equipment and systems, their arrangement and integration (BES) (SN.1/Circ.288), should be referred to in the event of any integration of more than the INS specified items of equipment. Note that, as clarified in SN.1/Circ.288, since 2 June 2010, there are no systems referred to as the Integrated Bridge Systems. IMO SN.1/Circ.265 provides further information via suitable guidelines towards application of this regulation.
+
+20.3     The regulation specifically covers principles that must be considered in relation to compliance with the requirements of regulations 19 (Navigational Equipment), 22 (Bridge Visibility), 24 (Heading/Track control systems), 25 (Operation of main source of Electrical Power and Steering Gear), 27 (Nautical Charts and Publications) and 28 (Records of Navigational Activities).
+
+20.4     The Regulation addresses designers, manufacturers and shipowners with respect to the bridge design and layout. However, the responsibility for ensuring correct bridge procedures are adopted, and that the vessel’s bridge team duly adheres to its safety management system, lies with the Master.
+
+20.5     The way in which navigational-related information is displayed on various equipment items varies considerably between different types of equipment and manufacturers. To reduce this problem all such information on displays fitted on or after 1 July 2008 should be displayed in accordance with the IMO Performance Standards as set out in IMO Resolution MSC.191(79) - Performance Standards for the Presentation of Navigation-related Information on Shipboard Navigational Displays.
+
+20.6     Masters should, therefore, be familiar with the principles involved to ensure that personnel are fully familiar with the equipment and its layout and that procedures are adopted which optimise the design and layout of the ship’s bridge.
+
+20.7     Of particular importance to the Master is paragraph 1.6 relating to the prevention or minimisation of unnecessary work or distractions in order to minimise fatigue and maximise the bridge team’s vigilance.
+
+20.8     For further guidance refer to MGN 505 (M) Amendment 1: Human Element Guidance – Part 1; Fatigue and Fitness, as also referred in Regulation 14.
+
+20.9     Personal electronic navigational equipment: crew members sometimes possess their own portable electronic navigational equipment such as GPS and ECS (electronic charting system). The MCA recommends that the Master prohibits the inappropriate use of such equipment on the ship’s bridge.
+
+20.10   Mobile phones are increasingly becoming a distraction to bridge team vigilance. The MCA’s concern over this trend is detailed in MGN 299 (M+F) Inappropriate use of Mobile Phones. Masters are requested to ensure compliance with the advice given in this MGN.
+
+20.11   The MCA considers that MSC/Circ.982 is intended for guidance and documentation is not required to verify compliance with individual guidelines. However, compliance is required with the international standards given in Appendix 3 of MSC/Circ.982. For plan approval of bridge design compliance should be demonstrated with:
+
+    i. ISO 8468:2007, as amended, (Ships Bridge Layout and Associated Equipment Requirements and Guidelines).
+
+20.12   Bridge equipment should demonstrate compliance with the ergonomic requirements given in IEC 60945 (Maritime Navigation and Radiocommunication Equipment and Systems ‘General Requirements’ Methods of Testing and Required Test Results).
+
+Regulation 16 paragraph 1 SOLAS Chapter V
+
+21.1     The Administration shall be satisfied that adequate arrangements are in place to ensure that the performance of the equipment required by this chapter is maintained.
+
+Guidance/Clarification of application in UK context
+
+21.2     The International Electrotechnical Commission (IEC) requires that equipment maintenance manuals should be in English and clearly understandable by the ship’s maintenance personnel.
+
+Regulation 16 paragraph 2 SOLAS Chapter V
+
+22.1     Except as provided in regulations I/7(b)(ii), I/8 and I/9, while all reasonable steps shall be taken to maintain the equipment required by this chapter in efficient working order, malfunctions of that equipment shall not be considered as making the ship unseaworthy or as a reason for delaying the ship in ports where repair facilities are not readily available, provided suitable arrangements are made by the master to take the inoperative equipment or unavailable information into account in planning and executing a safe voyage to a port where repairs can take place.
+
+Guidance/Clarification of application in UK context
+
+22.2     This covers cases where equipment is malfunctioning. In order to comply with the regulation, the equipment must be repaired and the ship may be detained until it is operating correctly. If there are no repair facilities “readily available” in the port, the MCA may allow the ship to sail to the next port under a temporary dispensation arrangement agreed with the ship operators. In such cases the master must consider the effect of the malfunction on the ship’s safety and take appropriate account of it in planning and executing the voyage.
+
+22.3     The MCA’s interpretation of repair facilities being “readily available” is that no repair engineers or spares are available locally. The decision to allow the ship to sail would depend on the equipment involved, the magnitude of the malfunction and its effect on the ship being able to complete the voyage safely.
+
+22.4     Paragraph 2 refers to section B of SOLAS Chapter I covering the survey and certification of ships and equipment, including navigational equipment, during periodical passenger ship surveys, safety equipment surveys and surveys of radio installations.
+
+The repair and subsequent testing of any malfunctioning equipment must, therefore, meet the requirements of SOLAS Chapter I when malfunctions are detected during those surveys. The provisions of this Chapter will be considered by the MCA surveyors and port State control inspectors in deciding whether the ship can sail with any equipment not functioning.
+
+22.5     Attention is also drawn to regulation 11 of SOLAS Chapter I which governs the maintenance of the condition of the ship and its equipment after survey and its provisions must be complied with in cases where equipment is damaged or malfunctioning.
+
+22.6     Masters should note their responsibilities in 16.2 should any navigational equipment malfunction.
+
+Regulation 17 SOLAS Chapter V
+
+23.1     This regulation deals with electromagnetic compatibility.
+
+Guidance/Clarification of application in UK context
+
+23.2     The Electromagnetic Compatibility (EMC) requirements for marine equipment are laid down in the SI 2016 No.1025 - The Merchant Shipping (Marine Equipment) Regulations 2016.
+
+23.3     IMO Resolution A.813 (19), General Requirements for Electromagnetic Compatibility (EMC) for All Electrical and Electronic Ship’s Equipment (SOLAS Chapters IV and V), provides the technical details for EMC.
+
+23.4     For Electromagnetic Compatibility standards refer to IEC 60945.
+
+23.5   Masters must ensure that no portable electrical or electronic equipment that might cause interference is used on or near the bridge. This includes not only ship’s equipment but also personal items such as portable radios, hi-fi equipment and laptop computers. Masters should note that failure to comply with this Regulation constitutes an offence. Non-transmitting equipment displaying the European “CE” mark will probably not cause interference.
+
+23.6   Mobile phones, while not likely to cause electromagnetic interference, prove to be an increasing distraction to safe navigation. Masters are advised to ensure that the MCA guidance on the use of mobile phones on ships’ bridges contained in MGN (M+F) 299 - Inappropriate use of Mobile Phones whilst on duty, is complied with.
+
+Regulation 18 SOLAS Chapter V
+
+24.1     This Regulation deals with the Approval, Surveys and Performance Standards of Navigational Systems and Equipment and Voyage Data Recorder (VDR).
+
+Guidance/Clarification of application in UK context
+
+24.2     Masters must ensure that where equipment is installed or replaced the requirements of Regulation 18 are met. They must also ensure that the VDR testing requirements in 18.8 are fulfilled. Paragraphs 1 to 3 and 7 to 9 of this regulation do not apply to ships of less than 150GT engaged on any voyage.
+
+24.3     Paragraphs 1, 2 and 3 require navigational and VDR equipment fitted on new ships and replacement equipment on existing ships to be Type Approved and meet IMO performance standards (which are listed in the footnote to the Regulation.)
+
+24.4     Paragraph 4 relates to equipment fitted before performance standards were developed. Such equipment may be exempted by the Administration from full compliance with the standards. There are special provisions for ECDIS, whether being used under mandatory provision or voluntarily.
+
+24.5     Paragraph 4 stipulates that for ECDIS to satisfy the chart carriage requirements of regulation 19 it must at least meet the performance standards in force on the date of installation, or, if fitted before 1 January 1999, the standards adopted by IMO on 23 November 1995.
+
+24.6     Details of the procedures for obtaining type approval for marine equipment in the UK are provided in MSN 1874 (M+F) (Amendment 10) – Marine Equipment – United Kingdom conformity assessment procedures for marine equipment, other approval standards.  Note that this document undergoes frequent reviews and is republished at least once annually.  Mariners should be aware of the latest amendment in force.
+
+24.7     Details of the procedures for obtaining type approval for marine equipment where no internationally agreed testing standards exist are also provided in MSN 1874 as detailed above.
+
+24.8     Paragraph 7 requires equipment required under regulation 19 or 20, carried in addition to the requirements, to be approved by the Administration and as far as practicable meet the IMO Performance Standards or equivalent. This applies to cases where:
+
+    i. an additional item of specific equipment which the ship is required to carry is fitted (e.g. an additional radar); or
+
+    ii. an item of equipment is fitted which is not required under the regulations for a ship of its size (e.g. if a ship of under 10,000GT has a heading control system fitted).
+
+24.9     The MCA may approve such equipment where it does not meet any appropriate IMO Performance Standard. Any proposal to fit equipment which is not type-approved, or does not comply with IMO Performance Standards, should be submitted to the MCA for an exemption to be considered. (See also Regulation 3, Exemptions and Equivalents.)
+
+24.10  Paragraph 8 requires VDRs to be tested annually, and a certificate issued. The reason for this is to ensure that the data feeds are recorded and can be replayed reliably and accurately. VDR equipment installed on ships prior to the development of performance standards which fulfils the carriage requirement of Regulation 20 must also undergo an annual test.
+
+See also:
+
+    i. MGN 272 (M) – Voyage Data Recorders Performance Testing
+
+    ii. MGN 272a (M) – VDR Performance Test Certificate
+
+    iii. MGN 465 (M+F) - Navigation - Automatic Identification Systems (AIS) - Annual Testing
+
+Regulation 19 SOLAS Chapter V
+
+25.1     This Regulation deals with carriage requirements for shipborne navigational systems and equipment
+
+Guidance/Clarification of application in UK context
+
+25.2     This Regulation applies to all ships EXCEPT:
+
+    i.        pleasure vessels under 150GT engaged on any voyage; and
+
+    ii.        fishing vessels.
+
+    iii.        Except for paragraphs 2.1.1, 2.1.2, 2.1.3, 2.1.4, 2.1.6, 2.1.6, 2.1.7 and 2.1.8 (navigation equipment and arrangements), does not apply to –
+
+    a. Ships which are not passenger ships and are not sea-going;
+
+    b. Ships of Class V
+
+25.3     However, pleasure vessels are required to comply with paragraph 2.1.7 in regulation 19 (carriage of a radar reflector).
+
+25.4     Chapter 13 of the IMO High Speed Craft Code(s) (1994, 2000) lays down special requirements for navigational equipment on High-Speed Craft.
+
+25.5     “Other means” - MSC.1/Circ.1224 gives guidance on a unified interpretation of the term “other means” as used in regulation 19 with reference to the gyrocompass. This guidance is applied to equipment installed on or after 1 July 2007.
+
+See also the following:
+
+    i. MGN 285 (M+F) - Electronic Charts - risk assessment
+
+    ii. MGN 293 (M+F) - Electronic Charts - Paper chart alternatives for Fishing Vessels
+
+    iii. MGN 319 (M+F) – Amendment 2 electronic chart plotting Systems for Small vessels
+
+    iv. MGN 321 (M) Amendment 1 - AIS on double-ended passenger ferries
+
+    v. MGN 324 (M+F) Amendment 2 – Navigation: watchkeeping safety – use of Very High Frequency (VHF) radio and Automatic Identification System (AIS)
+
+    vi. MGN 375 (M+F) – Amendment 1 Maritime Safety Information (MSI)
+
+   vii. MGN 379 (M+F) – Amendment 1 Use of Electronic Aids to Navigation
+
+    viii. MSC/Circ.982- Guidelines on Ergonomic Criteria for Bridge Equipment and Layout
+
+25.6     Echo sounder transducers and Speed and Distance Measuring Equipment (SDME) transducers on the hull surface should be sited so as to avoid, where practicable, the vicinity of all underwater openings in or projections from the hull such as plugs, anodes or other transducers, so that satisfactory overall performance is achieved.
+
+25.7     Bridge displays should be sited, where practicable, in a position to facilitate easy access and viewing and where the effect of any lighting necessary for the equipment does not interfere with the keeping of an effective lookout. Further guidance is given in MSC/Circ.982.
+
+25.8     Radar performance is critically dependent upon the siting of the antenna, and its accurate harmonisation with other pieces of equipment dependent on the Consistent Common Reference Point, as noted in IMO performance standards and detailed in various of the IEC standards for Radar, Global Navigation Satellite System (GNSS), ECDIS etc.
+
+25.9     For the installation of the AIS, IMO circular SN/Circ. 227 (Guidelines for the Installation of a Shipborne Automatic Identification System) provides comprehensive guidance which describes the shipborne AIS installation matters and is meant to be used by manufacturers, installers and surveyors to ensure good installation practices.
+
+Regulation 19-1 SOLAS Chapter V
+
+26.1     This Regulation deals with the Long-Range Identification and Tracking (LRIT) of Ships.
+
+Guidance/Clarification of application in UK context
+
+26.2     LRIT automatically transmits details of the ship’s position. Its purpose is to provide a secure system for flag States to track their vessels globally, as a response to pirate and terrorist attacks on vessels, as well as suitable search and rescue response in emergencies. For more details on the survey, certification and compliance of ships that are required to transmit Long Range Identification and Tracking (LRIT) information, and the exemption process, please see MGN 634 (M+F): Long-Range Identification and Tracking – Survey, Certification and Compliance
+
+Regulation 21 paragraph (1) SOLAS Chapter V
+
+27.1     All ships which, in accordance with the present Convention, are required to carry a radio installation shall carry the International Code of Signals as may be amended by the Organization. The Code shall also be carried by any other ship which, in the opinion of the Administration, has a need to use it.
+
+Guidance/Clarification of application in UK context
+
+27.2     The International Code of Signals is available from IMO Publications - see http://www.imo.org/ 
+
+27.3     Regulation 1.4 permits Administrations some flexibility on the extent to which regulation 21 applies to certain classes of ships. Accordingly, the requirement in paragraph 1 does not apply to ships below 150 GT engaged on any voyage.
+
+Regulation 21 paragraph (2) SOLAS Chapter V
+
+28.1     All ships shall carry an up-to-date copy of Volume III of the International Aeronautical and Maritime Search and Rescue (IAMSAR) Manual.
+
+Guidance/Clarification of application in UK context
+
+28.2     The requirement to carry Volume III of the IAMSAR manual does not apply to:
+
+    i. ships below 150GT engaged on any voyage;
+
+    ii. ships below 500GT not engaged on international voyages; and
+
+    iii. fishing vessels.
+
+28.3     The IAMSAR manual is available from IMO Publications, see http://www.imo.org It must be kept up to date when amendments are issued by the IMO.
+
+Regulation 22 SOLAS Chapter V
+
+29.1     This Regulation deals with bridge visibility
+
+Guidance/Clarification of application in UK context
+
+29.2     Regulation 22 applies to all ships built on or after 1 July 1998, of 55m[footnote 5] and over in length. “Length” is defined in Regulation 2.4 as length overall.
+
+29.3     Ships built before this date must comply with paragraphs 1.1 and 1.2 as far as practicable, but no structural alterations will be required.
+
+29.4     For the purposes of the Regulation, the meaning of the term ‘conning position’ is taken to be the same as that defined in BS EN ISO 8468:1995 “Ship’s Bridge Layout and Equipment - Requirements and Guidelines” i.e., a place on the bridge with a commanding view and which is used by navigators when commanding, manoeuvring and controlling a ship.
+
+29.5     For SOLAS vessels, of 55 metres and more in overall length, flagging in to the UK register, the MCA will need to be satisfied that the requirements for a view of the sea surface from the conning position (regulation 22.1.1) and the extent of blind sectors caused by cargo, cargo gear or other obstructions outside of the wheelhouse forward of the beam (reg 22.1.2) comply as closely as reasonably practicable without the need to require structural alterations or the supply of additional equipment.
+
+29.6     Paragraph1.9.3 prohibits the use of polarised and tinted windows on the navigation bridge. In the case of United Kingdom registered ships, only clear, toughened glass is permitted.
+
+29.7     Owners of existing tonnage should be aware of the implications of a vessel fitted with tinted bridge windows being involved in an accident and the question of a proper lookout being maintained arising.
+
+29.8     Paragraph 1.9.4 requires a clear view regardless of weather conditions through at least two windows. Further guidance on the use of windscreen wipers etc is given in ISO 8468, as amended, (Ship’s Bridge Layout and Associated Equipment – Requirements and Guidelines).
+
+29.9     Paragraph 3 covers ships of “unconventional design”. This should be taken to mean ships of such a design that fixed structures or equipment, or the position of the bridge, renders it impossible to comply fully with the provisions of this regulation. In such cases the MCA must be consulted in order to assess the alternative arrangements which have to be provided to comply with this paragraph.
+
+29.10   For special circumstances, such as moving exceptional cargoes, the MCA should be consulted regarding navigation bridge visibility equivalence.
+
+29.11   It should be noted that pilots and port authorities, when exercising their normal duties, are required to report to the MCA any ship with deficiencies which may prejudice the safe navigation of the ship or which poses an unreasonable threat of harm to the marine environment. This would include non-compliance with the requirements of this regulation.
+
+29.12   Non-SOLAS passenger vessels of classes IV, V, VI and VIA of less than 55 metres registered length will need to meet the requirements of the Merchant Shipping (Bridge Visibility Small Passenger Ships) Regulations 2005. Although vessels of 45m to 55m length do not fall within the scope of the 2005 Regulations, operators of these vessels are advised to continue to monitor bridge visibility to ensure that safety is not compromised, and they may wish to document any steps taken in this regard.
+
+29.13   UK Fishing Vessels – Wheelhouse visibility requirements for UK Fishing Vessels are contained in MGN 314 (F) – Wheelhouse visibility onboard Fishing Vessels.
+
+29.14   Paragraph 1.6 covers visibility of shipside from the bridge wing. The IMO has provided a unified interpretation (UI) of this requirement via circular MSC.1/Circ. 1350/Rev.1. This UI has been implemented by the International Association of Classification Societies (IACS) since 1st January 2011.
+
+Regulation 23 SOLAS Chapter V
+
+30.1     This regulation deals with pilot transfer arrangements.
+
+Guidance/Clarification of application in UK context
+
+30.2     This regulation does not apply to—
+
+    i. ships below 150 GT engaged on any voyage;
+
+    ii. ships below 500 GT not engaged on international voyages; and
+
+    iii. fishing vessels.
+
+30.3     Equipment and arrangements installed before 1 July 2012 may continue to comply with the SOLAS requirements in force before that date, but if it is replaced, the new equipment and arrangements must comply with this regulation (23.1.3 & 23.1.4).
+
+30.4     The arrangements for the embarkation and disembarkation of pilots should also be considered at the design stage, particularly where unusual hull forms or the provision of belting is proposed, to ensure full compliance with the Regulations. Information and guidance on the pilot transfer arrangements is also provided in “ISO 799 Ships & marine technology – Pilot ladders”, as amended.
+
+30.5     An updated poster entitled “Required boarding arrangements for pilots” is contained in IMO circular, MSC.1/Circ.1428 – Pilot Transfer Arrangements. This poster should be consulted by all pilots, seafarers, shipowners, ship operators and others concerned with pilot boarding arrangements.
+
+30.6     Crew Safety: In order to ensure safety of the crew who may be involved with the set-up and rigging of the pilot transfer arrangement, particularly with a combination arrangement that involves securing of pilot and accommodation ladders overside, a full risk assessment must be undertaken. As part of the mitigation measures in view of the work overside, bespoke personnel security arrangements may have to be deployed to ensure safety of the crew whilst rigging this equipment.
+
+30.7     IMO resolution, A.1045(27), as amended – Pilot Transfer Arrangements – provides for use and arrangement, and maintenance requirements of the pilot ladders. Pilot ladders, as part of vessel’s essential safety equipment, are required to be type approved in accordance with the ISO standards noted in this resolution.
+
+30.8     Some pilot ladder related FAQs are listed below:
+
+    1. Does the new requirement prevent crews making new pilot ladders on board from existing steps from an old ladder?
+
+Yes, this will not comply with Ch V/regulation 23.2.4 as this would not be subsequently prototype tested or produced under a quality assurance module of the Directive.
+
+Further, a new pilot ladder (PL) will be treated as ‘replacement’ of the existing equipment, hence ship’s crew cannot put together a PL from scratch, even if the steps/ropes are bought off a certified manufacturer.
+
+    2. If a vessel has a new MER approved ladder, are the crew allowed to carry out any repairs to the ladder?
+
+Although there is no specific requirement on this, we would ask for it to be in line with the Original Equipment Manufacturer’s (OEM) instructions. There is, however, some degree of reasonable pragmatism attached to ‘minor repairs onboard’, such as with bits of seizing coming off the pilot ladder proper or repairs/replacing of “associated equipment (Ch V/reg 23.7.1.1)” such as man-ropes etc. As per Ch V/regulation 23.2.4, record/log of these repairs is to be maintained onboard.
+
+    3. Can the crew repair an existing ladder, i.e. being used onboard prior to 1 July 2012, that is non MER approved?
+
+Yes, providing it is not against the OEM instructions and as long the company has a robust training/QA/recommissioning and recording regime for the work carried out.
+
+    4. What is meant by ‘Responsible Officer’?
+
+The MCA interpret the term ‘Responsible Officer’ to mean ‘Deck Officer holding an appropriate Certificate of Competency’.  The use of ratings or Officers from other departments (i.e. Engineering Officer or Passenger Ship Security Officer) is not deemed a ‘Responsible Officer’ by the MCA.
+
+Regulation 24 SOLAS Chapter V
+
+31.1     This Regulation concerns the use of heading and track control systems.
+
+Guidance/Clarification of application in UK context
+
+31.2     Regulation 24 does not apply to:
+
+    - ships which are non-sea-going or to pleasure vessels of less than 150GT on any voyage.
+
+31.3     In the circumstances described in paragraph 1, navigational watches must be manned so as to ensure that a qualified helmsman is available as required in paragraph 2.
+
+31.4     The term Heading Control System (HCS) differentiates the automatic pilot from systems designed to keep a ship on a pre-determined track throughout its passage, which are termed Track Control Systems (TCS). TCSs have to be additionally interfaced with an electronic position fixing system, mostly and nominally GNSS receiver.
+
+31.5     Although paragraph 2.8.2 of regulation 19 requires HCS or TCS to be fitted to all vessels of 10,000GT and upward only, most vessels, recognising the value of such systems towards human resource management on bridge, employ them nevertheless. There is no requirement to fit a Track Control system on any class of ship.
+
+31.6     Track Control systems include the functional capabilities of Heading Control systems and if employed are then to be type approved to their own standards, which are over and above the HCS and comparatively rigorous in nature.
+
+Regulation 25 SOLAS Chapter V
+
+32.1     In areas where navigation demands special caution, ships shall have more than one steering gear power unit in operation when such units are capable of simultaneous operation.
+
+Guidance/Clarification of application in UK context
+
+32.2     This regulation does not apply to:
+
+    - ships which are non-sea-going or to pleasure vessels of less than 150GT on any voyage.
+
+Regulation 26 SOLAS Chapter V
+
+33.1    This Regulation deals with Steering Gear testing and drills.
+
+Guidance/Clarification of application in UK context
+
+33.2     This Regulation does not apply to:
+
+    - ships which are non-sea-going or to pleasure vessels of less than 150GT on any voyage.
+
+33.3     The details specified in paragraph 6 of regulation 26 (steering gear: testing and drills) must be recorded in the ship’s official logbook.
+
+33.4     The owner of a ship to which regulation 26 applies must ensure that the simple operating instructions and block diagram required by paragraph 3.1 of that regulation are provided to the ship’s crew.
+
+Regulation 27 SOLAS Chapter V
+
+34.1     Nautical charts and nautical publications, such as sailing directions, lists of lights, notices to mariners, tide tables and all other nautical publications necessary for the intended voyage, shall be adequate and up to date.
+
+Guidance/Clarification of application in UK context
+
+34.2     This regulation does not apply to;
+
+    i.        Ships which are not passenger ships and are not sea-going;
+
+    ii.        Class V vessels;
+
+    iii.        Pleasure vessels of less than 150GT on any voyage.
+
+34.3     “Nautical Charts and Publications” are defined in regulation 2.2, and carriage requirements for Charts and Publications are given in regulation 19, para. 2.1.4 and 2.1.5.
+
+34.4     Refer also to Annex B, where indicative list of nautical publications is given.
+
+Regulation 28 SOLAS Chapter V
+
+35.1     This regulation deals with records of navigational activities and daily reporting.
+
+Guidance/Clarification of application in UK context
+
+35.2     Regulation 28.1 applies to all ships on international voyages except for any ship below 150 GT engaged on any voyage.
+
+35.3     IMO resolution A.916(22) - Guidelines for the Recording of Events Related to Navigation, explain the requirements for all ships engaged on international voyages to keep on board a record of navigational activities and incidents which are of importance to safety of navigation and which must contain sufficient detail to restore a complete record of the voyage.
+
+35.4     All bridge orders requiring changes in direction or speed of the main propulsion unit must be recorded. In addition, other key navigational events should be recorded including changes of course, passing of way points, weather and sea conditions, incidents and events including pilot embarkation / disembarkation, tugs, hazardous occurrences and accidents.
+
+35.5     Time-marked electronic or mechanical records are acceptable including those from echo sounders, course recorders, engine telegraphs and NAVTEX receivers.
+
+It must be possible to reconstruct the ship’s track throughout the voyage. The IMO Guidelines state that navigational records (whether paper, electronic or mechanical) should be retained on board for a period of not less than 12 months. The MCA’s interpretation of this requirement is that records retained for 12 months should provide enough detail to reconstruct any voyage during that period. The MCA recognises that it is impractical to retain voyage details on paper charts for longer than the duration of the voyage. Therefore, sufficient details of waypoints, courses, times of alteration of course and or speed and other relevant details must be entered in the logbook and courses and positions on all navigational charts should be retained until the voyage is completed. This information should be saved electronically when ECDIS is used to fulfil the requirements of Regulation 19 (para. 2.1.4).
+
+35.6     MGN 690 (M+F) Approval and acceptance of electronic record books and recording requirements under SOLAS chapter V/Reg 28 gives updated details to mariners wishing to utilise electronic deck record books.
+
+35.7     The requirement for daily reports to be sent to the Company by ships of 500GT and over on international voyages exceeding 48 hours can be met by any method of reporting. Automated reporting of position, course and speed must include a record of their transmission. The Master must regularly verify such transmissions against the position fixing equipment with which they are interfaced.
+
+35.8     The “external or internal conditions” which must be reported as required by paragraph 2.3 will include abnormal weather or sea conditions and any structural or mechanical defects affecting the voyage or safe operation of the ship.
+
+Regulation 29 SOLAS Chapter V
+
+36.1     An illustrated table describing the life-saving signals[footnote 6] shall be readily available to the officer of the watch of every ship to which this chapter applies. The signals shall be used by ships or persons in distress when communicating with life-saving stations, maritime rescue units and aircraft engaged in search and rescue operations.
+
+Guidance/Clarification of application in UK context
+
+36.2     This Regulation applies to all vessels. The signals are to be used by any ship or person in distress, when communicating with SAR units. It is therefore important that mariners, whether engaged in commercial or leisure activities, are familiar with them.
+
+The table of lifesaving signals is to be displayed prominently on the ship’s bridge and officers are to be familiar with the signals and ensure that they are correctly used in distress situations.
+
+36.3     Details are provided in Volume III of the IAMSAR Manual. They are also contained in the MCA leaflet Lifesaving Signals for Ships Aircraft or persons in Distress.
+
+36.4     The MCA encourages all organisations concerned with small craft to ensure that their members are made aware of the international lifesaving signals and that copies of the signals are made available to them.
+
+36.5     Refer also to SOLAS Chapter V, regulation 8 - Life Saving Signals.
+
+Regulation 30 SOLAS Chapter V
+
+37.1     This regulation deals with Operational Limitations.
+
+Guidance/Clarification of application in UK context
+
+37.2     This regulation applies to all passenger ships engaged on international voyages. SOLAS Ch I defines passenger ships.
+
+37.3     All passenger ships are required to carry a document listing the Operational Limitations which is to be appended to the Passenger Ship Safety Certificate. The document includes details of any exemptions from the requirements of SOLAS V, operating restrictions (speed, weather, sea state or geographical areas), restrictions on loading or stability conditions and any other operational limitations imposed during the ship’s construction or by the MCA. If the ship has no operational limitations, the document needs to be endorsed accordingly.
+
+Regulation 31 SOLAS Chapter V
+
+38.1     This regulation deals with danger messages.
+
+Guidance/Clarification of application in UK context
+
+38.2     This regulation applies to all ships. See guidance notes following regulation 32.
+
+Regulation 32 SOLAS Chapter V
+
+39.1     This regulation deals with information required in danger messages.
+
+Guidance/Clarification of application in UK context
+
+39.2     The Master’s report is to be sent, preferably in English or using the International Code of Signals, to the appropriate National or NAVAREA Coordinator for navigational warnings via a coastal station. Details of NAVAREAs are given in Vol.1 of the Admiralty List of Radio Signals (ALRS).
+
+39.3     The NAVAREA Coordinator is the authority charged with coordinating, collating and issuing long-range navigational warnings and NAVAREA warning bulletins to cover the whole of the NAVAREA. For NAVAREA 1 (which includes United Kingdom waters) the NAVAREA Coordinators are:
+
+    i. for dangers to navigation (listed in Regulation 32.1) - the National Hydrographer, UKHO, Taunton;
+
+    ii. for meteorological dangers (listed in Regulation 32.2 to 32.5) - the National Meteorological Centre (NMC) of the Met Office.
+
+39.4     Details of the Worldwide Navigational Warning Service are contained in UKHO Annual Notice to Mariners No.13.
+
+39.5     For other areas and for details of national authorities refer to Volume 1 of the Admiralty List of Radio Signals (ALRS) obtainable from Admiralty Chart Agents or the Hydrographic Office Publications, Hydrographic Office, Admiralty Way, Taunton. Somerset TA1 2DN.
+
+Regulation 33 SOLAS Chapter V
+
+40.1     This regulation deals with distress situations: obligations and procedures.
+
+Guidance/Clarification of application in UK context
+
+40.2     This regulation applies to all ships and places an obligation on masters to respond to information from any source that persons are in distress at sea. Included is the obligation for rescued persons to be delivered to a place of safety and their humane treatment when on board the rescue ship.
+
+40.3     A “distress alert” means a signal of distress from a ship or information from any source that a ship or hovercraft is, or persons on or from a ship or hovercraft, are in distress at sea;
+
+40.4     Further information is contained in IMO Resolution MSC.167(78) Guidelines on the treatment of persons rescued at sea.
+
+40.5     Reference should be made to Volume 3 of the International Aeronautical and Maritime Search and Rescue (IAMSAR) manual adopted in 2000 by IMO Resolution A.894(21) which is required to be carried on board all ships as per regulation 21 - International Code of Signals and IAMSAR Manual.
+
+40.6     Masters who, in special circumstances, decide not to respond to a distress must enter their reasons in the logbook and, if they have responded to the distress, inform the appropriate search and rescue authorities of their decision not to proceed.
+
+40.7     A master of a ship in distress, or the search and rescue services concerned, may requisition a ship in the circumstances set out in paragraph 2 of regulation 33 (distress situations: obligations and procedures).
+
+40.8     A master is released from a duty imposed in—
+
+    i. paragraph 1 of regulation 33 (distress situations: obligations and procedures) in the circumstances set out in paragraph 3 of regulation 33; and
+
+    ii. paragraph 1 or 2 (as the case may be) of that regulation in the circumstances set out in paragraph 4 of that regulation.
+
+40.9     Compliance by the master of a ship with the requirements of regulation 33 (distress situations: obligations and procedures) does not affect their right, or the right of any other person, to salvage.
+
+Regulation 34 SOLAS Chapter V
+
+41.1     This Regulation deals with safe navigation and avoidance of dangerous situations.
+
+Guidance/Clarification of application in UK context
+
+41.2     This regulation applies to all ships which proceed to sea. The regulation requires the voyage to be planned in accordance with the IMO Guidelines for Voyage Planning - Resolution A.893(21) (issued as SN/Circ.92). The regulation authorises the Master to take voyage planning decisions for safety or environmental reasons.
+
+41.3     This regulation makes a properly prepared voyage plan mandatory, and the plan is liable to be checked during port State control inspections.
+
+41.4     To note for small vessels and pleasure craft - regulation 34 applies to all vessels. For small vessels and pleasure-craft the degree of voyage planning will depend upon the size of vessel, its crew and the length of the voyage. The MCA expects all mariners to make a careful assessment of any proposed voyage, considering all dangers to navigation, weather forecasts, tidal predictions and other relevant factors including the competence of the crew using appropriate charts and publications.
+
+41.5     See also regulation 34.1 - Master’s Discretion.
+
+Regulation 34-1 SOLAS Chapter V
+
+42.1     The owner, the charterer, the company operating the ship as defined in regulation IX/1, or any other person shall not prevent or restrict the master of the ship from taking or executing any decision which, in the master’s professional judgement, is necessary for safety of life at sea and protection of the marine environment.
+
+Guidance/Clarification of application in UK context
+
+42.2     “Company” is defined in SOLAS Chapter IX/1 (ISM Code): “Company” meaning the owner of the ship or any other organization or person such as the manager, or the bareboat charterer, who has assumed the responsibility for operation of the ship and who on assuming such responsibility has agreed to take over all the duties and responsibilities imposed by the International Safety Management Code.
+
+Regulation 35 SOLAS Chapter V
+
+43.1     The use of an international distress signal, except for the purpose of indicating that a person or persons are in distress, and the use of any signal which may be confused with an international distress signal are prohibited.
+
+Guidance/Clarification of application in UK context
+
+43.2     This regulation applies to all ships. See also Annex IV of the International Regulations for Preventing Collisions at Sea (COLREGs), which prohibits the misuse of distress signals (see MSN 1781(M+F) Amendment 3 The Merchant Shipping Regulations 1996 COLREG).
+
+43.3     Out of date pyrotechnics should be correctly disposed of, in accordance with the procedures set out on GOV.UK at “Guidance on Disposing of unwanted marine flares”.
+
+Appendix to SOLAS Chapter V
+
+44.1     This Appendix deals with Rules for the Management, Operation and Financing of the North Atlantic Ice Patrol.
+
+Guidance/Clarification of application in UK context
+
+44.2 Regulations relating to the Ice Patrol Service are set out in Regulation 6. Further information may be found in the US Coastguard Website under “International Ice Patrol”.
+
+Annex B
+
+NAUTICAL CHARTS AND PUBLICATIONS
+
+1.1       These guidance notes should be read in conjunction with Regulations 19, 21 and 27, which cover the carriage of Charts and Nautical Publications.
+
+Requirement to carry nautical charts and publications.
+
+1.2 Charts
+
+1.2.1    The charts or electronic chart display and information system (ECDIS) referred to in Regulation 19.2.1.4 must be of such a scale and contain sufficient detail as clearly to show:
+
+    i. all navigational marks which may be used by a ship when navigating the waters which are covered by the chart;
+
+    ii. all known dangers affecting those waters; and
+
+    iii. information concerning any ships’ routeing and ship reporting measures applicable to those waters.
+
+1.2.2    All charts and publications must be of the latest obtainable edition and be kept up to date from the latest relevant obtainable notices to mariners and radio navigational warnings.
+
+1.2.3    Charts, as defined in regulation 2.2, or an ECDIS using Electronic Navigational Charts (ENCs) or Raster Navigational Charts (RNCs) to meet the requirements of regulation 19.2.1.4 must comply with the necessary back-up arrangements required by regulation 19.2.1.5.
+
+1.2.4    The back-up arrangements may either be duplication of the ECDIS, reduced folio of paper charts, or a Chart Radar. Advice on determining suitable backup is given in MGN 285.
+
+1.3  Publications
+
+1.3.1    Such adequate and up to date sailing directions, lists of lights, notices to mariners, tide tables and other nautical publications, as defined in regulation 2.2 to meet the requirements of regulation 19.2.1.4;
+
+1.3.2    Nautical publications presented in electronic format are acceptable when issued by or on the authority of an authorised Hydrographic office or other relevant Government institution. For 2020 Regulations this means the United Kingdom Hydrographic Office (UKHO).
+
+1.3.3    Recommendations for system installation and use aboard ships are included at Section 6.
+
+1.3.4    All ships, and all other ships of 150 GT or more and all other ships required by SOLAS to carry a radio installation, shall carry the International Code of Signals published by the International Maritime Organization. (See regulation 21)
+
+1.3.5    The following publications are considered to satisfy the requirements of Regulation 19.2.1.4
+
+    i. International Code of Signals (IMO)
+
+    ii. IAMSAR Manual Vol III
+
+    iii. Mariners’ Handbook (UKHO)
+
+    iv.Merchant Shipping Notices, Marine Guidance Notes and Marine Information Notes (MCA)
+
+    v. Notices to Mariners (UKHO)
+
+    vi. Notices to Mariners – Annual Summary (UKHO)
+
+    vii. Lists of Radio Signals (UKHO)
+
+    viii. Lists of Lights (UKHO)
+
+    ix.   Sailing Directions (UKHO)
+
+    x.  Nautical Almanac
+
+    xi.  Navigational Tables
+
+    xii.  Tide Tables
+
+    xiii. Tidal Stream Atlases
+
+    xiv. Operating and Maintenance Instructions for Navigational Aids carried by the Ship.
+
+1.4 Notes
+
+    i. In the case of publications listed above, only those parts of the publication which are relevant to a ship’s voyage and operation need be carried.
+
+    ii. Where the UK Hydrographic Office (UKHO) is listed as the publisher, any other charts or publications which meet the definition in Regulation 2 shall be acceptable.
+
+    iii.The MCA also recommends that ships fitted with ECDIS carry a copy of NP 5012 “Admiralty Guide to ENC symbols used in ECDIS” and NP133C “Admiralty ENC Maintenance Record”.
+
+1.4.1    Regulation 1 permits Administrations some flexibility on the extent to which regulation 21 applies to certain classes of ships. Accordingly, for UK ships the requirement to carry Volume III of the IAMSAR manual does not apply to: - ships below 150 GT on any voyage - ships below 500 GT not engaged on international voyages, and - fishing vessels.
+
+1.4.2    The IAMSAR manual must be kept up to date when amendments are issued by the IMO.
+
+1.4.3    Furthermore, to comply with the Radio Regulations published by the International Telecommunications Union (ITU), ships to which the Merchant Shipping (Radio Installation) Regulations (SI 1998/2070) apply, i.e. passenger ships and other ships of 300 GT or more on international voyages, when provided with equipment for use in sea areas A2, A3 or A4, i.e. beyond VHF range of coast stations, must also carry the following publications of the ITU:
+
+    i. List of Coast Stations and Special Service Stations - List IV
+
+    ii. List of Ship Stations and Maritime Mobile Service Identity Assignments - List V
+
+    iii.The Manual for Use by the Maritime Mobile and Maritime Mobile-Satellite Services.
+
+Annex C
+
+DIGITAL NAUTICAL PUBLICATIONS
+
+1.1       System Installation
+
+1.1.1    The following recommendations arise from consideration of the use of digital Nautical Publications on a vessel in compliance with requirements laid down in SOLAS Chapter V and relevant IMO Guidelines.
+
+1.1.2    In conjunction with these Recommendations the following IMO Circulars should be consulted when implementing digital nautical publications:
+
+    i. MSC/Circ.891 ‘Guidelines for the on-board use and application of computers’
+
+    ii. MSC/Circ.982 ‘Guidelines on ergonomic criteria for bridge equipment and layout’
+
+    iii. MSC/Circ.1091 ‘Issues to be considered when introducing new technology on board ship’.
+
+1.1.3    As a minimum, the hardware should consist of two computer systems (referred here as primary and secondary computers) each having the functionality of a processor unit, display, keyboard, pointing device (such as a mouse) and the means to load software and data updates.
+
+1.1.4    The processor unit of the computer should be capable of running the official digital nautical publication software products in an effective manner, giving due regard to the specific requirements of the official software products, the operating system in use and the demands of other software products loaded on the computer. Full consideration should be given to the:
+
+    i. Operating System in use (e.g. Windows 10 or proprietary) - is it supported by the digital nautical publication products that will be loaded onto the system?
+
+    ii. Processor speed (e.g. 1GHz) - is it fast enough to support the loaded products, particularly if nautical publication software will be operating simultaneously with other products?
+
+    iii. Memory: (e.g. 256 Mb) - is it large enough to support simultaneously nautical publication products and other running software?
+
+    iv. Hard disk space free: (e.g. 1 Gb) - is there enough space to load the programme, the data and the necessary updates?
+
+    v. Essential peripherals, (e.g. keyboard, mouse, internet connection) - are the right peripherals available to load, use and update digital nautical publication software and data?
+
+1.1.5    The primary computer should be installed close to where the voyage is monitored. It should be designed to meet the environmental conditions defined in IEC60945 and be powered from the main and emergency sources of power on the bridge. The effective display area should measure at least 300 millimetres across the diagonal. The display should be able to be varied in brightness and contrast to enable viewing in all ambient light conditions. The lighting over the keyboard should be adjustable to enable use in all ambient situations. Care should be taken in positioning and setting-up the display and keyboard lighting so that it does not affect the night vision of bridge watch staff.
+
+1.1.6    If the display and controls for accessing digital nautical publications are situated close to the conning position or to a look-out position the display at night should be set to appropriate night-time colours. Great care must be taken in setting brightness adjustments to prevent the display and the keyboard lighting from affecting the night vision of bridge watch staff.
+
+1.1.7    An ECDIS capable of accessing appropriate digital nautical publications may be used as the ‘workstation’ for the use of such publications. However, digital nautical publications may only be used on ECDIS if the ECDIS equipment has been approved by the flag Administration (type approved) for this purpose.
+
+1.1.8    The primary computer (if not an ECDIS) may also be used to run other software needed for essential bridge support functions, provided these are checked for compatibility with the officially approved products loaded. Digital nautical publications should be available for instant use at any time during the voyage.
+
+1.1.9    On some ships, with a poor electrical supply, it may be necessary to power the primary computer system through an uninterruptible power supply (UPS). This is a self-contained battery-driven power inverter that continues to supply good quality electrical power, even when there are fluctuations in the ship’s main supply. A UPS can also operate the computer system for some minutes even if there is a complete power failure. It cannot normally be considered to act as the emergency source of power because of the relatively short time before its batteries are exhausted.
+
+1.1.10  A secondary computer is required in case of failure of the primary system. It is ideally situated on the bridge when it should comply with the requirements of Paragraphs 1.2-1.5 above, except:
+
+    i. It is not necessary for it to be provided with an emergency source of power; and
+
+    ii. It need only comply with the EMC requirements of IEC60945.
+
+1.1.11  A network solution can inherently provide a good backup. In this instance prior consideration of the preferred secondary workstation should be made. This should be documented within the ship’s bridge procedures. It should be noted that not all officially approved products currently support network operation.
+
+1.1.12  If not mounted on the bridge (and if permitted by the flag Administration), the secondary system may be a good quality office system connected to the ship’s normal power supply. It should comply with the requirements of Paragraphs 1.2 and 1.3 above and be situated in a convenient position for access by bridge personnel. It should not be in an area subject to high levels of vibration, heat or humidity, which could lead to damage of the system. The effective display area should measure at least 350 millimetres across the diagonal.
+
+1.1.13  The secondary system may be used for other applications of a critical or non-critical nature, provided that any software loaded is approved by the master and is checked for compatibility with the officially approved products loaded. During the voyage it must be available for instant access to digital nautical publications in the event of a failure of the primary system.
+
+1.1.14  If the secondary system is not on the bridge it is recommended that it is also connected to a colour printer to allow the printing of critical data needed for use at the chart table or elsewhere on the bridge.
+
+1.1.15  A secondary system is not required if the equivalent paper version of the digital nautical publication is available on the bridge and is maintained up-to-date. In that case the bridge computer system need only comply with the EMC requirements of IEC 60945 and not the full environmental requirements specified for the bridge environment.
+
+1.1.16  In placing equipment on the bridge care must be taken to comply with the requirements of SOLAS Chapter V Regulation 15 ‘Principles relating to bridge design, design and arrangement of navigational systems and equipment and bridge procedures’.
+
+1.1.17  Consideration must be given to protecting the primary and secondary computers (including a network system, if used) against computer viruses. This may be by the installation and regular update of anti-virus software or by strict bridge instructions prohibiting unauthorised use, including the loading of non-approved software or data.
+
+1.2       System Use
+
+1.2.1    Training on the system should be provided to enable operators to use it effectively and maintain the databases to be fully up-to-date. Users new to the particular vessel should be familiarised with the equipment set-up and with the vessel’s bridge procedures concerning the use of digital nautical publications, prior to using the equipment.
+
+1.2.2    Updates available in port should be applied before passage planning commences and before leaving port. If updates are received at sea they should be applied as soon as possible. Any changes relevant to the execution of the passage plan should be noted on the passage plan.
+
+1.2.3    Updates need to be applied to both primary and secondary systems.
+
+1.2.4    Records should be kept of when updates are received and applied.
+
+1.2.5    During passage planning it should be checked that any licences concerning the use of the software and its updates will remain valid for a period in excess of the expected worst-case voyage duration. If this is not the case corrective action needs to be taken.
+
+1.2.6    A status check of the primary and secondary systems should be made before leaving port and at least once per day in order to ascertain the availability of the systems. This information should be recorded in the ship’s log.
+
+1.2.7    In the event of a failure of the primary or secondary system it should normally be repaired at the next port of call, unless the facilities for such a repair are not available. In the latter case proper thought and action needs to be taken to minimise the effects of failure of the remaining system. That could include, for instance, making a print-out of critical data that may be needed during the voyage before the voyage commences, directly from the digital nautical publication
+
+1.2.8   Bridge instructions should be in place to prohibit any unauthorised use of the primary and secondary systems, such as: the loading of additional software; change of software or hardware configuration; and any use by untrained staff.
+
+Annex D
+
+MAGNETIC COMPASSES
+
+Regulation 19, paragraphs 2.1.1, 2.1.2, 2.1.3 and 2.2.1 lay down the requirements for all seagoing ships (excluding fishing vessels, pleasure vessels under 150 GT) to be fitted with a magnetic compass, or other means, to determine and display the vessel’s heading independent of any power supply. They must also be fitted with a pelorus, or other means, to take bearings over an arc of 360° of the horizon and a means for correcting these magnetic heading and bearings to true at all times.
+
+Fishing vessels and pleasure vessels under 150GT should comply with the requirements of the relevant MCA Code.
+
+1.1       Performance standards
+
+1.1.2    Equipment must comply with the IMO Performance Standards as follows:
+
+    i. Magnetic compasses - Resolution A.382(X); and
+
+    ii. Transmitting magnetic heading devices – Resolution MSC.86(70), annex 2.
+
+1.1.3    Regulation 19 requires all ships of 150 GT and over, and all passenger ships to carry a spare magnetic compass (or equivalent.)
+
+1.2       Responsibility for Maintenance
+
+1.2.1    The Owner and the Master are responsible for ensuring that compasses on their ships are maintained in good working order.
+
+1.3       Adjustment of Compasses
+
+1.3.1    Each magnetic compass required to be carried by the Regulations shall be properly adjusted and its table or curve of residual deviations available at all times.
+
+1.3.2    Magnetic compasses should be adjusted when:
+
+    i. they are first installed;
+
+    ii. they become unreliable;
+
+    iii. the ship undergoes structural repairs or alterations that could affect its permanent and induced magnetism;
+
+    iv. electrical or magnetic equipment close to the compass is added, removed or altered; or,
+
+    v. a period of two years has elapsed since the last adjustment and a record of compass deviations has not been maintained, or the recorded deviations are excessive or when the compass shows physical defects.
+
+1.4       Effects of Changes in Magnetism During the Life of a Ship
+
+1.4.1    Because the magnetism of a new ship can be particularly unstable, the performance of magnetic compasses should be monitored carefully during the early life of a ship, and adjustments made if necessary.
+
+1.4.2    Masters are advised that it is essential to check the performance of magnetic compasses particularly after:
+
+    i. carrying cargoes which have magnetic properties;
+
+    ii. using electromagnetic lifting appliances to load or discharge;
+
+    iii. a casualty in which the ship has been subject to severe contact or electrical charges; or
+
+    iv. the ship has been laid up or has been lying idle - even a short period of idleness can lead to serious deviations, especially for small vessels.
+
+1.4.3    Further, the retentive magnetism can alter a ship’s magnetism, making compasses unreliable. However, a large amount of the magnetism induced by an electromagnet may subsequently decay so immediate readjustment is not advised. Every effort should be made to determine the compass deviation.
+
+1.5       Monitoring Compass Performance
+
+1.5.1    Compass performance should be monitored by frequently recording deviations in the compass deviation book. Compass errors should be determined after every large alteration of course, and at least once every watch when there have been no major course alterations. Checking the compass deviation regularly may show the need for repair, testing or adjustment. In addition, compasses should be inspected occasionally by a competent officer or compass adjuster.
+
+1.6       Adjustments and Repairs
+
+1.6.1    In the UK, all adjustments should be made by a compass adjuster who holds a Certificate of Competency as Compass Adjuster issued by the UK Government.
+
+1.6.2    If a qualified compass adjuster is unavailable and the Master considers it necessary, then adjustments may be made by a person holding a Certificate of Competency (Deck Officer) Class 1 (Master Mariner). The compass must be re-adjusted by a qualified compass adjuster at the next available opportunity.
+
+1.6.3    The date of any adjustment and other details should be noted in the compass deviation book. The position of correctors should be recorded in the compass book and on deviation cards. Because the distances from the coefficients B and C correctors to the standard compass card and to the transmitting element are different, a transmitting magnetic compass will be overcompensated resulting in an error, which can be as much as 2½° and cannot be corrected. Separate deviation cards should be prepared for the standard compass and the transmitting magnetic compass repeater by comparing headings.
+
+1.7       Portable Equipment that may interfere with Compasses
+
+1.7.1    Masters and Officers are advised that portable electrical equipment (e.g. radios and tape recorders) or items made of steel can affect the performance of a compass. Care should be taken to ensure that such items are kept away from the compass position. (See regulation 17, paragraph 3.)
+
+1.8       Spare Bowl
+
+1.8.1    When a spare magnetic compass bowl is required, it should be carefully stowed, together with its gimbal units, away from the bridge structure so that they are unaffected by any casualty disabling the bridge.
+
+1.9       Transmitting Magnetic Compasses (TMC)
+
+1.9.1    If a new or existing standard magnetic compass is modified to provide a transmission output then each device must be individually certified or re-certified with the transmitting element in place. Re-certification of modified existing compasses should be made, with the transmitting element attached to the compass bowl.
+
+1.9.2    Modifications should be made by an experienced compass technician, who should ensure that the transmitting element is compatible with the binnacle. The performance of the equipment cannot be relied upon until the compass has been re-certified (as described above) and adjustments have been made by a certified compass adjuster.
+
+1.9.3    Ancillary equipment included in the modifications (e.g. electronic units, displays and power supplies) should be type tested to establish safe distances from the compass. In particular, care should be taken to avoid the effect on the compass of spurious radio frequency transmissions. Guidance can be found in IEC 60945. See Regulation 17, paras. 1 & 2.
+
+1.9.4    If a transmitting magnetic compass provides heading information, i.e., it is read by the helmsman at the main steering position, then the spare bowl must be fitted with a transmitting element, and individual testing is required. Alternatively, if heading information is provided by the reflected image of a standard compass or a separate steering compass, and a transmitting compass is fitted voluntarily to provide a repeater facility to navigation equipment, then the spare bowl does not require a separate transmitting element.
+
+1.10     Emergency Steering position
+
+1.10.1 Regulation 19, paragraph 2.1.9, requires a telephone or other means to communicate heading information to the emergency steering position, if provided. On ships over 500GT a visual reading of the ship’s heading must be supplied to the emergency steering position if provided. (See regulation 19, paragraph 2.5.2).
+
+Annex E
+
+RADAR REFLECTORS
+
+1.1       Introduction
+
+1.1.1    Regulation 19.2.1.7 requires radar reflectors to be carried, where practicable, by ships under 150GT. This includes pleasure vessels.
+
+1.1.2    Owners and operators should bear in mind that the smaller and less radar-conspicuous a vessel is, the more important it is to carry an effective radar reflector.
+
+1.1.3    The following notes give further guidance on the choice and mounting of a radar reflector for small vessels.
+
+1.2       Radar Cross Section (RCS)
+
+1.2.1    RCS denotes the equivalent echoing area which is 4 π times the ratio of the power per unit solid angle scattered in a specified direction to the power per unit area in a plane wave incident on the scatterer from a specified direction. It is dependent on the radar operating frequency and the three-dimensional orientation of the reflector.
+
+1.3       Passive and Active Radar Reflectors
+
+1.3.1    Traditional radar reflector is passive type which merely physically reflects the radar wave, whilst the active radar reflector, also known as Radar Target Enhancer, is a small electronic device that receives, amplifies and retransmits a radar signal as a method of enhancing radar returns. Sometimes, due to restrictions or limitations imposed by erecting of a suitable passive radar reflector, the target enhancer may be a better option.
+
+1.3.2    An important parameter of a radar reflector is its echoing area, or equivalent radar cross-section (RCS), as this determines the amount of the radar energy which is reflected back. Reflectors to the current technical standard have a maximum echoing area of at least 10 m² RCS with a minimum echoing area of at least 2.5 m² RCS over 240° of azimuth. Orientation of the reflector must follow manufacturers’ recommendations if it is to be effective.
+
+1.3.3    The revised IMO performance standard requires reflectors have “stated performance levels” as follows: Radar cross sections of at least 7.5 m² RCS in the X-band frequency and 0.5 m² RCS in the S-band mounted at a minimum height of 4m above sea level. This performance level must be maintained over at least 280° of azimuth and not fall below this level (a “null”) over any angle of more than 10°. There must be no more than 20° between nulls. For sailing vessels the performance level must be maintained up to at least 20° of heel, except for multihull vessels which operate with little heel when this minimum should be 10°.
+
+1.3.4    The correct orientation of a radar reflector is extremely important. The classic octahedral reflector (consisting of a number of interlocking plates), should always be rigged in the “catch rain” or “double catch rain” position. This means that one or preferably two of the hollows between the plates face vertically upwards. In the “catch rain” position maximum reflectivity is given when the vessel is not heeled with deterioration as it heels. In the “double catch rain” position one planar surface should be aligned vertically along the vessel’s axis. This allows for improved reflectivity as the vessel heels to either side. Mariners should be aware that the pre-drilled holes for rigging the reflector are not always placed in the optimum position.
+
+1.3.5    Regulation 19 takes account of the fact that reflectors built to the above standards may not be practical for fitting to very small vessels. However whenever physically possible reflectors should meet the IMO standards.
+
+1.3.6    Owners and operators of very small craft where fitting reflectors meeting IMO standards is deemed impracticable should fit reflectors with the greatest echoing area possible. In all cases the reflector should be fitted as high as possible for maximum detection range, following the manufacturer’s instructions.
+
+1.3.7    It should be noted by Masters and Operators of all vessels that reflectors, even though they meet the relevant performance standards, will be difficult to detect on radar displays in rough sea conditions and in heavy rain (sea and rain clutter). Masters of all vessels are reminded that this should be taken in to account when setting lookouts and determining safe speed as required by Rules 5 and 6 of the International Regulations for the Prevention of Collisions at Sea.
+
+1.3.8    Electronic radar target enhancers are now available and can be considered as “other means” in regulation 19. These have a larger equivalent radar cross-section for a physically smaller size than radar reflectors and produce a response on a radar display, which is stronger and more consistent, but does not increase the apparent size of the target. Some navigation buoys are being fitted with electronic radar enhancers and seafarers should be aware this improves their detection range.
+
+Annex F
+
+Bridge navigational watch alarm system (BNWAS) installed prior to 1 July 2011
+
+Regulation 19.2.2.4 allows BNWAS installed prior to 1 July 2011 to be exempted from full compliance with the required performance standards at the discretion of the Administration.
+
+For such exemptions MCA requires BNWAS operations to be assessed in two parts:
+
+    i. Section A: System Installation; and
+
+    ii. Section B: Equipment Function.
+
+1.1       Section A – System Installation
+
+1.1.1    The installation should be assessed against the following requirements:
+
+    i. Are the operational mode (ON/OFF) selection facilities protected, e.g. by key switch; password protection or by location in the Master’s quarters?
+
+    ii. Is the dormant period adjustment protected against unauthorized access, e.g. by key switch; password protection or by location in the Master’s quarters, or need for special tools?
+
+    iii. Are all BNWAS alarm reset or cancel points located only on the bridge?
+
+    iv. Do the alarm reset locations allow the crew to reset the system without significant interruption of their normal work and does each location provide for keeping of a proper lookout?
+
+    v. Where “motion detection”[footnote 7] provides alarm resets, is it unlikely to generate resets from the movement of objects on the bridge, e.g. curtains, warm air, etc?
+
+    vi. Where “motion detection” provides alarm resets, are there regular checks for false resets?
+
+    vii. Is a malfunction or loss of power to the BNWAS clearly indicated, and with a repeat at the central alarm panel, if fitted?
+
+    viii. Is the sounding of 2nd and 3rd stage alarms adequate to alert a back-up officer/Master in their quarters and other crew members?
+
+    ix. Can the 1st Stage audible alarm be captured on the VDR bridge audio?
+
+    x. Are the alarm stage signals connected to the Voyage Data Recorder (VDR)[footnote 8] or not required to be captured?
+
+1.2       Section B – Equipment Function
+
+1.2.1    No further checks are necessary for equipment with type-approved compliance to:
+
+    i. MSC 128(75): IMO performance standards for Bridge Navigational Watch Alarm System; and
+
+    ii. IEC 60945: Maritime navigation and radiocommunication equipment and systems – General requirements; or
+
+    iii. A.694(17), General requirements for shipborne radio equipment forming part of the GMDSS and for Electronic Navigational Aids.
+
+1.2.2    (N.B. Current MER type-approval process includes all of the above).
+
+1.2.3    Equipment not type-approved to MSC 128(75) can be accepted provided it conforms closely with the performance standard, however:
+
+    i. The Auto mode, if fitted, should not be employed;
+
+    ii. Period between visual indications to 2nd stage alarm should not exceed 12min 30sec;
+
+    iii. Tone/modulation characteristics and volume level do not have to be selectable during installation of the system; and
+
+    iv. Conformance to IMO resolution A.694(17) or IEC 60945:2002 standards can be satisfied through a test report, test certificate or manufacturer’s specification. When this is not available, the Master should make a declaration, justified through observations and experiences of vessel’s BNWAS installation, maintenance records and logs, confirming that – “the BNWAS has been observed to be reliable and has not caused noticeable interference with any navigational or communications equipment throughout the vessel”.
+
+1.2.4    Exemption Issuance
+
+    i. Exemption not required where there is type approval to MSC128 (75) and A.694(17)/IEC 60945, and the installation fully complies with Section A.
+
+    ii. Exemption required if the equipment is not type approved, but the system installation fully complies with Section A and the equipment functions comply with Section B.
+
+Annex G
+
+Electronic Chart Display and Information System (ECDIS)
+
+1.1       ECDIS carriage
+
+1.1.1    Chapter V of SOLAS was amended on 1 January 2011 to accept ECDIS as an alternative to paper charts and included mandatory carriage for certain vessels on a rolling timetable commencing 1 July 2012 to 1 July 2018.
+
+1.1.2    However, vessels which are not required to fit ECDIS on board due to the above timetable and gross tonnage stipulations may employ them on voluntary basis. Note also that as per the High Speed Craft (HSC) Code, 2000, all HSC are required to be fitted with ECDIS.
+
+1.2       Adequate Back-up
+
+1.2.1    MCA considers that the following will meet the adequate back-up requirements for ECDIS:
+
+    i. an independent, fully compliant second ECDIS unit, connected to ship’s main and emergency power supplies; or
+
+    ii. electronic device, such as the Chart Radar[footnote 9], duly type approved, connected to ship’s main and emergency power supplies and with at least a different GNSS (global navigation satellite system) receiver input than the ECDIS; or
+
+    iii. an appropriate folio of paper nautical charts (APC).
+
+1.2.2    Back up arrangements should be ready for immediate use and include facilities enabling a safe take-over of the system functions in order to ensure that an ECDIS failure does not result in a critical situation. The ship’s navigational Safety Management System (SMS) must recognise and suitably account for this.
+
+1.2.3    The back-up ECDIS, or the electronic device as the case may be, must, therefore, be loaded with updated and relevant official charts and the voyage plan before commencement of the voyage. Similarly, if APC is being used as the back-up, it must be readily available and the voyage plan must be indicated on the charts.
+
+1.3       Compliant ECDIS
+
+1.3.1    Type Approval: Each ECDIS, main unit and back-up if applicable, must be type approved to Marine Equipment Directive (MED) Wheelmark standards which cover requirements of applicable IMO performance standards, and include provision, within the equipment, to provide an uninterrupted power supply (UPS), for at least 45 seconds. The type-approval certificate, in addition to the Wheelmark displays, should be readily available on board.
+
+1.3.2    Software Updates and compatibility: The International Hydrograhic Organization (IHO) ECDIS Standard S-52, Specifications for Chart Content and Display Aspects of ECDIS and its Annex A, the IHO Presentation Library (PresLib) for ECDIS, comprise a set of specifications, symbol listing, colour tables, look-up tables and symbolisation rules, which link every object class and attribute of the ECDIS internal database (system electronic navigational chart, SENC) to the appropriate presentation of the ECDIS display.  The PresLib provides details and procedures for implementing the display specifications, contained in S-52, by decoding and symbolising the elements of the SENC.
+
+1.3.3    An ECDIS that is not updated to the latest version of (IHO) standards will not meet the chart carriage requirement as set out in SOLAS Ch V Regulation 19.2.1.4. All new ECDIS installed on or after 1 September 2015 are now type approved to the new IEC (International Electrotechnical Commission) and IHO testing standards. Systems installed before the above date have also been updated to the relevant IHO standards by 31 August 2018. This implies that, as a minimum, the current IHO PresLib, as in 3.4.2 above, is included.
+
+1.3.4    Mariners should be able to demonstrate that the operating software of their ECDIS is updated to the latest manufacturer’s release (which should display the latest IHO Presentation Library) by visiting the IHO website and referring to their standard, S-52.
+
+1.4       ECDIS Charts: Electronic Navigational Chart (ENC) and Raster Navigational Chart (RNC)
+
+1.4.1    Raster Chart Display System (RCDS) Mode: Although the use of ECDIS with ENCs is the required mode of operation, where the complete availability of ENCs is limited to specific geographic areas, e.g. NW Europe, N. America and parts of SE Asia, Australia and New Zealand, RNCs are permitted in the areas where the ENC coverage doesn’t yet exist, employing the RCDS mode.
+
+1.4.2    Risk Assessment: When intending to operate the ECDIS in RCDS mode, UK flag vessels are to comply with the requirements as detailed in MGN 285 (Electronic Charts – The use of risk assessment methodology when operating ECDIS in the RASTER chart display system), which provides guidance on undertaking suitable risk assessment associated with the use of RNCs. Evidence that the ship’s responsible officer (or officers) have undertaken the above risk assessment in every case should be maintained on board.
+
+Annex H
+
+TABLE OF REQUIREMENTS FOR SHIPS – AN APPLICATION OVERVIEW
+
+Chapter V Reg. No. 
+Administration’s Discretion allowed 
+Paragraph applying to ships 
+Ships to which Regulation does not apply 
+SI 2002/  1473 Ref 
+SI 2020/  0673 Ref 
+Subject 
+Notes 
+
+1 
+Partly 
+  
+  
+  
+  
+Application 
+Contracting Governments may apply some of the Regulations with variance  
+
+2 
+  
+  
+  
+  
+  
+Definitions 
+  
+
+3 
+  
+  
+  
+  
+  
+Exemptions 
+For Contracting Governments to ascertain 
+
+4 
+  
+  
+  
+  
+  
+Navigation Warnings  
+Requirement for Contracting Governments  
+
+5 
+  
+  
+  
+  
+  
+Meteorological Services  
+Requirement for Contracting Governments  
+
+6 
+  
+  
+  
+  
+  
+North Atlantic Ice Patrol  
+Requirement for Contracting Governments  
+
+7 
+  
+3 
+Non-passenger ships  
+5(2) 
+5(2)(a) 
+SAR 
+  
+
+8 
+  
+  
+  
+  
+  
+Lifesaving Signals  
+Requirement for Contracting Governments  
+
+9 
+  
+  
+  
+  
+  
+Hydrographic Services 
+Requirement for Contracting Governments  
+
+10 
+  
+  
+  
+  
+  
+Ships Routeing 
+All ships to use routeing systems as specified for its category or cargo 
+
+11 
+  
+  
+  
+  
+  
+Ship Reporting 
+Master of a ship to comply with reporting schemes as required  
+
+12 
+  
+  
+  
+  
+  
+Vessel Traffic Services  
+Requirement for Contracting Governments  
+
+13 
+  
+  
+  
+  
+  
+Aids to Navigation 
+Requirement for Contracting Governments  
+
+14 
+  
+  
+  
+  
+  
+Manning 
+Use of common language on a ship with documentation available in that language  
+
+15 
+  
+  
+  
+  
+  
+Bridge Design 
+  
+
+16 
+  
+  
+  
+  
+  
+Maintenance 
+  
+
+17 
+  
+  
+  
+  
+  
+Electromagnetic Compatibility 
+Proper installation of equipment and precautions when using portable electrical equipment  
+
+18 
+  
+  1 to 3 and 7 to 9 
+High-speed craft to which the Merchant Shipping (High Speed Craft) Regulations 2004 apply.    In so far as they relate to systems and equipment regulated by regulations 19 (carriage requirements for shipborne navigational systems and equipment) and 20 (voyage data recorders), paragraphs 1 to 3 and 7 to 9 do not apply to ships below 150 gross tons engaged on any voyage.   
+  
+  
+Type Approval, Testing of VDR, AIS 
+  
+
+ 
+ 
+ 
+ 
+ 
+ 
+All Navigation Equipment 
+Whilst Ships of EU Class A, B, C and D are exempt from these Safety of Navigation Regulations, such vessels are still required to comply with SOLAS V/19 in its up to date form through Directive 2009/45/EC which is transposed by SI 2000/2687.  
+
+ 
+ 
+ 
+ 
+ 
+ 
+All Navigation Equipment EXCEPT Radar Reflector 
+All ships <150GT to carry radar reflector where practicable  
+
+19 
+  
+All 
+(i) fishing vessels;  (ii) pleasure vessels below 150 gross tons engaged on any voyage, except for paragraph 2.1.7 (requirement for radar reflector);  iii.       Except for paragraphs 2.1.1, 2.1.2, 2.1.3, 2.1.4, 2.1.6, 2.1.6, 2.1.7 and 2.1.8 (navigation equipment and arrangements), does not apply to a) Ships which are not passenger ships and are not sea-going; b) Ships of Class V
+  
+  
+  
+  
+
+ 
+ 
+2.2.3 
+- Ships <150GT on any voyage   - Ships <500GT on non-international voyages    
+  
+   5(2)(h) 
+Bridge Navigational Watch Alarm System  
+ 
+
+19-1 
+  
+  
+  
+  
+  
+  
+This requirement is applicable also to mobile offshore drilling units  
+
+20 
+  
+  
+High-speed craft to which the Merchant Shipping (High Speed Craft) Regulations 2004 apply.   
+  
+  
+  
+All other ships are to be fitted with a VDR, however, cargo vessels of 3,000GT and upwards constructed before 1 July 2002 may be fitted with an S-VDR  
+
+21 
+  
+21.1 
+- Ships which are not required to carry radio equipment   GT; and  - All ships <150GTengaged on any voyage    
+5(2) 
+5(2)(k) 
+International Code of Signals  
+See SI 1999/3210 - MS (Radio) (Fishing vessel) Regulations 1999 and   SI 1998/2070 MS (Radio Installation) Regulations 1998  
+
+ 
+ 
+21.2 
+- Ships <150GT on any voyage;   - Ships <500GT not on international voyage; and   - Fishing Vessels 
+5(2) 
+5(2)(k) 
+Volume III of the International Aeronautical and Maritime Search and Rescue (IAMSAR) Manual  
+See SI 1999/3210 - MS (Radio) (Fishing vessel) Regulations 1999 and   SI 1998/2070 MS (Radio Installation) Regulations 1998  
+
+22 
+  
+  
+  
+  
+  
+Bridge Visibility     
+This regulation applies to UK registered hovercraft, wherever they may be, and other hovercraft whilst in UK waters      Non SOLAS Passenger Vessels of classes IV, V, VI and VI(A) of less than 55m registered length must meet the requirements of the Merchant Shipping (Bridge Visibility) (Small Passenger Ships) Regulations 2005 (SI 2005/2286)      Guidance for UK Fishing Vessels is contained in MGN 314     
+
+23 
+  
+  
+- Ships <150GT on any voyage;  - Ships <500GT on non-international voyages; and   -Fishing vessels.    
+  
+  
+Pilot Transfer Equipment and Arrangements  
+BUT must comply on all ships when a pilot is likely to be employed  
+
+24 
+  
+  
+- Pleasure vessels <150GT on any voyage;  - Ships which are non-sea-going. 
+  
+  
+Heading/Track Control System 
+  
+
+25 
+  
+  
+- Pleasure vessels <150GT on any voyage;  - Ships which are non-sea-going. 
+  
+  
+Steering Gear Operations 
+  
+
+26 
+  
+  
+- Pleasure vessels <150GT on any voyage;  - Ships which are non-sea-going.   
+  
+  
+Steering Gear Tests, Drills 
+Exemptions for ferries  
+
+27 
+  
+  
+- Pleasure vessels <150GT on any voyage;  - Ships which are not passenger ships and are non-sea-going, - ships of Class V  . 
+  
+  
+Charts and Publications  
+  
+
+28 
+  
+1 
+Any ship below 150 gross tons engaged on any voyage. 
+  
+  
+Nav. Events Records 
+Electronic recording complying with IMO and ISO standards is acceptable. 
+
+29 
+  
+  
+  
+  
+  
+Lifesaving signals  
+Applies to ALL ships and persons in distress– no discretion given to Administrations  
+
+30 
+  
+  
+  
+  
+  
+Operational Limitations 
+  
+
+31 
+  
+  
+  
+  
+  
+Danger Messages  
+  
+
+32 
+  
+  
+  
+  
+  
+Danger Message Information 
+  
+
+33 
+  
+  
+  
+  
+  
+Danger Messages  
+All ships to respond to distress signals or messages  
+
+34 
+  
+  
+  
+  
+  
+Safe Navigation 
+All ships proceeding to sea (including UK registered hovercraft, wherever they may be, and other hovercraft whilst in UK waters) must have a passage plan  
+
+34.1 
+  
+  
+  
+  
+  
+Master’s Discretion 
+Master’s discretion in decision making not to be compromised  
+
+35 
+  
+  
+  
+  
+  
+Misuse of Distress Signals  
+  
+
+•
+Refer to the Guidance on the IMO/IHO World-Wide Navigational Warning Service adopted by the Organization by resolution A.706(17), as amended. ↩
+
+•
+Refer to the International Convention on Maritime Search and Rescue (SAR), 1979, and to the following resolutions adopted by the Organization: Homing capability of search and rescue (SAR) aircraft (resolution A.225(VII)), Use of radar transponders for search and rescue purposes (resolution A.530(13)), Search and rescue homing capability (resolution A.616(15)) and International Aeronautical and Maritime Search and Rescue (IAMSAR) Manual (resolution A.894(21), as amended). ↩
+
+•
+Refer to the General provisions on ships’ routeing (resolution A.572(14), as amended). ↩
+
+•
+The IMO Standard Marine Communications Phrases (SMCPs) (Resolution A.918(22), may be used in this respect. ↩
+
+•
+The 55m minimum length and the definition of “length” as being length overall came into force on 1 July 2006 (IMO Resolution MSC 142(77)) ↩
+
+•
+Such life-saving signals are described in the International Aeronautical and Maritime Search and Rescue (IAMSAR) Manual, volume III, Mobile Facilities, and illustrated in the International Code of Signals, as amended ↩
+
+•
+(MSC 128(75)- 4.1.3.3):To initiate the reset function, an input representing a single operator action by the OOW is required. Many BNWAS manufacturers offer motion-based reset devices. It is important that such devices do not provide false resets from inanimate objects, e.g. a revolving fan or ribbons tied to output grills of air-conditioner units. Elimination of false reset can only be achieved through design, correct installation and regular monitoring by the ship’s staff. It is also important that motion detectors are installed according to the manufacturers’ instructions. ↩
+
+•
+VDR Performance Standard, A.861(20) adopted on 27 November 1997, includes a reference to A.830(19) (Code on Alarms and Indicators) and includes capture of all main alarms but does not include BNWAS. The new Code on Alerts & Indicators, A.1021(26), referred also within the revised VDR performance standards, MSC.333(90) in force since 1 July 2014, superseded A.830(19) on 2 December 2009. The capture of BNWAS stage-alarms is required for VDRs installed from 2 December 2009. Electrical output(s) to VDR from the BNWAS uniquely identify each stage alarm status. Where these outputs are available via an IEC 61162 series interface, volt-free contacts or their isolated solid-state equivalent, then the ship should find a solution to connect them to the VDR. It is acceptable to wait until the VDR annual-test, following installation of the BNWAS, to implement the above connections. ↩
+
+•
+Chart Radar is an additional facility built on the commercial radars, by an OEM (Original Equipment Manufacturer), capable of displaying ENCs with some basic ECDIS functionality on the radar screen. ↩

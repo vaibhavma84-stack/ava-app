@@ -1,0 +1,99 @@
+MGN 548 (M+F) MGN 548 (M+F) Amendment 1 Life-Saving Appliances – servicing requirements for SOLAS inflatable life saving appliances at approved service stations
+2024-07-22
+Source: https://www.gov.uk/government/publications/mgn-548-mf-amendment-1-life-saving-appliances-servicing-requirements-for-solas-inflatable-life-saving-appliances-at-approved-service-stations
+
+Summary
+
+This Note provides guidance on the MCA policy with regards the service requirements for SOLAS certificated inflatable Life-Saving Appliances (LSA). It also sets out the process for service stations of SOLAS certificated inflatable LSA to gain MCA acceptance and therefore approval by the Secretary of State as a UK Approved Service Station. It should be noted that the servicing requirements for SOLAS certificated inflatable LSA are irrespective of the type of vessel on which it is installed.  Separate M-Notices, have been provided for information on the servicing exemption of Open Reversible Liferafts (ORLs) and the servicing of Non-SOLAS Liferafts: MIN 523 and MGN 553­ respectively.
+
+1. Background
+
+1.1       This Note replaces any previous guidance on the process for a service station to request approval from the UK Secretary of State to act as a UK Approved Service Station of SOLAS certificated inflatable Life Saving Appliances (LSA) for use on board United Kingdom ships. Approval of service stations by the Secretary of State means acceptance by the MCA in accordance with this Note. 
+
+1.2       MGN 499 previously set out the MCA servicing and technical requirements for both SOLAS (Chapter III) and non-SOLAS inflatable LSA. In recent years, the MCA’s policy for each category has changed as the technology used to manufacture such LSA has developed.
+
+1.3       Accordingly, the information previously provided in MGN 499 has been split to consider the differing issues observed for SOLAS and non-SOLAS equipment independently, and to give greater transparency and clarity to operators of ships, fishing vessels, small commercial vessels and those involved in the manufacture and maintenance of such equipment. The policy for SOLAS inflatable LSA is outlined in this MGN, and non-SOLAS inflatable LSA can now be found in MGN 553. In addition, the MCA has developed a new report form and associated Letters of Acceptance to make the system clearer to service stations and their customers.
+
+1.4       Also, for open reversible liferafts (ORLs) the servicing exemption previously in MGN 499 has been retained in MIN 523 Open Reversible Liferafts  - UK Over Capacity
+
+1.5       The key points within this Note for SOLAS certificated inflatable LSA are that:
+
+1.5.1    All SOLAS certificated inflatable LSA on board a UK ship must be serviced at a UK Approved Service Station which has therefore been accepted by the MCA on behalf of the Secretary of State as fulfilling the SOLAS requirement for servicing; and; 
+
+1.5.2    All SOLAS certificated inflatable LSA must be serviced at intervals not exceeding 12 months, unless specifically provided for in the Convention, or as described in either UK Codes/Regulations or this Note. 
+
+2. UK Approved Service Stations – Process for MCA Acceptance 
+
+2.1       Service stations located in the United Kingdom may request acceptance from the MCA to act as a UK Approved Service Station by contacting their nearest MCA Marine Office to arrange for an assessment against the requirements of IMO Resolution A.761(18), which will include an assessment of whether the service station has Original Equipment Manufacturer (OEM) approval or accreditation. UK Service Stations may only undertake the servicing of SOLAS certificated inflatable LSA products for which OEM approval or accreditation certification has been issued, evidenced to the attending MCA officer, and notified to the MCA Head Office in accordance with the procedure below. Service stations will also be directed to MGN 524, on the need to comply with the Medicines and Health care products Regulatory Agency (MHRA) requirements for a Wholesale Dealer’s Licence if supplying medicines or medical kits as part of LSA servicing activities. 
+
+2.2       To become a UK Approved Service Station, a service station must have demonstrated to the satisfaction of the MCA that its personnel are certificated in accordance with OEM requirements, and appropriately trained to undertake servicing and repairs for the range of products and brands of products for which the service station conducts servicing. A service station must also demonstrate the ability to repack, re-arm and/or install inflatable LSA ready for operational use. Further, a service station must carry genuine spares and be kept fully informed of the current servicing procedures by the OEM. 
+
+2.3       MCA acceptance of UK Approved Service Stations will be conducted using annual assessments recorded over a five year schedule. Upon successful completion of an initial assessment by the MCA, a Report of Assessment will be completed by the attending MCA officer who will also issue a Letter of Acceptance to the new UK Approved Service Station for retention at the station. The Letter of Acceptance will be used for future completion of  annual assessment endorsements. The Letter of Assessment will only be provided at the point it is determined by the attending MCA officer that the service station meets all the requirements of IMO Resolution A.761(18) and has demonstrated sufficient evidence that the service station has OEM approval for all activities undertaken at the service station. When applying IMO Resolution A.761(18) the attending MCA officer will take account of the type of equipment being serviced, for example, if only lifejackets are being serviced then the MCA officer will place emphasis on the provisions of IMO Resolution A.761(18) most appropriate to the servicing of lifejackets. 
+
+2.4       Annual assessments (and completion of the annual endorsement section of the Letter of Acceptance) should be undertaken by an MCA Marine Office within 3 months of the 1st, 2nd, 3rd and 4th year anniversary date and will require an annual assessment of the station by an MCA Marine Office and endorsement of the Letter of Acceptance. The Letter  of Acceptance will not be valid unless the annual assessments have been completed within the applicable range dates (+/- 3 months of the anniversary). The MCA officer will record any deficiencies found with the required rectification actions and timescale. 
+
+2.5       Annual assessments should be arranged in the same way as the initial assessment and it is the UK Approved Service Station’s responsibility to make arrangements for all assessments to be completed on time so that the completion of an annual endorsement or the issue of a Letter of Acceptance (whichever is due) may be completed. On the 5th year anniversary (up to 3 months before expiry), a successful renewal assessment will result in the issue of a new Letter of Acceptance by the attending MCA officer. 
+
+2.6       Provided all mandatory fields are completed, the Report of Assessment will be received by the MCA’s HQ staff where any anomalies or remarks may be queried and could mean that further rectifying action is required by the service station. Once the process is completed (including the completion of any rectifying action required of the service station), the MCA’s database of UK Approved Service Stations for SOLAS certificated inflatable LSA will be updated. 
+
+2.7       It should be noted that, if an annual assessment or renewal assessment by the MCA of a UK Approved Service Station is not completed by the appropriate anniversary date, the service station will automatically be removed from the published MCA database of UK Approved Service Stations until a new initial assessment is completed. Re-instatement of entry on the database requires the service station to contact their nearest Marine Office to arrange for a new initial assessment. 
+
+2.8       The MCA policy on the charging for service station assessments is that initial assessment is chargeable. Annual assessments and renewal assessments are not chargeable, however, if an annual or renewal assessment is not completed within the required window (see section 2.4 and 2.5) then a new chargeable initial assessment should be completed and a new Letter of Acceptance issued to re-start the process. Chargeable fees should be paid to the MCA in advance of attendance. 
+
+2.9       If a UK Approved Service Station has already been charged for an initial assessment then a new (chargeable) initial assessment will not be required unless an annual assessment has been missed at any stage.
+
+2.10     OEMs should notify the MCA in writing of any details of changes to their list of accredited service stations, which may result in withdrawal of MCA acceptance, if appropriate. 
+
+2.11     Any questions or concerns about the MCA’s database of UK Approved Service Stations, or the process outlined in this Note should be addressed to MCA HQ, Technical Services Ship Standards using the contact details provided at the end of this Note.
+
+3. Considerations for Vessel Owners
+
+3.1       Before submitting SOLAS certificated inflatable LSA to a service station, owners, masters, or skippers of UK registered ships, fishing vessels, and small commercial vessels, should check that the station is a UK Approved Service Station and is capable of servicing the particular make and model of equipment. A list of UK Approved Service Stations, and the products they may service, is available online at the www.gov.uk website and is titled “Approved service stations for SOLAS certificated inflatable life rafts, lifeboats and life jackets”. 
+
+3.2       Where a UK ship, fishing vessel, small commercial vessel, or pleasure vessel is carrying SOLAS certificated inflatable LSA which needs servicing in a country other than the UK, the MCA will also accept service stations which are accredited by the relevant OEM and have been approved by the relevant maritime Administration of that country in accordance with IMO Resolution A.761(18), as amended. In such cases it remains the responsibility of the owner, master, or skipper to ensure that any service station used to service a SOLAS certificated inflatable LSA meets these criteria. 
+
+3.3       If a product was manufactured by a company for which there is no UK-based Approved Service Station, it is the responsibility of the owner, master, skipper or agent to contact the OEM and request details on the location of manufacturer Approved Service Stations for the specific equipment. In all cases only a service station accredited by the relevant OEM and approved by a Maritime Administration in accordance with IMO resolution A.761(18) may be used.
+
+ 3.4      If an owner of a SOLAS certificated inflatable LSA product is unable to locate any Approved Service Stations for their product then they should contact the OEM for advice.
+
+3.5       SOLAS certified inflatable rescue boats may also be serviced in accordance with IMO Resolution MSC.402(96): ‘Requirements for maintenance, thorough examination, operational testing, overhaul and repair of lifeboats and rescue boats, launching appliances and release gear’ by UK Approved Service Providers, authorised by the UK Recognised Organisations (RO’s) on behalf of the MCA in accordance with MGN 555, and are not to be confused with MCA Approved Service Stations also mentioned throughout this guidance note. Details of these ASPs are not published on www.gov.uk because they do not require direct approval from the MCA. However, the details of the 6 RO’s, who can provide details of ASPs are given here. https://www.gov.uk/guidance/uk-authorised-recognised-organisations-ros(UK Recognised Organsiations)
+
+3.6       Therefore it is possible that an inflatable rescue boat may be approved for servicing at both an Approved Service Station - detailed in this MGN - and an Approved Service Provider – detailed in MGN 555. This presents an overlap in the provision of rescue boat servicing systems found in both this MGN and that of MGN 555.  
+
+3.7        UK Vessel owners seeking to service an inflatable rescue boat in accordance with MSC.402(96) should check that the chosen Approved Service Provider is authorised by one of the 6 UK Recognised Organisations for the carrying out the intended work as per MGN 555 – the ASPs associated RO should be able to provide certification / documentation to demonstrate this. Or they should strictly abide by the provisions of this MGN, utilising the MCA Approved Service Station system.
+
+4. Service Intervals
+
+4.1       SOLAS certificated inflatable LSA including liferafts, lifejackets, and marine evacuation systems should be serviced every 12 months, except as explained at section 1.5.2 of this Note, and every effort should be made to ensure that it is carried out on time. In exceptional cases, when it is clearly impracticable to comply with this annual servicing requirement, the MCA may consider whether the servicing could be deferred for a period not exceeding 5 months. In such cases, owners, masters or skippers should apply to their local MCA Marine Office, explaining their reason in writing for seeking deferment, which will be reported to Marine Technology Branch, using the details at the end of this Note. 
+
+4.2       An exemption granted by the MCA in accordance with IMO Circular MSC.1/Circ.1328, allows servicing intervals of up to 30 months for inflatable liferafts when specially packed to allow for extended service intervals. These rafts are required to be assessed as compliant with the requirements of IMO Circular MSC.1/Circ.1328 as part of the type approval by the approved bodies as part of The Merchant Shipping (Marine Equipment) Regulations 2016 (as amended); EU-approved marine equipment that has been manufactured before 1 January 2023 can continue to be placed on board United Kingdom ships as if it was a United Kingdom approved piece of marine equipment, subject to the timeframes around placing on board outlined in MSN 1874 . An MCA issued certificate for extended service interval liferafts will include details of the extended service interval arrangements. Operators are reminded that, although servicing is only required at extended service intervals (not exceeding 30 months), MSC.1/Circ.1328 requires an annual on-board inspection to be undertaken by qualified persons, who have been adequately trained and certificated by the OEM.  
+
+4.3       At every biennial servicing, or 30 months servicing interval referred to in paragraph 4.2 of a davit launched inflatable liferaft, a 10% overload static load test is to be carried out with the liferaft suspended from its lifting hook or bridle, in accordance with the OEM’s servicing instructions. 
+
+5. Other Information 
+
+5.1       It is an offence to carry an inflatable liferaft, lifejacket, or marine evacuation system which has not been serviced at the intervals prescribed by the applicable regulations. Each of the above equipment shall have a full service history, which shall be available on board the vessel for inspection by all the relevant authorities. 
+
+5.2       During re-installation of liferafts and marine evacuation systems after servicing, service providers and operators should be mindful of specially configured rafts e.g. ‘handed’, where painter and bowsing lines are customised and may vary in length for the specific stowage location on the vessel. Correct re-installation on the vessel is paramount to the safe operation in an emergency, including consideration of the correct Hydrostatic Release Unit, where required by the applicable UK Regulations or Codes. 
+
+More information
+
+UK Technical Services Ship Standards
+
+Maritime and Coastguard Agency
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Email: Infoline@mcga.gov.uk
+
+Telephone: +44 (0)203 817 2000 
+
+Website: www.gov.uk/mca
+
+Please note that all addresses are correct at time of publishing.

@@ -1,0 +1,145 @@
+MGN 676 (M) MGN 676 (M) Unmanned non-self-propelled barges – MARPOL Annexes I and IV Exemptions
+2023-02-13
+Source: https://www.gov.uk/government/publications/mgn-676-m-unmanned-non-self-propelled-barges-marpol-annexes-i-and-iv-exemptions
+
+1. Introduction
+
+1.1 The International Convention for the Prevention of Pollution from Ships (MARPOL) sets out international requirements for the prevention of six types of ship-source pollution, each of which are covered by a separate annex of the convention[footnote 1]. Annex I of the convention sets out mandatory international requirements for the prevention of pollution by oil from ships and Annex IV sets out the international requirements for the prevention of pollution by sewage from ships.
+
+1.2 MARPOL Annex I is implemented in the UK primarily by the Merchant Shipping (Prevention of Oil Pollution) Regulations 2019, and MARPOL Annex IV is implemented by the Merchant Shipping (Prevention of Pollution by Sewage from Ships) Regulations 2020.
+
+1.3. Both annexes establish survey and certification regimes for ships covered by the regulations, with the aim of preventing pollution of the marine environment by oil and sewage. These provisions are designed primarily for ships that operate under propulsion, are crewed and are capable of generating and discharging pollutants into the sea.
+
+1.4 At its 76th session, the International Maritime Organization’s (IMO) Marine Environment Protection Committee (MEPC) adopted Resolution MEPC.330(76) which recognises that unmanned, non-self-propelled (UNSP) barges, by their nature and design, do not have fuel and machinery spaces on board or generate sewage which would necessitate frequent survey and certification for pollution prevention purposes. It was also recognised that the existing survey and certification regimes set out in MARPOL Annexes I and IV may be unnecessarily burdensome for this specific ship type. Therefore, MEPC.330(76) sets out exemptions for qualifying UNSP barges from the existing survey and certification regimes of MARPOL Annexes I and IV.
+
+1.5 The criteria for qualifying for the new exemption and the process for applying for it are set out in sections 2 and 3 below.
+
+1.6 The amendments to MARPOL that are set out in Resolution MEPC.330(76) are implemented in the UK by way of amendments to the 2019 Regulations and the 2020 Regulations, which were made by the 2022 Regulations.
+
+1.7. The IMO has published MEPC.1/Circ.892 Guidelines for Exemption of Unmanned Non-Self-Propelled (UNSP) Barges from Certain Survey and Certification Requirements Under the MARPOL Convention. This provides guidance for flag States, port States, ship owners and operators.
+
+2. Qualifying for the Exemption – Annex I (Oil)
+
+2.1 Prior to the coming into force of the amendments to Annex I, which introduce the exemption for UNSP barges, all UK flagged UNSP barges within the tonnage limits in the 2019 Regulations[footnote 2] must have a valid International Oil Pollution Prevention (IOPP) certificate if they undertake international voyages, or a UK Oil Pollution Prevention (UKOPP) certificate if they only operate domestically within the UK. This also applies to foreign flagged UNSP barges in UK waters.
+
+2.2. For the IOPP certificate, the 2019 Regulations contain a mandatory survey regime which includes an initial survey before a ship is put into service, followed by annual surveys, an intermediate survey and a renewal survey within five years of the issue of the IOPP certificate and at intervals not exceeding five years after that. An additional survey is also required in certain circumstances[footnote 3].
+
+2.3. For the UKOPP certificate, the 2019 Regulations contain a mandatory survey regime which requires an initial survey before the ship is put into service and a renewal survey within five years of the issue of the UKOPP certificate and at intervals not exceeding five years after that. An additional survey is also required in certain circumstances[footnote 4].
+
+2.4 The exemption for UNSP barges that is set out in Resolution MEPC.330(76) requires that qualifying UNSP barges undergo an initial survey to confirm that they meet the requirements for the exemption, followed by a renewal survey at periods of not more than five years in order to confirm continued compliance.
+
+2.5. In order to qualify for the MARPOL Annex I exemption, a UNSP barge must meet the following criteria:
+
+•
+it is not propelled by mechanical means;
+
+•
+it carries no oil (as defined in regulation 1.1 of MARPOL Annex I);
+
+•
+it has no machinery fitted that may use oil or generate oil residue (sludge);
+
+•
+it has no oil fuel tank, lubricating oil tank, oily bilge water holding tank and oil residue (sludge) tank; and
+
+•
+it has neither persons nor living animals on board.
+
+2.6 Where an internationally operating ship is surveyed and found to meet all of the requirements for the exemption, an International Oil Pollution Prevention Exemption Certificate for Unmanned Non-self-propelled Barges will be issued by the Administration (in the UK, the Maritime & Coastguard Agency), or a person duly authorised by the Administration, for a period not exceeding five years. This exemption certificate replaces the IOPP certificate.
+
+2.7 For ships operating only in the UK which are surveyed and found to meet the requirements for the exemption, a UK Oil Pollution Prevention Exemption Certificate for Unmanned Non-self-propelled Barges may be issued by the Administration, or a person duly authorised by the Administration, for a period not exceeding five years. This exemption certificate replaces the UKOPP certificate.
+
+2.8 UNSP barges must remain compliant with the requirements of the exemption for the full duration of the certificate.
+
+2.9 It is not a mandatory requirement that UNSP Barges which qualify for the exemption must replace their IOPP or UKOPP certificate with the exemption certificate. Owners / operators of UNSP barges may choose to retain their IOPP or UKOPP certification and continue with the associated survey regime for their existing certification if preferred.
+
+3. Qualifying for the Exemption – Annex IV (Sewage)
+
+3.1 Prior to the coming into force of the amendments to Annex IV which introduce the exemption for UNSP barges, all UNSP barges within the scope of the 2020 Regulations[footnote 5] must have a valid International Sewage Pollution Prevention (ISPP) Certificate.
+
+3.2 For the ISPP certificate, the 2020 Regulations contain a mandatory survey regime which includes an initial survey before a ship is put into service, which may be issued for a period not exceeding five years, after which a renewal survey must be completed before each subsequent certificate is issued. An additional survey is also required in certain circumstances, for example where an important repair has been carried out.
+
+3.3 The exemption for UNSP barges that is set out in Resolution MEPC.330(76) requires that qualifying UNSP barges undergo an initial survey to confirm that they meet the requirements for the exemption, followed by a renewal survey at periods of not more than five years in order to confirm continued compliance.
+
+3.4 In order to qualify for the MARPOL Annex IV exemption, an UNSP barge must meet the following criteria:
+
+•
+it is not propelled by mechanical means;
+
+•
+it has neither persons nor living animals on board;
+
+•
+it is not used for holding sewage during transport; and
+
+•
+it has no arrangements that could produce sewage as defined in regulation 1.3 of MARPOL Annex IV.
+
+3.5 Where a ship is surveyed and found to meet all the requirements for the exemption, an International Sewage Pollution Prevention Exemption Certificate for Unmanned Non-self-propelled Barges will be issued by the Administration, or a person duly authorised by the Administration, for a period not exceeding five years. This exemption certificate replaces the ISPP certificate.
+
+3.6 UNSP barges must remain compliant with the requirements of the exemption for the full duration of the certificate.
+
+3.7 It is not a mandatory requirement that UNSP barges which qualify for the exemption must replace their ISPP certificate with the exemption certificate. Owners / operators of UNSP barges may choose to retain their ISPP certification and continue with the associated survey regime for their existing certification if preferred.
+
+4. Applying for the Exemption(s)
+
+4.1 Owners or operators of UNSP barges who wish to take up the new exemptions, either for Annex I, or Annex IV or both should apply either to their local MCA Marine Office or one of the MCA’s Recognised Organisations.
+
+4.2 The contact details for MCA Marine Offices can be found on the MCA website here. Details of the MCA’s Recognised Organisations can be found on the MCA website here.
+
+4.3 When applying for the exemption(s), owners / operators of UNSP barges should provide the MCA or Recognised Organisation (RO) with all relevant information on the exemption conditions for their UNSP barge(s). This should include, for example, General Arrangement Plans, Capacity Plans and any other plans or documents as appropriate.
+
+4.4 Once these documents have been reviewed and have been found to be satisfactory for the purposes of the exemption(s), a survey will be carried out in order to confirm that the actual arrangements on board comply with the exemption conditions.
+
+4.5 It should be noted that exemption requirements will not be met where, whether temporarily or permanently, the UNSP barge has a means of generating oil residues, sewage, or any other pollutant defined in MARPOL Annexes I or IV. In such cases, the exemption for the applicable MARPOL Annex will not be granted.
+
+4.6 Following a satisfactory survey, the certificate(s) of exemption for UNSP barges from the relevant MARPOL Annex(es) will be issued by the MCA or RO for a period not exceeding five years. The certificates will be issued in the form set out in appendix IV of MARPOL Annex I for the exemption from the IOPP and UKOPP survey and certification regime, and in the format set out in appendix II to MARPOL Annex IV for the exemption from the ISPP survey and certification regime. Examples can be found in the appendices below.
+
+4.7 As with the IOPP, UKOPP and ISPP certificates, when the renewal survey is completed within 3 months before the expiry date of the existing certificate, the new certificate shall be valid from the date of completion of the renewal survey to a date not exceeding five years from the date of expiry of the existing certificate.
+
+4.8 Both the MARPOL Annex I and Annex IV exemptions may be applied for from 1st November 2022 onwards.
+
+4.9 For owners or operators of UNSP barges who do not wish to apply for the new exemption, their existing survey and certification requirements will continue to apply.
+
+4.10 Similar provisions have also been adopted by the IMO for UNSP barges in relation to Annex VI of the Convention (prevention of air pollution by ships) and will be implemented separately into UK law.
+
+More information
+
+Cargoes, Safety and Pollution Prevention Team for MARPOL Annex I
+Clean Ship Operations Team for MARPOL Annex IV
+Maritime and Coastguard Agency
+
+Bay 2/23
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: Environment@mcga.gov.uk
+Website: www.gov.uk/mca
+General enquiries: infoline@mcga.gov.uk
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Published: January 2023
+© Crown Copyright 2021
+
+•
+Annex II covers pollution by noxious liquid substances in bulk, Annex III covers harmful substances in packaged form, Annex V covers garbage and Annex VI covers air pollution. ↩
+
+•
+Oil tankers of 150gt and above and ships of 400gt and above which are not oil tankers. ↩
+
+•
+See section 10 of the Merchant Shipping (Prevention of Oil Pollution) Regulations 2019 for further details. ↩
+
+•
+See section 10 of the Merchant Shipping (Prevention of Oil Pollution) Regulations 2019 for further details. ↩
+
+•
+See section 6 of the Merchant Shipping (Prevention of Pollution by Sewage from Ships) Regulations 2020 for further details. ↩

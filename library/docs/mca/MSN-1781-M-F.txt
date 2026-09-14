@@ -1,0 +1,66 @@
+MSN 1781 (M+F) MSN 1781 (M+F) Amendment 3 The Merchant Shipping regulations 1996 - COLREG
+2023-11-21
+Source: https://www.gov.uk/government/publications/msn-1781-mf-amendment-3-the-merchant-shipping-regulations-1996-colreg
+
+1. Introduction
+
+1.1 The Merchant Shipping (Watercraft) Order 2023 made provision to bring watercraft (as defined in the Order) within the scope of the Merchant Shipping (Distress and Prevention of Collisions) Regulations 1996, and this Notice provides further background about the application and effect of that change.
+
+2. Latest Amendments
+
+2.1 Amendment 2 of this Notice, incorporated amendments to the COLREG up to and including those implemented through IMO Resolution A.1085(28).
+
+2.2 The amendments identified in section 2.1 of this Notice, adopted in December 2013 and in force from 1 January 2016, included a new part, “Part F”, containing three Rules, Rule 39, 40 and 41, which provide for IMO verification of Member States’ compliance with the provisions of the COLREG convention.
+
+2.3 Amendment 3 of this Notice relates to the provisions of The Merchant Shipping (Watercraft) Order 2023 and their effect on the scope of the Merchant Shipping (Distress and Prevention of Collisions) Regulations 1996.
+
+3. Note on the Application of the Regulations
+
+3.1 The Rules of COLREG apply by virtue of the Merchant Shipping (Distress and Prevention of Collisions) Regulations 1996 (“the 1996 Regulations”) to ships or other vessels as defined in the Merchant Shipping Act 1995.
+
+3.2 The Merchant Shipping (Watercraft) Order 2023 (“the 2023 Order”) makes provision to bring watercraft within the scope of the 1996 Regulations.  The 2023 Order does this by providing that any reference to “United Kingdom Ship” in the 1996 Regulations includes a reference to a “watercraft registered in the United Kingdom”, and any reference to “other ships” includes a reference to “other watercraft”.
+
+The 2023 Order makes corresponding provision in relation to references to “Master” as including “any person for the time being using a watercraft”.
+
+3.3 The 2023 Order defines a “watercraft” as any type of craft which;
+
+•
+is capable of moving under its own mechanical power,
+
+•
+is used, navigated, or situated wholly or partly in or on the water, and
+
+•
+is capable of being used to carry one or more persons.
+
+3.4 The application of the Rules of COLREG to watercraft which currently may not fall within the scope of the definitions in the Merchant Shipping Act 1995 and the 2023 Order will be subject to clarification in further legislation or guidance from the Maritime and Coastguard Agency (MCA).
+
+4. Background
+
+4.1 In the COLREG with regard to some particular Regulations:
+
+  4.1.1 The traffic separation schemes referred to in Rule 10(a) are the schemes adapted internationally pursuant to Regulation 10 of Chapter V of the International Convention for the Safety of Life at Sea, 1974, as amended (SOLAS).
+
+  4.1.2 The diagram mentioned in paragraph 7 of Annex 1 is the one specified in the Chromaticity Chart (1975) published by the International Illumination Commission (CIE).
+
+  4.1.3 The International Code of Signals referred to in paragraph 3 of Annex IV implies the current edition published by the International Maritime Organisation; and
+
+  4.1.4 The International Aeronautical and Maritime Search and Rescue Manual, Volume III (IAMSAR) also referred to in Paragraph 3 of Annex IV means the updated version of Volume III of the IAMSAR Manual, which is jointly published by IMO and the International Civil Aviation Organisation (ICAO).
+
+More information
+
+Technical Services – Navigation
+Maritime and Coastguard Agency
+Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0) 23 8032 9316
+
+Email: infoline@mcga.gov.uk
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca

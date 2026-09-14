@@ -1,0 +1,129 @@
+MGN 498 (M) MGN 498 (M) Amendment 1 Operational guidance for towing inflatables
+2025-06-23
+Source: https://www.gov.uk/government/publications/mgn-498-amendment-1-operational-guidance-for-towing-inflatables
+
+Summary
+
+This Marine Guidance Note reminds users of the operational requirements in the Inland Waters Small Passenger Boat Code for towing vessels operating from a beach or harbour, and encourages use of the same guidelines for towing operations taking place on inland lakes
+
+1. Background
+
+1.1 The MCA and Association of Inland Navigation Authorities (AINA) have published the Inland Waters Small Passenger Boat Code (“the Code”). The Code is not mandatory but provides a framework for licensing authorities and operators to use in determining the appropriate standards for the vessels with which they are concerned, depending on the category of water in which the vessels are operating. Competent Navigation, Harbour or Local Authorities may make variations from the Code which takes account of local circumstances. The Code is intended to apply to vessels operating in the UK, which do not go to sea (ie beyond categorised waters), and which carry no more than 12 passengers. The Code provides a set of best practice guidelines, although given the range of vessels and types of operation covered by the Code, does not cover every situation.
+
+1.2 A recent accident led to a child, who fell from a towed “banana”, being struck fatally by the towing boat. The Marine Accident Investigation Branch recommended that, when the Code is next reviewed, it should be amended so that the Beachcraft Guidelines set out in Annex 5 should also be applied to boats operating on inland waters (eg lakes and gravel pits), and not just to craft operating from beaches or harbours. Such inland locations are not generally treated as categorised waters, although they may well demonstrate the characteristics of waters that would otherwise be categorised as A or B waters in accordance with Merchant Shipping legislation.
+
+1.3 The Association of Inland Navigation Authorities (AINA) are currently conducting a review of the Code. The MCA fully supports the intent of the recommendation and therefore this Marine Guidance Note provides a reminder of the contents of the relevant text from the Code as set out in the Annex attached and confirms that the advice provided in Annex 5 is equally applicable to inland waters similar to those on which this accident took place.
+
+1.4 Local Authorities have the power under the Public Health Acts Amendment Act 1907 to require drivers of boats operating commercially within their area of jurisdiction to hold specific licences. The MCA now recognises the Ski Boat Driver Level 3 Award as providing a qualification adequate for drivers engaged in banana boat ride activities which Local Authorities might like to consider stipulating in their requirements, when issuing licences in accordance with the Public Health Act.
+
+1.5 The MCA would strongly encourage Local Authorities with jurisdictional responsibilities for inland lakes or similar waterways, where water sport activities are undertaken, to consider the advice given in the Code (including Annex 5), when developing licensing arrangements for the activities being undertaken.
+
+The Code can be viewed online at –
+
+https://www.gov.uk/government/publications/inland-waters-small-passenger-boat-code
+
+More information
+
+Ship Standards
+Maritime and Coastguard Agency
+Bay 2/21
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email: vesselstandards@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+ANNEX
+
+Extract from Inland Waters Small Passenger Boat Code
+
+Annex 5
+
+BEACHCRAFT GUIDELINES
+
+1. General
+
+1.1       Section 2.3 and 2.4 recognise that variations to the standards recommended by the Code may provide equivalent standards of safety, taking into account specific local conditions which are certain to exist. This Annex is intended to assist in assessing equivalence for small vessels with a very limited area of operation, which may be unable to meet certain of the recommended standards laid down by the Code. It provides Local Authorities performing licensing for beach/harbour operations, with a checklist of operational safety management practices for their consideration.
+
+1.2       Variations may be either a direct alternative to a measure specified in the Code or a reduced measure based upon factors that compensate for the reduction.
+
+1.3       Although not an exhaustive list, factors which may be considered include:
+
+    1.3.1 restricted area of operation [in an area where operating conditions are the least severe that may be expected within the relevant Category of Waters];
+
+    1.3.2 a guaranteed control of the vessel which restricts operations to conditions such that there is a very low risk of an accident;
+
+    1.3.3 the certainty of readily available means of emergency rescue;
+
+    1.3.4 operations wholly within constant sight of the supervising body and means of emergency rescue;
+
+    1.3.5 seasonal operations only, such as between 1 April and 31 October or some lesser period, or favourable weather restrictions;
+
+    1.3.6 vessels operating in close proximity to one another and equipped to provide efficient safety back-up to each other in an emergency;
+
+    1.3.7 provision/wearing of additional (special) individual personal survival equipment/clothing which will protect lives in an emergency;
+
+    1.3.8 enhanced communications between the vessel(s) and constantly attended shore base with readily available emergency rescue craft at base;
+
+    1.3.9 the nature of the sport or pleasure activity involves very low risk of participants accidentally entering the water or causing the vessel to capsize;
+
+    1.3.10 inherent safety of the vessel by design, test and experience, (not applicable as an equivalent for stability standards or a specified level of life saving equipment);
+
+    1.3.11 the ratio of suitably trained crew to the number of other persons onboard;
+
+    1.3.12 the number of safety craft provided to protect the vessels operating commercially for sport or pleasure;
+
+    1.3.13 enhanced provisions for distress alert and rescue;
+
+    1.3.14 means provided for “dry” rescue from a vessel in emergency situations.
+
+2. Guidelines for the Safe Operation of Commercially Operated Pleasure Craft Used for Leisure Activities from a Beach or Harbour
+
+2.1       Where the operator wishes to operate a vessel under alternative arrangements, for the provision of activities involving the towing of persons such as water-skiing, parascending, etc. the following guidelines should be followed.
+
+2.2       This is not considered an exhaustive list, nor are they relevant to all situations.
+
+    2.2.1 All boats should adopt appropriate safety standards or equivalencies set out in the Small Passenger Boat Code for the relevant Category of Waters.
+
+    2.2.2 If life saving appliances, recommended under section 13, cannot for practical reasons be carried on the vessel, suitable equivalencies from the section above must be employed.
+
+    2.2.3 All tows should be considered part of the towing vessel, and are to be fit for purpose.
+
+    2.2.4 Boats are to be capable of accommodating all persons they are intended to support including those contained on board the tow, if applicable. Methods of assessing the number of persons suitable to be carried are contained in the text of this Code of Practice. In general, vessels operating under this Annex should not carry more than 4 persons.
+
+    2.2.5 Towing craft should have a minimum crew of two at all times – one to drive, and navigate, the other to watch the tow.
+
+    2.2.6 Craft should be fitted with an engine stop cord, to be used at all times.
+
+    2.2.7 Operating procedures, and equipment where applicable, are to be in place for recovery of persons from the water, including measures to avoid injury from the boat or machinery. For vessels fitted with conventional propellers, consideration should be given to the fitting of a proper guard, especially where recovery of persons is commonplace.
+
+    2.2.8 Children under the age of 8 should be accompanied by an adult at all times, including when on a tow.
+
+    2.2.9 Inflatable tows should be capable of supporting 110% of the maximum manufacturer’s weight limit, with any one separate inflatable compartment punctured or deflated.
+
+    2.2.10 In Category C and D waters, lifejackets are to be worn at all times. For operations where buoyancy aids may be considered more practical, their use may be accepted based on equivalencies stated in section 1 above.
+
+    2.2.11 Towlines should be approximately 25 to 30 metres long. A method of quick release in the event of an emergency is to be available.
+
+    2.2.12 Parascending lines, harnesses and parachutes are to be inspected daily by the operator, and maintained in accordance with the manufacturer’s recommendations.
+
+    2.2.13 Operating areas and any associated channels for slow speed transit to and from the shore, should be clearly marked.
+
+    2.2.14 Operating areas, trading dates and daily hours for operation are to be defined.
+
+2.3   Additionally, the operator will:
+
+    2.3.1 hold a nationally recognised qualification for the activity concerned, ie water sports instructors certificate.
+
+    2.3.2 hold a Local Authority licence/concession to operate, where applicable.
+
+    2.3.3 maintain visual contact with the vessels at all times, and provide a means of immediate rescue in the event of an accident.
+
+    2.3.4 ensure that vessels and associated equipment are maintained in a proper state;
+
+    2.3.5 report and record to the Local Authority, where applicable, all incidents which have, or could have led to injury.
+
+    2.3.6 ensure a procedure is in place for immediate contact with the emergency services in the event of an accident or incident.

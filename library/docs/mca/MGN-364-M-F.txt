@@ -1,0 +1,225 @@
+MGN 364 (M+F) MGN 364 (M+F) Amendment 2 navigation safety: traffic separation schemes – application of rule 10 and navigation in the Dover Strait
+2024-12-03
+Source: https://www.gov.uk/government/publications/mgn-364-mf-amendment-2-navigation-safety-traffic-separation-schemes-application-of-rule-10-and-navigation-in-the-dover-strait
+
+Summary
+
+• The International Regulations for Preventing Collisions at Sea, 1972, as amended, (COLREG), govern the conduct of all vessels in and near Traffic Separation Schemes (TSS) which have been adopted by the International Maritime Organization (IMO).
+
+• This Marine Guidance Notice (MGN) provides interpretation and guidance on the application of Rule 10 of the COLREG.
+
+• This Note draws attention to mariners on the mandatory reporting regime and the recommendations for navigating and other activities within the Dover Strait.
+
+• This amendment provides updates to the guidance given on navigation within the Dover Strait along with further clarification on elements of Rule 10 of COLREG.
+
+1. Introduction/background
+
+1.1 TSS adopted by the IMO are set out in the IMO publication “Ships’ Routeing”, as amended, and various IMO COLREG Circulars. Additionally, they are identified in chart notes on admiralty charts and in Admiralty Annual Notice to Mariners 17.
+
+1.2 Rule 10 of the COLREG, governs the conduct of all vessels:
+
+i) Navigating within TSS which have been adopted by IMO, including the defined area of associated traffic lanes, separation zones, and Inshore Traffic Zones (ITZ)
+
+ii) Navigating near the defined TSS such that the vessel’s navigation would interact with those navigating within and joining or leaving the TSS.
+
+1.3 Under the principles of good seamanship, the guidance within this notice should also be seen as good practice for vessels navigating within non-IMO adopted TSS within United Kingdom (UK) waters.
+
+1.4 The application of the guidance within this notice should applied as follows:
+
+i) Sections 1 & 2 are applicable to all TSS
+
+ii) Section 3 is applicable to the TSS and routing measures within the Dover Straits
+
+iii) Sections 4 – 6, although written in relation to the Dover Straits, may also be appliable to other TSS.
+
+1.5 In some TSS, special provisions may be included, governing their use by specified classes of vessels.  Relevant information is given on charts, or there may be a recommendation for chart users to consult Admiralty Sailing Directions for that area.
+
+2. Traffic Separation Schemes – Application of Rule 10
+
+2.1 Rule 10 refers to “using” the TSS or ITZ.  Using a TSS or ITZ means to be either navigating within, or in such a way that will cause the vessel to enter, the defined boundaries of the TSS or ITZ, this includes entering a TSS to travel only a short distance.  Attention is drawn to the provisions of rule 10(h), where a vessel that is not using the scheme should avoid it by as wide a margin as is practicable, so as not to influence the traffic using the scheme.
+
+Rule 10 (a) “This Rule Applies to traffic separation schemes adopted by the Organization and does not relieve any vessel of her obligation under any other rule.”
+
+2.2 Mariners are therefore reminded that except where there are special local rules to the contrary, the other Steering and Sailing Rules (Section II – Conduct of vessels in sight of one another and Section III – Conduct of vessels in restricted visibility) apply within a Scheme as they do elsewhere at sea. Vessels proceeding in a TSS do not have priority over vessels crossing a lane.
+
+2.3 Furthermore, TSS are usually sited where there is a heavy concentration of shipping. Mariners are therefore reminded of the particular importance of strictly adhering to Rules 5, 6, 7, and 8 which refer to Look-out, Safe Speed, Risk of Collision, and Action to Avoid Collision respectively.
+
+Rule 10 (c) “A vessel shall so far as practicable avoid crossing traffic lanes, but if obliged to do so shall cross on a heading as nearly as practicable at right angles to the general direction of traffic flow.”
+
+2.4 Vessels crossing a TSS must do so on a heading as nearly as practicable at right angles to the direction of traffic flow. Although this does not minimise the time a crossing vessel is in the lane due to the tidal streams, this should lead to a clear encounter situation with vessels passing through the main traffic lanes.
+
+2.5 Mariners should be aware that the rule clearly defines heading rather than course over ground.
+
+2.6 To be deemed as crossing a traffic lane the entire lane must be crossed without stopping, unless in an emergency, and exited again in one manoeuvre.  If the intention is to stop crossing anywhere within the defined limits of the lane would be deemed to be joining that traffic lane and the provisions of rule 10(b) apply.
+
+Rule 10(d)(i) “A vessel shall not use an inshore traffic zone when she can safely use the appropriate traffic lane within the adjacent traffic separation scheme. However, vessels of less than 20 meters in length, sailing vessels and vessels engaged in fishing may use the inshore traffic zone.
+
+(ii) Notwithstanding subparagraph (d)(i), a vessel may use an inshore traffic zone when en-route to or from a port, offshore installation or structure, pilot station or any other place situated within the inshore traffic zone, or to avoid immediate danger.”
+
+2.7 Within the context of Rule 10(d), it is the view of the MCA that neither the density of traffic in a lane nor restricted visibility are sufficient reasons to justify the use of an Inshore Traffic Zone (ITZ), nor will the apparent absence of traffic in the ITZ qualify as a reason for not complying with this Rule.
+
+2.8 A vessel which needs to anchor to ensure the safety of the vessel due to, for example, propulsion or steering failure, or to shelter from heavy weather may do so in an ITZ.
+
+2.9 Mariners should be aware that whilst navigating within an ITZ, vessels may be encountered heading in any direction.
+
+2.10 Where a TSS is bordered on both sides by an ITZ, a vessel must not use the ITZ except as permitted by Rule 10(d).
+
+Rule 10(e) “A vessel other than a crossing vessel or a vessel joining or leaving a lane shall not normally enter a separation zone or cross a separation line, except;
+
+i) In cases of emergency to avoid immediate danger;
+
+ii) To engage in fishing within a separation zone”
+
+2.11 A vessel which needs to anchor to ensure the safety of the vessel due to, for example, propulsion or steering failure, may do so in a separation zone.
+
+Rule 10(I) “A vessel engaged in fishing shall not impede the passage of any vessel following a traffic lane.”
+
+2.12 Vessels engaged in fishing within a TSS are considered to be using the TSS and must comply with the general requirements set out in Rules 10(b) and (c), however, when fishing in a separation zone they may follow any course.
+
+2.13 The requirement that vessels engaged in fishing shall not impede the passage of any vessel following a traffic lane, means that they must operate in such a manner that neither they, nor their gear, seriously restricts the sea room available to other vessels following the traffic lane, and must take early and substantial action to avoid a risk of collision developing.
+
+2.14 Rule 8(f) places further obligations upon vessels engaged in fishing, with regard to their responsibility not to impede the passage of any vessel following a traffic lane and are not relieved from this obligation in a developing situation where risk of collision may exist. When taking any action, they must, however, take account of the possible manoeuvres of the vessel which is not to be impeded.
+
+2.15 Fishing vessels operating with long trawl gear should have due regard to the navigational hazards they may pose to other vessels when deploying or retrieving their gear.  They shall therefore maintain adequate sea room is maintained to other vessels during these operations to ensure compliance with Rule 10 (i)
+
+Rule 10(j) “A vessel of less than 20 meters in length or a sailing vessel shall not impede the safe passage of a power driven vessel following a traffic lane.”
+
+2.16 As defined in rule 3(c), a sailing vessel for the purposes of this rule must not be using any propelling machinery (such as an auxiliary engine). If a sailing vessel is using any form of propelling machinery, such as an auxiliary engine, then it must comply with this rule as for a power-driven vessel, and by day should also display the shape specified in rule 25(e).
+
+2.17 If a sailing vessel cannot follow the routeing measures under sail because of light or adverse winds, then she should make use of her engines in order to do so, show the appropriate lights, shapes, and if required, make sound signals for a power-driven vessel and comply with the actions required of a power-driven vessel. Whilst there is no clear definition within Rule 10 on impeding the safe passage, the UK interpret this as causing the vessel for which the safe passage should not be impeded, to be forced into deviating from its course or speed.
+
+Rule 10(k) “ A vessel restricted in her ability to manoeuvre when engaged in an operation for the maintenance of safety of navigation in a traffic separation scheme is exempted from complying with this Rule to the extent necessary to carry out the operation.”
+
+2.18 Maintenance of Safety of Navigation includes maintenance of navigational buoys and aids to navigation, wreck removal, hydrographic surveying and, when carried out as part of the maintenance of the scheme, dredging.
+
+It should be noted that vessels restricted in their ability to manoeuvre whilst carrying out commercial dredging operations (e.g. aggregate dredging) are not included within the clause stipulated within Rule 10(k) and shall comply with the requirements of Rule 10 in their fullest.  Further guidance can be found in the BMAPA Navigation Safety Good Practice Guide (https://bmapa.org/downloads/reference.php)  
+
+Rule 10(l) “A vessel restricted in her ability to manoeuvre when engaged in an operation for the laying, servicing or picking up of a submarine cable, within a traffic separation scheme, is exempted from complying with this Rule to the extent necessary to carry out the operation.”
+
+2.19 The MCA interpret that the definition of submarine cable includes telecommunication cable, power cables, subsea umbilicals, and the associated subsea infrastructure for these systems.
+
+Miscellaneous Rule 10 Guidance
+
+2.20 Many TSS have Precautionary Areas associated with them where traffic lanes cross or converge so that proper separation of traffic is provided.  Precautionary Areas should be avoided, if practicable, by ships not making use of the associated Schemes or deep-water routes.
+
+2.21 Precautionary areas, although part of routeing measures, are not part of a TSS and Rule 10 is not generally applicable, however, ships should navigate with particular caution within such areas.  In some circumstances, navigating withing a Precautionary Area may count as navigating “near” a TSS.  This particularly applies to precautionary areas where there is recommended routing measures within the area, providing a roundabout system.
+
+2.22 Any vessel observed in a TSS which appears not to be complying with the requirements of the Scheme should be immediately notified by the best available means. If the TSS is within a Vessel Traffic Service (VTS) coverage area, the VTS should be notified.
+
+2.23 The international two-letter signal “YG” meaning “you appear not to be complying with the TSS” may also be used for this purpose.
+
+2.24 The Master of any vessel receiving communication of non-compliance with TSS rule by whatever means should check their course and position and immediately take action to rectify the situation’
+
+2.25 For the avoidance of doubt, banks within a TSS that are marked as areas to avoid, such as Varne bank, are still within a TSS and therefore Rule 10 applies top these areas.
+
+3. Traffic Separation Schemes – Navigation in the Dover Strait
+
+3.1 Summary - The Dover Strait is covered by a TSS, adopted by the IMO, which is bordered by the UK Inshore Traffic Zone (ITZ) and the French ITZ.  The Channel VTS service and the Mandatory Reporting System CALDOVREP (established in accordance with SOLAS Chapter V Regulation 11) have been designed to assist seafarers to navigate these waters safely.
+
+3.2 TSS - Information on the TSS is provided on Admiralty chart 5500, in the Admiralty List of Radio Signals, Volume 6(1) and in NP28, The Dover Strait Pilot. Any vessel transiting the Dover Strait must comply with the requirements of Rule 10.
+
+3.3 ITZ - The UK ITZ extends from a line drawn from the western end of the TSS to include Shoreham, to a line drawn due South from South Foreland. The French ITZ extends from Cap Gris-Nez in the north, to a line drawn due west near Le Touquet in the South.
+
+3.4 Neither Channel VTS nor HM Coastguard have the authority to grant permission for vessels to use the English ITZ in contravention of Rule 10(d).  Masters deciding that circumstances warrant their use of the English ITZ, must report their decision to Channel VTS.  Vessels may enter the ITZ if necessary to avoid immediate danger.
+
+3.5 Channel VTS - Vessel movements are monitored from both Dover and Gris-Nez. Each station broadcasts information regarding weather and navigational hazards as part of the joint Channel VTS operations.  (https://www.gov.uk/government/publications/dover-strait-crossings-channel-navigation-information-service/dover-strait-crossings-channel-navigation-information-service-cnis)
+
+3.6 All vessels are tracked and recorded by radar and AIS – any vessel found contravening COLREG will be reported to their Flag State for appropriate action to be taken. Vessels contravening COLREG and arriving at UK ports may be liable for prosecution.
+
+3.7 CALDOVREP - The following categories of vessels are required to participate in the Reporting System:
+
+3.8 All vessels of 300GT and over
+
+3.9 All vessels of less than 300GT, should continue to report in circumstances where they:
+
+i) are not under command or at anchor in the TSS or an ITZ;
+
+ii) are restricted in their ability to manoeuvre; or
+
+iii) have defective navigational systems.
+
+3.10 SW-bound vessels call Dover Coastguard via VHF Ch 11 not later than crossing a line drawn from North Foreland Light (51° 23’N; 001° 27’E) to the border between France and Belgium (51° 05’N; 002° 33’E).
+
+3.11 NE-bound vessels call Gris-Nez Traffic on VHF Ch.13 two (2) nautical miles before crossing the line from the Royal Sovereign light tower, through the Bassurelle Light Buoy (at its assigned position of 50°32’.8N, 000°57’.8E) to the coast of France.
+
+4. Voyage Planning – Dover Straits
+
+4.1 A voyage plan with appropriate contingency arrangements containing all required reporting information, as well as the reporting points, should be prepared well in advance of reaching the outer limits of the reporting area in line with the guidance contained within IMO Resolution A.893(21) – Guidelines on Voyage Planning.
+
+4.2 The Dover straits include dynamic hazards such as inclement weather and high traffic density therefore Mariners should be aware of the potential need to carry out dynamic voyage planning based on real time updates based on VTS guidance, traffic density and the prevailing weather conditions.
+
+4.3 Mariners should be aware that concentration of fishing vessels and recreational craft may be encountered in the English Channel and the Dover Strait and should navigate with caution.  Vessels engaged in fishing are reminded of the requirements of Rule 10(i) and sailing vessels and other vessels of less than 20 metres in length of the requirements of Rule 10(j) of the COLREG.
+
+4.4 Mariners are reminded that there is a concentration of crossing ferry traffic, including high speed craft, in the Dover Strait.  These vessels may make course alterations outside the lanes in order to cross them at right angles.
+
+4.5 Vessels in either traffic lane may frequently have to give way to ferries and other crossing vessels in order to comply with the Steering and Sailing Rules (Rules 4 – 19) of the COLREG.
+
+4.6 Surveillance surveys indicate that risk of collision increases if cross channel traffic, leaving Dover or the Calais approach channel, shape courses without due regard to the traffic situation in the adjacent lane. Vessels proceeding along the traffic lanes, in meeting their obligations under Rules 15 and 16, are often observed making substantial course alterations and their actions are frequently complicated when traffic converges within a particular lane.
+
+4.7 Attention is therefore drawn to the need for cross channel traffic to take into account this possible situation arising when voyage planning. Consideration should also be given to when the lane is to be crossed so that potential close quarters situations can be anticipated and are not allowed to develop.  Voyage planning should be dynamic and include selection and setting of a course as soon as practicable.
+
+4.8 NE-bound vessels sailing to the Thames or UK east coast ports are required to use the NE-bound lane of the scheme where they can safely do so. A Master choosing to use the UK ITZ rather than the NE-bound lane should ensure they have sufficient justification to do so, taking into account sections 2.7 to 2.10 of this guidance notice.
+
+4.9 Radar surveillance surveys show that many vessels proceeding from the NE lane towards the Thames and UK east coast ports cross the TSS in the vicinity of the MPC light-buoy (51°06’.10N, 001°38’.19E). Masters are recommended to cross the SW lane in compliance with Rule 10(c) anywhere up to approximately five (5) miles NE of the MPC light-buoy.  In selecting the crossing point regard should be given to traffic in the SW Lane, prevailing tidal stream in the area, and the need to avoid the development of situations where risk of collision exists.
+
+4.10 The F3 light-float (51° 24.’15N; 002° 00.’38E) is in an area of heavy crossing traffic.  Ships leaving the West Hinder TSS and intending to transit the Dover Strait should leave the Foxtrot Three (F3) on their port side and should avoid an area of a three (3) cable radius of the light-float, when crossing the NE-bound traffic lane of the Dover Strait TSS and proceeding through the Precautionary Area.
+
+4.11 Many vessels keep too close to the north of the lane when in the SW-bound lane between South Falls and Dungeness, risking collision with the CS4 light-buoy and vessels in the English ITZ. Vessels should therefore make use of the full width of the traffic lanes and open waters to reduce collision risks. An ‘area to be avoided by all vessels’; with a radius of three (3) cables, has been established around the CS4 light-buoy.
+
+4.12 The main traffic lane for NE-bound traffic lies to the SE of the Sandettié Bank and should be followed by all such ships as can safely navigate therein having regard to their draught.
+
+4.13 The deep-water route to the NW of the Sandettié Bank is intended for use by vessels with a draught of sixteen (16) metres or more. Masters considering using this route should take into account the proximity of traffic using the SW-bound lane. Through traffic to which this consideration does not apply should, if practicable, avoid using the deep-water route.
+
+4.14 In two-way routes, including two-way deep-water routes, vessels should, as far as practicable, keep to the starboard side of the marked route. Vessels using deep-water routes are recommended to avoid overtaking.
+
+4.15 Master of ships, when planning their passage through the Dover Strait and its approaches, should ensure that there is an adequate under-keel clearance at the time of passage.  To achieve this, allowance must be made for the effects of squat at the passage speed, for uncertainties in charted depths and tide levels, and for the effects of waves and swell resulting from local and distant storms.
+
+4.16 In assessing a safe under-keel allowance, Masters of vessels constrained by their draught are strongly advised to consult the Sailing Directions, Mariners’ Routeing Guides, and Deep-Draught Planning Guides published for the area by Hydrographic Offices, and to be guided by the recommendations for under-keel allowance contained therein.
+
+4.17 When calculating the depth of water, mariners are reminded that the height of the tide in mid-Strait can be up to one metre less than predicted for the adjacent standard port.
+
+4.18. Special consideration during passage planning should be given to passing the Varne bank and associated shallow waters, which is located centrally within the SW lane and marked by cardinal buoys and a lightship at its northern end. Vessels transiting the SW lane are permitted to pass either side of the Varne Bank
+
+5. Vessels towing with Long Towline Arrangements within any UK TSS
+
+5.1 Tow arrangements, especially long tows, need to exercise particular care through busy traffic areas such as the Dover Strait. To ensure safe transit, in addition to the correct COLREG lights and shapes, it is considered best practice to:
+
+i) pass through the most critical areas during daylight.
+
+ii) maintain a guard vessel marking the end of the tow and/or patrolling length of the tow.
+
+iii) promulgate a WZ (coastal warning), particularly with long tows when the length exceeds 500m.
+
+iv) report early to Dover Coastguard on approach to the Channel-VTS reporting area; and keep Channel-VTS informed of the tug and tow approach and passage throughout transit.
+
+6. Recreational Activities within any UK TSS
+
+6.1 Recreational diving within a UK TSS, is not recommended by the MCA as it presents a hazard to the safety of navigation to the vessels using the TSS as well as an increased risk to the recreational diver due to assumed high density of traffic within a TSS.
+
+6.2 Dive support vessels must always proceed in the general direction of traffic flow for that lane and if they are less than 20mtr in length shall not impede the safe passage of a power-driven vessel following a traffic lane, nor should they anchor in the lane.
+
+6.3 Recreational divers considering participating in diving in any TSS, are reminded that deep draught and high-speed ships transiting TSS may be unable to detect typical diving surface marker buoys at distance. Many vessels may also have a draught in excess of 10 metres, which may pose additional problems for divers contemplating decompression stops above that depth. Such vessels also generate wash and wake that may create difficulties when recovering divers from the water, or for dive support craft with low freeboards.
+
+6.4 Masters of dive support craft in the Dover Strait should always advise Channel VTS, of their intentions in order to promote diving safety, and to benefit from any safety advice that may be available.
+
+6.5 Mariners should be aware that during summer months (April-September) through traffic may encounter channel crossings by swimmers or other unorthodox craft. These will normally be attended by support vessels fitted with AIS and complying with the COLREG. Information regarding these crossings is routinely broadcast by Channel VTS.
+
+6.6 Masters should be aware of the possibility of increased numbers of recreational craft operating around the UK coast during the summer months (June – September) and may be encountered whilst navigating within a UK TSS.  These recreational craft may be small and difficult to detect on radar therefore particular care shall be taken to ensure compliance with section 2.3 of this guidance notice.
+
+6.7 Recreational craft users, regardless of size, are required to comply with the requirements of COLREG and should review the guidance within this notice.
+
+More information
+
+Technical Services Navigation
+Maritime and Coastguard Agency
+Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

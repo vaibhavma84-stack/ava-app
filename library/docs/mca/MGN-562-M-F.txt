@@ -1,0 +1,122 @@
+MGN 562 (M+F) MGN 562 (M+F) Amendment 4 Radio: Radio regulations amendments and GMDSS radio equipment updates
+2023-11-22
+Source: https://www.gov.uk/government/publications/mgn-562-mf-amendment-4-radio-radio-regulations-amendments-and-gmdss-radio-equipment-updates
+
+Summary
+
+This Marine Guidance Note draws attention to the revised application date of IMO MSC.1/Circ. 1460, as it relates to the changes made in the Radio Regulations (Appendix 17 and 18) affecting VHF and HF communications and equipment. The Maritime and Coastguard Agency does not require the replacement of marine radio equipment installed and used on-board. It is, however, the responsibility of a vessel’s owner to consider, based upon the area of operation, whether an update or replacement of the on-board radio equipment is necessary.
+
+1. Introduction/background
+
+1.1 Changes have been made to the Radio Regulations over the last 10 years for international VHF and HF; refer to the Radio Regulations 2020, Appendix 17 and 18.
+
+1.2 These changes do not have a safety impact as the designated distress or calling frequencies and the bridge-to-bridge communications channel are unchanged.
+
+1.3 Some coast stations may change their operating channel designations or frequencies as a result of changes to the Radio Regulations, but the timing of any change is a local matter.
+
+1.4 Software or firmware changes may be available to update radio equipment to implement some, or all, of the changes.
+
+1.5 IMO was made aware of global product supply problems that would prevent ships complying by the due date in MSC.1/Circ. 1460/Rev.3, Guidance on the validity of radiocommunication equipment installed and used on ships.
+
+1.6 To ensure that radio equipment on board is updated and vessels can maintain communications during the transition period IMO has revised the guidance, now MSC.1/Circ. 1460/Rev.4, to delay the compliance deadline.
+
+1.7 With the IMO decision to remove MF and HF narrow band direct printing (NBDP) for two-way communications from the Global Maritime Distress and Safety System (GMDSS), the IMO no longer requires the update of MF and HF radio installations.
+
+2. Vessel Voyage Radio Planning
+
+2.1 Prior to any passage the Radio Operator / Owner should review VHF radio channel / frequency requirements for the vessel’s area of operation, ensuring their radiocommunication equipment has the required capability.
+
+3. SOLAS Convention Vessels
+
+3.1 Annex 1 contains additional guidance for SOLAS Convention vessels.
+
+4. Non-SOLAS Convention Vessels
+
+4.1 Annex 2 contains additional guidance for non-SOLAS Convention vessels, including Domestic Passenger Ships, Fishing Vessels, Code Boats, UK Load Line Exempt Vessels, and Pleasure Vessels.
+
+More information
+
+Radio Spectrum & Technical Standards Unit
+Maritime and Coastguard Agency, Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 7200
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Annex 1
+
+VHF equipment on board SOLAS Convention Vessels
+
+1. Radio Operators should be aware of the following:
+
+1.1 Where a frequency is supported by equipment in accordance with regulation, but the channel indication is no longer correct, a cross reference table should be displayed at the operating station(s).
+
+1.2 A small number of 4-digit channel numbers are now explicitly stated in the radio regulations. Radio operators should be aware of these new channels and correspondence with older 2-digit channel designations. Existing 2-digit, international, simplex channels are unchanged.
+
+1.3 Some new simplex channels will only carry coast station transmissions, so these effectively become broadcast channels, possibly to be used for MSI. You can listen using the corresponding duplex channel even if the on-board equipment does not support the simplex channel. This information should be included in the displayed cross reference table.
+
+1.4 From 2024 VHF Data Exchange System (VDES) channels are expected to be used in some regions. Interference caused by voice communications on these channels should be avoided.
+
+1.5 Radio operators should consult ALRS to confirm where the use of a channel for voice is permitted and ensure that the on-board equipment is capable of operating on the frequencies necessary for the vessel’s area of operation, e.g. to communicate with ports and coast stations.
+
+1.6 Operators should, as far as practicable, avoid using channels contrary to Appendix 18 of the Radio Regulations.
+
+2. Owners should be aware of:
+
+• 2.1 In accordance with MSC.1/Circ. 1389, owners should ensure that such equipment is fitted with the latest firmware and software available from the equipment manufacturer.
+
+• 2.2 With respect to changes to frequency channelization, the Marine Equipment Regulations requires the manufacturer to:
+
+• 2.2.1 Declare that the software update maintains the equipment within its existing approval;
+
+• 2.2.2 Otherwise, the conformity assessment body  for the original equipment’s approval would need to be consulted for any additional approval that may be needed.
+
+• 2.2.3 It is expected that any software modification for frequency channelization will maintain the equipment within the existing certification and will therefore be considered as maintenance.
+
+• 2.3 In accordance with MSC.1/Circ. 1460/Rev.4, radiocommunication installations should:
+
+• 2.3.1 By the first radio survey after 01/01/2028, meet the channelling arrangements reflected in Appendix 18 of the Radio Regulations.
+
+• 2.3.2 Prior to that date, continue to provide at least the channelling arrangements as listed in Appendix 18 of the Radio Regulations 2009, other channels may be provided so long as they are permitted by the latest version of the Radio Regulations.
+
+• 2.3.3 Comply with the Ship Radio Licence.
+
+Annex 2
+
+VHF equipment on board Non-SOLAS Convention Vessels
+
+1. Foreword
+
+1.1 This section refers to all Non-SOLAS Convention Vessels, including Domestic Passenger Ships, Fishing Vessels, Code Boats, UK Load line Exempt Vessels and Pleasure Vessels.
+
+1.2 All vessel owners and operators of maritime radio installations should be aware of the changes to Appendix 18 of the Radio Regulations.
+
+2. Radio Operators should be aware of the following:
+
+2.1 Where a frequency is supported by equipment in accordance with regulation, but the channel indication is no longer correct, a cross reference table should be displayed at the operating station(s).
+
+2.2 A small number of 4-digit channel numbers are now explicitly stated in the Radio Regulations. Radio operators should be aware of these new channels and correspondence with older 2-digit channel designations. Existing 2-digit, international, simplex channels are unchanged.
+
+2.3 Some new simplex channels will only carry coast station transmissions, so these effectively become broadcast channels, possibly to be used for safety information. You can listen using the corresponding duplex channel even if the on-board equipment does not support the simplex channel. This information should be included in the displayed cross reference table.
+
+2.4 From 2024 VHF Data Exchange System (VDES) channels are expected to be used in some regions. Interference caused by voice communications on these channels should be avoided.
+
+2.5 Operators should consult radio communication publications (e.g. ALRS or similar) to confirm where the use of a channel for voice is permitted. They should also refer to updated reference documents to ensure that the on-board equipment is capable of operating on the frequencies necessary for the vessel’s area of operation, e.g. to communicate with ports and coast stations.
+
+2.6 Operators should, as far as is practicable, avoid using channels contrary to Appendix 18 of the Radio Regulations.
+
+3. Updating equipment
+
+3.1 Any update to equipment should be approved by the manufacturer and in accordance with manufacturer instructions and guidance.
+
+3.2 Where your vessel relies upon conformity marked equipment to fulfil a mandatory carriage requirement, any update should comply with the rules for updating equipment under the Radio Equipment Regulations.
+
+3.3 Where your vessel relies upon type approved equipment to fulfil a mandatory carriage requirement, any update should comply with the rules for updating equipment under the Marine Equipment Regulations (see Annex 1 Section 2.2).

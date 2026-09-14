@@ -1,0 +1,356 @@
+MGN 675 (M+F) MGN 675 (M+F) Amendment 2 The merchant shipping (control and management of ships’ ballast water and sediments) regulations 2022
+2026-06-11
+Source: https://www.gov.uk/government/publications/mgn-675-mf-amendment-2-the-merchant-shipping-control-and-management-of-ships-ballast-water-and-sediments-regulations-2022
+
+Summary
+
+The purpose of this Marine Guidance Notice is to provide guidance on certain aspects of the Merchant Shipping (Control and Management of Ships’ Ballast Water and Sediments) Regulations 2022. These Regulations implement the requirements of the International Convention for the Control and Management of Ships’ Ballast Water and Sediments (2004).
+
+The following sections have been updated:
+
+• Application
+
+• Definitions
+
+• Ballast Water Record Book
+
+1. Introduction/background
+
+1.1 The International Convention for the Control and Management of Ships’ Ballast Water and Sediments, 2004 (“BWM Convention”) was adopted at a Diplomatic Conference held at the International Maritime Organization’s (“IMO”) headquarters in 2004 and came into force on 8 September 2017. It sets out requirements which address the spread of invasive non-native species by ships’ ballast water and sediments.
+
+1.2 The United Kingdom (UK) implemented the BWM Convention through the Merchant Shipping (Control and Management of Ships’ Ballast Water and Sediments) Regulations 2022 (“the Regulations”).
+
+1.3 The purpose of this document is to provide guidance on certain aspects of the Regulations.
+
+2. Application
+
+2.1 Subject to paragraph 2.4 below, the Regulations apply to UK ships regardless of tonnage wherever they may be (regulation 4).
+
+2.2 The Regulations also apply to non-UK ships when they are in UK waters and controlled waters (i.e. the UK’s Exclusive Economic Zone) (regulation 4).
+
+2.3 It should be noted that the definition of a “ship” means a vessel of any type operating in the aquatic environment and includes submersibles, floating craft, floating platforms, floating storage units and floating production storage and offloading units.
+
+2.4 The Regulations do not apply to:
+
+   - Ships which are not designed or constructed to carry ballast water;
+
+   - Ships which operate only in UK waters or controlled waters, or in UK waters or controlled waters and in the waters or exclusive economic zones of the Crown Dependencies, while such ships are in United Kingdom waters or controlled waters, provided the UK is satisfied that the discharge of ballast water from a ship would not impair or damage the environment, human health, property or resources within those areas or those of adjacent or other States. In practice, this means that the Regulations do not apply to ships that are operating solely between the UK and the Isle of Man.
+
+   - Ships which operate only in one of the areas described in the preceding point and on the high seas, provided the UK is satisfied that the discharge of ballast water from a ship would not impair or damage the environment, human health, property or resources within those areas or those of adjacent or other States;
+
+   - UK ships which operate solely in the waters of another Contracting State where that State has agreed that the ship is not subject to any requirements which implement the BWM Convention in that State;
+
+   - UK ships which operate only in one of the areas described in the preceding point and on the high seas, provided the UK is satisfied that the discharge of ballast water from a ship would not impair or damage the environment, human health, property or resources within those areas or those of adjacent or other States;
+
+   - Any warship, naval auxiliary or Government ship (as defined in the Merchant Shipping Act 1995).
+
+   - Ships which carry permanent ballast water in sealed tanks which is not subject to discharge.
+
+2.5 The UK does not issue statements of non-applicability.
+
+2.6 IMO Circular BWM.2/Circ.32 provides guidance on the applicability of the BWM Convention to hopper dredgers.
+
+3. Definitions
+
+3.1 “Ballast water” means water with its suspended matter taken on board a ship to control trim, list, draught, stability or stresses of the ship.
+
+3.2 “Ballast water management” means mechanical, physical, chemical or biological processes, used singly or in combination, to remove, render harmless, or avoid the uptake or discharge of harmful aquatic organisms within ballast water or sediments.
+
+3.3 “Ballast water management system” means any system which processes ballast water such that it meets or exceeds the discharge standards in regulation 13 (ballast water and sediment treatment standard) and includes:
+
+• Ballast water treatment equipment;
+
+• its associated control and monitoring equipment;
+
+• piping arrangements as specified by the manufacturer; and
+
+• its sampling facilities.
+
+3.4 It does not include a ship’s ballast water fittings that would be required if a ballast water management system (BWMS) was not fitted.
+
+3.5 Ballast water management systems may also be referred to in industry as ballast water treatment systems (BWTS).
+
+3.6 “Discharge” in relation to ballast water or sediments, means any release howsoever caused from a ship and includes any escape, disposal, spilling, leaking, pumping, emitting or emptying.
+
+3.7 “Exchange” means a process involving the replacement of water in a ballast tank using the sequential method or pump-through method which complies with regulations 11 (location of ballast water exchange) and 12 (ballast water exchange standard).
+
+3.8 “Electronic record book” means a device or system, approved by the Administration, used to electronically record the entries for each ballast water operation as required under the BWM Convention in lieu of a hard copy record book.
+
+3.9 “Treatment” means mechanical, physical, chemical or biological processes, used singly or in combination, to ensure that any ballast water or sediments discharged from a ship meet the standard in regulation 13 (ballast water and sediment treatment standard).
+
+3.10 Please see regulation 2 (interpretation) of the Regulations for further definitions.
+
+4. Floating Platforms, FSUs and FPSO Units
+
+4.1 Floating platforms, FSUs and FPSOs are included within the definition of a ship in the Regulations and if operating in the jurisdiction of more than one State will require survey and certification. If FSUs and FPSOs operate exclusively in UK waters/controlled waters or UK waters/controlled waters and the high seas the Regulations will not apply, as provided for in regulation 4(2).
+
+5. Process for Leaving and Re-entering a Period of Exclusive Operations within UK Waters
+
+5.1 As outlined in section 2 above, if a ship is operating exclusively in UK waters or UK controlled waters (including the territorial or controlled waters of a territory to which the UK has extended the BWM Convention), or exclusively in such waters and on the high seas the Regulations will not apply, provided the UK is satisfied that the discharge of ballast water from a ship would not impair or damage the environment, human health, property or resources within those areas or those of adjacent or other States. If such a ship makes an international voyage, to the jurisdiction of another State, then the Regulations will become applicable. Before making that voyage, the ship will need a survey, International Ballast Water Management (IBWM) Certificate, ballast water management plan and ballast water record book.
+
+5.2 Where a ship wishes to resume a period of exclusive operations within UK waters then they should follow IMO guidance BWM.2/Circ.52/Rev.1.
+
+6. Ballast water management plans
+
+6.1 Regulation 9 contains the requirements relating to the ballast water management plan.
+
+6.2 Every ship to which the Regulations apply must carry on board an approved ballast water management plan, which has been approved by the Flag State or, if a UK flagged ship, approved by a Certifying Authority as detailed in regulation 9.
+
+6.3 The ballast water management plan should be developed in accordance with the IMO’s “Guidelines for ballast water management and development of ballast water management plans (G4) ”, published in IMO Resolution MEPC.127(53). These guidelines will be taken into consideration when approving a plan and those writing a plan should be familiar with the BWM Convention and the Regulations.
+
+6.4 The plan must be written in the working language of the ship’s personnel and translated into either English, French or Spanish if the working language is not one of these.
+
+6.5 The master must ensure that crew are familiar with their duties listed in the plan and that the plan related to that ship is implemented. The master must also ensure that crew are familiar with the contents of the ballast water management plan where this is appropriate to their duties.
+
+6.6 A ballast water management plan must include the information set out in section 4.3 of MSN 1908 (M+F) Amendment 3.
+
+6.7 It is also strongly advised that the plan contain contingency measures for a failure of ballast water management systems and encountering challenging water quality if applicable. Further information on contingency measures can be found in section 17 of this MGN.
+
+7. Ballast Water Record Book
+
+7.1 Regulation 10 contains the requirements relating to the ballast water record book.
+
+7.2 Every ship to which the Regulations apply must carry on board a ballast water record book which must be completed after every ballast water operation, the details of which can be found in section 5 of MSN 1908 (M+F) Amendment 3.
+
+7.3 The ballast water record book may be in hard or electronic form and must be written in the working language of the ship’s personnel and translated into either English, French or Spanish if the working language is not one of these.
+
+7.4 Each entry must be signed by the officer in charge of the relevant operation and each completed page must be signed by the master of the ship. If an electronic record book is used, the master of the ship must verify a group of electronic entries as soon as reasonably practicable.
+
+7.5 The record book must be kept on board the relevant ship for a period of two years after the last entry has been made and then retained by the owner of the ship for a further period of three years.
+
+7.6 The ballast water record book must be kept readily available for inspection at all reasonable times.
+
+7.7 If an electronic record book is used it must be approved in line with Regulation 10A and section 5 of MSN 1908 (M+F) Amendment 3. It may be standalone or part of an integrated system.
+
+8. Requirement to Conduct Ballast Water Management
+
+8.1 Regulation 5 details the requirement to conduct ballast water management.
+
+8.2 A ship to which the Regulations apply must not discharge any ballast water or sediments into the sea unless they are subject to ballast water management which meets the requirements of regulation 5(2).
+
+8.3 In accordance with Regulation 5, all ships to which the Regulations apply have to meet the D2 standard.
+
+8.4 Note, the requirement in regulation 5 to conduct ballast water management does not apply to ships that discharge ballast water or sediments to a reception facility of a type specified in MSN 1908 (M+F) Amendment 3 (regulation 6).
+
+9. Major Conversion
+
+9.1 Ships which are constructed on or after 8 September 2017 must conduct ballast water management through treatment (regulation 5(2)(b)(i)). The term ‘constructed’ is defined in regulation 5(3)(b) and includes when a ship undergoes a ‘major conversion’. In turn major conversion is defined in regulation 5(3)(d) as meaning a conversion of a ship which:
+
+• changes its ballast water carrying capacity by 15 percent or greater;
+
+• changes the ship type;
+
+• the Secretary of State is satisfied is projected to prolong its life by ten years or more; or
+
+• results in modifications to its BWMS other than the replacement-in-kind of components.
+
+9.2 Where a Certifying Authority is content that the conversion is projected to prolong its life by ten years or more, confirmation should be sought from the Secretary of State by emailing HQSurvey@mcga.gov.uk.
+
+10. Sediment Management for Ships
+
+10.1 All ships need to be aware of the requirement to dispose of sediments from spaces designed to carry ballast water in accordance with the ship’s ballast water management plan as outlined in MSN 1908 (M+F) Amendment 3.
+
+10.2 New ships should be designed and constructed with a view to minimize the uptake and entrapment of sediments, facilitate removal of sediments and provide safe access to allow for sediment removal and sampling. The IMO’s “Guidelines on design and construction to facilitate sediment control on ships (G12)” should be taken into account. These guidelines were published in IMO Resolution MEPC.209(63).
+
+10.3 It is recommended that operations relating to sediment management are recorded in the ballast water record book for inspection purposes.
+
+11. Sediment Reception Facilities
+
+11.1 Information regarding the availability of sediment reception facilities should be available from the IMO but ships are advised to contact local ports/harbours to determine if such facilities are available.
+
+12. Exceptions
+
+12.1 Regulation 6 provides for exceptions to the requirement to conduct ballast water management.
+
+12.2 Ballast water may be discharged without having been subject to ballast water management where it is discharged to a reception facility of a type specified in MSN 1908 (M+F) Amendment 3. Ships are advised to contact local ports/harbours to ask if such facilities are available.
+
+12.3 Ballast water or sediments may also be discharged without having been subject to ballast water management in the following situations:
+
+• To ensure the safety of a ship in an emergency;
+
+• To save life at sea;
+
+• To avoid or minimise the discharge of pollution from the ship;
+
+• If there is accidental discharge caused by damage to the ship or its equipment, providing that all reasonable precautions are taken to prevent or minimise the discharge and the owner, demise charterer or master in charge did not wilfully or recklessly cause the damage;
+
+• If they have been taken onboard a ship and discharged on the high seas or if the discharge is at the same location where the whole of the ballast water or sediments originated, provided no mixing of unmanaged ballast water or sediments from other areas has occurred.
+
+• If mixing occurs, the ballast water is subject to the requirement to conduct ballast water management in regulation 5. Further details regarding what constitutes the ‘same location’ are provided in section 13 of this MGN.
+
+12.4 A discharge of ballast water made under regulation 6 (exceptions) must be recorded in the ballast water record book as outlined in regulation 10(3)(a).
+
+13. Same Location
+
+13.1 The term ‘same location’ is defined in regulation 6(2) as meaning:
+
+• where any ballast water or sediments have been taken on board a ship within a harbour, within the harbour limits of that harbour; or
+
+• otherwise within one nautical mile of the point of uptake.
+
+13.2 If using the same location exception within UK waters or the UK’s controlled waters, ships must ensure that this is stated clearly within their ballast water record book and, where appropriate, their ballast water management plan. They should note the coordinates of uptake and discharge in their ballast water record books (see section 5 of MSN 1908 (M+F) Amendment 3). It must be ensured that ballast water and sediments do not mix with ballast water and sediments from any other location before being discharged and procedures to ensure this should be detailed in the plan.
+
+14. Equivalent Compliance
+
+14.1 Pleasure vessels, as defined in regulation 8(4), or craft used primarily for search and rescue, that are less than 50m in overall length and have a maximum ballast capacity of 8m³ may apply to the Maritime and Coastguard Agency (‘MCA’) for equivalent compliance as provided for in regulation 8.
+
+14.2 The UK will consider applications for equivalent compliance from vessels that meet the criteria outlined within regulation 8 on a case-by-case basis, taking into account the IMO’s “Guidelines for Ballast Water Management Equivalent Compliance (G3)”. These guidelines were published in IMO Resolution MEPC.123(53).
+
+15. Ballast Water Treatment Standard
+
+15.1 Regulation 13 stipulates the maximum number of organism types and indicator microbes that may be found within any discharged ballast water or sediments which have been treated. Although not the only way to meet the standard, the installation of an appropriately type approved BWMS is the most common method used.
+
+15.2 The implementation dates in regulation 5 should be used to determine when a ship is required to conduct ballast water management through treatment.
+
+15.3 The requirement to treat ballast water to the standard in regulation 13 may be achieved through the installation of a type approved BWMS. For UK ships the UK recognises all BWMS that have been type approved in accordance with MSN 1908 (M+F) Amendment 3.
+
+16. Contingency Measures for BWMS Failure
+
+16.1 For the purposes of this section a failure is defined as when the BWMS is unable to meet the required treatment standard regardless of the cause.
+
+16.2 IMO Circular BWM.2/Circ.62 sets out contingency measures and advice for this situation.
+
+16.3 Owners should consider actions that may be required should their ship not be able to meet the standards in the Regulations and are advised to include reference to such actions within the ship’s ballast water management plan.
+
+16.4 In the event of a BWMS failure both the MCA and/or the Port State should be notified and contingency measures, as listed in the ship’s ballast water management plan, should be used. The contingency measure employed should be agreed with the Port State and is subject to any further requirements as specified by the Port State.
+
+16.5 Possible contingency measures include:
+
+• The discharge of ballast water to another ship or to an appropriate shipboard or land-based reception facility if available;
+
+• The management of the ballast water, or a portion of it, in accordance with a method acceptable to the Port State;
+
+• Conducting ballast water exchange;
+
+• Modifying sailing or ballast water discharge schedules;
+
+• Internally transferring ballast water or retaining it on board (whilst considering safety issues).
+
+16.6 Methods to be used as contingency measures should be detailed in the ballast water management plan.
+
+17. Challenging Water Quality
+
+17.1 The IMO’s “Interim Guidance on the Application of the BWM Convention to Ships Operating in Challenging Water Quality Conditions”, published in MEPC.387(81), sets out what to do when encountering water that is challenging for BWMS. When a ship is required to notify the UK administration that it has encountered CWQ an email should be sent to environment@mcga.gov.uk. The relevant local MCA Marine Office should also be copied into the correspondence.
+
+17.2 This guidance covers all aspects from planning, reporting and how to ensure the ship continues to meet the D-2 standard. It aims to ensure that bypass is only undertaken as a last resort and uses Ballast Water Exchange and Ballast Water Treatment (BWE+BWT) to maximise the chances of the ship meeting D2 at the next port call.
+
+18. Permanent Sealed Tanks
+
+18.1 Operators considering undertaking a conversion to sealed permanent ballast tanks that will only be discharged during dry docking should liaise with the appropriate Recognised Organisation and/or their Customer Service Manager to ensure that any work undertaken meets UK safety requirements. This includes a review of stability requirements for the ship, details verifying that existing ballasting systems and pipework are disconnected and a means of ensuring that any modifications are tamperproof.
+
+19. Potable Water
+
+19.1 The use of potable fresh water has not yet been approved by the IMO and is therefore not an accepted method of compliance.
+
+20. Ballast Water Exchange
+
+20.1 In accordance with Regulation 5, all ships to which the Regulations apply have to meet the D2 standard.
+
+20.2 Owners are urged to contact relevant Port State administrations for confirmation of ballast water exchange requirements within their waters.
+
+20.3 Per the IMO’s “G6 Guidelines (2017 Guidelines for Ballast Water Exchange)”. Three methods have been evaluated and accepted by the IMO. These are the sequential method, the flow through method and the dilution method. The flow through method and the dilution method are considered as “pump through” methods.
+
+20.4 The three accepted methods can be described as follows:
+
+•
+Sequential method – a process by which a ballast tank intended for the carriage of ballast water is first emptied and then refilled with replacement ballast water. Where this method of exchange is used it must achieve at least a 95% volumetric exchange (regulation 12(1)).
+
+•
+Flow-through method – a process by which replacement ballast water is pumped into a ballast tank intended for the carriage of ballast water, allowing water to flow through overflow or other arrangements.
+
+•
+Dilution method – a process by which replacement ballast water is filled through the top of the ballast tank intended for the carriage of ballast water with simultaneous discharge from the bottom at the same flow rate and maintaining a constant level in the tank throughout the ballast exchange operation.
+
+20.5 Where a pump-through method of exchange (flow-through or dilution) is used, at least three times the volume of the ballast tank must be pumped through the ballast tank, or it must achieve 95% volumetric exchange (regulation 12(2)).
+
+21. Designation of Ballast Water Exchange Areas
+
+21.1 The Secretary of State may designate areas of sea in which ships may conduct ballast water exchange (regulation 11(6)).
+
+21.2 Any designation must be made in writing, maybe subject to conditions and maybe varied or withdrawn (regulation 11(7)).
+
+21.3 Details of the ballast water exchange areas currently designated can be found in MSN 1908 (M+F) Amendment 3.
+
+22. Ballast Water Exchange where Location Requirements are not Possible
+
+22.1 The location requirements for ballast water exchange are detailed in regulation 11.
+
+22.2 Where it is not possible to meet the depth and distance requirements, a ship should use the ballast water exchange area designated under MSN 1908 (M+F) Amendment 3 or:
+
+• Conduct ballast water exchange on the high seas before entering UK waters.
+
+• Use alternate means to manage the ship’s ballast water for instance using a reception facility.
+
+• Use same location (Regulation 6) if the requirements can be met.
+
+22.3 Ships will be expected to record the events and reasons for not being able to meet the requirements of regulation 11(1) and 11(2) within the ballast water record book (see section 5 of MSN 1908 (M+F) Amendment 3). Such ships are encouraged to act in accordance with the spirit of the BWM Convention and in an environmentally responsible manner by using another method of compliance or by adopting contingency measures to minimise the impact of any discharged ballast water.
+
+23. Survey and Certification
+
+23.1 For ships to which the Regulations apply, the UK has delegated survey, certification and ballast water management plan approvals to UK Certifying Authorities. Surveys will be undertaken in accordance with IMO guidelines in Resolution A.1120(3) Survey Guidelines under the Harmonized System of Survey and Certification.
+
+23.2 A UK ship may only proceed to sea or remain at sea if it has a valid IBWM Certificate (regulation 23). Part 6 of the Regulations details the survey requirements that must be met under the Regulations. These regulations apply to all ships to which the Regulations apply.
+
+23.3 Initial Survey: A UK ship must have an initial survey to show that it has an approved ballast water management plan on board and that all associated structures, equipment, systems, fitting, arrangements, material and processes fully comply with the requirements of the Regulations (regulation 25). An IBWM Certificate will then be issued (regulation 26). Under the BWM Convention and the Regulations where a ship transfers to the flag of another State its IBWM Certificate ceases to be valid (regulation 28(6)). Therefore, a ship which joins the UK Ship Register will require a renewal survey.
+
+23.4 Renewal Survey: Prior to expiry of the IBWM certificate, a renewal survey is required for UK ships (regulation 25). During this survey a surveyor will check the ship has an approved ballast water management plan on board and that all associated structures, equipment, systems, fitting, arrangements, material and processes fully comply with the requirements of the Regulations. A new IBWM Certificate will then be issued (regulation 26).
+
+23.5 Annual Survey: A UK ship must have an annual survey no more than three months before or after the anniversary date of the issue of an IBWM Certificate, except where an intermediate survey has been completed within that period (regulation 25). This is to ensure that the structure, equipment, systems, fittings, arrangements, material and processes associated with the ship’s ballast water management plan:
+
+• have been maintained to conform with the Regulations to ensure that the ship, in all respects, remains fit to proceed to sea without presenting a threat of harm to the environment, human health, property or resources; and
+
+• remain satisfactory for the service for which the ship is intended. Following a successful survey, the Certifying Authority will endorse the IBWM Certificate (regulation 27).
+
+23.6 Intermediate Survey: The intermediate survey is required on the second or third anniversary date of the IBWM Certificate and takes the place of an annual survey (regulation 25). The survey will check that the equipment, associated systems and processes for the ship’s ballast water management fully comply with the requirements of the Regulations. Following a successful survey, the Certifying Authority will endorse the Certificate (regulation 27).
+
+23.7 Additional Survey: Additional surveys are required if a change, replacement or significant repair has been made to the structure, equipment, systems, fittings, arrangements or material necessary to achieve full compliance with the Regulations or if a repair has been made after an accident or defect (regulation 32). The survey will check that the change, replacement or repair has been made effectively and the ship complies with the requirements of the Regulations. The surveyor will issue a report to this effect if content.
+
+23.8 A significant repair is one which is necessary to achieve full compliance with Part 2 (discharge of ballast water and sediments), Part 3 (ballast water management) and Part 5 (equipment) of the Regulations. If there is a dispute as to whether a repair or renewal effected or intended to be effected is a “significant” repair or renewal, and the ship owner or master wishes to seek advice from the Secretary of State in accordance with regulation 32(5), the request should be sent to HQSurvey@mcga.gov.uk.
+
+23.9 If a ship fails a survey the surveyor will advise the owner or master of the corrective action which is required. Where an IBWM Certificate is not endorsed following an intermediate or annual survey then the IBWM Certificate ceases to be valid (regulation 28(6)). The ship may not proceed to sea unless it has a valid IBWM Certificate (regulation 23).
+
+23.10 Please note, an IBWM Certificate may be cancelled if the Secretary of State has reason to believe that it has been issued on the basis of false or erroneous information, or that since the completion of any survey required by the Regulations, the ship or its equipment has sustained damage or is otherwise deficient (regulation 37).
+
+24. Responsibilities of Owner and Master
+
+24.1 As provided for in regulation 31, the owner and master of the ship must ensure that the condition of the ship and its systems are maintained to conform with the Regulations. Replacements that need to be made to the structure, equipment, fittings, arrangements or materials associated with the ballast water management plan need to be approved unless they are direct replacements.
+
+24.2 Pursuant to regulation 31(3) and (4) whenever an accident or defect occurs onboard the ship which substantially affects the ability of the ship to conduct ballast water management in accordance with the Regulations, the owner must notify the Certifying Authority who issued the IBWM Certificate in respect of the ship. If the ship is in a port outside of the UK, the appropriate maritime authorities in the country in which the port is situated should be notified. If the ship is a non-United Kingdom ship and is in a port in the UK, the Secretary of State should be notified using the following email address: environment@mcga.gov.uk.
+
+24.3 “Direct replacement” means the direct replacement of equipment and fittings with equipment and fittings that conform with the relevant requirements which apply to that ship (regulation 31(7)). It is most likely to be applicable to consumable parts.
+
+25. Extension of Validity of IBWM Certificates
+
+25.1 In certain circumstances a renewal survey might be undertaken following the extension of validity of an IBWM Certificate, or after the date of expiry of an IBWM Certificate. Where this happens, ordinarily the new IBWM Certificate would be valid from the original date of expiry of the previous IBWM Certificate. However, the owner of a ship may submit a request to the Secretary of State for the new period of a ship’s IBWM Certificate to instead begin on the date of the completion of the renewal survey (regulation 28(5)). For the purposes of regulation 28(5)(b), examples of an owner being justified in making such a request might include:
+
+• where a ship has been laid up for an extended period, or
+
+• where the nature of a ship’s business would make a different date much more convenient (such as in the case of a passenger ferry constructed in the summer and whose main trade is in the summer, where the owner may want to have all the refit and survey work done in the winter months).
+
+25.2 In the latter case (a request to change the anniversary date for the sake of convenience), the request will only be considered if such a request has not been made before for the ship in question, and the owner confirms in writing to the MCA that this is a one-off request for that ship. The confirmation should be sent to HQ_InspectionOps@mcga.gov.uk
+
+26. Guidance for Ports
+
+26.1 Ports may find it useful to include some basic information relating to ballast water on pre-arrival notifications or other relevant paperwork.
+
+26.2 Useful information may include whether the ship is subject to the BWM Convention/Regulations, if they are in compliance and whether they have a ballast water management system on board. This allows ports a degree of oversight into what is happening within their waters.
+
+26.3 There is no obligation or responsibility placed on ports to monitor the compliance of vessels on an ongoing basis. The degree to which ports require information relating to ballast water management is a decision for the port.
+
+26.4 A UK harbour master must immediately inform the Secretary of State if they have reason to believe that a ship is not compliant with the Regulations and is about to leave or enter the harbour (regulation 42). UK harbour masters also have the power to detain a ship where they have clear grounds for believing that an offence has been committed in relation to the discharge of ballast water (regulation 41).
+
+More information
+
+Clean Ship Operations
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 85139
+
+Email: environment@mcga.gov.uk   
+
+Website: www.gov.uk/mca

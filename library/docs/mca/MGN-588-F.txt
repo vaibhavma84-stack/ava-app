@@ -1,0 +1,205 @@
+MGN 588 (F) MGN 588 (F) Amendment 2: Compulsory provision and wearing of personal flotation devices on fishing vessels
+2024-04-30
+Source: https://www.gov.uk/government/publications/mgn-588-f-amendment-2-compulsory-provision-and-wearing-of-personal-flotation-devices-on-fishing-vessels
+
+Summary
+
+•
+Where risks cannot be reduced to a safe level by other measures, personal protective equipment must be provided and used.
+
+•
+Following risk assessment, measures should be established to reduce the risk of fishers falling overboard wherever practicable.
+
+•
+MCA will expect to see a record of any risk assessment and measures put in place.
+
+•
+Failure to ensure the provision and wearing of PFDs and/or fall restraint harnesses by all fishers working where there is a documented risk of falling overboard will be considered by the MCA to be a breach of health and safety legislation.
+
+•
+Where PFDs of at least 150N are not worn, the risk assessment must demonstrate how an equivalent level of safety is achieved.
+
+•
+PFDs must meet minimum performance standards required by MSN1870 and be worn in accordance with manufacturer’s instructions
+
+This amendment sets out:
+
+•
+requirements in MSN1870 for ensuring PFDs are suitable for the area of operation.
+
+•
+consideration of the equipment, the vessel layout and operation, the environment and risk mitigation to take into account when developing a risk assessment.
+
+1. Introduction/background
+
+1.1 The MAIB database of marine accidents between 2000 and 2023 records 166 fatal drowning accidents from UK registered fishing vessels. Of these, 114 of the fatalities were not wearing Personal Flotation Devices (PFDs) and 23 were wearing them. In the remaining 29 cases it was unknown whether PFDs were worn at the time of the accident.
+
+1.2 The outcomes of these accidents show that the likelihood of a person surviving if they go overboard is much greater if a PFD is worn.
+
+1.3 Investigations of these incidents also show that in some cases although a PFD was worn, when worn incorrectly, the PFD has not worked as intended.
+
+1.4 Investigations have also shown that when a PFD has been worn that the individuals have been successfully rescued.
+
+1.5 Incidents of persons going overboard are the most common event leading to fatalities from UK registered fishing vessels.
+
+2. Responsibilities of owners, skippers and fishers under Convention 188 - International Labour Organisation Convention on Work in Fishing (ILO188)
+
+2.1 Owners must provide skippers with the necessary resources and facilities to operate the vessel safely and comply with relevant legislation (ILO 188 Article 8.1).
+
+2.2 Owners and Skippers are responsible for the health and safety of the crew and the safe operation of the vessel, including ensuring that all crew members are managed, trained and supervised to be able to work safely (ILO 188 Article 8.2).
+
+2.3 Owners and skippers must ensure that risks to health and safety are assessed, and appropriate safety measures are put in place to prevent accidents so far as reasonably practicable, and to minimise the consequences of any accidents that do occur (Regulation 4 of the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations 1997).
+
+2.4 Fishers must comply with the lawful orders of the skipper and any applicable health and safety measures provided on board. (Regulation 4 of the Merchant Shipping (Work in Fishing Convention) Regulations 2018 and Regulation 21 of the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations 1997).
+
+3. The risk of falling overboard
+
+3.1 The number of incidents of persons going overboard from fishing vessels investigated by MAIB in recent years clearly demonstrates a significant risk to fishers. Incidents have occurred because fishers have fallen, been washed or been dragged overboard after getting tangled in gear. 
+
+4. The risk of drowning
+
+4.1 Once in the water, cold shock and hypothermia will quickly make it harder for a person to stay afloat and alert. As highlighted in the statistics in section 1 above, the risk of drowning is significantly higher if no PFD is worn.
+
+5. Preventive and protective measures
+
+5.1 In the light of recent accidents, MGN 571(F) was published giving advice on how to prevent a person going overboard. This gives guidance on risk assessment for persons going overboard and the safety measures to be put in place to prevent this. In addition, the Fishing Industry Safety Group and the MCA have promoted the use of safety harnesses or PFDs when working on deck. Man Overboard Awareness Events are also run by Seafish and RNLI These events explain how to reduce the risk in going overboard and what can be done to improve the chances of survival. Participants will experience a man overboard emergency under controlled conditions.
+
+5.2 However, despite a safety campaign by the Fishing Industry Safety Group and the distribution of approximately 8,000 free PFDs, there is evidence that on many vessels the risk of a person going overboard has not been eliminated and harnesses and PFDs are still not being worn.
+
+5.3 Preventive measures, such as those set out in MGN 571(F), remain the most effective method of preventing fatalities from persons going overboard. However, with the introduction of ILO 188, which extends health and safety duties and protection to all those working on fishing vessels, the MCA will now enforce the use of safety harnesses and/or PFDs as a mandatory requirement where there is a risk of falling overboard.
+
+5.4 Fishers are also encouraged to attend voluntary refresher courses in Sea Survival, for which funding is available.
+
+6. MCA requirement to wear PFDs
+
+6.1 In view of the evidence in section 1 above of the risk of falling overboard, and the increased risk of drowning when a PFD is not worn, the MCA requires that, unless measures are in place which eliminate the risk of fishers falling overboard, all fishers must be provided with and must wear PFDs or safety harnesses. The measures preventing a person going overboard must be documented in a written risk assessment.
+
+6.2 The MAIB in their Safety Digest 1/2017 published the following advice:
+
+Always wear a lifejacket when working on the open decks. If you end up in the water it can save your life by:
+
+• Reducing the load on your heart as you won’t have to struggle to swim.
+
+• Keeping you afloat and your face clear of the water, allowing you to breathe.
+
+• Assisting those recovering you by providing them with something to grab onto.
+
+• Increasing your visibility in the water, helping your rescuers find you.
+
+7. Standards of PPE:
+
+7.1 Manufacturers have carried out significant work with Fishing Industry Safety Group in recent years to improve the practicability of PFDs, so that they are comfortable and safe to work in.
+
+7.2 MSN 1870(M+F) provides information on appropriate standards of PPE and includes the following:
+
+Work Activity
+Personal protective equipment and clothing to be provided
+Full title of standard
+
+12
+Any work carried out from an overside position or in an exposed position where there is a reasonably foreseeable risk of falling or being washed overboard or any work carried out in or from a ship’s boat
+Either a MCA approved lifejacket or a personal flotation device conforming as appropriate to one of the following, taking into account the area of operation.
+ 
+
+ 
+Any work carried out from an overside position or in an exposed position where there is a reasonably foreseeable risk of falling or being washed overboard or any work carried out in or from a ship’s boat
+BS EN ISO 12402-8:2020 Replacing BS EN ISO 12402-8: 2006+A1:2011
+Personal flotation devices. Accessories. Safety requirements and test methods
+
+ 
+Any work carried out from an overside position or in an exposed position where there is a reasonably foreseeable risk of falling or being washed overboard or any work carried out in or from a ship’s boat
+BS EN ISO 12402-3:2020 Replacing: BS EN ISO 12402-2:2006+A1:2010
+Personal flotation devices. Lifejackets, performance standard 150N. Safety requirements
+
+ 
+Any work carried out from an overside position or in an exposed position where there is a reasonably foreseeable risk of falling or being washed overboard or any work carried out in or from a ship’s boat
+BS EN ISO 12402-2:2020 Replacing: BS EN ISO 12402-2:2006+A1:2010
+Personal flotation devices. Lifejackets, performance standard 275N. Safety Requirements
+
+8. Risk Assessments
+
+8.1 MSNs 1871, 1872, and 1873 require that vessel owners ensure a documented and effective risk assessment is in place which sets out the control measures for preventing MOB situations and what to do if a MOB situation occurs for conscious and unconscious persons.
+
+8.2 When developing this risk assessment, it is important that owners consider:
+
+a. the risks to which the crew or other worker are exposed to performing their task;
+
+b. the suitability of the equipment for the conditions, i.e. weather, sea states, visibility, that you are working in, and its suitability to support the survival, location and recovery of any crew member, such as the provision of a spray hood and PLB;
+
+c. the compatibility with and risks associated with certain types of mitigating equipment, such as the increase in the risk of snagging, or damage to PFDs, so that the PFD remains effective against the risk;
+
+d. the suitability of equipment in relation to ergonomic requirements and the health of crew member;
+
+e. developing an operational procedure for work processes which create a MOB risk;
+
+f. the measures that are in place to reduce the MOB event happening in the first place, such as the use of physical barriers, automated equipment, use of harnesses etc;
+
+g. the measures that are in place to protect the crew if the risk of MOB cannot be eliminated, such as the use of PFD’s;
+
+h. the fitting of the PFDs for everyone on board, are they capable of being adjusted to fit, does everyone know how to fit them correctly;
+
+i. how a MOB can be recovered from the water, the crew’s training, suitability of equipment required and the procedure that the crew need to follow for the recovery to be successful;
+
+j. the attaching of a  Personal Locator Beacon (PLB) to the lifejacket, (check the manufacturer’s instructions to ensure the PLB and PFD are compatible) see MCA313 Personal Emergency Radio Devices for Commercial Fishing and also MGN 665 (M+F) Registration of EPIRBs and 406 MHz PLBs used in the maritime environment.
+
+8.3 Wearable buoyancy device of at least 50N that provides buoyancy in the water have significant limitations and can only be accepted based on a risk assessment which MUST show how an equivalent level of safety to the wearing of a PFD of at least 150N has been achieved. The fishing vessel owner should familiarise themselves with the capabilities of PPE, and its limitations and select equipment appropriate to the risk.
+
+8.4 The limitations of 50N PFDs include:
+
+a. 50N PFDs will not turn an unconscious person over and keep their airways clear of the water;
+
+b. the wearer will be required to expend additional effort to stay afloat with their head clear of the water, reducing the time available to affect a successful rescue, if the wearer works alone, wearing a 150N PFD and PLB will significantly increase the probability of rescue;
+
+c. 50N PFDs will not keep the head clear of the water if the wearer suffers from the effects of cold-water shock on entering the water or if the wearer is unable to keep their head clear of the water through the effects of fatigue.
+
+9. Performance standards of PFDs
+
+9.1 PFDs with performance standard 275N, in accordance with ISO 12402-2 are intended primarily for offshore use and by people of significant weight or who are using items of significant weight and thus require additional buoyancy. They are also of value to those who are using clothing which traps air and which will adversely affect the self-righting capacity of the lifejacket. They are designed to ensure that the user is floating with their mouth and nose clear of the surface at an angle and with sufficient freeboard to limit mouth immersions in waves.
+
+9.2 PFDs with performance standard 150N, in accordance with ISO 12402-3 are intended for general offshore and rough weather use where a high standard of performance is required. They should maintain a fully clothed person in a safe position with no subsequent action by the user.
+
+Note: All PFDs should be fitted with an emergency light and whistle as standard. This means they can be counted as an abandon ship lifejacket required by MSN1871 Amendment No.1 The Code of Practice for the Safety of Small Fishing Vessels of less than 15m Length Overall, or any superseding document.
+
+10. Minimum performance standard for inflatable PFDs on Fishing Vessels
+
+10.1   The performance standard for an automatically operating PFD[footnote 1] or automatically inflated PFD[footnote 2] on a fishing vessel is 150N. Manual or orally inflated PFDs are not acceptable.
+
+10.2   PFDs which require a secondary donning action, such as those worn around the waist, and/or additional positioning are not acceptable given that the critical cold shock period occurs immediately on entering the water.
+
+10.3   The skipper must ensure the PFDs are always be worn in accordance with Manufacturers’ donning instructions, which should be displayed in a prominent place. For example, where the PFD requires it to be fitted with a crotch strap to meet the requirements of safe wear, ensure that:
+
+a. The crotch strap is in place and is in good condition;
+
+b. The crotch strap is not tied up with tape, tie wraps or any other means which would indicate it is not being used;
+
+c. The crotch strap is used whilst wearing the PFD;
+
+d. correct adjustment/fitting to suit the wearer is essential, every time the PFD is donned (especially if the PFD is used by other crew members).
+
+10.4   Owners shall also ensure that crew should be provided with training in the correct donning of their PFDs during their familiarisation training.
+
+10.5   PFDs must also be maintained in accordance with the manufacturers’ instructions and maintenance records should be retained on board the vessel.
+
+More information
+
+Technical Services Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 972
+
+Email: fishing@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+•
+PFD in which buoyancy is provided by permanent means (inherently buoyant material) or by suitable means (gas inflation) effected by a system which automatically activates upon immersion and which, expect for the inspection and reaming of inflatable types, when correctly donned requires no further action by the user. ↩
+
+•
+PFD in which inflation is effected as a result of immersion without the user carrying out any action at the time of immersion. ↩

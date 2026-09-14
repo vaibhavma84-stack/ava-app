@@ -1,0 +1,89 @@
+MGN 553 MGN 553 Amendment 1(M+F): Inflatable Non-SOLAS liferafts and life-saving appliances
+2024-04-22
+Source: https://www.gov.uk/government/publications/mgn-553-amendment-1mf-inflatable-non-solas-liferafts-and-life-saving-appliances
+
+Summary 
+
+This Note provides guidance on the MCA policy with regards to the acceptable standards of non-SOLAS inflatable Life-Saving Appliances (LSA) for use on certain UK registered commercial vessels. It also sets the process for the servicing requirements of such LSA. 
+
+1. Introduction 
+
+1.1 MGN 499 previously set out the requirements for both SOLAS (meeting the requirements of Chapter III of the Safety of Life at Sea Convention) and non-SOLAS (not meeting the requirements of Chapter III of the Safety of Life at Sea Convention but otherwise accepted by the MCA) inflatable LSA with regards servicing and other technical requirements for use on board UK ships. In recent years, the MCA’s policy for each category has changed as the LSA technology has developed. 
+
+1.2 Accordingly, MGN 499 has been split to consider in isolation the differing issues observed for SOLAS and non-SOLAS equipment, and to give greater transparency and clarity to operators of ships, fishing vessels and small commercial vessels and those involved in the manufacture and maintenance of such equipment. This note concerns non-SOLAS LSA. 
+
+1.3 The technical revisions published in the second edition of ISO 96501:2022 which cancelled and replaced ISO 96501:2005 and ISO 96502:2005, are incorporated into this MGN update. 
+
+2. General 
+
+2.1 Owners and operators of UK commercial vessels are responsible for making sure that the service station that services their product is capable of undertaking such work for inflatable non-SOLAS liferafts, this means a Service Station authorised or approved by the manufacturer of the product. 
+
+2.2 Service stations are responsible for the correct servicing of liferafts and as such, should only be conducting servicing on liferafts for which they are accredited by the manufacturer, and for which they hold the necessary training, information, equipment, spare parts etc. Service Stations are reminded that they are also responsible for any work conducted by their sub-contractors, which may include the servicing of pressurised gas cylinders.  
+
+2.3 It is recommended that when carrying out the service of gas cylinders, the marking label should be provided and updated with all the relevant information (e.g. time of the next service, tare weight of cylinder plus valve, gross weight of the cylinder, charge weight and unit of weight (percentages of the gases), charge date) and the Service Station should keep historical records available for inspection. Requirements are set out in Statutory Instrument 2007 No 1573 - Part 4 when placing on the market or using at work any transportable pressure vessel. This may be applicable to activities relating to the servicing of gas cylinders for specific use in liferaft inflation. It is the responsibility of the Service Stations to assess whether the work they perform is within the remit of this regulation, and therefore there is a need to be in compliance. As per paragraph 2.2 of this note the Service Station is responsible for making sure that all work conducted on the servicing of the liferaft and gas cylinders it is in accordance with the applicable regulations, even if the service of the cylinder is subcontracted.  
+
+2.4 It is a requirement for the vessel owner/managing agent to ensure that the vessel (including any non-SOLAS inflatable liferafts, lifejackets, MES, danbuoys and lifebuoys) are maintained and operated in accordance with the requirements of the applicable instruments, inclusive of the interpretations explained in this MGN. It is also a requirement for owner/managing agent to ensure that such equipment has been serviced at the intervals prescribed by the applicable instruments. It is an offence for a small commercial vessel or fishing vessel to proceed, or attempt to proceed, to sea unless the vessel complies with the requirements of the applicable instruments (including any requirements as to operation, manning and maintenance). 
+
+3. Non-SOLAS Inflatable Liferaft Standards – ORC Liferafts 
+
+3.1 Within the Codes of Practice for the Safety of Small Commercial Vessels and Fishing Vessels, and MGN 280 Small Vessel in Commercial use for Sport or Pleasure, Workboats and Pilot Boats, Offshore Racing Congress liferafts (as detailed in 2014 and 2015 edition of the ISAF Offshore Special Regulations Appendix A Part I) were accepted for certain areas of vessel operation. With the further development of liferafts since the introduction of the ORC standard, the International Organisation for Standardisation developed ISO 9650.  With the introduction of this ISO small vessel liferaft standard, ORC standard liferafts installed on board UK vessels (regulated to carry such a liferaft) were intended to be naturally phased out at the end of their serviceable life in accordance with para 3.2 of MGN 553. This was due to the lesser level of safety provided when compared with liferafts built to the ISO or SOLAS standards.  
+
+3.2 Accordingly, ORC liferafts have now, in all categories of operation, reached the end of this designated phase-out period; the final phase out period ending 03 October 2021. They are accordingly no longer accepted on UK vessels. 
+
+4. Non-SOLAS Inflatable Liferafts – ISO 9650 
+
+4.1 Clarification has been sought from UK industry on the use of liferafts marked as compliant with the ISO 9650 standard, and the associated MCA acceptance of such liferafts on board UK commercial vessels. Within the Codes of Practice for the Safety of Small Commercial Vessels and fishing vessels operating 60 nautical miles from a safe haven, the rationalised ISO 9650-1:2022  Type 1, standard is accepted if the liferaft is provided with a SOLAS B pack and boarding ramp. Furthermore, the MCA will also accept such liferafts on small commercial vessels proceeding further than 60 nautical miles but less than 150 nautical miles from a safe haven providing such liferafts are independently certificated as compliant with the ISO 9650-1:2022 Type 1 standard, fitted with a SOLAS A pack and stowed in a hard canister. Compliance certification issued by one of the UK Notified Bodies responsible for approval of life-saving appliances described in the Merchant Shipping ( Marine Equipment) Regulations 2016 (as amended) ( see MSN 1874 amendment 7 part 1)  will be recognised as full third party verification of compliance. In both cases, provisions integral to the liferaft may be supplemented by a “grab bag” to form a SOLAS A/ B pack, as applicable. Such a grab bag should be appropriately stored to ensure it is easily accessible in the event of an emergency to afford prompt boarding of the inflated liferaft with the grab bag. 
+
+4.2 Furthermore, the ISO 9650-1:2022 standard now specifies that the scope of that standard is specifically to cover liferafts in the range of 4 to 16 persons. Manufacturers and suppliers of liferafts are asked to note the increase in ISO compliant capacity and that any liferafts manufactured with a capacity of between 4 and 16 persons, can still remain in compliance with the ISO standard.  
+
+4.3 Subsequently, ISO 9650-1:2022  liferafts marked for a number of persons within 4 to 16 can now be accepted by Certifying Authorities as meeting section 13 of MGN 280 or any of the Codes of Practice for the safety of small commercial vessels and fishing vessels.
+
+5. Non-SOLAS Inflatable Lifejackets  
+
+5.1 It should be noted that the older BS EN 396 and 399 standards have been superseded by ISO 12402-3 and ISO 12402-2 respectively but lifejackets of BS EN 396 and 399 are still acceptable on UK commercial vessels, where permitted by the relevant Code of Practice. 
+
+5.2 For servicing requirements for non-SOLAS inflatable lifejackets fitted to commercial vessels refer to relevant Codes/Regulation. The manufacturer’s recommendations/instructions should be applied. 
+
+6. Non-SOLAS Inflatable Marine Evacuation Systems (MES) 
+
+6.1 The MCA has accepted non-SOLAS marine evacuation systems (MES) on certain domestic passenger ships. Any proposals for inflatable slides or chutes to form part of such a non-SOLAS MES on a domestic passenger ship shall be in compliance with the requirements in MSN 1676 (M) Amendment 1  The Merchant Shipping (Life-Saving Appliances and Arrangements) Regulations 2020 and The Merchant Shipping (Life-Saving Appliances for Ships of Classes III to VI(A)) Regulations 1999 as described under Schedule 5, as far as applicable. Any technical deviations from the technical performance standard should be notified to the MCA prior to installation and any modifications to the method of installation on the ship from the manufacturer’s recommendations should be notified to the MCA. A fully SOLAS compliant MES installed on ships within the scope of the The Merchant Shipping (Life-Saving Appliances and Arrangements) Regulations 2020 and The Merchant Shipping (Life-Saving Appliances for Ships of Classes III to VI(A)) Regulations 1999 should be MCA approved, detailed in MSN 1874 amendment 7. Acceptance of all such arrangements should be carried out by the attending MCA surveyor in consultation with the ship operator, the product manufacturer and MCA UK Maritime Services. 
+
+7. Servicing of Non-SOLAS Inflatable Liferafts and Non SOLAS Inflatable MES 
+
+7.1 Except where MCA requirements require more frequent servicing, non-SOLAS inflatable liferafts and MES accepted on board UK commercial vessels are required to be serviced in accordance with the manufacturer’s instructions by a Service Station authorised or approved by the manufacturer of the product. It is recommended that manufacturers and Service Stations follow the standard in Annex 1 of this MGN for conditions of Service Stations and conduct of servicing for non-SOLAS inflatable liferaft. The exception to this is where a vessel carries a valise packed liferaft (where the relevant UK instrument permits their carriage), the liferafts must be serviced annually. 
+
+7.2 Before submitting non-SOLAS inflatable liferafts or MES to a Service Station, vessel owners and operators, should check that the station is capable of servicing the particular make and model of equipment by requesting sight of manufacturer accreditation/certification, if necessary to verify the capability of the station to service the raft. 
+
+7.3 It is recommended that owners, masters, or skippers of UK registered ships, fishing vessels, and small commercial vessels should check that the Service Station has been approved/ accredited (as applicable) by the manufacturer. If in any doubt, owners or masters or skippers should contact the manufacturer to be certain that the authorisation is in place. 
+
+7.4 During re-installation of liferafts or MES after servicing, Service Stations and operators should be mindful of specially configured liferafts or MES eg. ‘handed’, where painter and bowsing lines are customised and may vary in length for the specific stowage location on the vessel. Correct re-installation on the vessel is paramount for the safe operation in an emergency. Reference should be made to the equipment manufacturer’s installation plans for the MES. 
+
+8. Non-SOLAS Inflatable Lifebuoys and non-SOLAS inflatable Danbuoys for Small Commercial Vessels 
+
+8.1 Previously, Certifying Authorities (CAs) have approached the MCA to clarify the policy for accepting inflatable lifebuoys and danbuoys on board small commercial vessels. 
+
+8.2 The MCA will accept such inflatable buoys on board UK small commercial vessels and pleasure vessels (where the relevant instrument permits the use of ‘lightweight’ horseshoe type lifebuoys or danbuoys on sailing yachts, and does not specifically preclude the use of such inflatable buoys), providing the following is met: 
+
+8.2.1 The buoy is constructed with materials and components in compliance with the relevant parts of the ISO 12402-7 “Personal flotation devices. Materials and components. Safety requirements and test methods” and tested in accordance with the relevant parts of ISO 12402-9 “Personal flotation devices. Test methods”; 
+
+8.2.2 The buoy provides equal or higher performance to the non-inflatable equivalent that would otherwise be accepted by the MCA; and 
+
+8.2.3 The buoy is serviced in accordance with the manufacturer’s requirements and a service history is maintained on board the vessel. (Where it is not practicable to hold the service information on board, it should be readily available for inspection by the CAs).  
+
+8.3 The MCA will only accept such inflatable buoys meeting 8.2 above on board small commercial vessels where the vessel/managing agent has proven to the relevant CA that it is not practicable to use a non-inflatable buoy, however this will only be accepted for small commercial vessels certificated to operate in area categories 5 and 6 as defined in the Small Commercial Vessel Codes of Practice and MGN 280.  
+
+More information 
+
+Marine Technology Branch 
+Maritime and Coastguard Agency
+Bay 2/27 
+Spring Place 
+105 Commercial Road 
+Southampton 
+SO15 1EG 
+
+Telephone: +44 (0)203 817 2000 
+
+Email: infoline@mcga.gov.uk 
+
+Website: www.gov.uk/mca

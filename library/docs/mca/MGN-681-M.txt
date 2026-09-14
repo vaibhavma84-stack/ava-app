@@ -1,0 +1,299 @@
+MGN 681 (M) MGN 681 (M) Amendment 1 Fire safety and storage of small electric powered craft on yachts
+2026-01-13
+Source: https://www.gov.uk/government/publications/mgn-681-m-amendment-1-fire-safety-and-storage-of-small-electric-powered-craft-on-yachts
+
+Summary
+
+Small electrically powered craft and other vehicles (such as personal watercraft) are becoming more commonly used in place of similar petrol-powered craft or vehicles stowed on yachts. Whilst electric craft do not necessarily represent a greater fire risk than petrol craft, there are considerable differences in best practice for fire prevention, storage, fire detection and fire suppression of such craft, which should be considered when they are stored onboard. This guidance is provided for use where lithium-ion (Li-ion) batteries are used as the source of electrical power. Batteries with alternative chemistries may present a different risk profile during charging or stowage.
+
+Amendment 1 includes clarification for the functionality of storage and charging cabinets or boxes where these are used as part of the solution for the carriage of li-ion batteries used on personal vehicles.
+
+1. Introduction/background
+
+1.1 There has been an increase in the use of small electrically powered craft and other vehicles such as electric tenders, electric jet skis, electric foils (e-foils) and other personal watercraft powered by Li-ion batteries. However, there has not been a thorough consideration of whether the fire prevention, detection and suppression measures previously in-place on large yachts for previous generation petrol-fuelled craft, are appropriate for the newer-battery powered craft.
+
+1.2 Wherever possible, the specific risks associated with the charging and storage of electric personal watercraft and tenders on large yachts should be considered at an early stage of design and construction. It is recognised however, that such equipment may be supplied at a late stage of construction or during the life of existing vessels. New designs should make provisions for the safe charging and stowage of such electrical supplies however these safeguards should be subject to continuous review by the Operator who should update their procedures and practices to ensure safe storage and operation of these systems.
+
+1.3 The guidance contained in this MGN is intended to outline best practices related to design, equipment and outfit of dedicated spaces onboard, and to increase safety for handling, charging and stowage of Li-ion batteries and craft with these in-built. The guidance is explicitly for Li-ion batteries. Batteries with alternative chemistries may present a different risk profile during charging or stowage. Additional measures for such battery types may need to be provided depending on the specific characteristics of the batteries used and a full risk assessment should be conducted and agreed with the administration or class society before they are carried or charged on board. This guidance should be applied where there is no suitable equivalent requirement from class and should be used to inform the risk assessment and mitigations of the ships safety management system when carrying Li-ion powered small water craft and any spare batteries associated with them. This MGN should not be applied to battery propulsion systems or any other applications outside the stated scope of this MGN.
+
+1.4 On vessels subject to the Safety of Life at Sea (SOLAS) convention, Chapter II-2, as amended, the provisions of the International Maritime Dangerous Goods (IMDG) code apply to “small electric vehicles such as electric bicycles and kick bikes” and are classified by the United Nations Committee of Experts on the Transport of Dangerous Goods as UN 3171 BATTERY-POWERED VEHICLE or BATTERY-POWERED EQUIPMENT. The United Nations Model Regulations include for special provisions when carrying certain dangerous goods depending on how they are carried. Special provision 388 specifies that battery powered vehicles are self-propelled apparatus designed to carry one or more persons or goods, for example bicycles (pedal cycles with a motor) and self-balancing vehicles. Special provision 961 states that those vehicles are not subject to the provisions of the IMDG code if they are stowed in the vehicle, special category, or ro-ro space, or on the weather deck of a roll-on/roll-off (ro-ro) ship, or a cargo space fulfilling the requirements of SOLAS II-2/20 regulation 19. If these conditions are not met, the vehicles should be assigned to class 9 and fulfil the provisions of the IMDG code. Whilst this is written in the IMDG Code with small vehicles for land use in mind, being transported on ro-ro ships, the definitions can equally apply to personal watercraft and small craft. The International Air Transport Association (IATA) in their guidance document “Small Vehicles Powered by Lithium Batteries – Cargo Provisions” include “diver propulsion vehicles” in their list of examples of small Li-ion battery-powered vehicles.
+
+1.5 As these vehicles are categorised as UN 3171 there are some important considerations that apply in SOLAS ships, to reduce the potential fire-risk the same approach should be applied in large yachts.
+
+    1.5.1 There is no exception for vehicles based on battery size, so even small vehicles with a battery capacity of less than 100 watt-hours (Wh) would still have to comply with the requirements.
+
+    1.5.2 If the battery is removed from the vehicle, it is subject to different carriage requirements as it would be categorised as UN 3480, this would also apply to any spare batteries carried. All Li-ion batteries rated as over 100 Wh would then be subject to special carriage requirements in ships where SOLAS Chapter II-2 applies and on commercial yachts over 500GT in accordance with the Red Ensign Group (REG) Yacht Code. For example, a typical laptop computer will have battery around 40 Wh, a mobile phone around 10 Wh and a battery-operated vacuum cleaner around 65 Wh.
+
+1.6 All batteries over 100 Wh for use with electric vehicles should be subject to the storage requirements in section 4 of this MGN.
+
+1.7 Large yachts that carry petrol powered personal watercraft and/or petrol as fuel require garages and other storage spaces that comply with the Red Ensign Group (REG) Yacht Code Part A – Chapter 14. With the requirement for SOLAS vessels to carry small electric vehicles in spaces designed with the fire protection requirements equal to that required for petrol vehicles, this should be applied for yachts complying with the REG Yacht Code and is recommended as best practice for pleasure yachts.
+
+1.8 Due to the nature of the fire risk from Li-ion batteries it is recommended that additional fire prevention and suppression measures are provided where electrical craft are carried in garages. Electric craft should NOT be stored in garage spaces that do not comply with the minimum requirements of Part A – Section 14.1 of the REG Yacht Code, Chapter 14.1.
+
+1.9 Increased understanding of the fire risks from Li-ion batteries among yacht crew, designers and owners should lead to better practice and increased fire safety.
+
+2. Application of the guidance
+
+2.1 This guidance is issued with yachts complying with Part A of the REG Yacht Code as its basis, but the concepts and practises provided can be used for any yachts that carry vehicles powered by Li-ion batteries.
+
+2.2 This guidance is provided as an addition to the statutory requirements and class rules to supplement them where applicable. Where there is discrepancy between this MGN and statutory requirements or class rules the statutory requirements should take precedence, then class rules and finally the guidance provided within this MGN.
+
+2.3 While parts of this MGN provide guidance that is only practical to implement in new build vessels other parts are applicable to vessels of any age. The guidance provided should be considered where practical for the vessel and incorporated into the vessels safety management system as appropriate.
+
+2.4 The guidance included is for Li-ion batteries of over 100 Wh in capacity to align with the categorisation from UN 3171 for use with electric vehicles of any type. It is unlikely that personal equipment such as mobile phones and laptop computers will be powered by a battery larger than 100 Wh and this guidance is not intended to restrict the use and charging of these items onboard. However, crew should be aware of the risk posed by these smaller Li-ion batteries, especially where they are stored such that the aggregate capacity of batteries is greater than 500Wh.
+
+3. Li-ion Batteries fire risk overview
+
+3.1 Electric powered personal watercraft are most commonly powered by Li-ion batteries. Li-ion battery fires can be self-sufficient and continue to burn without access to additional oxygen, they may also continue to generate high amounts of heat following fire-extinction and are at risk of re-ignition.
+
+3.1.1 Typical battery sizes for electric powered personal watercraft are;
+
+Electric Tenders:
+40-100 kWh
+
+Electric Jet Skis:  
+20-50 kWh
+
+Electric Diver Propulsion Units (Bobs): 
+1-3 kWh
+
+Electric Foils:  
+  1-5 kWh
+
+Electric Stand-Up Paddleboards (SUPs):  
+1-5 kWh
+
+As a comparison a small electric car will have a battery of 25 kWh and larger electric cars in the range of 60 kWh to 80 kWh, larger electric cars (with similar battery capacity as larger electric tenders) can require around 10,000 litres of water to be applied to fully supress a battery fire (depending on battery size and application method).
+
+3.2 The common Li-ion battery consists of Li-ion cells; these cells are considered dry-cells. If damaged, usually only a small amount of clear fluid will leak. The battery and drive-unit in tenders and jets skis are often liquid-cooled with a typical glycol-based automotive coolant. If this blue coolant is found to leak the battery casing may be damaged. Either a blue or clear fluid leak may indicate that the battery is damaged and should prompt further action. Smaller battery systems may have a different arrangement and the manufacturers user manual should be consulted to determine what fluid leaks, if any, may indicate battery damage.
+
+3.3 Thermal-runaway is the event most associated with catastrophic Li-ion battery fires and occurs when the heat generated within a battery exceeds the amount of heat that is dissipated to its surroundings. Internal battery temperature will continue to rise, which will cause the battery current to rise; without intervention (such as cooling) this feedback loop continues causing further heat rises and potential fire-spread or explosion. The likelihood of this is reduced by modern Li-ion battery design which allows the battery to vent instead of exploding. Once thermal runaway has begun, the battery fire will rapidly increase in intensity and become very difficult to supress.
+
+3.4 Immediately preceding and during thermal-runaway, off-gassing occurs - this is a release of various gases from the battery, including carbon dioxide, carbon monoxide, hydrogen, and volatile organic compounds. During the early phase of their generation the off-gases can be heavier than air and accumulate at deck-level or be lighter than air and dissipate, or accumulate at deck-head level, and it is not possible to predict which will dominate. These off-gases are flammable and hazardous to health.
+
+3.5 As well as the above listed gases produced when a Li-ion battery burns, the following can be released as vapours or particulates in the gases: hydrogen chloride, hydrogen cyanide, soot, oxides of nickel, aluminium, lithium, copper, cobalt, and hydrogen fluoride. These vapour clouds are potentially explosive and are hazardous to humans.
+
+3.6 A damaged Li-ion battery can create rapid heating of the battery cells. If you notice any of the following; hissing, whistling, or popping, a possible sweet chemical smell, then black “smoke” (nanoparticles of heavy metals, not smoke) then white vapour coming from the Li-ion battery or the watercraft generally, assume that it is heating and take appropriate firefighting measures. Each vessel should have an emergency SOP based on accepted risk assessments.
+
+3.7 The risk of fire is greatly increased when a battery is damaged, where the risk of saline penetration is high as would be the case with personal watercraft.
+
+4. Storage and charging
+
+4.1 Electric powered personal watercraft and small craft should be stored in spaces that as a minimum comply with requirements of Chapter 14.1, Part A of the REG Yacht Code or within a container meeting equivalent fire protection, firefighting, ventilation and monitoring standards as Section 14.1 of the REG Code Part A.
+
+4.2 Spare or removable batteries with a rating above 100Wh (0.1 kWh) should be stored in a dedicated cabinet or locker constructed according to a recognised international standard including but not limited to EN 14470, EN 16121 and EN 16122, or an approved dedicated battery storage and charging cabinet or locker complying with 4.12 and 4.13 of this MGN, within a space complying with REG Yacht Code Part A, Chapter 14.1 (except where otherwise permitted by section 4.3). This cabinet or locker is for use inside a space complying with the requirements of the garaging space as included in the REG Yacht Code Part A or within a container meeting equivalent fire protection, firefighting, ventilation and monitoring standards as Section 14.1 of the REG Code Part A.
+
+4.3 Storage of spare or removable batteries above 100Wh is not permitted outside of these spaces except on open decks in a dedicated cabinet complying with 4.12 and 4.13. This cabinet shall be located at least 1.0m away from any combustible material (including ceilings) and shall not be located along any emergency escape route, or adjacent to any embarkation station or lifesaving appliances.
+
+4.4 All batteries should be stored, charged, and operated in accordance with the parameters set by the manufacturer. This includes operational instructions, maintenance requirements, permissible temperature ranges and humidity limitations.
+
+4.5 All batteries above 100 Wh should be provided with appropriate third-party Conformity Assessment such as UKCA or equivalent and be in compliance with IEC 62619 and/or IEC 62620 where appropriate. Batteries and associated systems, such as chargers, should be sourced from reputable manufacturers and retailers, and have appropriate certification.
+
+4.6 Damaged electric craft and electric batteries should be stored with extreme caution and should be unloaded at the first available opportunity for disposal or repair by a suitable land-based service provider. Damaged batteries must not be charged, and any charging should be ceased immediately if damage occurs during charging. Exposure to damaged batteries can cause severe irritation to the respiratory tract, eyes and skin and some cell chemistries and designs may emit hazardous gases that are both toxic and flammable; extreme care should be taken when handling damaged batteries.
+
+4.7 In the selection of battery-powered vehicles, tenders and to other personal watercraft, care should be taken to minimise the number of types and styles of batteries and charging systems on board. A serious potential hazard may arise from the use of incompatible charging equipment or incorrect handling or charging procedures.
+
+4.8 Battery charging activities should only be undertaken in dedicated spaces complying with the requirements of Chapter 14.1, Part A of the REG Yacht Code. Where these spaces are inside the vessel they should not;
+
+   4.8.1    be located forward of the collision bulkhead;
+
+   4.8.2    be located inside Category A machinery spaces;
+
+   4.8.3    be located adjacent to any boundary with Category A machinery spaces or spaces containing the main source of electrical power, associated transforming equipment (if any) or the main switchboard. Batteries under charge should be positioned at least one metre away from any of the boundaries described above. For vessels under 500GT this requirement should be met where practicable, but where not, a risk assessment should consider the associated risks and how these are mitigated.
+
+4.9 Where charging and storage spaces are fitted with shell door(s) they are to be equipped with additional shell door emergency controls which should be able to be operated from outside of the space to open shell door(s) to enhance natural ventilation in case of a battery fire, dependent on the fixed firefighting system employed.
+
+4.10 Charging and storage spaces for Li-ion batteries should be temperature controlled or monitored to ensure that they are not too hot. Manufacturers estimate that the minimum temperature in the battery where potential exists for thermal runaway to begin are between 60 °C and 70 °C so ambient temperatures in the storage space should not be allowed to rise above 45 °C. A means to monitor the temperature of these spaces should be included with integration into the ships alarms and control system where practical.
+
+4.11 In all spaces used for the storage of electric powered personal watercraft, electric tenders and/or Li-ion (or similar) batteries of over 100 Wh, any electrical equipment should either be of certified safe type (Ex T2 IIC or equivalent) or should be able to be electrically isolated from a safe location outside the space. The spaces should be equipped with certified safe type (Ex T2 IIC or equivalent) emergency lighting & low location lighting to mark escape ways.
+
+4.12 Where charging activities take place outside of the garaging space and use a approved[footnote 1] dedicated charging cabinet, this should be suitably secured and be supervised at all times and provide a means to allow:
+
+    4.12.1 Charging activities to take place while the charging cabinet is closed.
+
+    4.12.2 Detection of temperature rise inside the cabinet and indication that there is an over temperature event.
+
+    4.12.3 A suitable extinguishing medium to be applied to the battery in the event of a battery fire without opening the cabinet.
+
+    4.12.4 Venting of off-gases to prevent overpressure and a build-up of explosive gases.
+
+4.13 Any charging cabinet should be suitably insulated to prevent spread of fire from any battery fire and should be constructed such that it provides suitable protection from explosion.
+
+    4.13.1 Charging should be automatically stopped if any fault/overheating is detected.
+
+4.14 Storage or charging cabinets or boxes should have a maximum capacity limit (in kWh) that must not be exceeded.
+
+4.15 For yachts 500GT and over, all boundaries of the spaces for charging and storage of electric powered personal watercraft, electric tenders and/or Li-ion batteries of over 100 Wh are to be provided with ‘A-60’ insulation unless any one of the following applies:
+
+    4.15.1 The space is adjacent to spaces of negligible fire risk only, such as cofferdams, void spaces or similar, then ‘A-0’ should apply.
+
+    4.15.2 If it can be shown by calculation that the maximum heat absorption of the water mist or sprinkler installation is sufficient to prevent any part of the boundary outside of the protected space increasing by more than 140 °C during thermal runaway of all cells, then A-0 may be applied.
+
+    4.15.3 For vessels under 500GT, A-30 should apply. Where charging is conducted on the open deck where the risk of fire and accumulation of toxic gas is minimised, the stowage of all batteries complies with 14.1 of REG Yacht Code Part A and batteries not contained within a vehicle (e.g. Spares) are stored within a dedicated cabinet or locker constructed according to paragraph 4.2 of this MGN, the structural fire protection requirements of the compartment may be omitted.
+
+    4.15.4 For vessels with ‘Short range’ restriction, B-15 or equivalent should be applied, if the requirements of 4.12 of this MGN for open deck charging and storage of spare batteries is met the structural fire protection requirements of the space may be omitted.
+
+4.16 Battery compartments are to be provided with ducted mechanical ventilation capable of extracting toxic and explosive gases released during a battery fire, complying with REG Yacht Code REG-A 14.1(5)(c).
+
+    4.16.1 The capacity of the ventilation system should be sufficient or capable of being increased on demand in case of off-gas detection or a battery fire, to a higher number of air-changes that will be determined based upon staying below the lower explosion limit (LeL), (assuming all cells go into thermal runaway) based on the total aggregated power rating of the batteries stored in that space.
+
+    4.16.2 Exhaust ducting should be arranged to extract from both the upper and lower part of the compartment. The system should be independent of all other ventilated spaces unless serving multiple battery compartments isolated from one another with automatic fire-dampers.
+
+    4.16.3 Ducting (including fire-dampers where used) should be so constructed as to maintain the fire-rating of the compartment as determined by 4.10 in this guidance.
+
+    4.16.4 Provisions should be made to re-open fire-dampers and re-activate ventilation of the compartment after initial ventilation shut-down and activation of fire-dampers, without the need to enter the battery space.
+
+4.17 Where batteries are stored in spaces used for the carriage of vehicles or craft with fuel in their tank the following should also be provided:
+
+    4.17.1 Batteries located up to 450mm above the deck should be certified safe for petrol vapours. Batteries located higher than 450mm should be IP55 standard or with capability to isolate all poles where IP55 rating is not practicable to align with the electrical requirements of SOLAS II-2 Regulation 20 3.2.2.
+
+    4.17.2 The space should be fitted with suitable signage according to sections 4.13.1.
+
+    4.17.3 Unless charging stations are specifically designed for the special category space equivalent to a hazardous area zone 2[footnote 2], they should not be located within the space. A charging station, meeting the requirements of this MGN should be located as close as practicable to the battery storage compartment.
+
+    4.17.4 The capacity of the fixed fire-fighting system should be based on the total fire-load (including batteries and other sources of fire-load) within the space.
+
+    4.17.5 Batteries (in a vehicle or stored in dedicated cabinets or lockers) should be stowed as far away as is practicable from petrol tanks or petrol driven craft.
+
+4.18 Where battery driven tenders or other electric craft are proposed to be stored externally, due consideration should be given to the risks of direct sunlight. In all cases the manufacturer’s guidance should be complied with and maximum storage and charging temperatures should be taken into account given the ambient conditions.
+
+4.19 Charging of batteries and battery operated vehicles should only be conducted inside the dedicated battery compartment or externally and in accordance with the manufacturer’s instructions. Where batteries are removable, charging should be conducted in a dedicated charging station provided it complies with the following:
+
+    4.19.1 has a clear notice identifying the type of battery and or equipment for which it is suitable as well as the maximum size of battery allowed to be charged in kWh;
+
+    4.19.2 is free of sources of ignition and flammable materials;
+
+    4.19.3 is clear of potential loose items or should have such items secured against movement at sea;
+
+    4.19.4 has means for mechanically securing the batteries on charge to prevent movement, cable disconnection, cable damage, or mechanical damage at sea;
+
+    4.19.5 the charging connections should be an approved type (for example UKCA, CE, UL etc.) protected with a cap;
+
+    4.19.6 if located externally, should be suitably protected from direct sunlight and it is recommended the space be provided with CCTV and thermal imaging cameras and suitable IP rating as agreed with the vessels class society.
+
+4.20 Charging operations should only be conducted by competent persons who have the necessary skills and experience to understand the risks associated with Li-ion battery charging. This should be defined in the vessel’s safety management system.
+
+4.21 An automatic stop of all battery charging processes in case of a detection of a fire or high temperatures in the space, is to be provided.
+
+4.22 Where batteries above 100 Wh are charged, chargers should be fed by a dedicated electrical circuit and appropriate devices such as residual current devices (RCDs) should be in place to ensure the safe shut-down of the equipment in the event of accident or failure of the mains electrical supply.
+
+4.23 For tenders or vehicles with batteries (above 10 kWh) that can be stored and charged externally (including those where the battery cannot be removed from the vehicle), the following should be provided (noting that many of these are the responsibility of the builder of the tender):
+    4.23.1 the batteries should be contained inside an enclosure capable of containing a battery fire. The type and quantity of insulation should be appropriate to the temperatures expected during a thermal runaway;
+
+    4.23.2 a flexible metal vent-tube should be connected to the battery enclosure whenever it is stowed, or on charge, inside the battery compartment. The vent-tube should exhaust to a safe zone outside the vessel and be suitable for the temperatures expected during thermal runaway. The ventilation outlet is to be considered in the vessels hazardous area plan;
+
+    4.23.3 with a Battery Management System (BMS) interfaced with the yacht’s systems complying with section 4 where available;
+
+    4.23.4 with a quick-release power and signal cable.
+
+5. Product Type Approval
+
+5.1 All battery storage and charging containers/boxes should be approved and certificated by a UK Nominated Body as defined in Annex 2 of MSN 1874 as amended. These containers/boxes are classified as marine equipment and as such are required to be UK type approved under the Merchant Shipping (Marine Equipment) Regulations 2025. To allow sufficient time for manufacturers to gain this approval and utilise existing stock, this requirement will be effective from 1st January 2027, therefore all Lithium-Ion battery storage and charging containers/boxes placed on board UK registered vessels must be UK Type Approved and certified by this date. Those already on board prior to 1st January 2027 can remain on board, however, it is recommended that they are replaced with the appropriately approved and certified items as soon as possible.
+
+6. Battery Management Systems (BMS)
+
+6.1 The BMS can monitor the total battery current, the total battery voltage, the individual cell voltage, battery current and the temperature throughout the battery module. It monitors the batteries health at fixed intervals and can regulate the temperature through thermal management systems to keep the battery within the optimum temperature range for performance, even whilst ambient temperatures are outside of the optimum charging temperature range (15 °C to 35 °C).  If the BMS detects a problem, it is programmed to implement countermeasures depending on the severity of the fault detected; this can vary from de-activating faulty cell/cells to de-activating entire modules or even disconnecting the entire battery from the electrical system (to prevent thermal runaway as a result of overcharging). BMS failures can result in failure of the battery and a battery fire.
+
+6.2 BMS systems are more commonly found in higher capacity battery systems.
+
+6.3 Where batteries are provided with such functionality, their BMS should be interfaced with the ship’s alarm system or safety centre and should:
+
+    6.3.1 monitor the condition of the battery during charging and storage to supervise cell temperatures, state of charge and state of health;
+
+    6.3.2 indicate any malfunction or abnormality like an increase in cell temperature resulting in an audible and visual alarm and shutdown of charging.
+
+6.4 Where a BMS is not present in the device being charged a cable with an in-line residual current device (RCD) as would be seen in mode 2 charging for electric vehicles.
+
+7. Fire Detection and Alarm
+
+7.1 Battery compartments should be fitted with a suitable monitoring system incorporating fixed smoke, heat and gas detectors in accordance with manufacturer’s recommendations. The system should be capable of providing early identification of a fire, thermal runaway, and battery off-gassing and comply with the following:
+
+    7.1.1 Closed-circuit television (CCTV) camera(s) should be fitted, providing surveillance over battery stowage and charging locations at a continuously manned control position, an Infrared (IR) camera or other thermal imaging system is recommended (see below).
+
+    7.1.2 A fixed fire detection and fire alarm system complying with the requirements of SOLAS II-2/Part A / Fire Safety Systems Code Chapter IX.
+
+    7.1.3 An audible and visual alarm should activate locally and at a continuously manned control position, in case of detecting any abnormalities (e.g. increase of temperature in time, smoke, etc).
+
+7.2 Off-gas detectors are not required but these are a developing technology which may aid with  early stage Li-ion fire detection. When considering the use of off-gas detectors for early thermal-runaway detection the presence of other conventionally fuelled vehicles, which also produce many of the same gases in their exhaust on in the space, will likely cause false alarms until the deck is cleared of exhaust gases. Air circulation systems and natural ventilation may result in the off-gases being mixed with air and being difficult to detect at lower concentrations. If off-gas detectors are used, it is recommended that they are used to detect gases not normally present in exhaust fumes, such as the long chain hydrocarbons and droplets of volatile organic compounds. However, the use of off-gas detectors in early-stage thermal runaway detection is a developing area; such specialised detectors are expensive and there is not yet strong evidence for their efficacy in a marine environment where many factors can influence the concentration of gases.
+
+7.3 The use of thermal imaging cameras is not required, but is a potentially useful tool for early stage fire risk detection, and both hand held cameras used by ships’ crew during patrols, or as part of a fixed system, have been shown to be effective in identifying battery fire risks in other marine environments and should be considered for use monitoring Li-ion batteries in personal watercraft. Overheating is a common symptom of failed batteries and warning that at least some cells may be in thermal runaway. Increase in battery temperature will be anticipated during charging so care should be taken in determining what temperature rise should trigger alarms. Thermal imaging investigations should be undertaken if there are any concerns over a vehicle raised by the fire patrol. Early warning of overheating vehicles may be possible with periodic use of thermal imaging cameras and recording of results. Manufacturers estimate that the minimum temperature in the battery where potential exists for thermal runaway to begin are between 60 °C and 70 °C.
+
+8. Fire Suppression
+
+8.1 Battery compartments should be protected by an appropriate automatic water-based fixed fire-fighting system in accordance with SOLAS II-2, Part C, Regulation 10.4.1.1.3 capable of manual or automatic activation from outside the space. Both manual and automatic activation from outside the space is recommended.
+
+8.2 Alternative methods to the fixed fire-fighting systems described in 8.1 may be proposed for approval by the Administration. Water-mist systems have been shown to be the most effective solution in battery-fire suppression.
+
+8.3 Especially where Li-ion batteries are built into vehicles or craft it is difficult to apply water directly to the battery, water provided in large quantities is effective in cooling the fire to prevent fire spread.
+
+8.4 The number and position of hydrants are to be such that at least two jets of water not emanating from the same hydrant, each from a single length of hose, can reach any part of the dedicated battery compartment. Such hydrants are to be positioned in close proximity to the entrance(s) to the compartment. Any part of the fire-fighting system which crosses through the battery compartment without serving it, is to be avoided.
+
+8.5 The battery space is to be provided with a minimum of two portable fire-extinguishers, suitable for battery fires, located outside the compartment or near the entrance(s). Battery driven tenders or other large vehicles should additionally be provided with a suitable portable extinguisher on board the vehicle itself.
+
+8.6 Battery fire suppression blanket(s) and/or containment bag(s) appropriate to the battery inventory should be carried. Where fire blankets are used care should be taken around the exposure of the deck below to the heat from the Li-ion battery fire as well as around the potential for explosive and toxic gas to build up under the blanket that may cause harm when the blanket is removed.
+
+8.7 The equipment and arrangements described in this Annex should be included on the vessel’s Fire Control Plan.
+
+8.8 Personal Protective Equipment (PPE) for the handling of spilled electrolytes should be provided. Safety Data Sheets associated with such electrolytes (e.g. lithium hexafluorophosphate (LiPF6)), should also be carried for reference to wider applicable safety measures.
+
+8.9 Portable atmosphere testing instruments should be carried according to REG Yacht Code REG-A 19.7(1) and (2).
+
+8.10 It is critical that personnel expected to respond to Li-ion battery fires are made aware of the risk posed by electric equipment in electric personal watercraft and tenders. It is essential, as part of the firefighting measures, to ensure that the ship’s electrical supply to any battery being charged, has been cut/isolated before attempting to fight the fire. Where the battery is isolated from the ship’s electrical supply (i.e. is not being charged) the risk of electric shocks during electric vehicle firefighting is very low.
+
+8.11 Reignition post successful suppression of a Li-ion battery fire is a risk and batteries, or vehicles/craft containing Li-ion batteries should be monitored by crew trained in firefighting ready to undertake additional fire-suppression measures until the vehicle has been removed from the vessel.
+
+8.12 It is recommended that all operators who are required to carry firefighting suits, consider the use of firefighting suits with level 2 heat protection, water penetration and water vapor resistance according to BS EN 469:2020. While the minimum firefighting suit requirements in SOLAS Chapter II-2 permits level 1, the fire intensity from Li-ion batteries is high and the greater degree of protection offered by the level 2 suits is recommended. Additional fire PPE such as hoods / balaclavas approved to BS EN 13911:2017 and full coverage undergarments should be considered.
+
+8.13 Responders should always protect themselves with full PPE, including a self-contained breathing apparatus (SCBA), which should be worn whenever at risk of exposure to the smoke from a Li-ion battery fire, and take appropriate measures to protect crew and passengers downwind from the incident. Muster points should be used that are not exposed to smoke where practicable.
+
+8.14 Procedures should be developed for decontamination of firefighters and handling of contaminated clothes and equipment after any firefighting operation where there was exposure to smoke from an electric vehicle. The smoke produced by a burning electric craft and their batteries may contain hydrogen fluoride, a hazardous substance that may penetrate protective clothing. It is highly corrosive and toxic and will cause chemical burns if it permeates through clothing and comes in to contact with skin. As such the procedures for dealing with clothing and equipment exposed to battery fires may be more onerous than those exposed to other fires onboard.
+
+9. Crew Training
+
+9.1 Crew should be trained in the safe operation, storage and charging of the electric watercraft and other vehicles that are to be carried onboard including in the identification of potential damage and the procedures for disposal or quarantining of any damaged equipment or batteries.
+
+9.2 Safe Operating Procedures should be included in the vessel’s Safety Management System and crew with specific duties involving battery equipment given adequate familiarisation and training to carry out these duties safely.
+
+9.3 The response for dealing with any battery fires should be included in the vessels safety management systems and drills for dealing with these types of fires should be conducted at an interval to be agreed with the administration.
+
+9.4 Crew should be fully trained and competent in the use of any specialist equipment such as Li-ion specific fire extinguishers, fire blankets, IR cameras etc. that are to be used in fire detection or firefighting of Li-ion batteries.
+
+9.5 In recognition that Li-ion battery fires are extremely difficult to extinguish, all crew should be trained in identifying the early signs of battery problems before they become a serious hazard to the ship, including but not limited to:
+
+•
+the potential for sudden onset of thermal runaway;
+
+•
+the difficulty in extinguishing due to the self-sufficient nature Li-ion batteries and their ability to continue to burn without access to additional oxygen;
+
+•
+the hazardous gases produced during battery fires, and;
+
+•
+the potential for re-ignition for a long period after any fire has been supressed.
+
+9.6 A post-incident action plan for the quarantine or disposal of batteries following any battery fire along with a clean-up plan that is cognisant of local regulations for run-off including toxic elements should be developed and included in staff training as part of the vessel’s safety management system.
+
+9.7 It is recommended that due to the unique challenges posed by Li-ion and similar batteries that a named person on-board is appointed as being responsible for the safe operation, maintenance and response to emergencies involving Li-ion batteries. This could be the Safety Officer, the Master, Chief Engineer, etc.
+
+More information
+
+Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: regyachtcode@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+•
+Approval will be to a relevant standard by a UK Nominated body as listed in MSN 1874 as amended. Multiple standards may be used to satisfy different performance parameters (for example temperature rise detection will be satisfied against a relevant detection standard, and fire containment to a recognised containment standard) until a recognised battery charging case standard is developed. ↩
+
+•
+ATEX ZONE 2 DEFINITION – Zone 2 is a hazardous area classified as an atmosphere where a mixture of air and flammable substances in the form of gas, vapour or mist is not likely to occur in normal operation, but if it does occur, will persist for a short period only. ↩

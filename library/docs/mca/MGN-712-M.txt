@@ -1,0 +1,61 @@
+MGN 712 (M) MGN 712 (M) Electronic inclinometers for new container ships and bulk carriers
+2025-11-25
+Source: https://www.gov.uk/government/publications/mgn-712-m-electronic-inclinometers-for-new-container-ships-and-bulk-carriers
+
+Summary
+
+This notice sets out the new requirement introduced under SOLAS Regulation V/19.2.12 through Resolution MSC.532(107), mandating the carriage of electronic inclinometers (or other means) on new containerships and bulk carriers of 3,000 gross tonnage and above, which will come into force on 1 January 2026.
+
+1. Introduction/background
+
+1.1 To address the growing concern over container loss and bulk cargo damage caused by excessive vessel roll motions, the International Maritime Organization (IMO) has adopted a new requirement under Resolution MSC.532(107). Effective from 1 January 2026, SOLAS Regulation V/19.2.12 mandates the installation of electronic inclinometers (or other means) on newly built containerships and bulk carriers of 3,000 gross tonnage and above to determine, display and record the ship’s roll motion. This regulatory advancement is expected to significantly enhance operational safety, reduce cargo-related incidents, and support more informed decision-making during adverse sea conditions.
+
+1.2 The Merchant Shipping (Safety of Navigation) Regulations 2020 (“the 2020 Regulations”) give effect to Chapter V of the Convention for the Safety of Life at Sea, 1974 (“SOLAS” or “the Convention”) in UK law.
+
+1.3 The 2020 Regulations include an ambulatory reference provision (in regulation 4) to ensure that amendments to provisions of Chapter V referenced in the 2020 Regulations are automatically incorporated into United Kingdom law. As such, the international references in Regulation 5 of the 2020 Regulations are ambulatory, and United Kingdom law will automatically update if amendments are made to those referenced provisions. This means that, from 1 January 2026, Resolution MSC.532(107) will enter into United Kingdom law through the ambulatory reference provision.
+
+1.4 This amendment has been accepted by the United Kingdom and so will be publicised in advance of its in-force date by a Parliamentary Statement to both Houses of Parliament and is advised to the public and other relevant stakeholders by this Marine Guidance Note (MGN).
+
+1.5 This Guidance Note explains the applicability of the requirement for an electronic inclinometer, and the required performance standard.
+
+2. Requirement of Electronic Inclinometer
+
+2.1 Containerships and bulk carriers of 3,000 gross tonnage and upwards constructed on or after 1 January 2026 shall be fitted with an electronic inclinometer, or other means, to determine, display and record the ship’s roll motion.
+
+2.2 It does not apply to existing bulk carriers and container ships, nor to cargo ships occasionally carrying cargo in bulk and general cargo ships carrying containers on deck.
+
+ 3. Definition of Bulk Carrier and Containership 
+
+3.1 Bulk carrier means a bulk carrier as defined in SOLAS regulation XII/1.1[footnote 1].
+
+3.2 Containership means a ship which is intended primarily to carry containers[footnote 2].
+
+4. Performance Standards
+
+4.1 Performance standards for electronic inclinometers are contained in Resolution MSC.363(92)
+
+5. Safety Certificates and records
+
+5.1 The Regulatory Amendment also provides that “Containership” will be recorded as a ship type option on the SOLAS Safety Equipment Certificate for Cargo Ships.
+
+5.2 The electronic inclinometer will be recorded under Section 3, ‘Details of navigational systems and equipment’, in the Record of Equipment for the Cargo Ship Safety Equipment Certificate (Form E).
+
+More information
+
+UK Technical Services Navigation
+Maritime and Coastguard Agency
+Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+•
+Refer to Clarification of the term ‘bulk carrier’ and guidance for application of regulations in SOLAS to ships which occasionally carry dry cargoes in bulk and are not determined as bulk carriers in accordance with regulation XII/1.1 and chapter II-1 (resolution MSC.277(85)). ↩
+
+•
+Refer to the term ‘container’ as defined in article II of the International Convention for Safe Containers (CSC), 1972.” ↩

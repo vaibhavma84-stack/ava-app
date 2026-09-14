@@ -1,0 +1,294 @@
+MGN 663 (F) MGN 663 (F) Enclosed space entry on fishing vessels
+2023-03-21
+Source: https://www.gov.uk/government/publications/mgn663-f-enclosed-space-entry-on-fishing-vessels
+
+Summary
+
+This note warns of the unseen risks from the build-up of gases in enclosed spaces such as Refrigerated Salt Water (RSW) tanks and fishholds and provides guidance on the management of such risks and of the safe entry into enclosed spaces. It also provides details of the requirements of The Merchant Shipping and Fishing Vessels (Entry into Enclosed Spaces) Regulations 2022, which apply to fishing vessels from 14 May 2023.
+
+Key Points
+
+• Avoid entry into enclosed spaces unless absolutely necessary
+
+• Be aware of what constitutes an enclosed space
+
+• Be aware of the procedures for prevention of the risk
+
+• Be aware of how to test the atmosphere
+
+• Be aware of the preparations required before entering
+
+• Be aware of how to work while in an enclosed space
+
+• Be aware of how to rescue others.
+
+1. Introduction/background
+
+1.1 Enclosed space entry can be dangerous but sometimes essential part of the fishing operation. To protect fishermen from the dangers of enclosed space entry, Regulation 7 of The Merchant Shipping and Fishing Vessels (Entry into Enclosed Spaces) Regulations 2022 (“the 2022 Regulations”) has been applied to fishing vessels.
+
+1.2 Regulation 7 (Entry into enclosed spaces) applies to Fishing Vessels and states:
+
+$LegislativeList
+* 7. In respect of each ship on board which there is an accessible enclosed space-
+
+* a) the shipowner, the employer and any other person referred to in regulation 4 (persons on whom duties are imposed) of the 1997 Regulations(a) must each ensure that-<BR><BR>
+
+* (i) the system of work provided and maintained in accordance with regulation 5 (general duties) of the 1997 Regulations(b) include systems for entry into and working in enclosed spaces; and<BR><BR>
+
+* (ii) assessments of risks of entry into and working in enclosed spaces are made in accordance with regulation 7 (risk assessment) of the 1997 Regulations(c);<BR><BR>
+
+* b) the master must ensure that the systems of work referred to in sub-paragraph (a)(i) are observed on board the ship;<BR><BR>
+
+* c) no person may enter or remain in an enclosed space, except in accordance with the systems of work referred to in sub-paragraph (a)(i).<BR><BR> $EndLegislativeList
+
+1.3 Those with duties imposed on them should ensure that they base their arrangements on their Risk Assessment.
+
+1.4 Whilst Regulations 6, 8 and 9 of the 2022 Regulations do not apply to fishing vessels, they represent best practice. Compliance with their provisions which relate to Entrances to Enclosed Spaces, Drills and Testing Equipment, or with equivalent protections based on risk assessment, will generally demonstrate that the fishing vessel owner has done what is reasonably practicable to comply with their duty under Regulation 7 to provide a safe system of work for entry into enclosed spaces.
+
+2. What is meant by an enclosed space?
+
+•
+2.1 According to the regulations an “enclosed space” means a space which is not designed for continuous worker occupancy and has either or both of the following characteristics –
+
+•
+a) limited openings for entry and exit;
+
+•
+b) inadequate ventilation
+
+2.2 Enclosed spaces can become hazardous if they develop an oxygen-deficient, oxygen-enriched, flammable and/or toxic atmosphere. These hazards can be found on fishing vessels; due to the decay of waste material, the exhaust from machinery, corrosion or rusting[footnote 1] of the vessel, and leaks of refrigerant gas. Build-up of toxic gases or reduction of oxygen can cause asphyxiation or loss of consciousness in a matter of minutes.
+
+2.3 The risks of enclosed space entry on fishing vessels depends on their use. It is recognised that spaces such as fishholds and RSW tanks may meet some of the criteria of enclosed spaces but not all. These spaces have limited entry and exits and limited ventilation but in the operation of a fishing vessel fishholds are areas that are designed for worker occupancy, often being visited several times a day; RSW tanks less frequently. Nonetheless, it should be noted that these spaces pose a risk and must be risk assessed properly.
+
+2.4 In light of this, there are various scenarios and paragraphs 2.5 to 2.8 below give further information on when Regulation 7 should be applied. It is important to note however, that potentially many spaces on a fishing vessel can be or become an enclosed space if they meet either of the criteria in 2.1.
+
+2.5 Spaces that are considered enclosed, (according to description at 2.1) can include fuel tanks, ballast tanks, chain lockers or other tanks i.e. Sewage Holding, lub oil etc.
+
+2.6 Spaces not typically enclosed but during normal operations would meet the description at 2.1 above can include Fishholds/rooms, Refrigerated Sea Water (RSW) and Vivier tanks, and any spaces sealed for prolonged periods
+
+2.7 Spaces such as fish rooms and tanks are to be treated as enclosed spaces if closed for 2 to 3 or more days, due to the build-up of toxic gases or reduction of oxygen due to decaying fish matter, gas leaks etc.
+
+2.8 Spaces such as fish rooms and tanks are to be treated as enclosed when entering for cleaning with chemicals.
+
+2.9 Awareness of potential risks is necessary for all spaces on board ship. If in any doubt, any such space should be regarded as enclosed and appropriate action taken.
+
+2.10 Extreme caution should be exercised before entering any space on board a ship that has been sealed up for some time.
+
+2.11 It is also important to consider that the atmosphere of spaces can change, and that any atmosphere can potentially become hazardous. Any spaces that are, or may become connected to, an enclosed (or formerly enclosed) space, can cause the space to become unsafe too. For example, when a tank is opened, the atmosphere in the space where the person opening the tank is standing could become unsafe. Work activity and leaks can also create harmful atmospheres. This includes leaks of refrigerant gas, water ingress, oxygen-depleting work (burning, welding), pressure and ventilation failure, and vapours from cleaning chemicals and paints.
+
+2.12 Any potential enclosed spaces on board ship should be identified using risk assessment and kept under review. It is recommended that a register is made of any enclosed spaces. Suggestions for inclusion in a register are attached at Annex A.
+
+3. Risk assessment
+
+3.1 A competent person should follow company procedures to assess the risks of enclosed spaces. Based on the findings of the risk assessment appropriate control measures should be put in place to protect anyone who may enter an enclosed space. Further information on risk assessment for fishing vessels can be found on GOV.UK: Fishing Vessel Risk Assessment and Safety Management Systems.
+
+3.2 It should be noted that enclosed spaces may be dangerous on account of a number of factors. A risk assessment should not be limited only to entry into an enclosed space but to also consider the environment and activity as a whole and any other potential safety hazards, including, but not limited to, low lighting and reduced visibility, trip hazards, low ceilings and narrow walkways. In addition, any activity which may cause a change in atmosphere such as hot-work and use of paints, glues and coatings, should be risk assessed and it should be considered whether the area in which this is carried out may meet some or all of the criteria that make an enclosed space.
+
+3.3 Consideration should be given to the particular vessel’s design, as layout and places frequently visited by crew can still develop into a hazardous environment.
+
+3.4 Spaces that are connected to enclosed spaces can become dangerous or lead the enclosed space to become dangerous, due to the movement of gases between the spaces. Awareness of this risk, and the fact that atmospheres can change over time, should be maintained.
+
+3.5 On any ship carrying goods or materials, the nature of these and their ability to decay and/or release chemicals into the atmosphere should be considered.
+
+4. Risk prevention
+
+4.1 Unless it is absolutely necessary, DO NOT open or enter enclosed spaces whilst at sea.
+
+•
+4.2 Whilst it may seem that there will never be a need for crew to enter a space, consider what would happen in an emergency, or if urgent maintenance was needed. Consider:
+
+• 4.2.1 If the space needs to be cleaned or inspected regularly?
+
+• 4.2.2 If there was an emergency, would you need to enter the space?
+
+• 4.2.3 If the crew had a reason to enter the space, would they have the knowledge, skills and equipment to do it safely?
+
+• 4.2.4 If someone was found in the space unconscious, how would you rescue them without putting others at risk?
+
+4.3 Where possible, avoid having spaces that are normally used closed up for long periods. Where this is necessary, a risk assessment should be carried out, followed by testing the atmosphere before entry. This includes spaces that may be entered on a regular basis under normal circumstances, such as fishholds and RSW tanks.
+
+4.4 Prevent entry in to enclosed spaces by ensuring that all entrances to unattended enclosed spaces on the vessel are either kept closed or otherwise secured against entry, except when entry is necessary.
+
+4.5 Safety drills are an important part of prevention of risk and should be undertaken if there is any risk that enclosed entry will take place. Drills should:
+
+• Be held on board the vessel at regular intervals.
+
+• Be planned and conducted in a safe manner, having regard to relevant guidance.
+
+• Include the checking and awareness of how to use personal protective equipment required for entry; communication equipment and procedures and atmosphere testing equipment.
+
+• Drills should also include checking and use of rescue equipment and procedures; and instructions in first aid and resuscitation techniques.
+
+5. Safe entry procedures
+
+5.1 If entry is necessary, the following procedures are recommended prior to opening or entering, together with others that may be identified as a result of risk assessment.
+
+5.2 Ensure tanks are empty and not under pressure. Be patient and make sure that tanks are completely empty.
+
+5.3 Ventilate spaces thoroughly. Mechanical ventilation is strongly recommended as natural means of ventilation might not be effective and/or may require more time. Atmosphere at several levels must be tested to ensure any harmful atmosphere has been removed. Without this, it is not possible to tell if the ventilation has been effective. Continue ventilating the space whilst someone is inside.
+
+5.4 If the space has been sealed for any length of time (see also Section 2 above), test the atmosphere before entry (see section 7 for more details). Every 24 hours re-test the atmosphere in the tank and if any doubt exists, stop the operation.
+
+5.5 After completion of the operation, all personnel should leave the space and the entrance should be resealed (unless further entry is required).
+
+6. Testing the atmosphere
+
+6.1 Testing the atmosphere is not a mandatory requirement on fishing vessels. However, it is strongly recommended as best practice and the following guidance can be used as an aid.
+
+6.2 A person competent in the use of the equipment should test the atmosphere (air) inside a space. Precautions must be taken to ensure that the person testing the air is not going to breathe in any of the air. An oxygen meter should be used, with a steady reading of 20.8% before entry is considered. Any variation from that may indicate a problem and should be investigated further. For example, when the oxygen reading is 20%, consideration should be given to further testing for toxic gases, where appropriate, because toxic gases may have displaced some oxygen. A combustible gas indicator (“explosimeter”) should be used to test for combustible gases where these are suspected, especially where this may be a build up of hydrocarbon (e.g. in fuel tanks).
+
+6.3 Toxic gases should also be tested for where any risk is suspected, the test equipment being specific to the gas (e.g. for unclean RSW tanks, test for hydrogen sulphide and hydrogen cyanide).
+
+6.4 IMO MSC.1/Circ.1477 provides guidelines for the selection of portable atmosphere testing equipment capable of testing and displaying concentrations of;
+
+• Oxygen
+
+• Flammable gases or vapours (% of LFL – lower flammable limit)
+
+• Carbon Monoxide, and
+
+• Hydrogen Sulphide
+
+6.5 Once other risks are discounted, a steady reading of at least 20% oxygen by volume should be obtained before entry is permitted.
+
+6.6 The following four conditions should be tested as a minimum in all spaces
+
+Oxygen (O2) content
+At least 20% by volume
+
+Flammable gas content
+Nil
+
+NB: Where readings have been steady for some time, up to 1% of the lower flammable limit (LFL) may be acceptable in conjunction with a 20% oxygen level
+
+Carbon Monoxide
+Content is less than:
+
+100ppm short-term exposure limit (STEL): maximum exposure is 15 minutes
+
+20ppm time weighted: maximum exposure is 8 hours
+
+Hydrogen Sulphide
+Content is less than:
+
+10ppm STEL: maximum exposure is 15 minutes*
+
+5ppm time weighted: maximum exposure is 8 hours*
+
+Toxic gases
+Less than 50% of the WEL*
+
+*Current limits within EH40 as of August 2020
+
+6.7 Personal/wearable atmosphere testing equipment is not appropriate to use before enclosed space entry as the atmosphere tested is too localised. Some gases and vapours are heavier than air which settle to the bottom of an enclosed space, some are lighter than air collecting at the top of the enclosed space. Thus, tests should be taken at varying levels and locations within deep tanks or large spaces. Atmospheres can change and therefore regular testing should be undertaken throughout entry.
+
+6.8 Only testing can establish gases present in the air - unsafe atmosphere cannot usually be seen, tasted, or smelt. Remember if testing apparatus is not on board and doubt exists about the safety of the space, do not enter.
+
+7. Rescue procedures
+
+7.1 Should an emergency occur, the attendant at the entrance should raise the alarm and should not enter space until help has arrived. Entering an enclosed space without someone else around could lead to multiple fatalities.
+
+7.2 No one should enter a space where the atmosphere is known or suspected as being unsafe without wearing breathing apparatus that is designed for the purpose and which they are trained to use, even to rescue another person.
+
+7.3 It is important to note that an Emergency Escape Breathing Device (EEBD) or Emergency Lifesaving Apparatus (ELSA) is for escape purposes only and recommended to be taken into a space by a person so that they can escape in an emergency. It should not be used as a substitute for Breathing Apparatus to enter into an enclosed space.
+
+8. Refrigerated Saltwater (RSW) tanks
+
+8.1 Refrigerant gases are highly toxic and may include:
+
+• HCFCs
+
+• Ammonia
+
+• CO2 – which is odourless, so could easily be missed if there is a leak
+
+8.2 MAIB commissioned research into the toxic gases produced by fish as they decay. The study revealed that:-
+
+• Temperature influences the level of toxic gases produced by decaying fish in sea water;
+
+• At 45°C, a “half and half” mix of rotting fish and sea water produced dangerous levels of hydrogen cyanide, hydrogen sulphide and carbon dioxide after only 24 hours;
+
+• At 35°C, similar results to 45°C were obtained;
+
+• At 20°C, a “half and half mix” of rotting fish and sea water produced dangerous levels of hydrogen cyanide, hydrogen sulphide and carbon dioxide after just 64 hours; At 5°C, only traces of the three gases were measured after 10 days.
+
+•
+8.3 The research identifies the importance of the following procedure for the RSW tanks, particularly when operating in warmer waters:-
+
+•
+.1 Immediately clean all un-chilled RSW tanks after use, removing all residues.
+
+•
+.2 If cleaning has not occurred immediately and a mixture of fish and sea water has been left for more than a few hours, flush the tank through (using the appropriate sea water pump) and fully ventilate the tank.
+
+•
+.3 Ensure adequate ventilation exists in spaces adjacent to RSW tanks.
+
+•
+.4 On no account open or enter RSW tanks known to contain sea water/decaying fish unless the full procedures for entry into an enclosed space have been carried out.
+
+9. Examples of accidents involving enclosed spaces on fishing vessels
+
+9.1 An incident on the Atlantic Princess, 1996, highlighted the dangers of toxic gas emanating from contaminated water and fish debris from an RSW tank. The Marine Accident Investigation Branch (MAIB) report identified the release of dangerous gases from decaying fish, fish waste or offal as the cause of the accident. The source of the gases was a Refrigerated Salt Water (RSW) tank. The tank had not been cleaned or chilled after use and a residue of fish and sea water remained. Hydrogen cyanide, hydrogen sulphide and carbon dioxide gas accumulated over a period of several days; the effect being accelerated in tropical temperatures. Gases were released into an occupied working space and inhaled when a side door to the RSW tank was opened, with fatal consequences to three of the crew and injuries to others.
+
+9.2 In another case a vessel’s engineer lost his life as a result of high carbon monoxide (CO) poisoning. A portable, petrol-engined pump was being used with the pump exhausting directly into the fish room.
+
+9.3 Incidents involving hazardous gases can be extremely dangerous and result in multiple deaths. As an example, in 2016 an incident occurred on a Polish fishing vessel when unloading fish from the hold, 3 crew members and 5 other people required hospitalisation due to poisoning with hydrogen sulphide, which emanated in the hold of the vessel due to chemical processes taking place in the load of fish.
+
+9.4 MAIB investigated a case of multiple people getting in to breathing difficulties and one death on the Sunbeam in Fraserburgh in 2018, due to entry into a refrigerated salt water tank. It appears that the second engineer entered the tank to sweep away residual water. When he was found, three of his crewmates went into the tank to help him; they all suffered breathing difficulties and one also collapsed. Two other crew members then donned breathing apparatus and rescued their struggling crewmates; however the second engineer could not be resuscitated.
+
+10. Further advice
+
+10.1 Crew of vessels that operate at sea for longer periods, particularly on those of 24 metres and over in registered length, are more likely to need to enter enclosed spaces whilst at sea. Further guidance on enclosed spaces may be found elsewhere, such as the Code of Safe Working Practices for Merchant Seafarers and MGN 659.
+
+10.2 Further advice in the form of posters, leaflets and prompt cards, can be found here: https://mca-ws.apsmos.com/ArticleSearch.html?sp=Sreset&showSubArticles=false&viewMode=default&keyword=enclosed
+
+More information
+
+Technical Services Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72454
+
+Email: fishing@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+ANNEX A – Guidelines for inclusion in Register of Enclosed Spaces
+
+The following are suggestions for including in a Register of Enclosed Spaces (see paragraph 2.12 above):
+
+•
+the characteristics of the space, including physical layout of the space and access and egress points;
+
+•
+any potential hazards;
+
+•
+measures to prevent entry, including locking and signage arrangements;
+
+•
+procedures to follow when entering, including details such as estimated time needed to ventilate the area;
+
+•
+information related to ventilation, including equipment and where the equipment is stored;
+
+•
+lighting and requirements for temporary lighting; and
+
+•
+requirements for atmospheric testing.
+
+Any difficulties inherent in rescue from the space should also be considered, and solutions identified, so that in the event of an emergency, the crew is in the best position to respond quickly.
+
+The register should be reviewed regularly and should be available to any fisher who may need to enter the space. The register should also be available to those ashore – for reference when considering time required for entry and repairs.
+
+•
+Corrosion is the process by which certain materials, metals and non-metals, deteriorate as a result of oxidation. Rusting is oxidation of iron in the presence of air and moisture. ↩

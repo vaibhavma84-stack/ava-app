@@ -1,0 +1,128 @@
+MGN 374 (M+F) MGN 374 (M+F) Amendment 1: Periodic inspection and testing of seamless steel pressurised gas cylinders
+2023-04-28
+Source: https://www.gov.uk/government/publications/mgn-374-mf-amendment-1-periodic-inspection-and-testing-of-seamless-steel-pressurised-gas-cylinders
+
+Summary
+
+This note provides guidance on the recommended standards for inspection and testing of pressurised seamless steel gas cylinders for fire-fighting appliances and breathing apparatus.
+
+This amendment introduces information relating to the inspection of CO2 cylinders based on MSC.1/Circ.1318/Rev.1 and MSC.1/Circ.1432 and guidance for inspection and servicing of composite cylinders.
+
+1. Introduction/Background
+
+1.1 Safety of Life at Sea (SOLAS) Chapter II-2, Regulation 14 requires that “Fire-fighting systems and appliances shall be kept in good working order and readily available for immediate use”. It further specifies that “Maintenance, testing and inspections shall be carried out based on the guidelines developed by the Organization”.
+
+1.2 Currently these guidelines are contained in MSC.1/Circ.1432 ‘Revised guidelines for the maintenance and inspection of fire protection systems and appliances’ amended by MSC.1/Circ.1516 which refers specifically to Water mist systems.
+
+1.3 MSC.1/Circ.1432 states that an external inspection should be carried out annually. This should be undertaken by a competent person. The MCA interpretation of “Competent Person” in this case is a member of the ship’s crew may be considered a competent person if they are appropriately trained and have sufficient technical knowledge or experience to enable them to avoid danger. It is the duty of the authorising officer issuing a permit to work covered by these rules to satisfy themselves that persons are competent to carry out the work involved. This must be an experienced person holding a Merchant Shipping STCW II/2 or III/2 unlimited certificate of competency and an Advanced Fire Fighting certificate. For additional guidance, they should also refer to the rejection limits contained in BS EN 1968:2002.
+
+1.4 MSC.1/Circ.1318/Rev.1 states that CO2 cylinders shall be checked to ensure they are in place and properly secured at least every 30 days, cylinders should be visually inspected for any signs of damage, rust, or loose mounting hardware annually (cylinders that are leaking, corroded, dented or bulging should be hydrostatically retested or replaced), these inspections can be carried out by a competent person (satisfying the requirements of paragraph 1.3 above). At least biennially (intervals of 2 years ± 3 months) in passenger ships or at each intermediate, periodical or renewal survey in cargo ships all high-pressure cylinders and pilot cylinders should be weighed or have their contents verified by other reliable means to confirm that the available charge in each is above 90% of the nominal charge. Cylinders containing less than 90% of the nominal charge should be refilled. The hydrostatic test date of all storage containers should be checked. High-pressure cylinders should be subjected to periodical tests at intervals not exceeding 10 years. At the 10-year inspection, at least 10% of the total number provided should be subjected to an internal inspection and hydrostatic test. If one or more cylinders fail, a total of 50% of the onboard cylinders should be tested. If further cylinders fail, all cylinders should be tested. Before the 20-year anniversary and every 10-year anniversary thereafter, all cylinders should be subjected to a hydrostatic test.
+
+1.5 In situations where ship’s crew do not have sufficient training or experience, it is strongly recommended that the required inspections are carried out by specialist shore-based personnel.
+
+1.6 Similar requirements for fire appliances to be maintained in good order are contained in the Merchant Shipping (Fire Protection: Small Ships) Regulations 1998 No. 1011, Regulation 39 and the Merchant Shipping (Fire Protection: Large Ships) Regulations 1998 No. 1012, Regulation 50.
+
+1.7 MGN 276 contains guidelines on the discharge and hydraulic testing of portable fire extinguishers, including CO2 extinguishers.
+
+1.8 Emergency Evacuation Breathing Devices (EEBD’s) on UK vessels shall be maintained as per the manufacturer’s instructions as per Section 5.1 of MSC Circ. 849.
+
+1.9 Medical oxygen cylinders should also be treated as per SCBA as listed on the table below.
+
+1.10 Reference should be made to BS EN 1968:2002, Annex B, for periods between internal examination and hydraulic testing of transportable seamless steel gas cylinders. Table 1 is based on this Annex. This standard does not apply to periodic inspection and testing of acetylene cylinders or composite (fully wrapped or hoop-wrapped) steel cylinders.
+
+Table 1 - Intervals between periodic inspections and test (not applicable for acetylene) (a)
+
+Description
+Gas type (examples) (b)
+
+Internal Inspection and Test intervals - Period years
+
+Compressed gases
+Ar, N2, He, etc.
+
+Air, O2
+
+Self-contained breathing air (SCBA), O2, etc
+
+Gases for underwater breathing apparatus (SCUBA)
+
+CO2
+
+10
+
+10
+
+5
+
+5(c)
+
+5
+
+Liquefied gases
+CO2, N2O etc.
+10
+
+Gas mixtures
+i) all mixtures except;
+
+ii) mixtures completely in the gaseous state containing toxic and/or very toxic components.
+3, 5 or 10 years according to classification
+
+3 years for groups TC, TFC, TOC
+
+5 years for groups T, TF, TO
+
+10 years for groups A, O, F
+
+where classification:
+TC = toxic, corrosive
+TFC = toxic, flammable, corrosive
+TOC = toxic, oxidising, corrosive
+T = toxic
+TF = toxic, flammable
+TO = toxic, oxidising
+A = asphyxiant
+O = oxidising
+F = flammable
+
+(a) At all times certain requirements may necessitate a shorter time interval e.g. the dew point of the gas, polymerization reactions and decomposition reactions, cylinder design specification, change of gas service.
+
+(b) This list of gases is not exhaustive. A full list of gases can be found in the International Carriage of Dangerous Goods by Rail (RID) and the International Carriage of Dangerous Goods by Road (ADR) regulations.
+
+(c) For cylinders used for self-contained underwater breathing apparatus in addition to the full retest period of 5 years, an internal visual inspection needs to be performed every 2.5 years.
+
+2. Dissolved Acetylene Cylinders
+
+2.1 Acetylene cylinders differ from all other cylinders transporting compressed or liquefied gases because they contain a porous mass and normally a solvent in which the acetylene stored is dissolved. Reference should be made to BS EN ISO 10462:2013 for the periodic inspection and maintenance of dissolved acetylene cylinders.
+
+2.2 Due to the presence of this porous mass in the cylinder, neither a pressure test (hydraulic or pneumatic) nor a visual inspection of the internal surface of the shell is required by this standard.
+
+2.3 An acetylene cylinder shall fall due for a periodic inspection on its first receipt by a filler after the expiry of the interval of 5 years in the case of non-monolithic massed cylinders, or 10 years in the case of monolithic massed cylinders.
+
+3. Composite Cylinders for firefighting appliances
+
+3.1 Some portable fire extinguishers, previously commonly steel, are now produced with a composite cylinder. These extinguishers are of the primary sealed pressure type and operate with both dry powder and Aqueous Film Forming Foams (AFFF) mediums.
+
+3.2 Due to composite nature of the cylinder material corrosion is not of the same concern (further the valve and mechanism are made of brass coated with nickel and the handle is stainless steel) and as the BS 5306-3 standard concerns checks on both internal and external corrosion the recommended service intervals are not appropriate. The AFFF foam used in these extinguishers has a guaranteed 10-year life, as does the powder.
+
+3.3 A composite cylinder shall be returned to the manufacturer for inspection on the 10-year interval of its date of construction.
+
+More Information
+
+Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Tel: +44 (0) 203 8172000
+
+e-mail: marinetechnology@mcga.gov.uk
+
+Website Address: www.gov.uk/government/organisations/maritime-and-coastguard-agency
+
+General Enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

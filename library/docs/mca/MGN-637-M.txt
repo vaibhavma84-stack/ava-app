@@ -1,0 +1,294 @@
+MGN 637 (M) MGN 637 (M) Amendment 1 - International code for ships operating in polar waters (Polar Code)
+2025-12-03
+Source: https://www.gov.uk/government/publications/mgn-637-m-amendment-1-international-code-for-ships-operating-in-polar-waters-polar-code
+
+Summary
+
+The International Code for Ships Operating in Polar Waters (“the Polar Code”), which was developed in the International Maritime Organization (“IMO”) contains requirements (in part 1-A and part 2-A) which are mandatory, respectively, under Chapter XIV in the International Convention for the Safety of Life at Sea, 1974 (“SOLAS”) and the International Convention for the Prevention of Pollution from Ships, 1973 (“MARPOL”). Through goal-based standards, the Polar Code covers the design, construction, equipment, operational, training, search and rescue and environmental protection matters relevant to ships operating in the polar regions. The Polar Code is contained in IMO Resolution MSC.385(94) and the latest amendments are contained in MSC.538(107); the latest amendments to Chapter XIV are contained in MSC.532(107)[footnote 1]
+
+The Merchant Shipping (Polar Code) (Safety) Regulations 2025 (“the 2025 Regulations”) revoke and replace the Merchant Shipping (Polar Code) (Safety) Regulations 2021 (S.I. 2021/1401) (“the 2021 Regulations”). They implement the safety requirements of the Polar Code into UK legislation, updating the 2021 implementation to include the most recent amendments to the Polar Code that come into effect on 1 January 2026.
+
+This MGN provides guidance on the safety related provisions of the Polar Code. Reference should also be made to the guidance contained in the Polar Code (part I-B), and to the IMO guidelines referenced in the Polar Code.
+
+Separate guidance is available in relation to the pollution prevention provisions in the Polar Code, which are incorporated into MARPOL Annexes I, II, IV and V (respectively, regulations for the prevention of pollution by oil, noxious liquid substances in bulk, sewage and garbage by ships). Part 2-B of the Polar Code contains guidance on the requirements relating to Annexes I, II and V. Further guidance on the requirements relating to the prevention of pollution by sewage and garbage are contained in Marine Guidance Note 631 (M+F), Amendment 1 (sewage) and in Marine Guidance Note 632 (M+F), Amendment 2 (garbage), both of which are available at https://www.gov.uk/government/collections/marine-guidance-notices-mgns.
+
+The Polar Code consists of an Introduction, Part I (safety measures) and Part II (pollution prevention). The Introduction contains an overview applicable to both parts. Part I is subdivided into part I-A, which comprises mandatory provisions, and part I-B which contains additional guidance. Part II is similarly subdivided.
+
+The 2025 Regulations implement the mandatory safety requirements in part I-A of the Polar Code into UK law.
+
+1. Background
+
+1.1      The Polar Code was developed to supplement existing IMO instruments, to increase the safety of ships and mitigate the impact on the people and environment in the remote, vulnerable polar regions.
+
+1.2      The Polar Code acknowledges that polar water operations may impose additional demands on ships, their systems and operations, beyond the existing requirements of SOLAS, MARPOL and other relevant binding IMO instruments. Polar waters can create additional navigational demands beyond those normally encountered, and ships operating in the Arctic and Antarctic environments are exposed to several risks such as poor and extreme weather conditions and a relative lack of accurate charts. The remoteness of these areas also makes rescue or counter pollution operations difficult and costly. Cold temperatures may reduce the effectiveness of numerous components of the ship, ranging from deck machinery and emergency equipment to sea suctions. When ice is present, it can impose additional loads on the hull, propulsion system and appendages
+
+1.3      The Polar Code covers the design, construction, equipment, operation, manning and training, search and rescue and environmental protection matters relevant to ships operating in the waters surrounding the two poles.
+
+1.4      The Polar Code is mandatory under SOLAS Chapter XIV (safety measures for ships operating in polar waters) and MARPOL Annexes I, II, IV and V (which incorporate the environmental provisions). The Polar Code came into effect providing a clear set of rules to protect not only ships and crews, but also indigenous communities, wildlife and marine ecosystems within the polar regions.
+
+1.5      The Polar Code and related amendments to SOLAS were adopted in November 2014. SOLAS was amended to insert a new Chapter XIV, which incorporated the safety related measures in the Polar Code. The environmental provisions were adopted as amendments to Annexes I, II, IV and V of MARPOL in May 2015. The Code came into force internationally on 1st January 2017. The safety provisions of the Polar Code were implemented into UK law by way of the 2021 Regulations.
+
+1.6      Further amendments to SOLAS Chapter XIV and the safety requirements of the Polar Code have been agreed at the IMO and will come into force on 1st January 2026. These amendments introduce requirements for fishing vessels of 24m or over in length overall, pleasure vessels of 300 gross tonnage or more not engaged in trade and cargo ships of at least 300 gross tonnage but under 500 gross tonnage.  These vessels will be required to comply with bespoke safety of navigation and voyage planning requirements (in new chapters 9-1 and 11-1 of the Code) and, additionally, to take into account the existing performance standards and operational assessment requirements in paragraphs 1.4 and 1.5 of chapter 1.
+
+1.7      This notice details the requirements for the following grouped vessel types:
+
+i. passenger ships, and cargo ships of 500 gross tonnage or more; and
+
+ii. fishing vessels of 24m or over in length overall, pleasure vessels of 300 gross tonnage or more not engaged in trade and cargo ships of at least 300 gross tonnage but under 500 gross tonnage.
+
+2. Ambulatory reference
+
+2.1       Many of the safety provisions in the Polar Code are cross-referenced in the 2025 Regulations, which contain an ambulatory reference provision. Additionally, several of the alternative design and arrangements requirements for polar waters in SOLAS Chapter XIV are cross-referenced.  This means that future amendments to the referenced provisions of Chapter XIV and the Polar Code in the 2025 Regulations will automatically become part of UK law when they enter into force internationally. No further legislation will be required to bring amendments into force in the UK unless the change is outside the scope of matters referenced in the 2025 Regulations. From a practical perspective this means that ship owners, ship builders and other interested parties can refer directly to the text of SOLAS Chapter XIV and the Polar Code to determine the UK and international requirements.
+
+Any future amendments to the referenced provisions of Chapter XIV or the Polar Code will be publicised in advance of their in-force date by means of a Marine Guidance Note (MGN), a copy of which will be available from the MCA and on https://www.gov.uk. A statement will also be made by the Secretary of State to both Houses of Parliament.
+
+3. Application
+
+3.1       The 2025 Regulations apply to UK ships which are operating, or which intend to operate in, polar waters, and non-UK ships which commence or end a polar waters voyage in a UK port. A polar waters voyage may or may not be classified as an international voyage. 
+
+4. Polar Code summary
+
+4.1      The Polar Code is intended to cover the full range of shipping-related matters relevant to navigation in waters surrounding the two poles: ship design, construction and equipment, operation and training, search and rescue, and, importantly, the protection of the unique environment and ecosystems of the polar regions.
+
+4.2      The Code includes mandatory measures covering safety (part I-A) and pollution prevention (part II-A) and guidance for both (parts I-B and II-B). Careful consideration should be given to this guidance.
+
+5. Requirements for passenger ships and for cargo ships of 500 gross tonnage or more
+
+5.1      The Polar Code requires passenger ships and cargo ships of 500 gross tonnage or more intending to operate in the defined waters of the Antarctic and Arctic to have a Polar Ship Certificate. There are three categories of ship that may be provided with a Polar Ship Certificate: Categories A, B and C.
+
+• Category A covers ships designed for operation in polar waters at least in medium first-year ice, which may include some old ice.
+
+• Category B ships are those ships designed for operation in polar waters in at least thin first-year ice, which may also include some old ice.
+
+• Category C ships are those ships designed to operate in open water or in ice conditions less severe than those included in Categories A and B.
+
+Ice strengthened ships shall be designed to resist both global and local structural loads anticipated under the foreseen ice conditions and materials used shall be suitable for operation at the ships polar service temperature.
+
+A ship operating, or intending to operate in polar waters, must have a Polar Ship Certificate, which is to be held on board. These requirements are contained in the Merchant Shipping (Survey and Certification) Regulations 2015 and failure to comply with either requirement is a criminal offence.
+
+5.2      Before a certificate can be issued, the ship must be assessed in respect of the anticipated range of operating conditions and hazards the vessel might encounter in the polar waters. This operational assessment must be organised by the owner, manager and/or operators of the vessel. The assessment must include information on identified operational limitations and plans or procedures or additional safety equipment necessary to mitigate incidents with potential safety or environmental consequences, which must take into consideration all of the following:
+
+• operation in low air temperature,
+
+• operation in ice,
+
+• operation in high latitude,
+
+• additional hazards, if identified.
+
+The risk level within polar waters may differ depending on the geographical location, time of the year with respect to daylight, ice-coverage, etc. Thus, the mitigating measures required to address the above specific hazards may vary within polar waters and may be different in Arctic and Antarctic waters. The above list is not exhaustive, and consideration should be given to the specific operations and environments that may be encountered.
+
+5.3      For ships operating in low air temperatures, a polar service temperature (PST) must be documented and be at least 10°C below the lowest Mean Daily Low Temperature (MDLT)[footnote 2] for the intended area and season of operation. Systems and equipment required by the 2025 Regulations must be fully functional at the polar service temperature.
+
+For ships operating in low air temperature, survival systems and equipment must be fully operational at the polar service temperature during the maximum expected rescue time.
+
+5.4      A Polar Water Operational Manual (PWOM) must be carried on board to provide the owner, manager, operator, master and crew with sufficient information regarding the ship’s operational capabilities and limitations while operating in polar waters, in order to support their decision-making process. It is critical that the ship is operated in compliance with the procedures contained in the PWOM and failure to do so is a criminal offence.
+
+5.5      The various chapters in part I-A of the Code each set out goals and functional requirements and include: ship structure, stability and subdivision, watertight and weathertight integrity, machinery installations, operational safety, fire safety/protection, life-saving appliances and arrangements, safety of navigation, communications, voyage planning, and manning and training. As indicated above, part II-A covers prevention of pollution in polar waters (for further information, see section 8).
+
+6. Impact of the Polar Code on ship safety
+
+6.1      All ships sailing in polar waters must carry equipment capable of clearing melted ice, freezing rain, snow, mist, spray and condensation from the windows on the bridge. All lifeboats must be partially or completely enclosed. There must be adequate thermal protection for all persons on board; on passenger ships, an immersion suit or thermal protective aid for each person must be available. Special ice equipment for ice removal, such as electrical and pneumatic devices, and tools such as axes or wooden clubs must be on board the vessel. Extinguishing equipment, operable in cold temperatures, must be protected from ice. These extinguishers must be suitable for persons wearing bulky and cumbersome cold weather gear.
+
+6.2      With regard to vessel design and construction, there are, as mentioned above, three categories of ship which can operate in polar waters. These are based on whether a ship is equipped for operation in medium first-year ice, thin first-year ice, or ice conditions less severe than the first two categories. Sufficient stability in intact condition when subject to ice accretion is paramount and stability calculations must take into account the icing allowance. Ships intended to operate in low air temperatures must be constructed with materials suitable for operation in such temperatures. In ice strengthened vessels, the structure of the ship must be able to resist both global and local structural loads.
+
+7. Training and manning requirements
+
+Subject to one exception, the seafarer training and certification requirements contained in chapter 12 of the Polar Code are now implemented by the Merchant Shipping (Standards of Training, Certification and Watchkeeping) Regulations 2022 (S.I. 2022/1342) and guidance is contained in Merchant Shipping Notice (MSN) 1866 (M) Amendment 2.  In accordance with the application of S.I. 2022/1342, these requirements also apply to seafarers on all cargo ships and on pleasure vessels (of 24m in length or more, or 80GT or more).  The exception mentioned is the requirement in paragraph 12.3.4 of chapter 12 (obligation on Company and master to ensure familiarity of the crew with the PWOM) which is contained in regulation 12(2) of the 2025 Regulations, along with the requirement to ensure that the ship is operated in accordance with its PWOM (see paragraph 6.4).
+
+8. Voyage Planning in Remote Areas
+
+8.1      In November 2007, the IMO Assembly adopted Resolution A.999(25) - guidelines on voyage planning for passenger ships operating in remote areas. This was in response to the growing popularity of ocean travel for leisure and the desire for exotic destinations, which have led to increasing numbers of passenger ships operating in remote areas. When developing a Polar Water Operations Manual (PWOM) for voyages to remote areas, special consideration should be given to the environmental nature of the area of operation, the limited resources, and navigational information.
+
+8.2      The detailed voyage and passage plan should include the following safety-related factors: safe areas and no-go areas, surveyed marine corridors, if available, and contingency plans for emergencies in the event of limited support being available for assistance in areas remote from search and rescue facilities.
+
+8.3      In addition, the detailed voyage and passage plan for ships operating in Arctic or Antarctic waters should include the following factors: conditions when it is not safe to enter areas containing ice or icebergs because of darkness, swell, fog or pressure ice, safe distance to icebergs, presence of ice and icebergs, and safe speed in such areas.
+
+9. Approvals and Polar Ship Certificate
+
+• 9.1      The Secretary of State, or anyone authorised by the Secretary of State, may grant an approval in relation to a United Kingdom ship for anything in part 1-A of the Polar Code requiring the consent of a flag State, for example:
+
+• i. Materials of exposed structures in ships must be approved by the MCA or a classification society which is also a recognised organisation (RO)[footnote 3], taking into account recommended IMO standards or other standards offering an equivalent level of safety based on the polar service temperature.
+
+• ii. Scantlings of category A, B and ice strengthened category C ships must be approved by the MCA, or one of its ROs, taking into account recommended IMO standards or other standards offering an equivalent level of safety (see Polar Code paragraph 3.3.2 in chapter 3)
+
+• iii. A category C ship need not be ice strengthened if, in the opinion of the MCA, the ship’s structure is adequate for its intended operation (see Polar Code paragraph 3.3.2.4 in chapter 3).
+
+• iv. Ships operating in areas and during periods where ice accretion is likely to occur shall be equipped with acceptable means for removing ice; the MCA will accept, for example, electrical and pneumatic devices, and/or special tools such as axes or wooden clubs for removing ice from bulwarks, rails and erections (see Polar Code paragraph 4.3.1.2 in chapter 4).
+
+• v. Materials of exposed machinery and foundations must be approved by the MCA or one of its ROs, taking into account IMO recommended standards or other standards offering an equivalent level of safety based on the polar service temperature (see Polar Code paragraph 6.3.2.2 in chapter 6).
+
+• vi. Scantlings of propeller blades, propulsion line, steering equipment and other appendages of category A and B ships must be approved by the MCA or one of its ROs, taking into account IMO recommended standards or other standards offering an equivalent level of safety (see Polar Code paragraph 6.3.3 in chapter 6).
+
+• vii. Materials of exposed fire safety systems must be approved by the MCA or one of its ROs, taking into account IMO recommended standards or other standards offering an equivalent level of safety based on the polar service temperature (see Polar Code paragraph 7.3.3.2 in chapter 7).
+
+• viii. Ice-strengthened ships constructed on or after 1 January 2026 must have either two independent echo-sounding devices or one echo-sounding device with two separate independent transducers. Other devices capable of depth sounding, such as some fish finders (which would be acceptable to the MCA), may be used as equivalent means of meeting this requirement (see Polar Code paragraph 9-1.3.2.1.1 in chapter 9-1).
+
+• ix. Ships must comply with SOLAS regulation V/22.1.9.4 (clear view through at least two of the navigation bridge front windows), irrespective of the date of construction and the size, and have a clear view astern. On ships which cannot comply with these requirements, arrangements acceptable to the MCA must be provided to achieve a level of visibility that is equivalent to these requirements.
+
+• x. In category A and B ships constructed on or after 1 January 2026, the bridge wings must be enclosed or designed to protect navigational equipment and operating personnel. On ships which cannot comply with this requirement, arrangements acceptable to the MCA must be provided to achieve a level of protection that is equivalent to this regulation.
+
+9.2      Equipment required under part 1-A of the Polar Code and placed on board a United Kingdom vessel, must be of a type that has been approved under the Merchant Shipping (Marine Equipment) Regulations 2016 (S.I. 2025/1025)[footnote 4](#_ftn4). These regulations contain the approval procedure and testing requirements for such equipment.
+
+9.3      To apply for a Polar Ship Certificate, a shipowner, or manager or operator, should contact an authorised Certifying Authority.  A survey will then be conducted. If satisfied that the ship complies with the requirements for ships operating in polar waters, the Certifying Authority will advise the Foreign, Commonwealth and Development Office (FCDO), which has overall policy responsibility for polar waters, that certification has been granted.
+
+9.4      Owners and operators should ensure that once certification has been obtained that they have the correct permissions from the relevant government(s) in place to operate within polar waters.
+
+10. Survey and certification
+
+10.1    The 2025 Regulations also make provision for the survey and certification of
+passenger ships and cargo ships of 500GT or over intending to operate in polar waters by way of amendments to the Merchant Shipping (Survey and Certification) Regulations 2015 (SI 2015/508) (Part 1 of the Schedule). The Regulations also make consequential amendments to the Merchant Shipping (Fees) Regulations 2018 (SI 2018/1104) (Part 1 of the Schedule).
+
+11. Requirements for fishing vessels of 24m or over in length overall, pleasure vessels of 300 gross tonnage or more not engaged in trade and cargo ships of at least 300 gross tonnage but under 500 gross tonnage
+
+11.1    New regulation 3-1 in SOLAS Chapter XIV provides as follows:
+
+“Ships subject to regulations 2.1.2, 2.1.3 or 2.1.4 on all voyages in the Antarctic area and voyages in Arctic waters beyond the outer limit of the territorial sea of the Contracting Government whose flag the ship is entitled to fly shall comply with the provisions of chapters 9-1 and 11-1 of part I-A of the Polar Code, taking into account the introduction and the safety-related provisions of paragraphs 1.2, 1.4 and 1.5 of chapter 1 of part 1-A of the Polar Code.”
+
+• 11.2    This means that fishing vessels of 24m or over in length overall, pleasure vessels of 300 gross tonnage or more not engaged in trade and cargo ships of at least 300 gross tonnage but under 500 gross tonnage must comply with the following parts of part 1-A of the Polar Code:
+
+• 11.2.1 chapter 9-1 – safety of navigation;
+
+• 11.2.2 chapter 11-1 – voyage planning;
+
+• 11.2.3 chapter 1, paragraph 1.4 – performance standards, so far as is reasonably practicable (i.e. obligation to take them into account); and
+
+• 11.2.4 chapter 1, paragraph 1.5 – operational assessment, so far as is reasonably practicable (i.e. obligation to take them into account).
+
+Ships constructed on or after 1st January 2026 must comply with the new requirements on the day the 2025 Regulations come into force, i.e. 1st January 2026. However, ships constructed before 1st January 2026 have a grace period of one year, but must comply with the new requirements no later than 1st January 2027.
+
+• 11.3    Safety of navigation
+
+• 11.3.1 Ships to which this section applies must:
+
+•
+
+• have the ability to receive up-to-date information including ice information for safe navigation;
+
+•
+
+• have systems in place for providing reference headings and position fixing suitable for the intended areas;
+
+•
+
+• have the ability to visually detect ice when operating in darkness;
+
+•
+
+• comply with SOLAS regulation V/22.1.9.4, irrespective of the date of construction and the size, and have a clear view astern;
+
+•
+
+• have a means to prevent the accumulation of ice on antennas required for navigation and communication shall be provided.
+
+•
+For ice-strengthened ships, the following applies:
+
+• 11.3.2 ice-strengthened ships constructed on or after 1 January 2026, must have either two independent echo-sounding devices or one echo-sounding device with two separate independent transducers. Other devices capable of depth sounding which may be acceptable to the MCA, such as fish finders, may be used as equivalent means of meeting this requirement. Where equipment required by SOLAS Chapter V or chapter 9-1 have sensors that project below the hull, such sensors must be protected against ice;
+
+• 11.3.3 in category A and B ships, constructed on or after 1 January 2026, the bridge wings must be enclosed or designed to protect navigational equipment and operating personnel. On ships which cannot comply with this requirement, arrangements acceptable to the MCA must be provided to achieve an equivalent level of protection;
+
+• 11.3.4 ships of 500 gross tonnage and upwards must have two non-magnetic means to determine and display their heading. Both means must be independent and must be connected to the ship’s main and emergency source of power;
+
+• 11.3.5 ships proceeding to latitudes over 80 degrees must be fitted with at least one GNSS compass or equivalent, which must be connected to the ship’s main and emergency source of power;
+
+• 11.3.6 ships, with the exception of those solely operating in areas with 24 hours daylight, must be equipped with two means of illumination to aid visual detection of ice.
+
+11.4     Voyage planning
+
+Ships must follow the procedures required by the safety management system on board. If no safety management system is implemented there must be a documented procedure for operation in polar waters. The safety management system or documented procedure must fulfil the voyage planning requirements detailed in regulation 11-1.3 of part 1-A of the Polar Code.
+
+• The master must consider a route through polar waters, taking into account the following:
+
+• i. the procedures required by the safety management system on board; if no safety management system is implemented the documented procedures for operation in polar waters shall be considered;
+
+• ii. any limitations of the hydrographic information and aids to navigation available;
+
+• iii. current information on the extent and type of ice and icebergs in the vicinity of the intended route;
+
+• iv. statistical information on ice and temperatures from former years;
+
+• v. places of refuge;
+
+• vi. current information and measures to be taken when marine mammals are encountered relating to known areas with densities of marine mammals, including seasonal migration areas;
+
+• vii. current information on relevant ships’ routeing systems, speed recommendations and vessel traffic services relating to known areas with densities of marine mammals, including seasonal migration areas;
+
+• viii. national and international designated protected areas along the route;
+
+• ix. operation in areas remote from search and rescue (SAR) capabilities.
+
+• 11.5    Performance standards
+
+• 11.5.1 The requirement in regulation 3-1 is to comply with the provisions of chapters 9-1 and 11-1 “taking into account” the introduction and the safety-related provisions of paragraphs 1.2, 1.4 and 1.5 of chapter 1 of part 1-A of the Polar Code.  The words “take into account” which preface the list of provisions of part 1-A do not allow for an easily enforceable set of requirements.  As such, the UK interprets the words “taking into account” as an obligation to comply with the specified provisions so far as is reasonably practicable.  This means that the requirements must be met unless there is a practical reason why they cannot be complied with. Further, the obligation extends only to paragraph 1.4 (performance standards) and paragraph 1.5 (operational assessment) as neither the introduction nor paragraph 1.2 (definitions) contains requirements.
+
+• 11.5.2 All ships’ systems and equipment on board fishing vessels of 24m or over in length overall, pleasure vessels of 300 gross tonnage or more not engaged in trade and cargo ships of at least 300 gross tonnage but under 500 gross tonnage must therefore satisfy at least the same performance standards referred to in SOLAS, so far as is reasonably practicable.
+
+• 11.5.3 For ships operating in low air temperatures, a polar service temperature (PST) must be documented and be at least 10°C below the lowest Mean Daily Low Temperature (MDLT)[footnote 5] for the intended area and season of operation. Systems and equipment required by the 2025 Regulations must be fully functional at the polar service temperature.
+
+• 11.5.4 For ships operating in low air temperature, survival systems and equipment must be fully operational at the polar service temperature during the maximum expected rescue time.
+
+• 11.6     Operational assessment
+
+• 11.6.1 The Polar Code addresses hazards which may lead to elevated levels of risk due to the increased probability of occurrence.
+
+• 11.6.2 Fishing vessels of 24m or over in length overall, pleasure vessels of 300 gross tonnage or more not engaged in trade and cargo ships of 300 gross tonnage but under 500 gross tonnage are required to carry out an operational assessment of the ship and its equipment, so far as is reasonably practicable (see paragraph 12.3 above), which must take into consideration all of the following:
+
+• operation in low air temperature;
+
+• operation in ice;
+
+• operation in high latitude;
+
+• additional hazards, if identified.
+
+• 11.6.3 The risk level within polar waters may differ depending on the geographical location, time of the year with respect to daylight, ice-coverage, etc. Thus, the mitigating measures required to address the above specific hazards may vary within polar waters and may be different in Arctic and Antarctic waters. The above list is not exhaustive, and consideration should be given to the specific operations and environments that may be encountered.
+
+12. Offences and penalties
+
+12.1    Where there is any contravention of the requirements of the Regulations in relation to a ship, the ship may be detained in the United Kingdom.
+
+12.2    Any contravention of the Regulations detailed in regulation 13(1) is an offence by the owner and master, in regulation 13(2) by the master alone, or in regulation 13(3) by the company and master, and is punishable on summary conviction in England and Wales by a fine, or in Scotland or Northern Ireland by a fine not exceeding the statutory maximum, or on conviction on indictment by imprisonment for a term not exceeding two years, or a fine, or both.
+
+13. Equivalents and exemptions
+
+13.1    The 2025 Regulations provide for the granting of exemptions, approval of equivalents and alternative design and arrangements for UK ships provided that any approval of equivalents and alternative design and arrangements provides an equivalent level of safety to that required by the regulations. To apply for an equivalence or exemption, in the first instance, please contact your MCA Customer Service Manager at the relevant MCA Marine office.
+
+14.   Protection of the environment
+
+14.1    As explained above, part II-A of the Polar Code contains the mandatory pollution prevention measures in respect of polar waters. Each chapter of part II-A supplements the obligations in MARPOL Annexes I, II, IV and V (respectively, prevention of pollution by oil, noxious liquid substances in bulk, sewage and garbage) where a ship operates in polar waters. These obligations have been implemented in UK law in merchant shipping regulations implementing MARPOL Annexes I, II, IV and V. As well as the guidance in part II-B of the Polar Code, guidance is available to supplement the legislation implementing MARPOL Annexes IV and V (see MGN 631 (M+F) and MGN 632 (M+F) (Amendment 1).
+
+More information
+
+UK Technical Services Ship Standards
+
+Maritime and Coastguard Agency
+
+Spring Place Bay 2/23
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Telephone: +44 (0)203 817 2450
+
+Email: marinetechnology@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+•
+https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.385(94).pdf, https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.532(107).pdf and https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.538(107).pdf ↩
+
+•
+Polar Code, Part I-A, Chapter 1, 1.2 Definitions, 1.2.9 - Mean Daily Low Temperature (MDLT) means the mean value of the daily low temperature for each day of the year over a minimum 10 year period. A data set acceptable to the Administration may be used if 10 years of data is not available. ↩
+
+•
+The classification societies currently recognised by the UK as Recognised Organisations are: Lloyds Register (LR), Det Norske Veritas – Germanischer Lloyd (DNV-GL), Bureau Veritas (BV), American Bureau of Shipping (ABS), Registro Italiano Navale (RINA) and Nippon Kaiji Kyokai (Class NK). ↩
+
+•
+Note amendments to the 2016 Regulations: SI 2019/470, SI 2019/1304, SI 2020/1000 and SI 2024/504. ↩
+
+•
+Polar Code, Part I-A, Chapter 1, 1.2 Definitions, 1.2.9 - Mean Daily Low Temperature (MDLT) means the mean value of the daily low temperature for each day of the year over a minimum 10 year period. A data set acceptable to the Administration may be used if 10 years of data is not available. ↩

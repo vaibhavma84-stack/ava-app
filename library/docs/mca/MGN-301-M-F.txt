@@ -1,0 +1,114 @@
+MGN 301 (M+F) MGN 301 (M+F) Amendment 1: Manoeuvring information onboard ships
+2025-01-22
+Source: https://www.gov.uk/government/publications/mgn-301-mf-amendment-1-manoeuvring-information-onboard-ships
+
+Summary
+
+The Maritime and Coastguard Agency (MCA) recommends that manoeuvring information in the form of a pilot card, wheelhouse poster, and manoeuvring booklet should be provided on board ships.
+
+The application for which vessels this guidance applies to can be found in Section 3 of this Guidance Note.
+
+1. Introduction
+
+1.1 At its 15th session, the Assembly of the International Maritime Organisation adopted a recommendation for the provision and the display of manoeuvring data on board ships as set out in the annex to Resolution A.601 (15).
+
+1.2 The standards on Ship Manoeuvrability for which the manoeuvring data on board ships is to be based is stipulated within IMO Resolution MSC.137(76) which was adopted at the 76th Maritime Safety Committee session in December 2002.
+
+2. Latest Amendments
+
+2.1 Amendment 1 of this Notice includes updated guidance in relation to the application of the recommendations adopted in Resolution A.601 as well as updated guidance on the application of the resolution in the creation of the onboard documentation.
+
+3. Application
+
+•
+3.1 The MCA recommends that manoeuvring information in the form of a pilot card, wheelhouse poster, and manoeuvring booklet should be provided as follows:
+
+•
+3.1.1 A Pilot card for all ships to which the requirements of the 1974 SOLAS Convention as amended, apply;
+
+•
+3.1.2 A Pilot card, a wheelhouse poster and manoeuvring booklet on all new ships and fishing vessels of 100 metres in length and over, and all new chemical tankers and gas carriers regardless of size; and
+
+•
+3.1.3 A Pilot card, wheelhouse poster and manoeuvring booklet on all new ships that may pose a hazard due to unusual dimensions or characteristics.
+
+•
+3.2 The manoeuvring information should be amended after any modification or conversion of the ship which may alter its manoeuvring characteristics as described in MSC.137(76) or major amendment to its geometry.
+
+3.3 Whilst not exhaustive, the following are examples of unusual characteristics which should be considered when determining the application of section 3.1.3
+
+• Catamaran or trimaran hull designs
+
+• Self-propelled semi-submersible or compact semi-submersible vessels utilising twin pontoon hull designs.
+
+• Propulsion and steering system based on Voith Schneider Propeller (VSP) or similar cyclorotor design principle.
+
+• Propulsion and steering system based on water jet propulsion.
+
+• Vessels with unusual bridge design with specific visibility characteristics or offset pelorus which could pose unusual characteristics to Navigating Officers or Pilots.
+
+• Azimuth based propulsion and steering system such as Azipods, Azipulls or compass thrusters which by their location or size produce an unusual manoeuvring characteristic.
+
+4. Pilot Card
+
+4.1 The pilot card, to be filled in by the master, is intended to provide information to the pilot on boarding the ship and should be based on the IMO Standard format as found in IMO Resolution A.601.
+
+4.2 The pilot card should contain information describing the present loading condition, propulsion and manoeuvring equipment, navigation equipment and any other equipment relevant to the operation.
+
+4.3 The Pilot card should also detail any defects which may affect the ships manoeuvrability or pilotage operation.
+
+4.4 An example Pilot Card template based on the IMO standard format can be found in Appendix 1 of this document.
+
+5. Wheelhouse Poster
+
+5.1 When required by part 3.1.2 of this Guidance Note, the wheelhouse poster should be permanently displayed in the wheelhouse. It should contain general particulars and detailed information describing the manoeuvring characteristics of the ship and be of such a size to ensure ease of use.
+
+5.2 The manoeuvring characteristics are to be determined in line with the requirements stipulated within IMO Resolution MSC.137(76).
+
+5.3 The Master and Officers should be aware that manoeuvring performance of the ship may differ from that shown on the poster due to environmental, hull and loading conditions.
+
+5.4 Wheelhouse posters should be based on the IMO Standard format as found in IMO Resolution A.601 and should include the following information:
+
+• Ship Particulars
+
+• Steering Particulars
+
+• Anchor Chain Particulars
+
+• Propulsion (including thruster effect)
+
+• Draft increase (Estimated Squat, Heel effect)
+
+• Turning circle at max rudder angle charts
+
+• Emergency manoeuvre charts
+
+• Stopping characteristics including crash stop details
+
+6. Manoeuvring Booklet
+
+6.1 When required by part 3.1.3 of this Guidance Note, the manoeuvring booklet should be available on board and should contain comprehensive details of the ship’s manoeuvring characteristics and other relevant data. The manoeuvring booklet should include the information shown on the wheelhouse poster together with other available manoeuvring information.
+
+6.2 The manoeuvring characteristics and data to be within the manoeuvring booklet are to be determined in line with the requirements stipulated within IMO Resolution MSC.137(76) and may be supplemented in the course of the ship’s operational life.
+
+6.3 Details on the recommended information to be included in the Manoeuvring booklet can be found in Appendix 2 of this guidance note.
+
+More information
+
+Technical Services – Navigation
+Maritime and Coastguard Agency
+Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0) 203 817 2000
+
+Email: infoline@mcga.gov.uk
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

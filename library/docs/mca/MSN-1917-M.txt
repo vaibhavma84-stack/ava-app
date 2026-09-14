@@ -1,0 +1,62 @@
+MSN 1917 (M) MSN 1917 (M) Carriage of cargoes: requirements for the safe use of pesticides in ships
+2024-05-23
+Source: https://www.gov.uk/government/publications/msn-1917-m-carriage-of-cargoes-requirements-for-the-safe-use-of-pesticides-in-ships
+
+Summary
+
+This Merchant Shipping Notice (MSN) is an integral part of the Merchant Shipping (Carriage of Cargoes) Regulations 2024 and compliance with the requirements set out in this MSN is mandatory under regulation 9 of those Regulations. It sets out the conditions for the use of pesticides in the cargo spaces of ships and in cargo and cargo transport units in accordance with regulation 4 of Chapter VI of the Annex to the International Convention for the Safety of Life at Sea, 1974 (SOLAS).
+
+This MSN revokes and replaces MSN 1718 (M).
+
+1. Introduction
+
+1.1 Regulation 4 of SOLAS Chapter VI (“SOLAS VI/4”) requires that appropriate precautions be taken in the use of pesticides in ships, in particular for the purposes of fumigation. SOLAS Chapter VI is implemented in the UK by the Merchant Shipping (Carriage of Cargoes) Regulations 2024.
+
+1.2 The use of pesticides includes the fumigation of cargo spaces and of cargo and cargo transport units prior to loading, in port, in transit and in any part of the ship or cargo so affected as a consequence of the use or application of pesticides.
+
+1.3 As a supplement to SOLAS VI/4 and to aid compliance with the requirements of that regulation, the International Maritime Organization (“the IMO”) has published three documents, listed below in paragraph 2.1, which set out recommendations for the safe use of pesticides in ships. These recommendations address the hazards to personnel arising from operations involved in the carriage of fumigated cargo and are relevant for everyone involved in the handling of these cargoes.
+
+1.4 The Merchant Shipping (Carriage of Cargoes) Regulations 2024 and this MSN cover the requirements for the safe use of pesticides in cargo spaces on ships and all cargoes loaded or intended to be loaded on board a ship, with the exception of cargoes comprising liquids in bulk and gases in bulk.
+
+2. The Safe Use of Pesticides in Ships
+
+2.1 Where pesticides are used in the cargo spaces of ships, in cargo or in cargo transport units prior to, during or following a voyage, precautions must be established which have regard to the relevant provisions of the following IMO publications:[footnote 1]
+
+• Revised Recommendations on the Safe Use of Pesticides in Ships (MSC.1/Circ1358)
+
+• Recommendations on the Safe Use of Pesticides in Ships Applicable to the Fumigation of Cargo Holds (MSC.1/Circ.1264, amended by MSC.1/Circ.1396)
+
+• Revised Recommendations on the Safe Use of Pesticides in Ships Applicable to the Fumigation of Cargo Transport Units (MSC.1/Circular.1361/Rev.1)
+
+2.2 A copy of the relevant publication(s) must be available on board and be reasonably accessible to all crew members.
+
+3. Fumigation Continued in Transit
+
+3.1 The contents of a cargo transport unit must not be fumigated once the cargo transport unit has been loaded on board a ship.  In the case of cargo transport units, fumigation in transit means cargo transport units loaded without ventilation following shoreside fumigation operations.
+
+3.2 Fumigation of cargo holds which is to continue during a voyage is prohibited, unless permitted by the master.
+
+3.3 Prior to the arrival in port of the vessel and in general not less than 24 hours in advance, the master must inform the port authorities of the port of destination and ports of call that a fumigation in-transit is being carried out. The information must include the type of fumigant used, the date of fumigation and the cargo holds fumigated or the cargo spaces carrying fumigated cargo transport units.
+
+3.4 Residues of fumigants must not be removed from ships’ cargo spaces or from cargo transport units during the voyage or disposed of overboard.
+
+More information
+
+Cargoes, Safety and Pollution Prevention
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: Cargoes@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+•
+Any reference to MSC.1/Circ.1358, MSC.1/Circ.1264 or MSC.1/Circular.1361 should be taken as a reference to any document amending or replacing it. ↩

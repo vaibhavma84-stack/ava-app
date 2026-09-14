@@ -1,0 +1,100 @@
+MGN 306 (M) MGN 306(M) Amendment 1 - Designing and operating smaller passenger vessels: guidance on meeting the needs of persons with disabilities
+2022-03-17
+Source: https://www.gov.uk/government/publications/mgn-306m-amendment-1-designing-and-operating-smaller-passenger-vessels-guidance-on-meeting-the-needs-of-persons-with-disabilities
+
+1. Introduction/Background
+
+1.1 Disabled people account for 20% to 25% of the population. Whilst greater numbers of children are being born and living with disabilities than ever before, levels of disability also increase with age. Some examples of disabilities are:
+
+•
+difficulty walking and/or climbing steps;
+
+•
+hearing loss;
+
+•
+vision loss;
+
+•
+learning disabilities;
+
+•
+other mental health-related issues.
+
+1.2 Disabled people are not a homogenous group with identical needs. For example, the needs of people with mental health problems or learning disabilities are distinct from those of wheelchair users. Even within disabilities needs vary; for example, a profoundly deaf person will not benefit from an induction loop.
+
+1.3 From beginning to end, the public transport journey on board these passenger vessels should be accessible. Disabled passengers need to know that this will be the case before they set out. The lack of an accessible taxi or the absence of assistance on arrival at a terminal can prevent a disabled person using the services.
+
+1.4 Levels of awareness of the needs of disabled people have developed after many existing vessels came into service and was therefore not often fully reflected in their design. There may also be resource and operational constraints on the extent and speed with which vessel owners and operators can improve accessibility. However, there remains much that can be achieved with relatively low cost or disruption. Many of these changes relate to simple and inexpensive equipment that would aid, for example, people with sensory impairments. Operators should be aware that even where it is considered too difficult to make every possible improvement to accommodate wheelchair users, access needs for other passengers with reduced mobility can often be improved.
+
+1.5 It is not the intent of UK Regulation to fundamentally change the exterior designs of vessels, or to put any operator out of business. Regulation (EU) 1177/2010 on passenger rights – which applies to vessels in some circumstances, but is good advice generally, was incorporated into UK retained law by section 3 of the European Union (Withdrawal) Act 2018. However, the full range of factors listed under “terminology” should be considered in deciding what is reasonable and practicable in making arrangements for on board access to all passengers on passenger ships.
+
+1.6 The accessibility guidelines in the Annex are intended to allow reasonable access to all public and service areas of the vessel. They should allow a proportionate amount of access to representative facilities. This would include access to all services, but not necessarily to all the locations where that service is offered.
+
+NB: For further information on non-MCA documents mentioned in this MGN, see Section 8, “Useful documents”.
+
+2. Terminology
+
+2.1 “A person with reduced mobility” is defined as “anyone who has a particular difficulty when using public transport, including elderly persons, disabled persons, persons with sensory impairments and wheelchair users, pregnant women and persons accompanying small children”. Although this expression is used in legislation, its use with passengers is discouraged. People with hearing impairments and those with small children, for example are unlikely to consider themselves to be “persons with reduced mobility”.
+
+2.2 “Public transport” is a conveyance, either publicly or privately owned, provided to the general public or special service (but not including charter or sightseeing service) on a scheduled route between at least two different locations on a regular basis over a sustained period of time.
+
+2.3 As far as defining what steps are reasonable and practicable, this will depend on all the circumstances of the case. It will vary according to:
+
+•
+the type of services being provided;
+
+•
+the nature of the service provider and its size and resources;
+
+•
+the effect of the disability on the individual disabled person.
+
+2.4 However, without intending to be exhaustive, the following are some of the factors that might be taken into account when considering what is reasonable:
+
+•
+whether taking any particular steps would be effective in overcoming the difficulty that disabled people face in accessing the services in question;
+
+•
+the extent to which it is practicable for the service provider to take the steps;
+
+•
+the financial and other costs of making the adjustment;
+
+•
+the extent of any disruption which taking the steps would cause;
+
+•
+the extent of the service provider’s financial and other resources;
+
+•
+the amount of any resources already spent on making adjustments;
+
+•
+the availability of financial or other assistance.
+
+2.5 It is important that service providers do not assume that the only way to make services accessible to disabled people is to make a physical alteration to their premises (such as installing a ramp or widening a doorway). Often, minor measures such as allowing more time to serve a disabled customer or serving at their location, will help disabled people to use a service. Disability awareness training for staff is strongly encouraged. However, physical alterations may be the only answer if other measures are not sufficient to overcome barriers to access.
+
+3. Related Guidance
+
+3.1 This guidance should be read in conjunction with any mandatory requirements for particular passenger vessel types, e.g, those which fall under the Merchant Shipping (Passenger Ships on Domestic Voyages) Regulations 2000 (SI 2000/2687).
+
+3.2 In June 1996 the International Maritime Organisation (IMO) issued MSC/Circ.735, guidelines entitled “Recommendation on the Design and Operation of Passenger Ships to Respond to Elderly and Disabled Persons’ Needs”. The IMO guidelines covered the design and operation of new passenger ships, with the emphasis on ro-ro passenger ferries.
+
+More information
+
+UK Maritime Services, Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: dpv@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk

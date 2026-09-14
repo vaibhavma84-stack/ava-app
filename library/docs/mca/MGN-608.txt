@@ -1,0 +1,186 @@
+MGN 608 MGN 608 Amendment 1 (M+F) Radio Survey Service: Authorisation
+2025-03-28
+Source: https://www.gov.uk/government/publications/mgn-608-amendment-1-mf-radio-survey-service-authorisation
+
+Summary
+
+• Document has been revised to update regulatory and guidance references.
+
+• Introduces MCA fees for approval of Authorised persons.
+
+• Guidance on the handling of data in line with General Data Protection Regulations.
+
+• Vessels in class (except passenger ships and fishing vessels) will be surveyed and certificated by a UK Recognised Organisation.
+
+• Unclassed vessels, passenger ships, fishing vessels, small workboats and pilot boats will be surveyed by persons authorised by the Maritime and Coastguard Agency (MCA).
+
+• Procedures for persons wishing to obtain authorisation to carry out radio surveys are explained.
+
+1. Introduction/background
+
+1.1 This notice provides guidance on the arrangements for radio surveys on UK vessels.
+
+2. Authorised Persons
+
+2.1       Where reference is made to “authorised persons” in this note, it shall include an individual or company conducting surveys for an organisation so authorised, for example a Recognised Organisation.
+
+2.2       The following persons are authorised to conduct Radio Surveys:
+
+• For vessels which are classed (except passenger ships and fishing vessels), the appropriate UK Recognised Organisation (refer to MSN 1672(M), as amended);
+
+• For unclassed vessels, passenger ships and fishing vessels, persons authorised by MCA on behalf of the Secretary of State;
+
+• For the radio installation of an emergency response and rescue vessel (ERRV) in accordance with the Oil & Gas UK, ERRV Survey Guidelines, persons authorised by the MCA on behalf of the Secretary of State.
+
+3. Procedure for arranging Radio Surveys
+
+3.1       For classed vessels (except passenger ships and fishing vessels), radio surveys must be arranged through the relevant Recognised Organisation for the vessel.
+
+3.2       For unclassed vessels, passenger ships, fishing vessels, small workboats and pilot boats, the survey must be arranged with a person who has been authorised by the MCA. A list of those persons is available at www.gov.uk. Enter “authorised persons for radio surveys” on the sites search function or follow this link - List of authorised persons for radio surveys on UK flagged ships - List of authorised persons for radio surveys on UK flagged ships - GOV.UK (www.gov.uk)
+
+3.3       Small Workboats and Pilot Boats are surveyed and certificated under the Merchant Shipping (Small Workboats and Pilot Boats) Regulations 2023 (SI 2023 No 1216) as amended.
+
+4.  Procedure for authorisation
+
+4.1       The UK Recognised Organisations are authorised for cargo vessels classified by them.
+
+4.2       Other persons or organisations seeking authorisation must apply to the MCA. This requires the completion of a questionnaire, evidence of having a request for a radio survey from a UK vessel operator, evidence of a current approval by one of the UK Recognised Organisations and acceptance of conditions. Requests should be made to Survey Operations Branch by contacting - radioauthorisations@mcga.gov.uk. Monitoring of authorised radio qualified persons is performed via the MCA’s monitoring of the Recognised Organisation’s own approval procedures.
+
+4.3       For passenger ships and fishing vessels, several persons overseas may be authorised to reflect trading patterns and demand from the operators. They must still satisfy the requirements detailed in 4.2 above.
+
+4.4       Authorisations may be withdrawn by MCA at any time as a result of complaints, inadequate quality application, internal controls or lack of demand from UK ship owners.
+
+4.5       Authorised persons or organisations wishing to renew authorisations should contact radioauthorisations@mcga.gov.uk.
+
+4.6       Applications made under this MGN will be charged in accordance with Statutory Instrument 2018 No. 1104 - The Merchant Shipping (Fees) Regulations 2018. The fee charged will be set at 2 hours at the standard hourly rate of £147 per hour as per Statutory Instrument 2018 No. 1104 - The Merchant Shipping (Fees) Regulations 2018.
+
+4.7       The application fee can be paid by using the online .gov service found at  https://www.gov.uk/payments/maritime-and-coastguard-agency-head-office/payment-for-radio-authorisations-mgn608
+
+5. Fees
+
+5.1       Survey fees will be charged by the authorised person direct to the ship owner or their agent. The fees are not regulated by the Secretary of State.
+
+5.2       The administration costs for the issue of certificates will normally be included in the survey fee charged by the Recognised Organisation, or in the case of passenger ships or fishing vessels the fee will be included within the fee for completion of the appropriate surveys carried out by the MCA.
+
+5.3       For initial or renewal surveys of unclassed vessels the authorised person’s fee will include an administration charge in accordance with Merchant Shipping (Fees) Regulations (as amended) to cover MCA’s checking of the radio survey report and for the preparation of the radio certificate for issue by the radio technician.
+
+6.  Conduct of Surveys
+
+6.1       In all cases, requests for survey must be made in good time prior to the date of entry into service of the vessel or expiry of a current certificate or within the range dates for a periodical survey.
+
+6.2       The statutory requirements for the survey of the radio installations on UK vessels are in the:
+
+• Merchant Shipping (Survey and Certification) Regulations 2015 (SI 2015/0508) as amended.
+
+• Merchant Shipping (Radio) (Fishing Vessels) Regulation 1999 and Fishing Vessels (Code of Practice) Regulations 2017 as amended.
+
+• Merchant Shipping (Small Workboats and Pilot Boats) Regulations 2023 (SI 2023 No 1216, each as amended.
+
+6.3       The Harmonized System of Survey and Certification is implemented by the Merchant Shipping (Survey and Certification) Regulations 2015 (SI 2015/0508). This regime standardises the period of validity and intervals between surveys for the nine main Convention certificates, including radio.
+
+6.4       The carriage requirements for equipment are contained in the appropriate regulations, for example, Merchant Shipping (Radio Installation) Regulations; Merchant Shipping (Radio) (Fishing Vessels) Rules or Regulations; and the appropriate Life Saving Appliance Regulations (All regulations apply in their up-to-date amended form). Authorised persons should ensure they are familiar with the regulations appropriate to the vessel concerned.
+
+6.5       Surveys should be carried out in accordance with the appropriate guidance. For example, for vessels coming under the International Safety of Life at Sea (SOLAS) Convention reference is made to the “IMO Resolution A.1186(33) - Survey Guidelines under the Harmonized System of Survey and Certification (HSSC), 2023” as amended.
+
+6.6       Technical guidance is available to Authorised Persons by contacting the MCA. Guidance on equivalent radio requirements for large yachts is included in the Red Ensign Group Yacht Code (REG Code) available online by searching for “REG yacht code”.
+
+6.7       Plan approval for new build vessels should be included as part of the initial survey process carried out by the authorised person.
+
+6.8       For surveys in remote locations where there are no local authorised persons, such as the Falkland Islands, owners of vessels are recommended to coordinate the authorised persons visits to reduce travel costs. In the past many such visits have been arranged annually.
+
+7. Certification and Endorsement
+
+7.1       For cargo vessels, a Cargo Ship Safety Radio Certificate will be issued with a maximum validity of five years, with a periodical survey conducted annually, in accordance with the relevant regulations. The certificate may then be endorsed accordingly.
+
+7.2       For classed cargo vessels, on completion of a satisfactory survey the Classification Society will issue the Cargo Ship Safety Radio Certificate or endorse the certificate on board, as appropriate.
+
+7.3       For all passenger ships or fishing vessels, the authorised person should inform the MCA surveyor responsible for the issue of the appropriate certification that they will be conducting the survey and following the survey will forward the relevant Declaration of Survey to the MCA surveyor. Where a Fishing Vessel Safety Certificate requires separate endorsement for the annual radio survey only, the authorised person will endorse that certificate and send a copy of the signed endorsement to the MCA Marine Office which issued the certificate.
+
+7.4       For an unclassed cargo vessel, the authorised person will forward the relevant Declaration of Survey to the MCA Survey Operations Branch. For initial surveys Survey Operations Branch will prepare a new certificate which will then be issued by the authorised person. For renewal surveys the local Marine office will prepare the certificate. Where a periodical radio survey is completed, the authorised person will endorse the certificate on board and send a copy of the signed endorsement to MCA Survey Operations Branch accordingly.
+
+7.5       For unclassed “Large Yachts” (length over 24 metres) the authorised person will forward the relevant Declaration of Survey to UKSR Large Yacht Services (see contact details at end of this notice) who will prepare a new certificate which will then be issued by the authorised person. Where a periodical radio survey is completed, the authorised person will endorse the certificate on board and send a copy of the signed endorsement to Large Yacht Services accordingly.
+
+7.6       For small workboats and pilot boats, the authorised person should inform the Certifying Authority surveyor responsible for the issue of the appropriate certification that they will be conducting the survey and following the survey will forward the relevant Declaration of Survey to the Certifying Authority surveyor.
+
+7.7       When it is impossible to arrange for survey prior to the expiry of the certificate, it may be extended in exceptional circumstances in compliance with the relevant regulations and only when approved beforehand by the MCA. Requests for extension must be made in writing in a timely manner before the date of expiry and be supported by the following information:
+
+• the reason for the request;
+
+• the period of extension requested (maximum three months);
+
+• copy of the current Safety Radio Certificate;
+
+• confirmation from the Master that the radio equipment is in good order;
+
+• the next port of call and expected date of arrival and sailing;
+
+• the port where the survey is intended;
+
+• the expected date of arrival there; and
+
+• by whom the survey is to be carried out.
+
+7.8       Applications should be made to Survey Operations Branch at the address at the end of this note.
+
+7.9       In urgent cases, MCA may be contacted outside normal working hours using the MCA Duty Surveyor at the contact details at the end of this note.
+
+8. Deficiencies
+
+8.1       When an authorised person finds a radio installation is non-compliant during a survey, the master of the vessel (or responsible person) must be advised in writing of the fault.
+
+8.2       It is the responsibility of the master (or responsible person) to make the necessary arrangements to correct the deficiency noted by the authorised person. If a deficiency which significantly affects safety cannot be rectified in the port of survey, a certificate should not be issued or endorsed or a declaration completed until either the deficiencies have been rectified, or a timescale agreed with the MCA through Survey Operations Branch or the MCA Duty Surveyor.
+
+9. Independence
+
+9.1       The authorised person attending a vessel must not become personally involved in any repairs needed in connection with that survey. If the master chooses to use the same authorised person for repairs, a separate technician must attend the vessel. The vessel will be re- inspected following the repair by the original authorised person or an authorised person other than the one who performed the repair.
+
+9.2       Whilst performing surveys on behalf of the MCA, the authorised person must not undertake any sales activity whatsoever or advise on possible sources of supply of goods or services in connection with any radio survey work with which they are personally involved.
+
+10.  Exemptions
+
+10.1     Where an owner considers any statutory requirement of the regulations to be unnecessary or unreasonable they may request an exemption using an application for assessment of equivalence, exemption or alternative design and arrangement (ADA) (MSF1261). The application should be sent in good time prior to the survey directly to Survey Operations Branch at the address at the end of this note. The MSF1261 application form is available on the .gov website - Apply for survey and inspection of ships and fishing vessels - GOV.UK (www.gov.uk)
+
+10.2     All applications must be supported by detailed reasons why the regulations should or cannot be applied in full. Granting of an exemption may include conditions in order to provide an acceptable level of safety or depending on the application, an equivalence issued. Exemption or equivalence certificates will only be issued after the payment of a fee to cover administration costs.
+
+11. Data Protection
+
+11.1     Authorised Person(s) for conducting surveys of radio installations (including radio checks for life-saving appliances) on UK passenger vessels, fishing vessels and un-classed cargo ships on behalf of the Secretary of State in accordance with this MGN are required to comply with the UK Data Protection Legislation.
+
+12. Forms
+
+12.1     Current declarations of survey will be provided to the authorised persons/organisations upon authorisation.
+
+12.2     Any queries regarding the declarations can be directed to radioauthorisations@mcga.gov.uk
+
+13. Contacts
+
+MCA SSDT - Large Yacht Services
+
+Maritime & Coastguard Agency
+Glasgow Marine Office
+1st Floor West Point West Point Business Park
+1 Marshfield Drive Paisley PA23 2RB
+
+Phone: +44 (0) 20 381 72011
+
+Email: ssdt@mcga.gov.uk
+
+MCA Duty Surveyor
+
+Tel: +44 (0) 7810 528 504
+
+More information
+
+Survey Operations
+Maritime and Coastguard Agency
+Bay 2/20
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72190
+
+Email: HQSurvey@mcga.gov.uk
+
+Website: www.gov.uk/mca

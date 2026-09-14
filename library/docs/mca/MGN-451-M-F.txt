@@ -1,0 +1,49 @@
+MGN 451 (M+F) MGN 451 (M+F) The risk of exposure to radiation
+2023-06-30
+Source: https://www.gov.uk/government/publications/mgn-451-mf-the-risk-of-exposure-to-radiation
+
+Summary
+
+This notice provides guidance on the risks of exposure to radiation. Exposure to radiation can take many forms and can cause varying degrees of harm. Employers are required to take account of the risks to workers of exposure to radiation when carrying out health and safety risk assessments.
+
+1. Introduction
+
+Certain types of equipment in common use on ships may contain sources of ionising radiation. Examples of these include; cargo flow measuring devices on dredgers, density gauges, luminised equipment, sealed source equipment, calibration equipment and ionising type fire detectors. On cruise liners, medical X-ray equipment also produces ionising radiation. Some specialised offshore support vessels may also carry radiation sources for well-logging and non-destructive testing of welds.
+
+2. Background
+
+2.1 Equipment manuals will identify any equipment that contains a radiation source. Activities involving such equipment should be subject to risk assessment, and the shipboard safety management system should identify such equipment and contain control measures for the use, inspection, maintenance and disposal of radiation sources. While these types of equipment are normally located in areas which are not readily accessible, and/or will present negligible risk if undamaged, warning signs should be placed on the equipment so that seafarers are aware of the presence of the hazard.
+
+2.2 Any activity involving such equipment which falls outside the onboard control measures in place should be subject to a risk assessment, and appropriate additional safety measures based on the manufacturer’s safety instructions, including wearing of Personal Protective Equipment if appropriate to the hazard.
+
+2.3 Manufacturer’s recommendations should also be followed when the equipment is decommissioned or removed from the vessel, to ensure safe disposal.
+
+3. Health Surveillance
+
+3.1 Seafarers engaged in work with ionising radiation equipment should, where indicated by the risk assessment, be subject to health surveillance, see COSWP Chapter 7 Health Surveillance, for further guidance.
+
+3.2 Guidance on the potential risk to health from exposure to radiation is available from the HSE’s website. HSE’s regulations, the Ionising Radiations Regulations 1999, do not generally apply to ships when they are outside Great Britain. MGN 197 (M+F) sets out the relevant legislation for ships.
+
+More information
+
+Seafarer Safety and Health Branch
+
+Maritime and Coastguard Agency
+
+Bay 2/17
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Telephone: +44 (0)203 81 72250
+
+Email: seafarersafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

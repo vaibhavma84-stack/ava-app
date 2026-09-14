@@ -1,0 +1,128 @@
+MGN 689 (M) MGN 689 (M): Amendments to international conventions and mandatory instruments - requirements for watertight doors on cargo ships
+2023-12-19
+Source: https://www.gov.uk/government/publications/mgn-689-m-amendments-to-international-conventions-and-mandatory-instruments-requirements-for-watertight-doors-on-cargo-ships
+
+Summary
+
+This Marine Guidance Note (MGN) sets out amendments to the following mandatory international instruments which have the purpose of harmonising existing requirements for watertight doors in cargo ships.
+
+• The Protocol of 1988 relating to the International Convention on Load Lines, 1966 (“1988 Load Line Protocol”)
+
+• The International Convention for the Prevention of Pollution from Ships 1973 (“MARPOL”), Annex I (oil)
+
+• The International Code for the Construction and Equipment of Ships Carrying Liquefied Gas in Bulk (“IGC Code”)
+
+• The International Code for the Construction Equipment of Ships Carrying Dangerous Chemicals in Bulk (“IBC Code”)
+
+The amendments to the 1988 Load Line Protocol, Annex I of MARPOL and the IGC Code will take effect internationally and in the UK on 1 January 2024. The amendment to the IBC Code will take effect internationally and in the UK on 1 July 2024.
+
+1. Background
+
+1.1 During recent consideration of damage stability in cargo ships and openings through which progressive flooding or downflooding may occur, the International Maritime Organization (IMO) noted some inconsistencies in the mandatory construction requirements of certain Conventions and Codes, in particular, requirements relating to watertight doors.
+
+1.2 It was noted that the International Convention for the Safety of Life at Sea (SOLAS) regulation II-1/13-1 sets out the requirements for openings in watertight bulkheads and internal decks in cargo ships which apply to all cargo ships covered by the Convention. Similarly, regulation 27 of Chapter III in Annex I of the 1988 Load Line Protocol, when considering freeboards, sets out requirements for watertight doors that apply to all ships covered by the Convention. Additionally, Annex I of MARPOL, at regulation 28, sets out damage stability criteria including requirements for watertight doors in oil tankers. The IBC Code makes similar provisions for chemical tankers at section 2.9 and the IGC Code at section 2.7.1 for gas carriers.
+
+1.3 Given that both SOLAS and the 1988 Load Line Protocol are likely to apply to cargo ships generally, and also either MARPOL Annex I or the IBC Code or the IGC Code if the cargo vessel is an oil, chemical or gas tanker, these inconsistencies made it unclear which requirements should be applied or take precedence. The IMO undertook a review of the various requirements with a view to providing clarity and harmonisation of the existing requirements rather than developing any new requirements.
+
+1.4 The results of this review (which are set out in more detail below) include amendments to the text of MARPOL Annex I, the 1988 Load Line Protocol, the IBC Code and the IGC Code in order to better harmonise the requirements with those set out in SOLAS. With the exception of the IGC Code amendment, these amendments will be implemented in the UK by virtue of the ambulatory reference provisions in the relevant regulations. The IGC Code amendment is expected to be implemented in the UK by way of a new Statutory Instrument which more broadly implements requirements for dangerous goods and harmful substances.
+
+2. Ambulatory References
+
+2.1 Ambulatory Referencing is a tool used in certain domestic secondary legislation to enable amendments to international instruments (such as MARPOL or the IBC Code) to be given direct effect in UK domestic law. Where the legislation refers to an international instrument, this reference will be ambulatory, that is, a reference to the most up to date version of that provision or code in the international instrument, where the amendments have been made by way of the amendment procedure which is prescribed in that international instrument. The development of an ambulatory reference approach in relation to international maritime instruments is a key step in ensuring the UK keeps up to date with its international maritime obligations.
+
+2.2 This use of ambulatory reference means that agreed amendments to international conventions and codes can be automatically implemented in secondary legislation that references them and which include ambulatory provision. These are generally technical requirements and often relatively small-scale and low-impact amendments which might previously have required disproportionate legal and policy time to implement by way of amendment to the legislation.
+
+3. Harmonisation of Requirements
+
+3.1 The review of requirements for watertight doors conducted by the IMO included member states and industry representatives.  The outcome was the adoption of amended text which better aligns the requirements for watertight doors in the 1988 Load Line Protocol, MARPOL Annex I, the IBC Code and the IGC Code with those set out in SOLAS. There is no amendment made to the existing requirements of SOLAS.
+
+3.2 Consideration was given in the IMO as to whether the textual amendments to the international instruments (i.e. MARPOL Annex I and the 1988 Load Line Protocol) and mandatory instruments (i.e. the IGC and IBC Codes) should be applied to all ships or only to new ships (that is, constructed on or after 1 January 2024, or 1 July 2024 for the IBC Code). The discussions noted that since the overall objective of the amendments was a harmonisation which would maintain, rather than change, the requirements of the instruments as currently in force, these amendments would not result in an additional burden for existing ships. As such, it was concluded that the amendments should apply to all ships, including existing ships.
+
+3.3 The following sections set out the specific amendments to each international instrument and the associated UK domestic regulations.
+
+4. Amendments to the 1988 Load Line Protocol
+
+4.1 IMO resolution MSC.491(104) inserts the following words into existing regulation 27(13)(a) of Chapter III in Annex I (types of ships) to the 1988 Load Line Protocol to exclude certain openings from the list of openings through which progressive downflooding may take place:
+
+“… hinged watertight access doors with open/closed indication locally and at the navigation bridge, of the quick-acting or single-action type that are normally closed at sea, hinged watertight doors that are permanently closed at sea,…”
+
+4.2 Through this amendment, the stated requirements for watertight doors in the 1988 Load Line Protocol become consistent with those stated in SOLAS regulation II-1/13-1.
+
+4.3 The amendment applies to all cargo and passenger ships to which the 1988 Load Line Protocol applies.
+
+4.4 During the review of the 1988 Load Line Protocol, a small editorial error was also noted in regulation 22 of Chapter II in Annex I (scuppers, inlets and discharges). Regulation 22(1)(g) states that table 22.1 provides acceptable arrangements for scuppers, inlets and discharges. However, table 22.1 only covers scuppers and discharges, with inlets being covered in a different table. Therefore, Resolution MSC.491(104) also makes a minor editorial correction by amending regulation 22(1)(g) to remove the word ‘inlet’.
+
+4.5 IMO Resolution MSC.491(104) was adopted on 8 October 2021, and comes into force internationally on 1 January 2024. It will be implemented in the UK by way of the requirement in regulation 4(3) of the Merchant Shipping (International Load Line Convention) (Amendment) Regulations 2018 to comply with Annex I, which reference is ambulatory by virtue of regulation 5 of those Regulations.
+
+4.6 Subject to certain limited exceptions, the 2018 Regulations apply to all United Kingdom ships of 24 metres or more operating internationally and to non-United Kingdom ships of 24 metres or more while in United Kingdom waters and which are operating internationally. Further information regarding the 2018 Regulations can be found in MGN 579.
+
+5. Amendments to Annex I of MARPOL
+
+5.1 IMO Resolution MEPC.343(78) adds the following text, relating to the requirements for watertight doors in oil tanker construction, to paragraph 3.1 of regulation 28 - subdivision and damage stability of MARPOL Annex I:
+
+“… hinged watertight access doors with open/closed indication locally and at the navigation bridge, of the quick-acting or single-action type that are normally closed at sea, hinged watertight doors that are permanently closed at sea,…”
+
+5.2 Through this amendment, the stated requirements for watertight doors in MARPOL Annex I become consistent with those stated in SOLAS regulation II-1/13-1.
+
+5.3 IMO Resolution MEPC.343(78) was adopted on 10 June 2022, and comes into force internationally and in the UK on 1 January 2024. It will be implemented in the UK by way of the requirement in regulation 30(2)(e) of the Merchant Shipping (Prevention of Oil Pollution) Regulations 2019 (requirements for cargo areas of oil tankers) to comply with regulation 28 of Annex I, which reference is ambulatory by virtue of regulation 4 of those Regulations.
+
+6. Amendments to the IBC Code
+
+6.1 IMO Resolutions MEPC.345(78) and MSC.526(106) add the following text, relating to the requirements for watertight doors in chemical tanker construction, to paragraph 2.9.2.1 in Chapter 2 of the IBC Code - Survival Requirements:
+
+“… hinged watertight access doors with open/closed indication locally and at the navigation bridge, of the quick-acting or single-action type that are normally closed at sea, hinged watertight doors that are permanently closed at sea,…”
+
+6.2 Through this amendment, the stated requirements for watertight doors in the IBC Code become consistent with those stated in SOLAS regulation II-1/13-1.  Compliance with the IBC Code is made mandatory by regulation 10.1 of Chapter VII of SOLAS (construction and equipment requirements for chemical tankers) and by regulation 11.1 of MARPOL Annex II (requirements for ships certified to carry noxious liquid substances in bulk identified in chapter 17 of the IBC Code).  The IBC Code amendment was adopted by two IMO Resolutions because it is a mandatory code under both SOLAS and MARPOL.
+
+6.3 IMO Resolutions MEPC.345(78) and MSC.526(106) were adopted on 10 June 2022 and 10 November 2022 respectively and come into force internationally and in the UK on 1 July 2024. The amendment to the IBC Code in MEPC.345(78), as made mandatory by MARPOL, will be implemented by way of the requirements for compliance with the IBC Code in regulation 8(2)(b) and (c) of the Merchant Shipping (Prevention of Pollution by Noxious Liquid Substances in Bulk) Regulations 2018, which references are ambulatory by virtue of regulation 4 of those Regulations  The amendment to the IBC Code in MSC.526(106), as made mandatory by SOLAS, will take effect in the UK on their international in force date of 1 July 2024 by virtue of the ambulatory reference provision in the new regulations (the draft Merchant Shipping (Carriage of Dangerous Goods and Harmful Substances) Regulations 2023) which are expected to come into force in December 2023. The ambulatory reference provision in those Regulations will make the requirement to comply with the IBC Code ambulatory.
+
+7. Amendments to the IGC Code
+
+7.1 IMO Resolution MSC.492(104) adds the following text, relating to the requirements for watertight doors in gas carrier construction, to paragraph 2.7.1.1 of section 2.7 - Survival Requirements in the IGC Code:
+
+“… hinged watertight access doors with open/closed indication locally and at the navigation bridge, of the quick-acting or single-action type that are normally closed at sea, hinged watertight doors that are permanently closed at sea,…”
+
+7.2 Through this amendment, the stated requirements for watertight doors in the IGC Code are aligned with those stated in SOLAS regulation II-1/13-1.  Compliance with the IGC Code is made mandatory by regulation 13.1 in Chapter VII of SOLAS (construction and equipment requirements for gas carriers).
+
+7.3 IMO Resolution MSC.492(104) was adopted on 8 October 2021, and comes into force internationally on 1 January 2024. The preceding edition of the IGC Code is implemented in the UK by the Merchant Shipping (Gas Carriers) Regulations 1994. These Regulations are under review as part of a wider update of dangerous goods and harmful substances regulations. This IMO Resolution will be implemented when new regulations (the draft Merchant Shipping (Carriage of Dangerous Goods and Harmful Substances) Regulations 2023) come into force (expected December 2023).
+
+8. Further Information
+
+8.1 The following are links to the UK Regulations and IMO resolutions referenced in this MGN.
+
+• The Merchant Shipping (International Load Line Convention) (Amendment) Regulations 2018
+
+• The Merchant Shipping (Prevention of Pollution from Noxious Liquid Substances in Bulk) Regulations 2018
+
+•
+The Merchant Shipping (Prevention of Oil Pollution) Regulations 2019  as amended by SI 2021/818, SI 2022/1219 and SI 2022/1234
+
+• The Merchant Shipping (Gas Carriers) Regulations 1994 (as amended)
+
+• Marine Guidance Note (MGN) 579
+
+• IMO resolution MSC.491(104) (1988 Load Line Protocol)
+
+• IMO Resolution MEPC.343(78) (MARPOL Annex I)
+
+• IMO Resolutions MEPC.345(78) and MSC.526(106) (IBC Code)
+
+• IMO Resolution MSC.492(104) (IGC Code)
+
+More information
+
+UK Technical Services – Ship Standards
+Maritime and Coastguard Agency
+Bay 2/21
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: for the 1988 Load Line Protocol LoadLine@mcga.gov.uk, for MARPOL Annex I, the IBC Code or the IGC Code, Cargoes@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

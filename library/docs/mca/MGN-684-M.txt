@@ -1,0 +1,110 @@
+MGN 684 (M) MGN 684 (M) Safety of powered watercraft
+2024-02-01
+Source: https://www.gov.uk/government/publications/mgn-684-m-safety-of-powered-watercraft
+
+Summary
+
+This MGN explains the application of the dangerous use provisions of the Merchant Shipping Act 1995 (“the MSA”) to powered watercraft (those with an engine or motor), the obligations and offences for different actors and notes the role of the Maritime and Coastguard Agency (“MCA”) as the main statutory authority for enforcement.
+
+These changes are effective from 31 March 2023 and are designed to ensure that the owners, operators and users of watercraft within all UK waters (including inland waters) can be held accountable for their actions and omissions.
+
+1. Introduction/background
+
+1.1 Powered watercraft are enjoyed by many people on a regular basis. They are, generally, used safely and with respect for the rights of other water users and wildlife. However, in a minority of cases, the way in which such craft are used can endanger both their users and others.
+
+1.2 It was previously believed that the dangerous use provisions of the MSA applied to watercraft in the same manner as they do to ships used in navigation. However, the Court of Appeal, following the successful prosecution of a personal watercraft user following an accident, found that they were not legally within scope. The wording of that ruling also brought into question whether other types of recreational watercraft were covered. Most local and harbour authorities have powers to introduce measures to control the use of watercraft and remain best placed to understand and respond to local conditions but, where these measures exist, they are not applicable beyond their harbour limits.
+
+1.3 The Merchant Shipping (Watercraft) Order 2023 (“the Order”) closes this gap by applying the dangerous use provisions of the MSA to powered watercraft – that is, by ensuring those provisions cover not only vessels used in navigating from one place to another or for commercial fishing, but for other purposes as well. As a result, the Order applies these provisions to any type of craft of any size which is not a “ship” or a “fishing vessel”, so long as it:
+
+•
+is capable of moving under its own mechanical power;
+
+•
+is used, navigated or situated wholly or partly in or on water; and is capable of being used to carry one or more persons.
+
+1.4 It does not matter what kind of power is used, so electrically-powered vessels of any size (including, for instance, eFoils) are “watercraft” and come within the Order’s reach.
+
+1.5 The Order does not make any changes to the MSA as it applies to ships and fishing vessels. Instead, it applies a number of key provisions to powered watercraft as well – with some necessary changes to reflect the different nature and use of many powered watercraft. The obligations on users, operators and owners of powered watercraft and the offences they can commit are, in most respects, essentially the same as those applicable to ships and fishing vessels.
+
+1.6 As well as applying the dangerous use provisions of the MSA to powered watercraft, the Order also applies other legislation on collision prevention (“COLREGs”); facilitates voluntary registration with the UK Ship Registry; and makes mandatory the registration of Emergency Position-Indicating Radio Beacons (EPIRBs), if used. These are explained in more detail below.
+
+2. Dangerous use
+
+2.1 The Order creates obligations on users, operators and owners of powered watercraft, as appropriate, to ensure they protect both themselves and other water users from harm. Any person may have responsibilities under one or more of these terms depending on circumstances. For example, the user or operator of a powered watercraft may also be the owner. These obligations are summarised below.
+
+User – any person using the powered watercraft at a given time
+
+2.2 The behaviour of the user is key to preventing incidents and accidents occurring in the first place. An offence will be committed if the user does anything which causes or is likely to cause the loss or destruction of, or serious damage to, their powered watercraft, or any other watercraft or ship; or causes (or is likely to cause) the death of or serious injury to any person. Similarly, omitting to do anything required to avoid any of these outcomes will be an offence. The act or omission must be deliberate, or be in breach or neglect of duty; or be a case where the user was under the influence of alcohol or drugs at that time.
+
+2.3 It is important to note that anyone aboard a powered watercraft is likely to be a “user” of it, so passengers and other people besides the person driving or piloting a powered watercraft can commit this type of offence.
+
+Operator – the person who has responsibility for operating a powered watercraft
+
+2.4 The operator of a powered watercraft will commit an offence if they discharge any of their duties, or fail to discharge them, in such a way as to cause any of the outcomes listed for a user under paragraph 2.2. “Operators” may include the person actually driving or piloting the powered watercraft; but can also include anyone else with a responsibility for its operation, such as someone (for instance, a hire company) hiring a powered watercraft out to a third party.
+
+Owner – the person, or persons, who own title or has responsibility for the powered watercraft’s operational safety
+
+2.5 Users and operators may be liable for what they do with a powered watercraft; but owners of such vessels may also be criminally liable if they do not take all reasonable steps to secure that it is used in a safe manner. This liability extends beyond the person, or people, who actually own the craft to anyone entrusted by the owner with responsibility for the craft’s operational safety – whether or not they are paid to do so. An example might be failing to provide an adequate safety briefing or training for a user, or failing to ensure that a user or operator understands the safety obligations which the Order places on them.
+
+Detention
+
+2.6 MCA Inspectors have the power to detain any powered watercraft which they believe to be “dangerously unsafe”, where further use could result in serious danger to human life. A decision to detain a powered watercraft must be explained and there is an appeal process and compensation available if an independent arbitrator decides that this was invalid.
+
+Enforcement
+
+2.7 The MCA’s Enforcement Policy Statement explains how it will deal with any breaches of Merchant Shipping legislation. It notes that criminal investigations will be instigated for significant breaches. Typical offences will include: pollution; breaches of COLREGs; unsafe operations by owners; conduct endangering ships, structures or individuals; carriage of dangerous goods; and fraud (seafarer documentation).
+
+3. COLREGs
+
+3.1 The Order also applies the Merchant Shipping (Distress Signals and Prevention of Collisions) Regulations 1996 to powered watercraft. These Regulations apply international standards, more commonly known as “COLREGs”, which are the rules of the road for the sea. Anyone wishing to use a powered watercraft needs to be familiar with these rules as uncertainty over how to react when vessels encounter one another is a frequent cause of accidents. Moreover, the Order makes a failure properly to follow the COLREGs a criminal offence not only for those using the powered watercraft at the time and those responsible for its conduct (such as, for instance, an instructor), but for the owner as well.
+
+3.2 The COLREGs cover issues such as safe speeds, overtaking and actions to prevent collisions. They can be found as an annex to Merchant Shipping Notice 1781 (M+F).
+
+3.3 Further guidance on related issues, such as operating within the vicinity of a Traffic Separation Scheme (Marine Guidance Note 364 (M+F)) and within restricted (Marine Guidance Note 369 (M+F)) and other conditions of visibility are also available.
+
+4. Watercraft Registration
+
+4.1 Registration of a powered watercraft in the UK Ship Registry is not mandatory, but the Order enables individual owners (not corporates) to enjoy the benefits of doing so on a voluntary basis. There is a small charge for registration. Powered watercraft of any size will be placed in the Small Ships Register, alongside ships which are less than 24 metres in length.
+
+4.2 More information about the benefits, the process and the costs can be found at www.gov.uk/register-a-boat/the-uk-ship-register.
+
+5. Ports and Harbours
+
+5.1 The Order applies in all UK waters including those managed by Statutory Harbour Authorities (SHAs). It also extends the ability of those SHAs which have not previously had the powers to do so to regulate the use of powered watercraft in their harbour limits through Harbour Directions.
+
+5.2 SHAs may already have byelaws or Harbour Directions in place which provide them with enforcement powers within their harbour limits. Where these are in force, the harbour authority’s procedures for the reporting of offences should be followed.
+
+5.3 Users, owners and operators, when within the harbour limits of any SHA, should always consult the information published by the harbour authority and comply with any local regulations which apply to powered watercraft.
+
+6. Emergency Position-Indicating Radio Beacon (EPIRB) Registration
+
+6.1 EPIRBs, if worn by individuals, allow search and rescue agencies to locate a casualty quickly and could mean the difference between life and death following an incident. Wearing an EPIRB is recommended for all activities on the water, although they are not mandatory. However, if anyone aboard a powered watercraft does wear one, both the owner and the operator are required to make sure it has been properly registered under the Merchant Shipping (EPIRB Registration) Regulations 2000; and the owner will commit an offence if this is not done.
+
+6.2 Registration of an EPIRB is free. More information about the simple process can be found in Marine Guidance Note 665 (M+F).
+
+7. Enforcement authorities
+
+7.1 For significant breaches of the Order, the MCA is the relevant enforcement authority. The MCA will investigate whether an offence has been committed in individual cases where a significant breach of the Order is suspected. The MCA will not act on individual claims for compensation or act as an appeals body.
+
+7.2 The MCA is not the only enforcement body. Police forces, local authorities and harbour authorities also have powers under the Order, and for many issues and concerns these bodies are likely to be an appropriate first port of call (and can refer matters to the MCA if appropriate).
+
+7.3 Please note the specific offences above and detailed in the Order. These cover dangerous use only, and are not related to issues such as noise disturbance or antisocial behaviour. Issues such as these should be raised with the relevant local authority.
+
+More information
+
+Regulatory Compliance Investigations Team
+Directorate of Finance, Compliance and Estates
+Maritime and Coastguard Agency
+Bay 3/12
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72490
+
+Email: mca.investigations@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

@@ -1,0 +1,99 @@
+MGN 349 (M+F) MGN 349 (M+F) Amendment 1 Carriage and use of radar reflectors on small vessels
+2022-10-04
+Source: https://www.gov.uk/government/publications/mgn-349-mf-amendment-1-carriage-and-use-of-radar-reflectors-on-small-vessels
+
+Summary
+
+• The International Maritime Organisation’s (IMO) Safety of Life At Sea convention, 1974 (SOLAS) Chapter V Regulation 19.2.1.7 states that a ship shall have:
+
+‘if less than 150 gross tonnage and if practicable, a radar reflector, or other means, to enable detection by ships navigating by radar at both 9 and 3 GHz’.
+
+•
+The loss of the yacht ‘Ouzo’ and her crew highlighted the potentially fatal consequences of poor radar visibility of small vessels.
+
+•
+All small craft should consider fitting, where practicable, the most effective and appropriate radar reflector or radar target enhancer (RTE) for their circumstances; and ensure those comply with international standards.
+
+1. Introduction
+
+1.1 The loss of the yacht ‘Ouzo’ in August 2006 was investigated by the Marine Accident Investigation Branch (MAIB). Their report, published in April 2007 (Report 7/2007), raised several issues including the characteristics of the vessel as a good radar target. The MAIB commissioned a study by QinetiQ designed to inform yachtsmen of the most appropriate choice of radar reflector for their craft. They further tasked the Maritime and Coastguard Agency (MCA) together with the Royal Yachting Association (RYA) to promulgate guidance on the carriage of radar reflectors to all seafarers but specifically owners and skippers of small recreational craft.
+
+1.2 The physics of radar detection is a complex subject which depends primarily on the quality and height of the interrogating radar, and the distance, size, shape and aspect of the vessel involved (target). Detection of other vessels is also affected by external factors including wave and atmospheric conditions. Commercial ships use radar equipment that operates in the ‘X’ band (9GHz) and the ‘S’ band (3GHz), each with their own problems and advantages. The likelihood of radar operators detecting small craft, particularly those without a radar reflector, may be degraded by any or all of these factors.
+
+1.3 There is no guarantee that a small vessel will consistently show on radar screens so a correctly fitted reflector with a consistent echoing area of Radar Cross Section (RCS[footnote 1]) is a crucial factor in increasing the overall probability of detection. Owners and skippers of craft less than 15m overall length are recommended to consider fitting, where practicable, the most effective and appropriate radar reflector for their circumstances.
+
+Note: It is prudent to check the test data provided by the reflector manufacturer to ensure that it has at least the performance detailed in section 3.
+
+2. Requirements for carriage
+
+2.1 SOLAS Chapter V Regulation 19 2.1.7 states that a ship shall have:
+
+‘if less than 150 gross tonnage and if practicable, a radar reflector, or other means, to enable detection by ships navigating by radar at both 9 and 3 GHz’
+
+2.2 MCA guidance on SOLAS Chapter V Regulation 19 2.1.7 is published in MGN 610.
+
+3. Selection and installation
+
+3.1 The following gives guidance on the choice of radar reflectors for small vessels:
+
+3.1.1 An important parameter of a radar reflector is the echoing area, the equivalent RCS, as this determines the amount of radar energy that is reflected back. Ideally achieving a sufficient RCS in all horizontal directions regardless of heel. The following are the basic requirements of the IMO MSC.164(78) performance standard:
+
+•
+The radar reflector should have a RCS of at least 7.5m2 at X-Band and 0.5m2 at S-band when mounted at a minimum height of 4m above sea level;
+
+•
+The RCS should be maintained over a total angle of at least 280° of azimuth and not below this level over any angles greater than 10° (a null). There should not be a distance of less than 20° between nulls; For power driven vessels and sailing vessels designed to operate with little heel (catamaran/trimaran), this performance should be maintained through angles of (athwartships) heel 10° either side of vertical;
+
+•
+For other vessels, the reflector should maintain this performance over 20° either side of vertical
+
+3.1.2 Radar Reflectors meeting the above requirements should comply with ISO 8729-1:2010.
+
+3.1.3 However the above standard results in a large reflector that may be unsuitable for vessels under 15m overall length, in which case Owners and skippers of craft less than 15m overall length are recommended to consider fitting a radar reflector to the older standard EN ISO 8729:1998, which has been retained for type approval under the Marine Equipment Regulations (MSN 1874) for radar reflectors for lifeboats & rescue boats.
+
+3.1.4 Radar Target Enhancers (RTE) are active radar reflectors, they require a power supply to receive, amplify and re-transmit a radar pulse. An RTE has a larger equivalent RCS for a physically smaller size and produces a response on a radar display which is stronger and more consistent than passive reflectors. Mariners should note that X band only and dual band (X and S band) RTEs are currently available at time of publication. Where vessels rely on S band radar i.e. during heavy rain, they will not detect an X band only RTE.
+
+3.2 The correct installation and orientation of the reflector must follow manufacturers’ recommendations if it is to be effective. For example mounting a passive reflector in the ‘catch rain’ position will increase its performance.
+
+3.3 It is recommended that the reflector be mounted as high as practicable, ideally at least 4m above the water to make a consistent radar target and give a potential minimum detection range of 5NM to X band or 3.7NM to S band radars. Radar operators rely on consistent radar targets to warn of approaching vessels and to trigger guard zones set at 3NM to 5NM.
+
+3.4 For type-approved radar reflectors and RTEs, refer to the Marine Equipment Regulations (MSN 1874).
+
+3.5 SOLAS Chapter V Regulation 19 recognises that reflectors built to the relevant international standards can be relatively large and may not be practical for fitting to smaller vessels. The MCA considers fitting reflectors which comply with these standards to vessels of 15m or more in length should be practicable and in many cases vessels below 10m are able to mount a reflector meeting the standards safely.
+
+3.6 When selecting and installing reflectors it may be prudent to seek professional services to address any vessel stability, performance or structural concerns.
+
+4. Recommendations
+
+4.1 The requirements of SOLAS Chapter V Regulation 19 are complied with.
+
+4.2 Seafarers permanently install, not just carry on-board, a radar reflector or RTE that offers the largest RCS practicable for their vessel.
+
+Owners and skippers of craft less than 15m overall length are recommended to consider fitting the most effective and appropriate radar reflector for their circumstances. It is also essential for skippers to be aware that in certain circumstances their craft may still not be readily visible on ships’ radars even when fitted with a radar reflector or an RTE. Therefore, this does not replace the need to maintain a proper lookout at all times and it is prudent to rehearse actions to take in the event that a risk of collision exists. Always navigate with caution.
+
+4.3 The report published by the MAIB is considered during the process of selecting a radar reflector:
+
+http://www.maib.gov.uk/cms_resources/Radar reflectors report.pdf
+
+More information
+
+Navigation Safety
+Maritime and Coastguard Agency
+Bay 2/25
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+•
+The Radar Cross Section is a measure of the ability of an object to return microwave energy to the interrogating radar when compared to the actual reflectivity of a metal sphere ↩

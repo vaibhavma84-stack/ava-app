@@ -1,0 +1,161 @@
+MGN 561 (M) MGN 561 (M) Amendment 1 Surveys: recognised organisation enhanced authorisation
+2025-08-21
+Source: https://www.gov.uk/government/publications/mgn-561-m-amendment-1-surveys-recognised-organisation-enhanced-authorisation
+
+Summary
+
+This guidance notice advises on:
+
+•
+The conclusion of the phase-in period for the Enhanced Authorisation Scheme (EAS) and its implementation; this will now be referred to as the Enhanced Authorisation Safety System (EASS).
+
+•
+The appropriate certification to be issued to participants in the system and the introduction of an Enhanced Authorisation Safety Certificate (EASC) replacing the Flag State Survey annual letter.
+
+•
+Increased flexibility on Enhanced Authorisation Safety Survey windows, formerly referred to as Flag State Survey windows.
+
+•
+EASS takes effect as of 1st April 2025.
+
+1. Introduction/background
+
+1.1 The Enhanced Authorisation Scheme (EAS) was introduced in 2017 on a trial basis as a result of a UK Maritime Growth Study recommendation and a review of survey authorisations.
+
+1.2 EAS provided increased authorisation of the United Kingdom’s (UK) authorised Recognised Organisations (ROs) to undertake survey work for eligible international trading ships, other than passenger ships, to which the principal maritime conventions apply. It also reserved the right for the Maritime and Coastguard Agency (MCA) to maintain oversight of the structure and equipment of the ship and its management systems through Enhanced Authorisation Safety Surveys.
+
+1.3 For a vessel enrolled in EAS, the audits, surveys and verifications required for the Safety Management Certificate (SMC), Maritime Labour Convention Certificate (MLC), International Ship Security Certificate (ISSC) and Safety Equipment Certificate (SEC) are carried out by authorised ROs.
+
+1.4 ROs are not authorised to carry out audits for International Safety Management (ISM) Documents of Compliance under EAS and these remain with the MCA.
+
+1.5 During the trial, a phase-in period was provided for eligible ships to be entered into the EAS; during this phase-in period, MGN 568 - Alternative Compliance Scheme (ACS) continued to run in parallel with EAS (ACS allowed for SEC Surveys to be carried out by UK authorised ROs with the MCA retaining the audit or verification for SMC, ISSC and MLC). It was the intention to withdraw ACS upon trial completion; this is no longer the intention.
+
+1.6 It is recognised that EAS has been successful, and the EAS is now fully implemented with the phase-in period and trial completed. As a result, EAS ship eligibility is being expanded.
+
+2. Entry into the Enhanced Authorisation Safety System
+
+2.1 EASS is available for all existing UK ships classed with a UK authorised RO, which are 500GT or above and issued with International Certificates and are not passenger ships. Whilst not mandatory, it is MCA preferred policy that all eligible vessels are enrolled on the EASS.
+
+2.2 The basis of EASS is that enrolled ships have a known risk profile. Naturally, newbuild and Flag-in ships to the UK register will not have a known risk profile initially; therefore, if EASS is applied for and agreed, they are not considered fully enrolled into the EASS and are issued an Interim Enhanced Authorisation Safety Certificate (EASC) until this risk is able to be quantified. To be issued with a full-term Flag State Survey Certificate a vessel will have been surveyed by the MCA.
+
+2.3 If a ship which is already on EAS has a change of management, the change must be communicated to the MCA Customer Service Manager (CSM) and Key Account Manager (KAM). The updated risk profile will be confirmed by MCA Survey Operations, resulting in an amended Enhanced Authorisation Safety Certificate (EASC) and potentially updated risk banding to be issued.
+
+3. Flag State Surveys
+
+3.1 A key aspect of the EASS is the Flag State Survey required to maintain enrolment. The frequency of survey is based on the ship risk profile which is based on objective technical evidence and professional judgement of factors such as:
+
+• Port State Control (PSC) record
+
+• MCA General Survey (GI) record
+
+• MCA Flag State Survey (FSS) record
+
+• RO Statutory and Classification records
+
+• Management Company ISM Performance
+
+• Other ship factors (ship type/age/casualties/shipbuilder)
+
+3.2 The resulting ship profile will fall into one of four bands:
+
+Band
+Frequency of Survey
+Window
+
+Low
+5 years
+Flexible to suit Company. 5 year window resets after every Flag State Survey
+
+Standard
+3 years
+Flexible to suit Company. 3 year window resets after every Flag State Survey
+
+Raised
+12 months
+Flexible to suit Company. 12 month window resets after every Flag State Survey
+
+High
+6 months
+Surveys within 6 weeks following request by MCA
+
+3.3 The record for each ship is updated annually, as such ships may move into a higher or lower risk band depending on the factors referenced above.
+
+3.4 Flag State Survey windows, as indicated in the above table, have changed by increasing the flexibility of the survey frequency, therefore allowing a more accommodating approach for the survey to be undertaken. This increased flexibility is intended to ease company difficulties in planning for mutually acceptable locations for surveys, considering the ship’s operational area.
+
+3.5 The EASS window resets after each Flag State Survey, i.e. for a standard risk ship, even if the survey is conducted 8 months into the 3-year period, the 3-year window would restart. There is no scope to extend beyond the date apart from in exceptional circumstances and prior agreement by the MCA.
+
+3.6 These surveys will be carried out by MCA surveyors. To the ship, the survey will appear as similar in scope to that of an Expanded Inspection (EI) in accordance with the Paris MOU on Port State Control. It will include focus areas from trend analysis of MoU deficiencies, with additional aspects to cover any particular risk areas for that ship and operational standards related to the SEC, SMC, ISSC or MLC Certificates.
+
+3.7 Where, due to exceptional circumstances, an MCA surveyor is not available for a Flag State Survey, deferment of a survey may be agreed by MCA Survey Operations on a case-by-case basis, taking into consideration the risk profile, amongst other factors. If a survey is deferred, the window will not reset from the agreed deferment date but to that of the expiry of the original deferred window.
+
+3.8 The company will actively facilitate MCA monitoring of RO performance through Vertical Contract Audits (VCA) on ships enrolled or to be enrolled under the EAS. This is not chargeable to the customer.
+
+3.9 The fees associated with MCA or their nominated inspector for Flag State Surveys are to be met by the shipping company. This fee will be charged in accordance with the Merchant Shipping (Fees) Regulations as amended. Where practical, the MCA will aim to schedule the surveyor’s time to keep such costs to a minimum.
+
+3.10 The company will facilitate and maintain Flag State Surveys at the stipulated schedule, providing MCA with a suitable notice period (but no less than 14 days) in relation to the area of operation of the ship.
+
+3.11 If the required Flag State Surveys are not requested (and no deferment has been granted), ships may be withdrawn from the EASS, and the MCA will carry out the SEC, SMC, ISSC and MLC surveys.
+
+4. Documentation
+
+4.1 Where no risk profile is available for a vessel, e.g. for a Flag in or newbuild vessel, an Interim Flag State Survey Certificate (MSF1139) will be issued to the vessel valid for up to six months.
+
+4.2 Upon survey by MCA, full entry into the EASS is granted, a full-term Flag State Survey Certificate (MSF1139) will be issued to the vessel by the MCA, accepting the specific ship and detailing the current risk profile and Flag State Survey window periodicity.
+
+4.3 The Flag State Survey Certificate is to remain on board the vessel, serving as evidence to the attending RO surveyor that the ship is enrolled on the EASS and therefore confirming that their authorisation is extended to conduct SEC, SMC, ISSC and MLC Statutory Surveys on the MCA’s behalf.
+
+4.4 Upon completion of a satisfactory survey, the Flag State Survey Certificate will be endorsed with the new survey window stated.
+
+4.5 Flag State Survey Certificates will have no stated validity. They will remain valid as long as Flag State surveys are completed within the required window and will be replaced if or when the current risk band of the ship changes or all endorsement boxes are completed.
+
+5. Ships currently on the Alternative Compliance Scheme
+
+5.1 Ships on ACS may remain on ACS or transfer to EASS at the next SMC/MLC/ISSC survey/audit/verification by MCA.
+
+5.2 Although MCA encourages all eligible existing UK vessels to transfer to EASS, for ships that do not transfer, the SEC, ISSC, SMC and MLC surveys/verifications/audits will continue to be undertaken by MCA unless currently enrolled on ACS or enrolment to ACS is requested. MGN 568 as amended contains the detail of ACS.
+
+5.3 Where a ship is not on EASS or ACS, the obligation remains for the MCA to attend the vessel to undertake statutory surveys; in exceptional circumstances, Instruments of Appointment (IOA) may be granted for ROs to undertake specific items on the MCA’s behalf. However, without exceptional circumstances, this will not be granted (failure to request MCA services in a timely manner prior to any statutory survey window closing or reasonable time prior to the window closing, will not be deemed an exceptional circumstance). Where IOAs are requested regularly, the MCA will conduct an additional survey within a suitable time frame. These applications will be determined on a case-by-case basis by MCA Survey Operations.
+
+6. Revocation of Certificates
+
+6.1 The MCA reserves the right to suspend or cancel any statutory certificate, document or approval issued by the RO on behalf of the MCA or issued by the MCA. Certification issued under the EASS may be cancelled or other action considered appropriate under any of the following circumstances:
+
+• ship’s involvement in a serious marine accident, casualty or pollution incident;
+
+• failure to correct an RO’s statutory condition of class or statutory deficiency within the permitted time;
+
+• expired or invalid Statutory Certification and/or Flag State Survey Certificate;
+
+• PSC detention;
+
+• ship enters the HIGH risk banding;
+
+• repeated failure in rectifying deficiencies identified at PSC surveys and/ or surveys; or
+
+• failure to organise Flag State Survey.
+
+6.2 In case of a cancellation, the MCA will inform the RO and/or customer in reasonable time, stating the reasons for this action.
+
+6.3 A detention will result in an additional survey of the ship, nominally within 6 weeks, and could lead to a vessel being inspected more frequently by the MCA.
+
+7. Equivalences, Exemptions, ADAs and Temporary Dispensations
+
+7.1 All equivalences, exemptions, ADAs or temporary dispensations (TDs) remain the responsibility of MCA and should be directed through the MCA Customer Service Manager.
+
+8. More information
+
+Survey Operations
+Maritime and Coastguard Agency
+Bay 2/20
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72190
+
+Email: hqsurvey@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk

@@ -1,0 +1,218 @@
+MGN 683 (M+F) MGN 683 (M+F) IMO carbon reduction measures
+2023-04-03
+Source: https://www.gov.uk/government/publications/mgn-683-mf-imo-carbon-reduction-measures
+
+Summary
+
+This notice provides an overview of technical and operational measures to reduce greenhouse gas (GHG) emissions from ships introduced through amendments to Annex VI of the International Convention for the Prevention of Pollution from Ships (MARPOL Convention) which establishes a mandatory energy efficiency regime for international shipping. This guidance covers the following aspects:
+
+• Energy Efficiency Design Index (EEDI);
+
+• Energy Efficiency Existing Ship Index (EEXI);
+
+• Ship Energy Efficiency Management Plan (SEEMP);
+
+• International Energy Efficiency Certificate (IEEC);
+
+• Carbon Intensity Indicator (CII).
+
+1. Introduction/background
+
+1.1 In 2013, a framework was developed by the IMO to promote energy efficient design and operation of ships to reduce emissions of greenhouse gases (GHGs). The EEDI concept was implemented to target new ships, while the requirement to develop a SEEMP covered both new and existing ships. The rules applied to ships of 400GT or above and which met other relevant conditions.
+
+1.2 In 2019 new rules were introduced for certain ships of 5,000GT and above to collect fuel oil consumption data. Compliance with this obligation is confirmed by the issue of a Statement of Compliance and the data is transferred to the IMO Ship Fuel Oil Consumption Database. The IMO produces an annual report to the Marine Environment Protection Committee (MEPC), summarizing the data collected.
+
+1.3 In June 2021, the IMO adopted two further sets of amendments to Annex VI of the MARPOL Convention, the main IMO Convention which combats air pollution from ships: EEXI and the CII.
+
+1.4 The amendments introduced new carbon intensity measures developed under the framework of the Initial IMO Strategy on Reduction of GHG Emissions from Ships agreed in 2018 and are aimed at improving the operational and technical energy efficiency of ships.
+
+1.5 The technical measure, EEXI, tightens energy efficiency improvements on existing ships while the operational measure, the CII rating, grades ships “A - E” on their carbon intensity outcomes.
+
+1.6 These new measures entered into force internationally on 1 November 2022 and took effect from 1 January 2023.
+
+1.7 The requirements of Annex VI are applicable internationally and vessels are reminded that Port State Control in other states which are parties to the MARPOL Convention will expect UK flagged vessels to comply with the requirements of Annex VI when they call at the ports of other contracting states.
+
+1.8 EEXI and CII are part of the IMO’s short-term measures. Their effectiveness will be reviewed before 1 January 2026 and will aid in the development of further ambition in decarbonisation and progress on mid-term measures.
+
+1.9 The EEDI, EEXI and CII regimes generally apply to the following ship types:
+
+•
+bulk carriers;
+
+•
+combination carriers;
+
+•
+containerships;
+
+•
+cruise passenger ships;
+
+•
+gas carriers;
+
+•
+general cargo ships;
+
+•
+LNG carriers;
+
+•
+refrigerated cargo carriers;
+
+•
+ro-ro cargo ships;
+
+•
+ro-ro cargo ships (vehicle carriers);
+
+•
+ro-ro passenger ships;
+
+•
+tankers.
+
+1.10 The IMO has developed a package of guidance associated with the measures that supports the implementation of the Energy Efficiency chapter of Annex VI including:
+
+•
+Resolution MEPC.212(63) – Guidelines on the method of calculation of the attained Energy Efficiency Design Index (EEDI) for new ships;
+
+•
+Resolution MEPC.346(78) - 2022 Guidelines for the development of a Ship Energy Efficiency Management Plan (SEEMP);
+
+•
+Resolution MEPC.365(79) – 2022 Guidelines on survey and certification of the Energy Efficiency Design Index (EEDI);
+
+•
+Resolution MEPC.231(65)– 2013 Guidelines for calculation of reference lines for use with the Energy Efficiency Design Index (EEDI);
+
+•
+Resolution MEPC.364(79) – 2022 Guidelines on the method of calculation of the attained Energy Efficiency Design Index (EEDI) for new ships;
+
+•
+Resolution MEPC.350(78) – 2022 Guidelines on the method of calculation of the attained Energy Efficiency Existing Ship Index (EEXI);
+
+•
+Resolution MEPC.351(78) - 2022 Guidelines on survey and certification of the Energy Efficiency Existing Ship Index (EEXI);
+
+•
+Resolution MEPC.335(76) 2021 Guidelines on the shaft / engine power limitation system to comply with the EEXI requirements and use of a power reserve;
+
+•
+Resolution MEPC.352(78) - 2022 Guidelines on operational Carbon Intensity Indicators and the calculation methods (CII Guidelines, G1);
+
+•
+Resolution MEPC.353(78) - 2022 Guidelines on the reference lines for use with Operational Carbon Intensity Indicators (CII Reference Lines Guidelines, G2);
+
+•
+Resolution MEPC.338(76) - 2021 Guidelines on the Operational Carbon Intensity reduction factors relative to reference lines (CII Reduction Factors Guidelines, G3);
+
+•
+Resolution MEPC.354(78) - 2022 Guidelines on the Operational Carbon Intensity Rating of ships (CII Rating Guidelines, G4);
+
+•
+Resolution MEPC.355(78) - 2022 Interim Guidelines on correction factors and voyage adjustments for CII calculation (CII Guidelines, G5);
+
+•
+Resolution MEPC.348(78) – 2022 Guidelines for administration verification of ship Fuel Oil Consumption Data and Operational Carbon Intensity.
+
+All the above guidelines are available on the IMO website at Index of IMO Resolutions.
+
+2. Energy Efficiency Design Index
+
+2.1 The Energy Efficiency Design Index (EEDI) regime is intended to provide a framework for newbuild vessels to gradually improve energy efficiency. It was developed in response to growing concerns about GHG emissions associated with the sector.
+
+2.2 The EEDI is intended as a goal based, technology neutral measure that allows industry to determine the appropriate route to compliance for a newbuild ship.
+
+2.3 As per MARPOL Annex VI, a “new” ship is defined as a vessel:
+
+•
+for which the building contract is placed on or after 1 January 2013; or
+
+•
+in the absence of a building contract, the keel of which is laid or which is at a similar stage of construction on or after 1 July 2013; or
+
+•
+the delivery of which is on or after 1 July 2015.
+
+2.4 The EEDI requirements are generally applicable to all new ships of 400GT and above, of the relevant types, as well as existing ships which have undergone a major conversion that is so extensive that the ship is regarded by the Administration as a newly constructed ship.
+
+2.5 Reference should be made to Regulation 19 of Annex VI for other relevant conditions of application, and to Regulations 22 and 24 of the revised MARPOL Annex VI for the method of calculation of the attained EEDI and required EEDI values, together with the Guidelines referred to in paragraph 1.10 above.
+
+2.6 The requirements are being phased in from 2013 to 2025 with increasingly stringent reductions required for new builds in later phases, Unified Interpretations can be found in MEPC.1/Circ.795/Rev.7.
+
+2.7 The EEDI can be simplified and expressed as a measure of the CO2 emissions of a vessel. The intention of the calculation is to encourage designers to deliver vessels with lower overall emissions.
+
+3. Actions required under EEDI
+
+3.1 When considering a newbuild, due attention should be given to the requirements of the EEDI. In particular, consideration should be given to the application of Regulations 22 and 24 of the revised Annex VI.
+
+3.2 A newbuild covered by the EEDI regime will need to be designed to comply with the appropriate EEDI phase.
+
+3.3 Some exceptions exist to the application of EEDI, notably relating to vessels with diesel-electric, turbine or hybrid propulsion; further information on these exceptions can be found in Regulation 19 of the revised Annex VI.
+
+4. Energy Efficiency Existing Ship Index
+
+4.1 The Energy Efficiency Existing Ship Index (EEXI) is a technical design measure aimed at improving the energy efficiency of a ship’s design by tightening energy efficiency improvements on existing ships.
+
+4.2 The EEXI is determined by CO2 emissions per tonne mile (grams-CO2/tonne-nautical mile) and the main factors in its calculation are the vessel’s installed power and cargo-carrying capacity.
+
+4.3 The EEXI regime applies to existing ships of 400GT and above, of the same type as for the EEDI regime (as listed at paragraph 1.9), subject to the exemptions set out in Regulation 19 of the revised Annex VI.
+
+4.4 The EEXI is a one-time test completed at the first annual, intermediate, renewal or initial survey (taking place after 1 January 2023). The “attained EEXI” will demonstrate the ship’s energy efficiency in comparison to a baseline. The attained EEXI will then be compared to a “required EEXI” for that particular ship type. If the attained EEXI is greater than the required EEXI, measures to ensure compliance will be required.
+
+5. International Energy Efficiency Certificate
+
+All relevant ships of 400GT and above and engaged in international voyages will require an International Energy Efficiency (IEE) Certificate which certifies that the ship complies with the EEDI and/or EEXI requirements and has attached to it a record of the ship’s attained and required EEDI values and/or the attained and required EEXI values. Operators should ensure that an IEE Certificate is in place at the initial survey or the first annual, intermediate or renewal survey after 1 January 2023. The UK has Certifying Authorities to issue these certificates on behalf of the flag.
+
+6. Carbon Intensity Indicator
+
+6.1 The Carbon Intensity Indicator (CII) regime applies to all relevant ships 5,000GT and above of the same type as listed in paragraph 1.9.
+
+6.2 The CII will measure how efficiently a ship transports goods or passengers, in grams of CO2 emitted per cargo carrying capacity and nautical mile terms. The aim of CII is it will ensure continuous improvements to ship’s energy efficiency by enforcing increasingly stricter emission targets, year on year. The CII is an annual review of a ship’s actual carbon emission performance over the past year, with such monitoring starting from January 2023. From 1 January 2023 for ships of 5000 GT and above, the SEEMP will need to contain additional CII related details. Ships shall amend their SEEMP by developing a new part III to include details relating to the vessel’s operational CII. Ships will need to have an approved SEEMP (Part III) in place showing how CII targets will be achieved. On satisfactory assessment of the SEEMP (Part III), the Certifying Authority issues a Statement of Compliance. See MEPC.347(78) for further information.
+
+6.3 The owner or relevant certified organisation of a relevant ship must use the data collected under the existing annual fuel oil consumption data collection requirements (MARPOL Annex VI Regulation 27) to calculate the attained annual operational CII of the ship for each 12-month reporting period beginning on 1 January and ending on 31 December.
+
+6.4 The attained annual operational CII must be reported to a Certifying Authority by 31 March of the following year to which the data relates. The Certifying Authority will document and verify the attained annual operational CII against the required annual operational CII to determine their operational carbon intensity rating (A-E), taking into account the IMO Guidelines, and verification of DCS data. A Statement of Compliance with a rating, related to fuel oil consumption reporting and operational CII, is then issued to a ship.
+
+6.5 Where a ship is rated by the Certifying Authority as D for three consecutive years, or as “E” for any year, the owner of the ship must review the SEEMP and include in it a plan of correction actions to achieve the required annual operational CII and submit the revised SEEMP to the Certifying Authority. Once the Certifying Authority is satisfied with the plan of corrective actions, it will issue the Statement of Compliance. The SEEMP Part III and its Statement of Compliance must be readily available onboard at all times for inspection.
+
+7. Ship Energy Efficiency Management Plan
+
+7.1 The Ship Energy Efficiency Management Plan (SEEMP) is the element of the revised Annex VI that establishes a mechanism for operators to improve the energy efficiency of ships during their operations.
+
+7.2 The SEEMP should be developed in such a way as to empower the vessels crew to improve energy efficiency where possible, noting that the safe operation of the vessel must remain paramount at all times.
+
+7.3 All ships of 400GT and above engaged in international voyages are required, by Regulation 26 of Annex VI of MARPOL, to keep a vessel specific SEEMP on board and this is a requirement for the issue of the IEEC. The SEEMP should be developed in line with the IMO guidelines, as referred to in paragraph 1.9 above. The SEEMP is intended to be a living document that considers how a vessel’s energy efficiency can be maintained and improved throughout the vessel’s operating life.
+
+7.4 In addition, relevant ships of 5000GT and above must include a description of the methodology that will be used to calculate the ships annual operational CII in accordance with regulation 28 of Annex VI of the MARPOL Convention. The SEEMP (Part III) shall include the required annual operational CII, as specified in regulation 26 of MARPOL Annex VI, for the next three years, and an implementation plan documenting how the required annual operational CII will be achieved during the next three years. SEEMP (Part III) is subject to periodic verification and surveys, as per Resolution MEPC.347(78).
+
+7.5 For CII, a ship rated as D for three consecutive years or rated as E in any year, a corrective action plan is required, please see 6.5.
+
+8. Domestic Vessels
+
+8.1 Vessels registered on the UK flag that are engaged solely on domestic voyages are not currently required to comply with the requirements of the EEDI, EEXI, CII and SEEMP. Notwithstanding this, the Annex VI rules are to be reviewed and therefore it is recommended that such vessels operate in a manner consistent with the SEEMP concept and that newbuilds are constructed to comply with the EEDI, EEXI and CII regimes.
+
+8.2 A UK flagged vessel that completes one international voyage, will be subject to these rules.
+
+9. UK Regulations
+
+9.1 The Merchant Shipping (Prevention of Air Pollution from Ships) Regulations 2008 (S.I. 2008/2924, as amended in particular by S.I. 2019/940 and S.I. 2023/384) transpose the EEDI, EEXI, CII and SEEMP regimes into UK law. These domestic Regulations generally apply to UK ships wherever they may be and to non-UK ships while in UK waters. We expect the IMO to review the international requirements in 2026. The requirements of Annex VI are applicable internationally and vessels are reminded that the UK is a party to Annex VI of the MARPOL Convention and Port State Control in other states party to Annex VI will expect UK flagged vessels to comply.
+
+More information
+
+Future Propulsion and Fuel Safety Team
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: infoline@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

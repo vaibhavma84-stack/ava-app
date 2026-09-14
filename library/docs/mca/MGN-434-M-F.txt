@@ -1,0 +1,635 @@
+MGN 434 (M+F) MGN 434 (M+F) Amendment 2: Navigation: vessel traffic services (VTS) – training and certification of VTS personnel
+2023-08-04
+Source: https://www.gov.uk/government/publications/mgn-434-mf-amendment-2-navigation-vessel-traffic-services-vts-training-and-certification-of-vts-personnel
+
+Summary
+
+The purpose of this guidance note is to identify the standards of Vessel Traffic Service (VTS) training and certification recognised by the United Kingdom Competent Authority that are also closely aligned with IALA standards and the UK National Occupational Standards. It also provides information on the procedures for the training and certification of VTS personnel in the UK.
+
+Note: Although the advice contained in this guidance is aimed essentially at shore-based establishments, the merits of informing a wider audience to promote awareness of the important contribution that VTS makes to the maritime industry and to indicate the standard and level of training of VTS personnel within the UK are also recognised. It is therefore necessary that mariners, as users of VTS and Local Port Services (LPS), also receive this information. Reference should also be made to MGN 401 (as amended) on issues of VTS policy other than training.
+
+1. Introduction
+
+1.1 In 1993 the International Association of Marine Aids to Navigation & Lighthouse Authorities (IALA) published the first IALA Vessel Traffic Services Manual to provide guidance and assistance to administrations and authorities considering the implementation of new VTS or upgrading existing ones. The Manual remained the primary document on VTS until 1995 when the Conference of Parties to the International Convention on Standards of Training, Certification and Watchkeeping for Seafarers 1978, as amended, (STCW Convention) recognised the important contribution of other professionals towards maintaining the safety of life at sea, safety and efficiency of navigation and the protection of the marine environment. Resolution 10 of the Convention called for international provisions to be drawn up for the training of maritime pilots and VTS personnel. In response IALA embarked on the development of a Recommendation for the training and certification of VTS personnel and the associated model courses.
+
+1.2 In 1997 the International Maritime Organization (IMO) Guidelines for Vessel Traffic Services was initially adopted. In December 2021 IMO Resolution A.1158(32) Guidelines for Vessel Traffic Services was subsequently adopted. The guidelines are associated with SOLAS V Regulation 12 and describe the principles and general operational provisions for the operation of a VTS and for the participating vessels.
+
+1.3 In May 2000 the IMO, through the Maritime Safety Committee (MSC/Circular 952), noting the development of IALA Recommendation V-103, invited Member Governments, pending the development of additional provisions, to bring the Recommendation and associated model courses to the attention of their VTS authorities when considering the training and certification of VTS personnel.
+
+1.4 Since then, model courses and Guidelines relating to the training of VTS personnel have been developed and regularly updated by IALA. The IALA standards are now recognised internationally as the primary training and certification standards for VTS personnel. A list of the current publications pertaining to VTS training are available on the IALA website at http://www.iala-aism.org.
+
+1.5 Additionally, the Port Marine Safety Code (PMSC) and Guide to Good Practice both address the issue of training for port personnel including VTS personnel.
+
+2. The National Competent Authority for VTS
+
+2.1 IMO and IALA define the Competent Authority as:
+
+The entity made responsible by the Government for vessel traffic services.
+
+2.2 The Maritime and Coastguard Agency (MCA), in the role of the UK National Competent Authority for VTS, is responsible for ensuring consistency of training standards and methods within the UK in accordance with the appropriate IMO and IALA Recommendations and Guidelines. The responsibilities of the Competent Authority for VTS are contained in MGN 401 (as amended): Vessel Traffic Services and Local Port Services in the UK, which also contains the responsibilities of Harbour Authorities (in the context of VTS) and VTS Providers.
+
+3. UK VTS Policy Steering Group
+
+3.1 UK VTS policy is established through the UK VTS Policy Steering Group, chaired by the MCA with appropriate representation which sets, inter alia, VTS training, certification, and operational policy.
+
+4. UK VTS Training, Certification and Operational Strategy
+
+4.1 The strategy in the UK for VTS training, certification, and operations, broadly adopts the contents of relevant IALA recommendations, guidelines, and model courses. The UK VTS Policy Steering Group may also deem necessary to have additional standards or initiatives that need adopting into UK VTS policy. In this case, the UK will work towards incorporating them into UK policy at the same time as promoting them through the IALA route.
+
+5 Selection and Recruitment
+
+5.1 Prospective candidates for VTS Operator training (C0103-1) should meet the minimum entry requirements as defined by the Competent Authority. Whilst the pre-requisite standard for entry to a C0103-1 VTS operators’ course is the STCW II/1 OOW Deck or equivalent qualification, it is accepted that candidates from a wide variety of backgrounds may wish to embark on a career in VTS. VTS providers who recruit candidates who do not fully meet the pre-requisite standard should liaise with an approved VTS Training Organisation to make an early assessment of the candidate to identify any additional Nautical Knowledge and VHF Radio training which may be required. (See Annex 4 for further details on the assessment process).
+
+5.2 The selection procedure for newly recruited VTS Operators should, at a minimum, include a medical examination, an assessment of the personal attributes/suitability of the candidate by the VTS provider or prospective employer, and an aptitude assessment.
+
+5.3 Candidates are expected to meet the medical fitness requirements set by the VTS Provider on recruitment; consideration should be given to mobility, hearing, and vision. Evidence that these standards continue to be met will be required on revalidation of logbooks every 5 years.
+
+5.4 Personal attributes are important factors in the selection criteria. A continual assessment should be made of a candidate’s suitability throughout the selection process. Candidates should as a minimum have an appropriate sense of responsibility and show independence as well as having a willingness to co-operate with others as part of a team.
+
+5.5 Aptitude assessments should be carried out by the VTS Provider during the recruitment process even if the candidates have previous maritime experience. To assess the applicant’s aptitude and suitability, different types of tests and evaluations may be used such as:
+
+• Interviews
+
+• Written tests
+
+• Practical tests/ exercises
+
+• Psychometric tests.
+
+Assessments should be designed to evaluate the suitability of a candidate within a VTS environment by:
+
+• Distinguishing among relevant and irrelevant information (e.g., assess the relative movement of fixed and moving objects)
+
+• Combining auditory and visual information
+
+• Demonstrating spatial and situational awareness
+
+• Demonstrating alertness and decisiveness when required
+
+• Carrying out several tasks simultaneously (multi-tasking)
+
+• Prioritising and deciding what situations require immediate action
+
+• Show initiative and make decisions whilst working within a framework of standards, regulations, and structured procedures
+
+• Working under conditions of stress
+
+• Demonstrating effective participation as a member of a team
+
+• Demonstrating appropriate communication, literacy (written and oral) and numeracy skills.
+
+To assess the aptitude, attributes and suitability of a candidate, the assistance of specialists may be considered to ensure appropriate tests and exercises are in place to complement the interview process conducted by the VTS provider.
+
+6. The Training Process
+
+6.1 The UK’s VTS ‘Training and Certification Strategy’ is the only approved route to acquire professional qualifications for VTS personnel in the UK.
+
+6.2 UK VTS Operators are only considered competent when appropriately trained and qualified for their VTS duties. This includes:
+
+• Successfully completing the VTS Operator training course at an MCA approved Training Organisation
+
+• Completing On-the-Job Training (OJT) specific to the VTS where the person is employed
+
+• Undergoing performance assessment and revalidation to ensure competence is maintained
+
+• Being in possession of a UK VTS logbook issued by the MCA.
+
+7. Delivery of VTS Training
+
+7.1 VTS training can only be provided by organisations that have been accredited by the MCA, have achieved approval of their courses through audit by the MCA in accordance with IALA Guidelines, and are in possession of a valid MCA Certificate of Approval. Following initial approval, all VTS courses are subject to intermediate / periodical audits between the 2nd and 3rd anniversary and a renewal audit every 5-years.
+
+•
+7.2 Organisations delivering VTS training should provide training services within the framework of a Training Management System (TMS), as prescribed by IALA Guideline No. 1014, that fulfils the requirements of an approved Quality Management System (QMS) standard. It is important to ensure that the programme for the training and assessment of VTS personnel, is:
+
+• • Able to meet and maintain the standard of competence as indicated in IALA Recommendation R0103
+
+• • Structured in accordance with the established training procedures based on clearly communicated, measurable and achievable objectives
+
+• • Conducted, monitored, evaluated, and supported by trainers/assessors qualified, as a minimum, to the current Further Education qualifications
+
+• • Managed in a manner that ensures the continued development of the training courses in terms of relevancy, currency, and accuracy. This includes, but is not limited to, the continued monitoring and where appropriate incorporation in training courses of:
+
+• a. Technological advances
+
+• b. Recent developments in national and international recommendations, laws, and regulations
+
+• c. Reviews of recent accident reports, investigations, studies, and other emerging trends that may have an impact upon the delivery of VTS.
+
+•
+7.3 A current list of MCA accredited VTS Training Organisations is provided in a Marine Information Notice (MIN 554) published annually by the MCA.
+
+8. VTS Operator Training (C0103-1)
+
+8.1 VTS Operators are persons who have successfully completed the VTS Operator training course (C0103-1), On-the-Job Training (OJT) and received a local endorsement from their VTS provider.
+
+8.2 VTS Operator training follows the IALA Model Course C0103-1 and covers the following seven modules:
+
+• Module 1: Communication Coordination and Interaction
+
+• Module 2: Legal Framework
+
+• Module 3: Provision of VTS
+
+• Module 4: Nautical Knowledge
+
+• Module 5: Equipment
+
+• Module 6: Human Factors
+
+• Module 7: Emergency Situations
+
+8.3 Week 1 of this course (VTS Underpinning Knowledge) provides underpinning knowledge and prepares trainees for the formal assessment of IALA C0103-1 model course modules, which includes written paper assessments. This course may only be commenced by candidates who meet the prescribed pre-entry standard (STCW II/1 OOW Deck or equivalent) or who have successfully completed the required Nautical Knowledge and VHF training. It may be possible for some of these modules to be delivered through blended learning.
+
+8.4 Week 2 of the course (VTS Simulation) provides simulation exercises to assess the learning outcomes of IALA C0103-1 model course. This stage of the course may only be commenced on successful completion of the formal assessments for the first half of the course.
+
+8.5 VTS Operator training offers a variety of approaches but must meet the requirements of IALA and the MCA that trainees achieve and demonstrate competence in VTS underpinning knowledge and simulated exercises covering all seven modules. This will be achieved by continuous assessment.
+
+8.6 VTS Providers should, in the first instance, approach an accredited VTS training organisation to confirm course availability and application/entry requirements. Full or Partial Accreditation of Prior Learning (APL) or Accreditation of Prior Experiential Learning (APEL) may be granted for some modules (See 8.9).
+
+8.7 The accredited VTS training organisation and/or VTS Provider will undertake an initial assessment of the candidates to review existing qualifications, knowledge and skill and determine whether all necessary course prerequisites have been fully or partially met.
+
+8.8 In the event of any course prerequisites not being fully met the accredited training organisation will provide advice to the candidate and VTS Provider on the areas in which further qualifications, knowledge, or skill are required. Where evidence of APL is documented and validated, training may be adjusted to reflect both the past formal training and experience of the candidate.
+
+8.9 A current list of MCA recognised APL and APEL can be found in a Marine Information Notice 692 published annually by the MCA.
+
+8.10 All VTS personnel are required to meet the English Language requirement. Recommended training hours for Module 1 (Language) of the IALA Model Course C0103-1 are set on the assumption that VTS trainees have achieved an International English Language Testing Scheme (IELTS) Level 5 or equivalent prior to commencement of training. It should however be noted that candidates wishing to work in a UK VTS centre and thus requiring a UK VTS certification log, will be required to demonstrate that they meet IELTS level 7 when applying for their certification log.
+
+8.11 The validity of an IELTS certificate is two years. If the IELTS certificate has been obtained earlier than the two-year validity period, the candidate should demonstrate evidence that they have maintained or improved their proficiency in English. This should be confirmed in writing by the VTS Provider.
+
+8.12 Accredited VTS training organisations will issue the following certificates on successful completion of the VTS Operator training (C0103-1):
+
+• VTS Nautical Knowledge certificate (If undertaken at the training organisation)
+
+• VTS VHF Radio certificate (If taken at the training organisation during the VTS Nautical Knowledge course)
+
+• VTS Underpinning Knowledge certificate
+
+• VTS Simulation certificate
+
+Certificates should display both IALA and MCA logos.
+
+8.13 The MCA will issue a VTS Certification Logbook to the individual on submission of the necessary documents and fee to the MCA’s Seafarer Training and Certification Branch (see Annex 4). The VTS Certification Logbook represents a history of the VTS Operator’s career, containing documentary evidence of a professional qualification, a record of training, endorsements, annual assessments, refresher training and revalidation. MSF 4807 should be used to apply for VTS Certification Logbook, supervisor endorsement, instructor endorsement and revalidation.
+
+9. On-the-job Training (C0103-3)
+
+9.1 On-the-Job Training (OJT) is training and familiarisation at the VTS centre at which the person will be employed. The OJT should cover areas such as traffic management, local knowledge of the VTS area, legislative framework, equipment used at the VTS centre, operational and emergency procedures and local publications and documents. The MCA recognises that the OJT process will involve individuals learning from several sources.
+
+9.2 VTS areas will vary, and OJT should be tailored to provide the candidate with the necessary training for their area. The duration of the training will depend upon the complexity of the VTS operations and reflect the experience and qualifications of the trainee.
+
+9.3 OJT training may be completed prior to the trainee attending formal C0103-1 VTS operator training, after a trainee attends formal C0103-1 VTS operator training or in multiple stages, with some training prior to, and after completing formal C0103-1 VTS operator training.
+
+9.4 Satisfactory completion of OJT will qualify the trainee for an endorsement from the VTS Provider. This will be entered in the trainee’s VTS Certification Logbook. The issue of an endorsement confirms successful completion of training as a VTS Operator or VTS Supervisor at a VTS Centre, or Centres under the responsibility of that VTS Provider only.
+
+9.5 Each VTS Provider is responsible for the development of an OJT programme in accordance with the IALA Model Course C0103-3. The OJT programme should consider the necessary skills and competencies required by the trainee and these should be clearly defined in an OJT Training Record Book. Personnel carrying out the OJT of VTS staff in the core VTS subjects should be qualified as a VTS On-the-job Training Instructor (OJTI - See section 12). OJT may, however, include instruction in other disciplines from subject matter experts who may not be qualified as VTS OJTIs.
+
+9.6 A VTS Operator or VTS Supervisor transferring to a VTS centre not identified in their VTS Certification Logbook or transferring employment to another VTS Provider is required to obtain a further endorsement to operate at that centre. This includes VTS Providers operating multiple geographical VTS areas- each area must have separate OJT and endorsement.
+
+9.7 Before a VTS Operator achieves appointment as a VTS Supervisor a further process of OJT should take place to cover, at a supervisory level, the elements listed in Annex 2. Upon the successful completion of such training a further endorsement should be made in the VTS Certification Logbook reflecting that the holder is authorised to perform VTS Supervisory functions.
+
+10. VTS Supervisor Training Portfolio
+
+10.1 It is recommended that the compilation of a portfolio is commenced by all VTSO’s after completion of their C0103-1 training. The development of a portfolio is based on a VTSO examining their experiences to identify skills and knowledge acquired. A professional portfolio may be described as a structured collection of evidence of a professional’s best work that is selective, reflective, collaborative, and demonstrates a professional’s accomplishments over time and across a variety of contexts.
+
+10.2 The portfolio is an essential element of the C0103-2 Supervisor course. This must be compiled by a candidate and submitted to the chosen training organisation for checking prior to commencement of the course. When the portfolio is created, a comprehensive indication of learning, cross-referenced with evidence demonstrating actual skills, knowledge, and competence related to IALA Model Course C0103-2 should be provided. A VTS Supervisor portfolio should also document a candidate’s training, reflection of operational experiences and personal development as a VTS professional in addition to drawing on expertise gained elsewhere.
+
+10.3 The recommended subject areas of a portfolio are described in Annex 3 and should be regularly updated to ensure that relevant Continuous Professional Development (CPD) training and certification is recorded.
+
+10.4 A portfolio allows a professional to analyse their professional practice, to gather evidence that supports identified standards, and to develop reflective rationales that connect professional development and learning.
+
+10.5 Building a portfolio requires planning, reflection, and collection of evidence both of professional development and learning.
+
+11. VTS Supervisor Training (C0103-2)
+
+11.1 A VTS Supervisor is a C0103-1 qualified VTS Operator who is appropriately qualified as a VTS Supervisor (in accordance with IALA Model Course C0103-2), successfully completed the VTS Supervisor training course and holds the appropriate local endorsement. Any individual performing a supervisory role within a VTS should obtain a C0103-2 certificate.
+
+11.2 The VTS Supervisor training course comprises six modules each of which deals with a requirement or function of a VTS Supervisor:
+
+• Module 1: Advanced Traffic Management
+
+• Module 2: VTS Equipment
+
+• Module 3: Additional Personal Attributes
+
+• Module 4: Responding to Emergency Situations
+
+• Module 5: Administrative Functions
+
+• Module 6: Legal Knowledge
+
+11.3 Successful completion results in the issue of a certificate by the accredited training organisation and provides a formal qualification to VTS personnel performing one or more supervisory tasks.
+
+11.4 Annex 2 shows the process for VTS Supervisor training and certification.
+
+11.5 The MCA will endorse the individual’s VTS Certification Logbook on submission of the necessary documents and fee.
+
+11.6 Successful completion of the C0103-2 Supervisor course will also provide the equivalent level of recurrent training for Revalidation (see section 14).
+
+11.7 Personnel may be recruited directly as VTS Supervisors if they can demonstrate to the VTS Provider that they have the required experience to undertake the responsibilities and duties of a VTS Supervisor. The VTS Provider should ensure that such personnel have received C0103-1 VTS Operator training and any additional training as may be necessary to meet the required standards of competence for a VTS Supervisor.
+
+12. VTS On-the-job Training Instructor (C0103-4)
+
+12.1 VTS On-the-Job Training Instructor (OJTI) is a person qualified as a VTS Operator or VTS Supervisor and has successfully completed an approved OJTI course (C0103-4) at an accredited VTS training organisation. The training organisation will endorse the individual’s VTS Certification Logbook.
+
+12.2 The MCA will endorse the individual’s VTS Certification Logbook on submission of the necessary documents and fee.
+
+12.3 OJTIs are qualified in the task for which training is being conducted and assessment is being made. It is expected that they will have an appropriate level of knowledge and understanding of the competence to be assessed.
+
+12.4 OJT in basic VTS skills by VTS personnel, who have not completed IALA C0103-4, while permissible, should only occur in a VTS with a small team of VTS Operators. Associated risks must be evaluated as part of the overall risk assessment to identify the standard and the performance indicators against which the VTS OJT is evaluated.
+
+12.5 OJT Instructors shall have a detailed knowledge of the VTS Centre’s OJT programme and specific objectives.
+
+13. VTS Revalidation Process
+
+13.1 VTS personnel have established their role as maritime professionals contributing to the safety and efficiency of coastal and port vessel traffic in the United Kingdom. The MCA recognises VTS personnel as professionals and requires that the quality of professional skills, competence and standards is assured through a process of annual assessment, refresher training and revalidation.
+
+IALA Model Course C0103-5 on the Revalidation process for VTS qualification and certification provides guidance on the implementation of VTS Refresher Training. Refresher Training, to enable the revalidation of qualification(s) contained within a VTS Certification Logbook, consists of three separate processes:
+
+•
+Recurrent Training should be carried out at regular intervals and is part of a structured training programme thereby enabling continual professional development and resulting in the maintenance of the VTS qualification.
+
+•
+Adaptation Training is carried out whenever significant changes are expected or when changes have been made, concerning equipment, regulations, operational procedures, or any other matter which is relevant to the performance of VTSOs.
+
+•
+Updating Training is tailor made training following a training needs analysis indicating that VTSOs need additional training. Updating Training may be required after a break in service, unsatisfactory operational performance or other circumstances leading to a reduced level of competence.
+
+13.2 The continual assessment of all VTS personnel by their respective VTS Providers should be carried out as well as a formal assessment annually. On-the-job formal assessment should be recorded at the rear of the VTS Certification Logbook under ‘Record of Annual Assessment’. This may take the form of a written and/or practical assessment which may be conducted through simulation or other means such as individual on-the-job assessment or a proficiency check. When determining which method of assessment to be used, consideration should be given to the fact that a written assessment will generally indicate the level of knowledge/insight whereas a practical assessment (e.g. in a simulator or on-the-job) will generally indicate a combination of both knowledge and skills. This assessment should be formal, standardised and well documented.
+
+13.3. If occasions arise where VTS personnel are found to be below the required standard, they should be removed from operational duties and given appropriate updating training until such time as they are considered competent.
+
+13.4 In addition to Refresher training VTS Providers should provide training and development opportunities for VTS personnel to keep abreast of technological advances, policy, and good working practice in VTS.
+
+13.5 VTS Providers are recommended to develop a programme of ongoing Continual Professional Development (CPD) to ensure that the standard of training achieved during VTS Operator/VTS Supervisor courses as well as C0103-3 OJT is maintained. VTS related CPD should comprise of the following areas:
+
+• Review and analysis of lessons learned from local VTS operations
+
+• Regular updates of regulatory, procedural, and technological developments
+
+• Continual development through trips on vessels with Pilots or other stakeholders
+
+• Visits to allied services, adjacent VTS Centres or other similar organisations
+
+• Attendance and participation in relevant emergency, procedural and VTS related exercises
+
+13.6 Figure 1 below describes the steps necessary to enable the revalidation of a VTS qualification.
+
+Notes:
+
+• Performance Monitoring should be carried out annually.
+
+• Recurrent Training is carried out at intervals of not exceeding three years.
+
+• Updating Training and Adaptation Training should be carried out when deemed necessary
+
+14. Recurrent Training (C0103-5)
+
+14.1 VTS personnel are required to undergo VTS Recurrent training every three years, through a formal VTS Recurrent training course conducted by an MCA accredited VTS training organisation. VTS Providers who intend to provide Recurrent training to other VTS Providers are required to obtain approval as an accredited VTS training organisation from the MCA.
+
+14.2 A VTS Recurrent training course, approved by the MCA, aims to provide professional development training to ensure that the competence, knowledge, and skills of VTS personnel are being maintained and updated on a periodic basis. The VTS Recurrent training course should comprise approximately 10 hours of lectures, presentations and workshops and 10 hours of simulation presented over three consecutive days.
+
+14.3 The MCA recognises that the course content will constantly evolve, be job-centred and relate directly to:
+
+• Maintenance of operational standards
+
+• Recent changes, current/emerging trends and good practice that have been identified or promulgated by the IMO, IALA, MCA, Harbour Authorities, VTS Providers, Pilotage Associations, accredited VTS Training Organisations, etc
+
+• Existing and evolving technological developments that may have an impact on the VTS environment
+
+• Lessons to be learnt from and relevant recommendations made by the MCA, the Marine Accident Investigation Branch (MAIB) and others because of studies or investigations that may have an impact on the delivery of VTS.
+
+14.4 The VTS Recurrent training course will evaluate a candidate’s ability in the following areas as per C0103-1 Operator course:
+
+• Module 1: Communication Coordination and Interaction
+
+• Module 2: Legal Framework
+
+• Module 3: Provision of VTS
+
+• Module 4: Nautical Knowledge
+
+• Module 5: Equipment
+
+• Module 6: Human Factors
+
+• Module 7: Emergency Situations
+
+Note: Modules of VTS Supervisor (C0103-2) and OJTI (C0103-4) should also be considered if preparing recurrent training programme being delivered to Supervisors and OJTIs.
+
+14.5 VTS personnel whose Recurrent training has lapsed past the three-year requirement will instead be required to complete C0103-1 Week 2 VTS Simulation assessment course.
+
+14.6 Training organisations will issue a certificate on successful completion of the Recurrent training course and endorse the VTS certification logbook with a stamp.
+
+14.7 To successfully complete a VTS Recurrent training course candidates will be assessed by an approved training organisation using a variety of methods, including formal assessment and simulation exercises. These methods should include a requirement to complete pre course tasks to cover key elements and principles of generic VTS practice in order to optimise the time spent on the VTS Recurrent training course. Pre course tasks may also highlight other areas that may need to be addressed or reviewed during the training course.
+
+14.8 Feedback on candidate’s performance during the VTS Recurrent training course can also be provided to the VTS Provider upon request to enable the annual assessment process to be particularly focused on any areas for improvement or development.
+
+14.9 Should a candidate not reach the required standard for the award of a VTS Recurrent training course certificate, the Training Organisation will notify the VTS Provider concerned and provide feedback and recommendations as to relevant updating training requirements and options available.
+
+15. Updating Training
+
+15.1 Updating Training is tailor made training following a training needs analysis indicating that additional training is required.
+
+15.2 Updating Training should be implemented when VTS personnel require additional training other than that covered by the Recurrent Training. Updating Training may be required due to several reasons such as:
+
+• After a break in service
+
+• After a VTS qualification, endorsement or VTS Certification Logbook has expired
+
+• Following an unsatisfactory outcome of an annual assessment or the unsuccessful completion of Recurrent training
+
+• Upon request of a member of VTS personnel
+
+• When deemed necessary by the Competent Authority and/or VTS Provider.
+
+15.3 For breaks in service of less than 12 months the VTS Provider should undertake a training needs analysis to determine the requirement for updating training, considering the complexity of the VTS area and the tasks of the VTS personnel.
+
+15.4 VTS personnel who are away from operational duties for a period of more than 12 months will no longer be qualified for VTS operational duties. This absence will be reflected in the lack of record of annual assessments. Prior to returning to operational duties, VTS personnel will be required to demonstrate competence through successful completion of C0103-1 (week 2) VTS Simulation assessment course at an accredited training organisation. It is the responsibility of the VTS Provider to negotiate with the training organisation the appropriate training required to bring the VTS Operator up to the necessary entry standard, prior to commencing the C0103-1 VTS Simulation assessment course. On completion of the assessment course the accredited training organisation will issue a C0103-1 VTS Simulation Certificate. The VTS Provider should confirm that OJT standards have been met and the appropriate endorsement should be entered in the individual’s Certification Logbook.
+
+15.5 The MCA will revalidate an individual’s VTS Certification Logbook on submission of the necessary documents and fee.
+
+16. Adaptation Training
+
+16.1 Adaptation Training is carried out whenever significant changes are expected or when changes have been made, concerning equipment, regulations, operational procedures, or any other matter which is relevant to the performance of VTS personnel.
+
+16.2 Adaptation Training should be carried out as deemed necessary by a Competent Authority and/or VTS Provider. A programme of Adaptation Training should be developed on a case-by-case basis taking full account of the nature of the specific change(s).
+
+16.3 To develop a programme of Adaptation Training, a training needs analysis should be undertaken to determine the nature of the planned change to design, develop and implement the required training and to subsequently assess the performance of VTS personnel.
+
+17. VTS Logbook Revalidation (Continuous Service)
+
+17.1 All holders of a VTS Certification Logbook issued by the MCA who wish to serve at a VTS centre are required to revalidate their VTS Certification Logbook at intervals not exceeding five years.
+
+17.2 The Revalidation process requires individuals to demonstrate the following:
+
+• Evidence of medical fitness to the recommended requirements of the VTS Provider within the last 5 years. Evidence of continued suitability if shortcomings against the requirements have been identified (see section 5.2)
+
+• Evidence of CPD by successful completion of VTS Recurrent Training or VTS Supervisor training course delivered by an accredited training organisation. Recurrent Training courses must have been conducted within the last three years.
+
+• Evidence of continuous service at a VTS centre as a VTS Operator, VTS Supervisor or VTS Manager during the preceding 5 years. This evidence will normally be the completion of formal assessments conducted annually by the VTS Provider and recorded in the VTS Certification Logbook.
+
+17.3 In addition to the above, for revalidation purposes, the MCA will accept alternative occupations in lieu of continuous service at a VTS centre. Acceptable occupations include:
+
+• Harbour Masters, their Deputies or Assistants with operational responsibilities for VTS
+
+• Marine/Port Managers with operational responsibilities for VTS
+
+• Pilots with C0103 qualifications and practical VTS operational experience who have maintained currency in VTS through regular interaction and employment within a port designated as a VTS Provider
+
+• Surveyors employed by Competent Authorities with responsibilities for VTS
+
+• Training organisation trainers or assessors engaged in delivery of MCA approved VTS training.
+
+This list is not exhaustive and applications from certificate holders engaged in other occupations may also be considered.
+
+The MCA will revalidate an individual’s VTS Certification Logbook on submission of the necessary documents and fee as well as a completed MSF 4807 form (Application for VTS Certification Logbook). Further details are available from the Seafarer Training and Certification Branch of the MCA, or on the MCA website.
+
+More information
+
+UK Technical Services Navigation
+Maritime and Coastguard Agency
+Bay 2/22
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Annex 1
+
+C0103-1 Training and certification process for new entry VTSOs with or without acceptable marine qualifications
+
+Annex 2
+
+C0103-2 Training and certification process for VTS Supervisor Training
+
+Stage 1
+
+Underpinning Knowledge for preparation of VTS Supervisor Training Portfolio
+
+Stage 2
+
+Supervisor Training Portfolio based on current VTS operational experience:
+
+Development – Submission – Verification.
+
+Stage 3
+
+NOTE: VTS Operators with acceptable marine qualifications are exempt from this module.
+
+The Additional Nautical Knowledge element for C0103-2 VTS Supervisor candidates should be completed in the workplace ahead of the residential component of the course.
+
+Candidates should draw upon a range of resources including research and liaison with other professionals such as Pilots, Harbour Masters, stakeholders/allied services etc.
+
+The Additional Nautical Knowledge is designed so that a VTS Supervisor can make an informed decision on operational matters in both routine and non-routine circumstances.
+
+Training Organisations should devise case studies that are related to VTS Supervision, and which encompass the following key points:
+
+• Ship stability - Identify and describe routine and non-routine conditions of stability that vessels within a VTS area may experience. This should include transverse and longitudinal stability, internal and external influences.
+
+• Cargo operations - Describe the general principles of cargo stowage onboard different categories of vessels to ensure the safety of the vessel and cargo.
+
+• Ship construction - Identify and explain how different types of vessel are constructed and how the construction of vessel varies according to the type of cargo that they carry.
+
+• Ship handling and manoeuvring - Compare and contrast different types of propulsion/steering systems and vessel handling characteristics as they relate to the operation of vessels at different stages of their transit within a VTS area.
+
+The case studies need not be stand alone, they may be blended into one project.
+
+Stage 4
+
+Delivered as a 10-day residential course by an MCA -accredited VTS training organisation as recommended by IALA Model Course C0103-2 and covers the following modules:
+
+• Module 1: Advanced Traffic Management
+
+• Module 2: VTS Equipment
+
+• Module 3: Additional Personal Attributes
+
+• Module 4: Responding to Emergency Situations
+
+• Module 5: Administrative Functions
+
+• Module 6: Legal Knowledge
+
+Stage 5
+
+Issue of VTS Supervisor training course certificate by accredited training organisation on successful completion of Stage 4.
+
+Stage 6
+
+Application to MCA for endorsement of VTS Certification Logbook.
+
+Stage 7
+
+Completion of On-the-Job Training (OJT) in accordance with IALA Model Course C0103-3. OJT may be commenced as soon as the candidate embarks on Supervisor training.
+
+Annex 3
+
+Portfolio Guidance
+
+This annex should be read in conjunction with Section 10 of this MGN.
+
+All candidates embarking on VTS Supervisor Training are required to prepare and submit a personal portfolio to demonstrate their knowledge and experience prior to attending the C0103-2 course (STAGE 4).
+
+Portfolios should contain personal narratives/reflections written by the candidate to support evidence that demonstrates the key traits of the VTS Supervisor. It should be noted that this evidence should ideally be documented in no more than 30 pages.
+
+There are three categories of evidence that can be provided:
+
+• Authentic Evidence / Documentation
+
+• Reflections / Explanations
+
+• Validation Entries / Observations
+
+A typical portfolio will include, but not be limited to the following information, based on current operational VTS experience:
+
+• Job description (Evidence)
+
+• Personal details (Validation)
+
+• Curriculum Vitae (Evidence / Reflection)
+
+• VTS employment record (Evidence / Reflection)
+
+• Copies of VTS certificates (Evidence / Validation)
+
+• Projects undertaken (if any) (Evidence / Reflection)
+
+• Description of own port VTS operation (Validation / Reflection)
+
+• Record of Continuous Professional Development (Reflection)
+
+• Personal development including relevant courses (Reflection)
+
+• Membership of committees and associated responsibilities (Reflection)
+
+Portfolios should contain evidence of key traits and personal attributes of a supervisor.
+
+VTS Supervisor Advancement Training is based on the IALA Model Course C0103-2. The Model Course consists of the following six modules:
+
+•
+Module 1: Advanced Traffic Management - Data used in VTS/ Marine Organisations/ Traffic & Port Management/ Dangerous Cargoes.
+
+•
+Module 2: VTS Equipment - Operation of equipment and systems/ Maintenance procedures/ Rectification of defects/ Redundancy of equipment/ Health & Safety requirements
+
+•
+Module 3: Additional Personal Attributes - Leadership/ Communication Skills/ Stress management
+
+•
+Module 4: Responding to Emergency Situations - Description and purpose of contingency plans/ Implementation of contingency plans/ Special circumstances/ Delegation of responsibility
+
+•
+Module 5: Administrative Functions - Allied services/ Traffic schedules/ Preparation of reports (internal & external)/ Performance of a VTS centre/ Performance of VTS personnel
+
+•
+Module 6: Legal Knowledge - Legal basis for VTS in International Law/ Legal liabilities and their implications to VTS/ Legal liabilities and their implications to others in a VTS area/ Shipping Acts and Regulations relating to VTS
+
+There is no mandatory time interval between undertaking a VTS Operator course and VTS Supervisor course. When selecting candidates for VTS Supervisor training, VTS Providers should be mindful of the necessity for candidates:
+
+• to possess suitable supervisory personal attributes
+
+• to have the relevant level of operational experience
+
+• to complete the VTS Supervisor portfolio
+
+• to meaningfully contribute to the VTS Supervisor course.
+
+Annex 4
+
+List of Documents Required by the Accredited Training Organisations and the Competent Authority
+
+The candidate, prior to commencing the VTS Operator Training, should present the following documents to the training organisation to obtain Accreditation of Prior Learning (APL)/ Accreditation of Prior Experiential Learning (APEL):
+
+Module 1 (Language):
+
+GCSE level pass in English or acceptable equivalent; or for native English speakers a letter from the VTS Provider stating that the operator has an acceptable standard of English to carry out the role of a VTS Operator. For all other candidates for whom first language is other than English, either a UK Certificate of Competency or the minimum International English Language Testing Scheme (IELTS) General Training Standard Level 5.
+
+Module 4 (Nautical Knowledge):
+
+STCW II/1 OOW (Deck) / Master (less than 500 GT) Near Coastal / Royal Navy Navigation Watch Certificate or acceptable equivalent. An extensive list of acceptable marine qualifications for APL can be found in MIN 692 and will be reviewed on an annual basis.
+
+Module 6 (VHF Radio):
+
+GMDSS Restricted Operator’s Certificate or acceptable equivalent.
+
+Where doubt exists as to the acceptable equivalency of any certification/qualification the MCA should be contacted on a case-by-case basis.
+
+In addition to the above original documents, candidates are required to submit the following to the MCA for issue of a Certification Logbook:
+
+Initial Application for candidates without marine qualifications:
+
+• Certificate of Nautical Knowledge
+
+• VTS Underpinning Knowledge Certificate
+
+• VTS Simulation Certificate
+
+• VHF Radio Certification (GMDSS ROC, VTS VHF)
+
+• Two attested passport-sized photographs
+
+• Letter from employer confirming medical fitness & English language ability (IELTS level 7)
+
+Initial Application for candidate with marine qualifications:
+
+• Evidence of Accreditation of Prior Learning
+
+• VTS Underpinning Knowledge Certificate
+
+• VTS Simulation Certificate
+
+• VHF Radio Certification (GMDSS ROC, VTS VHF)
+
+• Two attested passport-sized photographs
+
+• Letter from employer confirming medical fitness & English language ability (IELTS level 7)
+
+For Applications and Endorsements for VTS Supervisors and VTS Instructors see MSF 4807.
+
+Annex 5
+
+Course                                                                
+Responsibility of Accredited Training Organisation
+Responsibility of VTS Provider
+Responsibility of Competent Authority
+
+C0103-1    
+Issue VTS Nautical Knowledge certificate (If undertaken at the training organisation)
+
+Issue VTS VHF Radio certificate (If taken at the training organisation during the VTS Nautical Knowledge course)
+
+Issue VTS Underpinning Knowledge certificate
+
+Issue VTS Simulation certificate
+
+Apply to MCA for VTS Certification Logbook using MSF 4807
+Issue VTS Certification Logbook
+
+C0103-2    
+Issue VTS Supervisor certificate
+Apply to MCA for VTS Certification Logbook Endorsement
+Endorse VTS Certification Logbook
+
+C0103-3    
+N/A
+Endorse VTS Certification Logbook
+N/A
+
+C0103-4    
+Issue On-the-job Training Instructor certificate
+Apply to MCA for VTS Certification Logbook Endorsement
+Endorse VTS Certification Logbook
+
+C0103-5    
+Issue VTS Recurrent Training certificate
+
+Endorse VTS Certification Logbook (with stamp)
+Endorse VTS Certification Logbook
+N/A

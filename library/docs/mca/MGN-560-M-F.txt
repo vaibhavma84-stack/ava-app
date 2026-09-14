@@ -1,0 +1,546 @@
+MGN 560 (M+F) MGN 560 (M+F) Amendment 2 life-saving appliances
+2021-12-10
+Source: https://www.gov.uk/government/publications/mgn-560-mf-amendment-2-life-saving-appliances
+
+1. Background
+
+1.1 The maritime industry has observed an unacceptably high number of accidents with lifeboats in which crew were injured, sometimes fatally, whilst participating in lifeboat drills and/or inspections. The IMO has been working to introduce measures to reduce the likelihood and severity of such incidents.
+
+1.2 Resolution MSC. 402(96) was adopted by the IMO on 19 May 2016, entered into force on 1 January 2020 and sets-out the requirements to establish a uniform, safe and documented standard for maintenance, thorough examination, operational testing, overhaul and repair of lifeboats (including free-fall lifeboats), rescue boats and fast rescue boats; launching appliances and on-load and off-load release gear for lifeboats (including primary and secondary means of launching appliances for free-fall lifeboats), rescue boats, fast rescue boats and davit-launched liferafts.
+
+2. SOLAS Regulations
+
+2.1 This MGN relates to the requirements contained in:
+
+•
+2.1.1. SOLAS regulation III/20. Operational readiness, maintenance and inspections; and
+
+•
+2.1.2. SOLAS regulation III/36. Instructions for on-board maintenance.
+
+3. Responsibilities
+
+3.1 Both the shipping company and the company contracted by the shipping company to undertake the servicing on board its ships, are responsible for servicing and maintenance and for the establishment and implementation of health, safety and environment (HSE) procedures covering all activities during servicing and maintenance.
+
+3.2 The personnel carrying out servicing and maintenance are responsible for the performance of the work as authorised in accordance with the system specified in 4.1. These personnel are also responsible for complying with HSE instructions and procedures. An in-depth risk assessment should be provided by the service provider covering all aspects of the inspection and testing, including the following key elements;
+
+•
+i. Dangers to personnel within the vicinity of the lifeboat while the test is carried out.
+
+•
+ii. Possible free surface movement of water in the water-weight bags.
+
+•
+iii. Possible failure of the equipment during the test and its effect on the equipment and personnel carrying out the test.
+
+4. Authorisation for Service and Maintenance Personnel
+
+4.1 The thorough examination, operational testing, repair and overhaul of equipment (see paragraphs 5.2 and 5.3) shall be carried out in accordance with SOLAS regulation III/20 by service providers authorized in accordance with MSC.402(96) section 7.
+
+4.2 Only organisations authorised by either the Original Equipment Manufacturer (OEM) or a UK authorised Recognised Organisation (RO) in accordance with MGN 555 (M) (Life-Saving Appliances, Lifeboats, Rigid Rescue Boats, Launching Appliances and On-load Release Gear – Authorisation of Service Providers); may conduct the 5-yearly servicing and maintenance of lifeboats described in this MGN and in MSC.402(96).
+
+4.3 Where these Guidelines require certification of authorised service personnel, such certification should be issued by the OEM or a UK authorised service provider, in accordance with MGN 555 (M) Amendment 1.
+
+5. Qualification Levels
+
+5.1 Weekly and monthly inspections and routine maintenance as specified in the equipment maintenance manual(s), shall be conducted by authorized service providers, or by shipboard personnel under the direction of a senior ship’s officer in accordance with the maintenance manual(s).
+
+5.2 Annual thorough examinations and operational tests, as described in MSC.402(96) section 6.2, shall be conducted by certified personnel of either the manufacturer or an authorized service provider in accordance with MSC.402(96) section 7 and section 8. The service provider may be the ship operator provided that it is authorized in accordance with MSC.402(96) section 3 and section 7.
+
+5.3 Five-year thorough examination, any overhaul, overload operational tests, as described in MSC.402(96) section 6.3, and repair shall be conducted by certified personnel of either the manufacturer or an authorized service provider in accordance with MSC.402(96) section 7 and section 8.
+
+6. Report and Records
+
+6.1 All reports and checklists should be correctly completed and signed by the person who carries out the inspection and maintenance work, and should also be signed by the shipping company’s representative or the ship’s master.
+
+6.2 Records of inspections, servicing, repairs and maintenance should be updated and filed on board the ship.
+
+6.3 When repairs or servicing are completed, a statement confirming that the lifeboat arrangements remain fit-for-purpose should be issued by the authorised service provider.
+
+7. Guidance within this MGN
+
+7.1 Guidance on the requirements for specific procedures for inspection, maintenance, thorough examination, operational testing, overhaul and repair of lifeboats, rescue boats, launching appliances and release gear is included in Part 1 of the Annex to this MGN.
+
+7.2 The MSC.402(96) requirements for 5-year thorough examination, overhaul and overload operational tests is included in Part 2 of the Annex to this MGN.
+
+7.3 Guidance on the conduct of 5-yearly load testing on UK Vessels is included in Part 3 of the Annex to this MGN.
+
+7.4 Guidance on safety during abandon ship drills using lifeboats is included in Part 4 of the Annex to this MGN.
+
+8. More Information
+
+Ship Standards,
+Maritime and Coastguard Agency,
+Bay 2/23,
+Spring Place,
+105 Commercial Road,
+Southampton,
+SO15 1EG.
+
+Tel: +44 (0) 203 817 2000
+
+e-mail: marinetechnology@mcga.gov.uk
+
+Annex: Measures to prevent accidents with lifeboats
+
+Part 1: Guidance on the requirements for specific procedures for inspection, maintenance, thorough examination, operational testing, overhaul and repair of lifeboats, rescue boats, launching appliances and release gear
+
+1. General/Maintenance
+
+1.1 Any inspection, maintenance, thorough examination, operational testing, overhaul and repair of lifeboats, rescue boats, launching appliances and release gear shall be carried out according to the maintenance manuals and associated technical documentation developed by the manufacturer.
+
+1.2 A full set of maintenance manuals and associated technical documentation as specified in paragraph 1.1 shall be available on board.
+
+1.3 The maintenance manuals and associated technical documentation as specified in paragraph 1.1 shall include the items listed in section 2 below and Part 2 as a minimum and shall be kept up to date by the Company taking into account relevant information provided by the manufacturer.
+
+2. Annual thorough examination and operational test
+
+2.1 All items listed in checklists for the weekly/monthly inspections required by SOLAS regulations III/20.6 and III/20.7 also form the first part of the annual thorough examination.
+
+2.2 Records of inspections and routine on-board maintenance carried out by the ship’s crew and the applicable certificates for the equipment shall be reviewed.
+
+2.3 For lifeboats (including free-fall lifeboats), rescue boats and fast rescue boats, the following items shall be thoroughly examined and checked for satisfactory condition and operation:
+
+•
+.1 condition of the boat structure including fixed and loose equipment (including a visual examination of the external boundaries of the void spaces, as far as practicable);
+
+•
+.2 engine and propulsion system;
+
+•
+.3 sprinkler system, where fitted;
+
+•
+.4 air supply system, where fitted;
+
+•
+.5 manoeuvring system;
+
+•
+.6 power supply system;
+
+•
+.7 bailing system;
+
+•
+.8 fender/skate arrangements; and
+
+•
+.9 rescue boat righting system, where fitted.
+
+2.4 For release gear of lifeboats (including free-fall lifeboats), rescue boats, fast rescue boats and liferafts, the following shall be thoroughly examined for satisfactory condition and operation after the annual operational test of the winch brake with the empty boat or equivalent load, as required by paragraph 2.10:
+
+•
+.1 operation of devices for activation of release gear;
+
+•
+.2 excessive free play (tolerances);
+
+•
+.3 hydrostatic interlock system, where fitted;
+
+•
+.4 cables for control and release; and
+
+•
+.5 hook fastening.
+
+Notes:
+
+•
+The setting and maintenance of release gear are critical operations with regard to maintaining the safe operation of lifeboats (including free-fall lifeboats), rescue boats, fast rescue boats and davit launched liferafts. Utmost care shall be taken when carrying out all inspection and maintenance operations on the equipment.
+
+•
+No maintenance or adjustment of the release gear shall be undertaken while the hooks are under load.
+
+2.5 The operational test of davit-launched lifeboats’ and rescue boats’ on-load release function shall be carried out as follows:
+
+•
+.1 position the boat only partially in the water such that the mass of the boat remains substantially supported by the falls and the hydrostatic interlock system, where fitted, is not triggered;
+
+•
+.2 operate the on-load release gear;
+
+•
+.3 reset the on-load release gear; and
+
+•
+.4 examine the release gear and hook fastening to ensure that the hook is completely reset and no damage has occurred.
+
+2.6 The operational test of davit-launched lifeboats’ and rescue boats’ off-load release function shall be carried out as follows:
+
+•
+.1 position the boat so that it is fully waterborne;
+
+•
+.2 operate the off-load release gear;
+
+•
+.3 reset the off-load release gear; and
+
+•
+.4 recover the boat to the stowed position and prepare for operational readiness.
+
+During the test, prior to hoisting, it shall be checked that the release gear is completely and
+properly reset. The final turning-in of the boat shall be done without any persons on board.
+
+2.7 The operational test of the free-fall lifeboat release function shall be carried out as follows:
+
+•
+.1 engage the arrangements for the test without launching the lifeboat, required by paragraph 4.7.6.4 of the LSA Code, as specified in the manufacturer’s operating instructions;
+
+•
+.2 if required to be on board, ensure that the operator is properly seated and secured in the seat location from which the release mechanism is to be operated;
+
+•
+.3 operate the release mechanism to release the lifeboat;
+
+•
+.4 reset the lifeboat in the stowed configuration;
+
+•
+.5 repeat the procedures referred to in .2 to .4 above, using the back-up release mechanism, if applicable;
+
+•
+.6 remove the arrangements for the test without launching the lifeboat, required by paragraph 4.7.6.4 of the LSA Code; and
+
+•
+.7 verify that the lifeboat is in the ready to launch stowed configuration.
+
+2.8 The operational test of the davit-launched liferaft automatic release function shall be carried out as follows:
+
+•
+.1 manually release the hook with a load of 150 kg on the hook;
+
+•
+.2 automatically release the hook with a dummy weight of 200 kg on the hook when it is lowered to the ground; and
+
+•
+.3 examine the release hook and hook fastening to ensure that the hook is completely reset and no damage has occurred.
+
+If a raft is used for the test instead of a dummy weight, the automatic release function shall
+release the raft when waterborne.
+
+2.9 For launching appliances for lifeboats (including free-fall lifeboats), rescue boats, fast rescue boats and liferafts, the following items shall be examined for satisfactory condition and operation:
+
+•
+.1 davit or other launching structures, in particular with regard to corrosion, misalignments, deformation and excessive free play;
+
+•
+.2 wires and sheaves, possible damage such as kinks and corrosion;
+
+•
+.3 lubrication of wires, sheaves and moving parts; and
+
+•
+.4 if applicable:
+
+•
+.1 functioning of limit switches;
+
+•
+.2 stored power systems;
+
+•
+.3 hydraulic systems; and
+
+•
+.5 for winches:
+
+•
+.1 inspecting the braking system in accordance with winch manual;
+
+•
+.2 replacing brake pads, when necessary;
+
+•
+.3 winch foundation; and
+
+•
+.4 if applicable:
+
+•
+.1 remote control system; and
+
+•
+.2 power supply system.
+
+2.10 For winches of the launching appliances for lifeboats (including free-fall lifeboats), rescue boats, fast rescue boats and liferafts, annual operational testing shall be done by lowering the empty craft, boat or equivalent load. When the craft has reached its maximum lowering speed and before the craft enters the water, the brake shall be abruptly applied. Following these tests, the stressed structural parts shall be reinspected where the structure permits the reinspection.
+
+Part 2: MSC.402(96) requirements for 5-year thorough examination, overhaul and overload operational tests
+
+1.1 The five-year operational test of the winches of the launching appliances shall be carried-out with a proof-load equal to 1.1 times the weight of the survival craft or rescue boat and its full complement of persons and equipment. When the proof-load has reached its maximum lowering speed, the brake shall be abruptly applied.
+
+1.2 If a craft or boat is used for this test, precautions should be taken to ensure that the stability of the craft or boat is not adversely affected by free surface effects or the raising of the centre of gravity when loading the craft or boat.
+
+2 Following these tests, the stressed structural parts shall be reinspected where the structure permits the reinspection.
+
+3 The operational tests and overhaul at five-year intervals of release gear for lifeboats (including free-fall lifeboats), rescue boats, fast rescue boats and liferafts shall include:
+
+•
+.1 dismantling of hook release units;
+
+•
+.2 examinations with regard to tolerances and design requirements;
+
+•
+.3 adjustment of release gear system after assembly;
+
+•
+.4 operational tests as per Part 1, paragraphs 2.5, 2.6, 2.7 or 2.8 above, as applicable, but with a load equal to 1.1 times the weight of the survival craft or rescue boat and its full complement of persons and equipment (see paragraph 1.2 above); and
+
+•
+.5 examinations of vital parts with regard to defects and cracks. Non-destructive examination (NDE) techniques, such as dye penetrants (DPE), may be suitable.
+
+4 Any other overhaul if required shall be carried out in accordance with paragraph 3.
+
+Part 3: Guidance on the conduct of 5-yearly load testing on UK vessels
+
+1. General
+
+1.1 Introduction
+
+•
+1.1.1 UK Regulation and SOLAS requires that “at least once every five years rescue boats and lifeboats shall
+be turned-out and lowered when loaded with weights to simulate 1.1 times the total mass of the lifeboat or rescue boat when loaded with its full complement of persons and equipment or with an equivalent load.”
+The Merchant Shipping (Life-Saving Appliances For Ships Other Than Ships Of Classes III to VI(A)) Regulations 1999 - UK Statutory Instruments, 1999, 2721, Part V, Section 84 (10) (a)
+
+•
+1.1.2 This test is to be applied to all lifeboats and their davits, rescue boats and their davits and liferaft davits.
+The procedure used must test the adequacy of all parts of the survival craft system – this includes boat, disengaging gears, davit, winch and foundations. In the case of liferafts there is a separate test carried out by the service stations. Load-testing can be hazardous if not carried out correctly and therefore the role of all persons involved must be clear.
+
+1.2 Personnel
+
+•
+1.2.1 The test is to be carried out by the authorised service provider with a ship’s officer in charge (OIC) and witnessed by an MCA surveyor or other person appointed by the MCA.
+
+The OIC is in charge of the test at all times and should brief those carrying out the test on what is required.
+The surveyor or other person appointed by the MCA should take no part in the test and should not be the OIC.
+The authorised person may be an MCA surveyor, a Classification Society Surveyor appointed by MCA, or other persons authorised by MCA to witness such tests. If the authorised person is not an MCA surveyor, then the individual concerned will require a letter of appointment from Survey Branch in MCA headquarters.
+
+MCA authorised Class Societies should be aware of these procedures as this will have been given as part of a general authorisation.
+
+•
+1.2.2 All such tests are to be planned in advance. All routine maintenance and records are to be updated before
+the test. The surveyor or authorised service provider must check this. It may be necessary to have a rolling programme for vessels with a large number of appliances. The boat, launching appliance and all relevant components are to be inspected on the day of the test by the OIC or Authorized Service Provider to ensure that all is in order.
+
+Lifeboats must be weighed before testing to confirm that the weight remains as previously recorded and that it is no more than the certificated production test weight. Any increase in weight should be investigated and must be reported to MCA’s Marine Technology Branch so that trends in overweight lifeboats may be monitored. Water seepage into foam buoyancy is one possible cause, especially if benches have cracked or fittings have deteriorated.
+
+If weight growth has occurred particular consideration has to be given to the safe working loads of all elements of the system and how they have been affected by the increased weight.
+
+Where it is identified that weight growth has occurred all reasonable steps should be taken to return the lifeboat to its original approved weight.
+
+•
+1.2.3 The lifeboat test may be carried out in various ways, each of which tests the whole system from boat to
+davit foundation. It is most important that all involved agree the actual detailed procedure in advance of the test. There are two main methods:
+
+(a) Boats should be loaded up at the embarkation position. Where this is not the stowed position then the boat
+should be brought alongside the ship with the bowsing gear arranged for release from the ship, rather than the boat as usual. Tricing pennants should be removed before loading commences. The boat should then be loaded with weights, distributed around the boat, until the boat and weights amount to a load of 1.1 times the weight of the boat when fully loaded with persons, equipment and stores. On roller track and all gravity pivoting davits where the embarkation position is the stowed position, extreme caution should be taken when pivoting the lifeboat, particularly when carrying out overload testing, this element should form part of the risk assessment.
+
+Where the lifesaving capacity of the boat has been voluntarily reduced to a lower number of persons than that for which it was originally certified the full load weight may be calculated based on the lower number of persons, provided that the revised carrying capacity is marked on the boat and used on the passenger or safety equipment certificate. The weights may be either solid weights or water bags. The method of loading weights must be such that no-one enters the boat once the 70% load is reached.
+
+If this cannot be achieved then the weight of the boat must not be taken by the falls during loading but by a crane (of capacity at least 2.2 times the loaded weight of the boat) and a spreader bar. Once loaded, the OIC should agree the test procedure with the attending authorised person and this subsequently explained to the accredited service personnel prior to the test. The attending surveyor should take no further part in the proceedings until the test is complete.
+
+If a crane and spreader bar is used, this should then be lowered so the weight of the boat is taken on the falls. Under no circumstances should anyone enter the boat at this time. The boat is to be eased out on the bowsing tackles. The tricing lines should have been removed when the bowsing tackle was fitted. This must all be done from the vessel – which may require the rigging of temporary lines. The OIC should now check the area under and around the boat is clear of persons and obstructions. Once ready, the boat is to be lowered lifting the brake fully to enable the boat to reach maximum speed on the centrifugal brake. The mechanical brake is then applied suddenly and the test paused to ensure that the position of the boat is held at least 1 m above the water. If space permits, then it is repeated before the boat reaches the water. The boat is then lowered until the keel of the boat is just touching the water.
+
+Boats fitted with on-load release mechanisms are to have these tested. The positioning of the boat is a matter of judgement depending on hull shape, but the weight of the boat should still be on the falls with the boat just touching the water surface. On no account should the boat be dropped from above the water surface and it is preferred by the MCA for alternative methods of testing the on-load release function using mechanical or hydraulic load simulation approved by the OEM. If ship’s crew or authorised service personnel know of cases when a surveyor or service engineer has demanded that the boat be dropped from above the water surface on a UK ship, then this should be reported to Marine Technology Branch so that the safety concerns of such action may be drawn to the attention of the individual.
+
+Personnel can then enter the boat from another tender and override the release mechanism to release the boat to test that both hooks release simultaneously under load. Every care should be taken in this process. The personnel on the boat should wear protective clothing including safety helmets and life-jackets and should be sitting down when the boat is released. Davits should be visually checked at this stage. Only the minimum operating crew should enter the boat to operate the release mechanism.
+
+Once released the weights may be removed from the boat. Under no circumstances should the ship’s davits be used to lift the loaded boat.
+
+If the unloaded boat is to be raised on the falls, the hooks should be reset and the falls attached. The boat should be raised just clear of the water and the hook and interlock mechanism double checked and the secure location of the falls confirmed prior to full recovery. No persons should be in the boat while it is being hoisted on the falls until the hook mechanisms have been thoroughly examined by a competent person. Where the boat is to be hoisted before thorough examination of the hooks then it should be stowed securely by gripes or hanging-off pennants while the competent person confirms that the boat and associated launching appliance (hooks, boat, davits, winches, etc.) have not been damaged during the test.
+
+Once the boat is stowed and secured on the vessel the boat and davit should be inspected by the authorised person for any signs of test damage or straining (Non-destructive examination is strongly recommended at this point). The results of the test should be recorded on a test certificate produced by the competent persons and signed by the witnessing authorised person.
+
+(b) Alternatively the boat and davits can be tested separately. This is more time consuming but can be useful in
+dry-dock situations and it means that lifeboats are not overloaded while on board which can be safer and present less of a risk to damage on board, nevertheless, the entire system must be tested – the only difference is that they are tested in stages. With this method the boat is tested by suspending it from a spreader-bar and it is loaded to a weight equivalent to the peak load established during one dynamic test.
+
+Separate tests are made of the davit and winch using weights, and a spreader-bar suspended from the falls. A load equivalent to 110 % of the weight of the boat when fully loaded with persons, equipment and stores should be applied before the dynamic test is applied to the davits, wire and winch as in (a).
+
+Historically the MCA permitted the use of a 200 % default load during the static overload test as an equivalence to the required 5-yearly 110 % dynamic overload test. The actual peak loads experienced during dynamic tests can, in some cases, be far less than 200 % but in any case will vary considerably depending on the type of winch and braking system, number of fall wire sheaves and many other variables. Due to concerns that the 200 % static overload test could cause overstressing of the structure of lifeboats, the procedure has been replaced as described below. It must be appreciated that these tests are separate to the 110 % mechanical hook release test required for hook replacement in MSC.1/Circ1392, which is not affected by the policy decisions explained below.
+
+The purpose of the test is to provide assurance that if the boat is required in an emergency, it can be used in its fully loaded condition without risk to those on board. The test should simulate the actual fully loaded condition (plus 10 %), lowered and capable of stopping under the brake without damage. Therefore, any alternative test should achieve the same result. In all physical tests of lifeboats/rescue boats and associated launching systems; the boat, hook foundations, hooks, davits, fall wire, winch and sheaves must be thoroughly inspected for signs of any deterioration and or damage before the test, and any findings dealt with as appropriate. The above thorough examination should be repeated following the test after removal of any test weights to ensure that no damage had occurred as a result of the physical test. Further, with all physical tests of lifeboats/rescue boats and associated launching systems, the test duration should be as short as possible to avoid unnecessary damage.
+
+In accordance with UK regulations, the recommended method of testing is still a 110 % dynamic test every 5-years to include all aspects of the loaded system – boat, davit, falls, sheaves, winch and their foundations.
+
+Acceptable Equivalence to the 110 % Dynamic Test.
+
+If, for operational reasons, the dynamic test is not practicable, the MCA will accept the testing of lifeboats/rescue boats and davits separately but this must be agreed in consultation with the lead surveyor for the vessel, and in accordance with the policy described below. The alternative method acceptable to the MCA is where:
+
+•
+(i) the hook release is tested under a 110 % static-load using a hydraulic-ram (not required on single hook
+systems used in combination with a painter),
+
+•
+(ii) the lifeboat/rescue boat is statically load-tested ashore by suspending the loaded boat momentarily from its
+hooks (using a static-load representing the peak load that would have been experienced in a 110 % dynamic test, see details below), and
+
+•
+(iii) the davit, fall wire, sheaves and winch are tested to 110 % dynamically with the use of a spreader-bar (only necessary on double-head davits) and weights (including a load-cell, the use for which is described below).
+
+Ideally, to start this process, the in-service weight of the fully-loaded and equipped lifeboat/rescue boat must be measured for every individual lifeboat/rescue boat because certified prototype weights have proved to be unreliable (there is also the likelihood for weight-growth with age due in part to the ingress of water to voids in the craft structure). However, it may not be possible to do this in every case so surveyors should make a judgement based on the age and condition of the lifeboat/rescue boat prior to the test. Any significant deviation from the certificated weight should be notified to the manufacturer and Marine Technology Branch.
+
+When a ship operator requests the use of a static overload test then the additional load applied during the test must be determined by the ship operator and agreed in advance with the lead surveyor but in any case the weight inserted into the lifeboat/rescue boat must not load it to greater than 200 % of the in-service weight of the fully loaded and equipped lifeboat/rescue boat. The overload applied should be based upon the maximum weight of the boat plus equipment plus persons and this must be checked during tests.
+
+The change in MCA policy is that simply applying a standard overload of 200 % may not be appropriate and could cause unnecessary damage. Evidence supporting the equivalent static load must be demonstrated by the ship operator to the lead surveyor’s satisfaction. It should be determined from the maximum (peak) load measured using the load cell in an initial 110 % dynamic test on the davit (using waterbags for example). In this way, the static overload can be shown to be equivalent to that which the components would be subjected to during the prescribed 110 % dynamic test. The initial dynamic test to determine equivalent static load should be conducted for each different launching system so that only like-for-like systems may apply the same determined equivalent static load. This is because of the variations in loading that may be experienced with differences in launching systems.
+
+(c) Dynamic tests indicating peak loads in excess of 200 % should be raised with the ship operator as a concern because there is potential for over-stressing of components e.g. the davit or boat. Refer to LSA Code Ch IV, 4.4.1.7. Static tests must not be carried out using loads in excess of 200 %.
+
+Liferafts and some inflatable or partly inflatable rescue boats are subjected to load testing ashore during
+their regular servicing. The authorised person may waive on board load testing of boats when satisfied that testing has been done ashore with test loads and frequencies equivalent to that required in SOLAS III R20.11. Particular care must be taken where the on-load release gear is part of the boat to ensure that it is test loaded and operated as per that regulation, either during servicing or on board. In such cases all that will need to be carried out on the ship is a 110 % dynamic load test of the davit and brake using weights as per paragraph 3 of method (b) above. The test load will have to be calculated on the maximum load expected to be used with the davit in
+cases where the davit is shared by rafts and rescue boat.
+
+On load release gear for rescue boats should be treated as for lifeboats and either tested as part of the davit and winch test, with operation at 110 % load demonstrated afterwards or using an alternative means as per 1.2.4.
+
+•
+1.2.4 An alternative method of testing on load release mechanisms may be available using specialist equipment.
+Some Authorized Service Providers have developed bespoke test equipment for this purpose. The applied load can be simulated hydraulically, and the mechanism released in the usual way. This has the advantage that it can be done ashore and avoids the risk of damage to the boat or injury to personnel on loaded release into the water. Use of such equipment must be agreed by the nominated body and the authorised service personnel. Any required calibration of such equipment must be verified.
+
+This test should also be witnessed by the Authorized Service Provider. The results of the test should be recorded on a test certificate produced by the Authorized Service Providers or accredited service personnel and signed by the witnessing authorised person. In the case of boats without on-load release gear, the release gear should only be tested when the boat is fully waterborne.
+
+•
+1.2.5 Variations on the above methods may be used with the agreement of the MCA once assessed by the
+Marine Office and approved by Marine Technology Branch; however, each part of the survival craft and its
+launching appliance must be tested.
+
+•
+1.2.6 On completion of all testing the assembled boat and davit should be operationally tested to the satisfaction
+of the OIC before vessel departs or re-enters service.
+
+Part 4: Guidance on safety during abandon ship drills using lifeboats
+
+1. General
+
+1.1 Introduction
+
+•
+1.1.1 It is essential that seafarers are familiar with the life-saving systems on board their ships and that they have confidence that the systems provided for their safety will work and will be effective in an emergency. Frequent periodic shipboard drills are necessary to achieve this.
+
+•
+1.1.2 Crew training and rotation is an important component of drills. As a supplement to their initial shore side training, on board training will familiarise crew members with the ship systems and the associated procedures for use, operation and drills. On these occasions, the objective is to develop appropriate crew competencies, enabling effective and safe utilisation of the equipment required by the Regulations. The time limits set out in Regulations for ship abandonment should be considered as a secondary objective when conducting drills.
+
+1.2 Drill Frequency
+
+•
+1.2.1 Experience has shown that holding frequent drills furthers the goal of making the crew familiar with the life-saving systems on board their ships and increasing their confidence that the systems will work and will be effective in an emergency. Drills give the crew opportunity to gain experience in the use of the safety equipment and working in co-operation with each other.
+
+•
+1.2.2 The ability to cope with an emergency and handle the situation, if the ship needs to be abandoned, needs to be well rehearsed. However, frequent crew changes sometimes make it difficult to ensure that all on board have had the opportunity to participate in drills if the minimum required drills are conducted. Therefore, consideration needs to be given to scheduling drills as required to ensure all on board have an early opportunity to become familiar with the systems on board.
+
+1.3 Drills Must be Safe
+
+•
+1.3.1 Abandon ship drills should be planned, organised and performed so that the recognized risks are minimised and in accordance with relevant shipboard requirements of occupational health and safety.
+
+•
+1.3.2 Drills provide an opportunity to verify that the life-saving system is working and that all associated equipment is in place and in good working order, ready for use.
+
+•
+1.3.3 Before conducting drills, it should be checked that the lifeboat and its safety equipment have been maintained in accordance with the manufacturer’s instructions, as well as noting all the precautionary measures necessary. Abnormal conditions of wear and tear or corrosion should be reported to the responsible officer immediately.
+
+1.4 Emphasis on learning
+
+•
+1.4.1 Drills should be conducted with an emphasis on learning and be viewed as a learning experience, not just as a task to meet a regulatory requirement to conduct drills.
+
+•
+1.4.2 Whether they are emergency drills required by SOLAS or additional special drills conducted to enhance the competence of the crew members, they should be carried out at safe speed. During drills, care should be taken to ensure that everybody familiarises themselves with their duties and with the equipment. If necessary, pauses should be made during the drills to explain especially difficult elements. The experience of the crew is an important factor in determining how fast a drill or certain drill elements should be carried out.
+
+1.5 Planning and organising drills
+
+•
+1.5.1 Regulations require that drills shall, as far as practicable, be conducted as if there were an actual emergency. This means that the entire drill should, as far as possible, be carried out. At the same time, it should be ensured that the drill can be carried out in such a way that it is safe in every respect. Consequently, elements of the drill that may involve unnecessary risks will need special attention or may be excluded from the drill.
+
+•
+1.5.2 In preparing for a drill, those responsible should review the manufacturer’s instruction manual to assure that a planned drill is conducted properly. Those responsible for the drill should ensure that the crew is familiar with the guidance provided in the life-saving system instruction manual.
+
+•
+1.5.3 Lessons learned in the course of a drill should be documented and made a part of follow-up shipboard training discussions and planning for the next drill session.
+
+•
+1.5.4 The lowering of a boat with its full complement of persons is an example of an element of a drill that may, depending on the circumstances, involve unnecessary risk. Such drills should only be carried out if special precautions are observed.
+
+2. Abandon ship drills
+
+2.1 Introduction
+
+• 2.1.1 It is important that the crew who operate safety equipment on board are familiar with the functioning and operation of such equipment. Regulations require that sufficiently detailed manufacturer’s training manuals and instructions be carried on board, which should be easily understood by the crew. Such manufacturer’s manuals and instructions should be accessible for everyone on board and followed closely during drills.
+
+2.2 Guidance to the Shipowner
+
+•
+2.2.1 The shipowner should ensure that new safety equipment on board the company’s ships has been approved and installed in accordance with UK regulations and that the different pieces of the lifeboat system (lifeboat, hooks, davit, winch, etc.)) are all compatible and can work efficiently and safely together.
+
+•
+2.2.2 Procedures for holding safe drills should be included in the Safety Management System (SMS) of shipping companies. Detailed procedures for elements of drills that involve a special risk should be evident from workplace assessments adjusted to the relevant life-saving appliance.
+
+•
+2.2.3 Personnel carrying out maintenance and repair work on lifeboats should be qualified in accordance with part 1 of these Guidelines.
+
+2.3 Lifeboats Lowered by Means of Falls
+
+•
+2.3.1 During drills, those responsible should be alert for potentially dangerous conditions and situations and should bring them to the attention of the responsible person for appropriate action. Feedback and improvement recommendations to the ship-owner, the Administration and the system manufacturer are important elements of the marine safety system. If confidentially is required any reporting can be made through the Confidential Hazardous Incident Reporting Program (CHIRP) https://www.chirp.co.uk/
+
+•
+2.3.2 Before placing persons on board a lifeboat, it is recommended that the boat first be lowered and recovered without persons on board to ascertain that the arrangement functions correctly. The boat should then be lowered into the water with only the number of persons on board necessary to operate the boat.
+
+•
+2.3.3 To prevent lashings or gripes from getting entangled, proper release should be checked before swinging-out the davit.
+
+3. Free-fall lifeboats
+
+3.1 Free-Fall Lifeboats Drill
+
+•
+3.1.1 The monthly drills with free-fall lifeboats should be carried out according to the manufacturer’s instructions, so that the persons who are to enter the boat in an emergency are trained to embark the boat, to take their seats in a correct way and to use the safety belts; and also are instructed on how to act during launching into the sea.
+
+•
+3.1.2 When the lifeboat is free-fall launched as part of a drill, this should be carried out with the minimum personnel required to manoeuvre the boat in the water and to recover it. The recovery operation should be carried out with special attention, bearing in mind the high-risk level of this operation. Where permitted, simulated launching should be carried out in accordance with the manufacturer’s instructions, taking due note of this MGN. SOLAS III/19.3.3.4 allows for simulated launching or lowering to the water by secondary means in all circumstances.
+
+3.2 Guidelines for Simulated Launching of Free-fall Lifeboats
+
+Simulated launching is a means of training the crew in the free-fall release procedure for free-fall lifeboats and in verifying the satisfactory function of the free-fall release system without allowing the lifeboat to fall into the sea.
+
+3.3 Purpose and Scope
+
+The purpose of these Guidelines is to provide a basic outline of essential steps necessary to safely carry out simulated launching. These Guidelines are general; the lifeboat manufacturer’s instruction manual should always be consulted before conducting simulated launching. Simulated launching should only be carried out with lifeboats and launching appliances designed to accommodate it, and for which the manufacturer has provided instructions. Simulated launching should be carried out under the supervision of a responsible person who should be an officer experienced in such procedures.
+
+3.4 Typical Simulated Launching Sequence
+
+•
+3.4.1 Check equipment and documentation to ensure that all components of the lifeboat and launching appliance are in good operational condition.
+
+•
+3.4.2 Ensure that the restraining device(s) provided by the manufacturer for simulated launching are installed and secure and that the free-fall release mechanism is fully and correctly engaged.
+
+•
+3.4.3 Establish and maintain good communication between the assigned operating crew and the responsible person.
+
+•
+3.4.4 Disengage lashings, gripes, etc. installed to secure the lifeboat for sea or for maintenance, except those required for simulated free-fall.
+
+•
+3.4.5 Participating crew board the lifeboat and fasten their seatbelts under the supervision of the responsible person.
+
+•
+3.4.6 All crew, except the assigned operating crew, disembark the lifeboat. The assigned operating crew fully prepares the lifeboat for free-fall launch and secures themselves in their seats for the release operation.
+
+•
+3.4.7 The assigned operating crew activates the release mechanism when instructed by the responsible person. Ensure that the release mechanism operates satisfactorily and, if applicable, the lifeboat travels down the ramp to the distance specified in the manufacturer’s instructions.
+
+•
+3.4.8 Re-secure the lifeboat to its stowed position, using the means provided by the manufacturer and ensure that the free-fall release mechanism is fully and correctly engaged.
+
+•
+3.4.9 Repeat procedures from 3.4.7 above, using the back-up release mechanism when applicable.
+
+•
+3.4.10 The assigned operating crew disembarks the lifeboat.
+
+•
+3.4.11 Ensure that the lifeboat is returned to its normal stowed condition. Remove any restraining and/or recovery devices used only for the simulated launch procedure.
+
+•
+3.4.12 The lifeboat should then be verified ready for launching in an emergency.

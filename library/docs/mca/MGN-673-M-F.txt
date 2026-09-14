@@ -1,0 +1,237 @@
+MGN 673 (M+F) MGN 673 (M+F): Radio communications: non-SOLAS vessel
+2023-09-15
+Source: https://www.gov.uk/government/publications/mgn-673-mf-radio-communications-non-solas-vessel
+
+Summary
+
+This Marine Guidance Note draws attention to procedures and minimum levels of service for the testing and maintenance of EPIRBs; automatically including the ship’s position in distress alerts; and, supplying radio installations from an emergency source of power.
+
+1. EPIRB Testing and Maintenance Requirements
+
+1.1Where there is a mandatory EPIRB carriage requirement, but no mandatory testing or maintenance requirement, MCA strongly recommends:
+
+1.1.1 They are tested annually in accordance with MCA guidance based on IMO MSC.1/Circ 1040/Rev.2 (Guidelines on annual testing of 406 MHz Emergency Position-Indicating Radio Beacons (EPIRBs)) (see Annex 1);
+
+1.1.2 Maintenance is carried out at five-year intervals and performed in accordance with MCA guidance based on IMO MSC.1/Circ 1039/Rev.1 (Guidelines for Shore-Based Maintenance of Emergency Position-Indicating Radio Beacons (EPIRBs)) (see Annex 2). This should be carried out by competent personnel to the satisfaction of MCA.
+
+1.2 Where there is no mandatory EPIRB carriage requirement, owners should consider fitting an EPIRB and testing and maintaining it in accordance with paragraphs 1.1.1 & 1.1.2 above.
+
+2. Automatic position input for distress alerts
+
+2.1 MCA strongly recommends that all two-way radio equipment which includes the vessel’s position in a distress alert (i.e. DSC or GMDSS satellite terminal) is provided with the position information automatically. This information may come from either an internal or external GPS receiver or other Electronic Position Fixing System receiver (EPFS).
+
+2.2 If the position information comes from an internal receiver, it is prudent to check that a strong enough signal is present at the radio to achieve an accurate position.
+
+2.3 If the position information comes from an external receiver, it is prudent to check that the external source provides accurate position data.
+
+3. Emergency source of energy for fixed radio installations
+
+3.1 Where a vessel is not required to have an emergency source of energy for radio installations, owners should consider providing one.
+
+3.2 The emergency source should supply radio installations for distress and safety communications (including the EPFS receiver supplying information to the radio installation) on failure of the vessel’s main electrical power.
+
+3.3 In many smaller vessels an emergency source is achieved by connecting through a selector switch to 2 separate battery banks.
+
+More information
+
+UK Technical Services - Navigation
+Maritime and Coastguard Agency
+Bay 2/25
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Annex 1: Guidance on annual testing of 406 MHz Emergency Position-Indicating Radio Beacons (EPIRBs)
+
+1. Introduction
+
+1.1 This guidance applies to the annual testing of EPIRBs that comply with the provisions of SOLAS regulation IV/15.9.
+
+1.2 The testing should be carried out by appropriately trained and approved personnel using suitable test equipment capable of performing all the relevant measurements required in this guidance (for vessels which have annual radio surveys, the testing is normally carried out by the radio surveyor at this time). All tests of electrical parameters should be performed in the self-test mode, if possible.
+
+1.3 If a distress signal is transmitted accidentally, the transmission should be stopped immediately, and the local rescue coordination centre (RCC)[footnote 1] should be contacted and informed. The nearest Cospas-Sarsat mission control centre (MCC) should also be informed (see also IMO Guidelines for the avoidance of false distress alerts (IMO resolution A.814(19), as amended)).
+
+1.4 The examination of the installed EPIRB should include:
+
+1.4.1 checking position and mounting of the bracket to ensure unimpeded float-free operation;
+
+1.4.2 carrying out visual inspection of the EPIRB and the bracket for defects, any signs of damage, degradation or cracks to the casing, or of water ingress;
+
+1.4.3 carrying out the beacon self-test routine, including the GNSS self-test, if applicable;
+
+1.4.4 checking that the EPIRB identification (15 Hex ID for first-generation beacons and 23 Hex ID for second-generation beacons and other required information, including, if applicable, the AIS identity (User ID)) is clearly marked on the outside of the equipment;
+
+1.4.5 decoding the EPIRB hexadecimal identification digits (15 Hex ID for first-generation beacons and 23 Hex ID for second-generation beacons) and other information from the transmitted signal, including, if applicable, the AIS identity (User ID), checking that the decoded information (Hex ID) is identical to the identification marked on the beacon;
+
+1.4.6. verifying registration in accordance with MGN 665 (M+F), which is a legal requirement;
+
+1.4.7 checking the battery expiry date;
+
+1.4.8 checking the hydrostatic release and its expiry date, as appropriate;
+
+1.4.9 checking the emission in the 406 MHz band using the self-test mode or an appropriate device to avoid transmission of a distress call to the satellites;
+
+1.4.10 if possible, verifying emission on the 121.5 MHz frequency using the self-test mode or an appropriate device to avoid activating the SAR system;
+
+1.4.11 verifying emission on the appropriate AIS frequencies, if applicable, using the self-test mode or an appropriate device to avoid creating false alerts;
+
+1.4.12 verifying that the EPIRB has been maintained by an approved shore-based maintenance provider in accordance with Annex 2;
+
+1.4.13 after the test, remounting the EPIRB in its bracket, checking that no transmission has been started;
+
+1.4.14 verifying the presence of a firmly attached lanyard in good condition; the lanyard should be neatly stowed, and should not be tied to the vessel or the mounting bracket;
+
+1.4.15 verifying the presence of beacon operation / instruction manual; and
+
+1.4.16 checking the presence of pictorial instructions for manual operation visible at the location of the beacon.
+
+Annex 2: Guidance for shore-based maintenance of Emergency Position-Indicating Radio Beacons (EPIRBs)
+
+1. Introduction
+
+1.1 This guidance establishes standardized procedures and minimum levels of service for the testing and maintenance of EPIRBs to ensure maximum reliability whilst minimising the risk of false distress alerting.
+
+1.1.1 The guidance applies to type approved EPIRBs. These EPIRBs include: 406 MHz and 121.5 MHz transmitters and can include: Global Navigation Satellite System (GNSS) receivers, and automatic identification system (AIS) locating signals.
+
+1.1.2 The guidance also applies to service exchange EPIRBs which should be properly encoded and registered in accordance with MGN 665 (M+F), which is a legal requirement.
+
+2. Shore-based maintenance (SBM) provider
+
+2.1 The shore-based maintenance (SBM) provider should:
+
+2.1.1 have a quality control system audited by a competent authority in respect of its servicing operation;
+
+2.1.2 have access to adequately calibrated test equipment and facilities to carry out the SBM in accordance with this Guidance;
+
+2.1.3 have access to OEM approved batteries and other spare parts to the original equipment specification;
+
+2.1.4 have access to up-to-date technical manuals, service bulletins and the latest software versions as provided by the original equipment manufacturer;
+
+2.1.5 keep records of maintenance, available for inspection by the Administration as may be required;
+
+2.1.6 ensure that all personnel responsible for supervising and for carrying out the maintenance procedures are adequately trained and fully competent to perform their duties; and
+
+2.1.7 issue a shore-based maintenance report with a list of the test results and maintenance performed.
+
+3. Prevention of false distress alerts
+
+3.1 Throughout the testing and maintenance process, great care must be taken to avoid the transmission of false distress alerts. The transmissions may be picked up by aircraft and other vessels as well as satellites.
+
+3.2 A radio-frequency-screened room or enclosure should be used for all maintenance procedures involving, or likely to involve, any transmission from an EPIRB.
+
+3.3 Provision of a 121.5 MHz monitor receiver and AIS receiver is required; this will allow for the reception of the homing and/or AIS transmitter signal and give a warning if the EPIRB is accidentally activated outside the screened enclosure.
+
+3.4 If a distress signal is transmitted accidentally, the transmission should immediately be stopped, and the local rescue coordination centre (RCC)[footnote 2] should be contacted and informed. The nearest Cospas-Sarsat mission control centre (MCC) should also be informed (see also IMO Guidelines for the avoidance of false distress alerts (IMO resolution A.814(19), as amended).
+
+4. Maintenance service interval
+
+4.1 EPIRBs should be inspected and tested in accordance with Annex 1.
+
+4.2 Shore-based maintenance of all EPIRBs, as defined in paragraph 1.2, should be carried out in accordance with this document at intervals not exceeding five years. It is recommended that the battery be replaced at the time when the maintenance is performed. If the battery is being replaced, or other servicing performed, the recommended shore-based maintenance should be performed concurrently.
+
+5. Self-test
+
+5.1 Prior to carrying out any maintenance and, upon completion, a self-test should be performed, following the instructions on the equipment, and the results noted. If the beacon is fitted with GNSS self-test capability, then a GNSS self-test should be performed.
+
+5.2 Attention is drawn to section 3 on the prevention of false distress alerts. Avoidance of live transmissions is required to prevent unnecessary loading of the satellite channels and the relay of false distress alerts to local RCCs.
+
+5.3 It should be verified that the self-test mode operates properly. This check could be performed by holding the switch in self-test mode position for at least one minute and then releasing it. The number of self-test bursts should be verified to be no more than one.
+
+6. Battery change
+
+6.1 The main battery should be changed in accordance with the manufacturer’s recommendations, including the replacement of any other routine service parts (e.g. seals, memory battery, desiccant).
+
+6.2 The removed batteries should be disposed of in accordance with the manufacturer’s and/or national/local recommendations.
+
+6.3 The new battery expiry date label, which comes with the replacement battery, should be checked to ensure that the date complies with the manufacturers recommended battery service life.
+
+6.4 After having installed the replacement battery, the new battery expiry date label should be fixed to the EPIRB and the waterproof integrity should be checked in accordance with section 11.
+
+7. Satellite distress transmission
+
+7.1 The EPIRB should be activated in its normal transmitting mode (i.e. not just
+
+self-test). Attention is drawn to section 3 on the prevention of false distress alerts. Where seawater contacts are fitted, these should be connected together, as indicated in the manufacturer maintenance instructions or servicing guidelines, to test activation of the EPIRB.
+
+7.2 The transmitted signal should be checked with a suitable test receiver to verify the signal integrity and coding.
+
+7.3 The frequency of the transmitted signal should be recorded and verified to be within the limits required by the specification to which it is approved.
+
+7.4 The output power of the transmitter should be checked in the self-test mode. A simple method of the emission verification, such as a low sensitivity receiver placed at an unobstructed distance of at least 3 m from the EPIRB antenna, may be used for this check. The original equipment manufacturer may suggest an appropriate method to verify the output power.
+
+8. 121.5 MHz homing transmission
+
+8.1 The EPIRB should be activated in its normal transmitting mode (i.e. not just self-test). Attention is drawn to section 3 on the prevention of false distress alerts. Where seawater contacts are fitted, these should be connected together, as indicated in the manufacturer maintenance instructions or servicing guidelines, to test activation of the EPIRB.
+
+8.2 The transmitted signal should be checked with a suitable test receiver for the characteristic swept tone modulation.
+
+9. AIS locating signal transmission (when fitted)
+
+9.1 The EPIRB should be activated in its normal transmitting mode (i.e. not just self-test). Attention is drawn to section 3 on the prevention of false distress alerts. Where seawater contacts are fitted, these should be connected together, as indicated in the manufacturer maintenance instructions or servicing guidelines, to test activation of the EPIRB.
+
+9.2 With the GNSS signal applied as described below, the transmitted signal should be checked with a suitable AIS receiver or test receiver for the proper AIS message transmission and to verify that the AIS message content is valid (contains the correct AIS identity (User ID), the correct position and the correct EPIRB 15 Hex ID). Note that for second-generation EPIRBs, the 15 Hex ID is formed by truncating the 23 Hex ID, as indicated in the manufacturer’s maintenance instructions or servicing guidelines.
+
+10. Global Navigation Satellite System (GNSS) (when fitted)
+
+10.1 EPIRBs are designed to transmit a position derived from a GNSS receiver (when fitted).
+
+10.2 The original EPIRB equipment manufacturer should be consulted for a method of testing the correct operation of this function, e.g.: by using a GNSS repeater/simulator or external input. This test may involve a live transmission from the EPIRB and should be performed in a screened room or enclosure in accordance with paragraph 3.2. Attention is drawn to section 3 on the prevention of false distress alerts.
+
+10.3 A test receiver should be used to verify that the satellite signal transmitted by the EPIRB contains the correctly encoded position data derived from the GNSS receiver.
+
+10.4 If the EPIRB is a Return Link Service (RLS) capable beacon and is programmed with the RLS message protocol, testing to ensure proper operation should be done as indicated in the manufacturer’s maintenance instructions or servicing guidelines (and, if applicable, the RLS service provider’s guidelines).
+
+11. Waterproof integrity
+
+11.1 The EPIRB should be inspected for any signs of damage or cracks to the casing, or of water ingress. Any damaged items should be replaced in accordance with the manufacturer’s maintenance instructions or servicing guidelines.
+
+11.2 The EPIRB should be tested for waterproof integrity at the end of the SBM and prior to a final self-test to verify proper operation, as indicated in the manufacturer’s maintenance instructions or servicing guidelines. The equipment manufacturer may suggest an appropriate method to test the integrity of the EPIRB.
+
+11.3 One method involves immersing the equipment in hot water (20-30° C above ambient) for a period of one min. It can be readily seen if there are any problems with the seals, as the air inside the beacon expands and escapes as a stream of bubbles. This test should not be carried out with cool water, as the water may be drawn into the equipment without showing significant release of air bubbles.
+
+11.4 EPIRBs equipped with seawater switches should have this function disabled during the immersion test to prevent activation, unless the complete test is performed inside a screened room. This disabling may be achieved by immersing the EPIRB complete with a mounting bracket if the bracket includes an interlock to prevent activation before release. The manufacturer should be consulted for specific guidance.
+
+12. Labelling
+
+12.1 As a minimum, the equipment external labelling should be checked for the following details:
+
+12.1.1 manufacturer’s serial number. This identifies the equipment, even if the programmed data (e.g. MMSI or callsign) is later changed;
+
+12.1.2 the transmitted identification code:
+
+12.1.2.1 for first generation EPIRBs compliant with document C/S T.001, this will be the beacon 15 Hexadecimal Identification (15 Hex ID). It should be verified that the label matches the information decoded from the self-test mode transmission using the test receiver. For the COSPAS-SARSAT location protocol beacons, the 15 Hex ID should correspond to position data set to default values;
+
+12.1.2.2 for second generation EPIRBs compliant with document C/S T.018, this will be the beacon 23 Hexadecimal Identification (23 Hex ID). It should be verified that the label matches the information decoded from the self-test mode transmission using the test receiver. For the COSPAS-SARSAT location protocol beacons, the 23 Hex ID should correspond to position data set to default values; and
+
+12.1.2.3 the EPIRB AIS identity (User ID), which will be in the format 974XXYYYY. It should be verified that the label matches the information decoded from the AIS self-test mode transmission using a suitable AIS receiver or test receiver;
+
+12.1.3 the expiry date of the battery; and
+
+12.1.4 the date when the next shore-based maintenance is due (see paragraph 13.1).
+
+12.2 The above checks also apply if a replacement EPIRB is provided by the SBM provider.
+
+13. Shore-based maintenance report and other documentation
+
+13.1 The results of shore-based maintenance should be provided in the form of a shore-based maintenance report, a copy of which is to be kept on board, and a label affixed to the exterior of the beacon detailing the name of the SBM provider and the date when the next shore-based maintenance is due.
+
+13.2 The SBM provider may affix a tamperproof seal or similar device on completion of the SBM.
+
+13.3 Before returning the beacon to the owner, or when providing a replacement beacon, the SBM provider should check the registration details with the beacon registry, where practicable. See MGN 665 (M+F).
+
+•
+Contact information is available at: https://cospas-sarsat.int/en/contacts-pro/contacts-details-all ↩
+
+•
+Contact information is available at: https://cospas-sarsat.int/en/contacts-pro/contacts-details-all ↩

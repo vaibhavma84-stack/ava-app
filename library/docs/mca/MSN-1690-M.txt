@@ -1,0 +1,91 @@
+MSN 1690 (M) MSN 1690 (M) Amendment 1 Radio equipment: serviceability and maintenance
+2021-12-06
+Source: https://www.gov.uk/government/publications/msn-1690-m-amendment-1-radio-equipment-serviceability-and-maintenance
+
+1. Introduction
+
+1.1 This Notice has been amended to reflect amendments to The Merchant Shipping (Radio Installations) Regulations 1998 (“the 1998 Regulations”) by the Merchant Shipping (Radiocommunications) (Amendment) Regulations 2021 (S.I. 2021/1316).
+
+1.2 This Notice sets out the requirements for ensuring the availability of radio equipment on the GMDSS ships in accordance with regulation 18 of the 1998 Regulations.
+
+2. Requirements for ensuring availability
+
+2.1 Every ship, subject to the 1998 Regulations, must ensure availability by using in relation to area A1 and area A2 ships at least one, and in relation to area A3 or area A4 ships at least two of the following methods –
+
+• 2.1.1 duplication of equipment;
+
+• 2.1.2 shore-based maintenance;
+
+• 2.1.3 at-sea electronic maintenance capability; or
+
+• 2.1.4 any other method or combination approved by the Secretary of State.
+
+2.2 A ship should not depart from any port unless and until the ship is capable of performing all distress and safety communications.
+
+2.3 Irrespective of the methods used by the ship, all manufacturers’ instruction manuals and maintenance manuals for each piece of equipment required should be available on board. In the case of UK ships these manuals must be in the English language. Adequate tools, spare parts and test equipment appropriate to the methods used by the ship should be provided. The manuals, tools, spare parts and test equipment, as applicable, should be readily accessible.
+
+3. Duplication of equipment ensuring availability
+
+3.1 If availability is ensured by using a combination of methods which includes duplication of equipment, the following radio installations, in addition to those required by paragraphs 3 to 7 of Merchant Shipping Notice 1903 (M) (“MSN 1903 (M)”) as appropriate, and complying with regulation 6 of the 1998 Regulations (Performance Standards), should be available on board ships engaged on voyages in –
+
+•
+3.1.1 Sea-Area A1 - a VHF radio installation complying with the requirements of paragraph 3.1.1 of MSN 1903 (M);
+
+•
+3.1.2 Sea Areas A1 and A2 - a VHF radio installation complying with the requirements of paragraph 3.1.1 of MSN 1903 (M) and an MF radio installation complying with the requirements of paragraph 5.1.1 of MSN 1903 (M);
+
+•
+3.1.3 Sea Areas A1, A2 and A3 - a VHF radio installation complying with the requirements of paragraph 3.1.1 of MSN 1903 (M) and either an MF/HF radio installation complying with the requirements of paragraph 6.1.5 of MSN 1903 (M) and being able to fully comply with the watch requirements of regulation 16 of the 1998 Regulations; or Ship Earth Station (SES) complying with the requirements of paragraph 6.1.1 of MSN 1903 (M). The MF/HF installation or SES installed for duplication should also comply with paragraph 6.2 of MSN 1903 (M);
+
+•
+3.1.4 Sea Areas A1, A2, A3 and A4 - a VHF radio installation complying with the requirements of paragraph 3.1.1 of MSN 1903 (M) and an MF/HF radio installation complying with the requirements of Section 6.1.5 of MSN 1903 (M) and being able to comply fully with the watch requirements of regulation 16 of the 1998 Regulations. For ships operating in sea area A4 only occasionally and having originally installed an MF/HF radio installation, the additional MF/HF radio installation may be substituted by an SES complying with the requirements of paragraph 6.1.1 of MSN 1903 (M). The MF/HF radio installation or SES installed for duplication should also comply with paragraph 6.2 of MSN 1903 (M).
+
+3.2 The additional radio installations specified in paragraphs 3.1.1 to 3.1.4 above should each be connected to a separate antenna and be installed and ready for immediate operation.
+
+3.3 It should be possible to connect the additional radio installations specified in paragraphs 3.1.1 to 3.1.4 above (hereinafter referred to as ‘duplicated equipment’) to the reserve source or sources of energy required by regulation 17 of the 1998 Regulations, in addition to the appropriate radio equipment specified in that Section (hereinafter referred to as ‘basic equipment’). The capacity of the reserve source or sources of energy should be sufficient to operate the particular installation (that is, the ‘basic equipment’ or the ‘duplicated equipment’) with the highest power consumption, for the appropriate period specified in regulation 17 of the 1998 Regulations. However, the arrangement for the reserve source or sources of energy should be such that a single fault in this arrangement should not be able to affect both the basic and the duplicated equipment. If the reserve source of energy is a battery the charging arrangements should be duplicated. Alternatively, a suitable alarm system should be installed to indicate a failure in the charging arrangement and provision should be made to connect the equipment direct to a suitable alternative supply.
+
+4. Shore-based maintenance for ensuring availability
+
+4.1 If availability is ensured by using a combination of methods which include shore- based maintenance, an arrangement acceptable to the Maritime Coastguard Agency (MCA) should be established to ensure adequate support of the ship for the maintenance and repair of its radio installations. Acceptable arrangements are –
+
+•
+4.1.1 a signed declaration from the Owner or his Representatives setting out the arrangement with a company or companies covering the trading area of the ship to provide maintenance and repair facilities on a call-out basis;
+
+•
+4.1.2 provision of facilities at the main base of ships engaged on a regular trading pattern.
+
+4.2 Records of Equipment should include an indication of the types of arrangements for shore-based maintenance.
+
+5. At-sea electronic maintenance capability for ensuring availability
+
+5.1 If availability is ensured by using a combination of methods which includes at-sea electronic maintenance capability, adequate additional technical documentation, tools, test equipment and spare parts must be carried on board in order to enable the maintainer to perform tests and localise and repair faults in the radio equipment. The extent of this additional technical documentation, tools, measuring equipment and spare parts to be carried on board should be consistent with the equipment installed. An indication of such approval should be entered in the Records of Equipment.
+
+5.2 The person designated to perform functions for at-sea electronic maintenance by an officer or crew member shall be deemed qualified to carry out radio maintenance if he or she holds:
+
+•
+5.2.1 a Radio Maintenance Certificate granted by the Secretary of State; or
+
+•
+5.2.2 a certificate recognised by the Maritime and Coastguard Agency as being equivalent to the certificate in paragraph 5.2.1 above.
+
+6. Acceptable combinations (or Equivalent)
+
+6.1 Any SES equipment providing the enhanced group calling (EGC) capability may be accepted as fulfilling the basic requirement of paragraph 3.1.5 of MSN 1903 (M) for EGC reception.
+
+6.2 Any SES or any MF/HF radio telephone installed for duplication may also satisfy the basic requirements of paragraphs 5.1.3, 6.1.4 and 6.1.7 of MSN 1903 (M) for another radio service to initiate the transmission of ship-to-shore distress alerts.
+
+6.3 Any SES or any MF/HF radiotelephone may be installed for duplication irrespective of whether the basic radio installation complies with paragraphs 6.1.1 or 6.1.5 of MSN 1903 (M).
+
+More information
+
+UK Technical Services Navigation
+Maritime and Coastguard Agency
+Bay 2/25
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone : +44 (0) 203 8172000
+
+Email: navigationsafety@mcga.gov.uk

@@ -1,0 +1,242 @@
+MGN 469 (M) MGN 469 (M) Amendment 1: Safety standards for non-passenger vessels
+2023-11-24
+Source: https://www.gov.uk/government/publications/mgn-469-m-amendment-1-safety-standards-for-non-passenger-vessels
+
+Summary
+
+This Note is to remind all interested parties of:
+
+• the safety requirements that apply nationally to inland waterway non-passenger vessels that operate solely in the United Kingdom (UK);
+
+• the Alternative MCA Standards that may be used instead of the main statutory requirements, for suitable vessels; and
+
+• other safety and anti-pollution regulations that may apply to inland waterway non-passenger vessels.
+
+Please note that this MGN provides editorial updates to reflect changes to regulations and guidance that have occurred since publication of MGN469(M) in 2014. New sections have been added providing advice with respect to High-Speed Cargo Craft, the Workboat Code, Chain Ferries and Innovative Technology. The section concerning the MCA’s Fit For Purpose Scheme has been removed. No changes have been made to the MCA Alternative Standards (Annex 1).
+
+1. Definitions
+
+1.1 “Inland waterways” means:
+
+• “categorised waters”, as defined and listed in MSN 1837 (as amended); or
+
+• other inland waters that have not been formally categorised but have the same characteristics of Category A, B, C or D waters as defined in MSN 1837 (as amended).
+
+1.2 “Inland waterway non-passenger vessel” means a vessel that does not go to sea and does not carry more than 12 passengers as part of its normal operations. This includes, but is not restricted to:
+
+• dry freight vessels;
+
+• tanker vessels;
+
+• container vessels;
+
+• workboats, including specialist vessels such as crane barges or dredgers; and
+
+• tugs and pushers.
+
+This definition does not include pleasure vessels, although these vessels are not entirely exempt from the requirements listed below, particularly the safety of navigation and pollution prevention aspects. Additionally, local authority and other inland waterway authorities and organisations may have standards for pleasure vessels.
+
+2. Requirements for safety equipment
+
+2.1 Under the UK’s vessel classification system:
+
+• Class IX(A) covers freight vessels and all other non-passenger vessels that do not go to sea, and
+
+• Class IX(A)(T) covers tanker vessels that do not go to sea.
+
+2.2 Most UK inland waterway non-passenger vessels are considered to carry out low-risk operations, and there is no substantive evidence to suggest that such vessels present a significant risk to safety or to the environment. Inland waterway non-passenger vessels in the UK are, therefore, subject only to limited statutory technical requirements, mainly those relating to the carriage of life-saving appliances and fire-fighting equipment.
+
+2.3 The MCA, in consultation with industry, has reviewed the statutory safety requirements for inland waterway vessels and developed Alternative Standards which may be more appropriate and practicable than the corresponding statutory requirements. These standards are reproduced at Annex 1 of this MGN. Vessels equipped in accordance with them will be covered by a General Exemption from the Class IX(A) regulations, which is reproduced at Annex 2.
+
+2.4 The respective statutory requirements are set out in the following sets of regulations and guidance, in the sections relating to Class IX(A) and Class IX(A)(T) vessels:
+
+2.4.1    Life-Saving Appliances (LSA)
+
+• The Merchant Shipping (Life-Saving Appliances and Arrangements) Regulations 2020.
+
+The life-saving appliances carried under these regulations should meet the standards set out in MSN 1676 (as amended).
+
+2.4.2    Fire Fighting Equipment (FFE)
+
+• The Merchant Shipping (Fire Protection) Regulations 2023
+
+2.5 These standards remain in place and may continue to be applied, if preferred, by operators. Tanker vessels must comply with these standards.
+
+2.6 Annex 3 provides a summary of the LSA requirements for all Class IX(A) vessels, and the FFE requirements for Class IX(A) vessels of under 500 GT, as set out in the regulations referenced in paragraph 2.4.2.
+
+2.7 The FFE summary at Annex 3 does not include the requirements for Class IX(A) vessels of 500 GT and over, or those for tankers of Class IX(A)(T) regardless of gross tonnage. For these more complex requirements, please see the relevant regulations referenced at paragraph 2.4.2 above.
+
+2.8 Note that the MCA Alternative Standards are not available to Class IX(A)(T) vessels, which must comply with the statutory requirements referred to in paragraph 2.4.
+
+2.9 While a pilot boat is operating in categorised waters, it is considered a pilot boat and operates under its Pilot Boat Certificate. For a vessel used commercially for sport or pleasure, if it is compliant with the relevant Code of Practice, it may continue to operate under its Small Commercial Vessel Certificate.
+
+3. Statutory requirements for health and safety on board vessels
+
+3.1 In addition to the above regulations, vessels on inland waterways are covered by health and safety legislation, including those listed in Annex 4 of this MGN, together with the associated guidance documents. Not all these regulations will be relevant to every vessel.
+
+4. Other regimes adopted by Navigation or Harbour Authorities, and Local Authorities
+
+4.1 Freight vessels operating on the tidal Thames, that is below Teddington Lock, need to comply with the Technical and Operational Standards for Commercial Vessels on the Tidal Thames – the “Thames Freight Standard”- and the associated Code of Practice for Vessel Operators on the Thames. This is an integrated safety regime that is administered and enforced by the Port of London Authority (PLA). Further details may be obtained from the PLA, from its website http://www.pla.co.uk, or by contacting the PLA at:
+
+Port of London Authority
+London River House
+Royal Pier Road
+Gravesend
+Kent
+DA12 2BG
+
+Tel: 01474 562200
+
+Email: corporate.affairs@pla.co.uk
+
+4.2 Vessels that comply with a Navigation Authority or industry standard recognised by the MCA, such as the Thames Freight Standard, will be covered by the General Exemption in Annex 2.
+
+4.3 Local Authorities may enact local byelaws in accordance with the section 94 of the Public Health Acts Amendment Act 1907, or Section 38 of the Civic Government (Scotland) Act 1982, as applicable, to give mandatory effect to Safety Codes such as the Hire Boat Code and the Inland Waters Small Passenger Boat Code (i.e. for those vessels carrying 12 or less passengers and therefore not defined as passenger vessels). Vessels complying with the requirements in these codes are included in the General Exemption in Annex 2. However, it should be noted that the MCA does not have powers to enforce the requirements in these codes.
+
+4.4 The Boat Safety Scheme (BSS) is a vessel safety initiative owned by the Canal and Rivers Trust (CRT) and the Environment Agency (EA) with the aim of minimising the risk of vessel fires, explosion or pollution on CRT and EA waterways. The BSS applies to privately owned vessels, hire boats and commercially operated vessels. Therefore, to some extent, the BSS falls within the scope of this MGN. Vessels to which the BSS applies, are subject to an examination every four years to ensure the vessel complies with the BSS standards. Further information can be found on the BSS website at: https://www.boatsafetyscheme.org.
+
+5. MCA Surveyors’ powers
+
+5.1 MCA Surveyors have the power to inspect any inland waterway non-passenger vessel at any reasonable time.
+
+5.2 Surveyors may prevent an inland waterway non-passenger vessel from operating if they believe that its condition or manner of operation presents a serious risk to the safety of those onboard, the environment, or to other waterway users.
+
+5.3 MCA Surveyors may inspect a vessel to verify if it complies with the Class IX(A) regulations or the MCA Alternative Standards, as referred to in section 2 and Annex 1. However, such vessels are not ordinarily subject to formal survey or certification by the MCA.
+
+6. International Regulations for Preventing Collisions at Sea
+
+6.1 The Merchant Shipping (Distress Signals and Prevention of Collisions) Regulations 1996 (SI 1996/75) implement the Convention on International Regulations for Preventing Collisions at Sea, 1972 [footnote 1] (the “COLREGS”). These regulations apply to vessels on waters that are navigable by seagoing vessels, which include most Category D inland waters, and some Category C. In practice, most such areas are subject to local rules which may modify the COLREGS in the jurisdiction of the relevant navigation or Statutory Harbour Authority. However, when operating in a Category C or D area where no Navigation or Harbour authority rules are in place, the international rules apply. MSN 1781 (as amended) provides further information.
+
+7. Safety of Navigation
+
+7.1 The Merchant Shipping (Safety of Navigation) Regulations 2020 (SI 2020/0673) do not apply to ships to which the Merchant Shipping (Technical Requirements for Inland Waterway Vessels) Regulations 2010 (SI 2010/1075) or to which the Merchant Shipping (Passenger Ships) (Safety Code for UK Categorised Waters) Regulations 2010 (ref. SI 2020/673) apply.
+
+7.2 The Merchant Shipping (Vessel Traffic Monitoring and Reporting Requirements) Regulations 2004 (SI 2004/2110) do not apply to vessels that operate solely on categorised waters, since within the Regulations “ship” means any seagoing vessel or craft, or vessels that do not operate in waters to the seaward side of Category C or D, as the case may be. Further information can be found in MSN 1899.
+
+8. Pollution prevention
+
+8.1 Local Navigation Authorities, such as the Canal and River Trust (CRT) and the Environment Agency (EA), have their own measures in place preventing pollution from vessels that they license, as do major Statutory Harbour authorities such as the Port of London Authority. However, the International Convention for the Prevention of Pollution from Ships (“MARPOL”) covers several types of vessel-generated pollution. MARPOL is implemented by several sets of UK legislation, of which the following may apply to vessels on Category C and D inland waterways:
+
+8.1.1 The Merchant Shipping (Prevention of Pollution from Noxious Liquid Substances in Bulk) Regulations 2018 (SI 2018/0068) implement Annex II of MARPOL. Requirements include having the following on board:
+
+• A valid NLS certificate;
+
+• an approved Procedures and Arrangements Manual;
+
+• an Approved Cargo Record Book; and
+
+• for ships of 150GT or more, an approved Marine Pollution Emergency Plan or an approved Shipboard Marine Pollution Emergency Plan.
+
+The discharge of any liquid substance of any ballast water, tank washings or other mixture containing a noxious liquid substance into Category C and D waters is generally prohibited under Regulation 24.
+
+8.1.2 The Merchant Shipping (Prevention of Oil Pollution) Regulations 2019 (SI 2019/0042) set out requirements for the carriage and completion of an Oil Record Book. This needs to be completed for vessels during fuelling, discharging of sludge and oily residues, ballasting/de-ballasting, or cleaning oil fuel tanks. For oil tankers only, the recording requirements become more extensive, and must include, for example, the loading of oil cargo and ballasting/de-ballasting cargo tanks. More detail can be found in Part II, Regulation 20 of the SI.
+
+8.1.3. Vessels over 150 GT operating as oil tankers may be affected by the requirements of the European Single Hull Tanker regime if carrying heavy oils. In these cases, operators should contact their local MCA Marine Office for further advice.
+
+8.1.4 The Merchant Shipping (Prevention of Air Pollution from Ships) Regulations 2008 (SI 2008/2924) apply to vessels operating Category C and D waters. The maximum content of sulphur in marine fuel used by ships when at berth for more than two hours and for inland waterway vessels is 0.1%.
+
+8.1.5 The Merchant Shipping (Anti-fouling Systems) Regulations 2009 (SI 2009/2796) implement the IMO International Convention on the Control of Harmful Anti-Fouling Systems on Ships. Anti-fouling systems are used to keep the hulls of ships clean and free from fouling organisms so that they can travel faster through water and consume less fuel. The IMO Convention introduced control measures on the use of organotin compounds which act as biocides, leading to the implementation of Regulation (EC) No 1907/2006. From 1 January 2003, the marketing and use of organostannic (tin-based) compounds was banned in anti-fouling systems for all ships, irrespective of their length and wherever they may be operating, including inland waters.
+
+8.1.6 The Merchant Shipping and Fishing Vessels (Port Waste Reception Facilities) Regulations (2003) (SI 2003/1809) require every harbour authority and terminal operator to provide waste reception facilities that are adequate to meet the needs of vessels normally using the harbour or terminal. Such arrangements should be set out in a Port Waste Management Plan, more information on which can be found in MGN 563. Workboats, pilot boats and other similar vessels that operate principally within a harbour authority area fall outside the scope of the requirements to notify, deliver or pay charges on each port of call because they are not “bound” for a port (Regulation 11(1)), and do not “leave” a port (Regulation 12(1)). The Port Waste Management Plan should include the arrangements for the disposal of waste generated by such vessels and operators should acquaint themselves with the local requirements for the delivery of ship generated waste to reception facilities ashore.
+
+8.1.7 The Merchant Shipping (Prevention of Pollution by Sewage from Ships) Regulations 2020 (SI 2020/620) implement Annex IV of MARPOL. These apply only to vessels undertaking international voyages that are 400 GT or above, and to ships under 400 GT if they carry more than 15 persons. Where vessels operate solely on inland waterways and a Navigation or Harbour Authority has responsibility for the relevant water body, their advice should be sought concerning any local requirements. Vessels operating in Category C and D waters that are subject to Regulation 2 of MARPOL shall be equipped with either:
+
+• an approved sewage treatment plant;
+
+• an approved sewage comminuting and disinfecting system; or
+
+• an approved holding tank, taking into account the number of persons carried on board and other relevant factors.
+
+8.1.8 The Merchant Shipping (Prevention of Pollution by Garbage from Ships) Regulations 2020 (SI 2020/621) implement Annex V of MARPOL. These apply to United Kingdom ships wherever they may be. For non-UK flagged vessels, the regulations apply in UK waters and in controlled waters. The requirement for a ship to complete a Garbage Management Plan applies to all ships of 100 GT or above and every ship which carries 15 or more persons. The requirement for a ship to carry and fill in a Garbage Record Book applies to all ships of 400 GT or above and every ship which carries 15 or more persons and is engaged in voyages to ports or offshore terminals under the jurisdiction of a party to the Convention other than the ship’s flag State. Additionally, every ship having an overall length of 12 metres or more must display placards notifying the crew of the relevant disposal provisions. More detail can be found in MGN 632.
+
+9. Vessels carrying packaged dangerous goods
+
+9.1 Vessels which carry goods or harmful substances in packaged form are subject to The Merchant Shipping (Dangerous Goods and Marine Pollutants) Regulations 1997 (SI 1997/2367). These regulations implement the International Maritime Dangerous Goods (IMDG) Code, published by the IMO. The Code sets out in detail the requirements applicable to each individual product, providing guidance on packing, labelling, documentation and stowage, with particular reference to the segregation of incompatible substances.
+
+9.2 If you own or operate a vessel that carries packaged dangerous goods or harmful substances as cargo, or if you are having a new vessel built for such operations in the UK, it is recommended in the first instance, you seek advice about what standards it needs to comply with from your local MCA Marine Office or navigation authority. Vessels may require a Document of Compliance for Dangerous Goods issued by the MCA. More information can be found in MGN 36.
+
+9.3 The European Agreement concerning the International Carriage of Dangerous Goods by Inland Waterways (ADN) does not apply to inland waterway vessels operating in the UK. It is therefore the responsibility of the relevant Navigation Authority to maintain and enforce their own regulations around the carriage of dangerous goods for Class IX(A) vessels operating within their area of jurisdiction.
+
+10. High Speed Cargo Craft
+
+10.1 All high-speed craft (HSC), including high-speed cargo craft (and including those operating solely on categorised waters) are within the scope of the Merchant Shipping (High-Speed Craft) Regulations 2022 (SI 2022/1219). If a vessel is unable to comply with the 2000 HSC Code, the High-Speed Craft Regulations allow for exemptions from, and equivalents to, the Code, which operators may want to consider in the context of a high-speed cargo craft operating solely on categorised waters.
+
+11. Workboat Code
+
+11.1 The Workboat Code (Edition 2) is implemented by the Merchant Shipping (Small Workboats and Pilot Boats) Regulations 1998 (SI 1998/1609) and the Merchant Shipping (Small Workboats and Pilot Boats) (Amendment) Regulations 2016 (SI 2016/354).
+
+11.2 If a workboat is certified under the Workboat Code, the certificate will apply wherever the vessel is operating, whether at sea or in categorised waters. If the vessel operates solely in categorised waters, there is no requirement to be certificated under the Workboat Code, in which case the vessel is considered as a Class IX(A) vessel.
+
+12. Chain Ferries
+
+12.1 Chain Ferries are passenger/vehicle carrying vessels, which ply between two points and are connected at both points by chains or cables.
+
+12.2 Chain Ferries that have been issued with a UK Passenger Certificate attesting compliance with the MCA Chain Ferry Code are subject to an annual survey by the MCA and an out of water survey once in a five-year period. The survey will be carried out in accordance with the Chain Ferry Code, available here:
+
+https://www.gov.uk/government/publications/code-of-practice-for-the-construction-of-chain-and-wire-ferries
+
+12.3 The Health and Safety Executive (HSE) will carry out any investigation and subsequent enforcement action under the Health and Safety at Work etc Act 1974, liaising with the MCA for any technical advice as required.
+
+12.4 It is the responsibility of the owner/managing operator to ensure that a vessel is properly maintained and examined in accordance with the Code.
+
+13. Innovative Technology
+
+13.1 Vessels which operate on categorised waters may come under the jurisdiction of a harbour/navigation authority or another local authority. However, trials and testing of vessels using innovative technology on categorised waters may include vessels intended for operation exclusively on categorised waters, or to operate at sea once certificated. Depending on the area of operation of the vessel, early engagement with the relevant authorities and in co-ordination with MCA is therefore recommended in order to seek agreement to applicable standards. Further information regarding the certification process can be found in MGN 664 (as amended).
+
+14. Master’s qualification requirements
+
+14.1 The Master of a UK inland waterway non-passenger vessel must hold a valid MCA Boatmasters’ Licence, or an equivalent (or higher) qualification. The statutory requirements are set out in The Merchant Shipping (Inland Waterway and Limited Coastal Operations) (Boatmasters’ Qualifications, Crew and Hours of Work) Regulations 2015 (SI 2015/0410). Further details can be found in MSN 1853 (as amended).
+
+15. Vessels from EU Member States operating in the UK
+
+15.1 In order to operate within the UK, an inland waterway non-passenger vessel from another country will be afforded no more favourable treatment than a UK vessel. Therefore, a vessel from overseas that comes to the UK with no certification must satisfy the statutory requirements referred to in Section 2.
+
+15.2 However, a cargo vessel that comes to the UK with a Union Inland Navigation Certificate (UINC) or Rhine Navigation Certificate issued under Directive (EU) 2016/1629[footnote 2] may operate on UK inland waterways without having to meet other (UK) requirements. The area of operation for such vessels is restricted to the categories of water which equate to the zone(s) as indicated on the vessel’s certification[footnote 3]. When this is not the case, the harbour or navigation authority with jurisdiction over the waterway should limit the geographical area of operation of the vessel accordingly, or make alternative arrangements within the powers available to it.
+
+16. UK vessels wishing to operate on EU inland waterways in mainland Europe
+
+16.1 The owner or operator of a UK vessel which falls within the scope of Directive (EU) 2016/1629, that intends to operate the vessel on the “Union” waterways of EU States will need to be inspected and issued with a UINC in accordance with the Directive. The MCA does not carry out such inspections nor issue UINCs and as such, vessel owners or operators will need to make the necessary arrangements with the appropriate authorities in an EU Member State that has Union waterways.
+
+16.2 The Directive also requires such vessels to be marked with a European Identification Number (ENI). This is a permanent number that is allocated to the vessel for life and identifies the vessel itself, rather than the owner or operator. The UK cannot issue an ENI, and therefore UK vessels visiting mainland Europe for the first time should obtain an ENI from the relevant body in the first country that the vessel visits.
+
+17. Other UK vessels that come within Class IX(A)
+
+17.1 The regulations for LSA and FFE listed in paragraph 2.4 above also apply to vessels that carry no more than 12 passengers[footnote 4], do not carry cargo, and do not go to sea. Further guidance can be found in the Inland Waters Small Passenger Boat Code, available through the following link https://www.gov.uk/government/publications/inland-waters-small-passenger-boat-code Vessels that are equipped and operated in accordance with that Code are covered by a General Exemption from the regulations listed in paragraph 2.4.
+
+17.2 The regulations listed in paragraph 2.4 also apply to self-drive hire boats which are deemed to be commercial vessels. It is recommended that the owners of such vessels follow the advice given in the Hire Boat Code, in which case they will also be covered by the General Exemption referred to in paragraphs 2.3. Please note that the Hire Boat Code is maintained by the Association of Inland Navigation Authorities (AINA) and British Marine, and may be obtained from the AINA website here: https://aina.org.uk
+
+18. Insurance
+
+18.1 Vessel owners and operators should be aware that insurance companies may specify compliance with the relevant safety equipment requirements as a condition of their insurance cover.
+
+More Information
+
+UK Technical Standards - Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: VesselStandards@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+•
+These international shipping regulations were developed and adopted by the International Maritime Organization (IMO), the United Nations “Specialised Body” for world shipping, the secretariat for which is situated in London. ↩
+
+•
+Or Directive 2006/87/EC if in compliance with Article 28 of Directive 2016/1629 which recognises the continued validity of certificates issues in accordance with the Directive 2006/87/EC ↩
+
+•
+Zone 1 = Cat D; Zone 2 = Cat C; Zone 3 = Cat B; Zone 4 = Cat A. ↩
+
+•
+Any vessel that carries more than 12 passengers is a “passenger ship” and must comply with the applicable statutory requirements including survey and certification. ↩

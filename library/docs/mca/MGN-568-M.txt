@@ -1,0 +1,141 @@
+MGN 568 (M) MGN 568 (M) Amendment 1 Surveys: alternative compliance safety system
+2025-08-21
+Source: https://www.gov.uk/government/publications/mgn-568-m-amendment-1-surveys-alternative-compliance-safety-system
+
+Summary
+
+This guidance note advises on:
+
+• Change of terminology of Alternative Compliance System (ACS) to the Alternative Compliance Safety System (ACSS).
+
+• The conclusion of the phase-in period for the Enhanced Authorisation Scheme (EAS) and the implications for ACSS.
+
+• The requirements of ACSS for shipowners/operators and Recognised Organisations.
+
+• The appropriate certification to be issued to participants of the system.
+
+• The requirements for vessels (new buildings, flag-ins and existing vessels) under ACSS.
+
+• Circumstances where ACSS may be revoked from participating vessels.
+
+1. Introduction/background
+
+1.1 The Alternative Compliance Safety System (ACSS) streamlines the survey and certification process whilst maintaining standards and minimising duplication of effort with Recognised Organisations (ROs).
+
+1.2 This system authorises Safety Equipment Certificate survey work to the United Kingdom’s (UK) authorised Recognised Organisations. The Maritime and Coastguard Agency (MCA) maintains oversight of the structure of the ship and its management systems through ACSS surveys for issuance of an Alternative Compliance Safety Certificate (ACSC).
+
+1.3 The associated audits, verifications and inspections, including the issue of Certificates for the ISM Document of Compliance (DOC), Safety Management Certificate (SMC), International Ship Security Certificate (ISSC) and MLC Certificate, remain the responsibility of the MCA.
+
+1.4 In 2017, the Enhanced Authorisation Scheme (EAS) was introduced as a trial alongside the Alternative Compliance Scheme (ACS), with the intention of replacing ACS upon successful completion of the trial. Following a successful evaluation, outlined in MGN 561 Amendment 1, EAS has now transitioned into the Enhanced Authorisation Safety System (EASS). After consultation with industry stakeholders, it has been decided that ACS will remain in operation and continue to run concurrently with EASS.
+
+2. Eligibility
+
+2.1 Vessels enrolled on ACS under MGN 568, will continue to be enrolled on ACSS, subject to the vessel and company continuing to meet the requirements of this MGN. ACSS remains available to existing and new eligible vessels joining the UK Flag.
+
+2.2 ACSS is available to eligible UK-registered vessels, other than passenger ships, which trade internationally and to which the principal maritime conventions apply. A Company wishing to enter ACSS are to discuss with their MCA Customer Service Manager (CSM), local marine office or UKSR Key Account Manager (KAM).
+
+2.3 For a vessel to be eligible and to be considered, the following conditions shall apply:
+
+• The vessel has not been detained within the previous 36 months.
+
+• During any Port State Control inspection within the previous 12 months, no inspection report shall have recorded more than 5 deficiencies.
+
+• The vessel is classed with one of the UK Recognised Organisations detailed at https://www.gov.uk/guidance/uk-authorised-recognised-organisations-ros
+
+2.4 Companies operating vessels not meeting the criteria are welcome to approach MCA for pragmatic consideration, based on the nature of the deficiencies for deficiencies raised over this value, for potential entry to ACSS.
+
+2.5 Newbuild vessels meeting paragraph 2.2 are considered for entry to ACSS upon yard audit and ACSS survey.
+
+3. Entry into the System
+
+3.1 An owner or operator wishing to participate in ACSS is required to complete form “Request to Participate in the Alternative Compliance Safety System (ACSS) or the Enhanced Authorisation Safety System (EASS)” MSF 4753, available on.gov.uk and submit to hqsurvey@mcga.gov.uk
+
+3.2 Survey Operations will verify the eligibility of the vessel to enter the system; upon confirmation of the vessel satisfying the entry criteria, notification will be sent with an invite to submit the Application for survey and inspection of ships and fishing vessels MSF 5100, available on.gov.uk; a date and location where the vessel can be surveyed for entry are to be included in the application form. For newbuilds or ships flagging to the UK, the survey may be undertaken on delivery or during the surveys for Change of Flag.
+
+3.3 For ships already on the UK flag, if accepted to ACSS, following the initial ACSS survey, a full-term ACSC (MSF 1115) is issued if Survey Operations and the CSM and/or lead surveyor are satisfied with the condition and performance of the vessel.
+
+3.4 For newbuild vessels, upon provisional acceptance into ACSS, an Instrument of Appointment (IoA) is issued by Survey Operations indicating the intent of the vessel to enter ACSS. Until a full-term ACS Certificate is issued, SEC Surveys and Certification remain the responsibility of the MCA and IoA’s are still required.
+
+3.5 An Initial survey is normally conducted in conjunction with the initial ISM/ISPS/MLC audits, verification and survey by MCA. Upon satisfactory completion, a full-term ACSC is issued harmonised with the SMC expiry. No IoA’s are required for future SEC’s if the ACSC remains valid.
+
+3.6 The ACSC indicates that the vessel is enrolled on the ACSS and provides evidence to a Port State Official and attending RO that they are authorised to undertake the SEC surveys on behalf of the MCA.
+
+3.7 Assessment and agreement of exemptions, equivalences or alternative design and arrangements remain the responsibility of the MCA.
+
+3.8 Temporary dispensations and the agreement to issue short-term certificates remain the responsibility of the MCA.
+
+3.9 Surveys for ACSS can only be undertaken by MCA surveyors.
+
+4. Continued Entry to ACSS
+
+4.1 It is the responsibility of the Vessel operator to request ACSS surveys within a reasonable time frame as they fall due.  Failure to organise surveys will result in the invalidation of the ACSC Certificate, and MCA will be required to attend the next SEC.
+
+4.2 It is the responsibility of the operator to notify MCA CSM at least 1 month in advance of dates and location of docking or in-water surveys, as MCA may attend docking surveys, based on a statistical sample.
+
+4.3 MCA will carry out ACSS surveys in conjunction with the intermediate / renewal audits / surveys for ISM, ISPS and MLC and issue an ACSC or endorse the certificate as necessary.
+
+4.4 RO’s will conduct SEC surveys on behalf of MCA; no IOA is required where a full-term ACSC is valid.
+
+5. Yard Audit
+
+5.1 MCA require a yard audit for any vessel built under ACSS; this consists of a Quality Assurance in-person visit to review the Quality Management System or equivalent of the yard and local RO. This is only necessary for the 1st ship in a series.
+
+5.2 The MCA may waive the right to visit the shipyard for Quality Assessment if in the opinion of MCA Lead Surveyor and Technical Services (Operations) – Survey Operations, the yard has built similar types of ships under European Union (EU) and/or Red Ensign Group (REG) flags, and where the operational performance of those ships have caused no concern, or where the shipyard has ISO or equivalent Certification acceptable to the MCA.
+
+6. Damage Surveys and Marine Casualties
+
+6.1 Nothing in the System shall be interpreted as limiting or restricting the authority of the MCA to exercise control over vessels as provided in existing laws and regulations. The Marine Accident Investigation Branch (MAIB) may conduct marine accident investigations as authorised and required by UK legislation.
+
+6.2 Any accident, the RO’s are authorised to assess the condition of the vessel and liaise with MCA as per the General Agreements between the MCA and RO for temporary repairs and/or short-term Certificates and actions.
+
+6.3 The MCA retains ultimate authority to review and approve temporary repair proposals in cases in which damage to the vessel involves or is likely to result in a pollution incident or safety hazard. The Recognised Organisation is to liaise with MCA for the agreement of recommended permanent repairs when the vessel no longer poses an immediate pollution or navigation safety threat.
+
+7. Revocation of Certificates
+
+7.1 The MCA reserves the right to suspend or cancel any statutory certificate, document or approval issued by the RO on behalf of the MCA or issued by the MCA. Certification issued under the ACSS may be cancelled or result in other action considered appropriate in any of the following circumstances:
+
+• Ship’s involvement in a serious marine accident, casualty or pollution incident.
+
+• Failure to correct an RO’s condition of class or statutory deficiency within the permitted time.
+
+• Expired or invalid Statutory Certification and/or Flag State Survey Certificate.
+
+• PSC detention.
+
+• Repeated failure in rectifying deficiencies identified at PSC surveys and/or surveys; or
+
+• Failure to organise the ACSS Survey.
+
+7.2 In case of a cancellation, the MCA will inform the RO and/or customer in writing, in a reasonable time, stating the reasons for this action.
+
+7.3 A detention may result in a vessel requiring an additional ACSS Survey as determined by MCA.
+
+8. Authorisation
+
+8.1 Authorisation for issuing statutory certification on behalf of MCA is contained within the General Agreements between MCA and the UK Recognised Organisation.
+
+Links to associated forms
+
+MSF 4753
+
+Request to participate in the alternative or enhanced safety systems (ACSS / EASS)
+
+MSF 5100
+
+Application for survey and inspection of ships and fishing vessels
+
+More information
+
+Technical Services (Operations) - Survey Operations
+Maritime and Coastguard Agency
+Bay 2/20
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 7 2457
+
+Email: hqsurvey@mcga.gov.uk
+
+Website: www.gov.uk/mca

@@ -1,0 +1,45 @@
+MGN 321 (M) MGN 321 (M) Amendment 1 AIS on double-ended passenger ferries
+2024-03-22
+Source: https://www.gov.uk/government/publications/mgn-321-m-amendment-1-ais-on-double-ended-passenger-ferries
+
+Summary
+
+For double-ended passenger ferries with only one Transmitting Heading Device (THD), an interface must be fitted to maintain correct Heading data into Automatic Identification System (AIS). This notice updates guidance based on revised SOLAS requirements and domestic legislation.
+
+1. Introduction/background
+
+1.1 Double-ended passenger ferries are designed to operate without the need to turn round - the bow in one direction becomes the stern in the other direction. A number of double-ended passenger ferries fitted with AIS are transmitting the reciprocal heading marker but correct course over ground (COG), when operating in the “return mode”. This jeopardises the accuracy and effectiveness of AIS.
+
+2. AIS on double-ended passenger ferries
+
+2.1 To maintain the effectiveness of AIS, those double-ended passenger ferries which are required to carry an AIS should ensure that they have a means of maintaining correct heading data into AIS, regardless of direction of travel.
+
+2.2 A vessel must be able to switch the AIS heading to reciprocal, and preferably using the same switch, as is used for changing the navigation lights and whistle when in “return mode”.
+
+2.3 For example, a vessel operating bow-first on a heading of 220°, if returning on an exact reciprocal course, would require a heading input to the AIS of 040°. The AIS display icon, as seen by other vessels and coast stations, is an isosceles triangle whose apex points in the direction of passage. It is the heading input from the vessel’s THD which orientates this triangle and a heading input of the reciprocal of the vessels actual heading causes confusion to other vessels and shore stations.
+
+2.4 There are commercially available interfaces which will overcome this problem by amending the heading input to the AIS by 180°A means to achieve the correct heading input to the AIS must be fitted.
+
+2.5 It is strongly recommended that the switching arrangement is connected to the main navigation light switch, making the transfer a formal and straightforward process.
+
+2.6 The switching arrangement should also be covered in pre-departure checklists and if applicable be recorded within the deck logbook.
+
+3. Carriage Requirements
+
+3.1 Shipowners should refer to SI No.673 of 2020 The Merchant Shipping (Safety of Navigation) Regulations 2020 and MGN 610 which describe the carriage requirements for AIS.
+
+More information
+
+Technical Services Navigation
+Maritime and Coastguard Agency
+Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

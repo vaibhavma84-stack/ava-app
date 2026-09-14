@@ -1,0 +1,173 @@
+MSN 1850 (M) MSN 1850 (M) Amendment 1: Maritime Labour Convention, 2006: health and safety reporting of occupational diseases
+2022-07-25
+Source: https://www.gov.uk/government/publications/msn-1850-m-amendment-1-maritime-labour-convention-2006-health-and-safety-reporting-of-occupational-diseases
+
+Summary
+
+•
+This notice sets out the requirements for reporting occupational diseases, as required by the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations (S.I. No. 1997/2962) (“the Health and Safety Regulations (as amended)”), particularly in the light of the amendments made by the Merchant Shipping (Maritime Labour Convention) (Health and Safety) (Amendment) Regulations 2014.
+
+•
+The Health and Safety Regulations (as amended) require employers to report occupational diseases which are identified in seafarers serving on UK ships.
+
+•
+The requirement to report arises only where a written diagnosis of a specified disease has been provided by a registered medical practitioner but see Annex B for guidance on reporting of cases of COVID-19 as an occupational disease.
+
+•
+This MSN details the reporting arrangements and includes at Annex A the table of reportable diseases and related work activities.
+
+•
+The form for reporting a disease is MSF 4159.
+
+•
+Reports must be handed with due regard to confidentiality and in accordance with the International Labour Organization’s Code of Practice on Protection of Workers’ Personal Data.
+
+Relationship with the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations (S.I. 1997/2962) as amended
+
+•
+The Health and Safety Regulations (as amended) need to be read together with this Merchant Shipping Notice, as it set out some of the key details required to comply with legal obligations under those Regulations. Failure to comply with those obligations is a Criminal Offence.
+
+•
+In order to assist the reader, section 4 identifies the provisions in the Regulations which refer to information specified in this Notice.
+
+•
+Amendment 1 includes COVID-19 as a reportable disease.
+
+1. Introduction/background
+
+1.1 The Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations (S.I. No. 1997/2962), as most recently amended by the Merchant Shipping (Maritime Labour Convention) (Health and Safety) (Amendment) Regulations 2014, (the “Health and Safety Regulations (as amended)”) require an employer of a seafarer on a sea-going UK registered ship to make a report to the Secretary of State when they are notified that a seafarer who works on a ship is suffering from an occupational disease specified in the table in Annex A to this Notice and has been involved in an activity referred to in that table. A case is reportable only if the employer has received a written statement prepared by a medical practitioner diagnosing the disease as one specified in the Schedule unless stated otherwise in this Notice.
+
+1.2 This requirement completes the implementation of Standard A4.3.5(a) of the Maritime Labour Convention, 2006 (MLC). Requirements for the reporting of accidents and injuries under the MLC are in place under the Merchant Shipping (Accident Reporting and Investigation) Regulations 2013.
+
+1.3 The requirements to report occupational diseases does not apply to pleasure vessels, fishing vessels, warships or naval auxiliaries, or ships of traditional build.
+
+2. The system for Reporting Occupational Diseases
+
+2.1 The diseases which are reportable are listed in the table in Annex A of this Notice, which also states the type of work activity which may give rise to exposure to the disease and is accepted as a recognised risk. An employer must report a listed disease when:
+
+•
+It has been diagnosed in writing by a medical practitioner (doctor);
+
+•
+The seafarer has been involved in an associated work activity
+
+A report of a case will not necessarily signify that it is caused by work; it will mean that the seafarer affected works in a job where the disease is considered likely to have an occupational origin.
+
+However, see Annex B for guidance on when to report cases of COVID-19.
+
+2.2 Employers have to notify cases of disease to the Maritime and Coastguard Agency (MCA) only if they have received a written diagnosis from a doctor or Annex B applies. It is recommended that a self-employer person who is] suffering from a listed disease should voluntarily report this, or ask someone to report it on their behalf, as if they were the employer.
+
+2.3 A disease is reportable if it is reported in writing by a medical practitioner, or Annex B applies. In the case of a practitioner ordinarily resident in the UK, this means a fully registered doctor who holds a licence to practice and in other cases means a doctor who is entitled to practice in the country in which they are ordinarily resident.
+
+2.4 Doctors in the UK are familiar with the system for reporting occupational diseases for land-based workers in line with the Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 (RIDDOR). The Health and Safety Regulations (as amended) apply a very similar system to seafarers on UK ships, except that employers must send reports regarding seafarers on UK ships to the MCA.
+
+3. Submission of Occupational Disease Report Form
+
+3.1 When an employer receives a written diagnosis from a doctor identifying a reportable occupational disease, or where Annex B applies, they must complete the occupational disease report form MSF 4159, and send it to the MCA at the address stated on the form.
+
+3.2 Reports must be handled with due consideration to confidentiality, in accordance with the International Labour Organization’s (ILO) Code of Practice on Protection of Workers’ Personal Data.
+
+3.3 A copy of the completed form MSF 4159 and the written diagnosis (if applicable) should be retained by the employer following submission of the report to the MCA. Electronic records are acceptable for most purposes. Records may be needed for insurance purposes or in relation to social security benefits for the person affected. Records may also be called upon for inspection by the MCA.
+
+3.4 The MCA will confirm receipt of the information within 5 working days and will do so in writing to the person detailed in part A of the completed MSF 4159 form.
+
+3.5 MCA will retain the reports for statistical purposes and in order to take any appropriate follow up action, such as the issue of guidance or safety alerts, in relation to any particular occupational diseases identified.
+
+4. References to this Notice in the Health and Safety Regulations (as amended by the Merchant Shipping (Maritime Labour Convention) (Health and Safety) (Amendment) Regulations 2014)
+
+4.1 The references to this Notice in the Health and Safety Regulations (as amended) are indexed below. This is the version of Merchant Shipping Notice 1850 (M) now known as Merchant Shipping Notice 1850 (M) Amendment 1 which is considered to be relevant until further notice.
+
+Reg 11A(1): The diseases referred to are listed in the table in Annex A
+
+Reg 11A(2): The activities referred to are listed in the table in Annex A
+
+Reg 11A(3)(a): The ILO guidance referred to is the Code of Practice which is identified in section 3.2 of this Notice
+
+Reg11A(3)(b): The form referred to is specified in section 3.1 of this Notice
+
+Reg11A(3)(c): The address referred to is that set out below for the Seafarer Safety and Health Branch at the MCA
+
+Reg 16(1): The ILO guidance referred to is the Code of Practice which is identified in section 3.2 of this Notice
+
+Reg 19(2): The ILO guidance referred to (in connection with Company duty to keep records in the absence of a Safety Officer) is the Code of Practice which is identified in section 3.2 of this Notice
+
+More information
+
+Seafarer Safety and Health
+Maritime and Coastguard Agency
+Bay 2/17
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: mlc@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Annex A
+
+TABLE LISTING REPORTABLE DISEASES
+
+NOTE: This is the same list as set out in the Health and Safety Executive’s Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 (RIDDOR)
+
+Occupational diseases
+
+(a) Carpal Tunnel Syndrome, where the person’s work involved regular use of percussive or vibrating tools
+
+(b) Cramp in the hand or forearm, where the person’s work involved prolonged periods of repetitive movement of the fingers, hand or arm
+
+(c) Occupational dermatitis, where the person’s work involves significant or regular exposure to a known skin sensitiser or irritant
+
+(d) Hand Arm Vibration Syndrome, where the person’s work involved regular use of percussive or vibrating tools, or the holding of materials which are subject to percussive processes, or processes causing vibration
+
+(e) Occupational asthma, where the person’s work involves significant or regular exposure to a known respiratory sensitiser
+
+(f) Tendonitis or tenosynovitis in the hand or forearm, where the person’s work is physically demanding and involved frequent, repetitive movements
+
+Exposure to carcinogens, mutagens and biological agents
+
+(a) Any cancer attributed to an occupational exposure to a known human carcinogen or mutagen (including ionising radiation)
+
+(b) Any disease attributed to an occupational exposure to a biological agent (see Annex B for additional information on COVID-19)
+
+Annex B
+
+REPORTING OF COVID-19 AS AN OCCUPATIONAL DISEASE
+
+In respect of COVID-19, an employer is only required to make a report when a seafarer has been infected with COVID-19 through;
+
+• deliberately working with the virus, such as in a laboratory
+
+• being incidentally exposed to the virus
+
+Incidental exposure can occur when working in environments where people are known to have COVID-19, for example a medical practitioner, nurse or seafarer who is diagnosed with COVID-19 after treating or caring for someone with COVID-19 as part of their work on the ship or supporting activities such as cleaning.
+
+The following should be reported:
+
+•
+a seafarer has been diagnosed as having COVID-19 attributed to an occupational exposure to COVID-19, through either deliberately working with the virus or being incidentally exposed to it
+
+•
+a seafarer dies as a result of occupational exposure to COVID-19 through either deliberately working with the virus or being incidentally exposed to it
+
+In such cases, the disease is reported as a case of disease as a result of exposure to a biological agent.
+
+An occupational disease is normally reportable only if the employer has received a written diagnoses of a specified disease from a medical practitioner. However, unlike with usual diagnosis of occupational disease, many cases of COVID-19 are confirmed without a medical practitioner’s written diagnosis, for example, on the basis of laboratory test results. Therefore, MCA will not require those results to be confirmed by a medical practitioner before a case of COVID-19 resulting from work is reported. Any official confirmation of COVID-19 infection such as from a public testing body or a positive lateral flow test (LFT) should be considered as being equivalent to a medical practitioner’s diagnosis.
+
+The following should not be reported as cases of occupational disease:
+
+•
+cases of disease or deaths of members of the public, such as passengers, from COVID-19
+
+•
+cases where an employee has infected another employee with COVID-19 through general transmission in the workplace
+
+•
+cases where a member of the public has infected an employee with COVID-19 through general transmission in the workplace, unless infection is likely to have occurred from working in an environment with a person known to have COVID-19, for example in a medical setting

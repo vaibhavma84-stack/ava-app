@@ -1,0 +1,117 @@
+MGN 680 (M+F) MGN 680 (M+F) Amendment 1 – Procedure for becoming a UK Nominated Body
+2025-12-11
+Source: https://www.gov.uk/government/publications/mgn-680-mf-amendment-1-procedure-for-becoming-a-uk-nominated-body
+
+Summary
+
+This Note sets out the procedure for Conformity Assessment Bodies to follow in seeking designation as a UK Nominated Body under the Regulations.
+
+Nominated Bodies are those designated to carry out type approval of equipment listed in Annex 2 of MSN 1874 (M+F) as amended.
+
+The Maritime and Coastguard Agency (“the MCA”) is responsible for designating UK Nominated Bodies on behalf of the Secretary of State. Organisations wishing to obtain designation as a UK Nominated Body should follow the procedures laid out in the Regulations and this Note. Any queries should be sent to the relevant MCA department, contact details of which can be found at the end of this Note.
+
+1. Introduction
+
+1.1 This note describes the requirements applicable in the United Kingdom for the assessment and appointment of UK Nominated Bodies under the Regulations.
+
+1.2 This note applies to all bodies applying for designation as Nominated Bodies under the Regulations.
+
+1.3 The conformity assessment procedures can be found in MSN 1874 (M+F) as amended.
+
+1.4 In the UK, the MCA, an executive agency of the Department for Transport, is responsible for appointing Nominated Bodies on the authority of the Secretary of State for Transport (“Secretary of State”).
+
+1.5 The MCA has full authority to act on behalf of the Secretary of State under the Regulations.
+
+1.6 Nominated Bodies are those bodies which have been designated by the Secretary of State under regulation 4  of the Regulations to carry out type approval of equipment placed on board UK ships.
+
+1.7 Equipment listed in Annex 2 of MSN 1874 (M+F) as amended is marine equipment requiring approval by a ship’s Flag Administration, but which is not within the scope of the UK’s conformity assessment for marine equipment. Annex 2 of MSN 1874 (M+F) as amended sets out the relevant Regulations of the applicable International Maritime Organization (IMO) Convention and performance standards and applicable testing standards. Such equipment is to be type approved by a UK Nominated Body. Equipment is grouped into categories (Life-Saving Appliances, Pollution Prevention, Fire Protection, Navigation, Radio communication, Ballast Water Management systems and equipment required by the Convention on the International Regulations For Preventing Collisions at Sea (COLREG)). This Annex also specifies other equipment which requires approval by a Nominated Body.
+
+1.8 Where no testing standard is specified in column 4 of the relevant table in Annex 2 of MSN 1874 (M+F) as amended for the equipment, the testing standard is to be agreed between the Nominated Body and the MCA prior to the application for type approval being accepted.
+
+ 2. Criteria for Becoming a UK Nominated Body
+
+2.1 An organisation wishing to be designated as a Nominated Body in the UK must meet the requirements set out in regulation 4 of the Regulations. However, it should be noted that meeting these requirements will not necessarily lead to designation as a UK Nominated Body. This decision will be at the discretion of the Secretary of State.
+
+2.2 To be eligible for designation as a UK Nominated Body under the Regulations, an applicant must be established and have legal entity/personality in the UK and meet all requirements set out in regulation 4 of the Regulations. It may, however, conduct technical activities, or have technical activities conducted on its behalf, overseas.
+
+2.3 All applicants must have valid civil liability and professional indemnity insurance cover for the activities they intend to undertake.
+
+ 3. Application process
+
+3.1 In the first instance, an application should be made to the MCA via email to MEQA@mcga.gov.uk. The application must include the following:
+
+•
+Evidence of the applicant’s status as a legal entity established in the UK
+
+•
+The conformity assessment activities for which the Nominated Body wishes to be designated
+
+•
+The marine equipment products for which the Nominated Body wishes to be designated
+
+•
+Evidence of civil liability and professional indemnity insurance cover for its activities
+
+3.2 If satisfied the applicant is fit for designation under the Regulations based on the evidence supplied, the MCA will issue a designation to the applicant as a UK Nominated Body.
+
+3.3 The exact terms of the designation will be laid out in the individual designations, but they will include the following conditions that the applicant must agree to comply with for the period in which they are a UK Nominated Body:
+
+• to partake in co-ordination activities at the national and international level
+
+3.4 Nominated Bodies are required to:
+
+•
+periodically audit, at intervals determined by the Secretary of State  , the activities of the manufacturers of whom the UK Nominated Body has approved one or more products and/or services under the Regulations.
+
+•
+periodically audit, at intervals determined by the Secretary of State, its own activities as a UK Nominated Body to ensure ongoing compliance with the relevant requirements.
+
+3.5 The Secretary of State will periodically audit the activities of the Nominated Bodies in line with the requirements laid out in the letter of designation. The period between audits will not exceed 2 years and will generally take place in the Nominated Body ‘s principal place of business in the United Kingdom.
+
+3.6 Applicants will need to demonstrate to the MCA that they can determine whether products presented for assessment, comply with the applicable regulations and testing standards as laid out in the Regulations by demonstrating their professional capabilities and thorough knowledge and understanding of the Regulations.
+
+ 4. Quality Management System
+
+4.1 All applicants will need to have a Quality System, usually specified in a Quality Manual and associated documentation, appropriate to the types of products the organisation wishes to issue certification for.
+
+4.2 The Quality System must state the applicant’s policies and procedures for the control and issuing of certificates and associated conformity numbers.
+
+5. Sub-Contracting
+
+5.1 Where a UK Nominated Body is permitted to sub-contract any part of the assessment process, their Quality Manual will need to describe the procedures to be followed to ensure compliance by the sub-contractors with the relevant requirements. The Nominated Body will need to demonstrate that the sub-contractor is competent to carry out the task(s) for which it has been engaged. The Nominated Body must maintain documented procedures for the assessment and monitoring of sub-contractors, and a list of sub-contractors and their associated facilities.
+
+5.2 A UK Nominated Body remains responsible for ensuring that the conformity assessment procedures are conducted in accordance with the relevant requirements of the Regulations and is responsible for the activities carried out by sub-contractors on its behalf.
+
+5.3 A UK Nominated Body shall notify the MCA of any sub-contracting arrangements that concern activities for which the Nominated Body is responsible. This can be done via email to MEQA@mcga.gov.uk.
+
+6. Obligations of Nominated Bodies
+
+6.1 UK Nominated Bodies shall assess the conformity of products or quality systems, which are within the scope of their individual designations, in accordance with the requirements of MSN 1874 (M+F) as amended.
+
+6.2 Where a UK Nominated Body grants conformity approval for equipment, it must issue  a type approval certificate containing the information specified in MSN 1874 (M+F) as amended.
+
+6.3 When a Nominated Body issues approval for marine equipment, it must inform the MCA monthly of any equipment approvals it has carried out. This shall be done via email to MEQA@mcga.gov.uk. Ballast water management systems (BWMS) approvals must however be sent to environment@mcga.gov.uk. A Nominated Body must, on request, grant the MCA access to plans and documents, including reports, that form the basis on which the certificate was issued.
+
+6.4 Where a UK Nominated Body refuses conformity approval, it must notify the manufacturer and the MCA, giving detailed reasons for its decision in writing.
+
+6.5 UK Nominated Bodies must maintain documented procedures covering all aspects of their work relating to the conformity assessment activities for which they are               designated to perform. Nominated Bodies must inform the MCA of any changes to        their organisation that could affect their ability to conduct the duties expected of them   under the Regulations. This includes, but is not limited to, any changes in status,             ownership, location, key personnel, organisational structure, technical competence, or facility arrangements.
+
+6.6 Each UK Nominated Body must provide upon request to the MCA and other Nominated Bodies the relevant information concerning the certificates of type approval and additions issued and withdrawn.
+
+6.7  UK Nominated Bodies must ensure they maintain adequate insurance cover for their activities and inform the MCA of any changes to their insurance arrangements. The Secretary of State will not under any circumstances cover a Nominated Body’s liability.
+
+More information
+
+Marine Equipment and Quality Assurance
+Maritime and Coastguard Agency
+Bay 2/21
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: MEQA@mcga.gov.uk.
+
+Website: www.gov.uk/mca

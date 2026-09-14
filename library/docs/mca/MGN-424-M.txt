@@ -1,0 +1,172 @@
+MGN 424 (M) MGN 424 (M) Safety responsibilities on board dive boats
+2023-05-16
+Source: https://www.gov.uk/government/publications/mgn-424-m-safety-responsibilities-on-board-dive-boats
+
+Summary
+
+This notice gives advice on procedures for the safe conduct of diving operations especially on vessels contracted to carry out these operations where the diving operation is not controlled by the owner, operator or crew of the vessel. The main points are:
+
+•
+the duties of the owner/operator, master/crew, diving contractor and diving supervisor and their relationship to each other and individual responsibilities;
+
+•
+particular emphasis on ensuring that there is a coherent diving plan and risk assessments are carried out;
+
+•
+ensuring that the divers are competent and properly qualified.
+
+Amendment 1 updates references only.
+
+1. Introduction
+
+1.1 An accident onboard a vessel acting as a dive boat highlighted the need for procedures to ensure the safe conduct of dive operations when the vessel’s owner and operator were not the same as the diving contractors.
+
+1.2 During diving operations it is essential that both ships and diving contractors have procedures in place to establish and maintain a safe working environment, regardless of the scale or purpose of the operation. Although diving contractors usually have a sound appreciation of the generic risks involved when working in the vicinity of merchant vessels the responsibility for ensuring that appropriate shipboard control measures are taken rests with a vessel’s crew.
+
+1.3 This guidance applies equally to owner/operator divers and to contracted divers.
+
+2. Duties of the owner or operator of the dive boat
+
+2.1 Owners of craft should ensure effective arrangements are in place to ensure compliance with the Diving at Work Regulations 1997 (No. 2776) (as amended). In meeting their obligations owners, or their representatives onboard, should directly ensure that all ship’s personnel are fully aware of their respective responsibilities and duties. Where appropriate these duties should be in writing.
+
+2.2 The plant and equipment provided by the diving contractor should meet the appropriate requirements and be maintained in good order. Where practicable, written confirmation should be drawn up and endorsed by the owner and diving contractor to this effect.
+
+2.3 Where the dive boat provides diving equipment and/or services for the diving project, they should ensure that such equipment is suitable for the safe conduct of the diving project and is maintained in a safe working condition.
+
+3. Duties of the master and crew
+
+3.1 Those involved with the organising of the diving project should ensure that the contracted parties comply with the diving regulations as stated above.
+
+3.2 The master has responsibility for all activities carried out on onboard their vessel; these may include aspects of the diving project. They should identify and discuss potential risks with the diving contractor during preparation of the diving project plan and recognise that the success of a diving project is dependent on close co-operation and consultation between responsible persons.
+
+3.3 All those involved with the diving process should be familiar with the completed diving plan.
+
+3.4 The operation of machinery which poses a risk to divers should be prevented, whenever possible, by physical barriers such as the removal of fuses or other suitable methods such as tag systems where physical barriers that disable the immediate restoration of machinery/systems may place the vessel at risk in an emergency.
+
+3.5 A master, in conjunction with the diving supervisor, should not authorise the commencement of diving operations until they are satisfied that the required control measures have been taken and all key ship’s personnel, such as the chief engineer, have been informed.
+
+3.6 The crew must be aware of what machinery/systems not to operate during the dive operation, the systems in place to prevent operation of these machinery/systems and the procedures required if they are required in an emergency situation.
+
+3.7 The master should establish agreed means of communication with the diving supervisor and advise on matters considered relevant during the diving operation (e.g. changes in sea condition, surface visibility etc).
+
+3.8 When diving from a craft maintaining station using a dynamic positioning system, the master should ensure that in the event, or likely event, of “drift off”, the diving supervisor is directly informed and, if necessary, the recovery of divers is arranged.
+
+3.9 The master should prevent the occurrence of activities that may endanger those involved in the diving project. Where necessary notices should be posted on machinery vital to the diving project to prevent it inadvertently being stopped or started.
+
+3.10 The master should prohibit diving operations while the craft is manoeuvring.
+
+3.11 To ensure a safe location for the diving project, onboard equipment and plant should be secured and provision made for the safety of personnel working in that area.
+
+3.12 The master may terminate the dive for safety reasons. Where time permits this would normally be in consultation with the diving supervisor.
+
+4. Duties of the diving contractor
+
+4.1 A designated diving contractor should be appointed in writing to ensure the diving project protects the health and safety of those taking part in it. Where more than one contractor is appointed to a diving project one should be confirmed as the “designated diving contractor”. A written agreement should confirm this arrangement.
+
+4.2 The diving contractor is responsible for:
+
+•
+assessing risks and ensuring a diving project plan is prepared;
+
+•
+appointing a suitable diving supervisor, in writing;
+
+•
+ensuring there are sufficient numbers of competent divers, capable of undertaking the work involved with the diving project;
+
+•
+ensuring that all divers involved in the diving project are suitably qualified, certificated by a doctor as medically fit and hold a valid HSE approved diving at work medical certificate;
+
+•
+ensuring divers’ certification, as above, is readily available for inspection;
+
+•
+ensuring the diving team is familiar with the diving project plan;
+
+•
+providing sufficient, suitable, properly maintained and certified plant and equipment;
+
+•
+ensuring test certificates for the plant and equipment are readily available for inspection;
+
+•
+ensuring that the place from which diving is to be undertaken is suitable and safe;
+
+•
+ensuring adequate arrangements exist for first aid and medical treatment;
+
+•
+maintaining a written record of all relevant details of the project, including all dives, for a minimum of two years;
+
+•
+ensuring compliance with all relevant regulations.
+
+5. Diving project plan
+
+5.1 A diving project plan is essential for every diving project. It should consist of the diving contractor’s standard operating rules and the site specific risk assessment. This includes measures to control risks, procedures, availability of emergency support services and the responsibility structure in the event of an emergency. Many factors need consideration when preparing a diving project plan, in particular identifying possible hazards and assessing their risks followed by measures for risk reduction. For example:
+
+•
+effect of water flowing through sea water intakes or discharges affecting divers or their equipment during the project;
+
+•
+weather conditions, including surface visibility, necessitating suspension of the project;
+
+•
+effect of rotating propellers, thrusters or pumps, particularly from vessels using dynamic positioning systems and associated machinery that may start manually or automatically during the project;
+
+•
+taking account of diver disorientation, particularly when working beneath flat bottom vessels;
+
+•
+risk of divers being struck by objects falling into the water.
+
+5.2 The diving project plan should cover the general principles of diving techniques. It should incorporate contingency plans in the event of foreseeable emergencies, including the evacuation of the parent craft and retrieval of an injured or unconscious diver from the water. It should also include procedures to deal with injuries to divers and support personnel and the availability of external medical assistance.
+
+5.3 Diving supervisors and others responsible for executing contingency plans should have copies of the relevant parts of the diving project plan. It should identify the nature and extent of each diving operation, the diving supervisor in charge and the specific tasks of those involved.
+
+6. Diving supervisor
+
+6.1 The diving supervisor must be competent in the techniques used in the diving operation he is supervising.
+
+6.2 Diving supervisor responsibilities include:
+
+•
+checking the divers are competent and qualified to dive and undertake the work of the diving project;
+
+•
+ensuring everyone in the diving operation is familiar with the diving project plan;
+
+•
+ensuring the diving project plan is appropriate and up to date;
+
+•
+maintaining accurate records of all diving operations;
+
+•
+ensuring there are adequate means of communication with divers in the water;
+
+•
+checking the dive site on the day of the dive and, if conditions change, confirming that the risk assessment still applies;
+
+•
+checking the diving equipment is appropriate for the project.
+
+6.3 The supervisor may order the start and finish of a dive in consultation with the master.
+
+More information
+
+Seafarer Safety and Health Branch
+Maritime and Coastguard Agency
+Bay 2/17
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72250
+
+Email: seafarersafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

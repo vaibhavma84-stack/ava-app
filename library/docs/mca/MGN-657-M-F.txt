@@ -1,0 +1,123 @@
+MGN 657 (M+F) MGN 657 (M+F) Amendment 2 requirements for fixed aerosol fire extinguishing systems for use in small vessel machinery spaces
+2026-04-02
+Source: https://www.gov.uk/government/publications/mgn-657-mf-amendment-2-requirements-for-fixed-aerosol-fire-extinguishing-systems-for-use-in-small-vessel-machinery-spaces
+
+Summary 
+
+This Marine Guidance Note (MGN) informs interested parties of the Maritime and Coastguard Agency (MCA) installation and testing requirements for the approval of new Fixed Aerosol Fire Extinguishing Systems for use in small vessel normally unoccupied machinery spaces and the UK Approved Bodies permitted to approve such testing on behalf of the MCA. 
+
+Amendment 1 clarifies that the design density should be calculated based on the net volume of the protected space (para 5.4)) as well as clarifying the test criteria including the pass/fail criteria and arrangements for the test mock-up (Appendix para 5.) 
+
+Amendment 2 amends section 4.16 of the Appendix to require that in a single fault scenario at least the test density will be discharged aligning with the MSC.1/Circ.1270 criteria for single fault scenarios. 
+
+1. Introduction/background 
+
+1.1 Approval of Fixed Aerosol Fire Extinguishing Systems for use in small vessel machinery spaces has previously been undertaken by the MCA, with the publication of this notice those approvals will now be undertaken by a UK Approved Body. Small vessels are those vessels as referred to in Section 7 of the appendix. Once a system was approved the manufacturer or supplier of the system was issued with the MCA Certificate of Inspection and Test (MSF 1814 form). The certificate demonstrated the safe and effective operation of the system following various fire-extinguishing tests. These tests included a demonstration of the system’s ability to extinguish a selection of representative fire types in an enclosure similar to that of a small vessel’s machinery space. 
+
+1.2 This MGN formalises the process by publishing the test requirements for future approvals and to require that the tests are witnessed and confirmed as successful by a UK Approved Body (see section 3). 
+
+1.3 The test requirements are given in the Appendix. These are based on the International Maritime Organisation (IMO) Maritime Safety Committee (MSC) Circular 1270 “Revised Guidelines for the Approval of Fixed Aerosol Fire-Extinguishing Systems Equivalent to Fixed Gas Fire-Extinguishing Systems, as Referred to in SOLAS 74, for Machinery Spaces - (4 June 2008)”. 
+
+1.4 New approval certificates will provide information on the vessel types that the system is accepted for as well as details of the installation requirements for that system. The vessel installation requirements, that are common to all aerosol fixed fire suppression system installations, are described in section 5 of this MGN. 
+
+1.5 This MGN contains information on two separate approvals; the acceptance by an approved body of the Fixed Aerosol Firefighting System’s ability to extinguish fires, and the installation requirements for the certifying authority to accept the system being installed in a ship. 
+
+2. General 
+
+2.1 Aerosol fixed fire extinguishing systems involve the release of an agent to extinguish a fire by interruption of the chemical process of fire. There are two methods considered for applying the aerosol agent to the protected space as defined by the IMO (see MSC Circular 1270) as: 
+
+2.1.1 Condensed Aerosols - created in pyrotechnic generators through the combustion of the agent charge. 
+
+2.1.2 Dispersed Aerosols - these are not pyrotechnically generated but are stored in compressed gas containers with carrier agents (such as inert or approved halocarbon gases) with the aerosol released into and distributed throughout the space through valves, pipes & nozzles. 
+
+2.2 These formal definitions are used in this document; however, it may be useful to think of, and refer to, condensed aerosols as pyrotechnically-generated aerosols and dispersed aerosols as stored-pressure aerosols. This gives a more intuitive understanding of the safety considerations that should be addressed during installation, use and maintenance. 
+
+3. UK Approved Bodies and Certifying Authorities 
+
+3.1 UK Approved Bodies: 
+
+3.1.1 A UK Approved Body, as appointed under the Merchant Shipping (Marine Equipment) Regulations 2016, as amended, (“the Regulations”), in this context, is a body which may undertake approval of a Fixed Aerosol Fire Suppression System on behalf of the MCA for tests that comply with the requirements of the procedures given in the Appendix to this MGN. 
+
+3.1.2 Further details on the UK Approved Bodies’ requirements can be found in MGN 554 “Marine Equipment - Procedure for becoming a UK Approved Body following the UK’s exit from the EU”, as amended, as well as in MIN 590 as amended “United Kingdom conformity assessment procedures for marine equipment following the transition period”. 
+
+3.1.3 The list of UK Approved Bodies can be found in MSN 1874, as amended. 
+
+3.1.4 The UK Approved Bodies currently appointed for the approval of Fixed Aerosol Fire Extinguishing Systems in compliance with this MGN are:  
+
+3.2 BSI Group, BRE Global, Bureau Veritas, DNV UK Ltd and Lloyds Register Marine Ltd. Full contact details for each Approved body can be found in MSN 1874, paragraph 5.Certifying Authority: 
+
+3.2.1 Certifying Authority means either the Secretary of State, including the MCA acting on behalf of the Secretary of State, or anyone else authorised by the Secretary of State or the MCA acting on behalf of the Secretary of State (see list of organisations so authorised in MIN 698), for the purposes of: 
+
+3.2.1.1 Appointing persons to carry out examinations of vessels and issuing and signing Declarations and Exemptions. 
+
+3.2.1.2 Issuing certificates. 
+
+4. Fixed Aerosol Fire Extinguishing Systems Approval 
+
+4.1 UK Approved Body Approval 
+
+4.1.1 The UK Approved Body will, following successful completion of the tests described in the Appendix, approve a system by issuance of a certificate. Approval proves a system’s ability to extinguish fires effectively, however, this does not approve the system for use on a vessel.  
+
+4.1.2 The Fixed Aerosol Fire Suppression Systems will be certified initially for a period of 5 years and requires that successful testing, as described in the Appendix, is completed to the satisfaction of the Approved Body before this certificate is issued. This testing can then be used as the basis of approval for two further 5-year recertifications. After 15 years retesting in compliance with this MGN is required before a further certificate will be issued. 
+
+4.1.3 Following any major design change the system shall be retested. What constitutes a major design change shall be agreed by the manufacturer, the approved body and the MCA. The Approved Body shall be informed of any changes to the design of the system and will determine if retesting is required. 
+
+4.2 Certifying Authority Acceptance 
+
+4.2.1 The Certifying Authority’s certification system, which accepts the system for use on vessels, is also further based on assessment of the toxicity of the extinguishing medium, system design and capabilities, documentation provided, installer competence and environmental considerations. 
+
+5. Vessel Installation Requirements 
+
+5.1 Systems will be installed on the vessel based on the requirements in this MGN and the equipment approval certificate and accepted by the attending surveyor. Systems are to be installed in accordance with the requirements of each manufacturer’s design, operation, and maintenance manuals. Installation details including position of generators relative to entrances, exits and walkways and the concentration design calculation should be supplied along with a declaration from the competent installer that it complies with the MCA requirements and accepted by the vessel’s Certifying Authority before the system is installed. 
+
+5.2 The installation plan including the aerosol generator type, size and position along with the calculations for the protected space volume and concentration should be provided to the vessel as well the approved body approval certificate. The installer will provide a declaration that the system is suitable for the protected space and has been installed in accordance with MCA requirements. 
+
+5.3 Installation is only permitted in machinery spaces that are not normally occupied. Such spaces are protected spaces that are occupied for limited periods only, in particular for monitoring, or undertaking maintenance, and where the continual presence of persons is not necessary for the effective functioning of the equipment. 
+
+5.4 The machinery space housing the Fixed Aerosol Fire Extinguishing System is referred to in this document as the protected enclosure or protected space. The protected enclosure volume should be calculated by the system supplier or installer and agreed by the vessel owner, equipment supplier and supplied to the surveyor for acceptance (as noted in section 5.2). The required concentration of the aerosol varies between manufacturer / system types, and agreement of the design concentration required for the space should be sought from the manufacturer or their agent and be based on fire extinguishing tests as defined in this document. The methods used for calculating the design concentration shall be included in the vessel’s application for certification. The quantity of extinguishing agent for the protected space should be calculated at the minimum expected ambient temperature using the design density based on the net volume of the protected space, including the casing. The net volume of a protected space is that part of the gross volume of the space, which is accessible to the fire-extinguishing agent. 
+
+5.4.1 Where the protected enclosure contains multiple spaces where mixing of the aerosol and air may be inhibited, such as a partially enclosed room, the partially enclosed space should be treated as a separate space for design concentration calculation purposes. For example, using an aerosol with a design concentration of 100 g/m3, a 30 m3 enclosure could be protected by ten 300 g generators but if there is a partially enclosed space of 5 m3 within, where mixing is significantly inhibited, 25 m3 of the space could be protected by eight 300 g generators plus one 100 g generator for example, and the remaining 5 m3 space protected by one 300 g generator plus one 200 g generator for example. These would be controlled from the same control unit; the space is only treated as separate for design concentration calculations. 
+
+5.5 Where the space being protected has the possibility of being entered, an isolation switch will be provided that should be used to deactivate the system whenever personnel enter the space. The system isolation switch shall be situated outside the protected space and close to the system or control panel or adjacent to the main entrance to the protected space. The isolation switch shall only inhibit the discharge of the system, fire detection and alarm systems shall not be impacted and will continue to work normally during isolation. The isolation switch shall electrically isolate and earth each conductor of the wiring to the generator units / discharge device. When the isolation switch is active a visual indication will be provided at the system control panel. 
+
+5.6 Only control panels approved by the manufacturer and included in the system’s approval certificate shall be used. Control panels approvals are not in the scope of the approval tests in this MGN, however control panels for use with each system must be approved by the manufacturer.  
+
+5.7 Control wiring for the system should be shielded or run in separate conduits from power cables or other alternating current (AC) cables. 
+
+5.8 Clear instructions for installation, maintenance, testing, and operation applicable to the specific system installed on the vessel should be provided on board. 
+
+5.9 Clear safety notices should be placed at the entrance to the protected space, inside the protected space, at the control panel and at the system isolation switch. These will include notices to the nature of the hazards, including hot aerosol release and potential for carbon monoxide to be present in quantities which may present a danger to life.  
+
+5.10 Generator units should be positioned and orientated such that the aerosol discharge stream shall not be across any entrance or exits to the space or over any walkways through the protected space unless set a safe distance from them. The manufacturer shall supply safe distances for positioning of generator units in their manual. The aerosol discharge stream temperature shall be provided in the manual for each generator and temperatures must not exceed 75 °C in the stream when it crosses walkways, entrances/exits to the space or anywhere people may be exposed to the stream. 
+
+5.11 The system may be activated by an automatic system (where approved by the manufacturer). The automatic discharge must be automatically disabled when the isolation switch is engaged. Where an automatic release system is installed a pre-discharge alarm must sound for a minimum of 20 seconds before release. This is to allow any personnel present evacuation time, and time to close openings prior to activation. Where there is an automatic activation system in place the system shall not activate when isolated. Following an attempted automatic activation impeded by the isolation switch being active, the system shall discharge immediately when the isolation is removed. 
+
+5.12 The space to be protected should be provided with means to close all openings which may admit air to the protected space. All openings should be closed before the system is discharged. 
+
+5.13 Class A fire materials such as wood, paper, plastics, rubber, or textiles are to be stored outside the protected space. Regular inspection and control of Class A materials present shall be undertaken in the protected space. 
+
+6. Installation, Commissioning and Maintenance Requirements 
+
+6.1 Systems will be installed and commissioned by an authorised competent person, using approved components, in accordance with the manufacturer’s instructions and conditions of the system approval certificate. A competent person with respect to installation of aerosol systems shall be a marine equipment installer who is approved by the manufacturer to install their equipment, or who is registered as a “BAFE SP203-3 Fixed Gaseous Fire Extinguisher Systems Provider”, or to another similar scheme to the satisfaction of the MCA. 
+
+6.2 Systems will be serviced and maintained onboard the vessel based on the requirements of the manufacturer’s maintenance manuals. As a minimum, systems shall be inspected monthly by the operator and serviced annually by the authorised competent person(s). 
+
+6.2.1 Monthly inspections should include checking for obstructions of the discharge nozzles, extension / alteration of the protected enclosure, openings left unclosed that were not catered for during the design, and that the position and orientation of the aerosol generators remain in their original installed position. 
+
+6.3 Records of installation, commissioning, servicing, and inspections are to be retained onboard the vessel. It is recommended that aide memoires or checklists are developed and circulated by the manufacturer so that the system is installed, commissioned, and maintained to the manufacturers requirements and conditions of approval 
+
+More information 
+
+Technical Services Ship Standards
+UK Maritime Services Maritime and Coastguard Agency 
+Bay 2/23 
+Spring Place 
+105 Commercial Road 
+Southampton 
+SO15 1EG 
+
+Telephone: +44 (0)203 817200 
+
+Email: marinetechnology@mcga.gov.uk 
+
+Website: www.gov.uk/mca

@@ -1,0 +1,127 @@
+MGN 664 (M+F) MGN 664 (M+F) Amendment 1: Certification process for vessels using innovative technology
+2023-09-22
+Source: https://www.gov.uk/government/publications/mgn-664-mf-amendment-1-certification-process-for-vessels-using-innovative-technology
+
+Summary
+
+This document provides updated guidance on how to process an application for the certification of UK vessels wherever they may be, or other vessels operating in UK waters that use Innovative Technology or where a risk-based approach is used. Amendments include removal of the certification plan, simplification of content/terminology/headings and re-organisation of information contained.
+
+1. Introduction
+
+1.1 This guidance supplements prescriptive regulations that may not cover all aspects of Innovative Technology, and supports goal-based regulations and established survey, inspection, and certification processes.
+
+2. Intent
+
+2.1 The intent of this document is to provide a certification process for vessels using Innovative Technology or where a risk-based approach is used to address safety, environmental and/or security aspects of the technology.
+
+2.2 Innovative Technology is either a new technology or a technology being re-purposed for a new function, where the associated risks to safety, environment and/or security may not be suitably addressed by current regulations, codes or good practice. Innovative Technology includes emission reduction, autonomy and other forms of ‘smart’ marine technology whose risks may not be sufficiently managed to acceptable levels solely by the application of current MCA accepted maritime regulations, codes, standards or good practice.
+
+2.3 This process supplements prescriptive regulations and MSC.1/Circ.1455 that do not cover all aspects of the technology and supports goal-based regulations and established survey, inspection, and certification processes.
+
+2.4 The MCA may publish separate, supplemental guidance to manage the risks associated with a specific Innovative Technology. Any supplementary guidance should be considered in conjunction with this MGN.
+
+2.5 Where a vessel falls within the scope of the International Convention for the Safety of Life at Sea (SOLAS) regulations II-1/55, II-2/17 and III/38 on Alternative Design and Arrangements, should be considered through the related IMO Guidelines such as MSC.1/Circ.1455 and applications made through MSF 1261 process available on Gov.uk.
+
+3. Applicability
+
+3.1 This guidance applies to UK vessels wherever they may be and all non-UK vessels in UK waters, through the application of The Merchant Shipping (Load Line) Regulations 1998 that apply to UK ships wherever they may be and non-UK ships while in UK waters. This guidance does not apply to ‘pleasure vessels’ as defined within The Merchant Shipping (Survey and Certification) Regulations 2015 as amended however, the extent of application of these guidelines for pleasure vessels using Innovative Technology should be discussed with the MCA at the project stage.
+
+3.2 Additional or alternative requirements may apply to vessels operating in categorised waters (as defined in MSN1837 as amended), and/or operating within the jurisdiction of local harbour authorities. Early engagement with the relevant authorities is required to seek an advanced agreement on the requirements.
+
+3.3 Acceptance of operation within the UK waters, does not remove any reporting obligations or additional requirements that may be required by the local port state when operating outside of UK waters.
+
+3.4 Non-UK vessels to which this MGN applies wishing to operate in UK waters, are required to seek agreement from the UK administration prior to operation. Contact Headquarters Inspection Operations by email hq_inspectionops@mcga.gov.uk.
+
+4. Recognised Organisations and Certifying Authorities
+
+4.1 Throughout the certification process, the MCA may authorise a Recognised Organisation (RO), through a Project Specific Authorisation, to undertake statutory surveys, design appraisal, risk assessment appraisal and certification on its behalf which fall outside the scope of the RO General Agreements with MCA. This will be agreed upon in advance of works commencing, referring to stages in Table 1 as appropriate. It will be subject to the terms and conditions stated in any supplementary MCA-RO agreement and Project Specific Authorisation relating to survey and certification involving maritime Innovative Technology. RO’s are not authorised to issue Exemptions on behalf of MCA.
+
+4.2 Certifying Authorities (CA) and Fishing Vessel Certifying Authorities (FVCA), are authorised by the MCA to examine and certificate small (under 24m) commercial vessels and fishing vessels in accordance with the Codes of Practice as detailed within their CA agreements with MCA. Certifying Authorities may undertake design and risk assessment appraisal, but are unable to accept, survey or certificate for innovative elements in scope with MGN 664 or issue exemptions. More information on CA’s can be found in MIN 538 and Gov.uk for FVCA’s.
+
+4.3 The RO or CA may support stages of the certification process in a consultancy manner. To ensure impartiality, such ‘consultancy’ can only be provided by individuals with no role in, or influence on, the certification of the design. In either case, the MCA should be informed of the level and nature of RO/CA support and its scope as early as possible.
+
+5. Certification Process
+
+5.1 Upon the decision to adopt Innovative Technology, first contact should be made with the local Marine Office. For non-UK vessels wishing to operate in UK waters, please contact Headquarters Inspection Operations by emailing hq_inspectionops@mcga.gov.uk. Details of office contact details including maps of office coverage are on Gov.uk website. The local Marine Office and Inspection Operations will liaise with MCA Headquarters Survey Operations for Innovative Technology elements as required.
+
+5.2 The level of assessment and detail required will be proportional to the risk associated with the project; the level of proportionality will consider items such as complexity and area of the operation, vessel type and size. As a result, not all stages or documentation may be required. This will be discussed during the initial stages of the project with MCA.
+
+5.3 Voluntary compliance with the International Safety Management (ISM) Code should be sought where it is not mandated. The ISM Code incorporates a large portion of typical outputs from a risk-based approach such as controls/measures/checklists etc. and provides an internationally recognised process of capturing risk management, change management, processes and procedures including MCA requirements e.g., loss of power drills, training, maintenance etc which are incorporated into the Safety Management System and Certification. Some Countries already mandate ISM for Innovative Technology vessels as such, voluntary compliance may aid operations in non-UK waters in the future.
+
+5.4 Table 1 illustrates the process of acceptance for the Innovative Technology aspects which come within the Certification framework of a vessel. It shows the stages of assessment, and the details required for each of the stages under discussion/consideration for MCA and the applicant. It’s important that completed, detailed documents as defined in the Approval Basis are submitted; incomplete or missing documents may lead to delays. Note the application process is iterative as such, clarification or further evidence may be needed for any submission documents provided.
+
+5.5 As an alternative to Table 1, MSC.1/Circ.1455 Annex Figure 2 may be used.
+
+5.6 For vessels using Innovative Technology built and operating prior to the issue of MGN664, certification will still use the process outlined in Table 1. As built details of the vessel are to be provided including evidence of the vessel’s compliance with prescriptive regulations, substantiated with supporting documentation for management of risks from the innovative elements. The information provided will be considered when agreeing the level of assessment remaining.
+
+6. Documentation
+
+6.1 Table 2 describes the various documents expected for each application and the typical minimum content; these will be discussed at the stages as indicated in Table 1:
+
+Document
+Document intent/content (not limited to)
+
+Design Description
+• Vessel particulars (vessel type, main dimensions, speed, capacity, purpose etc.).
+• Area of operation (e.g., categories of waters and/or sea area).
+• Proposed operational limits e.g. ice, weather etc.
+• Definition of the system and limitations (physical boundaries, components, and/or subsystems), and the interaction amongst the conventional aspects and how they relate to the innovative aspects.
+
+Drawings
+The list of drawings would typically include the general arrangement of the vessel, process flow diagrams and detailed drawings of subsystems.
+
+Regulations, Codes, guidelines and standards
+List of Regulations, Codes, guidelines and standards applicable to the design.
+
+Hazard Log
+The Hazard Log is the primary mechanism for recording all causes, hazards, accidents, controls, etc. identified. It is a live database or document, updated with the results of risk assessment activities throughout the design lifecycle and operation. The Hazard Log should clearly show the linkage between causes, hazards, accidents, and control measures.
+
+Action Register
+Actions agreed by the applicant and MCA (and brief description), e.g., HAZID recommendations, survey deficiencies etc and the status.
+
+Regulatory Gap Analysis
+Details areas where no prescriptive regulation exists for the use of the innovative technology or where compliance with existing regulation cannot be met intended to be used and the proposed alternative or equivalent safety standards.
+
+Approval Basis
+A set of requirements including justifications that must be satisfied for the vessel/system to be issued an approval or certification. The document should summarise:
+- Requirements/methods to achieve output conclusion of Regulatory Gap Analysis
+- Activities and related evaluation/acceptance criteria (e.g., analysis, risk assessment, tests, control measures etc.).
+- Operational requirements such as training, maintenance, survey, and vessel specific activity requirements e.g. seabed survey.
+- Conditions of approval, if any.
+
+Report of the Activity/Compliance Documentation
+Collection of evidence produced by the applicant such as reports of the activities undertaken, drawings, specifications, calculations, analysis etc. The aim is to provide a comprehensive record of how compliance with a requirement/s within the Approval Basis is demonstrated.
+
+6.2 All master copies of in-service documentation required by the Approval Basis are produced, maintained, and updated by an appropriate person.
+
+6.3 As a minimum the In-Service Documentation should include:
+
+• Operation manuals.
+
+• Training and familiarisation plan and records.
+
+• Maintenance manuals.
+
+• Maintenance system, plan and records.
+
+• Through life process for change management.
+
+6.4 All in-service documentation should be available for all operators of the vessel.
+
+More information
+
+Survey Operations
+Maritime and Coastguard Agency
+Bay 2/20
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72190
+
+Email: HQSurvey@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

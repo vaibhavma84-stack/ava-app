@@ -1,0 +1,295 @@
+MGN 709 MGN 709 Recommendations for ‘Short range’ yachts, when making passages greater than 90 miles from a safe haven
+2025-06-23
+Source: https://www.gov.uk/government/publications/mgn-709-recommendations-for-short-range-yachts-when-making-passages-greater-than-90-miles-from-a-safe-haven
+
+Summary
+
+This Marine Guidance Note provides guidance concerning new recommendations for ‘Short range yachts,’ operating under the REG Yacht Code 2024 (“the Code”), when making passages in excess of 90 miles (with administration approval) from a safe haven.
+
+1. Introduction/background
+
+1.1 Following discussion amongst REG members concerning the safe operation of yachts classified as ‘Short range’, when undertaking passages in excess of 90 miles from a safe haven, all REG flag administrations have agreed to publish additional guidance for ‘Short range’ yachts when making such passages.
+
+As ‘Short range’ yachts are permitted to operate with an alternative set of standards in recognition that they operate close to shore, within benign weather and sea conditions, and within easy reach of shore based search and rescue services, it is important that additional risk assessments and equipment is considered before operating outside of the prescribed limits, as detailed in section 2 of this notice. A full list of the reduced alternative requirements for ‘Short range’ yachts in the REG Yacht Code 2024, is detailed in Annex 1 of this notice.
+
+1.2 This MGN is provided for any ‘Short Range’ Yacht, as defined in the REG Yacht Code  Part A, Chapter 2 “Definitions”, published in January 2024, when making passages in excess of 90 miles from a safe haven.
+
+Short Range yacht means “a vessel”
+
+a) under 500GT constructed prior to 1 August 2005,
+
+b) under 300GT constructed on or after 1 August 2005, or
+
+c) between 300 and 499 GT constructed on or after 1 August 2005, fitted with a fixed sprinkler or water mist system approved in accordance with the Fire Safety Systems Code, or in accordance with 14A.8, in accommodation and service spaces). Such a vessel is restricted to operating in forecast or actual wind of a maximum Beaufort Force 4 for a motor yacht, and Beaufort Force 6 for a sailing yacht, within 60 nautical miles of a safe haven. (The Administration may permit operation on specified routes up to 90 nautical miles from a safe haven as appropriate). The Administration may permit, upon application, vessels certified as short range yachts to make transitional voyages beyond the specified limits. The voyage must be completed with no passengers onboard and in compliance with any special conditions imposed by the vessel’s Administration.
+
+“Special conditions” may include the recommendations listed in this MGN.
+
+2. Recommendations
+
+2.1 The following is a non-exhaustive list of the items that it is recommended are carried on board or considered as part of a risk assessment, when making a passage in excess of 90 miles from a safe haven.
+
+a) Advance approval in writing by the flag administration, detailing the additional requirements for any passage over 90 nautical miles from a safe haven by a ‘short-range yacht’. Each vessel requesting such approval should complete a risk assessment, considering the recommendations in this section and address any other  deficiencies in adherence to the Code.
+
+b) With respect to the recovery of persons from the water, for vessels that do not carry a rescue boat (i.e. those complying with 13.4(4)(a)(b) or (c) of the code), an acceptable means of recovering a person from the water in anticipated weather conditions that may be encountered on the proposed passage.
+
+c) Due to the reduced fire protection permitted on ‘Short Range’ yachts, it is recommended that additional portable fire protection equipment, as necessary, be carried on board for the duration of the passage.
+
+d) Where applicable and practicable, storm covers in the following locations, where deadlights are not already required by Chapter 5.4(3):
+
+   (i) glazed openings in the front and sides of Level 1.
+
+   (ii) glazed openings in the front of Level 2; and
+
+   (iii) where storm covers are interchangeable between port and starboard, a minimum of 50% of each size shall be provided.
+
+Alternative solutions may be accepted by the administration, (such as furnishings or plywood) and these should be considered as part of a ‘Risk assessment’ before any proposed passage.
+
+e) the suitability of the vessel’s weathertight closing appliances, doors and hatches shall be considered for the intended voyage and operational measures implemented to minimise the doors & hatches kept open at sea. Where doors or hatches are needed for access at sea, consideration shall be given to the provision of portable washboards and coamings. Where applicable and practicable, washboards (5.3(2)(b) or similar should be provided for all doorways and companionway hatch openings with the reduced coaming heights permitted for ‘Short range’ yachts. (REG Yacht code 5.3(1)(a), 5.3(1)(c), 5.3(1)(f)(ii) and 5.3(2)(a)). Alternative solutions may be accepted by the administration, and these should be considered as part of a ‘Vessel Risk assessment’ before any proposed passage.
+
+f) Provision of a SOLAS ‘A’ liferaft pack, to replace or in addition to each SOLAS ‘B’ liferaft pack. (REG Yacht Code Chapter 13 “Liferafts”, 13.3(1)).
+
+g) Weather routeing to minimise any risk of severe weather being encountered en route.
+
+h) Provision of long range communications sufficient for the intended passage.
+
+i) Any passage over 60 miles from a safe haven by a short range yacht is to be undertaken with no guests or passengers on board.
+
+2.2 Each ‘Short Range‘ yacht, prior to making a passage in excess of 90 miles from a safe haven should complete a full risk assessment, considering the recommendations in 2.1 above and address any other deficiencies in adherence to the code before requesting approval from the administration.
+
+2.3 Vessel manning must be considered and be appropriate for the passage being undertaken. Commercial yachts shall ensure that they are manned appropriately for the passage in accordance with their Minimum Safe Manning Document. The master of every pleasure yacht is responsible for the safety of the yacht and those on board. This includes ensuring that manning of a pleasure yacht is sufficient to safely execute any intended voyage, taking account of overnight passages and the need for continuous lookouts as required under the Convention on the International Regulations for the prevention of Collisions at Sea 1972 (COLREGS) . Any near coastal licence limitations should be addressed, and additional crew may be required to ensure safe operation as well as to limit fatigue.
+
+2.4 The master should consider damage stability, and it is recommended to carry out a vessel damage stability assessment to better inform the master and crew what level of damage the vessel could survive. (It should be noted that vessels are not being requested to adhere to damage stability requirements, unless they are required to do so under the REG Yacht code).
+
+2.5 All watertight doors and hatches should be closed at all times while at sea.
+
+2.6 Should a yacht elect to re-register as a ‘Pleasure yacht’ for a passage in excess of 90 miles from a safe haven and not undertake the items listed in paragraphs 2.1 to 2.5 above, then all crew are to be informed that the yacht will be operating outside of the ‘Short range’ limits detailed in the REG Yacht Code 2024.
+
+2.7 It is recommended that ‘pleasure’ yachts operating outside of short range limits also adhere to the recommendations provided in paragraphs 2.1 to 2.7 above.
+
+More information
+
+UK Technical Services Ships Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email: REGYachtcode@mcga.gov.uk
+
+Website: www.redensignggroup.org
+
+Annex 1
+
+Extracts from REG Yacht code 2024 showing alternative standards for Short range yachts. (it must be noted that this extract is not a substitute for the full text contained within the REG Yacht Code 2024, and all users of this MGN are advised to consult the REG Yacht code 2024 in full.)
+
+Chapter 4 - Construction and Strength
+
+For vessels under 500GT alternative arrangements for Short Range operation may be agreed by the Administration.
+
+4.5 (4)
+
+Sailing vessels operating as Short Range Yachts need not carry storm canvas.
+
+Chapter 5
+
+5.3                  Doorways and companionways
+
+5.3 (1)(a)        Doorways located above the weather deck
+
+External doors in deckhouses and superstructures shall be weathertight. Doors opening directly onto any space which contains a staircase leading down or other down flooding points which are located in the following positions, shall have coaming heights of at least:
+
+Location
+Unrestricted Yachts
+Short Range Yachts
+
+A
+600mm
+300mm
+
+B
+ 300mm
+150mm
+
+C
+150mm
+75mm
+
+Location A: The door is in the forward quarter length of the vessel and is used when the vessel is at sea whilst underway (i.e. doors in guest areas which do not form part of an escape route and are only intended to be used in favourable weather whilst at anchor or moored alongside are excluded from this requirement).
+
+Location B: The door is in an exposed forward facing location aft of the forward quarter length.
+
+Location C: The door is in a protected location aft of the forward quarter length, or an unprotected door on the first tier deck above the weather deck.
+
+5.3 (1)(c)        Doorways located above the weather deck
+
+An access door leading directly to the engine room from the weather deck shall be fitted with a coaming height of at least:
+
+Location
+ Unrestricted Yachts
+ Short Range Yachts
+
+Position 1  
+ 600mm
+ 450mm
+
+Position 2  
+ 380mm   
+ 200mm
+
+5.3 (1)(f)(ii)  Doorways located above the weather deck
+
+The depth and width of the gutter shall be at least the same dimensions as the height of the sill required by 5.3(1)(a), however, gutters of an equivalent volume may be accepted where the 150 millimetres depth cannot be achieved due to space restrictions. In such cases, the depth of the gutter shall be not less than 100 millimetres. The depth of gutters for short range yachts shall be not less than 75 millimetres.
+
+5.3 (2)(a)  Companionway hatch openings
+
+Companionway hatch openings which give access to spaces below the weather deck shall be fitted with a coaming, the top of which is at least 300 millimetres above the deck, or 150 millimetres in the case of Short Range Yachts. Any proposal to accept a reduced coaming height based on such mitigating measures as an excess of freeboard and / or deck height and protected locations, shall be subject to the agreement of the Administration.
+
+5.4 (6)  Storm Covers
+
+For all vessels other than Short Range Yachts, storm covers shall be required in the following locations, where deadlights are not already required by Section (3):
+
+(a) glazed openings in the front and sides of Level 1.
+
+(b) glazed openings in the front of Level 2; and
+
+(c) where storm covers are interchangeable between port and starboard, a minimum of 50% of each size shall be provided.
+
+5.5 (2) Ventilators and Exhausts
+
+Ventilators shall be of efficient construction. Generally, ventilators serving spaces below the freeboard deck or an enclosed superstructure, shall have a minimum coaming height of:
+
+Location
+Unrestricted Yachts
+Short Range Yachts
+
+Forward quarter length
+900mm
+450mm
+
+Elsewhere
+760mm
+380mm
+
+5.6 (2)  Air Pipes
+
+Air pipes shall be kept as far inboard as practicable and be fitted with a coaming of sufficient height to prevent inadvertent flooding. Generally, air pipes to tanks shall have a minimum coaming height of:
+
+Location
+Unrestricted Yachts
+Short Range Yachts
+
+On weather deck
+760mm
+380mm
+
+Elsewhere
+450mm 
+225mm
+
+Chapter 6  Water Freeing arrangements
+
+6.1 (4)
+
+For Short Range Yachts, it is considered that the requirement for freeing port area for a forward or aft well may be reduced by a form factor equal to the ratio of (actual area well) divided by (length of well x breadth of well). Dimensions shall be taken at half height of the bulwark. This may be reduced by 50% providing it can be shown that the intact stability of the yacht remains acceptable if the well is flooded to any level up to the bulwark height and that area provided shall allow the well to drain in less than 3 minutes.
+
+Chapter 10A Bilge pumping vessels of less than 500GT
+
+10A.1 (3)
+
+All vessels shall be provided with at least two fixed and independently powered bilge pumps, with suction pipes so arranged that any compartment can be effectively drained when the vessel is heeled to an angle of 10º. For Short Range Yachts, the second pump and suction pipes may be portable.
+
+Chapter 11   Stability
+
+11.2 (2)  Vessels operating as short range yachts
+
+11.2(2)(a)      
+
+Where Short Range Yachts are unable to meet the criteria above, the following criteria may be used:
+
+    (i) the area under the righting lever curve (GZ curve) shall not be less than 0.07 metre-radians up to 15º angle of heel, when maximum GZ occurs at 15°, and 0.055 metre-radians up to 30º angle of heel, when maximum GZ occurs at 30º or above. Where the maximum GZ occurs at angles of between 15º and 30º, the corresponding area under the GZ curve, Areq shall be taken as follows:-
+
+Areq = 0.055 +0.001(30º -θmax) metre-radians
+
+where θmax is the angle of heel, in degrees, where the GZ curve reaches its maximum.
+
+    (ii) the area under the GZ curve between the angles of heel of 30º and 40º or between 30º and the angle of downflooding if this is less than 40º, shall not be less than 0.03 metre-radians.
+
+    (iii) the righting lever (GZ) shall be at least 0.20 metres at an angle of heel equal to or greater than 30º.
+
+    (iv) the maximum GZ shall occur at an angle of heel not less than 15º.
+
+    (v) after correction for free surface effects, the initial metacentric height (GM) shall not be less than 0.15 metres.
+
+11.2 (11)(e)
+
+The maximum safe wind speed with no sails set calculated in accordance with 11.2(11)(c) shall exceed 36 knots. For Part A Short Range Yachts this wind speed shall exceed 32 knots.
+
+11.3    Damage Stability
+
+11.3(1)
+
+The following requirements are applicable to all vessels, other than those operating as Short Range Yachts. Whilst Short Range Yachts are not required to meet the damage stability criteria defined below, it is recommended that they meet the requirements where practicable.
+
+11.10  Stability documents
+
+11.10 (7)
+
+For Short Range Yachts, where the damage stability has not been assessed, the following note shall be added to the approved stability booklet.
+
+“This vessel has not been assessed for damage stability and therefore might not remain afloat in the event of damage or flooding”.
+
+Chapter 13   Liferafts
+
+13.3    Liferafts
+
+13.3 (1)
+
+The liferafts carried shall be stowed in GRP containers and shall contain the necessary “emergency pack”. For Short Range Yachts, or vessels operating within 60 miles from a safe haven, liferafts provided may be equipped with a “SOLAS B PACK”. For all other vessels, liferafts shall be equipped with a “SOLAS A PACK”.
+
+13.4(4)
+
+Vessels operating as Short Range Yachts shall either comply with requirements of 13.4(2) or 13.4(3) or the following:
+
+(a) The vessel shall have sufficient mobility and manoeuvrability in a seaway to enable persons to be retrieved from the water. For assessing this ability, it is not considered acceptable to retrieve persons over the stern of the vessel or adjacent to the propeller(s). The recovery location shall be visible from the conning position at all times during the recovery, although this may be achieved by the use of remote controls where necessary; and
+
+(b) The vessel shall be provided with suitable equipment and/or arrangements to enable the person(s) to be recovered without further persons entering the water; or
+
+(c) The vessel may tow a tender considered suitable for rescue purposes in accordance with 13.4(3)(a)(ii) and subject to the vessel being provided with Towing Lights in accordance with Rule 24 of COLREGS, or other suitable means of recovery to the satisfaction of the Administration.
+
+Chapter 14A Structural Fire protection vessels less than 500GT
+
+14A.1(2)
+
+Passive fire protection (see 14A.2).
+Category ‘A’ machinery spaces: ‘A-30’, (“B-15” for Short Range Yachts); Enclosed spaces containing vehicles or craft with petrol in their tanks and / or lithium-ion batteries ‘A-30’ (“B-15” for Short Range Yachts); Galleys: “B-15” (for Unrestricted Yachts and Short Range Yachts of 300- 499GT)’.
+
+Automatic sprinkler system or equivalent
+Fitted in yachts that do not meet restrictions on combustible materials (See 14A.2(4)(f) and 14A.2(4)(h) and Short Range Yachts of 300-499GT.
+
+14A.2  Structure
+
+14A.2 (3)(a)
+
+Machinery spaces of category ‘A’ shall be enclosed by ‘A-30’ Class boundaries (bulkheads, deck heads, casings and side shell). For Short Range Yachts, such machinery spaces shall be enclosed by ‘B-15’ class boundaries (bulkheads, deckheads, casings and side shell).
+
+14A.2(3)(b)
+
+Enclosed spaces containing vehicles or craft with petrol driven engines shall be enclosed by ‘A-30’ class boundaries (bulkheads, deckheads and side shell). The side shell and deckheads beneath exterior decks for those vessels constructed from materials other than steel shall be insulated to steel equivalent. For Short Range Yachts, such spaces shall be enclosed by ‘B-15’ class boundaries (bulkheads, deckheads, and side shell).
+
+14A.2 (3)(e)
+
+Vessels other than Short Range Yachts of less than 300GT, are to have galleys enclosed by ‘B-15’ boundaries (bulkheads, deck heads and side shell). For those vessels not provided with a fixed firefighting system, decorative linings and finishes may be non-combustible. Windows and doors within the exterior hull or superstructure within this boundary are not expected to meet “B-15” standards however, doors shall be covered by non-combustible insulation as far as is reasonable and practicable. Floating / base floors shall be non-combustible. Floor coverings shall comply with IMO FTP Code, Annex 1, Parts 2 and 5.
+
+14A.4  Ventilation systems
+
+14A.4 (2)(a)
+
+Fire insulation to “A-30” (“B-15” on Short Range Yachts of 300 – 499GT) standard to a point at least 5 metres from the boundary of the machinery space or galley; and
+
+Chapter 21B.8  Sleeping Accommodation
+
+21B.8 (2)(b) and 21B.8 (3)(b)
+
+When it is neither reasonable nor practicable to site seafarer sleeping accommodation amidships or aft, and above the deepest waterline as required, measures taken to ensure an equivalent level of seafarer health and safety shall be agreed with the Administration. Where the sole of the sleeping accommodation is below the deepest waterline amidships, a bilge flooding alarm shall be provided in the sleeping accommodation to provide early warning of flooding to that compartment. Sleeping accommodation with the deck head lining below the deepest intact waterline is not permitted. In addition, for vessels other than short range yachts, where such accommodation is sited partially below the deepest waterline it shall be arranged such that in the event of damage to the watertight compartment in which the accommodation space is situated, the deck head lining shall not be immersed. Due regard shall be given to the provision of a breathing air space for the purpose of ensuring safe escape.

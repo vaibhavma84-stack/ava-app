@@ -1,0 +1,193 @@
+MGN 668 (M) MGN 668 (M) Amendment 1: Additional safety measures for bulk carriers
+2023-07-17
+Source: https://www.gov.uk/government/publications/mgn-668-m-amendment-1-additional-safety-measures-for-bulk-carriers
+
+Summary
+
+• This Marine Guidance Note explains the Merchant Shipping (Additional Safety Measures for Bulk Carriers) Regulations 2022 (SI 2022/1218) (“the Regulations”), which implement updates to Chapter XII of the International Convention for the Safety of Life at Sea 1974 (SOLAS) into UK law.
+
+• The Regulations revoke and replace the Merchant Shipping Additional Safety Measures for Bulk Carriers) Regulations 1999 (SI 1999/1644) (which were amended by SI 2004/2151 and SI 2018/1221).
+
+• Certain future amendments to the references to SOLAS Chapter XII in the Regulations will be incorporated into UK law through the provision of an ambulatory reference provision in the Regulations.
+
+1. Introduction/background
+
+1.1 Following the sinking of the MV Derbyshire in 1980 with the loss of 44 lives, there was a move to improve safety standards for bulk carriers and the seafarers who work on them. This process was initiated by the International Maritime Organization (IMO) with the addition of Chapter XII to the International Convention for the Safety of Life at Sea 1974 (SOLAS), “Additional Safety Measures for Bulk Carriers”, which was implemented into UK law in 1999 by the Merchant Shipping (Additional Safety Measures for Bulk Carriers) Regulations 1999 (SI 1999/1644) (“the 1999 Regulations”).
+
+1.2 The 1999 Regulations were further amended in 2004 by SI 2004/2151 in order to implement further IMO updating resolutions and again in 2018 by SI 2018/1221 to make minor amendments relating to the UK’s exit from the EU. Updates to Chapter XII have been agreed in the IMO to improve further the safety standards for bulk carriers, which the UK supported during IMO discussions.
+
+1.3 Four resolutions[footnote 1]contain changes that either amend or are made mandatory by reference to them in Chapter XII. The other changes relate to the standards for protective coatings of bulk carriers during construction in regulation 3-2 of Chapter II-1 of SOLAS (construction: structure, subdivisions and stability, machinery and electrical installations)[footnote 2].
+
+1.4 As a signatory to SOLAS, the UK is obliged to implement these changes. In so doing, it will provide a safer environment for seafarers, and owners and operators of bulk carriers. The 1999 Regulations and the amending provisions have been revoked and replaced with the Merchant Shipping (Additional Safety Measures for Bulk Carriers) 2022 (SI 2022/1218) (“the Regulations”) in order to implement the updates for bulk carriers in SOLAS. The updates to regulation 3-2 of Chapter II-1 will be contained in new regulations replacing the existing legislation that implements Chapter II-1 and will also be subject to separate guidance.
+
+1.5 The Regulations include an ambulatory reference provision to allow further updates and changes to the provisions of SOLAS Chapter XII that are referred to in the Regulations to be given direct effect in UK law, without the need for additional secondary domestic UK legislation to bring them into force. The ambulatory reference provision also applies to references to the regulations in Chapters II-1 and VI of SOLAS, the ESP Code (see paragraph 3.1 below) and the International Management Code for the Safe Operation of Ships and for Pollution Prevention (ISM Code).
+
+2. Application
+
+2.1 The Regulations apply to sea-going bulk carriers of 500GT or over that are UK bulk-carriers (wherever they may be), or any non-UK bulk carriers while they are in UK waters. A force majeure provision is also included in the Regulations.
+
+3. Surveys of bulk carriers
+
+3.1 Surveys of bulk carriers constructed on or after 1st July 1999 must be carried out in accordance with the International Code on the Enhanced Programme of Inspections during Surveys of Bulk Carriers and Oil Tankers, 2011 (ESP Code).
+
+3.2 The following vessels must comply with the maintenance requirements in SOLAS Chapter II-1, regulation 3-1 (as required by regulation 8(2)(a) in the Regulations):
+
+(a) bulk carriers constructed on or after 1st July 1999;
+
+(b) bulk carriers constructed before 1st July 1999 which are 150 metres or more in length and of single-side skin construction.
+
+3.3 Bulk carriers must comply with the standards for owners’ inspection and maintenance of hatch covers in MSC.169(79) Annex 2. This will help ensure proper operation and efficiency of hatch covers. Inspection and maintenance will help preserve structural strength of hatch covers and reduce wear rates.
+
+3.4 Bulk carriers constructed before 1st July 1999 and which are 150 metres or more in length and of single-side skin construction must ensure that, if they are to carry solid bulk cargo with a density of 1780kg/m3 or above, that either a renewal or intermediate survey is carried out in accordance with the ESP Code or that a survey of all cargo holds is carried out to the same extent as required in the ESP Code. If this is not complied with, then the bulk carrier must not carry solid bulk cargo of 1780kg/m3 or above.
+
+4. Damage Stability Requirements Applicable to Bulk Carriers
+
+4.1 Bulk carriers must comply with the requirements applicable to that vessel in regulation 4 of SOLAS Chapter XII. This includes bulk carriers of single-side skin construction designed to carry solid bulk cargoes with a density of 1000kg/m3 and above constructed on or after 1st July 1999, bulk carriers constructed on or after 1st July 2006 of double-side skin construction and designed to carry solid bulk cargoes with a density of 1000kg/m3 and above, and bulk carriers constructed before 1st July 1999 of single-side skin construction and which carry solid bulk cargoes with a density of 1780kg/m3 and above.
+
+4.2 Bulk carriers with B-60 or B-100 freeboards are subject to an equivalent damage survivability check in accordance with the1966 International Convention on Load Lines, and existing ships of such types are deemed to comply with the requirements. Foreign flagged ships may, instead, have been assigned a reduced freeboard in compliance with either Resolution A.320(IX)/Resolution A.514(13) or Regulation 27(8) of Annex B of the 1988 Protocol to the International Convention on Load Lines, 1966. Either of these may also be accepted as complying with the required standards.
+
+5. Structural Strength of Bulk Carriers
+
+5.1 Bulk carriers of single-side skin construction of 150m in length and over constructed on or after 1st July 1999, or bulk carriers of double-side skin construction of 150m in length and over constructed on or after 1st July 2006 and designed to carry solid bulk cargoes with a density of 1000kg/m3 and above, must have sufficient strength to withstand flooding of any one cargo hold to the water level outside of the ship. This will also take into account the potential instability caused by such water in the hold.
+
+5.2 Structural standards bulkheads, double bottoms and longitudinal strength are defined by IACS Unified Requirements and are referenced in an IMO Conference resolution (resolution 3 of the 1997 SOLAS Conference).
+
+6. Structural and Other Requirements for Bulk Carriers
+
+6.1 Bulk carriers of 150 metres in length or more constructed before 1st July 1999, which are of single-side skin construction and which carry solid bulk cargoes with a density of 1780kg/m3 and above, must comply with regulation 6 of SOLAS Chapter XII.
+
+6.2 For vessels to which paragraph 6.1 is applicable, in considering whether the transverse watertight bulkhead or double bottom needs strengthening, the restrictions outlined in paragraph 6.1.2 of SOLAS Chapter XII may be taken into account and must be complied with whenever the vessel is carrying solid bulk cargoes with a density of 1780kg/m3.
+
+6.3 Bulk carriers of 150 metres or more in length constructed on or after 1st July 2006 with double side-skin construction must comply with the applicable requirements in paragraphs 2 and 3 of regulation 6 of SOLAS Chapter XII.
+
+6.4 Bulk carriers of 150 metres or more in length constructed on or after 1st July 2006, and those carrying solid bulk cargoes with a density of 1000kg/m3 or more, must also comply with the applicable requirements in paragraph 4 of regulation 6 of SOLAS Chapter XII (Structural and Other Requirements for Bulk Carriers).
+
+7. Information on Compliance with Requirements for Bulk Carriers
+
+7.1 For bulk carriers carrying a booklet required by regulation 7.2 of SOLAS Chapter VI (loading, unloading and stowage of solid bulk cargoes), the booklet must be endorsed by the Certifying Authority to confirm that the relevant and applicable requirements in the Regulations for the vessel have been complied with (regulations 10 and 11 (surveys), regulation 12 (damage stability requirements applicable to bulk carriers), regulation 13 (structural strength of bulk carriers constructed on or after 1st July 1999) and regulation 14 (structural and other requirements for bulk carriers)).
+
+7.2 The manual referred to in paragraph 7.1 of this MGN must contain a record of any instance of restrictions imposed on the carriage of solid bulk cargoes with a density of 1780kg/m3 and above as per the requirements of regulation 11 (structural and other requirements for bulk carriers) and regulation 20 (restrictions from sailing with any hold empty).
+
+7.3 Bulk carriers subject to the restrictions set out in paragraph 7.2 of this MGN must be permanently marked on the side shell at amidships, port and starboard, with the markings as set out in regulation 15(4) of the Regulations.
+
+8. Solid Bulk Cargo Density Declaration
+
+8.1 Shippers must declare the density of the cargo before loading solid bulk cargo on bulk carriers of 150 metres or more in length (in addition to providing the cargo information required by regulation 4(1) of the Merchant Shipping (Carriage of Cargoes) Regulations 1999).
+
+8.2 Bulk carriers to which regulation 14 (structural and other requirements for bulk carriers) of the Regulations applies, and which have a declared cargo within the range of 1250kg/m3 and 1780kg/m3 must have its declared cargo density verified by an accredited testing organisation, according to the methods set out in MSC/Circ.908. This is unless the bulk carrier complies with all of the requirements of SOLAS Chapter XII regarding the carriage of solid bulk cargoes with a density of 1780kg/m3 and above.
+
+9. Loading Instrument
+
+9.1 All bulk carriers of 150m or more in length must be fitted with a loading instrument, as per regulation 11.1 of SOLAS Chapter XII.
+
+9.2 All bulk carriers constructed on or after 1st July 2006, and which are less than 150 metres in length, must be fitted with a loading instrument, as per regulation 11.3 of SOLAS Chapter XII.
+
+9.3 For UK flagged vessels, computer software should be approved by the Maritime and Coastguard Agency. For non-UK flagged vessels, it should be approved by their own flag Administrations, as set out in regulation 11 of SOLAS Chapter XII. Guidance on the use of computers can be found in MSC/Circ.891.
+
+10. Water Level Detectors
+
+10.1 All bulk carriers must be fitted with water level detectors as detailed in regulation 12 of SOLAS Chapter XII. These include:
+
+• in each cargo hold,
+
+• in any ballast tank forward of the collision bulkhead, and
+
+• in any dry or void space other than a chain cable locker, any part of which extends forward of the foremost cargo hold.
+
+10.2 The audible and visual alarms for water level detectors in each cargo hold should be located on the navigation bridge.
+
+11. Pumping Systems
+
+11.1 On bulk carriers, ballast tanks (that are forward of the collision bulkhead) and the bilges of dry spaces (of which any part of them extends forwards of the foremost cargo hold), must be capable of being drained and pumped remotely from a readily accessible enclosed space, accessible from either the navigation bridge or from the propulsion machinery control position without traversing exposed freeboard or superstructure decks.
+
+12. Restrictions from sailing with any hold empty
+
+12.1 Bulk carriers of 150 metres or more in length and of single-side skin construction which are aged over 10 years and which carry cargoes with a density of 1780kg/m3 and above, must not sail with any hold empty or loaded to less than 10% of the hold’s maximum allowable cargo weight if it does not meet the requirements for withstanding flooding of any one cargo hold and the standards and criteria for side structures of bulk carriers of single-side skin construction in MSC.168(79), as set out in regulation 14 of SOLAS Chapter XII.
+
+13. Exemptions
+
+13.1 The Secretary of State may grant an exemption for any part of the Regulations or SOLAS Chapter XII if a bulk carrier which does not normally engage on international voyages is, in exceptional circumstances, required to undertake a single international voyage. This exemption will be subject to such safety requirements as the Secretary of State thinks fit to ensure the ship’s overall safety. The exemption may be altered or cancelled on the giving of reasonable notice.
+
+13.2 The Secretary of State may provide an exemption from the requirements of regulation 12(4) (damage stability requirements for bulk carriers of single-side skin construction) and 14 (structural and other requirements for bulk carriers) of the Regulations. This is where regulation 12(4) applies to a bulk carrier where it has been constructed with an insufficient number of transverse watertight bulkheads to satisfy the requirements of that provision, and where it complies with regulation 7(3) of the proposed Regulations. However, such an exemption may be altered or cancelled after giving reasonable notice.
+
+13.3 The Secretary of State may also, in exceptional circumstances, provide an exemption from any of the provisions of the Regulations or from SOLAS Chapter XII for a bulk carrier if satisfied that compliance with the provision being exempted from is either impracticable or unreasonable in the case of that ship.
+
+13.4 Further information on the granting of exemptions, and on the alteration or cancellation of such exemptions, can be found in regulation 7 of the Regulations.
+
+13.5 The Regulations contain enforcement provisions comprising criminal offences and the ability to detain:
+
+Provision/offence
+Liability
+Penalty
+
+regulation 10(1) or (2) (survey and maintenance of bulk carriers)
+Owner and master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+regulation 11(1) (surveys of bulk carriers constructed before 1st July 1999)
+Owner and master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+regulation 12(2), (3) or (4) (damage stability requirements applicable to bulk carriers)
+Owner and master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+regulation 13(2) or (3) (structural strength of bulk carriers constructed on or after 1st July 1999)
+Owner and master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+regulation 14(2), (3) or (4) (structural and other requirements for bulk carriers)
+Owner and master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+regulation 15(3) or (4) (information on compliance with the requirements for bulk carriers)
+Owner and master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+For bulk carriers to which regulation 16 applies (solid bulk cargo density declaration), regulation 16(1) or (2)
+Shipper
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+regulation 17(1) or (2) (loading instrument)
+Owner and master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+regulation 18 (water level detectors)
+Owner and master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+regulation 19 (pumping systems)
+Owner and master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+regulation 20(2) (restrictions from sailing with any hold empty)
+Owner and Master
+On summary conviction, a fine (up to statutory maximum in Scotland and NI) and on conviction on indictment, two years imprisonment or a fine or both.
+
+Any ship not complying with the Regulations or SOLAS Chapter XII (as applicable to the ship) may be detained by port State control officers. Further details on detention can be found in regulation 22 of the Regulations.
+
+More information
+
+UK Technical Services Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72081
+
+Email: MarineTechnology@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+•
+MSC.170(79), MSC.168(70), MSC.68(79) and MSC.216(82). ↩
+
+•
+MSC.216(82), MSC.215(82) and MSC.341(91). ↩

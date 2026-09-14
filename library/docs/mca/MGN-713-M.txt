@@ -1,0 +1,89 @@
+MGN 713 (M) MGN 713 (M) Fire protection regulations – adoptions of amendments in IMO resolutions in force on 1 Jan 2026
+2025-12-15
+Source: https://www.gov.uk/government/publications/mgn-713-m-fire-protection-regulations-adoptions-of-amendments-in-imo-resolutions-in-force-on-1-jan-2026
+
+Summary
+
+This Marine Guidance Note (MGN) advises of the adoption of IMO resolutions MSC.520(106), MSC.532(107), MSC.550(108), and MSC.555(108) and their entry into SOLAS Chapter II-2 by virtue of the Ambulatory Reference provision (Regulation 6) in the Merchant Shipping (Fire Protection) Regulations 2023.
+
+The amendments come into force from 1 January 2026 and introduce new requirements for confirming the flashpoint of fuel oils, prohibition of the use of firefighting foams containing PFOS, new requirements for fire detection on cargo ships, and significant new requirements for fire detection, fire containment and fire suppression on roll-on/roll-off passenger ships along with corresponding amendments to the Fire Safety Systems Code.
+
+1. Introduction
+
+Safety of Life at Sea (SOLAS) Convention “Chapter II-2 - Fire protection, fire detection and fire extinction”
+
+1.1 The Safety of Life at Sea (SOLAS) Convention “Chapter II-2 - Fire protection, fire detection and fire extinction” includes detailed fire safety provisions for all ships and specific measures for passenger ships, cargo ships and tankers. Fire protection has been part of the SOLAS Convention since it was first adopted in 1914, with Chapter II-2 being dedicated to fire safety provisions since the 1974 edition. SOLAS Chapter II-2 was last implemented in the UK by the Merchant Shipping (Fire Protection) Regulations 2023 (SI No.2023/568).
+
+1.2 To keep Chapter II-2 up to date the chapter is updated in the International Maritime Organisation (IMO) every 2 years. The purpose of this MGN is to advise of the latest amendments to SOLAS Chapter II-2 Code that have been adopted by the IMO by means of Resolutions MSC.520(106), MSC.532(107), MSC.550(108), and MSC.555(108).
+
+1.3 The amendments to SOLAS Chapter II-2 will become mandatory on an international basis from 1 January 2026, and mandatory in the UK on the same date.   A summary of these amendments is set out in Section 2 below.
+
+1.4 SOLAS Chapter II-2 is supported by the Fire Safety Systems (FSS) Code, and the International Code for Application of Fire Test Procedures (FTP Code).
+
+Ambulatory Reference Provisions
+
+1.5 Ambulatory Reference (AR) provision is a tool used in some UK secondary legislation which enables the automatic implementation of amendments to international instruments into UK legislation. Where the UK legislation refers to an international instrument, such as a provision in a convention or a code forming part of that convention (for example, SOLAS Chapter II-2) this reference is ‘ambulatory’, that is, a reference to the most up to date version of that provision or code.
+
+1.6 AR provisions help to ensure that UK legislation does not fall behind international standards. The amendments to SOLAS Chapter II-2 and associated codes found in Resolutions MSC.520(106), MSC.532(107), MSC.550(108), and MSC.555(108) will become mandatory in the UK by way of the Ambulatory Reference provision (regulation 6) in the Merchant Shipping (Fire Protection) Regulations 2023.
+
+2. Summary of Amendments to SOLAS Chapter II-2 and associated codes (FTP and FSS Codes)
+
+2.1 The amendments to SOLAS Chapter II-2 contained within IMO Resolution MSC.520(106) are summarized below.
+
+2.1.1 Testing of Oil Fuel to Confirm the Flashpoint - This is the introduction of a new requirement that ships carrying oil fuel shall, prior to bunkering be provided with a declaration signed and certified by the oil fuel supplier’s representative, that the oil fuel to be supplied conforms to the flashpoint requirements of the fuel. Further definitions and means of demonstrating compliance are also included.
+
+2.2 The amendments to SOLAS Chapter II-2 contained within IMO Resolution MSC.532(107) are summarized below.
+
+2.2.1 Ban on PFOS in Firefighting Foams - This introduces a ban on the use or storage of extinguishing media containing perfluorooctane sulfonic acid (PFOS).
+
+2.3 The amendments to SOLAS Chapter II-2 contained within IMO Resolution MSC.550(108) are summarized below.
+
+2.3.1 Probability of Fire - A new sub paragraph is added to clarify that oil fuel delivered to and used on board ships shall not jeopardize the safety of the ship, adversely affect the performance of the machinery, or be harmful to personnel.
+
+2.3.2 Protection of accommodation and service spaces and control stations - New requirements for the arrangement of fire detection and fire alarm systems are included for passenger ships carrying more than 36 passengers and for cargo ships.
+
+2.3.3 Protection of cargo space boundaries - Paragraph 6 of Regulation 9 on the containment of fire is amended to improve readability.
+
+2.3.4 Protection of vehicle, special category, open and closed ro-ro spaces, and weather decks intended for the carriage of vehicles – Several new requirements were introduced to enhance the protection of spaces used for the carriage of vehicles.
+
+2.3.4.1 Fixed fire detection and fire alarm systems - There are requirements for passenger ships constructed on or after 1 January 2026 that all vehicle, special category and ro-ro space will have individually addressable fire detection systems providing smoke and heat detection throughout these spaces. It also allows the use of linear heat detectors as an alternative to point heat detectors. There is a requirement for any water deluge system to be identifiable to the same sections as the detection system. A system to the satisfaction of the administration is required for fire detection on weather decks. On cargo ships and passenger ships built before 1 January 2026 a fixed fire detection and fire alarm system complying with the requirements of the Fire Safety Systems Code shall be provided.
+
+2.3.4.2. Video Monitoring - Passenger ships constructed on or after 1 January 2026 will be required to have an effective video monitoring system in vehicle, special category and ro-ro spaces for continuous monitoring of these spaces. Ships built before 1 of January will require these systems to be available from 1 January 2028. For ships constructed on or after 1 of January 2026 the videos recorded by this monitoring system shall be available for replay at a continuously manned control station or at the safety centre for at least seven days. For passenger ships built before 1 January 2026 this play back time will be twenty-four hours.
+
+2.3.4 3 Structural fire protection and arrangement of openings - New requirements are introduced for passenger ships constructed on or after the 1st of January 2026 on the arrangement of openings in ro-ro spaces and special category spaces such that any openings do not endanger stowage areas for survival craft, embarkation stations and assembly stations, and accommodation spaces, control stations and normally occupied service spaces in superstructures and deckhouses above the ro-ro space. Similar arrangements are also included pertaining to the openings present at the weather deck intended for the carriage of vehicles.
+
+2.3.4.4 Fixed fire-extinguishing systems - A new requirement is introduced for passenger ships, such that they are required to have a fixed water-based fire-extinguishing system based on monitors which shall be installed to cover weather decks intended for the carriage of vehicles. The monitor(s) shall comply with the provisions of the Fire Safety Systems Code. For new ships this requirement will be applied from 1 January 2026. For ships built before 1 January 2026 they shall comply with the requirements not later than the first survey from 1 January 2028. Reduced requirements for the performance of water monitors on ships built before 1 of January 2026 are included.
+
+2.3.4.5 Decision Making - Passenger ships constructed on or after 1 January 2026 where fixed pressure water-spraying systems are fitted will be required to have suitable signage and marking on deckhead and bulkhead and on the vertical boundaries allowing easy identification of the sections of the fixed fire-extinguishing system. Section number signs will be required to be of photoluminescent material.
+
+2.4 The amendments to the FSS Code contained within IMO Resolution MSC.555(108) are summarized below.
+
+2.4.1 The changes to the FSS code are to “CHAPTER 7 Fixed pressure water-spraying and water mist fire-extinguishing systems” and “CHAPTER 9 Fixed fire detection and fire alarm systems” and these introduce the engineering requirements for the systems introduced by Resolution MSC.550(108) for the “Protection of vehicle, special category, open and closed ro-ro spaces, and weather decks intended for the carriage of vehicles”. These technical requirements allow for the effective approval of the fire detection and fire extinguishing systems.
+
+3. Application Dates
+
+3.1 The amendments to SOLAS Chapter II-2 and associated codes found in Resolutions MSC.520(106), MSC.532(107), MSC.550(108), and MSC.555(108) will enter into force on an international basis on 1 January 2026 and in the UK on the same date.
+
+3.2 The SOLAS Convention and associated IMO Resolutions are available from the IMO, 1 Albert Embankment, London SE1 7SR. The full text of the amendments to Chapter II-2 and associated Codes are found in the Resolutions MSC.520(106), MSC.532(107), MSC.550(108), and MSC.555(108).
+
+More information
+
+UK Technical Maritime Services
+
+Maritime and Coastguard Agency
+
+Bay 2/23
+
+Spring Place
+
+105 Commercial Road
+
+Southampton
+
+SO15 1EG
+
+Telephone: +44 (0)203 817200
+
+Email: marinetechnology@mcga.gov.uk
+
+Website: www.gov.uk/mca

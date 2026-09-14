@@ -1,0 +1,364 @@
+MGN 369 (M+F) MGN 369 (M+F) – Amendment 1 Navigation Safety: Navigation practices relevant to restricted visibility
+2024-03-21
+Source: https://www.gov.uk/government/publications/mgn-369-mf-amendment-1-navigation-safety-navigation-practices-relevant-to-restricted-visibility
+
+Summary
+
+A 2003 survey published by The Nautical Institute (Seaways- Roger Syms) showed that many Officers of the Watch (OOW) do not fully understand or properly follow the International Regulations for the Prevention of Collisions at Sea (COLREG) and therefore, collisions occur.
+
+20 years on since the survey was published, the industry is still experiencing collisions and allisions during periods of restricted visibility with potential non-compliance with, or lack of understanding of, the COLREG.  It is also noted that the increased use of technology such as AIS onboard vessels and the introduction of remotely operated unmanned vessels (ROUVs) has introduced new risks and challenges not previously assessed within this Guidance Note.
+
+This document provides guidance on the proper conduct of vessels as required by the rules applicable in restricted visibility, specifically:
+
+• The rules of Part B Section III (Rule 19), that are specific to restricted visibility.
+
+• The rules of Part A and Part B Section I that are applicable in any condition of visibility.
+
+• These rules are applicable but are not limited to restricted visibility and in many cases are applicable in all states of visibility, not just restricted visibility.
+
+1. Introduction/background
+
+1.1 This Marine Guidance Note (MGN) explains the Maritime and Coastguard Agency’s (MCA) understanding of terms such as ‘forward of the beam’, ‘safe speed’, ‘close-quarters situation’, ‘closest point of approach’ (CPA), ‘risk of collision’ and ‘proper look-out’.
+
+1.2 This Guidance note:
+
+• Describes the conduct of vessels in restricted visibility, as well as guidance on specific rules within Part A and Part B Section I, which are be applicable in all states of visibility.
+
+• Provides guidance on how to apply the COLREG to determine risk of collision and the correct avoiding action to take.
+
+• Provides guidance on how to determine a safe speed in restricted visibility.
+
+• Provides guidance on determining whether a close-quarters situation exists in restricted visibility.
+
+1.3 This guidance does not relieve any party of their responsibility to take decisions about the safe navigation of their ship in accordance with the law.
+
+1.4 Sources used as a basis for this MGN include MAIB collision investigation reports, The International Chamber of Shipping Bridge Procedures Guide, STCW 2010, as amended, as well as UK Admiralty Court/Court of Appeal judgements.
+
+2. Key Points
+
+2.1 Navigating a ship in restricted visibility requires a full understanding of the COLREGS, particularly:
+
+• Part B (Steering and Sailing Rules) Section I (Rules 4 to 10 inclusive) – Conduct of vessels in any condition of visibility.
+
+• Part B (Steering and Sailing Rules) Section III (Rule 19) – Conduct of vessels in restricted visibility.
+
+2.2 It is ultimately the responsibility of the OOW to comply with the COLREG. Companies are encouraged to ensure that they include adequate guidance within their safety management system to assist the OOW in decision making and are encouraged to develop their crew’s knowledge of the COLREG through development and training.
+
+2.3 Rule 19 is the basis for collision avoidance in or near restricted visibility and again enforces the requirement to proceed at a safe speed adapted to the prevailing circumstances and conditions. This is in addition to the requirements of in Rule 6.  Rule 19 determines the actions that are to be taken where risk of collision exists.
+
+2.4 Rule 5 requires that those involved in bridge watchkeeping to maintain a proper look-out by sight and hearing at all times and use all available means appropriate to the prevailing circumstances and conditions to make a full appraisal of the situation and of the risk of collision.
+
+2.5 Whilst this Guidance Note is primarily giving guidance to larger, commercially operated vessels, the principles of the guidance apply to all vessels regardless of size or type.  The application of the COLREGs can be found in MSN 1781 (As Amended) – Navigation Safety: The Merchant Shipping (distress signals and prevention of collisions) regulations 1996 – COLREG.
+
+3. COLREG – General Application
+
+3.1 Steering and Sailing Rules
+
+• Section I (Rules 4-10) Conduct of vessels in any condition of visibility.
+
+• Section II (Rules 11-18) Conduct of vessels in sight of one another.
+
+• Section III (Rule 19) Conduct of vessels not in sight of one another.
+
+3.2 Rule 1 – Application
+
+“These Rules shall apply to all vessels upon the high seas and in all waters connected therewith navigable by seagoing vessels”.
+
+Further guidance on the application of COLREG can be found in MSN 1781 (As amended) - Navigation Safety: The Merchant Shipping (Distress signals and prevention of collisions) regulations 1996 - COLREG.
+
+When assessing the application of COLREG, users of ‘watercraft’ as defined within the Merchant Shipping (Watercraft) Order 2023 shall also be aware of the obligations placed on them within MSN 1781 (As amended).
+
+3.3 Rule 3 – General Definitions
+
+3.3.1 “(l) The term ‘Restricted Visibility’ means any condition in which visibility is restricted by fog, mist, falling snow, heavy rainstorms, sandstorms or any other similar causes”.
+
+Emphasis shall be placed on the conditions other than fog, that can cause restricted visibility.  The OOW should be aware that the rules relating to restricted visibility (including sound signals) apply regardless of what condition is causing visibility to be restricted.
+
+3.3.2 “(k) Vessels shall be deemed to be in sight of one another only when one can be observed visually from the other”.
+
+It is recommended that the Master and/or the Safety Management System, consider part (l) and (k) of this Rule and provide clear guidance to the OOW on what range of visibility is to be considered ‘restricted visibility’. Where there are no targets to determine the range of visibility and a watchkeeper believes that the visibility is restricted, then they shall assume that it is the case and act accordingly.  
+
+4. COLREG– Application of Section I
+
+The rules within this Section apply in all conditions of visibility,
+
+4.1 Rule 5 – Lookout
+
+“Every vessel shall at all times maintain a proper look-out by sight and hearing as well as by all available means appropriate in the prevailing circumstances and conditions so as to make a full appraisal of the situation and of the risk of collision”.
+
+Maintaining a proper Look-out is an important element of safe watchkeeping, especially when the visibility is restricted.  Rule 5 states that a proper lookout is to include, as well as sight and hearing, all available means that are appropriate. These may include but are not limited to radar, sound reception facilities, AIS and GMDSS equipment.  Further guidance on maintaining a safe navigational watch and lookout can be found in MGN 315 – Keeping a Safe Navigational Watch on Merchant Vessels and MGN 313 – Keeping a Safe Navigational Watch on Fishing Vessels
+
+During restricted visibility, it would be deemed prudent to post additional lookouts. Further guidance on use of additional lookouts can be found in MGN 137 – Look-out during periods of Darkness and Restricted Visibility
+
+4.2 Rule 6 – Safe Speed
+
+“Every vessel shall at all times proceed at a safe speed so that she can take proper and effective action to avoid collision and be stopped within a distance appropriate to the prevailing circumstance and conditions”.
+
+Rule 6 lists factors that should be among those that should be considered.  It is then divided into 2 main parts.
+
+• Rule 6(a) lists the factors for safe speed that apply to all vessels, and
+
+• Rule 6(b) lists factors that apply to ships fitted with operational radar.
+
+In determining safe speed, the ability of the OOW to detect a target and determine if a risk of collision exist is critical.  Therefore, in determining a safe speed, a watchkeeper shall consider that a greater speed may reduce the time that they have to determine if risk of collision exists.
+
+As stated in rule 6(a)(iii), the watchkeeper shall have full consideration for the manoeuvring characteristics of the vessel when taking action to avoid collision. It is recommended that familiarisation training includes an explanation of the wheelhouse poster and manoeuvring booklet. 
+
+Rule 19 reinforces Rule 6 by requiring all vessels to proceed at a safe speed in restricted visibility and by requiring power-driven vessels to ‘have their engines ready for immediate manoeuvre’.
+
+To maintain a safe speed at all times, a continuous appraisal of changes in circumstances and conditions should be made. Whilst safe speed is subjective it is recommended that Masters and/or the Safety Management System ensure the OOW is given clear guidance on what considerations should be made when determining a safe speed and reaffirm the authority of the OOW to reduce speed when they deem it necessary.
+
+4.3 Rule 7 – Risk of Collision
+
+Rule 7 provides the requirement to assess the risk of collision once targets are detected and requires:
+
+4.3.1 “(a) Every vessel shall use all available means appropriate to the prevailing circumstances and conditions to determine if risk of collision exists.  If there is any doubt such risk shall be deemed to exist”
+
+It is recommended that a continuous use of radar for detecting targets and assessing the risk of collision is maintained to ensure an early appraisal of the situation. Full use of additional navigational equipment such as a second radar should be maintained to improve the situational awareness and the likelihood of early target detection. 
+
+The use of AIS for early identification of targets maybe useful to the OOW but the information provided should not form the basis of determining if a risk of collision exists.  Further guidance on use of AIS for collision avoidance can be found in MGN 324 (As Amended) – Navigation: watchkeeping safety – use of VHF and AIS
+
+If the OOW is in any doubt as to whether risk of collision exists, they shall assume that it does  and act accordingly. It is required that Masters Standing Orders and/or the vessel Safety Management System gives clear guidance and authority to the OOW to take such actions.
+
+4.3.3 “(b) Proper use shall be made of radar equipment if fitted and operational, including long –range scanning to obtain early warning of risk of collision and radar plotting or equivalent systematic observation of detected objects.”
+
+The OOW should make systematic observations of targets to determine if a risk of collision exists, noting that ARPA only produces systematic observations of targets that have been acquired. It is therefore important that the OOW ensures that targets are either acquired within ARPA or another method used of obtaining systematic observations of targets.
+
+The OOW shall ensure that radar and ARPA are used to their full potential and they are properly aligned and adjusted in accordance with the manufacturer’s instructions.  Further guidance on the use of Radar and ARPA can be found in MGN 379 (As Amended) – Use of electronic navigational aids.
+
+Consideration shall be exercised in using the correct radar range-scales. The use of shorter ranges when plotting targets at close range and use of longer ranges to provide early detection of targets.
+
+An operational radar means a radar set without known defects. All functions of the equipment should be available for the operator to use, with adequate HMI (Human Machine Interface) and no loss of target visibility due to an isolated failure (e.g. Screen Burn, dead pixels) of the attached display. 
+
+4.3.3 “(c) Assumptions shall not be made on the basis of scanty information, especially scanty radar information.”
+
+The OOW should allow adequate time to assess every situation properly, with due regard to the limitations of the Radar or ARPA set in use and the minimum time required by the specific system to ensure an accurate assessment of an acquired target.
+
+4.3.4“(d) In determining if risk of collision exists the following considerations shall be among those taken into account.
+
+(i) Such risks shall be deemed to exist if the compass bearing of an approaching vessel does not appreciably change.
+
+(ii) Such risk may sometimes exist even when an appreciable bearing change is        evident, particularly when approaching a very large vessel or a tow or when             approaching a vessel at close range”.
+
+The OOW should determine if risk of collision exists by carrying out systematic plotting and observations of detected targets.
+
+Observing the compass bearing of a target is one means of determining whether risk of collision exists as no appreciable change in the compass bearing of an approaching vessel indicates a risk of collision and, if visibility allows, should be used to supplement the systematic plotting of targets.
+
+Relative motion trails on a radar provide a basic visual indication of a potential collision risk.  This visual indication however does not remove the requirement for the systematic plotting of targets.
+
+On an ARPA display, a risk of collision with a tracked target exists if the relative vector of the target points at own ships’ position on the screen. 
+
+In restricted visibility, when use of visual compass bearing assessment is not possible, an additional method to observe the compass bearing of a target is to use an electronic bearing line (EBL) fixed to own-ship as a way of observing changes to the compass bearing of a target.
+
+Even if the compass bearing does appreciably change, there may still be a risk of collision when approaching large targets, a tow or when approaching targets at close range.
+
+CPA & TCPA alarms may be set to alert the OOW of risk of collision, or a potential close quarters situation with tracked targets.  These alarms may originate from Radar or AIS and the OOW should be aware of the differences between each system, especially if AIS data is being overlaid onto a radar image.
+
+4.4 Rule 8 – Action to Avoid Collision
+
+4.4.1 “(a) Any action to avoid collision shall be taken in accordance with the Rules of this part and shall, if the circumstances of the case admit, be positive, made in ample time and with due regard to the observance of good seamanship”.
+
+• Comply with all rules applicable to the situation in the COLREG.
+
+• When  risk of collision exists, take early and positive action to avoid collision.
+
+• Have due regard for the ordinary practice of seaman as described in Part A – Rule 2.
+
+4.4.2 “(b) Any alteration of course and/or speed to avoid collision shall, if the circumstances of the case admit, be large enough to be readily apparent to another vessel observing visually or by radar; a succession of small alterations of course and/or speed should be avoided.”
+
+When taking action to avoid collision, the OOW should not make a series of small alterations of course and/or speed, unless a large alteration would result in a more dangerous situation.
+
+In restricted visibility, any alterations of course and/or speed should be large enough to be readily apparent to any other vessels observing by radar and AIS where visual observations are not possible. 
+
+The OOW should be aware that a substantial alteration of course will be more readily apparent than an alteration of speed to other observing vessels.
+
+4.4.3 “(c) If there is sufficient sea-room, alteration of course alone may be the most effective action to avoid a close-quarters situation provided that it is made in good time, is substantial and does not result in another close-quarters situation.
+
+(d) Action taken to avoid collision with another vessel shall be such as to result in passing at a safe distance.  The effectiveness of the action shall be carefully checked until the other vessel is finally past and clear.”
+
+When taking action to avoid collision a safe distance should be maintained from other vessels.  It is required that the Master’s standing orders and/or the safety management system gives clear guidance on what constitutes a safe passing distance.  The required passing distances should cover varying traffic and location scenarios.
+
+It is important to systematically observe the effectiveness of the action taken, especially when returning to an original course or speed and with due regard to the potential creation of another risk of collision or close quarters situation with another target.  Where fitted, the use of the trial manoeuvre function within ARPA could assist the OOW of assessing the effectiveness of any action taken.
+
+4.4.4 “(e) If necessary to avoid collision or allow more time to assess the situation, a vessel shall slacken her speed or take all way off by stopping or reversing her means of propulsion.”
+
+A power-driven vessel should have engines ready for immediate manoeuvre in restricted visibility as required under rule 19.
+
+It is recommended that, where applicable, Masters standing orders reiterate the authority of the OOW to utilise engine control when required by this rule or when taking any action to avoid a collision or a close quarters situation.
+
+4.4.5 “(f) (i) A vessel which, by any of these Rules, is required not to impede the passage or safe passage of another vessel shall, when required by the circumstances of the case, take early action to allow sufficient sea-room for the safe passage of the other vessel
+
+(ii) A vessel required not to impede the passage or safe passage of another vessel is not relieved of this obligation if approaching the other vessel so as to involve risk of collision and shall, when taking action, have full regard to the action which may be required by the Rules of this Part.
+
+(iii) A vessel the passage of which is not to be impeded remains fully obliged to comply with the Rules of this Part when the two vessels are approaching one another so as to involve risk of collision”
+
+The requirement not to impede the passage or safe passage applies in all conditions of visibility.
+
+This means that the requirements stipulated within Rules 9(b), (c), (d) – Narrow Channels, 10(i) and (j) – Traffic Separation Schemes,  relating to particular vessels not impeding the passage or safe passage of a vessel that is either following a traffic lane or can only safely navigate within a narrow channel or fairway, apply in both times of clear and restricted visibility, together with the requirements of Rule 8(f).
+
+When there is an obligation therefore not to impede the passage or safe passage in times of restricted visibility, Rule 19 applies fully but with due regard to the actions required under Rule 8(f).
+
+5. COLREG – Application of Section III
+
+5.1 Rule 19 – Conduct of vessels in restricted visibility
+
+5.1.1 “(a) This Rule applies to vessels not in sight of one another when navigating in or near an area of restricted visibility.”
+
+If you cannot see the other vessel visually, then Rule 19 shall apply, regardless of which condition as stipulated within section 3.3.1 is causing the restricted visibility.
+
+See also section 11.4 of this notice for guidance relating to ROUVs and the potential for a vessel to be applying Rule 19 due to a localised restriction in visibility not effecting all vessels within the area.
+
+5.1.2 “(b) Every vessel shall proceed at a safe speed adapted to the prevailing circumstances and conditions of restricted visibility. A power-driven vessel shall have her engines ready for immediate manoeuvre.”
+
+Safe speed must remain under continuous review with due regard to the prevailing circumstances and conditions and therefore cannot be defined as an absolute figure within procedures or guidance.  Further guidance on the application of safe speed can be found in Rule 6 and section 4.2 of this Guidance Note.
+
+The OOW should be aware of the effect that different load conditions (full or partly loaded or in ballast) may have on the vessels manoeuvring characteristics.  They should also be aware and account for the effect of strong winds and high seas on the manoeuvrability of the vessel.
+
+5.1.3 “(c) Every vessel shall have due regard to the prevailing circumstances and conditions of restricted visibility when complying with the Rules of Section I of this Part.”
+
+The OOW should be aware that when navigating in or near areas of restricted visibility, Section I Part A and Part B Rules 4 to 10 inclusive apply along with Rule 19.
+
+5.1.4 “(d) A vessel which detects by radar alone the presence of another vessel shall determine if a close-quarters situation is developing and/or risk of collision exists. If so, she shall take avoiding action in ample time, provided that when such action consists of an alteration of course, so far as possible the following shall be avoided:
+
+(i)  an alteration of course to port for a vessel forward of the beam, other than for a vessel being overtaken;
+
+ (ii) an alteration of course towards a vessel abeam or abaft the beam.”
+
+If risk of collision or a close-quarters situation is developing, then avoiding action must be taken by both vessels, because under Rule 19 there are no ‘stand on’ vessels.  The OOW shall therefore also expect other vessels to take avoiding action.
+
+If the target posing the risk of collision or a close-quarters situation is forward of your beam, avoid altering to port for that vessel, unless you are overtaking it.
+
+If the target posing the risk of collision or a close-quarters situation is abeam or abaft of your beam, avoid altering course in a direction that would take you towards that vessel.
+
+5.1.5 “(e) Except where it has been determined that a risk of collision does not exist, every vessel which hears apparently forward of her beam the fog signal of another vessel, or which cannot avoid a close-quarters situation with another vessel forward of her beam, shall reduce her speed to the minimum at which she can be kept on her course. She shall if necessary, take all her way off and in any event navigate with extreme caution until danger of collision is over.”
+
+The OOW should maintain an effective listening watch for fog signals.  Sound reception facilities, if fitted should be used to help aid early detection of sound signals.
+
+Reducing speed will allow more time to assess the situation and to assess the effect of the proposed avoiding action.  Engines should therefore be ready for immediate manoeuvre.  See Section 4.3.4 of this Guidance Note.
+
+Yachts and other small craft and especially small recreational craft, may not be detected by radar and therefore the OOW should remain vigilant, especially in coastal areas where recreational vessels may be expected.
+
+If a fog signal is heard, it may be difficult to accurately determine the direction of the source and therefore more time is required to correctly determine the correct avoiding action.
+
+6. COLREG – Application of Part C – Rule 20
+
+“The lights prescribed by these Rules shall, if carried, also be exhibited from sunrise to sunset in restricted visibility and may be exhibited in all other circumstances when it is deemed necessary”.
+
+The MCA interpret this rule as requiring navigation lights to be always exhibited when visibility is restricted, as described in Rule 3(l).  If an OOW is in doubt as to whether the vessel is in restricted visibility, they shall assume they are and exhibit the navigation lights as required by the provisions of Annex I of the regulations.
+
+7. COLREG – Application of Part D – Rule 35
+
+7.1 Rule 35 states: - “In or near an area of restricted visibility, whether by day or night, the signals prescribed in this rule shall be used as follows:” It is therefore a requirement to sound the appropriate sound signals as defined in Rule 35 when navigating in or near an area of restricted visibility.
+
+7.2 The accident report that resulted from a collision in 2016 between a ro-ro freight ferry and an historic motor launch in the River Humber identified the lack of appropriate sound signals as required by Rule 35 of the COLREG as a potential contributing factor in the collision, which occurred in dense fog and resulted in the loss of the historic motor launch (See Section 9 of this Guidance Note)
+
+7.3 The requirement to comply with the sound signal requirements stipulated within Rule 35 remains, regardless of the operation of the vessel.  The perceived ‘nuisance’ to either crew or passenger comfort caused by the sounding of the signals specified in Rule 35 is not an acceptable reason not to sound the appropriate signals.
+
+7.4 Mobile Offshore Drilling Units/Mobile Offshore Units (MODU’s/MOU’s) are to comply with Rule 35 when in transit or when stationery but not connected to the seabed or a host installation.  When a MODU/MOU is connected to the seabed or a host installation they are required to comply with the ‘Standard Marking Schedule for Offshore Installations’ as stipulated within Regulation 19 of the Offshore (Management and Administration) Regulations 1995 and will sound a fog signal consisting of ‘Morse – U’ in lieu of the signals specified in Rule 35 of the COLREGs.  Vessels operating within the UKCS (United Kingdom Continental Shelf) shall therefore be aware of the potential for differing sound signals being heard when in the vicinity of Oil and Gas exploration infrastructure.
+
+7.5 Wind turbines can create acoustic noise which could mask prescribed sound signals, therefore additional care should be taken when navigating in or in the proximity of offshore windfarms.
+
+8. Clarification on Terminology
+
+8.1 Forward of the Beam
+
+A vessel is forward of the beam if the relative bearing from the observing vessel is less than 90º or more than 270º.
+
+8.2 Close-quarters situation
+
+Similar to ‘safe speed’, a ‘close-quarters situation’ depends on the particular circumstances and closing speeds of the vessels involved. Manoeuvring characteristics, visibility, weather, traffic density and restricted or open waters, will all have an influence on determining at what distance a close-quarters situation is deemed to exist. A close-quarters situation is not to be confused with a risk of collision which begins at an earlier point in time.
+
+8.3 Closest Point of Approach (CPA)
+
+Systematic observation of a radar target offers a forecast of the distance off at which a target will pass (the closest point of approach or CPA) and the time the target will reach its closest point of approach (TCPA).  This information is an effective measure of the risk of close-quarters situation developing.
+
+More detailed guidance on the use of Radar and ARPA functions can be found in MGN 379 (As Amended) - Use of Electronic Navigational Aids.
+
+The COLREGs do not define a minimum CPA or TCPA and similarly to ‘Safe Speed’ and ‘Close-quarters situations’ this is defined by both the external conditions and vessel manoeuvrability.  It is required that the vessel Master and/or the vessel Safety Management System gives clear guidance to the OOW on the minimum expected CPA and TCPA whilst navigating in or near areas of restricted visibility.
+
+9. MAIB Reported Incidents
+
+9.1 Several accidents attributed to restricted visibility have occurred since the publication of the original version of this Guidance Note which have identified gaps within the safety management systems of operators, and potential non-compliance or poor knowledge of COLREG.  It is therefore recommended that Masters, Skippers and Deck Officers review the following reports available freely from the MAIB (Marine Accident Investigation Branch) website:
+
+•
+Red Falcon/Greylag (2018 – MAIB Report 06/2020). In 2018 a collision investigated by the MAIB involved a ro-ro passenger ferry and a moored yacht.  The collision and grounding occurred because the Master lost their orientation in dense fog and due to cognitive overload caused by stress, poor visibility, and poor bridge team management.
+
+•
+ANL Wyong/King Arthur (2018 – MAIB Report 07/2020). In 2018 a UK registered container vessel and an Italian registered gas carrier collided 4nm south-east of Europa Point, Gibraltar in dense fog.  The investigation found poor application of the COLREGs and an over reliance on AIS data and VHF communication in determining risk of collision.
+
+•
+Arrow (2020 – MAIB Report 08/2021). In 2020 an Isle of Man Registered ro-ro freight ferry grounded in the approach channel of Aberdeen Harbour in dense fog.  The investigation identified potential gaps within procedures relating to pilotage and manoeuvring operations in restricted visibility and limitations in the ECS (Electronic Chart System) being used onboard.
+
+•
+Achieve/Talis (2020 – MAIB Report 14/2021).  In 2020 a Panamanian registered general cargo vessel collided with a UK registered fishing vessel in fog approx. 3nm northeast of Tynemouth.  The investigation identified that neither vessel was maintaining a proper lookout as required by Rule 5, sounding signals in line with Rule 35, or took avoiding action as required by Rule 19.
+
+•
+Petunia Seaways/Peggotty (2016 – MAIB Report 04/2017).  In 2016 a Danish registered ro-ro freight ferry collided with an historic motor launch in dense fog whilst proceeding outbound from the River Humber.  The subsequent investigation noted that the ro-ro ferry was proceeding at a speed assessed as excessive, did not effectively plot the motor launch even though it was detected by radar and was not sounding signals in line with Rule 35.  The motor launch was found to be operating without a passage plan and defective navigational equipment.
+
+Some of the key contributing factors identified in the above five incidents were poor lookout practices, excessive speed or a reluctance to reduce speed, poor use of radar to ascertain if a risk of collision exists, and poor bridge team management which resulted in crew becoming disorientated and slow to respond to developing situations.
+
+10. Vessel Management
+
+10.1 The speed of a ship and thereby fuel consumption and the related costs are usually dictated by commercial interests. Even though a company has the right to give instructions to vessel Masters, these instructions cannot overrule their decision on safety matters. Particular reference is made to the Regulation 34-1 “Master’s Discretion” of SOLAS Chapter V.
+
+“The owner, the charterer, the company operating the ship as defined in regulation IX/1, or any other person shall not prevent or restrict the master of the ship from taking or executing any decision which, in the master’s professional judgement, is necessary for safety of life at sea and protection of the marine environment.”
+
+The MCA interpret this as ensuring the Master has absolute discretion to take decisions in the interests of safety of life at sea and or protection of the marine environment which include the authority to alter the ships speed in relation to the guidance within this note regardless of commercial expectations. Vessels required to comply with the requirements of the ISM (International Safety Management) Code shall include a clearly defined statement relating to the Master’s overriding Authority as required by Chapter 5 of the code.
+
+10.2 Shipping companies should ensure their Safety Management System includes clear guidance and instruction in relation to safe navigational practices in all navigational situations, particularly in restricted visibility.
+
+10.3 A collision and subsequent grounding of a Ro-Ro ferry in the Isle of Wight in 2018 whilst approaching Cowes harbour was subsequently attributed to the loss of orientation of the vessel Master in poor visibility.  It is therefore recommended that passage plans and risk assessments include contingency measures and additional control measures to aid decision making when carrying out coastal and pilotage operations in reduced visibility.
+
+10.4 The Master shall ensure that the OOW is given clear guidance on when they, or other senior Deck Officers as well as additional lookouts are to be called to the Bridge during times of restricted visibility to ensure ample time to assist in assessing the situation.
+
+10.5 Good Bridge Team Management is an essential tool in ensuring that a ship is well run.  It is recommended that Masters and Deck Officers are familiar with the contents of the latest International Chamber of Shipping (ICS) Bridge Procedures Guide which includes guidance on Bridge Resource Management.
+
+11. Special Considerations
+
+11.1 With the exception of the conditions referred to in section 4.3.5 of this guidance note, the responsibilities between vessels as stated within Rule 18 apply only when vessels are in sight of one another.  It should be noted therefore that vessels for which others ‘shall keep out of the way of’ as defined in Rule 18, such as ‘Restricted in their ability to manoeuvre’, or ‘a vessel engaged in fishing’ shall be aware of the requirement to take avoiding action when complying with Rule 19.
+
+11.2 Notwithstanding the guidance within 11.1, any vessel which hears the fog signal of a vessel not under command, vessel restricted in its ability to manoeuvre, a vessel constrained by her draught, a sailing vessel, a vessel engaged in fishing and a vessel engaged in towing or pushing another vessel as prescribed within Rule 35 (c), shall have due regard to the potential limitations of the other vessel.  A vessel sounding the signals prescribed in Rule 35(c), whilst taking action in accordance with Rule 19 may have surface obstructions extending from the vessel therefore the OOW on both vessels should consider this when determining a safe CPA to maintain when taking avoiding action.
+
+11.3 Vessels should be aware that there may be occasions where they are in sight of another vessel and unaware of the potential      for restricted visibility and therefore applying the Rules within Section II of the COLREG, but hear the sound signals stipulated within Rule 35, of the vessel they are in sight of.  In this situation it should be assumed that the opposing vessel cannot see them and are complying with the requirements of restricted visibility and in particular Rule 19 of the COLREG.  This situation will therefore result in a vessel for which you assume is ‘Stand on’ (Rule 17) to take avoiding action within the expectations of Rule 19.  It is therefore important to ensure that any action taken to avoid collision is done so with due regard for the requirements stipulated within Rule 8 (b) and (d).
+
+11.4 Whilst localised environmental factors such as fog patches could result in the situation specified within section 11.2, another potential situation is the loss of all external cameras onboard a remotely operated vessel, but where the remaining equipment and control systems remain available. This means the vessel can still manoeuvre in accordance with the rules and is not, by the definition stipulated within Rule 3 (f) a vessel ‘Not under Command’.  This failure mode could result in a remote operator being unable to use sight as required by Section II of the COLREGs and therefore using Rule 19 when applying avoiding action in close-quarters or risk of collision situation.
+
+12. Pleasure Vessels
+
+12.1 The rules of COLREG apply by virtue of the Merchant Shipping (Distress and Prevention of Collisions) Regulations 1996 and, for personal watercraft, The Merchant Shipping (Watercraft) Order 2023.
+
+12.2 The requirement therefore to comply with the COLREGs in both restricted visibility and in sight of one another also applies to pleasure vessels and therefore it is recommended that Skippers of pleasure vessels and users of personal watercraft refer to this guidance note.
+
+12.3 Users of small pleasure vessels and personal watercraft should be aware of the potential for larger vessels not being able to detect them in sufficient time to make a full appraisal of the situation (See MAIB Report 04/2017) and should navigate with extreme caution and with full regard to the COLREG.
+
+12.4 Skippers and users of pleasure vessels should refer to MGN 599 (As Amended) Pleasure Vessels – Regulations and Exemptions – Guidance and Best Practice Advice for further guidance on the requirements for effective passage planning and the carriage of a radar reflector.
+
+12.5 Passive radar reflectors work better when placed higher onboard the vessel and therefore care should be taken to ensure that it is placed in an optimal position.  If an active radar reflector, also known as a Radar Target Enhancer is fitted, this should be checked on a regular basis to ensure it is correctly powered and working efficiently.  The user should also be aware that whilst a radar reflector is designed to improve the radar visibility of the vessel it may still be a weak target and therefore difficult to be identified by observing vessels.
+
+12.6 Pleasure vessels fitted with AIS are likely to be fitted with ‘Class B’ transceivers which have less transmit power and transmit updates less often than ‘Class A’ units. Vessels utilising AIS as part of the overall lookout tools as described in section 4.1 of this guidance note should be aware of the potential for limited and outdated AIS information being received from pleasure vessels.
+
+13. Conclusion
+
+13.1 In conditions of restricted visibility when complying with Rule 19; there are no stand on or give way vessels.  All vessels are required to determine whether a close-quarters situation is developing and if a risk of collision exists. If the likelihood of a close-quarters situation is detected, then each vessel must take appropriate action to prevent the close-quarters situation from developing.
+
+13.2 The judgment as to when a vessel is approaching a close-quarters situation is to be assessed by OOWs using all available means combined with their own experience and good seamanship.  Navigational constraints, environmental factors and knowledge of own vessels manoeuvrability should be considered when reaching this judgement.
+
+More information
+
+Technical Services – Navigation
+Maritime and Coastguard Agency
+Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: infoline@mcga.gov.uk
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

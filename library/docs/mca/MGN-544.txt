@@ -1,0 +1,133 @@
+MGN 544 MGN 544 Amendment 1 (M+F) Means of recovery of persons from the water by ships and boats - plans, procedures and acceptance of recovery equipment
+2026-04-13
+Source: https://www.gov.uk/government/publications/mgn-544-amendment-1-mf-means-of-recovery-of-persons-from-the-water-by-ships-and-boats-plans-procedures-and-acceptance-of-recovery-equipment
+
+Summary
+
+This Marine Guidance Note (MGN) informs the reader of an International Convention for the Safety of Life at Sea, 1974 (SOLAS) Regulation requiring all SOLAS ships to have plans and procedures for the recovery of persons from the water which follow the International Maritime Organization (IMO) guidelines outlined in Annex 1 of this MGN.  Furthermore, it provides guidance for all non-SOLAS UK vessels (e.g. fishing vessels and small craft) to consider these international provisions as industry guidance.
+
+Nothing in this SOLAS Regulation or UK policy requires new equipment to be carried on ships; however, some UK ships have investigated the use of new equipment as part of their arrangements to comply with SOLAS. 
+
+This MGN also establishes the process through which novel equipment intended for the recovery of persons from the water may be accepted for use on UK ships to which the convention applies.
+
+1. Introduction
+
+1.1       The International Maritime Organization (IMO) developed SOLAS Regulation III/17-1 which entered into force on 1st July 2014 and introduces the requirement for ship specific plans and procedures for means of recovery of persons from the water.
+
+1.2       SOLAS Regulation III/17-1 does not require new equipment to be installed; however, as a result of reviewing their plans and procedures, some operators (including operators of non-SOLAS vessels) may decide to consider new equipment. 
+
+1.3       Operators of SOLAS Ships deciding to carry new equipment specifically for the means of recovery of persons from the water are advised to refer to sections 2 and 3 of this MGN. Operators and managers of non-SOLAS vessels, including but not limited to those listed in 5.2 of this MGN, are advised to refer to sections 5 and 6.
+
+1.4       Manufacturers of new ‘means of recovery’ equipment are advised to follow the guidance on obtaining approval outlined in sections 3 and 6 of this MGN before installation on UK ships. 
+
+1.5       Type approval bodies are advised to follow the technical performance standards outlined in section 4 of this MGN for any non-SOLAS products being approved for use on UK ships.
+
+ 2. Mandatory Requirements for SOLAS Ships Only
+
+2.1       SOLAS Regulation III/17-1 sets a requirement for all ships within the scope of SOLAS ’74 (SOLAS Ships) to have ship-specific plans and procedures for recovery of persons from the water, taking into account the IMO guidelines set out in MSC.1/Circ.1447, which are repeated in Annex 1 of this MGN.
+
+2.2       All SOLAS Ships constructed after 1 July 1986 are required to carry at least one rescue boat, which may be deemed by the ship as the designated means of recovery (though other means may also be considered).
+
+2.3       Ro-ro passenger ships which comply with SOLAS Regulation III/26.4 shall be deemed to comply with Regulation III/17-1.
+
+2.4       SOLAS Regulation III/17-1 requires that the plans and procedures shall identify the equipment intended to be used for recovery purposes and measures to be taken to minimize the risk to shipboard personnel involved in recovery operations. 
+
+3. Process for MCA Acceptance of Recovery Equipment fitted on SOLAS Ships Only
+
+3.1       Recovery equipment is not within the scope of The Marine Equipment Directive (MED); however, is equipment that requires approval by the Maritime and Coastguard Agency (MCA) as a UK ship’s Flag Administration in accordance with Part II and Annex 2 of MSN 1874 (M+F).
+
+3.2       Type approved equipment which is already placed on board a UK registered SOLAS Ship to comply with a mandatory carriage requirement, other than for compliance with SOLAS Regulation III/17-1 or Regulation III/26.4, may be identified as equipment intended for means of recovery. However, the equipment, fitment arrangements and proposed means of recovery should be assessed by the ship operator in accordance with the guidelines in Annex 1 of this MGN, and must be deemed to be fit for purpose and appropriate to the type and size of the vessel by both the ship operator and the attending surveyor. Such equipment may then be deemed to be equipment fitted to the satisfaction of the MCA for the purpose of SOLAS Regulation III/17-1.
+
+3.3       Any equipment not already placed on board a UK registered SOLAS Ship to comply with a mandatory carriage requirement, any novel equipment, or any existing equipment rejected by the attending surveyor, which is intended to be used as the means of recovery, is subject to an additional process of MCA acceptance, as follows:
+
+   3.3.1    The MCA will only accept equipment which has been assessed and type approved as novel equipment for use as a means of recovery device by one of the Nominated Bodies listed in MSN 1874 (M+F) acting as an independent approval body, not within the MED. The issue of an independent type approval certificate by one of the aforementioned Nominated Bodies, clearly evidencing that the technical specification described in Section 4 of this MGN has been achieved by the equipment for which it is issued, will demonstrate that the equipment meets the technical requirements for means of recovery equipment expected by the MCA.
+
+   3.3.2    Practical demonstration of the equipment, it’s fitting arrangements, and means of recovery may be requested by the attending surveyor to assess whether the equipment safely achieves what is intended. A man overboard recovery drill may be required to demonstrate the effectiveness of the equipment and procedures for lifting a 100 kg bulk weight or 100 kg manikin from the water onto the ship in a safe and controlled manner. If the equipment is not fit for purpose then a deficiency may be raised, requiring modifications to be made to the on-board arrangements and procedures.
+
+   3.3.3    The attending surveyor must be satisfied that the arrangements, particularly fitting arrangements to the ship, are fit for purpose on a case-by-case and ship-specific basis.  Once the MCA is satisfied with the proposals, a letter of acceptance will be issued to the ship, which will clearly specify for which particular use of the recovery equipment the MCA is satisfied.
+
+3.4       Paragraph 7.2 of MSN 1874 (M+F)  states that “Where equipment within the scope of this Part is of a novel nature or subject to significant design changes or the specifications or testing requirements are not considered to be sufficiently developed, or experience of their usage is limited, the MCA must be contacted regarding the undertaking of the necessary approval procedure. For this purpose, the contact details in 5.4 [of MSN 1874 (M+F)] should be used.” This MGN outlines the “necessary approval procedure” for recovery equipment.
+
+3.5       SOLAS Regulation III/4.3 is clear that novel life-saving appliances or arrangements shall at least successfully undergo evaluation and tests, to the satisfaction of the Administration, which are in accordance with, or are substantially equivalent to IMO recommendations. Equally, life-saving appliances required by SOLAS Ch. III for which detailed specifications are not included in the IMO Life-saving Appliances Code, shall be evaluated to the satisfaction of the Administration.  For these reasons, the means of recovery intended for compliance with SOLAS Regulation III/17-1 must be evaluated to the satisfaction of the MCA.
+
+4. Mandatory Technical Specification for Recovery Equipment on SOLAS Ships Only
+
+4.1       UK Nominated Bodies should type approve recovery equipment intended for compliance with SOLAS Regulation III/17-1 against all of the requirements of Section 1.2 of Resolution MSC.48(66), the IMO Life-Saving Appliances Code, and any appropriate requirements of Resolution A.520(13), the Code of Practice for Evaluation of Prototype Novel Appliances. These IMO requirements take precedence over any other standard to which the recovery equipment is tested.
+
+4.2       UK Nominated Bodies should also type approve recovery equipment against any appropriate BS, EN or ISO standards depending on the design of the equipment. The UK Nominated Body should clearly state on the approval certificate which elements of the above referenced requirements have been applied or omitted during testing and approval, if it is deemed that one or more may not be appropriate to the type of equipment being tested. These tests must also be supplemented by the Nominated Body with the load testing described below.
+
+4.3       The working load of the recovery equipment should be specified by the manufacturer when determining the approved weight range of the product, which should account for the anticipated use. A factor of safety of 6, based on the ultimate tensile strength of the materials used, should be applied for the entire device (when assembled) and associated arrangements for fixing it to the ship.
+
+4.4       The operational weight range of the recovery equipment should take account of the lower limit of weight for persons ascending, particularly where weight on the device is essential to its safe and successful operation.  Speed of ascent should also be considered when determining the operational weight range.
+
+4.5       Acceptance of subsequent batches is subject to a satisfactory static load test of 2.2 times the working load and a recovery test of 1.5 times the working load before dispatch from the manufacturers, and to a recovery test of 1.1 times the working load after installation on board the ship. Particulars of the workshop test and the date of test should be clearly and durably marked on the unit. The recovery test of 1.1 times the working load is to be repeated at 5-yearly intervals by the ship’s personnel and noted in the ship’s logbook.
+
+4.6       The manufacturers should provide certified material tests for each 300m of lowering rope or webbing. The rope or webbing used should be of sufficient length to reach the water with the ship in the lightest service condition and with an adverse list of 20 degrees.
+
+4.7       The UK Health and Safety Executive (HSE) publishes detailed guidance on inspecting fall arrest equipment made from webbing or rope.  Where appropriate, this should be followed by the ship’s personnel as part of the periodic maintenance and inspection regime for the recovery equipment.
+
+4.8       Active recovery equipment should incorporate automatic control of speed of ascent to a maximum of 2 metres per second and an automatic return of the harness or platform to the recovery to permit successive ascents. In addition, means to stop an ascent and control of swinging motion in ascent should be provided where possible (taking account of the variation in freeboard and tumblehome or flare in ship sides which may be expected).
+
+4.9       Acceptance of a prototype design may be subject to an extended series of test ascents.
+
+4.10     The manufacturer should clearly identify any limitations of recovery equipment to recover incapacitated persons.  The operator of the ship should give due consideration to any such limitation when recovering an incapacitated person.
+
+5. Non-mandatory Guidance for Recovery Equipment on Non-SOLAS Vessels
+
+5.1       At the invitation of the IMO’s Maritime Safety Committee, the SOLAS Regulation III/17-1 requirement to have ship-specific plans and procedures for the recovery of persons in the water and the IMO guidelines set out in MSC.1/Circ.1447, which are repeated in Annex 1 of this MGN should, as far as practicable, be observed by the owners and operators of non-SOLAS vessels, particularly where there is a mandatory requirement to provide equipment for a means of recovery from the water.
+
+5.2       For the purpose of this MGN, non-SOLAS vessels include but are not limited to: 
+
+   5.2.1    small commercial vessels, workboats and pilot boats certificated under the UK Small Commercial Vessel and Workboat Codes of Practice or MGN280;
+
+   5.2.2    cargo ships of less than 500GT engaged on any voyage;
+
+   5.2.3    cargo ships of 500GT and above not engaged on international voyages;
+
+   5.2.4    passenger ships not engaged on international voyages (including those on inland waters);
+
+   5.2.5    fishing vessels;
+
+   5.2.6    high-speed craft under the 1994 and 2000 HSC Codes;
+
+   5.2.7    dynamically supported craft under the DSC Code;
+
+   5.2.8    special purpose ships under the SPS Code and the 2008 SPS Code;
+
+   5.2.9    mobile offshore drilling units under the 1979, 1989 and 2009 MODU Codes;
+
+   5.2.10  class XII pleasure vessels;
+
+   5.2.11  Police Boat Code and Rescue Boat Code vessels; and
+
+   5.2.12  Thames Barges operating under equivalence to the Small Commercial Vessel Codes.
+
+6. Process for MCA Acceptance of Recovery Equipment for Non-SOLAS Vessels
+
+6.1       For the vessel types listed in 5.2 of this MGN, the process and technical specification for accepting recovery equipment as described at sections 3 and 4 of this MGN need not be applied. In short, the equipment need not be type approved by a Nominated Body.
+
+6.2       Where there is a mandatory requirement for a means of recovery in the applicable Code of Practice, the attending surveyor may request a man overboard recovery drill to demonstrate the effectiveness of the equipment and procedures in lifting a 100 kg bulk weight or a 100 kg manikin from the water onto the deck in a safe and controlled manner. This should form part of a risk assessment where time for recovery is assessed against ambient temperature/wind/sea conditions/protective clothing. If the equipment is not fit for purpose then a deficiency may be raised, requiring modifications to be made to the arrangements and procedures.
+
+6.3       If the equipment used as a means of recovery, relies solely on the use of shipboard systems or power, where practicable, a suitable alternative unpowered means of recovery of an unconscious person from the water should be provided.[footnote 1]
+
+6.4       Recovery equipment fitted to non-SOLAS vessels which has been assessed in accordance with the process and technical specification described in sections 3 and 4 of this MGN may require less assessment than equipment which has not, but it is recognised that proposed arrangements for smaller craft may not be suitable for a process of type approval.
+
+6.5       Where there is no mandatory UK requirement for a means of recovery from the water to be approved, and it has been determined that equipment is required to achieve recovery, then such equipment should be assessed by the vessel owner/operator as fit for purpose.
+
+More information
+
+UK Technical Services Ship Standards
+Maritime and Coastguard Agency
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email: MarineTechnology@mcga.gov.uk
+
+Telephone: +44 (0)203 817 2000 
+
+Website: www.gov.uk/mca
+
+•
+Based on recommendations from MAIB report - Fall from a pilot ladder while attempting to board the cargo vessel Finnhawk from the pilot vessel Humber Saturn with loss of 1 life. ↩

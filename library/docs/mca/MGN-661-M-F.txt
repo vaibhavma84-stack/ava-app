@@ -1,0 +1,70 @@
+MGN 661 (M+F) MGN 661 (M+F) Navigation - safe and responsible anchoring and fishing practices
+2021-12-01
+Source: https://www.gov.uk/government/publications/mgn-661-mf-navigation-safe-and-responsible-anchoring-and-fishing-practices
+
+1. Introduction
+
+1.1 United Kingdom Hydrographic Office publication, The Mariner’s Handbook, has detailed guidance provided under the topic “Submarine Pipelines and Cables”. This guidance should be particularly referred with regard to anchor operations and fishing activities, especially if these are to be in the vicinity of such submarine features.
+
+1.2 The above guidance is based on the International Hydrographic Office (IHO) standards and resolutions on the navigational chart specifications. Whereby submarine cables, including disused cables, are charted to clearly indicate their presence to vessels engaged in anchoring, trawling or seabed activities. The publicly available IHO standard, S-4 Part B, Section 400 – Hydrography and Aids to Navigation, provides more details on such seabed features.
+
+2. Damage to Submarine Cables or Pipelines
+
+2.1 As both the Mariners Handbook and the above IHO standard highlight, anchoring and fishing operations near submarine cables or pipelines may create potential hazards, such as:
+
+• imparting electric shock to any vessel fouling or breaking the cable;
+
+• possible capsize of a small vessel if its fishing gear or anchor is trapped under the cable;
+
+• loss of gear (trawls or anchor cables);
+
+• loss of buoyancy due to gas aerated water; and
+
+• fire/explosion around the pipelines.
+
+2.2 Submarine cables support national infrastructure, such as the electricity grid and telecommunications. Pipelines also support national infrastructure and are often used to transport oil or gas under high pressure. Damage to them may affect critical services and can result in serious consequences as well as creating a hazard to mariners.
+
+2.3 It is an offence in United Kingdom and international legislation to damage a cable either wilfully or through culpable negligence. So, damages to a cable or pipeline may result in legal action.
+
+3. Navigational Chart Depiction of Submarine Cables and Pipelines
+
+3.1 When a cable company provides the UK Hydrographic Office with details of planned cable laying activity, a preliminary notice to mariners is issued providing details of the planned cable route and the navigational charts affected. During the cable laying process there may also be coastal and local radio warnings. When the cable has been laid and the final cable positions have been supplied, the UK Hydrographic Office will issue a notice to mariners to insert the cable onto the relevant charts and cancel the preliminary notice to mariners.
+
+3.2 On charts, pipelines carry an appropriate legend, whether Water, Gas or Oil, if known. Additionally, in the case of oil or gas pipelines a suitable cautionary note is shown.
+
+3.3 Areas where anchoring, fishing and other underwater activities are prohibited on account of cables are, where known, usually clearly shown on the chart and mentioned in Admiralty Sailing Directions.
+
+3.4 Masters and skippers of all vessels are reminded of their obligations under International Convention for the Safety of Life at Sea, 1974 (SOLAS), Chapter V, Reg 34 to make a
+careful assessment of planned voyage considering all dangers to navigation,
+weather forecast, tidal predictions and other relevant factors. Therefore, for any vessel
+whose planned activities involve physical interaction with the seabed as discussed above, masters and skippers should ensure that they have the latest available positional data for submarine cables.
+
+4. Industry information and guidance on submarine cables
+
+4.1 In the event of becoming snagged on a submarine cable, do not endanger your vessel and crew by attempting to aggressively retrieve your gear. Guidance for actions during such emergencies are available on the European Subsea Cables Association (ESCA) and Kingfisher Information Service - Offshore Renewables and Cable Awareness (KIS-ORCA) websites, as below:
+
+ESCA: https://www.escaeu.org/emergency-procedures/
+
+KIS-ORCA: https://kis-orca.org/safety/emergency-procedures/
+
+4.2 European Subsea Cables Association has also produced extensive general guidance and advice, as at below links, promoting maritime safety and safe operation in proximity to submarine cables.
+
+Cable Awareness: https://www.escaeu.org/cable-awareness/
+
+Cable Safety: https://www.escaeu.org/cable-safety/
+
+Emergency Procedures: https://www.escaeu.org/emergency-procedures/
+
+More information
+
+United Kingdom Technical Services Navigation
+Maritime and Coastguard Agency
+Bay 2/25
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Tel: +44 (0) 203 8172000
+
+Email: navigationsafety@mcga.gov.uk

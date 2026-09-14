@@ -1,0 +1,119 @@
+MGN 696 (M+F) MGN 696 (M+F) Navigation Safety: Dynamically positioned vessels undertaking diving or other subsea operations
+2024-03-21
+Source: https://www.gov.uk/government/publications/mgn-696-mf-navigation-safety-dynamically-positioned-vessels-undertaking-diving-or-other-subsea-operations
+
+Summary
+
+The purpose of this notice is to give advice to both Dynamically Positioned (DP) Vessels operating in a dive support mode as well as to other vessels that are operating in the vicinity of such vessels, in relation to best practice when applying the provisions stipulated within the International Regulations for Preventing Collisions at Sea 1972 (COLREG).
+
+This MGN replaces MSN 1221 – Dynamically Positioned vessels and the dangers to divers operating from them and has been updated to provide further guidance on the application of COLREG and considerations to be made when operating in the vicinity of DP vessels undertaking diving or other high-risk operations.
+
+1. Introduction
+
+1.1 The attention of mariners is drawn to the special limitations imposed on DP Vessels which by the nature of their work requires them to maintain a position and heading giving optimum control and safety to divers and their equipment (e.g. dive bells and umbilical’s), or other Subsea equipment such as ROV’s and module handling systems.  
+
+These operations may severely impact the ability of a DP vessel to take action as normally required by the COLREG and this type of vessel is therefore deemed to be ‘Restricted in her ability to manoeuvre’.
+
+1.2 Further, these vessels when operating in the diving support mode or engaged in subsea construction are often required to maintain a position close to fixed assets such as oil installation jackets or wind turbine foundations.   Sudden unplanned movement, even small movements like those induced by the wash of a passing ship, has the potential for significant injury to the divers and/or damage to the vessel, it’s subsea equipment or fixed asset.
+
+1.3 Masters and Officers of DP vessels operating as dive support vessels are recommended to read this notice in conjunction with MGN 424 (As amended) – Safety responsibilities on board dive boats, with particular reference to section 3 – Duties of the Master and Crew.
+
+2. Application of COLREG – In any condition of visibility
+
+2.1 Rule 5 of Part B Section I of the COLREG states “Every vessel shall at all times maintain a proper look-out by sight and hearing as well as by all available means appropriate in the prevailing circumstances and conditions so as to make a full appraisal of the situation and of the risk of collision”.
+
+2.2 Masters and Officers of DP vessels undertaking diving or other subsea operations shall therefore ensure that an effective lookout is always maintained and be aware that nothing within the COLREG exempts a vessel from complying fully with the requirements of the regulations when undertaking such operations whilst in DP Mode.
+
+2.3 Bridge visibility on DP vessels can be reduced either by the position of the vessel in comparison to fixed assets or attending vessels, or by the novel design of the vessel such as the position of deck equipment (e.g. lay towers or cranes) or the positioning of the bridge (e.g. beneath helideck support structures or within accommodation modules of semi-submersibles).  A risk assessment describing how the vessel will maintain a proper look-out in compliance with Rule 5 shall be carried out prior to commencing operations.  Additional control measures may include the use of additional visual lookouts at different control stations, use of additional cameras or the attendance of a standby/guard vessel.
+
+2.4 Rule 7 (b) of Part B Section I of the COLREGs states: “Proper use shall be made of radar equipment if fitted and operational, including long-range scanning to obtain early warning of risk of collision and radar plotting or equivalent systematic observations of detected objects”.
+
+2.5 Masters and Officers of DP vessels undertaking diving or other subsea operations shall therefore ensure that an effective radar watch is always maintained.
+
+2.6 Consideration should be made by owners of DP vessels undertaking diving operations on the positioning of navigational equipment in the vicinity of the operational workstations when conducting DP watches to aid the bridge officer in maintaining a navigational watch whilst on DP.
+
+2.7 When operating in close proximity to surface structures, due consideration shall be given to the interaction between the vessel’s navigational sensors and the structure.  This shall include, but not limited to, blind zones of visual or electronic means of look out and shadowing/multipath errors in position sensors.
+
+3. Application of COLREG – In sight of one another
+
+3.1 Rule 18 of Part B Section II of the COLREG describes the responsibilities between vessels when in sight of one another.  A power-driven vessel and a sailing vessel shall keep out of the way of a vessel restricted in her ability to manoeuvre.
+
+3.2 In view of these considerations, mariners are requested to give as wide a berth as possible to vessels displaying the signals required by Rule 27 paragraphs (b) and (d) as applicable of the International Regulations for Preventing Collisions at Sea 1972 (COLREG), as amended having due regard to the special operations they are carrying out.
+
+3.3 If, due to the limitations of the operational area and/or traffic density, a vessel is unable to maintain at least a 0.5nm Closest Point of Approach (CPA) with a vessel displaying the signals required by Rule 27 paragraphs (b) and (d), they should reduce speed so as to reduce the effect of wash on the vessel engaged in diving or other subsea operations.
+
+3.4 Consideration shall also be placed on assessing vessel speed when overtaking a DP vessel undertaking diving or other subsea operations as per Rule 6 of the COLREG, taking into account the special nature of the operations.
+
+3.5 Vessels engaged in Fishing shall ensure that, as far as possible, they keep out of the way of a vessel restricted in her ability to manoeuvre. Notwithstanding this, a DP Vessel undertaking diving or subsea operations shall have due regard to Rule 8 (f) (iii) and the actions that may be required to avoid a collision, in the event that they need to take action.
+
+3.6 Mariners should be aware that a DP vessel undertaking diving or other subsea operations may not be moving in the direction of its heading and may be making lateral or astern longitudinal movements whilst weather veining.
+
+4. Application of COLREG – Restricted Visibility
+
+4.1 The responsibilities between vessels as stated within Rule 18 apply only when vessels are in sight of one another. A vessel restricted in her ability to manoeuvre which expects an approaching vessel to keep out of their way under normal responsibilities between vessels as described in Rule 18, shall have due regard to the requirements to take avoiding action under Rule 19 and Rule 8 (f) (iii) when a risk of collision exists during periods of restricted visibility. Further guidance on operating within restricted visibility can be found in MGN 369 (As amended) – Navigation Safety: Navigation in Restricted Visibility.
+
+4.2 It is recommended therefore that DP Vessels undertaking diving or other subsea operations have clear procedures in place to ensure that officers are given clear instruction on how to safely maintain or cease subsea operations during times of restricted visibility.  Consideration should be given to including these instructions in the Masters Standing Orders and company Safety Management System (SMS).
+
+4.3 When DP Vessels are utilising decision support tools such as Activity Specific Operating Guidelines (ASOG) it is recommended that Restricted Visibility is identified within the action and condition table.  Further guidance on ASOG and operational activity planning can be found for IMCA members in IMCA M220 (www.imca-int.com) and freely available guidance can be found in 182 MSF – The Safe Operation of Dynamically Positioned Offshore Supply Vessels (www.marinesafetyforum.org).
+
+5. Application of COLREG – Light, Day and Sound Signals
+
+5.1 DP vessels which are engaged in diving or other subsea operations and are ‘Restricted in their ability to Manoeuvre’ shall ensure that day signals in compliance with the provisions of Rule 27 of the COLREG are displayed during hours of daylight.
+
+5.2 When engaged in diving operations it is recommended that such vessels display the single letter ‘A’ from the International Code of Signals positioned where it can best be seen.
+
+5.3 DP vessels which are engaged in diving or other subsea operations and are ‘Restricted in their ability to Manoeuvre’, during the hours of sunset to sunrise and at other times when operating in or near an area of restricted visibility, shall display the additional navigational lights as required by the Provisions of Rule 27 of the COLREG.
+
+5.4 A vessel passing another vessel which is displaying the lights prescribed in Rule 27 (d) shall have due regard for the side which has been identified as having an obstruction as this may indicate the presence of dive equipment such as umbilical’s, cages or dive bells.
+
+5.5 When operating in or near an area of restricted visibility, whether by day or night, vessels shall sound the signals prescribed within the provisions of Rule 35 (c) of the COLREGs.
+
+5.6 Attention is also drawn to the provisions of Rule 36 of the COLREGs which enables a vessel to make signals to attract attention of another vessel to alert her to a danger which may exist.
+
+6. Operations within a 500m Safety Zone
+
+6.1 Under the Petroleum Act 1987, offshore installations within the United Kingdom Continental Shelf (UKCS) maintain a 500m safety zone.  As outlined in Section 23 of the act, it is an offence to enter without permission from the installations Offshore Installation Manager (OIM) or their designated Marine Responsible Person.
+
+6.2 UK installation Duty Holders are required by legislation to have a collision risk management system in place which assesses the risk of collision between attending vessels and the installation as well as collisions between attending vessels.  The collision risk management system shall have procedures in place to help control vessel movements within the 500m zone and give guidance to the OIM and the Marine Responsible Person on effective vessel co-ordination as well as to enforce the authority of the OIM to suspend, cancel or prevent commencement of any operation which may increase the risk of a vessel collision.
+
+6.3 Co-ordination of multiple attending vessels within the 500m safety, including DP vessels undertaking diving or other subsea operations is the responsibility of the installation OIM or their designated Marine Responsible Person.  This does not however, relieve the Master or Officers of a DP vessel undertaking such operations within a 500m safety zone of their responsibilities to take any avoiding action as may be required by the COLREG.
+
+6.4 When taking action to avoid collision, consideration should be given to co-ordination instructions issued to attending vessels and to the time limitations in place for vessels operating with divers in support of an offshore structure.
+
+6.5 Other attending vessels, whilst performing support duties within the 500m safety zone and in the vicinity of DP vessels undertaking diving or other subsea operations shall have due regard to the dangers imposed on divers and subsea assets by the wash of their vessel and the propulsion systems in use and shall give adequate sea room to such vessels.
+
+7. Navigational Warnings
+
+7.1 A DP Vessel should, before commencing diving or other subsea operations, ascertain that no other vessel is operating in its immediate vicinity.  The DP vessel shall also broadcast on the appropriate frequencies a navigation warning to all ships indicating the nature of its operation and such broadcast should be repeated at appropriate intervals whilst the operation is in progress.
+
+7.2 When conducting operations in an area of managed traffic, such as a Vessel Traffic Services (VTS) area, then the relevant coast station should be informed prior to commencing operations.
+
+7.3 Consideration shall be placed into the issuing of a Navigational Warning.  Further guidance on the criteria of warnings and contact details can be found on the gov.uk website (https://www.gov.uk/government/publications/navigational-warnings-reporting-and-broadcasting-hazards-at-sea/navigational-warnings) as well as the Admiralty List of Radio Signals Volumes 3 & 5 and The Mariners Handbook NP100.
+
+8. Additional Considerations
+
+8.1 It is recommended that DP vessels undertaking diving or other subsea operations amend their AIS (Automatic Identification System) to Navigation Status 3 – Restricted Manoeuvrability.
+
+8.2 When DP Vessels are utilising decision support tools such as Activity Specific Operating Guidelines (ASOG) as described in Section 4.3 of this document it is recommended that COLREG compliance requirements are identified within the action and condition table.  It is also recommended that such documents also provide references to contingency procedures to assist the Mariner in ensuring the safety of divers operating from them when dealing with a close quarter’s situation.
+
+8.3 DP Vessels operating in accordance with the Training and Familiarisation requirements stipulated within IMCA M117 (www.imca-int.com) are recommended to include COLREG compliance as part of their onboard familiarisation and consider implementing COLREG elements into the vessels DP system emergency drills and exercises.
+
+More information
+
+Technical Services – Navigation
+Maritime and Coastguard Agency
+Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0) 23 8032 9316
+
+Email: infoline@mcga.gov.uk
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

@@ -1,0 +1,105 @@
+MGN 276 (M+F) MGN 276 (M+F) Amendment 1: Fire protection - maintenance of portable fire extinguishers
+2023-04-20
+Source: https://www.gov.uk/government/publications/mgn-276-mf-amendment-1-fire-protection-maintenance-of-portable-fire-extinguishers
+
+Summary
+
+Portable fire extinguishers are pressure containers that require correct maintenance. The marine environment can be harsh and special care is needed to ensure long-term safe operation. This amendment includes updates to include guidance for fire extinguishers with composite bodies and to the most up to date version of relevant standards.
+
+1. Introduction/Background
+
+1.1 Fatalities have previously occurred due to people operating marine portable fire extinguishers which have been attributed to corrosion of the extinguisher bases. The structure in these cases was weakened to such an extent that the extinguishers exploded when activated.
+
+1.2 The need for examination and testing of portable fire extinguishers is specified in the UK and international legislation listed at the end of this notice.
+
+1.3 The maintenance requirements for portable fire extinguishers are detailed in British Standard BS 5306 Part 3: 2017, BS EN 1802:2002 (Aluminum) and BS EN 1968:2002 (Steel).
+
+1.4 Table 1 below is based on BS 5306 and indicates the intervals for basic service, extended service and overhaul. However, the marine environment can be harsh and the International Maritime Organization’s Resolution A.951(23) provides for additional checks to ensure safety of portable fire extinguishers.
+
+Table 1 : Extinguisher Servicing Intervals
+
+Type of portable extinguisher
+Basic service
+Extended service (test discharge)
+Overhaul (hydraulic test)
+
+Water, foam, & water based
+Every year
+Every 5 years
+Every 10 yearsc
+
+Powder
+Every year
+Every 5 years
+Every 10 yearsc
+
+Powder – primary sealed
+Every year
+Every 10 yearsa
+
+Every 10 yearsc
+
+CO2
+Every year
+Every 5 yearsb
+
+Every 10 years
+
+Powder, Foam – Composite Cylinder
+Every Year
+Every 10 Years
+Every 10 Years
+
+a Primary sealed portable fire extinguishers should be returned to the manufacturer/supplier for recharge.
+
+b This service is only necessary for cylinders which have been previously hydraulically tested.
+
+c IMO Resolution A.951 (23).
+
+1.5 The maintenance procedures (basic, extended service and overhaul) should be carried out by a “Competent Person”. This is defined in the British Standard as a “Person with the necessary training and experience, with access to the relevant tools, equipment and information, manuals and knowledge of any special procedures recommended by the manufacturer of the portable fire extinguisher, to carry out the relevant maintenance procedures”.
+
+1.6 The MCA interpretation of “Competent Person” in this case is that basic and extended services may be carried out onboard ship under the supervision of an experienced and appropriately trained person who has sufficient technical knowledge or experience to enable them to avoid danger. It is the duty of the authorising officer issuing a permit to work covered by these rules to satisfy themselves that persons are competent to carry out the work involved. This must be an experienced person holding a Merchant Shipping STCW II/2 or III/2 unlimited certificate of competency and an Advanced Fire Fighting certificate. This should be carried out as part of a Planned Maintenance System with all necessary procedures, work instructions, tools and equipment readily available.
+
+1.7 During these services any plastic collars, etc. which may conceal the condition of the cylinder underneath need to be removed to aid in the inspection.
+
+1.8 Each extinguisher should be provided with a sign (maintenance label) indicating that it has been examined on a certain date by a competent person.
+
+1.9 The MCA may inspect premises servicing portable fire extinguishers or other firefighting equipment for use on UK ships and fishing vessels to ensure correct maintenance standards are being applied.
+
+2. Regulations and standards for maintenance of portable fire Extinguishers
+
+2.1 SOLAS Chapter II-2 Regulations 10-3 and 14.
+
+2.2 IMO Resolution A.951 (23) Improved Guidelines for Marine Portable Fire Extinguishers.
+
+2.3 Merchant Shipping (Fire Protection) Regulations 2003, SI 2003 / 2951, Merchant Shipping (Fire Protection: Small ships) Regulations 1998 – Regulation 35(2), Merchant Shipping Notice MSN 1665(M) - Schedule 8 Paragraph 5, The Fishing Vessels (Codes of Practice) Regulations 2017.
+
+2.4 British Standards may be obtained from the British Standards Institution, Customer Services:
+
+Tel: 02089 969 000
+
+Fax: 02089 967 001
+
+2.5 IMO publications may be obtained from the IMO website at www.imo.org.
+
+2.6 UK regulations and notices may be obtained from the government website https://www.gov.uk/government/publications.
+
+More Information
+
+Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Tel: +44 (0) 203 8172000
+
+e-mail: marinetechnology@mcga.gov.uk
+
+Website Address: www.gov.uk/government/organisations/maritime-and-coastguard-agency
+
+General Enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing

@@ -1,0 +1,492 @@
+MSN 1747 (M) MSN 1747 (M) Amendment 1 Sea areas associated with the Merchant Shipping (Passenger Ships on Domestic Voyages) Regulations 2000
+2022-03-17
+Source: https://www.gov.uk/government/publications/msn-1747-m-amendment-1-sea-areas-associated-with-the-merchant-shipping-passenger-ships-on-domestic-voyages-regulations-2000
+
+Summary
+
+This Amendment to MSN 1747(M) updates an Annex of this Statutory Notice to reflect more detailed information which has been obtained on sea states in certain areas. It also updates the MSN to reflect changes in the law and the status of the UK in relation to the EU, including updated definitions of Sea Areas.
+
+The original MSN 1747(M) was published to fulfil an obligation required by Article 4.2 of Council Directive 98 / 18 / EC of 17 March 1998 on Safety Rules and Standards for Passenger Ships and set out the sea areas around the United Kingdom which fell within the definitions of EU Sea Areas C and D. Following departure from the EU, the UK has chosen to retain the Sea Areas to support other UK maritime legislation which refers to them, including the UK regime which stemmed from the EU Directive, and also the Small Seagoing Passenger Ships Code.
+
+Key points
+
+•
+This notice augments S.I. 2000 No. 2687 The Merchant Shipping (Passenger Ships on Domestic Voyages) Regulations 2000 (as amended).
+
+•
+The boundaries of one sea area designated for Northern Ireland at the end of Annex 1 to this revised MSN have been updated. Other sea areas remain the same as those laid out in the original version of this MSN.
+
+1. Introduction
+
+1.1 The Merchant Shipping (Passenger Ships on Domestic Voyages) Regulations 2000 (“the 2000 Regulations”) originally implemented Council Directive 98 / 18 / EC on “Safety Rules and Standards for Domestic Passenger Ships”. Although the UK has now left the EU, the sea areas designated are still required, to enable the continued functioning of UK maritime law which references them. The definitions of Sea Areas shown in this amendment are as updated by the latest amending Directive, Directive 2017/2108/EU, and implemented by the Merchant Shipping (Safety Standards for Passenger Ships on Domestic Voyages) (Miscellaneous Amendments) Regulations 2020.
+
+2. Ship classes and sea areas
+
+2.1 These Regulations identify four domestic passenger ship classifications as follows: Classes A, B, C and D, as in the Directive. Classes B, C and D are equivalent to Class III, Class VI, and Class VI(A) passenger vessels respectively.
+
+2.2 The Annexes to this Merchant Shipping Notice set out the geographical extent of (formerly EU) sea areas “C“ and “D“ identified as applicable in waters around the United Kingdom. These sea areas are given statutory force by way of Regulation 3(2) of the 2000 Regulations.
+
+2.3 The Maritime & Coastguard Agency commissioned the Marine Consultancy Service of the Meteorological Office to investigate significant wave height in waters around the United Kingdom. The Report for Maritime and Coastguard Agency Research Proposal RP626 (replacing Project Report No. 422) forms the basis of this Notice. The boundaries of one sea area designated for Northern Ireland at the end of Annex 1 to this revised MSN have been updated. Other sea areas remain the same as those laid out in the original version of this MSN.
+
+2.4 The sea area definitions were updated prior to the UK’s departure from the EU, so the sea area definitions cited in the original version of MSN 1747(M) are updated as follows to reflect this:
+
+Sea Area C:
+
+Sea areas where the probability of exceeding 2.5 m significant wave height is smaller than 10% over a one-year period for all year round operation, or over a specific restricted period of the year for operation exclusively in such a period (e.g. summer period operation), not more than 5 miles from the line of the coast, corresponding to the medium tide height.
+
+Sea Area D:
+
+Sea areas where the probability of exceeding 1.5 m significant wave height is smaller than 10% over a one-year period for all year round operation, or over a specific restricted period of the year for operation exclusively in such a period (e.g. summer period operation), and the geographical coordinates of which are at any point no more than 3 miles from the line of the coast, corresponding to the medium tide height.
+
+2.5
+
+(a) the term “Port Waters”, within the context of the 2000 Regulations is interpreted by the United Kingdom as having the same meaning as “categorised waters”. For the extent of Port Waters within the United Kingdom, reference should be made to MSN 1837(M) Amendment 2 - Categorisation of Waters.
+
+(b) It is important not to confuse the categorisation of non-sea waters, as set out in MSN 1837 Amendment 2, relating to inland waterways, lakes, port waters and associated tidal rivers and estuaries, with the classification of coastal sea areas set out here in MSN 1747 Amendment 1. The former refers to Category A, B, C and D waters and the latter refers to sea areas D, C, B and A (in opposite progression of risk.
+
+2.6 The designations shown in Annex 1 are for all of the year, those in Annex 2 for the summer, which means the months of April to October, inclusive.
+
+More information
+
+UK Maritime Services, Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+Email: dpv@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Annex 1 “ALL YEAR” operation
+
+The following notes apply to all Tables:
+
+1) All directions are anti clockwise unless otherwise stated.
+
+2) Sea Areas C and D may run to seaward of categorised waters unless otherwise stated.
+
+1. South Coast
+Sea Area D
+Sea Area C
+
+Lands End to North Foreland
+Nare Point to Dodman Point
+Black Head to Bolt Head
+
+ 
+Dodman Point to Gribbin Head
+ 
+
+ 
+Hope’s Nose to Straight Point
+Start Point to Portland Bill
+
+ 
+Straight Point to Beer Head
+ 
+
+ 
+The Nothe, Weymouth to Redcliff Point
+Portland Bill to North Foreland
+
+2. East Coast
+Sea Area D
+Sea Area C
+
+North Foreland to Duncansby Head
+Forness Point to Colne Point
+North Foreland to Buchan Ness
+
+ 
+Buckie to the Ord of Caithness
+Kinnaird Head to Duncansby Head
+
+3. North Coast
+Sea Area D
+Sea Area C
+
+Duncansby Head to Cape Wrath (excluding the Orkney Islands and the Shetland Isles)
+No Sea Area D
+No sea Area C
+
+4a. West Coast Cape Wrath to Mull of Kintyre (excluding the Outer Hebrides, The Small Isles, Coll, Tiree, Iona and Colonsay
+Sea Area D
+Sea Area C
+
+On the mainland
+Longa Island in Loch Gairloch, to An Fhaochag, (57° 04’N 005° 47.8’W) by Dun Ban Bay
+Rubha Reidh (57° 51.5’N 005° 48.7’W) to Mallaig and within an area east of a line joining Point of Sleat to Ockle Point, Ardnamurcham Peninsula
+
+ 
+ 
+Auliston Point, Sound of Mull to Rhunahaorine Point, Kintyre, in the Sound of Gigha
+
+On the Isle of Skye
+Eilean Flodigarry clockwise to Kilbeg Point (57o 05.25’N 005o 52.2’W) including Rona, Raasay and Scalpy
+Waternish Point clockwise to Strathaird Point / Rubha nah- Easgainne (57° 07.6’N 006° 05.0’W)
+
+On Jura and Islay:
+No Sea Area D
+Northernmost point on Aird of Kinuachdrachd, Jura (56o 07.8’N 005° 41.2’W) clockwise to Ardmore Point, Islay
+
+4b. West Coast Mull of Kintyre to Lands End
+Sea Area D
+Sea Area C
+
+On the mainland
+No Sea Area D
+Carradale Point clockwise to Corsewall Point on the Rhinns of Galloway
+
+ 
+ 
+Corsewall Point on the Rhinns of Galloway to Carmel Head on the Isle of Anglesey
+
+On the Isle of Arran
+No Sea Area D
+Whitefarland Point clockwise to Dippen Head
+
+In cardigan Bay
+No Sea Area D
+St Tudwal’s Island to Strumble Head
+
+In the Bristol Channel
+Mumbles Head to Foreland Point
+Caldey Island to Hartland Point
+
+5. The Orkney Islands
+Sea Area D
+Sea Area C
+
+ 
+No Sea Area D
+Within a line from:-
+Start Point, Sanday to Burgh Head, Stronsay
+
+ 
+ 
+Lamb Head, Stronsay to Auskerry Light to Point of Ayre, Deerness
+
+ 
+ 
+The Causeways connecting the Mainland, Burray and South Ronaldsay
+
+ 
+ 
+Hoxa Head, South Ronaldsay to Stanger Head, Flotta to Cantick Head, South Walls
+
+ 
+ 
+Bu Point, Hoy to Point of Oxan, Graemsay to the Ness, Stromness
+
+ 
+ 
+Point of Hisber, Mainland to Moa Ness, Rousay
+
+ 
+ 
+Saviskaill Head, Rousay to Point of Huro, Westray
+
+ 
+ 
+Weather Ness, Westray to Red Head, Eday to Whale Point, Sanday
+
+6. The Shetland Isles
+Sea Area D
+Sea Area C
+
+ 
+No Sea Area D
+Within a straight line from:-
+Blue Mull, Unst to Papil Ness, Yell
+
+ 
+ 
+Heoga Ness, Yell to Funzie Ness, Fetlar
+
+ 
+ 
+Strandburgh Ness, Fetlar to The Nev, Unst
+
+7. The Outer Hebrides
+Sea Area D
+Sea Area C
+
+In the Little Minch
+ 
+Tolsta Head, the Isle of Lewis to Rubha Mhic Gille-mhicheil, North Uist
+
+Isle of lewis
+From Chicken Head on the Eye Peninsula to Kebock Head
+ 
+
+Isle of Harris
+Within an area west of a line joining Rubh Uisenis to Rubha Bhocaig
+ 
+
+The Small Isles
+No Sea Area D
+No Sea Area C
+
+Coll and Tiree
+No Sea Area D
+No Sea Area C
+
+Iona
+No Sea Area D
+No Sea Area C
+
+Colonsay
+No Sea Area D
+No Sea Area C
+
+8. The Scilly Isles
+Sea Area D
+Sea Area C
+
+ 
+No Sea Area D
+No Sea Area C
+
+9. Northern Ireland
+Sea Area D
+Sea Area C
+
+Mainland
+No Sea Area D
+No limits (within definition of Sea Area C)
+
+On Rathlin Island
+No Sea Area D
+From Bull Point anticlockwise to Rue Point
+
+Annex 2 “ Summer Only” Operation (April to October inclusive)
+
+The following notes apply to all Tables:
+
+1) All directions are anti clockwise unless otherwise stated.
+
+2) Sea Areas C and D may run to seaward of categorised waters unless otherwise stated.
+
+1. South Coast
+Sea Area D
+Sea Area C
+
+Lands End to North Foreland
+Black Head to Rame Head
+Tater-du, Cornwall to North Foreland passing to the south of the Isle of Wight
+
+ 
+Berry Head to Blacknor Point, Portland
+ 
+
+ 
+Grove Point, Portland to Rope Lake Head
+ 
+
+ 
+Anvil Point / Durlston Head to Category D waters in Western Solent (Hurst Point)
+ 
+
+ 
+From Category D waters in the Eastern Solent to Selsey Bill
+ 
+
+ 
+Selsey Bill to Newhaven
+ 
+
+ 
+Easternmost Martello Tower, Pevensey Bay (50° 49.3’N 000o 23.3’E) to North Foreland
+ 
+
+2. East Coast
+Sea Area D
+Sea Area C
+
+North Foreland to Duncansby Head
+North Foreland to (the harbour at) Southwold
+North Foreland to Duncansby Head
+
+ 
+Gibraltar Point to Flamborough Head
+ 
+
+ 
+Hartlepool to Seaton Point (Northumberland)
+ 
+
+ 
+Fast Castle Head to Buchan Ness
+ 
+
+ 
+Scar Nose, Banffshire to Clyth Ness, Caithness
+ 
+
+3. North Coast
+Sea Area D
+Sea Area C
+
+Duncansby Head to Cape Wrath
+No Sea Area D
+Duncansby Head to Faraid Head, Caithness
+
+4a. West Coast Cape Wrath to Mull of Kintyre (excluding the Outer Hebrides, The Small Isles, Coll, Tiree, Iona and Colonsay
+Sea Area D
+Sea Area C
+
+On the Mainland
+Rubha Reidh (57° 51.6’N 005° 48.7’W) to Rubha Reamhar, Mallaig (56° 59.4’N 005° 50.5’W
+Cape Wrath to Rubha Aird Druimnich (56° 47.1’N 005° 57.9’W) Loch Ceann Traigh, Ardnamurchan
+
+ 
+Auliston Point, Sound of Mull to Rhunahaorine Point, Kintyre including Lismore, Kerrera, Seil, Luing
+Sròn Bheag(56° 41’N 006° 08.6’W) Ormsaigmore, on the south side of the Ardnamurchan Peninsula to Pendene, Cornwall, including Ghiga, the Isle of Arran and Anglesey
+
+On the Isle of Skye
+Waternish Point clockwise to Rubha Phoil (57o 03.6’N 005o 53.6’W), Armadale including Rona, Raasay and Scalpy
+Neist Point, clockwise to Point of Sleat and within an area east of a line from Point of Sleat to Rubha nah-Easgainne (57 o 07.6’N 006 o 05.0’W)
+
+On the Isle of Mull
+Rubba nan Gall,Tobermory, clockwise to Rudha Dubh, Loch Buie, Mull
+Ardmore Point clockwise to Rudha Ardalanish on the Ross of Mull
+
+On Jura
+Northern most point on Aird of Kinuachdrachd, Jura
+ 
+
+ 
+(56o 07.8’N 005 o 41.2’W) clockwise in the Sound of Jura and west in the Sound of Islay to Carraigh an t- Sruith, north of the Feolin Ferry
+ 
+
+On Islay
+Rubha a’Mhail, north of the Feolin Ferry, Port Askaig south to Rubha Liath (55° 43.4’N 006° 01.7’ W)
+ 
+
+4b. West Coast Mull of Kintyre to Lands End
+Sea Area D
+Sea Area C
+
+On the Mainland
+From Farland Head to the Heads of Ayr
+Sròn Bheag (56° 41’N 006° 08.6’W)
+
+ 
+Mull of Galloway to Barsalloch Point
+Ormsaigmore, on the south side of the Ardnamurchan Peninsula to Pendene, Cornwall, including Ghiga, the Isle of Arran and Anglesey
+
+ 
+Cairn Head to Dunrod Point, Galloway
+ 
+
+ 
+Hilpsford Point Cumbria to Rossal Point, Lancashire
+ 
+
+ 
+Stanner Point, Lancashire to Point Lynas, Anglesey
+ 
+
+ 
+Mochras Point, Anglesey to New Quay Head, Cardigan Bay
+ 
+
+On the Isle of Arran
+Whitefarland Point to Kingscross Point
+ 
+
+In the Bristol Channel
+Worms Head to Bull Point
+No Sea Area C
+
+5. The Orkney Islands
+Sea Area D
+Sea Area C
+
+ 
+No Sea Area D
+a) North and West of the Orkney Isles to the south and east of a line bounded by:- Dennis Head, North Ronaldsay to Mull Head, Papa Westray to Noup Head, Westray to Costa Head, Main land
+
+ 
+ 
+b) South of the Orkney Isles within a line bounded by Brough Head, Mainland to Rora Head, Hoy and within 5 miles of a line joining:-
+
+ 
+ 
+Rora Head, Hoy to Tor Ness, Hoy to Old Head, South Ronaldsay
+
+ 
+ 
+c) East of the Orkney Isles from Start Point, Sanday to within 5 miles of a line joining :- Auskerry Light to Copinsay Light to Old Head, South Ronaldsay
+
+6. The Shetland Isles
+Sea Area D
+Sea Area C
+
+ 
+No Sea Area D
+a) Within a line from Lamba Ness, Unst to Head of Hosta, Fetlar to Skaw Taing, Whalsay
+
+ 
+ 
+Within a line from Clett Head, Whalsay to Score Head, Brassay
+
+ 
+ 
+Within a line from the south end of Ness of Sound, Mainland to Kirkabister Ness, Bressay
+
+ 
+ 
+b) St. Magnus Bay within a line from Matta Taing, Mainland to Fogla Skerry, Papa Stour to Skerry of Eshaness, Mainland
+
+ 
+ 
+c) Ronas Voe within a line from :- Galti Stack, Mainland to Ketligill Head, Mainland
+
+7. The Outer Hebrides
+Sea Area D
+Sea Area C
+
+In the Little Minch
+Rubha an Tiumpain on the Eye Peninsula, the Isle of Lewis to the entrance to Renish Point, South Harris
+The Butt of Lewis south to Ushenish, South Uist
+
+The Small Isles
+No Sea Area D
+No Sea Area C
+
+Coll and Tiree
+No Sea Area D
+No Sea Area C
+
+Colonsay
+No Sea Area D
+No Sea Area C
+
+8. The Scilly Isles
+Sea Area D
+Sea Area C
+
+ 
+No Sea Area D
+No Sea Area C
+
+9. Northern Ireland
+Sea Area D
+Sea Area C
+
+Mainland
+Runaby Head to Burr Point
+No limits (within definition of Sea Area C)
+
+On Rathlin Island
+No sea Area D
+From Bull point anticlockwise to Rue Point

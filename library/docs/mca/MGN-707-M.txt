@@ -1,0 +1,130 @@
+MGN 707 (M) MGN 707 (M) MLC, 2006 - provision of social connectivity and internet access
+2026-03-19
+Source: https://www.gov.uk/government/publications/mgn-707-m-mlc-2006-provision-of-social-connectivity-and-internet-access
+
+Summary
+
+This notice provides guidance regarding social connectivity and internet access which are included in the Maritime Labour Convention, 2006.
+
+1. Introduction
+
+1.1 In 2022, the International Labour Organization’s Special Tripartite Committee on the Maritime Labour Convention, 2006 (MLC) agreed eight amendments to the MLC. One of these amendments was the introduction of social connectivity in Standard A3.1 – accommodation and recreational facilities and the introduction of internet access in Guideline B3.1.11 – recreational facilities, mail and ship visit arrangements.
+
+2. Social connectivity – standard A3.1
+
+2.1 Social connectivity encompasses ways of enabling seafarers to maintain contact with their families through mechanisms such as social media, email and other messaging apps. Improving social connectivity onboard is an important step towards tackling onboard isolation and loneliness for those who are away from home for long periods of time, and is intended to improve mental health onboard.
+
+2.2 Regulation 29 of the Merchant Shipping (Maritime Labour Convention) (Miscellaneous Amendments) Regulations 2026 introduces a requirement for seafarers to be provided with social connectivity facilities in all parts of the crew accommodation of a ship except storerooms. “Social connectivity” means connectivity to internet services for social communication and social engagement purposes. A breach of regulation 29 is an offence by the shipowner.
+
+This requirement does not apply to any of the following:
+
+•
+seafarers who do not live and work on board the ship
+
+•
+seafarers who are not on board the ship
+
+•
+seafarers who work on board a ship which starts and finishes a voyage on the same day
+
+•
+seafarers who work on board a ship while the ship is operating within an area, or is transiting waters in an area, where availability of social connectivity services is absent, or inefficient, due to reasons beyond the control of the shipowner.
+
+2.3 It is also recognised that there may be times when, for security reasons, social connectivity may be unavailable.
+
+2.4 Short term outages due to technical issues are accepted as inevitable and shall not constitute a breach of this policy, as long as best endeavours are made to resolve problems as quickly as practicable.
+
+3. Internet access – Guideline B3.1.11
+
+3.1 Guideline B3.1.11 of the MLC states that shipowners should, so far as reasonably practicable, provide seafarers on board their ships with internet access, with charges, if any, being reasonable in amount.
+
+3.2 Internet access in this context goes beyond the internet access to use social connectivity services, such as video streaming, gaming etc. Internet access is also helpful for seafarers to oversee their financial and health situations and other arrangements.
+
+3.3 It is recognised that there may be times where availability of internet access is absent, or ineffective or times when, for security reasons may be unavailable.
+
+3.4 When considering what reasonable access means, a number of factors should be considered:
+
+•
+options of technology available to all seafarers on board, e.g. PC, laptop, handheld devices.
+
+•
+awareness of areas on board which could impact network signals when using handheld devices.
+
+•
+charging areas for seafarer’s devices and their safe use (see Code of Safe Working Practices for Merchant Seafarers (COSWP) Chapter 3.15)
+
+•
+spaces available for seafarers use whilst on breaks or when not working.
+
+3.5 Options include, but are not limited to, increasing bandwidth sufficiently to absorb the increased use of onboard internet access on seafarers’ own devices, or providing access to a Wi-Fi or broadband-enabled device in a central location, such as a mess room. The number of shared devices needs to be adequate for the number of seafarers using them, and consideration should be given to the privacy of their location.
+
+4. Charges for internet access
+
+4.1 It is recommended that sufficient bandwidth for social connectivity is provided at no charge to each seafarer each day. This should be of sufficient speed and quality to enable access to applications such as web based messaging and call services including transmission of photographs and short videos, emails, basic social media sites/applications, websites and internet banking. This allows seafarers to contact their family and friends and monitor life administration tasks such as banking/finances daily.
+
+4.2 There is no mandatory requirement for the provision of streaming services or other data intensive applications, however, it should be noted that access to streaming services and data intensive applications may support seafarer welfare.
+
+4.3 Internet access should be given at no cost to the seafarer, however, if charges are required, they should be reasonable in amount. If charges are applied, the charges should be reached through discussion with trade unions if collective bargaining agreements exist.
+
+5. On-board social activities
+
+5.1 Shipowners and leadership on board and ashore should actively promote social interaction amongst crew and provide appropriate facilities and equipment to do this. Research has shown that favoured activities on board include barbeques, sports games such as table tennis, basketball etc. game consoles such as PlayStation, Xbox etc. and celebrating occasions such as birthdays and religious holidays. However the research also noted that social connectivity onboard vessels need not be promoted only through formal events and that informal events such as mealtimes and coffee breaks can provide vital occasions for interaction.
+
+6. Cyber Security
+
+6.1 As the worldwide web has grown, so has online fraud. Cyber attacks in the maritime sector can threaten any number of technological assets, causing operation safety or security failures, or enabling access to commercially sensitive information and person data. It is important to understand that all employees, including seafarers, represent vulnerabilities in an organisation’s cyber security. The provision of internet access for seafarers gives cyber terrorists opportunities to access systems from less secure connections, so effective safeguards and proper awareness of the risks of using internet services are essential.
+
+6.2 The International Maritime Organization’s Maritime Safety and Facilitation Committees have jointly published Guidelines on Maritime Cyber Risk Management. These guidelines provide high-level recommendations for maritime cyber risk management.
+
+6.3 Further support and guidance on staying safe online can also be found through the UK Government’s anti-online fraud campaign.
+
+6.4 Tips for keeping yourself and others safe online:
+
+•
+make sure you follow company rules for internet use and use of personal devices on board.
+
+•
+update your computer’s anti-virus and firewall software regularly.
+
+•
+don’t click on links from people or companies you don’t know.
+
+•
+don’t send money to people you don’t know or have never met in person.
+
+•
+change your passwords regularly and make sure they don’t include the names or dates of birth of loved ones, or an easy sequence like 12345.
+
+•
+keep social media profiles private.
+
+•
+don’t add people you don’t know on social media.
+
+•
+ask for permission before sharing pictures of other crew members or the vessel.
+
+7. Making complaints under the MLC
+
+7.1 Where there is reason to believe that a breach of the MLC has occurred it should be reported through the onboard complaints procedure, following details provided within the terms and conditions of a seafarer’s employment agreement. MSN 1849 (M) Amendment 1 MLC, 2006 on-board complaint procedures contains further guidance on the use and content of the onboard complaints procedure.
+
+7.2 A seafarer is also entitled to use an onshore complaint system under the MLC. The MCA can be contacted at mlc@mcga.gov.uk, providing full details of the complaint. See MGN 487 (M) amendment 2 MLC 2006: Onshore complaints for further guidance.
+
+8. More information
+
+Seafarer Safety and Health
+
+Maritime and Coastguard Agency
+Bay 2/17
+
+Spring Place
+
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Safety and Health Enquiries 0203 817 2000
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

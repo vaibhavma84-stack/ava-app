@@ -1,0 +1,171 @@
+MSN 1871 MSN 1871 Amendment No. 2 (F) The Code of Practice for the Safety of Small Fishing Vessels of less than 15m Length Overall
+2021-09-06
+Source: https://www.gov.uk/government/publications/msn-1871-amendment-no-2-f-the-code-of-practice-for-the-safety-of-small-fishing-vessels-of-less-than-15m-length-overall
+
+Notice to all Owners, Designers, Builders, Employers, Skippers and Crew of Fishing Vessels.
+
+This notice should be read with in conjunction with the Fishing Vessels (Code of Practice)
+Regulations 2017 No.943 and the Merchant Shipping (Work in Fishing Convention) Regulations
+2018 No.1106 and replaces MSN 1871 Amendment 1 – The Code of Practice for the Safety of Fishing Vessels of less than 15.
+
+Summary
+
+This Notice provides a Code of Practice for the Safety of Small Fishing Vessels of less than
+15m Length Overall, replacing MSN 1871 Amendment No.1 and this amendment applies new requirements for new and existing vessels relating to:
+
+• Construction, Watertight and Weathertight Integrity;
+
+• Stability;
+
+• Machinery
+
+• Electrical Installations;
+
+• Crew Protection;
+
+• Man Overboard recovery
+
+The new Code requires that all vessels built to a Construction and Outfit Standard must be maintained to that standard. Vessels not built to a Construction and Outfit Standard must demonstrate that the arrangements in place are fit for purpose.
+
+The new Code requires that modifications to any vessel must meet the Construction and Outfit Standards currently in place. The Code also introduces a requirement for vessels to be seen in and out of the water as part of the inspection process.
+
+This Code comes into force on 6 September 2021.
+
+Each Chapter of the Code identifies requirements to which Transitional arrangements apply until 5 September 2023.
+
+1. Introduction
+
+1.1 This Merchant Shipping Notice is associated with The Fishing Vessels (Code of Practice) Regulations 2017 No. 943 and the Merchant Shipping (Work in Fishing Convention) Regulations 2018 No.1106. It sets out the full text of the Code of Practice for the Small Safety of Fishing Vessels of less than 15m Length Overall (the Code). The original version of this Code came into force on 23 October 2017, a first amendment came into force on 31 December 2018 and this Code will enter into force on 6 September 2021.
+
+2. Background
+
+2.1 The Fishing Vessels (Codes of Practice) Regulations 2017 No.943 give statutory force to the Code as they apply to fishing vessels under 15 metres Length Overall (LOA)
+
+3. The Revised Code
+
+3.1 Please refer to the full Code of Practice for the Safety of Small Fishing Vessels of less than 15m Length Overall.
+
+3.2 The previous Code MSN1871 Amendment No.1 underwent a review by MCA, industry and other interested bodies. The aim of the review was to update existing requirements in order to improve the safety of fishing vessels in foreseeable operating conditions, to implement MAIB recommendations and to improve the chances of the crew surviving an incident. This Notice and the revised Code contained herein have been developed following the outcome of that review.
+
+3.3 This Code of Practice now includes requirements for both new and existing vessels relating to:
+
+• Construction, Watertight and Weathertight Integrity;
+
+• Stability;
+
+• Machinery;
+
+• Electrical Installations;
+
+• Crew Protection;
+
+• Man Overboard recovery.
+
+3.4 The requirements applicable to a vessel depend on its age OR when it most recently joined the Register. Vessels are defined as
+
+“Existing Vessel” means a Fishing Vessel registered for the first time as a Fishing Vessel before 16 July 2007;
+
+“New Vessels (2007)” means a Fishing Vessel registered for the first time as a Fishing Vessel on or after 16 July 2007;
+
+“New Vessels (2017)” means a Fishing Vessel registered for the first time as a Fishing Vessel on or after 23 October 2017;
+
+“New Vessels (2018)” means a Fishing Vessel in relation to which:
+
+(i) the building or major conversion contract has been placed on or after 31 December 2018; or
+
+(ii) the building or major conversion contract has been placed before 31 December 2018 and which is delivered three years or more after that date; or
+
+(iii) in the absence of a building contract, on or after 31 December 2018:
+
+a. the keel is laid, or
+
+b. construction identifiable with a specific vessel begins, or
+
+c. assembly has commenced comprising at least 1 per cent of the estimated mass of all structural material.
+“New Vessels (2021)” means a Fishing Vessel in relation to which:
+
+i) first registration as a Fishing Vessel took place on or after 6 September 2021; or
+
+ii) the vessel was previously registered as a Fishing Vessel but has been unregistered for a period of six months or more and has joined the Register as a Fishing Vessel again on or after 6 September 2021 under the requirements set out in section 1.5 of the Code.
+
+3.5 Each Chapter of the Code sets out which vessels the requirements of that Chapter apply to.
+
+3.6 The Code allows for transitional (phase in) arrangements. Each Chapter sets out the relevant sections to which the transitional arrangements apply. The transitional arrangements end on 5 September 2023.
+
+3.7 During the transitional period, MCA surveyors will inspect the vessel against all requirements in the Code and where the vessel does not meet requirements to which transitional arrangements apply, owners will be expected to demonstrate compliance by 5 September 2023. Vessels inspected in the 90 days prior to 6 September 2023 will have 90 days from the date of inspection to provide proof that the Vessel is in full compliance with the Code.
+
+4. Key Changes applied to the revised Code
+
+4.1 This Code sets out new requirements based on recommendations from the MAIB and investigations of past incidents.
+
+4.2 The new requirements applied in this Code include:
+
+Inspection Requirements
+
+4.3 It will be a requirement that all vessels, as well as being seen in water once every five years, must be seen out of the water at intervals of not more than five years. Failure to meet this requirement invalidates the Small Fishing Vessel Certificate and may lead to it being withdrawn
+New requirements for Construction, Watertight and Weathertight Integrity, Machinery and Electrical Requirements and Fire Protection.
+
+4.4 The new Code requires that any vessel built to a Construction and Outfit Standard must be maintained to that standard through the life of the vessel. Additionally, any owner or skipper that carries out a modification, must make those changes in accordance with the requirements contained within a current Construction and Outfit Standard.
+
+4.5 Vessels not built to a Construction and Outfit Standard must demonstrate that the arrangements in place are fit for purpose.
+
+4.6 Vessels joining the Register through following a Registration Survey must be maintained to the requirements and condition at which it was accepted onto the Register.
+
+Stability and Freeboard
+
+4.7 The Code requires that New vessels (2021) comply with Stability criteria based on their method of fishing. The assigned criteria to each method are set out in Chapter 3 of the Code.
+
+4.8 New Vessels (2007), (2017), (2018) and Existing vessels conducting any method of fishing must either conduct a Roll Test or Heel Test
+
+4.9 All stability tests must be repeated every five years, where required by the Code, in the same conditions as the first test
+
+4.10 All vessels not required to hold a Stability Information Book must have a Wolfson Stability Notice posted on board the vessel, which gives information on the loading of the vessel and its effect on stability.
+
+4.11 Vessels will have their fishing method recorded on their Small Fishing vessel Certificate.
+
+4.12 Any vessel that carries out modifications or alterations or changes fishing method to one that it has not previously undertaken must inform MCA to seek approval and, comply with the relevant stability requirements applicable to New Vessels (2021) employing the proposed Category of fishing.
+
+4.13 Open Vessels are to be limited in their area of operation to 20 miles from a safe haven and in favourable weather conditions.
+
+4.14 Decked Vessels with freeboard less than 300 mm are to be limited in their area of operation to 20 miles from a safe haven and in favourable weather conditions. The minimum freeboard should be at least 200mm. Vessels with less than 200mm Freeboard are to be considered Open Vessels.
+
+Protection of Personnel
+
+4.15 The Code introduces new requirements for the surfaces of working decks, the securing of heavy equipment, and for New Vessels (2007), (2017), (2018) and Existing Vessels, additional requirements apply to:
+
+• handrails, grab rails and handholds
+
+• non-Slip working decks have to be non-slip.
+
+• winches, hauling hoisting gear
+
+• secure heavy items
+
+Additional Guidance
+
+5.1 An owner will be required to ensure that an appropriate and up to date health and safety risk assessment has been completed in accordance with the Merchant Shipping and Fishing Vessels (Health and Safety at Work) Regulations 1997, as amended.
+
+5.2 Attention is also drawn to the Merchant Shipping and Fishing Vessels (Personal Protective Equipment) Regulations 1999 which set out the general rule that personal protective equipment must be used when risks cannot be avoided or reduced to an acceptable level.
+
+More information
+
+Technical Services Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Tel: +44 (0) 203 8172454
+e-mail: fishing@mcga.gov.uk
+
+Website address: www.gov.uk/government/organisations/maritime-and-coastguard-agency
+
+General enquiries: infoline@mcga.gov.uk
+
+Published: September 2021
+
+Crown Copyright 2021
+
+Safer Lives, Safer Ships, Cleaner Seas

@@ -1,0 +1,109 @@
+MGN 524 (M+F) MGN 524 (M+F) Amendment 1 - Life-saving appliances – category C medical kits
+2021-12-10
+Source: https://www.gov.uk/government/publications/mgn-524-mf-amendment-1-life-saving-appliances-category-c-medical-kits
+
+1. Introduction
+
+1.1 To avoid human medicines being mis-handled, their distribution is controlled by the Human Medicines Regulations 2012 (as amended). The UK body responsible for regulating all human medicines in the UK is the Medicines and Healthcare products Regulatory Agency (MHRA).
+
+1.2 Ships, Small Commercial Vessels (SCV) and Pleasure Vessels will often carry a “Category C medical kit” either as a stand-alone kit or contained within a survival craft. These medical kits contain human medicines including anti-angina preparations, sea-sickness tablets and paracetamol etc. Wholesale distribution of human medicines (either individually or packed within survival craft etc.) requires a “Wholesale Distribution Authorisation” (WDA), which is controlled through a licencing system and is issued as a Wholesale Dealers Authorisation (WDA) by MHRA Wholesale distribution is defined as supply other than to the person taking the medicines, which includes:-
+
+• selling or supplying
+
+• procuring
+
+• holding
+
+• storing, or
+
+• exporting
+
+1.3 Accordingly, any marine company wholesale distributing human medicines (including those inside Category C medical kits) will need to obtain a WDA. This includes chandleries and any marine company servicing or supplying survival craft containing Category C medical kits. Whilst Masters and ship Owners are entitled to procure medicines including Category C medical kits for their vessels without a WDA (see section 3.4 of this MGN) their supplier must be in possession of a WDA. Sections 2 and 3 of this MGN further explain the application process for WDA.
+
+1.4 Following the UK’s exit from the EU, The Falsified Medicines Directive 2011/62/EU does not apply to licence holders located in Great Britain.
+
+The Directive still applies to licence holders located in Northern Ireland. This Directive changed the EU framework around the supply of human medicines and businesses that have not previously been regulated are now covered. These additional requirements were transposed into UK law in August 2013. During the transposition of the Falsified Medicines Directive into UK Regulations MHRA undertook an industry consultation. Throughout the consultation period the MCA highlighted the potential impact to the marine industry, however, due to the way in which the Directive controls all medicines within the EEA, it wasn’t possible to exempt the UK marine industry. The MCA is seeking to assist the marine industry and the MHRA in communicating the need for certain marine companies to hold a WDA.
+
+1.5 Category A, B and C medical supplies are outlined in MSN 1905 (M+F) Category A and B medical supplies contain human medicines such as Morphine Sulphate which is listed on the controlled drugs list held by the Home Office. Any company wishing to hold drugs such as Morphine Sulphate must receive additional authorisation from the Home Office. In order to obtain these medicines they must be requisitioned from a suitably licenced pharmaceutical company, MSN 1905 gives information regarding requisition and offers a model requisition form in Annex 7 of that MSN. In addition to MSN 1905, MSN 1676 (M) outlines the requirement for the contents of Category C medical kits to be carried within survival craft.
+
+1.6 Northern Ireland only: Category A, B and C medical supplies all contain human medicines controlled by the Falsified Medicines Directive.
+
+2. The Authorisation System
+
+2.1 Companies required to obtain a WDA should be aware that the following generic process is used by MHRA:
+
+• 2.1.1 The application should be submitted to MHRA via the online portal on the MHRA website by
+
+https://pclportal.mhra.gov.uk/
+
+The application is to include details about the company submitting the application, the quality system covering all activities regarding human medicines, the nomination of a Responsible Person or Responsible Person (import) and intentions regarding the distribution of human medicines.
+
+•
+2.1.2 An inspection will be arranged between MHRA and the applicant. During this inspection an MHRA Inspector will visit the premise(s) of the applicant and assess the suitability of the premises along with the personnel skills, including the knowledge and experience, of the Responsible Person or Responsible Person (import). The inspector will also seek to ensure the company’s familiarity with relevant legislation and the requirements of the Good Distribution Practice (GDP) are met. For more information on the inspection process applicants should contact MHRA directly.
+
+•
+2.1.3 Subsequent to a successful inspection, the completion of any non-conformity highlighted at the inspection and all relevant fees being paid, the MHRA will recommend that a WDA be granted. A WDA will subsequently be issued by MHRA.
+
+•
+2.1.4 MHRA will aim to process applications within 90 days of receipt through the correct route (the online portal), subject to delays from the applicants end.
+
+•
+2.1.5 Applicants and holders of WDA are required to pay fees set out in the Medicines (Products for Human Use) (fees) Regulations. These include an application fee, an initial inspection fee, subsequent inspection fees and an annual retention fee. MHRA should be contacted regarding the specific applicable fees. A reduced rate fee is applicable for businesses that have a turnover of less than £35K in licenced medical products. It should be noted that any delays to fees being paid may delay the application process. Current MHRA fees can be found on the MHRA website
+
+2.2 This outlined process gives a representation of what applicants may expect. For further information please contact MHRA: GDP.inspectorate@mhra.gov.uk or call 020 3080 6000
+
+2.3 Applicants should note that only one WDA is required per legal entity i.e. where a marine company has multiple sites, one WDA is required to cover all sites. One or more Responsible Persons may be nominated depending on the activities at each site and each site will require inspection.
+
+3. Actions Required by Industry
+
+3.1 Anyone required to obtain a WDA for human medicines should apply to MHRA as a matter of urgency to avoid disruption to normal operation.
+
+3.2 Where doubt is raised as to the application of the Human Medicine Regulations quoted within this MGN, regarding applicability to a company, MHRA should be contacted for clarification.
+
+3.3 Anyone distributing human medicines (as outlined above) in the absence of a WDA, will be operating outside of the law and MHRA will investigate and enforce any non- compliance.
+
+3.4 The marine industry should note that it is not necessary for a ship’s Owner or Master to possess a WDA in order to obtain human medicines, including those inside Category C medical kits and survival craft containing Category C medical kits, in order to provide them to persons on board a ship where the ship does not carry a Doctor as part of the ship’s standard complement. The Human Medicine Regulations 2012 gives exemption to permit ships’ Owners and Masters to procure human medicines in this case. The distributor to such an Owner or Master will need to hold a WDA and the Owner or Master may not further supply or distribute the medicines or survival craft to a 3rd party ship or person without a WDA. For the purpose of this exemption the MCA interprets a ship’s Master to include Skippers of SCV as detailed in the latest edition of the Workboat Code and MGN 280. Where a ship does carry a Doctor as part of its standard complement human medicines may be obtained by the Doctor as provided in the Human Medicines Regulations 2012 (as amended) subject to the supplier holding a WDA.
+
+3.5 During the application process MHRA inspectors will expect to see evidence that an application has been submitted through the correct channel as detailed above.
+
+3.6 Regarding Category C medical kits produced in the UK and exposed for supply to the UK market MHRA requires the following to be met regardless as to the stage of application:
+
+•
+3.6.1 All human medicines to be detailed on outer packaging (name, strength, form, quantity)
+
+•
+3.6.2 A batch number (permitting all medicine components to be traced), expiry date and storage conditions to be applied to the pack.
+
+•
+3.6.3 For the contents to contain products authorised for use in the UK.
+
+•
+3.6.4 For Category C medical kits currently in use, these will be accepted until their expiry date is met.
+
+3.7 Regarding Category C medical kits (and survival craft containing Category C medical kits) for export to non UK markets, the contents should contain products authorised for the use in the destination market.
+
+4. Further Information
+
+4.1 For more information regarding the Marine Sector and the above regulations please contact GDP.inspectorate@mhra.gov.uk or call 020 3080 6000.
+
+4.2 Further information on a WDA can be found in MHRA Guidance Note 6, titled “Notes for Applicants and Holders of a Wholesale Dealer’s Licence (WDA(H)) or Brokers Registration”.
+
+Please note that this guidance note is in the process of being updated due to the changes after Great Britain leaving the European Union.
+
+To access a register of all licensed manufacturers and wholesalers please use https://cms.mhra.gov.uk/mhra/wda.
+
+4.3 To view the controlled drugs list held by the home office please use the link below: https://www.gov.uk/government/publications/controlled-drugs-list
+
+5. More Information
+
+Marine Technology Branch,
+Maritime and Coastguard Agency,
+Bay 2/27,
+Spring Place,
+105 Commercial Road,
+Southampton,
+SO15 1EG.
+
+Tel: +44 (0) 23 8032 9100
+
+e-mail: mtu@mcga.gov.uk

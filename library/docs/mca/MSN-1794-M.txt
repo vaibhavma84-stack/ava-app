@@ -1,0 +1,453 @@
+MSN 1794 (M) MSN 1794 (M) Amendment 2: Counting and registration of persons on board passenger ships
+2023-07-31
+Source: https://www.gov.uk/government/publications/msn-1794-m-amendment-2-counting-and-registration-of-persons-on-board-passenger-ships
+
+Summary
+
+•
+This MSN amendment outlines changes of the Merchant Shipping (Counting and Registration of Persons on Board Passenger Ships) Regulations 1999 (as amended) (“the 1999 Regulations”) brought into effect by the Merchant Shipping (Counting and Registration of Persons Onboard Passenger Ships) Regulations 2023 (“the 2023 Regulations”) in particular:
+
+•
+a) delay of the deadline date for electronic reporting by two years until 20 December 2025;
+
+•
+b) a re-worded exemption provision to increase flexibility, and allow the Secretary of State, through the Maritime and Coastguard Agency (MCA), greater discretion in the exemption of passenger ships from any or all of the Regulations;
+
+•
+c) adjustment of wording in the 1999 Regulations as amended by the Merchant Shipping (Counting and Registration of Persons on Board Passenger Ships) (Amendment) Regulations 2021 to clarify obligations relating to the retention of personal data;
+
+•
+d) correction of errors so that the 1999 Regulations (as amended) refer to “persons”; instead of “passengers” and so the reference to EU member states now refers to other countries subject to the obligations of the Convention to reflect the fact that the UK has now left the EU.
+
+1. Introduction/background
+
+1.1 The requirement of recording and reporting passenger numbers and, where necessary, personal details of passengers onboard so they are available should an incident occur, originated in Chapter III, Regulation 27 of the International Convention on the Safety of Life at Sea (SOLAS) (Command Paper 7874). This requirement was adopted in 1995, for passenger ships on international voyages.
+
+1.2 Obligations relating to persons counting were made part of European Community law for passenger ships operating in EU waters by Council Directive 98/41/EC of 18 June 1998 (“Directive 98/41 EC”) on the registration of persons sailing on board passenger ships operating to or from ports of the Member States of the Community. This augmented the international requirements and extended their application to seagoing domestic passenger ships.
+
+1.3 The Merchant Shipping (Counting and Registration of Persons on Board Passenger Ships) Regulations 1999 (“the 1999 Regulations”) implemented Directive 98/41 EC and took effect on 1 January 2000.
+
+1.4 The 1999 Regulations applied to all United Kingdom passenger ships (i.e., certificated to carry more than 12 passengers) both seagoing and non-seagoing, wherever they were, and to all other passenger ships whilst in United Kingdom waters.
+
+1.5 Passenger ships to which the regulations apply need to collect and report passenger numbers. Passenger ships sailing on voyages of over 20 nautical miles at sea need to also collect additional items of persons data and transmit this to a designated passenger registrar. Passenger registrars are appointed by ship operators and are responsible for logging the passenger information. There was originally no set standard to report or hold this information resulting in numerous formats (paper, digital etc). This information was kept on hand for use in search and rescue activities carried out by HM Coastguard. This meant that in practice, when an incident occurred, HM Coastguard would contact the shore side passenger registrars for such information to help in their rescue operations.
+
+1.6 The Merchant Shipping (Counting and Registration of Persons on Board Passenger Ships) (Amendment) Regulations 2021 (“the 2021 Regulations”) implemented Directive 2017/2109/EU, making amendments to the 1999 Regulations. The 2021 Regulations added to the items of data to be reported on voyages of over 20 miles, and introduced an electronic reporting obligation for seagoing passenger ships to report data through the Maritime National Single Window (MNSW) or (persons numbers only) through the Automatic Identification System (AIS). The electronic reporting obligation was deferred in Directive 2017/2109/EU and the 2021 Regulations until 20 December 2023 (but is now deferred further to 20 December 2025).
+
+1.7 While the 2021 Regulations faithfully implemented the requirements of the Directive, which the UK was required to do given that it took effect prior to the UK’s departure from the EU, the government has now reviewed the requirements in a UK context and is diverging in some areas from the original requirements, as laid out in this MSN, to allow greater flexibility for the UK passenger ship sector.
+
+2. Definitions
+
+2.1 “Automatic Identification System” (AIS) is the equipment fitted on board ships in accordance with the technical and performance standards in paragraph 2.4.5 of regulation 19 of Chapter V of the International Convention for the Safety of Life at Sea, 1974 and is used for the automatic exchange of safety related information from the ship to facilitate ship tracking;
+
+2.2 The UK “Consolidated European Reporting System” (CERS) is an information management system which has been developed by the MCA to comply with, among other things, the UK reporting obligations under the provisions in Directive 2002/59/EC of the European Parliament and of the Council. These obligations are based on the technical content, method and format of messages contained within the EU “SafeSeaNet” system. CERS is the UK’s designated method of electronic reporting;
+
+2.3 “Class A” means passenger ships as defined in The Merchant Shipping (Safety Standards for Passenger Ships on Domestic Voyages) (Miscellaneous Amendments) Regulations 2020;
+
+2.4 A “seagoing passenger ship” is a vessel that carries more than 12 passengers and goes to sea (“sea” excludes Categorised Waters);
+
+2.5 “Categorised Waters” means the categorised waters designated in MSN 1837 (M) Amendment 2 which can be found at the following link: https://www.gov.uk/government/publications/msn-1837-m-amendment-2-categorisation-of-waters
+
+2.6 “company” means the owner of a passenger ship or any other organisation or person such as the manager or bareboat charterer, who has assumed the responsibility for operating the passenger ship;
+
+2.7 “designated authority” means the competent authority responsible for search and rescue or concerned with the aftermath of an accident, having access to the information required. In the UK, the search and rescue authority will normally be HM Coastguard;
+
+2.8 “High Speed Craft” means a ship capable of a maximum speed, in metres per second (m/s), equal to or exceeding: 3.7∇0.1667 where ∇ = volume of displacement corresponding to the design waterline (m3), excluding any craft the hull of which is supported completely clear above the water surface in non-displacement mode by aerodynamic forces generated by ground effect;
+
+2.9 “landing point” means any berth, excursion point, floating pier or stage, link span, pier, port, stop or anchorage point from or to where passengers are embarked and disembarked;
+
+2.10 “long international voyage” means a voyage from a port in one country to which SOLAS applies to a port in another country or conversely and which is not a short international voyage (see definition of “Short International voyage” below);
+
+2.11 “National Single Window” (the NSW) is the technical platform used for receiving, exchanging and forwarding information electronically. The concept of the ‘single window’ derives from the International Maritime Organisation’s FAL (Facilitation) Convention which promotes the electronic communication of diverse ship related information so that relevant agencies and authorities are involved in the exchange of data via a single point of contact. The NSW was established in the UK in 2015 as a pilot and is currently hosted by HM Border Force, see link here: https://www.gov.uk/government/publications/uk-national-maritime-single-window-launch-of-pilot. The NSW is being used in the UK to report certain information specific to the FAL Convention and will be developed further so that passenger information submitted can automatically made available to authorities entitled to have access, such as HM Coastguard. There is at present no means of reporting passenger numbers or information through the NSW however this work is in progress and further information will be published when known.
+
+2.12 “passenger registrar” means the person designated by a company to transmit information on persons who have embarked on the company passenger ship to the appropriate search and rescue services in the event of an emergency or in the aftermath of an accident involving the ship, and where applicable, the reporting of this information to the NSW;
+
+2.13 “passenger ship” means any ship carrying more than 12 passengers;
+
+2.14 “person” refers to all people on board a passenger ship whether passengers or crew, and irrespective of age.
+
+•
+2.15 “pleasure vessel” means —
+
+•
+a) any vessel which at the time it is being used is -
+
+•
+i) in the case of a vessel wholly owned by –
+
+•
+aa) an individual or individuals, used only for the sport or pleasure of the owner or the immediate family or friends of the owner; or
+
+•
+bb) a body corporate, used only for sport or pleasure and one on which the persons on board are employees or officers of the body corporate, or their immediate family or friends; and
+
+•
+ii) on a voyage or excursion which is one for which the owner does not receive money for or in connection with operating the vessel or carrying any person, other than as a contribution to the direct expenses of the operation of the vessel incurred during the voyage or excursion; or
+
+•
+b) any vessel wholly owned by or on behalf of a members’ club formed for the purpose of sport or pleasure which, at the time it is being used, is used only for the sport or pleasure of members of the club or their immediate family; and for the use of which any charges levied are paid into club funds and applied for the general use of the club;
+
+•
+c) where, in the case of any vessel referred to in paragraph (a) or (b) no other payments are made by or on behalf of the users of the vessel, other than by the owner; and in this definition “immediate family” means, in relation to an individual, the spouse or civil partner of the individual, and a relative of the individual or the relative’s spouse or civil partner, and “relative” means brother, sister, ancestor or lineal descendant;
+
+2.16 “regular service” must mean either a series of ship crossings operated so as to serve traffic between the same two or more ports, or a series of voyages from and to the same port without intermediate calls either: (a) according to a published timetable; or (b) with crossings so regular or frequent that they constitute a recognisable systematic series;
+
+2.17 “SafeSeaNet” is the vessel traffic monitoring and information system that was established to support and enhance: maritime safety; port and maritime security; marine environment protection; and, efficiency of maritime traffic and maritime transport. SafeSeaNet is run by the European Maritime Safety Agency (EMSA);
+
+2.18 “Search and rescue facilities” means, in relation to a ship involved in an incident/emergency, the search and rescue services for the area in which the ship is located. In the majority of locations, this will be HM Coastguard;
+
+•
+2.19 “short international voyage” means an international voyage -
+
+•
+i) in the course of which a ship is not more than two hundred nautical miles from a port or place in which the passengers and crew could be placed in safety; and
+
+•
+ii) which does not exceed six hundred nautical miles in distance between the last port of call in the country in which the voyage begins and the first port of destination.
+
+2.20 “voyage” means a journey from one place to another where passengers can embark/disembark.
+
+UK Classes of Passenger Ship
+
+2.21 Passenger-carrying ships are classified primarily on whether they operate inshore or on short or long international voyages. The classes of passenger ships are as follows:
+
+•
+Class I - ships engaged on voyages any of which are long international voyage (as defined above);
+
+•
+Class II - ships engaged only on voyages any of which are short international voyages (as defined above);
+
+•
+Class II(A) - ships engaged on voyages of any kind other than international voyages, which are not ships of Classes III to VI(A);
+
+•
+Class III - ships engaged only on voyages in the course of which they are at no time more than 70 miles by sea from their point of departure and not more than 18 miles from the coast of the UK and which are at sea only in favourable weather and during restricted periods.
+
+•
+Class IV – ships engaged only on voyages in Category A, B, C or D waters;
+
+•
+Class V – Ships engaged only on voyages in Category A, B or C waters;
+
+•
+Class VI - ships engaged only on voyages with not more than 250 passengers on board. In favourable weather and during restricted periods, in the course of which the ships are at no time more than 15 miles from their point of departure, nor more than 3 miles from land;
+
+•
+Class VI (A) - ships carrying not more than 50 passengers for a distance of not more than 6 miles. Voyages to or from isolated communities on the islands or coast of the UK and which do not proceed for a distance of more than 3 miles from land - this is subject to any conditions which the Secretary of State may impose.
+
+3. Changes brought about by the 2023 Regulations
+
+•
+3.1 The Merchant Shipping (Counting and Registration of Persons On Board Passenger Ships) Regulations 2023 bring about the following further changes, in that they:
+
+•
+a) delay the deadline for compliance with the electronic reporting obligation (i.e., to report date through the NSW or (numbers only) thorough AIS) imposed by the 2021 amendment, by two years until the 20 December 2025;
+
+•
+b) widen the exemption provision such that the Secretary of State, through the Maritime and Coastguard Agency (MCA) has more discretion on which passenger ships to exempt from part or all of the obligations in the 1999 Regulations as amended. The caveat to this relates to ships which are subject to the International Convention on the Safety of Life at Sea 1974 (SOLAS), for which exemptions will be limited to the extent exemptions against SOLAS persons data obligations are permitted by SOLAS;
+
+•
+c) adjust the wording in the 1999 Regulations as amended by the 2021 Regulations to clarify obligations relating to the retention of personal data;
+
+•
+d) disapply the ambulatory reference in the Merchant Shipping (Life-Saving Appliances and Arrangements) Regulations 2020 to persons counting obligations in Regulation 27 of Chapter III of the International Convention on the Safety of Life at Sea 1974 (as amended) (SOLAS). This removes duplication in the 2020 Regulations and ensures that all the persons counting obligations are together in UK legislation.
+
+4. Reporting of information about persons onboard – including additional revised procedure
+
+4.1 The owner of any passenger ship must ensure that, when it leaves any landing point in the United Kingdom, there is a system capable of counting all persons on board. For passenger ships on voyages of up to 20 nautical miles, only the number of persons on board is to be recorded and communicated to the master of the ship and the passenger registrar. From 20 December 2025, the persons numbers on seagoing passenger ships must be reported through the NSW or (person numbers only) AIS.
+
+4.2 For passenger ships on voyages of more than 20 nautical miles, the following details of each person on board must be recorded:
+
+• their family name/s;
+
+• their forenames (required from 22 February 2021. Previously there was the option of initials or full forename(s));
+
+• their gender;
+
+• their nationality (required from 22 February 2021);
+
+• their dates of birth ((required from 22 February 2021. Previously age category, year of birth and indication of age category, or year of birth);
+
+• when volunteered by a passenger, information concerning special care or assistance that might be needed in an emergency; and,
+
+• when volunteered by the passenger, a contact number in case of an emergency.
+
+Seagoing passenger ships must report this additional data electronically through the NSW from 20 December 2025.
+
+4.3 For circular voyages, the 20 nautical miles refers to the maximum distance from the point of departure rather than logged voyage length back to the point of departure.
+
+4.4 Prior to 20 December 2025, ship operators may continue to allow the above information to be communicated to the company’s passenger registrar or to the shore-based company system that performs the same function. However, from 20 December 2025, operators of seagoing passenger ships will be required to report the passenger information above in the NSW, and Passenger registrars appointed by a passenger ship company or operator will (in addition to their existing responsibilities) be responsible for reporting data by the correct method.
+
+4.5 The information regarding persons onboard listed in paragraph 4.2 is to be collected before the ship’s departure and reported to the passenger registrar (and the NSW when applicable) no later than 15 minutes after that departure. The number of persons on board must be communicated to the master of the ship and passenger registrar immediately before the passenger ship leaves any landing point and after 20 December 2025, reported either using the ship’s AIS or in the NSW.
+
+4.6 Currently, the UK’s designated method for reporting information to the European Union’s “SafeSeaNet” is using CERS. Further guidance on the transmission of such information can be found in MSN 1899 (Vessel traffic monitoring notification and reporting requirements for ships and ports) which can be accessed via the following link: https://www.gov.uk/government/publications/msn-1899-mf-vessel-traffic-monitoring-notification-and-reporting-requirements-for-ships-and-ports.
+
+4.7 CERS is an information management system which has been developed by the MCA to provide reporting formalities to relevant Member State authorities. These obligations are based on the technical content, method and format of messages contained within the EU SafeSeaNet system. CERS provides information reporting at the national level for notification of: vessel arrivals, border checks, dangerous and polluting goods (hazmat), waste and residues, security information, customs information, and health information. CERS has fulfilled these requirements since its implementation in 2015 and is now a useful data hub that provides statistical information for various government departments and Agencies.
+
+•
+4.8 Personal data which is collected in accordance with regulation 6(2) of the 1999 Regulations (as amended by the 2021 Regulations) must be kept by the owner of a passenger ship:
+
+•
+a) for no longer than is necessary for the purpose of the Regulations; and
+
+•
+b) in any event, no later than the moment the ship’s voyage has been safely completed and the data has been reported in the National Single Window or, as the case may be, to the passenger registrar after which it must be automatically erased without undue delay.
+
+4.9 For passenger ships to which the regulations apply but are exempt from the requirements to report passenger details to the NSW or through AIS (such as ships operating exclusively on Category A, B, C or D waters), passenger numbers can continue to be reported to the master of the ship and passenger registrar.
+
+•
+4.10 The counting system established by operators to comply with these requirements must be capable of capturing the relevant information about persons onboard in a timely manner so as to satisfy the requirements set out above and the further points listed below:
+
+•
+i) the company must appoint a “Passenger Registrar” responsible for the upkeep and transmission of this information in accordance with the requirements of the Regulations;
+
+•
+ii) the system must be applied to all persons boarding, and disembarking from, a passenger ship, in connection with a voyage. The details of each person must be recorded, regardless of whether they have been issued with a ticket or are a member of the crew;
+
+•
+iii) the system must be able to take account of any changes to personnel embarking or disembarking during a voyage, including those who remain on board from a previous voyage;
+
+•
+iv) the system must account for all persons on board the vessel at all times. Each person on board the vessel must have their relevant details recorded irrespective of whether they are a fee-paying passenger or not;
+
+•
+v) the information is to be updated at each landing/stopping point where persons may embark or disembark the vessel;
+
+•
+vi) the system must ensure that information concerning persons who have declared a need for special assistance or care in emergency situations is properly recorded and handed to the Master prior to departure; and
+
+•
+vii) the system must be approved by the Maritime and Coastguard Agency (MCA), as per section 7 of this MSN.
+
+4.11 Prior to departure from a landing point, the number of persons recorded on board the passenger ship must be communicated to the master of the ship and the company’s passenger registrar and reported in the NSW or through the AIS. The master must ensure that the ship does not depart if the total number of persons on board exceeds the total number that the vessel is certified to carry.
+
+4.12 Information gathered as a part of the registration system must be recorded prior to departure and communicated within 15 minutes of the ship’s departure.
+
+4.13 Ship owners and operators should ensure that the information required for the registration of persons is collected in a manner that causes minimum disruption and delay to those boarding the vessel. A multiplicity of data collection on the same or similar routes should also be avoided.
+
+5. Availability of Information
+
+5.1 It is the responsibility of the ship company/operator to ensure that the information collected in accordance with Regulations 5 and 6 of the 1999 Regulations (as amended) is readily available from the Master or nominated passenger registrar for transmission to the emergency services in the event of an emergency or in the follow up to an accident. The name and contact point for the nominated passenger registrar must be provided to the relevant local designated authorities which in the United Kingdom are the Police, and the MCA Marine Office which granted the approval.
+
+5.2 The information that is recorded by the company must be maintained and made readily available to the emergency services in a format that is uncomplicated and easy to comprehend, especially in emergency situations. The information must be protected from:
+
+• accidental or unlawful destruction or loss;
+
+• accidental or unlawful alteration; and
+
+• unauthorized disclosure or access.
+
+6. System Failure
+
+6.1 It is essential that a suitable back up system is available in the event of a breakdown of the main systems which can provide the necessary facilities to meet the regulations without causing undue delays.
+
+7. Approval of System by the Maritime and Coastguard Agency
+
+•
+7.1 All systems established by operators to comply with these requirements must be approved by the MCA and will be subject to inspection to ensure the correct functioning of the system. To gain approval, it must be for the company to satisfy the MCA that:
+
+•
+i) the system at least meets the requirements set out in this Notice; and,
+
+•
+ii) where applicable, in certain areas of the United Kingdom, the name and contact point for the nominated passenger registrar has been provided to the local Police and the local MCA Marine Office. It will remain the responsibility of the company/operator to ensure the information provided to the appointed passenger registrar remains up to date.
+
+•
+7.2 The written application should contain details of the proposed system and include examples of tickets/prints wherever possible. Applications should be sent to the company/operator’s MCA Customer Service Manager or local Marine Office for approval. These should be sent at least 28 days before the required implementation of the system to allow for time to make the necessary inquiries and, if necessary, to visit the company to gain further information.
+
+8. Methods of Counting
+
+8.1 Companies may use the following methods of counting as applicable, or a similar approved system which meets the requirements of the Regulations.
+
+Class I Passenger Ships:
+
+Landing Card System
+
+8.2 Passenger ships operating on Class I passenger certificates must ensure there is a system by which all persons boarding will be counted prior to departure in line with the 1999 Regulations and this MSN.
+
+8.3 Due to the nature of the journeys generally undertaken by these vessels the collection of the registration information will normally be readily available prior to departure and should be recorded in line with the 1999 Regulations and this MSN.
+
+8.4 Persons who disembark at each landing point must be counted by means of landing cards or similar. Landing cards may be issued in the same way that boarding cards are issued in paragraphs 8.8 and 8.9 below. A running tally must be kept of those boarding for the first time and those re-embarking so that the total number of persons on board for the voyage is always known prior to departure, in line with Regulation 5.
+
+8.5 Where any change of persons on board occurs, it is the responsibility of the Master to ensure that the Passenger Registrar is informed, and the registration detail is updated within 15 minutes of departure.
+
+8.6 Landing cards, if used, should be made of a material such as plastic or card and wherever possible must be used to draw the passenger’s attention to safety information.
+
+EC Class A, United Kingdom Class II, and II(A) Passenger Ships and Seagoing High-Speed Craft:
+
+Manual boarding card system
+
+•
+8.7
+
+•
+a) Passenger Ships operating on Class A, United Kingdom Class II, and II(A) passenger certificates should ensure that there is a manual boarding card system for all passengers boarding on a particular voyage. There must be one boarding card per passenger regardless of whether passengers have individual tickets, unless an appropriate exemption has been granted under Regulation 9. Special Arrangements must be made for passengers who remain on board from a previous voyage, crew and other persons on board the vessel.
+
+•
+b) A boarding card system must conform with one of the following descriptions:
+
+•
+i) there must be for each voyage, a book or books of numbered boarding cards. If more than one book is used the books must be consecutively numbered. To facilitate counting, each card must have an individually numbered counterfoil. One card must be issued to each passenger at, or shortly before, the time of boarding. However, when a number of passengers travel together in one vehicle a card for each passenger may be issued in a set to the driver or to a responsible person in the vehicle, provided that such a procedure will not affect the accuracy of the total passenger count. The total number of cards issued for a particular voyage will be determined from the number of cards remaining in the book or books, and from the numbered counterfoils; or
+
+•
+ii) each passenger must be issued, before arriving at the embarkation point, with a boarding card which may have a detachable portion. The detachable portion (or the complete card) must be collected by a representative of the Master at, or shortly before, the time of boarding and the number so collected will determine the number of passengers boarding. However as in paragraph (i) above, when a number of passengers travel together a card for each passenger may be issued in a set to the driver or to a responsible person in the vehicle; provided that such a procedure will not affect the accuracy of the total passenger count.
+
+•
+c) When large numbers of passengers are involved, such as on ships certified to carry more than 200 passengers, the detachable portions (or the complete cards) may be counted by automatic passenger counting machines.
+
+•
+8.8 Other systems of manual counting may be provided if they:
+
+•
+a)conform with the basic objectives set out in paragraphs 8.7(c) and 8.9;
+
+•
+b) are straightforward, secure and effective; and
+
+•
+c) can be easily checked and enforced without the necessity of arranging a full passenger count as passengers leave the ship.
+
+Computerised boarding card system
+
+•
+8.9
+
+•
+a) A computerised boarding card system should be capable of recording all information on persons required by regulations 5 & 6, provided that the following have taken into account in the counting, boarding and registration procedures governing the system:
+
+•
+i) where the passenger checks in;
+
+•
+ii) where the boarding card is issued;
+
+•
+iii) how the issue of the computerised boarding card corresponds to the aggregation of the count;
+
+•
+iv) what route the passenger takes to the ship;
+
+•
+v)what other controls (for example, immigration control) the passenger passes through;
+
+•
+vi) how the total count is adjusted if a passenger belatedly decides not to travel;
+
+•
+vii) how passengers remaining on board are dealt with; and
+
+•
+viii) what contingency plans have been made in the event of the computerised system malfunction:
+
+•
+• prior to boarding; or
+
+•
+• during the course of boarding
+
+•
+8.10 In a computerised boarding card system passengers travelling together in parties may be issued with one card only on which is indicated the total number of passengers in the party. In that case however, a physical check must be built into the counting procedures to ensure the accuracy of the total passenger count.
+
+•
+8.11 Boarding cards should be made of a material such as plastic or card and wherever possible must be used to draw the passenger’s attention to safety information.
+
+Passengers remaining on board from a previous voyage
+
+8.12 The design of manual and computerised systems must take into account the counting of passengers remaining on board from a previous voyage or part of that voyage.
+
+8.13 Passengers remaining on board at the end of a voyage must be given a card for the return voyage which may be the boarding card for the return voyages. The passenger must be required to have the return boarding card marked or recorded whilst the vessel is docked to confirm the return journey.
+
+8.14 Where a computerised boarding card system is used it must include an effective method for counting those staying on board to meet the above criteria.
+
+8.15 Passengers who disembark at each landing point must be counted by means of landing cards. Landing cards may be issued in the same way that boarding cards are issued in paragraphs 8.7 to 8.11. A running tally is to be kept of those boarding for the first time and those re-embarking must be maintained so that the total number of passengers on board for the voyage is always known prior to departure.
+
+8.16 Where any change of persons on board occurs, it is the responsibility of the Master to ensure that the Passenger Registrar is informed, and the Registration detail is updated within 15 minutes of departure.
+
+8.17 Landing cards should be made of a material such as plastic or card and wherever possible must be used to draw the passenger’s attention to safety information.
+
+Dual Systems
+
+8.18 Where the systems comply with the regulations and can be shown to be effective, secure and meet the requirements of paragraphs 4.11 to 4.13 and section 5, two discrete boarding systems may be deployed. For example, manual boarding cards for freight drivers, and a computerised system for the rest of the passenger load may be considered providing it fully satisfies the requirements of the Regulations.
+
+Other Passenger Ships
+
+Boarding Card Systems
+
+8.19 The boarding card system must conform to the requirements for vessels of Class A and Class II and II(A) and Seagoing High Speed Craft.
+
+Clicker System
+
+8.20 The Master or a member of the crew must count each passenger boarding using a consecutively numbering (hand-held) counting device and note their number. When ships call at a number of landing points to land and take on passengers/crew etc., the persons disembarking at each landing point must be similarly counted and recorded. New passengers must then be boarded and counted again using the clicker. The total number of passengers on board must be calculated before sailing using these figures as a basis. If the clicker can also subtract figures, it can be used directly on passengers embarking and disembarking to maintain a running total of passengers on board.
+
+8.21 The Master or a member of crew must, before departure, advise the passenger registrar ashore of the revised information together with the vessel’s name, the landing point, the date, and the time of the transmission.
+
+8.22 When a passenger ship plies to and from unmanned landing points the information of persons on board, the date and time of sailing and the name of the vessel must be recorded in writing and the record placed in a suitable secure location ashore.
+
+Electronic system
+
+8.23 The Master or a member of the crew must count each passenger boarding using electronic equipment at least as effective as the systems described above. The system must include the counting of any passenger remaining on board at the end of the voyage. Passengers who do not physically disembark may be given a card for the journey ahead. It is the responsibility of the shipowner to ensure that the system works and is effective.
+
+Excepted from reporting requirements
+
+•
+8.24 The following vessels will be exempt from the passenger counting and reporting requirements in the 1999 Regulations (as amended):
+
+•
+a) ships of war;
+
+•
+b) troop ships;
+
+•
+c) pleasure vessels;
+
+•
+d) passenger ships to which the Merchant Shipping (Passenger Ships) (Safety Code for UK Categorised Waters) Regulations 2010 apply; and
+
+•
+e) vessels to which the Merchant Shipping (Technical Requirements for Inland Waterway Vessels) Regulations 2010 apply.
+
+Application for exemption from reporting requirements
+
+8.25 Passenger ships may apply to the Secretary of State for exemption from the requirements of any provision in the Regulations. While the 2023 Regulations have widened the potential scope of exemptions which may be granted by the Secretary of State through the Maritime and Coastguard Agency (MCA), exemptions will only be granted when compliance is impractical or disproportionately burdensome and the necessary safety level is maintained.
+
+8.26 Applications for exemptions should be made to the MCA by the operator if any aspect of compliance is considered impracticable. Evidence of such impracticability should be provided. In addition, it should be demonstrated that in the area where such ships operate, shore-based navigational guidance and reliable weather forecasts are provided, and that adequate and sufficient search and rescue facilities are available.
+
+Data Protection guidance and principles
+
+8.27 Personal information which is collected and reported in accordance with regulation 6 of the 1999 Regulations (as amended by the 2021 Regulations) must be kept by the company:
+
+• for no longer than necessary for the purposes of the regulations; and
+
+• in any event, only until the moment the ship’s voyage has been safely completed and the data has been reported to the passenger registrar or the NSW. Once the information is no longer needed for the purpose of the Regulations, it must be erased automatically and without undue delay.
+
+8.28 The passenger information collected and reported in accordance with the regulations are personal data and it is important that they are held securely and treated in accordance with the Data Protection Act 2018 and any other applicable legislation in force at the time.
+
+8.29 Ship owners and operators must ensure that only the data gathered and required for the specified purpose of reporting should be collected and must follow the six data protection principles as stated in Chapter 2 of the Data Protection Act 2018 which can be found in the following link: https://www.legislation.gov.uk/ukpga/2018/12/part/2/chapter/2.
+
+8.30 With respect to the information to be collected about persons onboard as specified at paragraph 4.2 of this MSN, ship owners and operators must provide clear and comprehensive information about how their personal data will be processed. Guidance on Data protection can be found on the Information Commissioner’s Office (ICO) website at the following link: https://ico.org.uk/for-organisations/guide-to-data-protection/.
+
+8.31 Ship operators involved in the processing and sharing of passenger details through the NSW or through AIS should adhere to the statutory Code of Practice as provided by the ICO to ensure good practice around data sharing. A link can be here: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/data-sharing-a-code-of-practice/.
+
+8.32 With regards to the gathering of data relating to a passenger’s gender, ship owners and operators must be aware of the latest guidance and approaches to requesting this information. Such guidance can be found on the Equality and Human Rights Commission website via this link, https://www.equalityhumanrights.com/en.
+
+8.33 With respect to the NSW, each company should implement appropriate technical and organisational measures to protect personal data processed pursuant to the regulations against accidental or unlawful destruction or accidental loss, alteration, and unauthorised disclosure or access, in line with national legislation on data protection.
+
+More information
+
+UK Maritime Services, Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: dpv@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

@@ -1,0 +1,450 @@
+MGN 401 (M+F) MGN 401 (M+F) Amendment 3 Navigation: Vessel Traffic Services (VTS) and Local Port Services (LPS) in the UK
+2022-03-22
+Source: https://www.gov.uk/government/publications/mgn-401-mf-amendment-3-navigation-vessel-traffic-services-vts-and-local-port-services-lps-in-the-uk
+
+1. Introduction
+
+1.1 International Maritime Organization (IMO) Resolution A.1158(32) – Guidelines for Vessel Traffic Services was adopted on 15th December 2021. This guidance updates the VTS policy for the UK competent authority and national VTS Providers following the adoption of the new IMO Resolution. It aims to promote awareness of the important contribution that VTS and LPS make to the maritime industry and to indicate the approach to VTS adopted in the UK. All participants in VTS and LPS should receive and understand this information.
+
+1.2 This guidance provides advice and direction to those Statutory Harbour Authorities with, or proposing to implement, a VTS or to discontinue/reduce the capability of an existing VTS. It also identifies the concept of LPS where the Statutory Harbour Authority is of the opinion that the volume of traffic or the degree of risk does not justify the establishment of a VTS.
+
+2. Regulatory and Legal Framework
+
+2.1 The International Convention for the Safety of Life at Sea (SOLAS) Chapter V Regulation 12 (Vessel Traffic Services) requires Contracting Governments to arrange for the establishment of VTS where, in their opinion, the volume of traffic or the degree of risk justifies such services and that Contracting governments planning and implementing VTS shall, wherever possible, follow the guidelines developed by the IMO.
+
+2.2 IMO Resolution A.1158(32) sets out the high-level guidelines for Vessel Traffic Services and encourages Contracting Governments to take into account International Association of Marine Aids to Navigation and Lighthouse Authorities (IALA) standards and associated recommendations, guidelines and model courses.
+
+2.3 IALA documentation sets out normative and informative provisions. Normative provisions are those with which it is necessary to conform in order to claim compliance to the IALA standard. Informative provisions are those which specify additional desirable practices but with which it is not necessary to conform in order to claim compliance to the IALA standard. It is UK policy to implement all normative provisions of IALA documentation to remain compliant with the IALA standard.
+
+2.4 IALA defines VTS as a service, or services, implemented by a government with the capability to interact with vessel traffic and respond to developing situations within a VTS area to improve safety and efficiency of navigation, contribute to the safety of life at sea and support the protection of the environment.
+
+Note:
+
+Whist IMO defines the initialism “VTS” only in the plural, to enable the differentiation between a single vessel traffic service and multiple vessel traffic services in IALA documentation, the initialism VTS may apply in both singular and plural use dependent on context. Singular use will often be indicated by the initialism VTS being preceded by the definite or indefinite article (e.g., “the” or “a”).
+
+2.5 The UK Vessel Traffic Monitoring Notification and Reporting Requirements for Ships and Ports are regulated by the MSA Vessel Traffic Monitoring and Reporting Regulations 2004 Statutory Instrument (SI) No. 2110 (as amended) and forms the legal framework for Vessel Traffic Management (VTM).
+
+2.6 Under local Acts of Parliament, Statutory Harbour Authorities have duties to protect their harbours and regulate the approaches to them. It will be for each Statutory Harbour Authority to consider what is required as regards the provision of VTS or LPS under its statutory duties and apply to the MCA for designation of its VTS and approval of its VTS Area as appropriate.
+
+2.7 Whilst SOLAS regulation V/12 states that VTS may only be made mandatory within the territorial waters of a coastal State, IMO Resolution A.1158(32) identifies circumstances when a VTS may be established either in association with IMO adopted ships’ routeing systems or mandatory ship reporting systems, in accordance with SOLAS regulations V/10 and V/11, or beyond territorial seas to provide information and advice on the basis of voluntary participation.
+
+2.8 The MCA is the competent authority for VTS and is responsible for compliance with Chapter V Regulation 12 of the SOLAS Convention within the UK.
+
+3. Liability
+
+3.1 IALA Guideline G1150 – Establishing, Planning and Implementing a VTS provides guidance on the processes for establishing the need for a VTS with particular reference to formal risk assessment processes. Risk assessment may similarly identify that an LPS should be provided. Statutory Harbour Authorities have a responsibility for establishing the need for a VTS or LPS. The Guide to Good Practice on Port Marine Operations section 8.6 also sets out the primary duties of a Statutory Harbour Authority to ensure the safe and efficient use of the harbour by those who have a right to use it and navigate in its waters. Demonstration of compliance with IALA and national guidance should reduce a port’s exposure and liability to claims in the event of an incident.
+
+3.2 Liability arising from an incident following compliance with VTS guidance can only be decided on a case-by-case basis in accordance with national law. Consequently, a Statutory Harbour Authority / VTS providers should take into account the legal implications in the event of a shipping incident where VTS personnel may have failed to carry out their duty competently. Similar considerations should be taken into account in the provision of LPS.
+
+4. Responsibilities
+
+4.1. The responsibilities for VTS in the UK are as set out in IMO Resolution A.1158(32) as follows:
+
+4.1.1 The Contracting Government should:
+
+• establish a legal basis for VTS that gives effect to regulation V/12 of the Convention;
+
+• appoint and authorise a competent authority for VTS;
+
+• take appropriate action against a ship flying its flag that is reported not to have complied with the provisions of VTS; and
+
+• take account of future technical and other developments recognized by the IMO relating to VTS.
+
+4.1.2 The competent authority for VTS should:
+
+• establish a regulatory framework for establishing and operating VTS in accordance with relevant international conventions and IMO instruments, IALA standards and national law;
+
+• authorise VTS providers to operate VTS within a delineated VTS area;
+
+• ensure that VTS training is approved and VTS personnel are certified; and
+
+• establish a compliance and enforcement framework with respect to violations of VTS regulatory requirements.
+
+4.1.3 The VTS provider should:
+
+• ensure that VTS conform with the regulatory framework set by the competent authority for VTS;
+
+• set operational objectives for VTS that are consistent with improving the safety and efficiency of ship traffic and the protection of the environment. The objectives set should be routinely evaluated to demonstrate that they are being achieved;
+
+• ensure that appropriate equipment, systems and facilities for the delivery of VTS are provided;
+
+• ensure that VTS are adequately staffed and that VTS personnel are appropriately trained and qualified; and
+
+• ensure that information regarding requirements and procedures of VTS and the categories of ships required to participate in VTS are promulgated in appropriate nautical publications.
+
+4.2 These responsibilities are developed further within the UK as follows:
+
+4.2.1 Responsibilities of the MCA, as the competent authority for VTS, are as follows:
+
+1) Leading on national policy for UK VTS;
+
+2) Providing advice to government on legislation with respect to the operation of a VTS within UK territorial waters;
+
+3) Establishing and reviewing the national standards and definitions for the provision of VTS;
+
+4) Establishing and reviewing the national standards and definitions for provision of LPS;
+
+5) Assessing the need for VTS outside the areas of jurisdiction of Statutory Harbour Authorities;
+
+6) Establishing VTS providers for VTS in coastal areas, ensuring that necessary arrangements are in place and setting the objectives offered by them;
+
+7) Establishing and reviewing training standards for all VTS personnel and those who provide LPS;
+
+8) Providing accreditation of organisations involved in VTS training and conducting a regular review of training and training standards. This also involves the approval of individual VTS courses at accredited training organisations;
+
+9) Providing guidelines for VTS personnel and equipment levels;
+
+10) Ensuring that any reporting requirement for incidents involving VTS aligns with the national reporting requirements for navigational incidents;
+
+11) Providing guidance to assist VTS providers in evaluating the performance of their VTS;
+
+12) Designating VTS, approving VTS Areas in accordance with current regulations and promulgating a list of designated VTS (see MSN 1796 (as amended) - Designation of VTS centres in the UK);
+
+13) Authorising the discontinuation or reduction in capability of an existing VTS;
+
+14) Maintaining a database of declared UK VTS;
+
+15) Audit and review the performance of VTS, recommending and facilitating improvements, where necessary.
+
+4.2.2 A Statutory Harbour Authority is responsible for assessing the need for VTS or the need for LPS, within its own port limits in accordance with the Port Marine Safety Code (PMSC) following the advice provided in this guidance and also in IALA Guidelines and Recommendations. Where it is decided that a VTS is required, the Statutory Harbour Authority becomes the VTS provider within its own port limits. In the UK, the powers of individual Statutory Harbour Authorities have been established by or under the Harbours Act 1964 and Harbours Act (Northern Ireland) 1970. They have powers and duties within a defined geographical area. In the context of VTS their responsibilities include the requirement to:
+
+1) Establish the need for a VTS or provision of a LPS by means of a Formal Risk Assessment into the safety of navigation, as required by the PMSC and taking into account the standards established by the Competent Authority for VTS;
+
+2) Ensure that a legal basis for the operation of a VTS is provided;
+
+3) Ensure the VTS has been delegated the appropriate authority to fulfil its duties;
+
+4) Apply to the MCA for designation of its VTS and approval of its VTS Area in accordance with current regulations.
+
+5) Apply to the MCA for the discontinuation or the reduction in capability of an existing VTS supported by appropriate justification such as a review of hazards/risk or establishment of alternative mitigation measures.
+
+Note:
+
+Where approval has been given for a VTS Area to extend beyond the limits of the Statutory Harbour Authority, consideration should be given to the legal basis for the management of that part of the VTS Area that lies beyond the Statutory Harbour Authority limits.
+
+4.3 The VTS provider is responsible for the operation of the VTS within the area designated for each individual VTS. A VTS provider may initiate the exchange of information with vessels approaching its area of responsibility in order to ensure the smooth integration of traffic into the VTS area. VTS providers should:
+
+1) Operate the VTS within national and international guidelines and legislation;
+
+2) Ensure that VTS operators are trained to the appropriate UK national requirements based on the IALA V-103 model courses, and that their qualifications are kept current and valid;
+
+3) Establish operating procedures for VTS and for the implementation of emergency contingency plans;
+
+4) Carry out regular training and exercises for VTS personnel in operating and emergency response procedures;
+
+5) Regularly review VTS operations to ensure that the service is harmonised with ship reporting, routeing instructions, aids to navigation, pilotage and port operations as appropriate;
+
+6) Report any apparent infringement of byelaws and directions to the appropriate authority;
+
+7) Maintain appropriate standards of communications on channels assigned for VTS purposes;
+
+8) Ensure that appropriate manning is available to provide the service taking into account the guidance issued by the competent authority for VTS and IALA Guideline: 1045 – Staffing Levels at VTS Centres;
+
+9) Ensure that equipment appropriate to the service is available, taking into account the guidance issued by the competent authority for VTS, IALA Recommendation V – 128: Operational and Technical Performance of VTS Systems and IALA Guideline: 1111 – Preparation of Operational and Technical Performance Requirements for VTS Systems;
+
+10) Ensure that VTS personnel are vested with the appropriate authority and / or delegations required to fulfil their duties;
+
+11) Periodically audit and review the performance of port VTS in accordance with IALA Guideline No. 1101 - Auditing and Assessing VTS and PMSC, recommending and facilitating improvements where necessary.
+
+12) Publish details of the VTS, including the details of radio watches, designated frequencies and hours of operation in the appropriate nautical publications (Admiralty List of Radio Signals Volume 6 part 1);
+
+5. Purpose of a VTS
+
+5.1 The purpose of a VTS is to contribute to safety of life at sea, improve the safety and efficiency of navigation and support the protection of the environment within a VTS area by mitigating the development of unsafe situations through:
+
+• providing timely and relevant information on factors that may influence ship movements and assist on-board decision making.
+
+• monitoring and managing ship traffic to ensure the safety and efficiency of ship movements.
+
+• responding to developing unsafe situations
+
+5.2 Any VTS should have the capability of providing all these purposes as appropriate to the circumstances of the VTS area and as deemed necessary through Formal Risk Assessment. The provision and delivery of these purposes is described in more detail in IMO Resolution A.1158(32) and IALA Guideline G1089 – Provision of a VTS.
+
+5.3 Three generic circumstances have been identified when a VTS may require to respond to developing unsafe situations:
+
+• when the VTS observes a developing navigational situation and deems it necessary to intervene;
+
+• when navigational support is provided at the request of a member of a ship’s bridge team or an embarked pilot; and
+
+• when navigational support from a VTS forms part of a specific local operational procedure, such as a countdown to a turn, that is formally documented and promulgated, agreed to between participants and in which they have been appropriately trained.
+
+6. Planning, Implementing and Determining the Need For VTS
+
+6.1 IALA provides comprehensive guidance on the processes for determining the need for a VTS and in its planning and implementation in Guideline G1150 – Establishing, Planning and Implementing a VTS. It sets out the five project management phases and the key areas for consideration as they relate to VTS:
+
+1) Initiating - This marks the beginning of the project. The goal of this phase is to determine the need for a VTS and define the project at a broad level and develop a business case. This includes the process of Formal Risk Assessment for which IALA offers risk assessment tools which may be used in place of more generic tools if required. This will determine whether a VTS is an appropriate risk control option to enhance the safety of shipping, maritime users, members of the public and the protection of the marine environment.
+
+2) Planning - During this phase, the scope and goals of the project are defined, and a project management plan is developed. It involves identifying the cost, quality, available resources, and a realistic timetable.
+
+3) Implementing - This is the phase where deliverables are developed and completed.
+
+4) Controlling – This phase is invariably carried out simultaneously with phase 3 (Implementing), thereby ensuring that project objectives and deliverables are met. This phase is about measuring project progression and performance and ensuring that everything happening aligns with the project management plan.
+
+5) Closing - The closing processes are used to formally establish that the project phase or project is finished.
+
+7. Local Port Services (LPS)
+
+7.1 A Local Port Service is applicable to those ports where it has been identified from their Formal Safety Assessment that a VTS is excessive or inappropriate. They will not, therefore, be required to train their operators to the V-103 standard.
+
+7.2 The provision of a Local Port Service should be based on the Formal Risk Assessment process, when all mitigating factors have been considered.
+
+7.3 The main difference arising from the provision of LPS is that it does not require to have the ability and / or the resources to respond to developing traffic situations and there is no requirement for a vessel traffic image to be maintained. As such, the equipment fit does not need to be as extensive as for a VTS, the training requirement for its operators is less comprehensive and the operators do not need to be certified to the V-103 standard.
+
+7.4 Provision of LPS is designed to improve port safety and co-ordination of port services within the port community by dissemination of port information to vessels and berth or terminal operators. It is mainly concerned with the supply of information on berth and port conditions. Provision of LPS can also act as a medium for liaison between vessels and stevedores or allied services, as well as providing a basis for implementing port emergency plans.
+
+7.5 Key considerations will be:
+
+• The equipment deemed necessary;
+
+• The level of operator competence required;
+
+• The complexity of the advice and information required to be exchanged.
+
+7.6 Examples of LPS may include:
+
+• Berthing information;
+
+• Availability of port services;
+
+• Details of shipping movements;
+
+• Meteorological and hydrographical data.
+
+7.7 Training for the provision of LPS should be based on the selection of appropriate modules, or elements thereof, from the V-103 syllabus, depending on the equipment and capabilities used.
+
+8. Objectives
+
+8.1 It is important to consider the objectives that the provision of a VTS or LPS is intended to achieve. These need to be clearly defined and be subject to regular review. IALA provides detailed guidance in Guideline G1131 Setting and Measuring VTS Objectives.
+
+8.2 The precise objectives of any VTS will flow from a Formal Risk Assessment and will depend upon the particular circumstances in the VTS area and the volume and character of maritime traffic. They will also need to take into account the capability of expertise and technology available, however, it should be recognised that VTSs are seen as an important tool for mitigating risk for any authority charged with responsibility for the safety of navigation.
+
+9. Delivering a VTS
+
+9.1. VTS Operational Procedures
+
+9.1.1 Operational procedures are an integral part of a verifiable Safety Management System (SMS) for VTS. A properly implemented quality control system can ensure that the standards set for the service are consistently maintained and that the service is delivered safely and effectively. A formal Document Control system should be in operation for the SMS documentation.
+
+9.1.2 The development and maintenance of VTS centre specific operational procedures is a continuous process. To ensure the safe and efficient management of the service, it is critical that VTS personnel are made aware of changes and amendments, and auditable and documented processes are developed that enable the early and effective update of operational procedures.
+
+9.1.3 To achieve a standardised operations / performance within the VTS centre, clearly defined operating procedures, particularly those relating to external communications are paramount. This will assist the user in understanding information or instructions given by the VTS. IALA provides a framework for authorities to implement processes and procedures associated with the provision of VTS in Guideline G1141 Operational Procedures for Delivering VTS
+
+9.1.4 It is recommended that the operating procedures are documented in manuals. The responsible authority should assign a person responsible to keep the procedures up to date.
+
+9.1.5 These procedures should be available to all VTS personnel in all applicable locations (e.g. head office, VTS centre, training centre, etc.) in, either electronic and / or printed version. The electronic version facilitates searching within the document and keeping it up to date. These standard operating procedures should be an integral part of regular training and adherence to procedures should be monitored.
+
+9.1.6 Consideration may be given to distributing these procedures (or part of them) to allied services. This could increase efficient collaboration.
+
+9.2 Recording and Analysis
+
+9.2.1 The nature of VTS operations is such that there may be a requirement to access, analyse and review previous events or incidents. There is a requirement, therefore, for the capture, secure storage, retrieval and presentation of VTS related information which may prove invaluable in justifying the actions of VTS personnel in post-incident analysis as well as improving the efficiency of VTS operations.
+
+9.2.2 Records should capture all relevant information for subsequent investigation including an all-source traffic image, radio and telephone communications, hydro/met data and CCTV. Records should be in a form that can be passed to external authorities, such as the MAIB, for analysis. Records should be retained for a minimum of 30 days or as otherwise requested for incident analysis.
+
+9.3 VTS Communications
+
+9.3.1 The allocation of VHF radio channels for port operations used for VTS is made by Ofcom to whom application should be made.
+
+9.3.2 Effective communication is an essential component for operations in the maritime environment and is achieved when the intended meaning of the sender and the perceived meaning of the receiver is the same. The use of standard messaging structure and phrases enables a VTS to communicate quickly and effectively despite differences in language and reduces the risk for misunderstanding.
+
+9.3.3 IALA provides comprehensive guidance on VTS communications in Guideline G1132 VTS Voice Communications and Phraseology. This guideline covers general principles together with more general guidance on message composition, delivery and interpretation and concludes with a final section containing a limited number of standard VTS phrases that VTS personnel can reasonably be expected to learn and are restricted to those operational circumstances where it is judged that time may be critical or where misunderstandings might compromise safety. UK VTS providers and training establishments are encouraged to use these standard phrases together with the use of message markers.
+
+10. VTS Equipment
+
+10.1 Having determined the need for a VTS, it will be necessary to consider the equipment and capabilities required to meet the safety levels and user requirements of the VTS identified through risk assessment taking into account traffic density, navigation hazards, local climate, topography and the extent of a VTS area. Suitable positions for the equipment should be determined by site survey, analysis, simulations and / or site tests to ensure that the required functions and coverage will be provided.
+
+10.2 IALA provides detailed guidance in IALA Recommendation R0128 Operational and Technical Performance Requirements of VTS Systems and in IALA Guideline: 1111 Preparation of Operational and Technical Performance Requirements for VTS Systems.
+
+10.3 Further equipment and capability considerations are at Annex A.
+
+11. VTS Personnel, Training and Qualifications
+
+11.1 IMO Resolution A.1158(32) states that “The VTS provider should ensure that VTS are adequately staffed and that VTS personnel are appropriately trained and qualified”. IALA sets out guidance on training in Recommendation R0103 Training and Certification of VTS Personnel, in Guideline G1156 Recruitment Training and Certification of VTS Personnel and in a series of model courses.
+
+11.2 VTS Operators shall obtain a C0103-1 VTS Operator certificate issued on behalf of the MCA and an appropriate C0103-3 On-the-Job Training endorsement in a VTS Certification Logbook before being considered competent to act as a VTS Operator. VTS Supervisors shall obtain the additional C0103-2 VTS Supervisor certificate
+
+11.3 Full details and guidance on VTS personnel recruitment, training and qualifications is contained in the MCA’s Marine Guidance Note (MGN) 434 (as amended) Training and Certification of VTS Personnel.
+
+12. Administration and Management
+
+12.1 Effective administration and support is essential for the proper functioning of a VTS. Administrative guidance and instructions should be documented and available to all VTS staff.
+
+12.2 The extent of the supporting activities is likely to be related directly to the size of the VTS area, the number of sub-areas and sectors and the hours of service of the VTS. The existing administrative infrastructure of the VTS provider or competent authority will also dictate the extent to which additional VTS administrative support will be required.
+
+12.3 VTS providers will, to a greater or lesser extent, be involved in the strategy, planning and continuous development of VTS. This will drive the provision of administration support required for the proper operation of vessel traffic services. This will involve:
+
+• Legal;
+
+• Finance;
+
+• Security;
+
+• Personnel;
+
+• Procedures;
+
+• Other activities;
+
+• Equipment and facilities.
+
+12.4 The VTS provider should ensure management activities are in place to ensure the provision of VTS is consistent with their responsibilities. The management of a VTS may be allocated to one person or may involve multiple people depending on the structure of the organization. Whilst no formal training or certification is mandated, IALA provides guidance on general principles of management processes, describes activities related to VTS management and presents associated competencies and training subjects in Guideline G1167 VTS Management.
+
+13. Promulgation of Details of a VTS
+
+13.1 IMO Resolution A.1158(32) states that the VTS provider should “ensure that information regarding requirements and procedures of VTS and the categories of ships required to participate in VTS are promulgated in appropriate nautical publications.
+
+13.2 Statutory Harbour Authorities should review the details of their VTS / LPS on at least an annual basis. Any changes should be forwarded promptly to the UK Hydrographic Office (UKHO) for inclusion of appropriate details in the Admiralty List of Radio Signals (ALRS) Volume 6 and on Admiralty charts and copied to the MCA for compilation of the UK VTS database.
+
+13.3 The following details should be promulgated where a VTS / LPS is provided in the format requested by UKHO taking into account IALA Guideline G1144 - Promulgating the Requirements of a VTS to Mariners;
+
+1) hours of service;
+2) VHF radio channels;
+3) reporting points in the VTS area;
+4) details of the service;
+5) format and content of reports required
+6) contact details and VTS / LPS call sign;
+7) categories of vessel required or expected to participate
+8) area(s) of coverage.
+
+Auditing and Reviewing Performance
+
+13.4 The evaluation of a VTS or provision of LPS should determine if the purpose it was implemented for is still relevant and its objectives are being achieved. This requires auditing and reviewing of performance in accordance with the Statutory Harbour Authorities Safety Management System. The evaluation is intended to ascertain the effectiveness of the VTS in meeting its objectives, with respect to mitigating the risks of collisions or groundings in the VTS area.
+
+13.5 The VTS or LPS provided will depend on the result of the Formal Risk Assessment, which in turn will identify the standard and the performance indicators against which the VTS or LPS will be evaluated. In order to be effective, the objectives of the VTS or LPS need to be kept under continuous review, bearing in mind changes in operations, operational methods, personnel and the availability of technology, to ensure that the objectives set for the VTS or LPS remain applicable and are being achieved.
+
+13.6 At the request of a Statutory Harbour Authority, the MCA may assist with the evaluation process, with a view to ensuring compliance with UK best practice and international recommendations appropriate to the designation.
+
+13.7 The overall evaluation of the VTS or LPS should be preceded by an assessment of the effectiveness of the equipment, manning and procedures involved.
+
+14. MCA VTS Centre Audits
+
+14.1 As the national competent authority for VTS in the UK, the MCA undertakes audits of UK VTS centres following the framework set out in IALA Guideline G1101 – Auditing and Assessing a VTS and as part of its accountability under the MSA Vessel Traffic Monitoring and Reporting Regulations 2004 Statutory Instrument (SI) No. 2110 (as amended).
+
+14.2 IALA Guideline G1101 offers an audit procedure and provides a checklist at its annex on which the audit is based. The audit process explores best practice and compliance with IALA VTS recommendations, guidelines and UK VTS guidance.
+
+14.3 VTS providers are informed in advance when MCA intends to carry out these audits.
+
+15. UK VTS Policy Steering Group
+
+15.1 Future VTS developments and current VTS policy including, standards, training and anonymised audit findings are reviewed by the UK VTS Policy Steering Group, which normally meets biennially for the purposes of ensuring continuous improvement in the UK VTS sector. Stakeholders involved in VTS who wish to represent their employing organisation on the VTS Policy Steering Group should contact the MCA UK Technical Services Navigation.
+
+More information
+
+UK Technical Services Navigation
+Maritime and Coastguard Agency Bay 2/24
+Spring Place
+105 Commercial Road Southampton
+
+Tel: +44 (0) 20381 72000
+
+Fax: +44 (0) 23 8032 9204
+
+e-mail: navigationsafety@mcga.gov.uk
+
+General Inquiries:infoline@mcga.gov.uk
+
+MCA Website Address: www.gov.uk/mca
+
+Annex A
+
+LPS / VTS EQUIPMENT AND CAPABILITY CONSIDERATIONS
+
+1) IALA provides detailed guidance in IALA Recommendation R0128 Operational and Technical Performance Requirements of VTS Systems and in IALA Guideline: 1111 Preparation of Operational and Technical Performance Requirements for VTS Systems.
+
+2) IALA Guideline 1111 provides generic guidance for all potential equipment and sensors that may be used in designing a VTS system. The guidance is not prescriptive, and the capabilities required may vary between VTS, VTS sectors or even specific parts of a VTS Area. VTS capability should be linked to risk assessment which will identify the degree of mitigation expected of a VTS and its contribution, together with other mitigation measures, to address a specific hazard or hazards. The extent of mitigation provided through the implementation of a VTS and the degree of ship management or navigational support offered will be determined by a number of factors that include the equipment fit, equipment capability, local geography and operator authorisation/training.
+
+3) The table below provides supplementary comment and considerations applicable to a VTS. Equipment is listed by constituent parts of overall capability. VTS equipment suppliers may offer equipment that combines constituent parts for presentation to VTS personnel.
+
+4) Many of these equipments and capabilities may not be applicable to an LPS for which requirements should be determined by risk assessment.
+
+5) The use of equipment carries with it the requirement that operators are appropriately trained.
+
+Equipment
+
+Traffic Image
+Comment
+
+Manual Plotting Facility
+Capability insufficient for VTS – may be appropriate for LPS
+
+Stand-alone radar
+Capability insufficient for VTS – may be appropriate for LPS
+
+Standard stand-alone Automatic Radar Plotting Aid (ARPA) or other shipborne system
+As designed for on-board use. Capability unlikely to be suitable for VTS - – may be appropriate for LPS
+
+Bespoke VTS Traffic-Image & Information Display (VTID)
+Correlation, fusing and presentation of some, or all, of the sensor data as listed below
+
+3D Display
+Consider cost/benefit of this additional presentation option
+
+Communications
+Comment
+
+VHF – simplex
+Normally, separate channel per VTS sector. Normally one of the “Port Operations” channels. Application to Ofcom for approval and allocation.
+
+VHF - duplex
+Option for administrative communications. Application to Ofcom for approval and allocation.
+
+Telephone
+ 
+
+Integrated Communications System
+Option to improve HMI to VTS personnel combining radio and telephonic communications
+
+Facsimile
+As required for notifications
+
+Email
+Administrative support to VTS personnel
+
+Internet
+Some supporting VTS services may be internet based. Consider need to restrict access.
+
+Sensors
+Comments
+
+Radar
+Where radar and AIS are installed as part of the VTS sensor suite, AIS information should be correlated with the radar target data to ensure that each vessel within the VTS area is represented by a single track on the VTS Traffic Display.
+Consider benefits of X versus S band
+Consider cost/benefit of radar technology options.
+
+AIS (Automatic Identification System)
+AIS may provide timely, relevant and accurate information to VTS personnel to support the compilation of the VTS traffic display. It provides automatic vessel position reports and movement information as it is received at base station sites. AIS positional data is normally determined from Global Navigation Satellite Systems (GNSS) and is generally of high reliability and accuracy. Should errors occur, these are generally due to incorrect settings being applied and of an order of magnitude that can be relatively easily recognised. While AIS may be used in isolation, it is good practice to validate the position with another source such as radar, CCTV or other accurate location data before reliance is placed on it, however, in such circumstances it should be recognised that not all vessels may be carrying AIS and the traffic image may, therefore be incomplete. The benefits of active versus passive base stations should be considered.
+
+Customised video feed (CCTV)
+Consider location and effective range capability. Consider capability to present on VTID
+
+Radio direction finder (VHF / DF)
+Consider cost/benefit of this capability. If fitted, consider capability to present on VTID
+
+Meteorological
+Consider location of sensors and options for presentation
+
+Hydrographical
+Consider location of sensors and options for presentation
+
+Capabilities
+Comment
+
+Decision support
+Capability that may be incorporated into the VTID
+
+Equipment Performance Monitoring
+Capability to ensure equipment operating to specification
+
+Redundancy
+Consider provision to allow for individual equipment malfunction and maintenance of power supplies
+
+Data recording
+Records should be retained for a minimum of 30 days or as otherwise requested for incident analysis
+
+Management Information System (MIS)
+Equipment suppliers may offer option of combining with VTID. Valuable data for VTS personnel but degree of responsibility for data input to consider need to avoid distractions
+
+Data Export
+Consider format
+
+Log & Record Keeping
+Should be automated as far as possible to avoid distraction (see data recording above)

@@ -1,0 +1,116 @@
+MGN 717 (M+F) MGN 717 (M+F) Air Quality: amendments to mandatory international instruments
+2026-04-17
+Source: https://www.gov.uk/government/publications/mgn-717-mf-air-quality-amendments-to-mandatory-international-instruments
+
+Notice to all Shipowners, Operators, Masters, Officers, Maritime Administrations, Port Authorities and Recognised Organisations
+
+This notice should be read with the Merchant Shipping (Prevention of Air Pollution from Ships) Regulations 2008 (SI 2008/2924, as amended[footnote 1] and the Merchant Shipping (Cargo and Passenger Ship Construction and Miscellaneous Amendments) Regulations 2023 (SI 2023/246[footnote 2].
+
+Summary
+
+This MGN provides information on amendments to Annex VI in the International Convention for the Prevention of Pollution from Ships, 1973 (MARPOL) concerning regulation 26 on the Ship Energy Efficiency Management Plan (SEEMP) and regulation 13 on the Control of Emissions of Nitrogen Oxides from Marine Diesel Engines (NOx Technical Code). It also includes amendments to the International Code of Safety for Ships using Gases or other Low-Flashpoint Fuels (IGF Code), which is made mandatory under Chapter II-1 in the Annex to the International Convention for the Safety of Life at Sea, 1974. The amendments to the IGF Code entered into force on 1 January 2026 and the amendments to the NOx Technical Code will enter into force 1 September 2026. The amendments to SEEMP have taken effect simply by way of an update to existing SEEMP guidelines.
+
+The UK has implemented the internationally agreed amendments fully in domestic law and has not introduced any additional requirements.
+
+1. Introduction
+
+1.1 The Merchant Shipping (Prevention of Air Pollution from Ships) Regulations 2008, as amended (“the 2008 Regulations”) implement the Protocol of 1997 to MARPOL, which incorporates Annex VI into MARPOL, into UK law.  This implementation includes  the EEDI, EEXI, CII and SEEMP regimes.  Annex VI comprises international regulations for the prevention of air pollution from ships and includes provision for the SEEMP in regulation 26. Regulation 26.1 requires each ship to keep a SEEMP on board, which is to be developed and reviewed, taking into account the relevant IMO guidelines.  The relevant IMO guidelines were the 2022 Guidelines for the development of a Ship Energy Efficiency Management Plan (SEEMP), adopted by Resolution MEPC.346(78), and have been revoked and replaced by the 2024 Guidelines adopted by Resolution MEPC.395(82)[footnote 3]. Annex VI also incorporates the Technical Code on the Control of Emissions of Nitrogen Oxides from Marine Diesel Engines (“the NOx Technical Code”, to which amendments were adopted by Resolution MEPC.398(83). The NOx Technical Code amendments will come into force on 1 September 2026.
+
+1.2 The International Code of Safety for Ships using Gases or other Low-Flashpoint Fuels (IGF Code) is made mandatory internationally by Chapter II-1 in the Annex to the International Convention for the Safety of Life at Sea, 1974 (SOLAS), which relates to the construction of ships. Chapter II-1 is implemented in the United Kingdom by the Merchant Shipping (Cargo and Passenger Ship Construction and Miscellaneous Amendments) Regulations 2023 (SI 2023/246) and, as such, the implementation includes the IGF Code. Amendments have been made to Chapter 7 of the IGF Code; these amendments came into force on 1 January 2026 and can be found in the annexes to IMO Resolutions MSC.524(106)[footnote 4] and MSC.551(108)[footnote 5].
+
+1.3 All these amendments have either come into force, or will come into force, as a result of the ambulatory reference provision in the 2008 Regulations. Where UK merchant shipping legislation refers to an international instrument, such as a provision in a convention or a code forming part of that convention (for example, the IGF Code), this reference is “ambulatory”; that is, it is a reference to the most up to date version of that provision and comes into force in UK law at the same time that the provision comes into force internationally.
+
+2. Amendments to the Ship Energy Efficiency Management Plan (SEEMP)
+
+2.1 SEEMP is an operational mechanism to improve the energy efficiency of a ship in a cost-effective manner, through technology, good practices and the use of recognised monitoring tools.
+
+2.2 On 4 October 2024, the Marine Environment Protection Committee (MEPC 82) approved Resolution MEPC.395(82), which adopted the 2024 Guidelines for the development of a Ship Energy Efficiency Management Plan (SEEMP); the 2024 Guidelines replaced the 2022 Guidelines of the same name.
+
+2.3 The SEEMP amendments can be found in the annex to MEPC.395(82) and, in summary, introduce:
+
+2.3.1 enhanced granularity of reports submitted under the IMO Data Collection System (DCS); and
+
+2.3.2 a revised sample format for the confirmation of compliance regarding early submission of the SEEMP Part II on the ship fuel oil consumption data collection plan.
+
+2.4 The latest amendments revoke the 2022 Guidelines for the development of a Ship Energy Efficiency Management Plan (SEEMP) adopted by resolution MEPC.346(78).
+
+3. Amendments to The International Code of Safety for Ships using Gases or other Low-Flashpoint Fuels (IGF Code)
+
+3.1 The IGF Code provides an international standard for ships, other than vessels covered by the IGC Code, operating with gas or low-flashpoint liquids as fuel. It specifies mandatory criteria for the arrangement and installation of machinery, equipment and systems for vessels operating with gas or low-flashpoint liquids as fuel to minimise the risk to the ship, its crew and the environment, having regard to the nature of the fuels involved.
+
+3.2 On 10 November 2022, the Maritime Safety Committee (MSC 106) approved Resolution MSC.524(106), which adopted amendments to the IGF Code; these amendments comprise amendments to chapter 7 concerning the application of high manganese austenitic steel for cryogenic service in fuel tanks of LNG-fuelled ships. The amendments entered into force on 1 January 2026 and can be found in the annex to MSC.524(106).
+
+3.3 On 23 May 2024, the Maritime Safety Committee (MSC 108) approved Resolution MSC.551(108), which adopted amendments to the IGF Code. The amendments make changes to the following provisions of the Code:
+
+3.3.1 Part A
+
+3.3.1.1 2 Definitions
+
+3.3.1.2 4 General requirements
+
+3.3.2 Part A-1
+
+3.3.2.1 5 Ship design and arrangement
+
+3.3.2.2 6 Fuel containment system
+
+3.3.2.3 7 Material and general pipe design
+
+3.3.2.4 8 Bunkering
+
+3.3.2.5 9 Fuel supply to consumers
+
+3.3.2.6 11 Fire Safety
+
+3.3.2.7 12 Explosion prevention
+
+3.3.2.8 15 Control, monitoring and safety systems
+
+3.3.3 Part B-1
+
+3.3.3.1 16 Manufacture, workmanship and testing
+
+3.3.4 Part C-1
+
+3.3.4.1 18 Operation
+
+These amendments entered into force on 1 January 2026 and can be found in the annex to MSC.551(108).
+
+4. Amendments to The NOx Technical Code
+
+4.1 The NOx Technical Code is a mandatory framework that sets the testing, certification, and onboard compliance procedures used to verify that marine diesel engines meet the NOx emission limits required under regulation 13 of MARPOL Annex VI.
+
+4.2 On 11 April 2025, the Marine Environment Protection Committee (MEPC 83) approved Resolution MEPC.398(83), which adopted amendments to the NOx Technical Code concerning the certification of an engine subject to substantial modification or being certified to a Tier to which the engine was not certified at the time of its installation. These amendments will enter into force on 1 September 2026 and can be found in the annex to MEPC.398(83).  It should be noted that, at the time of publication of this MGN, the text of MEPC.398(83) has not been certified and so is not yet available on the Index of IMO Resolutions, although it is expected to be available shortly. In the meantime, a copy can be obtained from the MCA.
+
+More information
+
+Ship Standards
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 817 2000
+
+Email: environment@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+•
+https://www.legislation.gov.uk/uksi/2008/2924/contents ↩
+
+•
+https://www.legislation.gov.uk/uksi/2023/246/contents ↩
+
+•
+https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MEPCDocuments/MEPC.395(82).pdf ↩
+
+•
+https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.524(106).pdf ↩
+
+•
+https://wwwcdn.imo.org/localresources/en/KnowledgeCentre/IndexofIMOResolutions/MSCResolutions/MSC.551(108).pdf ↩

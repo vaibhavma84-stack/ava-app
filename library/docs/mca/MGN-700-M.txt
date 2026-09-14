@@ -1,0 +1,137 @@
+MGN 700 (M) MGN 700 (M) Carriage of cargoes: guidance on the safe use of pesticides in ships
+2024-05-23
+Source: https://www.gov.uk/government/publications/mgn-700-m-carriage-of-cargoes-guidance-on-the-safe-use-of-pesticides-in-ships
+
+Summary
+
+The purpose of this Marine Guidance Note (MGN) is to set out:
+
+(1) The appropriate precautions for the safe use of pesticides in cargo spaces on board ships when loaded or intended to be loaded with any cargo, with the exception of liquids in bulk or gases in bulk.
+
+(2) The importance of safe and proper procedures when pesticides are used on board ships.
+
+(3) The relevant aspects of the IMO Recommendations on the Safe Use of Pesticides in Ships.
+
+This Marine Guidance Note (“MGN”) replaces MGN 86 (M), MGN 284 (M+F) and MGN 576 (M). It incorporates the relevant guidance from these M Notices and updates it to set out guidance in relation to the requirements of Chapter VI of the Annex to the International Convention for the Safety of Life at Sea, 1974 (“SOLAS”) which are implemented by the Merchant Shipping (Carriage of Cargoes) Regulations 2024 and specifically in respect of Regulation 4 of Chapter VI by MSN 1917 (M). 
+
+1. Introduction
+
+1.1 To prevent the spoliation of cargo and the spread of invasive animal or plant species, some cargoes carried by sea, either in packaged form in shipping containers or in solid bulk form, may be treated with pesticides. For example, consignments of grain, wood pellets, logs or seed cake may have insects or their eggs or larvae or other pests present in them and undergo fumigation.
+
+1.2 Fumigation is a method of pest control which uses gaseous pesticides or biocides to suffocate or poison pests by either removing or replacing the oxygen in the air or the biocidal effect of the fumigant on the surface of the targeted organism. Fumigation may take place prior to loading, after loading or during transit.
+
+1.3 Fumigants are toxic to humans as well as insects and other pests and are therefore hazardous if not used correctly. Incidents, including fatalities, have occurred due to incorrect use of fumigants in ships’ cargoes. This MGN, which accompanies the Merchant Shipping (Carriage of Cargoes) Regulations 2024 (“the 2024 Regulations”), sets out guidance on the use of fumigants in the cargo spaces of ships.
+
+1.4 In accordance with the 2024 Regulations and Chapter VI of the Annex to SOLAS, where pesticides are used in the cargo spaces of ships, appropriate precautions must be taken for the safety of all personnel handling that cargo or entering those cargo spaces.
+
+1.5 The use of pesticides includes the fumigation of cargo spaces and of cargo in port or in transit and any part of the ship or cargo so affected as a consequence of the application or use of fumigants or pesticides. This MGN does not cover the fumigation or use of other pesticides in other parts of the ship such as the galley, food stores or accommodation areas, for purposes not related to the carriage of cargoes.
+
+1.6 The 2024 Regulations, and this MGN, cover all cargoes including bulk cargoes except for liquids and gases in bulk. For dangerous goods, the International Maritime Dangerous Goods (IMDG) Code, as implemented by the Merchant Shipping (Carriage of Dangerous Goods and Harmful Substances) (Amendment) Regulations 2024, also applies.
+
+2. The safe use of pesticides on ships
+
+2.1 Regulation 4 of Chapter VI requires that appropriate precautions are taken in the use of pesticides in ships, in particular for the purposes of fumigation. SOLAS refers to the following three IMO publications which are intended to supplement the requirements of the IMDG code, the International Maritime Solid Bulk Cargoes (IMSBC) Code and the International Code for the Safe Carriage of Grain in Bulk (the Grain Code):
+
+• Revised Recommendations on the safe use of pesticides in ships (MSC.1/Circ1358)[footnote 1];
+
+• Recommendations on the safe use of pesticides in ships applicable to the fumigation of cargo holds (MSC.1/Circ.1264, as amended by MSC.1/Circ.1396): and
+
+• Revised Recommendations on the safe use of pesticides in ships applicable to the fumigation of cargo transport units (MSC.1/Circ.1361/Rev.1).
+
+2.2 Where pesticides are used in the cargo spaces of ships prior to, during or following a voyage, the 2024 Regulations and MSN 1917 (M) require that precautions are established with regard to the relevant IMO Recommendations, and further that copies of the relevant publication(s) are available on board the ship and kept accessible for all crew members.  
+
+3. Fumigation of solid bulk cargoes including grain
+
+3.1 Given the highly toxic nature of fumigants used on cargoes carried in ships they should be applied only by qualified persons. Responsibility for the fumigation process, including, if appropriate, the provision of means to remove any fumigant residues, lies with the fumigator-in-charge. However, where fumigation in transit is to take place, the responsibility to provide safe working conditions on board ship rests with the master. The master should ensure that at least two members of their crew, including one officer, have received the appropriate training. They should be familiar with the recommendations of the fumigant manufacturer concerning the methods of detection of the fumigant in air, its behaviour and hazardous properties, symptoms of poisoning, relevant first aid and special medical treatment and emergency procedures.
+
+3.2 The master may choose to allow an in-transit fumigation of solid bulk cargo only after first referring to the requirements of the ship’s own national administration[footnote 2]. The proposed fumigation process should be acceptable to the administration of the state of the vessel’s next port of call or destination. If these approvals have not been received, the fumigation process should not be undertaken.
+
+3.3 Given the potentially fatal consequences of highly toxic fumigants leaking from cargo areas into crew accommodation or other manned areas of the ship, prior to the commencement of fumigation it should be verified that ventilation flaps and closing devices are set correctly, that means of closing and sealing of all the bulkhead openings leading from the engine-room to piping tunnels/duct keels and other spaces are confirmed closed and that warning signs have been posted. Gas concentration safety checks should be carried out throughout the voyage with readings to be recorded in the ship’s logbook.
+
+3.4 The Threshold Limit Values (TLV) for vapours in air referenced in the IMDG Code[footnote 3] come with the caveat that national recommendations or regulations[footnote 4] should be consulted, adding potential complexity for the seafarer and fumigator-in-charge[footnote 5]. It should be further noted that since the TLVs are based on a normal eight-hour day, they do not provide precise divisions between “safe” and “dangerous” concentration levels for the seafarer. Therefore, it is important that exposure to fumigation agents is kept to a minimum practicable level and below the TLV.
+
+3.5 In addition to the toxic nature of fumigants, some of the gases and other agents commonly used for fumigation are flammable and should only be used in accordance with the manufacturer’s instructions to avoid the creation of a fire hazard (e.g. Phosphine generating formulations).
+
+3.6 To ensure compliance with SOLAS and the IMO Recommendations on the safe use of pesticides in ships, all ships proceeding to a port within the United Kingdom carrying solid bulk cargoes under fumigation, even if ventilation of the cargo has taken place during the voyage, should prior to arrival and in general not less than 24 hours in advance inform either the port authority or terminal operator of the port or bulk terminal of destination that the bulk cargo has been fumigated. This information should be provided by either the ship’s master, owner or the agent.
+
+3.7 On arrival at any port within the United Kingdom where fumigated bulk cargo is to be discharged the master should establish the requirements of the port or bulk terminal regarding the handling of fumigated cargoes before any cargo is discharged. Before entry of fumigated cargo spaces, trained personnel from a fumigation company or other competent persons, wearing adequate respiratory protection (e.g. self-contained compressed air breathing apparatus, not simply face coverings), should carry out careful monitoring of the spaces to ensure the safety of personnel. The monitoring values should be entered in the ship’s logbook. Precautions and procedures with regard to the entering of enclosed spaces should also be taken into account. See section 5 below for further details.
+
+3.8 If fumigant tablets are applied to a cargo in a retrievable form, their residues, whether completely spent or not, should be immediately removed from the cargo spaces upon arrival at the discharge port. Residues should not be removed from ships’ cargo spaces during the voyage or disposed of overboard at sea. Instructions for their safe disposal should be available to the master, terminal, cargo receivers and other relevant parties at the port of discharge. In cases where no means of retrieval are provided, a vessel should not commence discharge of cargo until safe working conditions have been established both on board the vessel and ashore where provision should be made for receiving partially decomposed tablets. Where fumigation in transit is undertaken on short sea voyages, it is more likely that fumigant tablets may not have fully decomposed before arrival at the discharge port. Disturbance of cargo during discharge may also expose pockets of fumigants.
+
+3.9 The fumigation is not complete until the holds and cargo have been ventilated and tested and a certificate issued by a competent person stating that the cargo and holds are free from harmful concentrations of gas. When the ship is found to be free of fumigants and certified as such, all warning signs should be removed. Any action in this respect should be recorded in the ship’s logbook.
+
+4. Fumigation of cargo transport units
+
+4.1 Fumigating a cargo transport unit brings it within the scope of the IMDG code[footnote 6], even if the contents of the cargo transport unit are not otherwise subject to the provisions of the Code.
+
+4.2 Cargo transport units under fumigation are classified in the IMDG Code as Class 9 dangerous goods with the proper shipping name “CARGO TRANSPORT UNIT UNDER FUMIGATION” (UN 3359), “cargo transport unit” being any freight container or vehicle shipped under fumigation.
+
+4.3 Mandatory requirements from the IMDG Code applicable to fumigated cargo transport units include:
+
+• Persons engaged in the handling of fumigated cargo transport units must be trained commensurate with their responsibilities.
+
+• Fumigants must not be applied to the contents of a cargo transport unit once loaded on board a ship.
+
+• For fumigated cargo transport units which have not been ventilated before loading, instructions for disposal of any residual fumigant must be provided.
+
+4.4 The IMO’s Revised Recommendations on the safe use of pesticides in ships applicable to the fumigation of cargo transport units (MSC.1/Circ.1361) are intended to supplement the requirements of the IMDG code and should be followed by everyone in the supply chain, although the Recommendations themselves clarify that they should not apply to the carriage of fresh food produced under controlled atmosphere. The contents of MSC.1/Circ.1358, MSC.1/Circ.1264 (as amended) and MSC.1/Circular.1361/Rev.1 are also incorporated into the supplement to the IMDG Code.
+
+4.5 The IMDG Code is implemented in the United Kingdom by the Merchant Shipping (Carriage of Dangerous Goods and Harmful Substances) (Amendment) Regulations 2024 which includes the provisions for cargo transport units under fumigation.
+
+5. Other regulations and requirements
+
+5.1 Pesticides, when not in use and carried as cargo, may be subject to the Merchant Shipping (Carriage of Dangerous Goods and Harmful Substances) (Amendment) Regulations 2024 and the IMDG Code.
+
+5.2 For enclosed space entry, Marine Guidance Note MGN 659 (M+F) Amendment 1 introduces the requirements of the Merchant Shipping and Fishing Vessels (Entry into Enclosed Spaces) Regulations 2022, incorporates guidance from IMO Resolution A.1050(27) “Revised Recommendations for Entering Enclosed Spaces Aboard Ships” and draws attention to Chapter 15 of the “Code of Safe Working Practices for Merchant Seafarers”.
+
+5.3 The International Safety Management (ISM) Code under Chapter IX of the Annex to SOLAS requires ships to develop plans for key shipboard operations concerning the safety of the ship and the prevention of pollution. These plans must include safety procedures for fumigation if the ship is likely to carry cargoes that may require fumigation.
+
+5.4 The necessity for the master and crew to cooperate with shore-based fumigation personnel in compliance with other safety requirements should also be recognised and in the United Kingdom the Health and Safety Executive (HSE) is the relevant shore-based authority.
+
+5.5 As pesticides are hazardous substances, their handling and application, and exposure to them, are subject to regulations affecting the health and safety of workers at work. Accordingly, workplace exposure limits (WELs) are set by the HSE in order to help protect the health of workers and the current list of WELs is available at: https://www.hse.gov.uk/pubns/priced/eh40.pdf
+
+5.6 More generally, the HSE have produced guidance outlining the risks and describing the law that applies to fumigation operations.  It contains specific advice with respect to procedures common to all fumigation operations including the use of monitoring equipment, personal protective equipment and respiratory equipment, health surveillance and first aid. There is also advice on precautions for specific fumigation environments, alternative fumigation technologies, the health effects associated with certain fumigants and other legislation applicable to fumigants. The guidance is available at: https://www.hse.gov.uk/pubns/priced/hsg251.pdf
+
+5.7 Chapter 21 of the MCA’s “Code of Safe Working Practices for Merchant Seafarers” includes a section on the safe use of pesticides and cross refers to the IMO Recommendations.
+
+5.8 It is strongly advised that all those undertaking fumigation operations alongside consider the guidance which is contained in the Port Marine Safety Code. The Code was developed to improve safety in UK ports and to enable harbour authorities to manage their marine operations to nationally agreed standards.  The Code is also supplemented by the following guidance document: A Guide to Good Practice on Port Marine Safety Operations.
+
+5.9 Other relevant publications relating to pesticides and the fumigation of cargoes may appear from time to time, such as reports and recommendations from the UK Government’s Marine Accident Investigation Branch (MAIB) and similar bodies overseas, loss prevention materials from marine liability insurers and best practice guidance from industry.
+
+More information
+
+Cargoes, Safety and Pollution Prevention
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: Cargoes@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+•
+The scope of the guidance in MSC.1/Circ1358 extends beyond application to the carriage of cargoes and addresses, for example, the disinfestation of food stores, galleys and crew and passenger accommodation. ↩
+
+•
+For United Kingdom ships, relevant requirements may include those referenced in section 5 to this MGN as well as those stipulated in the Merchant Shipping (Carriage of Cargoes) Regulations 2024 and MSN 1917.  ↩
+
+•
+IMDG Code 2022 (Supplement/Recommendations on the Safe Use of Pesticides in Ships/annex 2). ↩
+
+•
+See section 5 of this Marine Guidance Notice for such national regulations in the UK. ↩
+
+•
+IMDG Code TLV figures are taken from the Recommendations of the American Conference of Governmental Industrial Hygienists and may differ from other national administration limits. ↩
+
+•
+See Chapter 5.5 (Special provisions), in particular paragraph 5.5.2. ↩

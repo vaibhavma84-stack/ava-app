@@ -1,0 +1,100 @@
+MGN 651 (M) MGN 651 (M) Bilge alarms on cargo ships 24m or more in length and under 500GT
+2023-07-28
+Source: https://www.gov.uk/government/publications/mgn-651-m-bilge-alarms-on-cargo-ships-24m-or-more-in-length-and-under-500gt
+
+Summary
+
+• This Marine Guidance Note explains the new legal requirement for cargo ships that are 24m or more in length and less than 500GT to be fitted with bilge water level detectors and alarms.
+
+• This mandatory requirement has been introduced following several incidents in which ships have become flooded due to an undetected ingress of water occurring in bilge spaces and implements a recommendation of the Marine Accident Investigation Branch (MAIB) following the flooding and sinking of a grab hopper dredger Abigail H.
+
+• The fitting of bilge alarms in the prescribed manner is intended to improve the safety of affected ships, their crews and the marine environments in which they operate.
+
+1. Introduction
+
+1.1 The International Convention for the Safety of Life at Sea (SOLAS) includes a broad requirement for bilge alarms to be fitted in machinery spaces on cargo ships of 500 Gross Tons (GT) or more, undertaking international voyages. This international requirement is detailed in Regulation 48, Chapter II/1 of SOLAS and is given legal effect in the UK by The Merchant Shipping (Cargo Ship Construction) Regulations 1997 and MSN 1671.
+
+1.2 Prior to the introduction of The Merchant Shipping (Cargo Ship) (Bilge Alarm) Regulations 2021 (“the Regulations”), there was no requirement for cargo ships under 500GT to have bilge alarms in any spaces. Over recent years however, there have been a number of flooding incidents on such ships while operating in waters around the UK.
+
+1.3 In November 2008 one such incident involved the grab hopper dredger Abigail H. In this incident, an undetected ingress of water in the engine room eventually caused the ship to sink. At the time, the crew were sleeping on board the vessel and were unharmed as a result of the incident but were clearly at risk. The incident was investigated by the Marine Accident Investigation Branch (MAIB) which issued the following recommendation within its report into the incident, dated 1 July 2009.
+
+MAIB Recommendation 2009/141 to the Maritime and Coastguard Agency (MCA)
+
+Introduce a mandatory requirement for all vessels greater than 24m length and less than 500 Gross Tons, for the fitting of bilge alarms in the engine rooms and other substantial compartments that could threaten the vessel’s buoyancy and stability if flooded. These, and any other emergency alarms should sound in all accommodation spaces when the central control station is unmanned. In addition to functioning in the vessel’s normal operational modes, alarms should be capable of operating when main power supplies are shut down, and be able to wake sleeping crew in sufficient time for them to react appropriately.
+
+2. Requirement for Bilge Alarms
+
+2.1 The Merchant Shipping (Cargo Ship) (Bilge Alarm) Regulations 2021 require that a bilge alarm system be fitted on cargo ships of 24 metres or more in length and under 500GT which includes water level detectors in engine rooms and any other space likely to accumulate bilge water.
+
+2.2 The new legal requirement introduces a higher standard of safety for affected cargo ships to better protect:
+- the ships concerned against water ingress that may lead to inundation or loss;
+- the crew of such ships, including those who sleep onboard;
+- the environment, through reduced risk of pollution; and
+- other vessels that may be in the immediate vicinity.
+
+2.3 The Regulations apply to both new and existing cargo ships whether they are engaged on international voyages or domestic voyages within UK waters. New ships must comply with the Regulations from the date that the Regulations enter into force; existing ships have one year from the date that the Regulations entered into force to ensure compliance.
+
+3. Bilge Water Level Detector and Alarm Functions and Capabilities
+
+•
+3.1 A bilge water level detector must be fitted in any:
+
+•
+3.1.1 engine room; and
+
+•
+3.1.2 any other space likely to accumulate bilge water.
+
+•
+3.2 The level detector must emit an audible alarm warning. Where more than one bilge water level detector is fitted on a vessel, there must also be a visual alarm at the control position indicating which bilge alarm has been activated.
+
+•
+3.3 In addition, in order to provide for circumstances when the central control position is unmanned, the alarm must be clearly audible in all accommodation spaces on the ship if it is not switched off at the central control position within 30 seconds of being activated.
+
+•
+3.4 The volume of the alarm:
+
+•
+3.4.1 on the control panel must be such that it is heard;
+
+•
+3.4.2 in the case of in the accommodation spaces be capable of waking a sleeping person;
+
+•
+3.4.3 should be such that it is heard in all weather and operational conditions applicable to the ship.
+
+•
+3.5 All bilge alarm systems must be capable of operating when the ship’s main power supply is inactive.
+
+4. Exemptions
+
+4.1 A ship may be granted an exemption from the need to comply with the Regulations if the Maritime and Coastguard Agency (MCA) is satisfied compliance would be either impractical or unreasonable and that conditions can be imposed on any such vessel that will provide an equivalent level of safety.
+
+4.2 Applications for an exemption will be considered individually, on a case-by-case basis.
+
+5. Increased Risks Where Crew Sleep Aboard Ships
+
+5.1 Shipowners, operators and masters should bear in mind the increased risks from undetected ingress of water, that arises on ships where one or more crew sleeps onboard. In such cases, the audibility of the ship’s bilge alarm(s) within the crew accommodation may be the one factor that enables a serious incident to be prevented.
+
+5.2 A risk assessment should be carried out on such ships to ensure that bilge alarms (once fitted) can be heard clearly in all relevant spaces, and that crew are fluent in the procedures that need to be followed if those alarms sound. Further guidance in respect of ships where crew sleep onboard may be found in MGN 425 (M): Assessment of Risks for those Sleeping on Dead Ships, which can be accessed using the following link:
+
+https://www.gov.uk/government/publications/mgn-425-assessment-of-risks-for-those-sleeping-on-dead-ships
+
+More information
+
+UK Technical Services Ship Standards
+
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 8172000
+
+Email: MarineTechnology@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.

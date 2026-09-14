@@ -1,0 +1,197 @@
+MGN 631 (M+F) MGN 631 (M+F) Amendment 1: The merchant shipping (prevention of pollution by sewage from ships) regulations 2020
+2023-08-16
+Source: https://www.gov.uk/government/publications/mgn-631-mf-amendment-1-the-merchant-shipping-prevention-of-pollution-by-sewage-from-ships-regulations-2020
+
+Summary
+
+The purpose of this MGN is to provide guidance and clarification with respect to certain aspects of MARPOL Annex IV (referred to as “Annex IV”), the Polar Code, the Merchant Shipping (Prevention of Pollution by Sewage from Ships) Regulations 2020 (SI 2020/620) and the Merchant Shipping (Prevention of Oil Pollution and Prevention of Pollution by Sewage from Ships) (Amendment) Regulations 2022 (SI 2022/1234) (referred to as the “UK Regulations”). Future amendments to the international requirements in Annex IV and the Polar Code will be incorporated into UK law by way of ambulatory reference, where appropriate.
+
+1. Introduction/background
+
+1.1 The UK Regulations implement Annex IV (Sewage) of MARPOL, including all the amendments to that Annex to date.
+
+1.2 The purpose of the UK Regulations is to, by reference, incorporate the text of Annex IV in its most up to date form into UK domestic law. The references in the UK Regulations to Annex IV are ambulatory; this means that they will incorporate future technical amendments to Annex IV (as agreed in the International Maritime Organization (“IMO”)) into UK law at the point at which they come into force internationally, without the need for further UK legislation. Proposed changes to Annex IV will continue to be scrutinised in the IMO and the impact of these changes will continue to be assessed well before any amendment is due to come into force. The Secretary of State at all stages retains the power to prepare additional secondary legislation to prevent an amendment becoming part of United Kingdom law by way of ambulatory reference. An amendment will be publicised in advance of the date that it comes into force by means of a Parliamentary Statement to both Houses of Parliament and by way of a Marine Guidance Note.
+
+1.3 The above approach refers the reader of the UK Regulations directly to the international text, avoiding the need to transpose detailed technical obligations into the UK Regulations. This MGN supplements that approach by amplifying any aspects of the international text which are thought to lack clarity or to require additional detail. The amount of documentation to be read is therefore kept to a minimum.
+
+2. Application
+
+2.1 The UK Regulations apply to UK ships engaged on international voyages wherever they are in the world and to ships which are not UK ships whilst they are engaged on international voyages in UK waters or controlled waters and to UK ships operating in polar waters. The requirements apply to ships of 400 gross tonnage or above and ships under 400 gross tonnage if they carry more than 15 persons.
+
+2.2 It should be noted that the definition of a “ship” includes fixed or floating platforms operating in the marine environment and therefore the sewage requirements apply to offshore installations (such as drilling rigs) whilst they are engaged on international voyages. Whilst such offshore installation is fixed and tethered to the seabed the sewage requirements will not apply.
+
+2.3 The sewage requirements apply to all ships; however, a ship whose keel was laid, or which was at a similar stage of construction, before 2 October 1983, is only required be equipped, so far as practicable (see regulation 8(2) (sewage systems)).
+
+3. Definitions
+
+•
+3.1 “Sewage” means –
+
+•
+i) Drainage and other wastes from any form of toilets and urinals;
+
+•
+ii) Drainage from medical premises (dispensary, sick bay, etc.) via wash basins, wash tubs and scuppers located in such premises;
+
+•
+iii) Drainage from spaces containing living animals; or
+
+•
+iv) Other waste waters when mixed with the drainages defined above.
+
+•
+3.2 “Discharge”, in relation to sewage, means any release howsoever caused from a ship, and includes any escape, disposal, spilling, leaking, pumping, emitting or emptying.
+
+•
+3.3 A “discharge’ does not include –
+
+•
+i) Dumping within the meaning of the Convention of the Prevention of Marine Pollution by Dumping of Wastes and Other Matters, signed at London on 13 November 1972, as amended by the 1996 Protocol; or
+
+•
+ii) The release of sewage for the purposes of legitimate scientific research into pollution abatement control.
+
+•
+3.4 Please see regulation 3 (interpretation) of the UK Regulations for all other relevant definitions.
+
+4. Prohibition on the Discharge of Sewage
+
+4.1 The discharge of sewage from a ship into the sea is prohibited unless the discharge is carried out in accordance with the controls set out in Part 2 (Discharge of Sewage) of the UK Regulations.
+
+4.2 The requirements in relation to passenger ships operating in a special area from the relevant date onwards (which is set by the IMO) are shown in regulation 7(1)(b) of the UK Regulations, which refers to part B of regulation 11 of Annex IV.
+
+4.3 UK passenger ships operating in the Baltic Sea special area need to note that the Baltic Sea special area takes effect on:
+
+•
+1 June 2019 for new passenger ships;
+
+•
+1 June 2021 for existing passenger ships other than those specified in paragraph .3 below; and
+
+•
+1 June 2023 for existing passenger ships enroute directly to or from a port located outside the special area and to or from a port located east of longitude 28°10’ E within the special area that do not make another port calls within the special area.
+
+4.4 The requirements in relation to United Kingdom ships operating in polar waters are shown in regulation 7(1)(c) of the UK Regulations, which refers to chapter 4 of part II-A of the Polar Code.
+
+4.5 If the owner or master of a ship operating in polar waters wishes to request permission to discharge sewage in areas of ice concentration exceeding 1/10 (as required in certain circumstances by subparagraph 4.2.3 of Chapter 4 of Part II-A of the Polar Code), then they must provide details to the Maritime and Coastguard Agency (“the MCA”), Clean Ship Operations Team, Bay 2/23, Spring Place, 105 Commercial Road, Southampton. SO15 1EG or e-mail: environment@mcga.gov.uk as to why they need to discharge, location, quantity, period of time, etc.
+
+4.6 For the purposes of regulation 11.1 of Annex IV (discharge of sewage), the rate of discharge approved by the Administration is a rate which is no greater than the rate specified in Resolution MEPC.157(55).
+
+4.7 Where sewage is mixed with waste or wastewater covered by another Annex to the MARPOL Convention, the prohibition in regulation 7(1) of the UK Regulations applies in addition to any statutory prohibition or requirement which relates to those Annexes.
+
+5. Equipment Requirements
+
+5.1 All ships to which the sewage requirements apply must be equipped in accordance with regulation 9 of Annex IV (sewage systems). Therefore, they must have at least one of the following sewage systems onboard:
+
+• a sewage treatment plant;
+
+• a sewage comminuting and disinfecting system; or
+
+• a holding tank.
+
+•
+5.2 For the purposes of regulation 9 of Annex IV (equipment) –
+
+•
+i) Any sewage treatment plant will be considered to be approved by the Administration if it is of a type approval under the Merchant Shipping (Marine Equipment) Regulations 2016 (S.I. 2016/1025), as amended. This will take into consideration where the ship is operating (i.e. inside or outside special areas);
+
+•
+ii) a sewage comminuting and disinfecting system will be considered to have been approved by the Administration if the MCA has provided a letter of approval confirming that approval has been granted (see paragraph 5.3); and,
+
+•
+iii) the capacity and construction of a holding tank will be considered to be satisfactory to the Administration if it meets the standards set out in part 2 of Annex A of this MGN.
+
+•
+Sewage Comminuting and Disinfecting Systems
+
+5.3 Ship owners applying to the MCA for confirmation that their comminuting and disinfecting system meets the standards set out in Annex A should submit their applications to the MCA, Clean Ship Operations, Bay 2/23, Spring Place, 105 Commercial Road, Southampton. SO15 1EG or email: environment@mcga.gov.uk. The application must include:
+
+• details of the ship including its name, IMO number and port of registry;
+
+• a covering letter explaining the proposed system to be fitted and how the system complies with the standard set out in Annex A of this MGN;
+
+• a schematic diagram of the system components;
+
+• the technical specification of the dosing unit and maceration pump; and
+
+• a copy of the operating procedure.
+
+Discharge Connections
+
+5.4 All ships should have in place equipment to allow their sewage discharge pipeline to connect with a pipe of a facility for the reception of sewage on land. The standard discharge coupling dimensions are outlined in regulation 10 of MARPOL Annex IV (standard discharge connections). Further information is provided in part 3 of Annex A of this MGN.
+
+6. Survey and Certification of Ships
+
+Circumstances referred to in regulation 8 of Annex IV (duration and validity of certificate) and in regulation 17(5) (duration and validity of Sewage Certificates) of the UK Regulations
+
+6.1 Regulation 17(5) of the UK Regulations sets out the circumstances in which the Secretary of State may make directions in relation to the validity of Sewage Certificates. These include a requirement for the Secretary of State to be satisfied that the owner is justified in making the request.
+
+6.2 Examples of when a request may be considered to be justified might include:
+
+• where a ship has been laid up for an extended period; or
+
+• where the nature of a ship’s business would make a different date much more convenient, (such as in the case of a passenger ferry constructed in the summer and whose main trade is in the summer, where the owner may want to have all the refit and survey work done in the winter months).
+
+6.3 In the latter case of a request to change the anniversary date for the sake of convenience, the request will only be considered if such a request has not been made before for the ship in question and the owner confirms in writing to the MCA that this is a one-off request for that ship. The confirmation should be sent to MCA, Clean Ship Operations, Bay 2/23, Spring Place, 105 Commercial Road, Southampton. SO15 1EG or email: environment@mcga.gov.uk.
+
+6.4 However, if the ship in question fails a survey, the surveyor will advise the owner or master of the corrective action which is required, and the surveyor may take such steps as are necessary to ensure that the ship does not sail until it can proceed to sea without presenting an unreasonable threat of harm to the marine environment.
+
+6.5 Please note that a certificate may be cancelled if the Secretary of State has reason to believe that it has been issued on the basis of false or erroneous information, or that since the completion of any survey required by the UK Regulations, the structure, equipment or machinery of the ship has sustained damage or is otherwise deficient.
+
+Important Repairs or Renewals
+
+6.6 If there is a dispute as to whether a repair or renewal effected or intended to be effected is an “important” repair or renewal, and the ship owner or master wishes to seek advice from the Secretary of State in accordance with regulation 21(4) of the UK Regulations, the request should be sent to MCA, Clean Ship Operations, Bay 2/23, Spring Place, 105 Commercial Road, Southampton. SO15 1EG, or email: environment@mcga.gov.uk.
+
+7. Unmanned Non-Self-Propelled Barge Exemption
+
+7.1 The Merchant Shipping (Prevention of Oil Pollution and Prevention of Pollution by Sewage from Ships) (Amendment) Regulations 2022 (SI 2022/1234) amends regulation 6 of the Merchant Shipping (Prevention of Pollution by Sewage from Ships) Regulations 2020 (SI 2020/620) to enable qualifying unmanned non-self-propelled (UNSP) barges to apply for an International Sewage Pollution Prevention Certificate for Unmanned Non-Self-Propelled Barges (exemption certificate). Further details can be found in MGN 676 (M) Unmanned Non-Self-Propelled Barges – MARPOL Annexes I and IV Exemptions.
+
+More information
+
+Clean Ship Operations
+Maritime and Coastguard Agency
+Bay 2/23
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72448
+
+Email: environment@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Annex A
+
+Part 1 – Comminuting and Disinfecting Systems
+
+1.1 For UK ships, the standards for sewage comminuting and disinfecting systems, referred to in Regulation 9.1.2 of MARPOL Annex IV (sewage systems), are as follows:
+
+• Faecal Coliform Standard: Faecal coliform bacteria in the effluent should not exceed 1000/100 cm3 Most Probable Number (M.P.N.);
+
+• Chlorine residual level to be no more than 0.5mg/l (by test), post maceration;
+
+• Comminuting Standard: A sample of 1 litre is passed through a US Sieve No. 12 (with openings of 1.68 mm). The weight of the material retained on the screen after it has been dried to a constant weight in an oven at 103°C must not exceed 10% of the total suspended solids and shall not be more than 50 mg; and
+
+• Temporary storage of sewage will be by holding tank and the standard for the construction of a holding tank is set out in Part 2.
+
+1.2 The ship owner should confirm to the MCA as part of their application that the chlorine residual levels are tested on a regular basis, and that this testing is included in the ship’s operating procedures.
+
+1.3 Where a UK ship has a sewage comminuting and disinfecting system, and a surveyor is carrying out a survey prior to the issue of a Sewage Certificate, the surveyor will need to be satisfied that the system does meet these standards. Ship owners should therefore apply to the MCA for a letter of approval confirming the system meets these standards.
+
+Part 2 – Holding Tanks
+
+2.1 The standard for the construction for a sewage holding tank as referred to in Regulation 9.2.2 of Annex IV (sewage systems) is that the tank must be constructed to prevent leakage of its contents under the normal operation of the ship and in all likely weather conditions, until such times as it can be discharged in accordance to the UK Regulations.
+
+2.2 The size of the holding tank should be based on the ship’s intended usage and the number of people using the toilet. Various estimations of the sewage holding capacity for ships have been made and these vary depending upon the system installed. Therefore, when considering fitting any sewage holding tank, please follow the guidelines provided by the manufacturer or the retailer concerning capacity and installation and relate it to the period that the facility will have to be used.
+
+2.3 For larger holding tanks the effect on stability of the ship also needs to be considered, owing to the potential sloshing effect of the contents. The holding tank must also have a means to indicate visually the amount of its contents.
+
+Part 3 – Standard Discharge Connections
+
+3.1 For the purposes of regulation 10.2 of Annex IV (standard discharge connections), an alternative discharge connection will be regarded as “accepted by the Administration” if the ship owner has been issued with a letter of acceptance in relation to the discharge connection for that ship. In order for an application of this kind to be accepted, the ship owner must demonstrate that the ship is on a dedicated, scheduled service and that the reception facilities at those ports can be connected to the ship’s discharge pipeline.
+
+3.2 Applications should be made on a case-by-case basis to the MCA Customer Service Manager for the ship, if it is intended that the ship’s discharge pipeline should be fitted with an alternative discharge connection such as a quick-connection coupling, etc.

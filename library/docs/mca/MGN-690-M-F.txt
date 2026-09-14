@@ -1,0 +1,153 @@
+MGN 690 (M+F) MGN 690 (M+F) Approval and acceptance of electronic record books and recording requirements under SOLAS chapter V/Reg 28
+2023-11-21
+Source: https://www.gov.uk/government/publications/mgn-690-mf-approval-and-acceptance-of-electronic-record-books-and-recording-requirements-under-solas-chapter-vreg-28
+
+1. Introduction/background
+
+1.1 The International Maritime Organization’s (IMO) Resolution A.916(22) gives clear guidance on the required recording of events relating to navigational activities to ensure compliance with the requirements of SOLAS Chapter V/Reg 28.  This resolution describes the approved method of recording as ‘Handwritten, electronic or mechanical’. Guidance for UK vessels on the acceptability by the Maritime and Coastguard Agency, the expectation, and requirements for utilising electronic means of recording this information is contained within this guidance notice.
+
+1.2 These guidelines aim to provide clear guidance on the acceptable use of electronic record books for the purpose of compliance with SOLAS Chapter V/Reg 28, which are commonly referred to as ‘Deck Logbooks’.
+
+1.3 This guidance notice refers only to the implementation of Electronic Record Books in lieu of paper Deck Logbooks, intended for the purpose of compliance with SOLAS Chapter V/Reg 28 only.  The requirement to maintain other logbooks such as the Official Logbook and GMDSS Radio Logbook, and the format they shall be maintained in shall be in accordance with their applicable legislation or guidance notice.
+
+2. Logbooks not covered under this guidance notice.
+
+2.1 OLB (Official Logbook)
+
+Official logbook requirements are maintained in both the Merchant Shipping (Official Logbooks) Regulations 1981 and the Merchant Shipping Act 1995. 
+
+The requirement to carry such a book in the form approved by the Secretary of State can be found in Section 77 of the Merchant Shipping Act 1995:
+
+• Except as provides by regulations under this section and official logbook in the form approved by the Secretary of State shall be kept in every United Kingdom Ship
+
+The provisions within this Guidance Notice do not extend to Official Logbooks and do not change the format permitted.
+
+2.2 GMDSS Logbook
+
+The requirement for the carriage of a GMDSS Radio Logbook is stipulated both within SOLAS Chapter IV/Reg 17 and The Merchant Shipping (Radio Installations) Regulations 1998 Schedule 2.
+
+Further guidance can be found in MGN 530 (M+F) – Radio Logbook: Merchant Shipping and Fishing Vessels
+
+2.3 Engine and MARPOL Logbooks
+
+The provisions within this Guidance Notice do not extend to Engine or MARPOL Logbooks.
+
+Further guidance can be found in MIN 644 (M+F) – Approval and acceptance of electronic record books and recording requirements under MARPOL.
+
+3. Hardware and Software Performance Standards
+
+An Electronic Record book installed onboard a UK registered for the purposes of recording information as required by SOLAS Chapter V/Reg 28 shall comply with the following performance standards as a minimum.
+
+ISO 21745:2019 (as amended)
+
+This standard specifies the minimum technical and operational requirements for electronic logbooks that are used onboard ships.
+
+IMO Resolution A.916(22) – Guidelines for the recording of events relating to Navigation.
+
+This set of guidelines clearly defines the records required to be made within an Electronic Record Book to comply with the requirements of SOLAS Chapter V/Reg 28.
+
+MSC/Circular.982 – Guidelines on Ergonomic Criteria for Bridge Equipment and Layout
+
+This set of guidelines is intended to support provisions of the revised regulation within SOLAS Chapter V/ Reg15 – Principles relating to bridge design as well as design and arrangement of navigational systems and bridge equipment.
+
+4. Operational Requirements 
+
+The following section is intended to clarify the UK requirements with regards to the specific operational requirements of any Electronic Record Book installed onboard a UK registered vessel used to record information as required by SOLAS Chapter V/Reg 28.
+
+4.1 Exporting of Data
+
+•
+The system shall include a feature which allows for the reproduction of records in hard copy/printed format on request of the administration or port state control.  Such hard copies shall be printed in ‘non-editable’ PDF format or similar.
+
+•
+If the system allows for data export, this shall be in an international standard format such as XML and should not allow for transference of edited data to be placed back into the Electronic Record Book.
+
+•
+On vessels fitted with VDR, the electronic deck logbook shall be connected to the VDR as a data storage element.
+
+4.2 Recording of Entries
+
+•
+All entries shall be controlled and tracked so that each entry is linked to an identified user onboard.
+
+•
+Each user account shall be controlled by means of username and password to ensure accurate individual entries.
+
+•
+All entries shall be protected from deletion and any subsequent amendments made to approved entries shall be identifiable via a clear auditable trail.
+
+•
+The system shall have the capability for the Master to countersign and/or endorse entries made.
+
+•
+All entries are to be made in English only.
+
+4.3 Backup Facilities
+
+•
+The system hardware shall be powered from both the main and an emergency source of power and;
+
+•
+Data shall be protected from damage if power is lost or transferred.
+
+•
+The hardware shall include an adequate back-up system which ensures the preservation of all data during the event of hard drive failure or power failure.  The hardware shall be able to recover and utilize data from a back-up source.
+
+•
+Hard-copy logbooks which allow for the record of Navigational activities as stipulated within IMO Resolution A.916(22) shall be available onboard for use during any interim periods where the electronic system have become inoperable.
+
+4.4 Procedural Requirements
+
+•
+Familiarisation of any Electronic Record Book installed in accordance with this guidance notice shall form part of the Officer/Crew familiarisation procedure and be clearly documented within the ships Safety Management System (SMS).
+
+•
+Operating procedures detailing the use of and the maintenance of the hardware and software encompassing any Electronic Record Book installed in accordance with this guidance note shall be available within the ships SMS.
+
+•
+Clearly defined backup and data retention policies shall be stipulated within the ships SMS.
+
+•
+The use of an Electronic Record Book for the purpose of recording information required by SOLAS Chapter V/Reg 28 shall form a part of the ship owner/managers internal verification and audit process to ensure the continued effectiveness of the system.
+
+5. Approval and Verification Process
+
+5.1 All Electronics Record Books used to record information as required by SOLAS Chapter V/Reg 28 onboard UK registered vessels shall be of an approved type.
+
+5.2 For the purpose of this guidance, an approved type is a system that has been assessed by a UK Approved Body in accordance with the Merchant Shipping (Marine Equipment) Regulations 2016 as amended.   Further guidance on this approval and verification process can be found in MSN 1874 as amended.
+
+5.3 Ship owners and Masters shall ensure that any system installed and in use onboard UK registered vessels has a valid Conformity Assessment Certificate and manufacturer supplied Declaration of Conformity complying with the requirements stipulated in MSN 1874 (Annex 1) as amended.
+
+6. Use of Electronic Record Books on UK Vessels
+
+6.1 UK Flagged vessels may utilise Electronic Record Books for the purpose of recording information as required by SOLAS Chapter V/Reg 28 on the proviso that:
+
+•
+The Electronic Record Book is of an approved type (See Section 5)
+
+•
+The vessel is in possession of a valid Conformity Assessment Certificate for the system in use (See Section 5)
+
+and
+
+• The system and onboard procedures comply with the operational requirements stipulated in; Sections 4.1, 4.2, 4.3 and 4.4 of this document.
+
+6.2 The use of, and reliance upon, electronic record books in no way relieves shipowners or Masters, of their existing duty to accurately maintain and produce records during an inspection, as required by SOLAS. It is recommended that if a ship cannot produce the electronic record book and Conformity Assessment Certificate during a Port State Control (PSC) inspection, the ship should provide an alternative verified copy of the records or a hard copy record book for verification.
+
+More information
+
+Technical Services – Navigation
+Maritime and Coastguard Agency
+Bay 2/24
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0) 23 8032 9316
+
+Email: navigationsafety@mcga.gov.uk
+
+General Enquiries: infoline@mcga.gov.uk
+
+Website: www.gov.uk/mca

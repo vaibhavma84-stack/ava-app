@@ -1,0 +1,84 @@
+MGN 297 (M) MGN 297 (M) amendment 2 the carriage of defibrillators on ships
+2026-04-02
+Source: https://www.gov.uk/government/publications/mgn-297-m-amendment-2-the-carriage-of-defibrillators-on-ships
+
+Summary
+
+The purpose of this Marine Guidance Note (MGN) is to provide updated guidance on the carriage of defibrillators. It provides advice on risk assessment, for all ship owners and operators of UK flagged vessels, including passenger ferries and high speed passenger craft to determine whether to carry defibrillators as part of their emergency medical equipment.
+
+Amendment 2 includes updated references and editorial changes in section 4.
+
+1. Background
+
+1.1 Defibrillators use electric shocks to restore the rhythm of the heart in the event of certain types of cardiac arrest. Technological advances now mean that they are straightforward to use, relatively low cost and their use requires only basic training. In particular, Automated External Defibrillators (AEDs) assess the patient’s condition and indicate if and when a shock should be administered. Since they are now widely available in many public places and workplaces onshore, there may be an expectation that they are similarly available onboard ships.
+
+2. Recommendation
+
+2.1 In view of the advances in technology since the last MGN was issued, the Maritime and Coastguard Agency (MCA) now recommends that operators of all vessels undertake a risk assessment, with external advice if necessary, to determine if AEDs should be carried.
+
+Such a risk assessment should include but is not limited to:
+
+•
+the number of people (passengers and crew) on board at any given time. The larger the number, the greater the risk.
+
+•
+the number of crew on board compared to passengers. As crew undergo regular medical examination to ensure they meet the statutory standards to work at sea their risk may be lower than passengers of the same age etc,
+
+•
+the age range of those on board, noting that the highest incidence of a cardiac arrest increases with age.
+
+•
+any other risk factors on board that may increase the risk of a cardiac event, e.g. the use of toxic chemicals.
+
+2.2 Defibrillators and consumables, where carried, should be tested in accordance with the manufacturer’s recommendations. In addition, first aiders onboard should receive suitable familiarisation training in the use of AEDs, as well as their training in cardiopulmonary resuscitation.
+
+2.3 Regular refresher training is also required to ensure that competence is maintained.
+
+3. Clinical considerations
+
+3.1 The best chance of successful resuscitation occurs when defibrillation and other first aid procedures are carried out with the minimum delay (ideally within in the first three minutes). The chances of resuscitation fall by at least 10% with every minute that defibrillation is delayed, so there is a very real advantage in having an AED available on site.
+
+3.2 Successful defibrillation may result in a return of the patient’s circulation and, in some cases, a normal level of consciousness. However, all those who may use defibrillators should be aware that their success rate in terms of lives saved is relatively low. This is particularly so when a higher level of medical care cannot be accessed in an appropriate time frame.
+
+3.3 A defibrillator may be of considerable benefit when used in a port, where advanced medical care can be reached more quickly than when at sea.
+
+3.4 The return of a circulation may provide additional time to seek advanced medical advice and to speak with the patient on board regarding further care and expectations. If appropriate, it may also allow time for the patient to speak with loved ones ashore.
+
+3.5 Even where a patient’s heart rhythm is restored, the patient may remain very ill and may require continuous assistance and support with breathing and other essential functions until arrival at hospital. Any patient who has received treatment with a defibrillator will need to be transported to hospital as a matter of urgency and the master or vessel operator should, wherever possible, make suitable arrangements for evacuation from the ship by helicopter or other means necessary. If the patient is to stay on board until arrival in the next port, transport should be made available on arrival.
+
+3.6 In some situations the use of a defibrillator and confirmation of a heart rhythm where no shock is advised, may provide reassurance to other crew members that no additional treatment would be beneficial. This provides reassurance to crew members that there is nothing more they could’ve done for the patient.
+
+3.7 Some defibrillators also have the capability to record a patient’s heart rhythm and this may provide useful additional information for telemedical advisory services when offering advice in the management of a sick or injured person on board.
+
+4. Telemedical advice service
+
+4.1 Masters and operators are reminded that, in the event of a medical emergency or incident at sea, telemedical advice is available. To obtain telemedical advice, contact should first be made with the Coastguard on either MF DSC, VHF DSC, NHF 16 or INMARSAT, who will arrange for immediate connection to a doctor at one of the designated telemedical advice centres ashore.
+
+Global Maritime Distress Safety System (GMDSS) compliant satellite voice communications systems, or mobile phones, can be used for medical advice or assistance but should not be relied upon as the only means of communication. The telephone numbers to contact HM Coastguard are +44 344 382 0026 and +44 208 312 7386.
+
+5. More information
+
+Further information on the contents of this MIN can be found at:
+
+The Resuscitation Council (UK)
+
+Health and Safety Executive (HSE)
+
+6. Contact
+
+Seafarer Safety and Health
+
+Maritime and Coastguard Agency
+Bay 2/17
+
+Spring Place
+
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email medical@mcga.gov.uk
+
+Safety and Health Enquiries 0203 817 2000
+
+Website: www.gov.uk/mca

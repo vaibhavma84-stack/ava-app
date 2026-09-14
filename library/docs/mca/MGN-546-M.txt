@@ -1,0 +1,406 @@
+MGN 546 (M) MGN 546 (M) Amendment 1: in-water surveys
+2023-12-21
+Source: https://www.gov.uk/government/publications/mgn-546-m-amendment-1-in-water-surveys
+
+Summary
+
+This Note provides guidance on the conduct of the inspection of the outside of the ships bottom in the water (In-Water Survey or IWS) in accordance with Merchant Shipping Notice (MSN) 1751, as amended. It specifies which ships may be eligible and the intervals between surveys. It details the preparations required prior to embarking on IWS and the procedures to follow before, during and after the IWS. 
+
+It applies to IWS of United Kingdom (UK) ships of all Classes conducted by the Maritime & Coastguard Agency (MCA) or by authorised Recognised Organisation (RO) or Certifying Authorities (CA) when conducting surveys on behalf of the MCA. 
+
+The arrangements remain broadly the same as those in the previous version, with the exception of: 
+
+• Additional information with respect to “special consideration” for vessels over 15 years of age requesting IWS. (Not applicable to Domestic Passenger vessels)
+
+• Minor wording amendments to improve clarity.
+
+• The inclusion of Small Commercial Vessels eligible for in water survey.
+
+1. Introduction/background
+
+1.1 The basis for acceptance of IWS originates in the Harmonised System of Survey and Certification (HSSC) as set out in MSN 1751(M), as amended. This states, in relation to the inspection of the outside of the ship’s bottom:
+
+(i) Passenger ships
+
+For passenger ships the inspection is required every year. On the years in which the out of water inspection does not take place, an in-water inspection of the ship’s bottom shall be carried out. As a minimum, two of these surveys in any five-year period, at intervals not exceeding 36 months, shall be conducted with the ship out of the water.
+
+(ii) Cargo ships
+
+For cargo ships there shall be a minimum of two inspections during any five-year period at intervals not exceeding 36 months. Inspections should normally be carried out with the ship out of the water however, consideration may be given to alternate inspections being carried out with the ship afloat.
+
+1.2 The Merchant Shipping (Survey and Certification) Regulations 2015, as amended, require inspections of the outside of the ship’s bottom of cargo ships to be carried out with the ship out of the water. However, in line with MSN 1751, as amended, the General Exemption at Appendix A has been issued to allow consideration to be given to alternate inspections to be carried out with the ship afloat, in accordance with the guidance in this Notice.
+
+1.3 Vessels certified under the Small Commercial Vessel Codes may be eligible for in water survey. Refer to The Workboat Code Edition 3 for details.
+
+1.4 While an examination of a ship’s hull and fittings can be undertaken using IWS techniques, it is recognised that such an inspection may not always be as effective as one conducted with the ship in dry dock. Where reference is made to inspection in dry-dock in this notice, this shall include any other equally effective method to inspect the ship’s bottom out of the water.
+
+1.5 Although it is not anticipated that the requirements for the periodic examination or survey of propeller shafts will affect the intervals between inspections of the outside of the ship’s bottom, due cognisance of the requirements in this respect should be made when the programme for dry dock and IWS is developed.
+
+1.6 In all cases where an IWS is proposed the Owners must make a formal application to the appropriate RO or CA, indicating where and when it is to be conducted.
+
+1.7 Ships unable to comply with the conditions laid out in this MGN must be inspected with the ship out of the water, as required by the Regulations.
+
+1.8 The procedures referred to in this MGN may not always be suitable for full adoption due to particular constraints, conditions and/or variations in the availability of divers and equipment. Any alternative arrangements must be agreed with the RO/CA and MCA.
+
+1.9 The IWS will be regarded as an acceptable alternative to an inspection in a dry dock only if it is nearly as effective as being in dry dock. If the IWS is not carried out to the surveyor’s satisfaction an inspection in dry-dock is to be arranged within an acceptable time window for certification
+
+The information and process detailed in this MGN covers in water survey in relation to statutory scheduled bottom inspections. Any additional inspection carried out while the vessel is “in water” – for example, to allow short-term extension due to force majeure or for other extenuating circumstances, are considered “one-off” situations. Where such in-water inspection may be required the owner should contact their RO and MCA for further guidance.
+
+2. Definitions Within this MGN, the following definitions apply:
+
+(a) “bottom” means all parts of the hull below the deepest waterline;
+
+(b) “any five-year period” means:
+
+(i) The five-year period of validity of the Cargo Ship Safety Construction Certificate or the Cargo Ship Safety Certificate, for cargo ships of 500GT and over; or,
+
+(ii) The five-year period of validity of the United Kingdom or International Load Line Certificate, for cargo ships of less than 500GT and passenger ships; or,
+
+(iii) The five-year period of validity of the Domestic Safety Management Certificate (or Passenger Ship Safety Certificate, for ships issued with such a five-year certificate), for passenger ships to which the Merchant Shipping (Load Line) Regulations 1998 do not apply;
+
+(c) “coincide” means within 15 months. This allows for 12 months + 3 months flexibility for the previous annual survey window (i.e. between the 4th and 5th annual survey dates);
+
+(d) “15 years of age” means 15 years from the date of delivery; where there is any doubt as to the date of delivery, the starting point for the 15 years will default to the keel laying date.
+
+(e) “delivery date” referred to above means; the completion date (day, month and year) of the survey on which the Safety Construction certificate is based (i.e. the initial survey before the ship is put into service and the certificate issued for the first time)
+
+(f) “Certifying Authority” is as defined in The Merchant Shipping (Survey and Certification) Regulations 2015 and may be one of the UK Recognised Organisations (RO);
+
+(g) “Recognised Organisation” is one of the classification societies authorised by the Secretary of State to conduct surveys, or part of a survey, on UK ships. Refer MSN 1672, as amended.
+
+3. Types of ship eligible for in-water survey
+
+3.1 This Note applies to:
+
+(a) Passenger Ships which go to sea (i.e. UK Classes I, II, II(A), III, VI and VI(A), EU Classes A-D);
+
+(b) Other Ships (excluding Tankers and Bulk Carriers over 15 years of age);
+
+(c) Passenger Ships on Categorised Waters (ships which do not go to sea; i.e. ships of UK Classes IV and V, MSN 1823 vessels): Special arrangements may be accepted. (Refer to Appendix F).
+
+(d) Seagoing ships of less than 24 m in length, which do not carry passengers and are certified under the Small Commercial Vessel Codes. Refer to The Workboat Code Edition 3 for details.
+
+(e) Fishing vessels, including those which are over 24 m and classed, ARE NOT eligible for in-water survey
+
+4. Intervals at which an IWS may be undertaken
+
+4.1 Passenger Ships which go to sea: An inspection of the outside of the ship’s bottom is required annually. In any five-year period, two such inspections shall take place out of the water. The maximum interval between these inspections is 36 months. On a case-by-case basis, MCA may accept only one such inspection to take place out of the water in a period of five years, as detailed in Appendix G. IWS should be carried out each year when an inspection out of the water is not required.
+
+4.2 Passenger Ships on Categorised Waters: As indicated in Appendix F.
+
+4.3 Other Ships: For ships of 500GT and over subject to the International Safety of Life at Sea (SOLAS) Convention, two inspections of the ship’s bottom are required within any five-year period, and the maximum interval between these inspections is 36 months. One of these inspections shall be conducted out of the water, which should coincide with the renewal survey for Safety Construction. Other intermediate inspections of the ship’s bottom may be carried out in the water. All ships of less than 500GT holding a Load Line or Load Line Exemption Certificate should be similarly treated.
+
+5. Age limits of ships eligible for IWS
+
+For seagoing vessels, the age limit for IWS is normally 15 years. IWS for vessels greater than 15 years of age may be considered under certain circumstances. Request for IWS for vessels over 15 years must be made to the RO and CA with supporting evidence. The MCA will also be required to give its agreement. Oil Tankers and Bulk Carriers, to which Enhanced Survey Programme (ESP) applies, over 15 years of age, will not be considered for IWS. 
+
+5.1 For Domestic vessels operating on UK Categorised waters only, IWS may be considered for vessels up to 20 years of age (See appendix F).
+
+6. Application for permission to undertake IWS in place of inspection in dry dock
+
+6.1 Cargo Ships less than 15 years of age – application should be made to the appropriate RO / CA, or where the vessel is unclassed, to the MCA. See Appendices A ~ E for details of the required information and process.
+
+6.2 Seagoing Passenger Ships less than 15 years of age – application for in-water survey in lieu of annual dry docking should be made to the appropriate RO and MCA. See Appendices A ~ E for details of the required information and process.
+
+6.2.1 Seagoing Passenger Ships less than 15 years of age wishing to follow the bottom inspection regime as indicated by MSC.1 Circ 1348 must follow the process as detailed in Annex G of this notice. Application to MCA Headquarters Survey Operations must be made with all supporting information, including agreement from the RO. If accepted an Exemption Certificate will be issued.
+
+6.3 For surveys that are to be conducted by MCA, owners should make formal application for an IWS not less than 4 weeks before the survey is intended to be undertaken, noting that the guidance in Appendix B should have been followed at the preceding dry-docking (or at new build).  If accepted, the owner will be notified of the limits of acceptance of IWS for their vessel. The initial application, together with any relevant comments and recommendations based on these notes and appendices and the known history of the ship, should be submitted to the Technical Manager or Customer Service Manager for consideration. Each application for IWS is to be accompanied by:
+
+(a) The date and venue;
+
+(b) A schedule of the detailed proposal for undertaking the IWS;
+
+(c) A signed statement from the Master confirming that the vessel has not knowingly suffered any grounding or contact below the waterline since the last inspection, or provide details of the nature of any contact confirming that there is no known damage;
+
+(d) An undertaking that the vessel will be dry docked if necessary following survey, within 3 months, or sooner if considered necessary.
+
+6.4 The proposed time scheduled for the survey must allow for all reasonable eventualities with a view to enable an efficient survey to be conducted. Past experience has shown that it is prudent to plan for a follow-up venue so that, in the event of any delays occurring, the manpower and equipment assembled can be efficiently utilised.
+
+6.5 Consideration for IWS will not be extended to ships which have been issued with short-term certificates or extensions due to reasons of condition of the hull of the vessel.
+
+6.6 Where any ship proposed for IWS has unusual operational features, such as; multi-berthing, services in shallow water and/or narrow channels, hard usage due to loading and/or unloading procedures, regular high stressing of structure due to conditions of loading and/or weather conditions, etc, the CA should be provided with all the relevant information.
+
+6.7 In the case of passenger ships, for IWS carried out by an RO under authorisation from MCA, a declaration of satisfactory survey will need to be sent to the MCA prior to the issue of the Passenger Ship Safety Certificate or Passenger Certificate by the MCA.
+
+More information
+
+Survey Operations
+Maritime and Coastguard Agency
+Bay 2/20
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72190
+
+Email: hqsurvey@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+General enquiries: infoline@mcga.gov.uk
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
+
+Appendix A: General exemption: in-water surveys
+
+Appendix B: Preparations in a dry dock in anticipation of a subsequent application for IWS
+
+1 - The hull is to be fitted with an approved/acceptable cathodic protection system which has been proven and all anodes/components shall be renewed and/or checked for effectiveness.
+
+2 - The ship will not be considered suitable unless the hull is in a satisfactory condition (e.g. abrasive blast-cleaned and painted with suitable high quality paint or be in equivalent good condition). The certifying authority should agree that the vessel is suitable for IWS. Under normal circumstances, it is expected that the vessel has IWS notation from its Classification Society.
+
+3 - In preparation for the increased period between dry docking, measures are to be taken such as renewal and/or recording of clearance of rudder bearings and bushes, shaft surveys, overhaul of ship’s side valves etc to take account of the maximum time allowed before the next scheduled dry-docking survey. Particular attention should be given to areas which will be inaccessible to divers at the IWS, e.g. stabiliser boxes, sea inlet boxes, discharges etc. Repairs and surveys of such fittings should be suitably advanced in view of the extended period scheduled. Shell openings with gratings should be provided with hinged grid plates. The schedule for the progressive survey of hull fitting and tank testing should be adjusted appropriately for this same reason.
+
+4 - The colour of the paint on the underwater hull can be chosen by the owner to provide the optimum contrast with the underwater environment, noting that some paints will assist inspection by divers and others will not.
+
+5 - To facilitate an efficient survey, the underwater hull and fittings are to be permanently and clearly marked externally (bead welding where appropriate) to identify and where appropriate indicate the positions and extent of:
+
+(a) Transverse and longitudinal bulkheads, including tank boundaries (longitudinal frame markings at regular intervals, e.g. every 5m);
+
+(b) Decks and flats (below the waterline);
+
+(c) Opening in shell plating for suction and discharge valves, docking plugs, thruster units, stabiliser fins etc ;
+
+(d) Propeller blades, which it is suggested should be numbered; and
+
+(e) Liners on shafts and bushes of rudder and stern frames; these should be marked in such a manner that any relative movements can be detected underwater.
+
+6 - Folders containing the following information should be prepared for recording and future reference (copy for the owners/onboard ship and one copy to the MCA):
+
+A. A shell expansion drawing showing both sides of the vessel, the following information needs to be shown and kept up-to-date as surveys are undertaken: 
+
+(a) External hull markings as required in Para 5 above;
+
+(b) Bilge keels;
+
+(c) Drain plugs (coding may be useful, such as square for water, hexagonal for oil etc);
+
+(d) All shell openings and means of access e.g. bolted plates, gratings, “opening”;
+
+(e) Existing hull damage and/or blemishes;
+
+(f) The extent of any hull repairs effected;
+
+B. Specific plan and data detailing (as relevant): 
+
+(a) Rudder, stock, stern frame and associated fittings; 
+
+(b) Propeller(s), rope guard(s) and identification markings (e.g. liner datum marks)
+
+(c) Spectacle/’A’ frames, bossings, any other attachments to the hull; 
+
+(d) Stabiliser fin boxes, bow thruster(s); 
+
+(e) Agreed method of blanking off any shell openings for the safety of divers for    the purpose of service and/or survey (carrying customised blanks is recommended); 
+
+(f) Any other items which might be considered to be a feature for which details would be useful in the context of undertaking an IWS. Photographic records of particular features taken at the time of dry-docking are useful for future reference. 
+
+7 - The master must keep a continuous recording of all actual and suspected damages and/or contact during the period from the dry-docking to the in-water survey itself.
+
+Appendix C: Requirements for proposed in-water survey
+
+1 - The proposed survey site is to be in a protected position with calm water, weak tidal streams and currents (less than 0.5 knot), which normally provide good underwater visibility. A light sandy or rocky bottom can assist visibility. There must be an adequate depth of water below the ship’s keel. As far as possible the site should be in an area where there are unlikely to be any other ship movements during the survey. Sand and other sediments can be easily disturbed and reduce visibility. Sometimes even the best areas can turn out to be poor on a particular day because of local weather or other conditions.
+
+2 - It is preferable that the ship is at anchor for IWS, but if the proposal is that it should be alongside then there should be sufficient clearance from the quay using adequate fenders to allow suitable and safe access for divers around the hull. Penetration of natural light through the water and the movement and attendance of a survey tender, if used, should be considered.
+
+3 - The IWS should be carried out by a diving company that is approved by the Administration or its RO. Where the company is not known to the certifying authority, full details of their qualifications and experience and any flag state or recognised authorisation approval should be submitted for consideration.
+
+4 - The equipment and procedure for observing and reporting the survey should be discussed with the parties involved prior to the IWS and a suitable time should be allowed to permit all equipment to be tested beforehand.
+
+5 - An experienced diving team with sufficient relief and safety divers should be employed. In the UK, the Health and Safety Diving at Work Regulations (DWR) and the associated Approved Code of Practice for Commercial Diving Projects Inland/Inshore will need to be followed (e.g. minimum 4 dive team members). For surveys overseas, equivalent safety provisions should be applied. A remotely operated vehicle (ROV) may be used as an alternative to, or in addition to, divers.  If it is intended to use an ROV without divers, alternative measures may need to be in place to ensure ALL aspects of the survey can be completed: for example, establishing rudder / propellor clearances etc.
+
+6 - The latest proven techniques and equipment for colour television-scanning, videos and still photography recording should be used. Spare backup equipment should be available to ensure that an uninterrupted survey can be carried out. For ships having large flatter bottoms, experience has shown that hand-held cameras and lights may not always give satisfactory results. In such cases, improved viewing may be obtained using lighting and cameras mounted on an underwater “trolley” which can be manoeuvred over the bottom of the hull.
+
+7 - The owner should arrange for checks to be made to ensure the hull is free of fouling immediately before the proposed date of the IWS. When considered necessary, the hull should be effectively cleaned well in advance of the IWS to prevent the visibility of the water being adversely affected by the cleaning procedure.
+
+8 - Records shall be maintained of oil usage for propeller shaft seals, thrusters and azimuth propellers to indicate the condition of the seals. On shafts with agreed long intervals of inspection (e.g. more than 5 years), condition monitoring is required which should be in accordance with the rules of an RO and normally includes keeping records of regular oil analysis and temperature of bearings. These should be available for inspection.
+
+9 - The ship should be at a suitable draught and trim to facilitate the IWS.
+
+10 - The rudder, propeller and fittings may be above the water in ballast condition on large vessels and the trim of the ship should be arranged to give the best results for the survey. For example, it may be better to have the propeller submerged so that the diver has full access. Arrangements for turning the propeller may be required, but account must be taken of diver safety and the use of a Permit to Work system.
+
+11 - The Master should provide a written and signed declaration of all suspected or actual hull damage and all contacts made by the vessel in the period since the previous dry dock. Note that the owner is required to confirm that no contact damage has occurred at the time of application.
+
+12 - Time and facilities must be provided to permit survey of the hull at and above the water line in conjunction with the undertaking of the underwater IWS. Consideration must be given to the duration of daylight hours.
+
+Appendix D: Procedures when undertaking an in-water survey
+
+1 - A meeting should be held before the IWS is to be carried out to coordinate the various participants (i.e. owner‘s superintendent, deck and engineer officers of the ship, diving and survey personnel), to review and agree all aspects of the survey and adopt a final survey schedule. The responsibilities for the control and supervision of the survey, including arrangements for locking the propellers, rudders and thrusters, the stopping of all pumps and the provision of effective communication should be clearly assigned. This is not the role or responsibility of the surveyor, who is there to witness the results of the survey and request examination of particular areas. A Permit to Work system should be used to ensure the safety of divers and other personnel. This should include informing relevant ship staff and port authorities. However, where the surveyor considers the practice to be unsafe they should refuse to take part. The primary aim is to provide safe and effective conditions for the divers and a successful survey.
+
+2 - The programme agreed for the IWS should ensure that necessary priority is given to the examination of the major hull penetrations, shafting, rudder, stabilisers, bow thrusters, any suspected contact/damage, etc, in the best available conditions.
+
+3 - Ideally the survey should be conducted in a manner permitting the sighting of the forward and after ends of the hull towards midship in order that the shape of the hull can be sighted against the surrounding water. The amount of hog/sag should be recorded using draught marks or loading computer.
+
+4 - The survey of large areas of flat of bottom can prove difficult due to light and sight problems and advice must be taken from the senior diver as to the best procedure to be adopted.
+
+5 - When actual or suspected contacts have been recorded by the Master, the surveyor should make an internal examination of the hull, if access is possible, either immediately before or after the IWS. In this respect attention must be given to the hazards associated with entering ship’s tanks.
+
+6 - The survey should not be commenced unless the surveyor is satisfied with the visibility, scale effects due to using closed circuit TV and detail provided by the underwater cameras on site. The survey must be discontinued if the conditions or equipment deteriorate to the extent that the transmitted pictures and/or communications are no longer acceptable.
+
+7 - Visibility and scale checks should be undertaken at intervals during the survey. Visibility must be to the surveyor’s satisfaction, but if generally below 5 metres surveys should be discontinued.
+
+8 - It is essential that the entire hull and associated fittings are surveyed in order to accept the IWS in lieu of an inspection in dry dock.
+
+9 - The out of water portion of the hull should be surveyed in conjunction with the IWS.
+
+10 - Caution should be taken not to underestimate defects observed externally during IWS. Where a defect/damage is detected or suspected as a result of the IWS, the internal structure should be examined as considered necessary and practical to clarify or confirm the findings. This examination will provide a basis for a decision regarding the need for either a temporary repair afloat or an earlier dry-docking to permit a permanent repair.
+
+11 - All findings and proposed actions should be agreed with the owner’s representative at the time of survey and should be recorded for reference and correlation at the next dry-docking of the ship. Suitable records include video, photographs, notes and annotation of relevant plans referred to in Appendix B. The diving company must provide a diver’s report, cross-referenced to the video and/or photographs and plans.
+
+12 - Only when the surveyor is fully satisfied with the methods of undertaking the survey together with the recordings and any agreement with the owners as regards the findings and proposed future action, should the survey be considered as complete.
+
+Appendix E: Action following the IWS, including records
+
+1 - The report of the diving company and copies of any associated photographs and video records are to be submitted to the CA.
+
+2 - The surveyor should advise the owners in writing of any action necessary on their part as a result of the findings of the survey, as agreed with their representative at the time of the IWS.
+
+3 - The IWS records should subsequently be compared with the inspection undertaken at the next dry docking so that findings may be correlated.  The preparations detailed in Appendix B must be undertaken at each dry-docking prior to any anticipated IWS.
+
+4 - The IWS information is to be updated for each survey with continuous records kept for future reference.
+
+5 - Unless specifically directed otherwise by the surveyor, the diver should report on; the condition of the hull plating, weld seams, corrosion, distortion, any indentations, cracks, fractures or similar defects. The report should include the condition of the paint and the examination should include all hull openings, sea chests, stabiliser boxes, thruster tunnels and any special features such as A frames, P brackets, etc. A report of the condition of propellers (including blades), liners, seals, rudders, bearings and any holding arrangements (bolts etc) should be included.
+
+Appendix F: Special arrangements for domestic passenger ships operating solely on categorised waters 
+
+1. Background 
+
+1.1 This guidance applies to all domestic passenger vessels operating solely in UK categorised waters regardless of the applicable certification standard.  An inspection of the outside of the ship’s underwater area, with the ship out of the water, is required at every passenger ship survey, unless an extended period has been agreed as detailed below.  
+
+1.2 This Appendix does not apply to passenger ships, or any other type of vessel which go to sea, these need to comply with the requirements in the main body of this MGN. 
+
+2. Arrangements 
+
+2.1 If an owner would like an increased period between out of water inspections they shall make an application to the MCA in writing. 
+
+2.2 The application should be made in conjunction with the scheduled passenger ship survey (prior to the survey) however, due consideration must be made by the owner for the period required to assess the application and that an application may not be agreed. Any agreement for an extended period between inspections must be planned in advance and based on a starting point of a full out of water inspection. Requests will not be accepted at short notice due to lack of drydock facilities or through poor survey planning, although events out of the control of operators (such as flooding preventing ships going under bridges to get to their allotted drydock) will be considered. 
+
+2.3 The application must include a schedule of planned inspections and maintenance of the ship’s underwater area to be undertaken throughout a five-year period including the following as a minimum: 
+
+2.3.1 Out of water inspections at least twice in any five-year period and at intervals not exceeding 36 months;
+
+2.3.2 That at any other time whenever the surveyor is not satisfied by the thorough examination in the water, that the ship is in good condition and will remain in good condition for the extended period between out of water inspections, that the ship will be made available to be inspected out of the water within an agreed period which shall be put in writing to the owner;
+
+2.3.3 How the condition of the ship’s hull and underwater fittings will be monitored between and during surveys, including as a minimum:
+
+(i) An annual internal examination of the ship’s hull in all spaces by the surveyor. Where applicable, appropriate areas of decks, linings, insulation etc are to be removed to allow inspection of the adjacent hull, there should also be procedures for the removal and reinstatement of any ship’s ballast (where applicable) to ensure that the ship remains compliant with its approved stability information; 
+
+(ii) A programme of survey of integral tanks (where applicable) covering the entire ship at least once in five years; 
+
+(iii) Plate thickness gauging at intervals not exceeding five years, or at any other time when the surveyor considers necessary; 
+
+(iv) Examination of the sea chests, discharge pipes and withdrawal of all the ship side valves for examination over the five-year period. 
+
+2.3.4 Procedures for reporting of any damage or grounding to the MCA;
+
+2.3.5 Planned maintenance that will be conducted when the ship is out of the water to ensure that the ship remains fit for service intended in the extended period between inspections of the outside of the ship’s underwater area; and
+
+2.3.6 Planned maintenance or monitoring of shaft seals, bearings, rudders and propellers.
+
+2.4  To assess whether an extended period between out of water inspections is appropriate, the MCA surveyor must examine the ship out of the water and shall consider the following factors: 
+
+(1) Number, location and quality of any repairs; 
+
+(2) The structural condition of the hull, in particular; 
+
+(i) For steel ships – results of ultrasonic readings. These must be taken at least once every five years and the thicknesses shall be within the limits detailed in Table 1. They shall be expected to remain within the limits stated for the extended period. See section 3 for guidance on thickness measurement. 
+
+Within L/2 midships
+Elsewhere
+
+Plating:
+Underwater area
+Topsides
+15%
+15%
+30%
+30%
+
+Stiffeners:
+Underwater area
+Topsides
+20%
+20%
+30%
+30%
+
+Table 1: Maximum permissible diminution of topside and underwater areas 
+
+(ii) For wooden ships – There shall not be evidence of significant rot, failure of fastenings, failure of caulking, borers or structural damage.  
+
+(iii) For ships constructed of fibre reinforced plastic – there shall not be evidence of significant operational damage, crazing or osmosis. 
+
+(3)   Condition of shafting and bearings – there shall be no evidence of excessive wear or pitting; 
+
+(4)   Paintwork shall be in good condition and of a satisfactory specification for the extended survey interval; 
+
+(5)   An internal examination of the ship – there should be no sign of damage to the hull which could cause loss of watertight integrity or weakness to the internal structure. 
+
+The surveyor shall consider each of the above in relation to the expected period between out of water inspections and agree a maintenance regime that takes account of the findings.  
+
+2.5 Subject to compliance with the criteria in paragraph 2.6 below, where vessels are maintained in class with one of the UK RO’s, that may be accepted as equivalent arrangements to paragraphs 2.3(3), 2.3(6) and 2.4. The owner will need to provide a declaration from the RO that the hull and machinery are satisfactory on an annual basis in the same way as for seagoing passenger ships. 
+
+2.6  The applicability of such extended periods is limited in certain circumstances: 
+
+(1)   Ships of over 24 metres in length operating in category D waters may only be considered for increased periods between out of water inspections if inspected by divers to ensure there is no damage to the underwater area, propeller or rudder and to confirm sea inlet grids and paintwork are still in good condition. The visibility must be to the satisfaction of the attending surveyor; See Appendix C and D for details of dive survey requirements.
+
+(2)  Ships over 20 years of age built of wood or steel may only be considered for increased periods between out of water inspections if the original scantlings were significantly in excess of present day standards and the condition of the ship has been maintained to a high standard; steel vessels which have had a full bottom shell renewal will be specially considered. The ship should be inspected by divers, as in (1) above, or equivalent means of inspection agreed with the MCA surveyor when divers are not permitted to enter the water. For vessels operating in Category A, B or C waters, the requirement for an inspection of the underwater area of the ship may be waived if water visibility is insufficient, subject to agreement with the MCA surveyor. All criteria in sections 2.3 and 2.4 must be met; 
+
+(3)  Ships which in the course of their operation are frequently grounded on concrete ramps or beaches (e.g vehicle ferries or landing craft) are required to undergo an out of water inspection of the ship’s underwater area each year. 
+
+2.7  If the ship satisfies the above requirements the MCA surveyor will make a formal declaration to the Technical Manager that they consider the ship is suitable for an extended period between out of water inspections. Once satisfied that the criteria of sections 2.1 to 2.5 have been met, the Technical Manager will confirm in writing to the owner that the ship has been accepted for an extended period between out of water inspections and any conditions attached for the following five-year period or such shorter period as the Technical Manager feels appropriate.
+
+2.8  The Technical Manager is the final arbiter as to whether a ship can be accepted for an extended period between out of water inspections.   
+
+3. Guidance on thickness measurement 
+
+3.1  Thickness measurements, as required in section 2.4(2)(i), are to be carried out in accordance with the following requirements: 
+
+(1)   The ultrasonic measurements shall be obtained by an approved company.  
+
+(2)   The calibration of the measuring instrument shall be checked both before and after the thickness readings have been taken; 
+
+(3)   The thicknesses to be gauged and the position of the test readings are to be agreed with the surveyor prior to the measurements being taken. The surveyor should be present when the readings are being taken. Exceptionally and with prior agreement the measurements may be taken without surveyor attendance, on the understanding that the surveyor may require subsequent additional readings.
+
+(4)   In general the minimum number of readings to be taken shall not be less than 3 circumferential bands measured down from the bulkhead deck to the keel port and starboard at amidships and at one-quarter of the ship’s length from the stem and stern together with readings along the full length of the wind and water strake or strakes port and starboard; 
+
+(5)   A signed copy of the results shall be obtained from the operator and placed on the ship’s file for record purposes together with the surveyor’s report on any action which may have been taken as a result of obtaining the plate thickness readings. 
+
+Appendix G: Acceptance of one inspection out of the water in any five-year period for passenger ships other than ro-ro passenger ships
+
+1 - Following SOLAS regulation I/7, the Survey Guidelines under the Harmonized System of Survey and Certification (resolution A.997(25)) currently specify that inspection of a passenger ship’s bottom, as required by SOLAS regulation I/7, should be carried out annually, with two inspections in dry-dock in any five-year period.  Where acceptable to the Administration, the minimum number of inspections in dry-dock of the outside of the bottom of a passenger ship (which is not a ro-ro passenger ship) in any five-year period may be reduced from two to one.   In such cases, the interval between consecutive inspections in dry-dock shall not exceed 60 months.
+
+2 - The IMO has published guidelines (MSC.1 Circ 1348) relating to the conditions that are to be met to allow acceptance of the one-in-five out of water inspection.
+
+3 - MCA will consider, on a case-by-case basis, applications from owners/operators for requests for the frequency of out of water inspections to be reduced from two to one, subject to the conditions in this Appendix being met. Applications will only be considered for vessels that are:
+
+(a) 15 years of age or less (as per MSC.1/Circ 1348 para 2)
+
+(b) Seagoing passenger ships other than ro-ro passenger ships; and
+
+(c) In compliance with the other conditions laid out in this Note.
+
+4 - A basic requirement for consideration to allow one inspection out of the water in five years is that a comprehensive maintenance regime based upon a five-year cycle must be implemented by the owner/operator for the relevant items (see Appendix B and MSC.1 Circ 1348). In addition, a schedule must be in place to ensure that sufficient time is allocated throughout the five-year period for general maintenance and repairs to the ship and its equipment, which would otherwise be undertaken during docking periods, noting that not all work can be conducted with the ship in service.
+
+5 - Upon approval of a request for one inspection out of the water in a five-year period, a UK Exemption Certificate (MSF 1000) will be issued by MCA, valid for a maximum period of five years. Any conditions relating to acceptance of the extended period between out of water inspections will be included on the Exemption Certificate. The MCA may revoke the Exemption Certificate at any time when it is considered that the conditions under which it was issued are no longer met.
+
+Appendix H: Considerations for allowing IWS for seagoing vessels over 15 years of age (excluding tankers and bulk carriers)
+
+1 - As per Section 5 of this MGN, IWS for eligible vessels is normally restricted to those less than 15 years of age. However, “special consideration” may be given to allowing IWS for vessels over this threshold.
+
+2 - Any application for IWS for a vessel over 15 years of age will be considered on a case-by-case basis by Survey Operations.
+
+3 - Application should be made in writing to the CA including all relevant information as detailed in point 5 below. On receipt and if in agreement, the CA should forward the request to MCA Survey Operations for their consideration.
+
+4 - If accepted, the IWS will be in lieu of a single specified dry docking only and should not be viewed as acceptance on an IWS regime. Any request for IWS in relation to subsequent dockings should be submitted on an individual basis and in accordance with the requirements of this Appendix.
+
+5 - The “special consideration” by the CA mentioned in Section 1 of this Appendix, is in addition to those items detailed elsewhere in this MGN and shall include but not be limited to:
+
+(a) Company justification/mitigation as to why IWS in lieu of dry-docking should be considered. In line with established policy, pure commercial expedience will not be acceptable.
+
+(b) Any previous applications for IWS, Survey / Certificate extensions, Short Term Certification, Lapsed & reinstated Certification, Conditions of Class, Exemptions, Temporary Dispensations etc
+
+(c) Survey history of the vessel with particular emphasis on those structural areas and items examined during docking, including damage, repairs and renewals.  Where there has been recent significant renewal of the ships bottom/hull, this may be viewed favourably when considered in conjunction with the other elements detailed in this MGN.
+
+6 - MCA (and CA) may impose any conditions that they feel appropriate in allowing IWS in lieu of docking. This may include an undertaking by the company to dock the vessel in addition to or in advance of the next scheduled dry dock.
