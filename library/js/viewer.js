@@ -34,6 +34,9 @@ function isImageBlob(blob, name) {
  * Show a stored file. Returns a teardown function the caller runs on close so
  * object URLs and the PDF task do not outlive the sheet.
  */
+const isTextBlob = (blob, name) =>
+  /^text\//i.test(blob?.type || '') || /\.txt$/i.test(String(name || ''));
+
 export async function renderInto(container, blob, name, { onStatus, startPage = 1 } = {}) {
   clear(container);
 
@@ -41,6 +44,16 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     const url = URL.createObjectURL(blob);
     container.append(el('img', { class: 'viewer-image', src: url, alt: name }));
     return () => URL.revokeObjectURL(url);
+  }
+
+  // A notice that its administration publishes as a page rather than a file is
+  // mirrored as its words. There is nothing to lay out — showing it is showing
+  // the text — but it still has to be readable rather than only searchable.
+  if (isTextBlob(blob, name)) {
+    const words = await blob.text();
+    onStatus?.(`${words.split(/\n+/).filter(Boolean).length} lines`);
+    container.append(el('pre', { class: 'viewer-text', text: words }));
+    return () => {};
   }
 
   if (!isPdfBlob(blob, name)) {

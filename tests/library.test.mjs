@@ -982,7 +982,14 @@ try {
         file: 'docs/singapore/PC-01-2026.pdf' },
       { title: 'Shipping Circular No. 9 of 2025 Ballast water management',
         refNo: 'SC 09/2025', docType: 'Shipping Circular', date: '2025-09-09',
-        sourceUrl: 'https://www.mpa.gov.sg/docs/mpalibraries/circulars-and-notices/sc25-09.pdf' }
+        sourceUrl: 'https://www.mpa.gov.sg/docs/mpalibraries/circulars-and-notices/sc25-09.pdf' },
+      // Published as a page rather than a file — which is what 179 of the 497
+      // MCA notices are. The mirror holds its words instead, and the phone has
+      // to take them, read them and show them like anything else.
+      { title: 'Port Marine Notice No. 44 of 2026 Bunkering in the western anchorage',
+        refNo: 'PN 44/2026', docType: 'Port Marine Notice', date: '2026-03-02',
+        sourceUrl: 'https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-44-of-2026',
+        file: 'docs/singapore/PN-44-2026.txt' }
     ]
   };
   // Served as a real file rather than stubbed: the mirror is same-origin, so
@@ -1035,7 +1042,7 @@ try {
   await page.waitForSelector('.hint:has-text("Singapore:")', { timeout: 20000 });
   page.off('request', sgWatch);
   const sgRun = await page.locator(`${panel} .sync-result`).innerText();
-  check('Singapore files what its listing names', /Singapore: 2 new/.test(sgRun), sgRun);
+  check('Singapore files what its listing names', /Singapore: 3 new/.test(sgRun), sgRun);
 
   const sgCards = await page.locator('.card').allInnerTexts();
   check('a spelt-out Singapore reference is parsed',
@@ -1070,13 +1077,20 @@ try {
   const docsRoot = path.join(ROOT, 'library', 'docs');
   const docsDir = path.join(docsRoot, 'singapore');
   const docFile = path.join(docsDir, 'PC-01-2026.pdf');
+  const docText = path.join(docsDir, 'PN-44-2026.txt');
   const madeRoot = !fs.existsSync(docsRoot);
   const madeDir = !fs.existsSync(docsDir);
   fs.mkdirSync(docsDir, { recursive: true });
   fs.copyFileSync(FLAG_PATH, docFile);
+  fs.writeFileSync(docText,
+    'PN 44/2026 Port Marine Notice No. 44 of 2026\n2026-03-02\n\n'
+    + 'Bunkering operations in the western anchorage are suspended during the '
+    + 'dredging works. Masters are to contact the duty officer before entering '
+    + 'the sunken barge exclusion zone.\n');
 
   const docsCleanup = () => {
     try { fs.rmSync(docFile); } catch {}
+    try { fs.rmSync(docText); } catch {}
     // Only if they were not there to begin with, and only if still empty.
     if (madeDir) { try { fs.rmdirSync(docsDir); } catch {} }
     if (madeRoot) { try { fs.rmdirSync(docsRoot); } catch {} }
@@ -1093,7 +1107,7 @@ try {
     await page.locator(docPanel).count() === 1);
   const perFlag = await page.locator(`${docPanel} .fieldrow button`).allInnerTexts();
   check('each flag says how many it is missing',
-    perFlag.some((t) => /SINGAPORE \(1\)/i.test(t)), perFlag.join(' | '));
+    perFlag.some((t) => /SINGAPORE \(2\)/i.test(t)), perFlag.join(' | '));
   check('only documents the site actually holds are counted',
     !perFlag.some((t) => /MCA \(|PANAMA \(/i.test(t)), perFlag.join(' | '));
   check('and there is one for all of them',
@@ -1109,7 +1123,7 @@ try {
   page.off('request', docWatch);
 
   const docRun = await page.locator(`${panel} .sync-result`).innerText();
-  check('the document that is held gets fetched', /1 document fetched/.test(docRun), docRun);
+  check('the documents that are held get fetched', /2 documents fetched/.test(docRun), docRun);
   check('nothing is fetched from the administration itself',
     !docOutbound.some((u) => /mpa\.gov\.sg/.test(u)), docOutbound.join(', '));
 
@@ -1128,7 +1142,40 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
-  // Only the one whose document is actually held drops off the count. The
+  // A notice its administration publishes as a page, not a file. There is no
+  // PDF to hold, so holding its words is the only way it reaches the phone.
+  await page.locator('.card', { hasText: 'PN 44/2026' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const asText = await page.locator('#detailBody').innerText();
+  check('a notice published as a page arrives as its words',
+    /\.txt/i.test(asText), asText.slice(0, 200).replace(/\n/g, ' / '));
+  check('and is indexed without needing anything read',
+    /1 pages indexed/i.test(asText), asText.slice(0, 300).replace(/\n/g, ' / '));
+  check('with no reader offered, there being no picture in it',
+    !/Read the scan|Read the whole document|Read the pictures|Try reading the text again/i.test(asText),
+    asText.slice(0, 400).replace(/\n/g, ' / '));
+
+  // Readable, not merely searchable.
+  await page.click('#detailBody button:has-text("Open")');
+  await page.waitForSelector('#viewer:not([hidden])', { timeout: 15000 });
+  await page.waitForTimeout(600);
+  const shown = await page.locator('#viewerBody').innerText();
+  check('and it can actually be read on the phone',
+    /sunken barge exclusion zone/i.test(shown), shown.slice(0, 200).replace(/\n/g, ' / '));
+  check('rather than refused as a file that cannot be shown',
+    !/Cannot show this file/i.test(shown), shown.slice(0, 160));
+  await page.click('#viewerClose');
+  await page.waitForTimeout(300);
+  await closeDetail();
+
+  await page.fill('#search', 'dredging works');
+  await page.waitForTimeout(900);
+  check('its words are searchable like any document',
+    (await page.locator('.card').count()) > 0, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // Only the ones whose documents are actually held drop off the count. The
   // other has nothing to fetch, so it stays outstanding — accurately.
   check('with nothing left outstanding, the panel says so and offers nothing',
     /Every notice whose document is held has it/.test(await page.locator(docPanel).innerText()),

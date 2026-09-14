@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.03';
+const APP_VERSION = '2026.10.04';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -452,6 +452,26 @@ async function downloadDocument(item, onProgress) {
 
   const blob = await response.blob();
   const name = decodeURIComponent(url.split('/').pop());
+
+  // GOV.UK publishes most M-notices as a page rather than a file — asked and
+  // answered: of 180 MCA notices with no PDF, 179 carry their text and none
+  // had a PDF that was missed. Those are mirrored as text, so there is nothing
+  // to extract: the words are already the file.
+  if (/\.txt$/i.test(path)) {
+    const words = await blob.text();
+    const descriptor = await store.storeFile(new File([blob], name, { type: 'text/plain' }));
+    await store.storeText(descriptor.id, [{ page: 1, text: words }]);
+    Object.assign(descriptor, {
+      textPages: 1, pageCount: 1, readTo: 1,
+      textStatus: STATUS.INDEXED, textError: ''
+    });
+    await store.saveItem({
+      id: item.id, type: item.type,
+      data: { ...item.data, attachments: [...(item.data.attachments || []), descriptor] }
+    });
+    return blob.size;
+  }
+
   const descriptor = await store.storeFile(new File([blob], name, { type: 'application/pdf' }));
 
   const result = await extract(await blob.arrayBuffer(), { onProgress });
@@ -993,6 +1013,9 @@ function attachmentRow(att, onRemove) {
       el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => openAttachment(att) }, ['Open'])]),
       el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => shareAttachment(att) }, ['Save to Files'])])
     ]));
+    // Already nothing but words: no picture to read, no text layer to retry.
+    if (/^text\//i.test(att.type || '') || /\.txt$/i.test(att.name || '')) return row;
+
     if (isImage(att)) {
       if (state !== STATUS.INDEXED) {
         row.append(el('button', {

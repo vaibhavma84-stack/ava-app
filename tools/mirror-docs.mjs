@@ -16,7 +16,7 @@
 // --budget is megabytes per administration. Newest first, so a budget that
 // cannot hold everything holds the part most likely to be wanted.
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 
 const DATA = 'library/data';
@@ -82,6 +82,78 @@ const isPdf = (url) => /\.pdf(\?|$)/i.test(String(url || ''));
 const reportedShape = new Set();
 const admin = 'MCA';
 
+/**
+ * Turn a GOV.UK HTML body into the words it carries.
+ *
+ * No parser here on purpose: Node has no DOM, the app has no dependencies, and
+ * what is wanted is the reading text, not the markup. Block tags become line
+ * breaks so the paragraphs and list items stay apart, everything else goes,
+ * and the entities that actually appear in a notice come back as characters.
+ */
+const ENTITIES = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+  pound: '\u00a3', euro: '\u20ac', cent: '\u00a2', yen: '\u00a5',
+  deg: '\u00b0', times: '\u00d7', divide: '\u00f7', plusmn: '\u00b1',
+  frac12: '\u00bd', frac14: '\u00bc', frac34: '\u00be', sup2: '\u00b2', sup3: '\u00b3',
+  micro: '\u00b5', middot: '\u00b7', bull: '\u2022', hellip: '\u2026',
+  ndash: '\u2013', mdash: '\u2014', minus: '\u2212',
+  lsquo: '\u2018', rsquo: '\u2019', ldquo: '\u201c', rdquo: '\u201d',
+  copy: '\u00a9', reg: '\u00ae', trade: '\u2122', sect: '\u00a7', para: '\u00b6',
+  eacute: '\u00e9', egrave: '\u00e8', agrave: '\u00e0', ccedil: '\u00e7', ouml: '\u00f6'
+};
+
+export function textFromHtml(html) {
+  return String(html || '')
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<\/(p|div|li|tr|h[1-6]|blockquote|section)>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n\u2022 ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)))
+    // Named entities by name. Dropping the ones not on the list used to turn a
+    // £50 fee into a 50 fee — a number changed by the mirror, which is worse
+    // than a character lost, because it still reads as a fee.
+    .replace(/&([a-z][a-z0-9]*);/gi, (whole, name) => ENTITIES[name.toLowerCase()] ?? whole)
+    .replace(/[ \t]+/g, ' ')
+    .replace(/ ?\n ?/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
+ * The notice's words, for the ones GOV.UK publishes as a page rather than a file.
+ *
+ * Asked and answered: of the 180 MCA notices that resolve to no PDF, 179 carry
+ * an HTML attachment and none has a PDF that was missed. They are not missing
+ * documents — they are documents that are not files. The words are in the
+ * content API under the attachment's own path, so they can be mirrored as text
+ * and reach the phone like everything else.
+ */
+async function mcaText(notice) {
+  const path = String(notice.sourceUrl || '').replace(GOVUK, '');
+  if (!path.startsWith('/')) return '';
+  try {
+    const r = await fetch(`${GOVUK}/api/content${path}`);
+    if (!r.ok) return '';
+    const body = await r.json();
+    const html = (body?.details?.attachments || []).find((a) => (a?.attachment_type || '') === 'html');
+    if (!html?.url) return '';
+
+    const sub = await fetch(`${GOVUK}/api/content${String(html.url).replace(GOVUK, '')}`);
+    if (!sub.ok) return '';
+    const page = await sub.json();
+    const markup = page?.details?.body || page?.details?.govspeak || '';
+    const text = textFromHtml(markup);
+    if (text.length < 200) return '';
+
+    // Headed by what it is, so the file reads as the notice and not as a
+    // fragment of one, and so its number is in the text as well as the name.
+    return `${notice.refNo || ''} ${notice.title || ''}`.trim()
+      + `\n${notice.date || ''}\nSource: ${notice.sourceUrl}\n\n${text}\n`;
+  } catch { return ''; }
+}
+
 async function resolveMca(notice) {
   if (isPdf(notice.sourceUrl)) return notice.sourceUrl;
   const path = String(notice.sourceUrl || '').replace(GOVUK, '');
@@ -121,6 +193,20 @@ const RESOLVE = { MCA: resolveMca, Panama: resolveDirect, Singapore: resolveDire
 const fileNameFor = (notice) =>
   `${notice.refNo || notice.title}`.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80) + '.pdf';
 
+const textNameFor = (notice) => fileNameFor(notice).replace(/\.pdf$/, '.txt');
+
+/**
+ * Notices that are listed but never fetched.
+ *
+ * MINs are information notes rather than requirements, and they are not wanted
+ * on the phone — so they stay in the catalogue, numbered and listed, and no
+ * document is fetched for them at all. Not a filter on the phone: fetching
+ * them here and then declining to send them would spend the site's space and
+ * the run's time on something nobody asked for.
+ */
+export const listOnly = (admin, notice) => admin === 'MCA'
+  && (/^MIN\b/i.test(notice.docType || '') || /^MIN\b/i.test(notice.refNo || ''));
+
 async function run() {
   const only = flag('only');
   const measuring = has('measure');
@@ -133,21 +219,44 @@ async function run() {
     if (!existsSync(catalogue)) { console.log(`${admin}: no catalogue yet`); continue; }
     const data = JSON.parse(readFileSync(catalogue, 'utf8'));
 
-    let resolved = 0, unresolved = 0, held = 0, tooBig = 0, refused = 0;
+    let resolved = 0, unresolved = 0, held = 0, tooBig = 0, refused = 0, asText = 0;
+    let listed = 0, dropped = 0;
     let totalBytes = 0, takenBytes = 0, stoppedAt = 0;
     let changed = false;
 
     // Resolving and sizing is all network, so it is done several at a time.
     const sized = await inParallel(data.notices, 8, async (notice) => {
       const localPath = join(DOCS, admin.toLowerCase(), fileNameFor(notice));
+      if (listOnly(admin, notice)) return { notice, localPath, listed: true };
       if (!measuring && existsSync(localPath)) return { notice, localPath, alreadyHere: true };
 
       const url = await RESOLVE[admin](notice);
-      if (!url) return { notice, localPath, unresolved: true };
-      return { notice, localPath, url, size: await head(url) };
+      if (url) return { notice, localPath, url, size: await head(url) };
+
+      // No file — but for MCA that mostly means the notice is a page, not that
+      // it is missing. Take the words instead.
+      if (admin === 'MCA' && !measuring) {
+        const textPath = join(DOCS, 'mca', textNameFor(notice));
+        if (existsSync(textPath)) {
+          return { notice, localPath: textPath, alreadyHere: true };
+        }
+        const text = await mcaText(notice);
+        if (text) return { notice, localPath, textPath, text };
+      }
+      return { notice, localPath, unresolved: true };
     });
 
     for (const row of sized) {
+      if (row.listed) {
+        listed++;
+        // Anything fetched before the rule existed goes, rather than sitting
+        // on the site being offered to a phone that does not want it.
+        for (const stale of [row.localPath, row.localPath.replace(/\.pdf$/, '.txt')]) {
+          if (existsSync(stale)) { rmSync(stale); dropped++; changed = true; }
+        }
+        if (row.notice.file) { delete row.notice.file; delete row.notice.bytes; changed = true; }
+        continue;
+      }
       if (row.alreadyHere) {
         held++;
         takenBytes += statSync(row.localPath).size;
@@ -156,6 +265,19 @@ async function run() {
         continue;
       }
       if (row.unresolved) { unresolved++; continue; }
+      if (row.textPath) {
+        // Published as a page rather than a file. Its words are mirrored so
+        // the notice still reaches the phone and is still searchable — the
+        // only thing it lacks is a PDF, which nobody published.
+        mkdirSync(dirname(row.textPath), { recursive: true });
+        writeFileSync(row.textPath, row.text);
+        takenBytes += Buffer.byteLength(row.text);
+        row.notice.file = row.textPath.replace('library/', '');
+        row.notice.bytes = Buffer.byteLength(row.text);
+        asText++;
+        changed = true;
+        continue;
+      }
       resolved++;
       if (!row.size.ok) { refused++; continue; }
       totalBytes += row.size.bytes;
@@ -188,7 +310,10 @@ async function run() {
     } else {
       console.log(`${admin}: holding ${held + (changed ? 1 : 0)} documents, ${mb(takenBytes)} MB`);
       if (stoppedAt) console.log(`  ${stoppedAt} left out — the ${mb(budget)} MB budget was reached`);
-      if (unresolved) console.log(`  ${unresolved} had no document to fetch`);
+      if (asText) console.log(`  ${asText} published as a page, mirrored as text`);
+      if (listed) console.log(`  ${listed} listed only, no document fetched`
+        + (dropped ? ` — ${dropped} previously fetched file removed` : ''));
+      if (unresolved) console.log(`  ${unresolved} had nothing to fetch at all`);
       if (changed) writeFileSync(catalogue, JSON.stringify(data, null, 1) + '\n');
     }
   }

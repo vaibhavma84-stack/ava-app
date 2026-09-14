@@ -6,6 +6,7 @@
 // pinning down: a regex over markup is easy to get subtly wrong.
 
 import { readFeed, readLinks } from '../tools/mirror-notices.mjs';
+import { textFromHtml, listOnly } from '../tools/mirror-docs.mjs';
 import { singaporeRef, singaporeLooseRef, SG_TYPES, MPA } from '../library/js/updates.js';
 
 let passed = 0, failed = 0;
@@ -131,6 +132,74 @@ check('and nothing without a list to attribute it to',
 // silently relabelled by the list it happens to sit in.
 check('a title that names its own class is read by the strict form first',
   singaporeRef('PORT MARINE CIRCULAR NO. 01 OF 2026')?.refNo === 'PC 01/2026');
+
+// ── a notice published as a page rather than a file ─────────────────────────
+//
+// 179 of the 497 MCA notices have no PDF at all: GOV.UK publishes them as HTML
+// attachments. They are not missing documents, they are documents that are not
+// files — so the words are mirrored instead. This is the reader that turns the
+// markup into them, and like the others here it is a regex over markup, which
+// is exactly the kind of thing that is subtly wrong until it is pinned down.
+console.log('\nReading a notice published as a page');
+
+const NOTICE_HTML = `
+<div class="govspeak">
+  <h2 id="summary">Summary</h2>
+  <p>This note gives guidance on <strong>infectious disease</strong> at sea.</p>
+  <ul>
+    <li>Masters should record symptoms.</li>
+    <li>Report to the <a href="/maritime">port health authority</a>.</li>
+  </ul>
+  <p>Fees are &pound;50 &amp; rise annually.<br>See MSN 1905 &#40;M+F&#41;.</p>
+  <style>.x{color:red}</style>
+  <script>alert('no')</script>
+</div>`;
+
+const read = textFromHtml(NOTICE_HTML);
+check('the words come through', /guidance on infectious disease at sea/.test(read), read);
+check('list items stay apart rather than running together',
+  /Masters should record symptoms\.[\s\S]*Report to the port health authority\./.test(read), read);
+check('a link keeps its words and loses its markup',
+  /port health authority/.test(read) && !/href|<a/.test(read), read);
+check('entities come back as characters', /£50 & rise/.test(read), read);
+// An entity nobody listed must not silently remove what it stood for.
+check('an unlisted entity is left visible rather than dropped',
+  /&zwnj;/.test(textFromHtml('<p>a&zwnj;b</p>')), textFromHtml('<p>a&zwnj;b</p>'));
+check('a degree sign survives, since notices give temperatures',
+  textFromHtml('<p>60&deg;C</p>') === '60°C', textFromHtml('<p>60&deg;C</p>'));
+check('a line break is a line break', /\n\s*See MSN 1905/.test(read), read);
+check('script and style are gone',
+  !/alert|color:red/.test(read), read);
+check('no markup survives at all', !/[<>]/.test(read), read);
+check('it does not end up as one long line', read.split('\n').length >= 4, JSON.stringify(read));
+
+// Numbers are what a notice is asked for by, so they must survive intact.
+check('a notice number is left exactly as written',
+  textFromHtml('<p>MGN 652 (M+F) Amendment 1</p>') === 'MGN 652 (M+F) Amendment 1',
+  textFromHtml('<p>MGN 652 (M+F) Amendment 1</p>'));
+
+
+// ── listed, but never fetched ───────────────────────────────────────────────
+//
+// MINs are information notes rather than requirements and are not wanted on
+// the phone. They stay in the catalogue with their numbers; no document is
+// fetched for them. Getting this wrong in either direction is expensive: too
+// broad and the MGNs stop arriving, too narrow and 15 MB nobody asked for
+// keeps being downloaded.
+console.log('\nListed but not fetched');
+
+const mca = (docType, refNo) => listOnly('MCA', { docType, refNo });
+
+check('a MIN is listed only', mca('MIN (Marine Information Note)', 'MIN 738 (M+F)'));
+check('recognised from the reference alone', mca('', 'MIN 700'));
+check('recognised from the type alone', mca('MIN (Marine Information Note)', ''));
+check('an MGN is still fetched', !mca('MGN (Marine Guidance Note)', 'MGN 652 (M+F)'));
+check('an MSN is still fetched', !mca('MSN (Merchant Shipping Notice)', 'MSN 1905 (M+F)'));
+// The word appears inside other notices' subjects; only the class counts.
+check('a notice merely mentioning MIN is still fetched',
+  !mca('MGN (Marine Guidance Note)', 'MGN 400'));
+check('and another administration is untouched',
+  !listOnly('Panama', { docType: 'MIN (Marine Information Note)', refNo: 'MIN 738' }));
 
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);
