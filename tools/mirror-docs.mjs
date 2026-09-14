@@ -335,4 +335,9 @@ async function run() {
   }
 }
 
-run().catch((ex) => { console.error(ex); process.exit(1); });
+// Only when run, never when imported. A diagnostic that borrowed one helper
+// from here set the whole mirror going — fetching documents inside a job whose
+// entire point was to read and change nothing.
+if (import.meta.url === `file://${process.argv[1]}`) {
+  run().catch((ex) => { console.error(ex); process.exit(1); });
+}
