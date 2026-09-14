@@ -23,6 +23,11 @@ export const CIRCULAR_CATEGORIES = [
 // before. More to come. A document already filed under one of the old types
 // keeps it — the editor puts a stored value back as an option rather than
 // changing it — so nothing already entered is disturbed by this.
+//
+// Called "Category" throughout, on the field and on the filter, because that
+// is what it is called on the ship. It was labelled "Document type", which
+// meant asking for a category and being shown something that did not answer
+// to the name.
 export const SYNERGY_DOC_TYPES = [
   'Manager\u2019s Instructions',
   'QHSE',
@@ -163,7 +168,7 @@ export const TYPES = {
     titleKey: 'title',
     fields: [
       { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Shipboard Safety Management Manual' },
-      { key: 'docType', label: 'Document type', type: 'select', options: SYNERGY_DOC_TYPES },
+      { key: 'docType', label: 'Category', type: 'select', options: SYNERGY_DOC_TYPES },
       { keepCase: true, key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. SMS-04', group: 'ident' },
       { keepCase: true, key: 'revision', label: 'Revision', type: 'text', placeholder: 'e.g. Rev 7', group: 'ident' },
       { key: 'date', label: 'Date', type: 'date' },
@@ -179,7 +184,7 @@ export const TYPES = {
     ],
     listFields: ['refNo', 'revision'],
     tracksRevision: true,
-    filterBy: { key: 'docType', label: 'Type' },
+    filterBy: { key: 'docType', label: 'Category' },
     sort: (a, b) => (a.docType || '').localeCompare(b.docType || '')
                  || (a.title || '').localeCompare(b.title || '')
   },
@@ -212,7 +217,7 @@ export const TYPES = {
     // Filed by flag, since an officer serves under one at a time.
     groupBy: { key: 'flagState', label: 'Flag / Administration', blank: 'No flag set' },
     sources: FLAG_SOURCES,
-    filterBy: { key: 'docType', label: 'Type' },
+    filterBy: { key: 'docType', label: 'Category' },
     sort: (a, b) => (b.date || '').localeCompare(a.date || '')
   },
 

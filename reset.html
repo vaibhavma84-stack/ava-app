@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reset the apps</title>
+<!--
+  The way out of a copy that will not update.
+
+  Both apps update themselves, but that machinery lives inside the app — so a
+  copy stale enough to be missing it cannot use it, and the thing that is stuck
+  is the very thing that would unstick it.
+
+  This page is deliberately outside both service workers' scope: it sits at the
+  root, above /library/, so the Library's worker never sees the request for it
+  and can never answer it from its cache. Whatever the phone is running, this
+  page arrives fresh.
+
+  It throws away downloaded code and nothing else. Entries, files and their
+  read text live in the database, which is not touched here — no IndexedDB call
+  appears anywhere on this page. That is the whole point: on a ship the sea
+  time and the certificates are the part that cannot be fetched again.
+-->
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; padding: 32px 20px;
+    background: #05101b; color: #e8eef5;
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 34rem; margin: 0 auto; }
+  h1 { font-size: 1.35rem; margin: 0 0 4px; letter-spacing: .01em; }
+  p { margin: 0 0 14px; }
+  .hint { color: #93a6b8; font-size: .92rem; }
+  .keep {
+    border: 1px solid #1d3a4e; background: #0a1826;
+    border-radius: 10px; padding: 12px 14px; margin: 18px 0;
+  }
+  .keep strong { color: #8fd6a9; }
+  button {
+    -webkit-appearance: none; appearance: none; width: 100%;
+    font: inherit; font-weight: 600; color: #05101b; background: #7fc8f0;
+    border: 0; border-radius: 10px; padding: 14px 16px; margin-top: 6px;
+    cursor: pointer;
+  }
+  button.quiet { background: transparent; color: #7fc8f0; border: 1px solid #29465c; }
+  button[disabled] { opacity: .55; }
+  #said { margin-top: 16px; min-height: 1.5em; }
+  #said.bad { color: #f0a0a0; }
+  ul { padding-left: 1.1rem; margin: 0 0 14px; }
+  li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Reset the apps</h1>
+  <p class="hint">For when AVA or the Library keeps opening an old version however many times it is closed and reopened.</p>
+
+  <div class="keep">
+    <p style="margin:0"><strong>Your entries are kept.</strong></p>
+    <p class="hint" style="margin:6px 0 0">Certificates, sea time, notes, documents and the text read out of them are all in the database, and nothing on this page touches it. Only the downloaded code is thrown away — the phone fetches it again, current, on the next launch.</p>
+  </div>
+
+  <p>This will:</p>
+  <ul>
+    <li>unregister both apps' service workers</li>
+    <li>empty the caches they downloaded into</li>
+    <li>reopen the app fresh</li>
+  </ul>
+
+  <p class="hint">Do it with a connection. Without one there is nothing to fetch back, and the apps will be blank until there is.</p>
+
+  <button id="go">Reset now</button>
+  <button id="back" class="quiet" hidden>Open the Library</button>
+  <p id="said" class="hint"></p>
+</main>
+
+<script>
+  var said = document.getElementById('said');
+  var go = document.getElementById('go');
+  var back = document.getElementById('back');
+
+  function say(text, bad) {
+    said.textContent = text;
+    said.className = bad ? 'hint bad' : 'hint';
+  }
+
+  // Where to land afterwards: whichever app sent them here, or the Library,
+  // which is the one that goes stale because it is the one that changes.
+  function destination() {
+    var here = location.href.replace(/reset\.html.*$/, '');
+    var to = new URLSearchParams(location.search).get('to');
+    return here + (to === 'ava' ? 'index.html' : 'library/index.html') + '?fresh=' + Date.now();
+  }
+
+  go.onclick = async function () {
+    go.disabled = true;
+    say('Clearing…');
+    var undone = 0;
+
+    try {
+      var regs = await (navigator.serviceWorker ? navigator.serviceWorker.getRegistrations() : []);
+      for (var i = 0; i < regs.length; i++) {
+        try { if (await regs[i].unregister()) undone++; } catch (e) { /* try the rest */ }
+      }
+    } catch (e) { /* nothing useful to do; the cache clear is still worth it */ }
+
+    var emptied = 0;
+    try {
+      var keys = await caches.keys();
+      for (var j = 0; j < keys.length; j++) {
+        try { if (await caches.delete(keys[j])) emptied++; } catch (e) { /* try the rest */ }
+      }
+    } catch (e) { /* likewise */ }
+
+    if (!undone && !emptied) {
+      // Nothing was there to clear. Either it has already been done, or this
+      // is a browser the apps were never installed in — say so rather than
+      // bouncing them into an app and letting them wonder if it worked.
+      say('There was nothing cached to clear. Opening the app anyway.');
+    } else {
+      say('Cleared ' + undone + ' installed ' + (undone === 1 ? 'copy' : 'copies')
+          + ' and ' + emptied + ' ' + (emptied === 1 ? 'cache' : 'caches') + '. Opening…');
+    }
+
+    back.hidden = false;
+    setTimeout(function () { location.replace(destination()); }, 1200);
+  };
+
+  back.onclick = function () { location.replace(destination()); };
+</script>
+</body>
+</html>

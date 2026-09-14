@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.09.28';
+const APP_VERSION = '2026.09.29';
 
 const view = {
   screen: 'home',      // home | section | search
