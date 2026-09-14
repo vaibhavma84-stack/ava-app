@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.04';
+const APP_VERSION = '2026.10.05';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -956,6 +956,22 @@ function openDetail(id) {
     const sec3 = el('div', { class: 'detail-sec' }, [el('h4', { text: 'Files on this device' })]);
     for (const att of atts) sec3.append(attachmentRow(att));
     body.append(sec3);
+  }
+
+  // A synced notice with no file is not a failure, but it looks like one: the
+  // entry simply ends at a link, and "where is the circular?" is the right
+  // question to ask of it. Say which of the three reasons it is.
+  if (item.type === 'flag' && !atts.length && !item.data.mirrorFile && item.data.flagState) {
+    const min = /^MIN\b/i.test(item.data.docType || '') || /^MIN\b/i.test(item.data.refNo || '');
+    const singapore = item.data.flagState === 'Singapore';
+    body.append(el('div', { class: 'detail-sec' }, [
+      el('h4', { text: 'No document held' }),
+      el('p', { class: 'hint', text: min
+        ? 'MINs are listed and numbered here but never downloaded, as you asked. The link below opens it at the administration, which needs a connection.'
+        : singapore
+          ? 'Singapore publishes its circulars as pages rather than files, and they are not mirrored yet. The link below opens it at the administration, which needs a connection.'
+          : 'The administration publishes this one as something other than a document — a spreadsheet or a page — so there is nothing to download. The link below opens it at the administration, which needs a connection.' })
+    ]));
   }
 
   if (item.data.fileLink) {

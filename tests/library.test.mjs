@@ -1175,6 +1175,26 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
+  // A notice with nothing held must say why rather than just ending at a link.
+  // "Where is the circular?" is the right question to ask of an entry that
+  // stops at Open link with no explanation.
+  await page.locator('.card', { hasText: 'SC 09/2025' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const nothingHeld = await page.locator('#detailBody').innerText();
+  check('a notice with no document says so',
+    /No document held/i.test(nothingHeld), nothingHeld.slice(0, 300).replace(/\n/g, ' / '));
+  check('and says it needs a connection to reach it',
+    /needs a connection/i.test(nothingHeld), nothingHeld.slice(0, 400).replace(/\n/g, ' / '));
+  await closeDetail();
+
+  // One that does hold its document must not carry the notice.
+  await page.locator('.card', { hasText: 'PC 01/2026' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  check('a notice that has its document does not',
+    !/No document held/i.test(await page.locator('#detailBody').innerText()),
+    (await page.locator('#detailBody').innerText()).slice(0, 200).replace(/\n/g, ' / '));
+  await closeDetail();
+
   // Only the ones whose documents are actually held drop off the count. The
   // other has nothing to fetch, so it stays outstanding — accurately.
   check('with nothing left outstanding, the panel says so and offers nothing',
