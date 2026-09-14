@@ -1,69 +1,75 @@
-// How many circulars does Panama actually publish?
+// Where can Panama's back catalogue actually be read?
 //
-// The catalogue holds 64: 34 MMCs and 30 MMNs, none older than 2019. The
-// registry has been issuing them for decades and MMC numbers run past 300, so
-// 64 is very unlikely to be all of them.
+// Settled: the registry's media library reaches back only to August 2025 for
+// MMCs, the authority's holds a dozen, and /circulars/ is a 404 on both — the
+// page the app links to for checking against the source no longer exists.
+// That is why the catalogue holds 64, and it is not a search bug.
 //
-// The reader asks the WordPress media library for "MMC-" and "MMN-". Titles
-// there are written "MMC 270 – 03 09 2026", with a space, and only the file
-// name carries the hyphen — so a search for the hyphenated form may be finding
-// whatever WordPress happens to match rather than the catalogue.
+// So this looks at the two places suggested instead. One is a consulate, which
+// is an arm of the registry; the other is a third-party aggregator. Counting
+// what each holds is the first question. Where each document is actually
+// served from is the second, and matters more: an index worth using may still
+// be an index that points back at Panama's own servers, which is where a
+// document anyone might rely on ought to come from.
 //
-// This counts what is there: the whole media library paged through, several
-// search terms compared, and the circulars page read for links. Reads only.
-//
-//   node tools/diagnose-panama.mjs
+// Reads only.
 
-const HOSTS = [
-  ['registry', 'https://www.panamashipregistry.com'],
-  ['authority', 'https://www.amp.gob.pa']
+const SOURCES = [
+  ['consulate', 'https://www.panamaconsulate.gr/gr/en/articles/updated-merchant-marine-circulars-january-2026'],
+  ['flagadmin', 'https://flagadmin.com/en/tsirkulyari-ot-panami']
 ];
 
-const isCircular = (text) => /\b(MMC|MMN)\b[\s\-–—]*\d/i.test(String(text || ''));
-const refOf = (text) => (String(text || '').match(/\b(MMC|MMN)\b[\s\-–—]*(\d+)/i) || []).slice(1).join(' ');
+const BROWSERISH = {
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+    + ' (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language': 'en-GB,en;q=0.9'
+};
 
-async function media(host, { search = '', pages = 12 } = {}) {
-  const out = [];
-  for (let page = 1; page <= pages; page++) {
-    const url = `${host}/wp-json/wp/v2/media?media_type=application&per_page=100&page=${page}`
-      + (search ? `&search=${encodeURIComponent(search)}` : '')
-      + '&orderby=date&order=desc&_fields=title,slug,date,source_url';
-    let batch;
-    try {
-      const r = await fetch(url);
-      if (!r.ok) { if (page === 1) return { error: `HTTP ${r.status}`, items: [] }; break; }
-      batch = await r.json();
-    } catch (ex) { if (page === 1) return { error: ex.message, items: [] }; break; }
-    if (!Array.isArray(batch) || !batch.length) break;
-    out.push(...batch);
-    if (batch.length < 100) break;
-  }
-  return { items: out };
-}
+const refOf = (t) => (String(t || '').match(/\b(MMC|MMN)\b[\s\-–—_]*(\d{1,4})/i) || []).slice(1).join(' ').toUpperCase();
 
-for (const [name, host] of HOSTS) {
-  console.log(`\n${'='.repeat(70)}\n${name}: ${host}`);
-
-  for (const search of ['MMC-', 'MMN-', 'MMC', 'MMN', 'circular', '']) {
-    const got = await media(host, { search, pages: search ? 6 : 12 });
-    if (got.error) { console.log(`  search ${JSON.stringify(search).padEnd(11)} → ${got.error}`); continue; }
-    const pdfs = got.items.filter((i) => /\.pdf$/i.test(i.source_url || ''));
-    const circulars = pdfs.filter((i) => isCircular(i.title?.rendered) || isCircular(i.slug));
-    const refs = new Set(circulars.map((i) => refOf(i.title?.rendered) || refOf(i.slug)).filter(Boolean));
-    const dates = circulars.map((i) => String(i.date || '').slice(0, 10)).filter(Boolean).sort();
-    console.log(`  search ${JSON.stringify(search).padEnd(11)} → ${String(got.items.length).padStart(4)} media ·`
-      + ` ${String(pdfs.length).padStart(4)} PDFs · ${String(circulars.length).padStart(4)} look like circulars ·`
-      + ` ${String(refs.size).padStart(4)} distinct refs`
-      + (dates.length ? ` · ${dates[0]} → ${dates[dates.length - 1]}` : ''));
-  }
-
-  // And the page a person would actually open.
+for (const [name, url] of SOURCES) {
+  console.log(`\n${'='.repeat(72)}\n${name}: ${url}`);
+  let html;
   try {
-    const r = await fetch(`${host}/circulars/`);
-    const html = await r.text();
-    const links = [...new Set((html.match(/https?:\/\/[^"'\s]+\.pdf/gi) || []))];
-    const circulars = links.filter(isCircular);
-    console.log(`  /circulars/ → HTTP ${r.status} · ${(html.length / 1024).toFixed(0)} KB · ${links.length} PDF links · ${circulars.length} look like circulars`);
-    circulars.slice(0, 3).forEach((u) => console.log(`      ${u}`));
-  } catch (ex) { console.log(`  /circulars/ → ${ex.message}`); }
+    const r = await fetch(url, { headers: BROWSERISH, redirect: 'follow' });
+    html = await r.text();
+    console.log(`  HTTP ${r.status} · ${(html.length / 1024).toFixed(0)} KB`);
+    if (!r.ok) continue;
+  } catch (ex) { console.log(`  failed: ${ex.message}`); continue; }
+
+  const links = [...new Set([...html.matchAll(/href=["']([^"']+)["']/gi)].map((m) => m[1]))]
+    .map((h) => { try { return new URL(h, url).href; } catch { return ''; } })
+    .filter(Boolean);
+  const pdfs = links.filter((h) => /\.pdf(\?|$)/i.test(h));
+  console.log(`  ${links.length} links · ${pdfs.length} PDFs`);
+
+  // Which of them name a circular, and how many distinct ones.
+  const refs = new Map();
+  for (const h of pdfs) {
+    const ref = refOf(decodeURIComponent(h.split('/').pop() || ''));
+    if (ref) refs.set(ref, h);
+  }
+  // The page text often names circulars the links do not.
+  const text = html.replace(/<[^>]+>/g, ' ');
+  const named = new Set([...text.matchAll(/\b(MMC|MMN)\b[\s\-–—_]*(\d{1,4})/gi)]
+    .map((m) => `${m[1].toUpperCase()} ${m[2]}`));
+  console.log(`  ${refs.size} circulars linked as PDFs · ${named.size} named anywhere on the page`);
+
+  // Where the documents are served from decides whether this is an index
+  // worth following or a copy worth being wary of.
+  const hosts = {};
+  for (const h of refs.values()) {
+    const host = new URL(h).host;
+    hosts[host] = (hosts[host] || 0) + 1;
+  }
+  console.log('  documents served from:');
+  for (const [host, n] of Object.entries(hosts).sort((a, b) => b[1] - a[1])) {
+    console.log(`    ${String(n).padStart(4)}  ${host}`);
+  }
+  const sample = [...refs.entries()].slice(0, 5);
+  for (const [ref, h] of sample) console.log(`    ${ref.padEnd(8)} ${h.slice(0, 110)}`);
+
+  const numbers = [...refs.keys()].map((r) => Number(r.split(' ')[1])).filter(Boolean).sort((a, b) => a - b);
+  if (numbers.length) console.log(`  numbers run ${numbers[0]} → ${numbers[numbers.length - 1]}`);
 }
