@@ -1,7 +1,15 @@
 {
  "administration": "Panama",
- "fetched": "2026-09-07",
+ "fetched": "2026-09-14",
  "notices": [
+  {
+   "title": "MMC 270 &#8211; 03 09 2026",
+   "refNo": "MMC 270",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-09-09",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/09/MMC-270-03-09-2026.pdf",
+   "file": "docs/panama/MMC-270.pdf"
+  },
   {
    "title": "MMC 270 17 08 2026",
    "refNo": "MMC 270-17",
@@ -9,14 +17,6 @@
    "date": "2026-08-28",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-270-17-08-2026-1.pdf",
    "file": "docs/panama/MMC-270-17.pdf"
-  },
-  {
-   "title": "MMC 270 &#8211; 17 08 2026",
-   "refNo": "MMC 270",
-   "docType": "Merchant Marine Circular",
-   "date": "2026-08-24",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-270-17-08-2026.pdf",
-   "file": "docs/panama/MMC-270.pdf"
   },
   {
    "title": "MMC 302 &#8211; August 18 2026",
@@ -353,14 +353,6 @@
    "date": "2025-08-11",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMN-07-2025-Insurers-due-diligence-Rv-MR.pdf",
    "file": "docs/panama/MMN-07-2025.pdf"
-  },
-  {
-   "title": "MMC 386 &#8211; Aug 2025 Rv MR",
-   "refNo": "MMC 386",
-   "docType": "Merchant Marine Circular",
-   "date": "2025-08-01",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-386-Aug-2025-Rv-MR.pdf",
-   "file": "docs/panama/MMC-386.pdf"
   },
   {
    "title": "MMN 05 2025 &#8211; CIC 2025 Ballast",

@@ -1,7 +1,21 @@
 {
  "administration": "Singapore",
- "fetched": "2026-09-07",
+ "fetched": "2026-09-14",
  "notices": [
+  {
+   "title": "PORT MARINE NOTICE NO. 112 of 2026 - DEMOLITION OF JETTY AND PART DEMOLITION AND ALTERATION WORKS AT 35 JURONG PIER ROAD",
+   "refNo": "PN 112/2026",
+   "docType": "Marine Notice",
+   "date": "2026-09-14",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-112-of-2026-demolition-of-jetty-and-part-demolition-and-alteration-works-at-35-jurong-pier-road"
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 111 of 2026 - CRANE BARGE OVERNIGHT STAYING AT PULAU SATUMU",
+   "refNo": "PN 111/2026",
+   "docType": "Marine Notice",
+   "date": "2026-09-11",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-111-of-2026-crane-barge-overnight-staying-at-pulau-satumu"
+  },
   {
    "title": "PORT MARINE NOTICE NO. 110 of 2026 - Haze Advisory PSI 100 and above",
    "refNo": "PN 110/2026",
@@ -232,13 +246,6 @@
    "docType": "Marine Notice",
    "date": "2026-04-29",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-64-of-2026---deployment-and-servicing-of-adcp-and-buoy"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 61 OF 2026 - DEMOLITION OF FORMER PAXOCEAN SHIPYARD AT TUAS BAY",
-   "refNo": "PN 61/2026",
-   "docType": "Marine Notice",
-   "date": "2026-04-20",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-61-of-2026---demolition-of-former-paxocean-shipyard-at-tuas-bay"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 05 OF 2026 - JOINT ADVISORY: COMPLIANCE WITH THE HARBOUR CRAFT REGULATIONS AND THE EMPLOYMENT OF FOREIGN MANPOWER ACT",
@@ -1156,13 +1163,6 @@
    "docType": "Port Marine Circular",
    "date": "2022-12-13",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-24-of-2022-maritime-welfare-fee-concession"
-  },
-  {
-   "title": "PORT MARINE CIRCULAR NO. 23 OF 2022 PORT DUES REBATE FOR VESSELS HANDLING TRANSHIPMENT VEHICLES IN SINGAPORE",
-   "refNo": "PC 23/2022",
-   "docType": "Port Marine Circular",
-   "date": "2022-12-05",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-23-of-2022-port-dues-rebate-for-vessels-handling-transhipment-vehicles-in-singapore"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 22 OF 2022 REVISION OF SINGAPORE STANDARD FOR BUNKERING SS 600: 2022",

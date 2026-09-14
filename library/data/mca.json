@@ -1,7 +1,21 @@
 {
  "administration": "MCA",
- "fetched": "2026-09-07",
+ "fetched": "2026-09-14",
  "notices": [
+  {
+   "title": "MGN 652 (M+F) Amendment 1 infectious disease at sea",
+   "refNo": "MGN 652 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-09-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-652-mf-infectious-disease-at-sea"
+  },
+  {
+   "title": "Annex to MGN 656 The latest UK list of approved facilities",
+   "refNo": "MGN 656",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-09-09",
+   "sourceUrl": "https://www.gov.uk/government/publications/annex-to-mgn-656-the-latest-uk-list-of-approved-facilities"
+  },
   {
    "title": "MIN 738 (M+F) Direction issued under Section 8(4) of the Merchant Shipping Act 1995",
    "refNo": "MIN 738 (M+F)",
@@ -706,13 +720,6 @@
    "date": "2025-06-19",
    "sourceUrl": "https://www.gov.uk/government/publications/msn-1676-mf-amendment-2-merchant-shipping-life-saving-appliances-regulations",
    "file": "docs/mca/MSN-1676-M-F.pdf"
-  },
-  {
-   "title": "Annex to MGN 656 The latest UK list of approved facilities",
-   "refNo": "MGN 656",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2025-06-13",
-   "sourceUrl": "https://www.gov.uk/government/publications/annex-to-mgn-656-the-latest-uk-list-of-approved-facilities"
   },
   {
    "title": "MIN 642 (M+F) Engineer Officer Small Vessel Certificate of Competency Guidance",
@@ -1798,13 +1805,6 @@
    "date": "2022-08-17",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-629-mf-construction-and-outfit-standards-for-fishing-vessels-of-15m-to-24m",
    "file": "docs/mca/MGN-629-M-F.pdf"
-  },
-  {
-   "title": "MGN 652 (M+F) infectious disease at sea",
-   "refNo": "MGN 652 (M+F)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2022-08-12",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-652-mf-infectious-disease-at-sea"
   },
   {
    "title": "MSN 1796 (M+F) Amendment 4 Designation of Vessel Traffic Services (VTS)",
