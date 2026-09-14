@@ -1,92 +1,66 @@
-// Where MPA keeps the body of a circular.
+// Is the circular in the detail page's markup, or only the menu around it?
 //
-// The list endpoint's main_content turned out to be a fifty-character header —
-// "PORT MARINE NOTICE / NO. 112 OF 2026 / 14 Sep 2026" — and not the circular
-// at all. So the text is somewhere else, and this asks where: the per-item API
-// if there is one, the detail page's own markup, and whatever that markup
-// holds once the tags are gone.
+// There is no per-item API — four shapes, all 404. The detail page serves
+// 236 KB of markup and 6,689 characters of text, but the opening of that text
+// is MPA's site menu ("Who We Are", "Whistleblowing Channel"), and 6,689
+// characters of navigation is entirely plausible. So this looks past the menu:
+// it hunts the markup for the circular's own words, names whichever container
+// holds them, and prints what is in it.
+//
+// If the words are there, 565 notices can be held for the cost of 565 plain
+// fetches. If they are not, the page is drawn by script and the only way in is
+// a browser, 565 times — worth knowing before spending it.
 //
 // Reads only. Downloads nothing, commits nothing.
-//
-//   node tools/diagnose-mpa.mjs
 
 import { textFromHtml } from './mirror-docs.mjs';
 
 const MPA = 'https://www.mpa.gov.sg';
-const LIST = '63fc1321-c383-4bc1-8cda-a7718c8eb28c';   // Shipping Circulars
-
-const show = (label, text) => {
-  console.log(`\n  ${label} — ${text.length} characters`);
-  if (!text.length) return;
-  console.log(text.slice(0, 600).split('\n').slice(0, 14).map((l) => '  | ' + l).join('\n'));
-};
-
-async function tryJson(url) {
-  try {
-    const r = await fetch(url, { headers: { accept: 'application/json' } });
-    if (!r.ok) return { ok: false, why: `HTTP ${r.status}` };
-    const type = r.headers.get('content-type') || '';
-    const body = await r.text();
-    if (!/json/i.test(type)) return { ok: false, why: `content-type ${type.split(';')[0]}` };
-    return { ok: true, json: JSON.parse(body), raw: body };
-  } catch (ex) { return { ok: false, why: ex.message }; }
-}
+const LIST = '63fc1321-c383-4bc1-8cda-a7718c8eb28c';
 
 const first = await fetch(`${MPA}/api/items/media_releases_and_circulars?type=${LIST}&year=All&limit=3&page=1`)
   .then((r) => r.json());
 const items = Array.isArray(first) ? first : first?.data || first?.items || [];
-const item = items[0];
-if (!item) { console.log('no items came back'); process.exit(1); }
 
-console.log(`Asking about: ${String(item.title).slice(0, 80)}`);
-console.log(`  id   : ${item.id}`);
-console.log(`  slug : ${item.slug}`);
+for (const item of items.slice(0, 2)) {
+  console.log(`\n${'='.repeat(70)}`);
+  console.log(String(item.title).slice(0, 90));
 
-// 1. A per-item endpoint, the cheapest thing if it exists.
-console.log('\n=== per-item API ===');
-for (const url of [
-  `${MPA}/api/items/media_releases_and_circulars/${item.id}`,
-  `${MPA}/api/items/media_releases_and_circulars?id=${item.id}`,
-  `${MPA}/api/items/media_releases_and_circulars/${item.slug}`,
-  `${MPA}/api/item/media_releases_and_circulars/${item.id}`
-]) {
-  const got = await tryJson(url);
-  if (!got.ok) { console.log(`  ${url.replace(MPA, '')} → ${got.why}`); continue; }
-  const body = Array.isArray(got.json) ? got.json[0] : got.json?.data || got.json;
-  const keys = body && typeof body === 'object' ? Object.keys(body).join(', ') : '(not an object)';
-  console.log(`  ${url.replace(MPA, '')} → OK · fields: ${keys}`);
-  for (const key of ['content', 'body', 'main_content', 'description', 'details']) {
-    const v = body?.[key];
-    if (typeof v === 'string' && v.length > 100) show(`${key} from that endpoint`, textFromHtml(v));
-  }
-}
+  const html = await fetch(`${MPA}/media-centre/details/${item.slug}`).then((r) => r.text());
+  console.log(`  markup ${(html.length / 1024).toFixed(1)} KB · text ${textFromHtml(html).length} characters`);
 
-// 2. The detail page itself. Drawn by script, so the served markup may be a
-//    shell — but the words are often embedded in it for search engines.
-console.log('\n=== the detail page ===');
-const pageUrl = `${MPA}/media-centre/details/${item.slug}`;
-try {
-  const r = await fetch(pageUrl);
-  const html = await r.text();
-  console.log(`  ${pageUrl.replace(MPA, '')} → HTTP ${r.status}, ${(html.length / 1024).toFixed(1)} KB of markup`);
-  show('the page, as text', textFromHtml(html));
-
-  // Script-drawn sites usually ship their state in a script tag.
-  for (const re of [
-    /<script[^>]+application\/json[^>]*>([\s\S]*?)<\/script>/i,
-    /__NEXT_DATA__[^>]*>([\s\S]*?)<\/script>/i,
-    /window\.__NUXT__\s*=\s*([\s\S]*?)<\/script>/i
-  ]) {
+  // Containers a CMS usually puts the body in.
+  const containers = [
+    ['<main', /<main\b[^>]*>([\s\S]*?)<\/main>/i],
+    ['role="main"', /<[^>]+role=["']main["'][^>]*>([\s\S]*?)<\/\w+>/i],
+    ['<article', /<article\b[^>]*>([\s\S]*?)<\/article>/i],
+    ['class~=content', /<div[^>]+class=["'][^"']*(?:content-body|rte|rich-text|article-body|cms-content|detail-content)[^"']*["'][^>]*>([\s\S]*?)<\/div>/i]
+  ];
+  for (const [label, re] of containers) {
     const found = html.match(re);
-    if (!found) continue;
-    console.log(`  embedded state found: ${found[1].length} characters`);
-    const hit = found[1].match(/"(?:content|main_content|body)"\s*:\s*"((?:[^"\\]|\\.){400,})"/);
-    if (hit) show('content inside the embedded state', textFromHtml(JSON.parse(`"${hit[1]}"`)));
-    break;
+    console.log(`  ${label.padEnd(14)} ${found ? `${textFromHtml(found[1]).length} characters of text` : 'not found'}`);
   }
-  const pdfs = [...new Set((html.match(/https?:\/\/[^"']+\.pdf[^"']*/gi) || []))];
-  console.log(`  PDF links on the page: ${pdfs.length}`);
-  pdfs.slice(0, 3).forEach((u) => console.log(`    ${u}`));
-} catch (ex) {
-  console.log(`  failed: ${ex.message}`);
+
+  // The decisive test: does any of the circular's own language appear in the
+  // markup at all, outside the <title>? Take distinctive words from the title.
+  const words = String(item.title)
+    .replace(/[^A-Za-z0-9 ]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length > 5 && !/^(RESOLUTIONS|CIRCULAR|NOTICE|MARINE)$/i.test(w))
+    .slice(0, 4);
+  console.log(`  looking for: ${words.join(', ')}`);
+  const body = html.replace(/<title>[\s\S]*?<\/title>/i, '').replace(/<head>[\s\S]*?<\/head>/i, '');
+  for (const w of words) {
+    const count = (body.match(new RegExp(w, 'gi')) || []).length;
+    console.log(`    "${w}" appears ${count} time(s) in the body markup`);
+  }
+
+  // And the tail of the page text, which is where the body would sit if the
+  // menu comes first.
+  const text = textFromHtml(html);
+  const lines = text.split('\n').filter((l) => l.trim().length > 30);
+  console.log('  --- the 12 longest lines of the page text ---');
+  for (const line of lines.sort((a, b) => b.length - a.length).slice(0, 12)) {
+    console.log(`    | ${line.slice(0, 150)}`);
+  }
 }
