@@ -14,26 +14,28 @@ export const PUBLICATION_CATEGORIES = [
   'Code / Guideline', 'Flag State', 'Company Manual', 'Other'
 ];
 
-export const CIRCULAR_CATEGORIES = [
-  'Fleet', 'Technical', 'Safety', 'Operational', 'Crewing', 'HSEQ',
-  'Security', 'Environmental', 'Commercial', 'Other'
-];
-
 // What the fleet actually issues, replacing the generic list that was here
-// before. More to come. A document already filed under one of the old types
-// keeps it — the editor puts a stored value back as an option rather than
-// changing it — so nothing already entered is disturbed by this.
+// before — this is the dropdown a Synergy circular is filed under, which is
+// where these were asked for and where they were missing. More to come.
 //
-// Called "Category" throughout, on the field and on the filter, because that
-// is what it is called on the ship. It was labelled "Document type", which
-// meant asking for a category and being shown something that did not answer
-// to the name.
-export const SYNERGY_DOC_TYPES = [
+// A circular already filed under one of the old categories keeps it: the
+// editor puts a stored value back as an option rather than changing it, and
+// the filter chips are built from the entries themselves rather than from
+// this list, so nothing already entered is disturbed or becomes unfindable.
+export const CIRCULAR_CATEGORIES = [
   'Manager\u2019s Instructions',
   'QHSE',
   'Fleet Alert',
   'Safety Alert',
   'Other'
+];
+
+// This section holds the manuals and the procedures, so it is typed by what
+// the document is. The four kinds of circular were briefly put here by
+// mistake and have gone where they belong, on the circular's Category.
+export const SYNERGY_DOC_TYPES = [
+  'SMS Manual', 'Procedure', 'Circular', 'Form', 'Checklist', 'Policy',
+  'Bulletin', 'Training', 'Fleet Instruction', 'Other'
 ];
 
 export const FLAG_STATES = ['MCA', 'Panama', 'Singapore', 'Other'];
@@ -168,7 +170,7 @@ export const TYPES = {
     titleKey: 'title',
     fields: [
       { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Shipboard Safety Management Manual' },
-      { key: 'docType', label: 'Category', type: 'select', options: SYNERGY_DOC_TYPES },
+      { key: 'docType', label: 'Document type', type: 'select', options: SYNERGY_DOC_TYPES },
       { keepCase: true, key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. SMS-04', group: 'ident' },
       { keepCase: true, key: 'revision', label: 'Revision', type: 'text', placeholder: 'e.g. Rev 7', group: 'ident' },
       { key: 'date', label: 'Date', type: 'date' },
@@ -184,7 +186,7 @@ export const TYPES = {
     ],
     listFields: ['refNo', 'revision'],
     tracksRevision: true,
-    filterBy: { key: 'docType', label: 'Category' },
+    filterBy: { key: 'docType', label: 'Type' },
     sort: (a, b) => (a.docType || '').localeCompare(b.docType || '')
                  || (a.title || '').localeCompare(b.title || '')
   },
@@ -217,7 +219,7 @@ export const TYPES = {
     // Filed by flag, since an officer serves under one at a time.
     groupBy: { key: 'flagState', label: 'Flag / Administration', blank: 'No flag set' },
     sources: FLAG_SOURCES,
-    filterBy: { key: 'docType', label: 'Category' },
+    filterBy: { key: 'docType', label: 'Type' },
     sort: (a, b) => (b.date || '').localeCompare(a.date || '')
   },
 

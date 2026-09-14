@@ -1122,10 +1122,14 @@ try {
   restoreMirror();
   blockingOnPurpose = false;
 
+  // Filed where a Synergy circular is actually filed: under Circulars. The
+  // four kinds were put on the Synergy section by mistake, so on the dropdown
+  // in front of the user nothing had changed and nothing was ever detected —
+  // a circular has no docType for the detection to fill.
   console.log('\nA fleet alert filling itself in');
   await page.click('#backBtn');
   await page.waitForTimeout(200);
-  await page.locator('.section-card', { hasText: 'Synergy' }).click();
+  await page.locator('.section-card:has(.section-name:text-is("Circulars"))').click();
   await page.click('#fab');
   await page.waitForSelector('#editor:not([hidden])');
   await page.setInputFiles('#filePicker', ALERT_PATH);
@@ -1133,10 +1137,10 @@ try {
 
   const alert = await page.evaluate(() => {
     const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
-    return { title: read('title'), refNo: read('refNo'), date: read('date'), docType: read('docType') };
+    return { title: read('title'), refNo: read('refNo'), date: read('date'), category: read('category') };
   });
   // The heading that is useless as a title is exactly what names the type.
-  check('the kind of document fills in the type', alert.docType === 'Fleet Alert', JSON.stringify(alert));
+  check('the kind of document fills in the type', alert.category === 'Fleet Alert', JSON.stringify(alert));
   check('the subject is taken as the title, not the kind of document',
     /emergency fire pump/i.test(alert.title), JSON.stringify(alert));
   check('and the kind of document is not offered as the title',
@@ -1146,12 +1150,12 @@ try {
   check('the reference comes off its labelled line',
     /FA\s*05\/2026/i.test(alert.refNo), JSON.stringify(alert));
   check('the date is read too', alert.date === '2026-08-14', JSON.stringify(alert));
-  const offered = await page.locator('#editorBody [data-field="docType"] option').allInnerTexts();
-  check('the Synergy types are the ones the fleet issues',
+  const offered = await page.locator('#editorBody [data-field="category"] option').allInnerTexts();
+  check('the circular categories are the ones the fleet issues',
     ['Manager\u2019s Instructions', 'QHSE', 'Fleet Alert', 'Safety Alert']
       .every((t) => offered.includes(t)), offered.join(' | '));
   check('and the generic list it replaced is gone',
-    !offered.some((t) => /SMS Manual|Procedure|Checklist|Bulletin|Fleet Instruction/.test(t)),
+    !offered.some((t) => /Technical|Crewing|HSEQ|Security|Environmental|Commercial/.test(t)),
     offered.join(' | '));
   await page.click('#editorCancel');
   await page.waitForTimeout(200);
@@ -1163,12 +1167,12 @@ try {
   await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
   const bare = await page.evaluate(() => {
     const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
-    return { title: read('title'), refNo: read('refNo'), docType: read('docType') };
+    return { title: read('title'), refNo: read('refNo'), category: read('category') };
   });
   check('an unlabelled 045 / 2026 is read as the number',
     bare.refNo === '045/2026', JSON.stringify(bare));
   check('and it is still typed as a fleet alert',
-    bare.docType === 'Fleet Alert', JSON.stringify(bare));
+    bare.category === 'Fleet Alert', JSON.stringify(bare));
   check('with the subject as the title',
     /enclosed space entry/i.test(bare.title), JSON.stringify(bare));
   await page.click('#editorCancel');
@@ -1181,7 +1185,7 @@ try {
   await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
   const inSubject = await page.evaluate(() => {
     const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
-    return { title: read('title'), refNo: read('refNo'), docType: read('docType') };
+    return { title: read('title'), refNo: read('refNo'), category: read('category') };
   });
   check('a number written into the subject is found',
     inSubject.refNo === '112/2026', JSON.stringify(inSubject));
@@ -1190,7 +1194,7 @@ try {
   check('the subject keeps what it is actually about',
     /mooring winch brake/i.test(inSubject.title), JSON.stringify(inSubject));
   check('the type still follows the heading',
-    inSubject.docType === 'Safety Alert', JSON.stringify(inSubject));
+    inSubject.category === 'Safety Alert', JSON.stringify(inSubject));
   await page.click('#editorCancel');
   await page.waitForTimeout(200);
 
@@ -1201,7 +1205,7 @@ try {
   await page.waitForSelector('#editorBody .panel:has-text("Filled in from the PDF")', { timeout: 25000 });
   const fromName = await page.evaluate(() => {
     const read = (k) => document.querySelector(`#editorBody [data-field="${k}"]`)?.value || '';
-    return { title: read('title'), refNo: read('refNo'), docType: read('docType') };
+    return { title: read('title'), refNo: read('refNo'), category: read('category') };
   });
   check('the filename stands in when there is no subject line',
     /gangway net/i.test(fromName.title), JSON.stringify(fromName));
@@ -1220,16 +1224,47 @@ try {
   await set('refNo', 'FC-2026-014');
   await set('date', '2026-05-12');
   await set('issuer', 'Fleet Technical');
-  await pick('category', 'Technical');
+  await pick('category', 'QHSE');
   await save();
   check('saves a circular', (await page.locator('.card').count()) === 1);
+
+  // Circulars filed before the list changed are the ones already on the
+  // phone, so replacing the list must not strand them. The stored value is
+  // put back as an option and stays selected, and the filter chips are built
+  // from the entries rather than from the list, so it is still findable.
+  await page.evaluate(async () => {
+    // The module is already loaded, so this is the same live store the app is
+    // using — not a second copy with its own state.
+    const store = await import('./js/store.js');
+    await store.saveItem({
+      type: 'circular',
+      data: { title: 'Discontinuation of Shipconrep', issuer: 'ICS',
+              category: 'Commercial', date: '2026-08-21' }
+    });
+  });
+  await page.waitForTimeout(400);
+  await page.locator('.card', { hasText: 'Discontinuation of Shipconrep' }).click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailEdit');
+  await page.waitForSelector('#editor:not([hidden])');
+  const keptCategory = await page.evaluate(() =>
+    document.querySelector('#editorBody [data-field="category"]').value);
+  check('a circular filed under an old category keeps it',
+    keptCategory === 'Commercial', keptCategory);
+  await page.click('#editorCancel');
+  await page.waitForTimeout(200);
+  await closeDetail();
+  await page.waitForTimeout(200);
+  const keptChips = await page.locator('#scope .scope-btn').allInnerTexts();
+  check('and is still one of the filters',
+    keptChips.includes('Commercial'), keptChips.join(' | '));
 
   await page.click('#backBtn');
   await page.locator('.section-card', { hasText: 'Synergy' }).click();
   await page.click('#fab');
   await page.waitForSelector('#editor:not([hidden])');
   await set('title', 'Shipboard Safety Management Manual');
-  await pick('docType', 'Manager\u2019s Instructions');
+  await pick('docType', 'SMS Manual');
   await set('refNo', 'SMS-04');
   await set('revision', 'Rev 7');
   await save();

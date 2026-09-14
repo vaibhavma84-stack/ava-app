@@ -365,7 +365,14 @@ export function suggestFields(type, described, filename, fieldKeys) {
     const subject = pickSubject(described)
       || (named.split(/\s+/).filter((w) => /[a-z]/i.test(w)).length >= 2 ? named : '');
     if (has('title')) out.title = withoutNumber(subject) || out.title;
-    if (has('docType')) out.docType = pickSynergyDocType(described, filename);
+    // The same detection, under whichever name the section gives the field:
+    // the Synergy section calls it a document type, a circular calls it a
+    // Category. It only ever filled docType, and a circular has no docType —
+    // so on a circular nothing was detected at all, and the reference below
+    // silently lost its bare-number path with it.
+    const kind = pickSynergyDocType(described, filename);
+    if (has('docType')) out.docType = kind;
+    if (has('category')) out.category = kind;
     if (has('refNo')) {
       // The number alone, because the kind of document is already its own
       // field: a fleet alert numbered 045 / 2026 wants "045/2026", not "Fleet
@@ -374,7 +381,7 @@ export function suggestFields(type, described, filename, fieldKeys) {
       // the document has said what kind it is, since "045 / 2026" is a
       // reference on an alert and a date almost anywhere else.
       out.refNo = pickLabelledRef(described)
-        || (out.docType ? pickBareNumber(described, filename) : '')
+        || (kind ? pickBareNumber(described, filename) : '')
         || pickNoticeReference(described, filename)
         || pickReference(described, filename);
     }
