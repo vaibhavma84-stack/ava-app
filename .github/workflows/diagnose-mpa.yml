@@ -1,0 +1,29 @@
+name: Ask MPA what it sends with each circular
+
+# 565 Singapore notices are listed and none is held. MPA publishes a circular
+# as a page, and its list endpoint already returns a main_content field that
+# the reader throws away after hunting it for a PDF link. This asks whether
+# that field is the circular or only a summary of it.
+#
+# Reads only. Downloads nothing, commits nothing.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  BRANCH: claude/iphone-offline-storage-app-c14vtc
+
+jobs:
+  ask:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node tools/diagnose-mpa.mjs
