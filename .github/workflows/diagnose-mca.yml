@@ -1,0 +1,34 @@
+name: Ask GOV.UK about the notices with no document
+
+# 180 of the 497 MCA notices resolve to no file. The mirror counts them; this
+# asks each one what it carries instead, so the fix is chosen from what GOV.UK
+# actually publishes rather than from a guess.
+#
+# Reads only. Downloads nothing, commits nothing.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'How many to ask about (blank for all)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+env:
+  BRANCH: claude/iphone-offline-storage-app-c14vtc
+
+jobs:
+  ask:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Ask
+        run: node tools/diagnose-mca.mjs ${{ inputs.limit && format('--limit={0}', inputs.limit) || '' }}
