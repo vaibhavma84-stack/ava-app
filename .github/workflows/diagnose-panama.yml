@@ -1,0 +1,26 @@
+name: Ask Panama how many circulars there are
+
+# The catalogue holds 64 and the registry has been issuing them for decades.
+# This counts what the media library and the circulars page actually carry,
+# comparing several search terms. Reads only, commits nothing.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  BRANCH: claude/iphone-offline-storage-app-c14vtc
+
+jobs:
+  ask:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node tools/diagnose-panama.mjs
