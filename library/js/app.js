@@ -11,7 +11,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.11';
+const APP_VERSION = '2026.10.12';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -776,6 +776,10 @@ async function mergeNotices(notices, admin) {
           fileLink: notice.sourceUrl,
           sourceUrl: notice.sourceUrl,
           ...(notice.file ? { mirrorFile: notice.file } : {}),
+          // Panama publishes a list of the circulars it has cancelled, so for
+          // those the flag says so itself rather than it being inferred from a
+          // notice falling off a list.
+          ...(notice.cancelled ? { cancelled: true } : {}),
           attachments: []
         }
       });
@@ -803,6 +807,7 @@ async function mergeNotices(notices, admin) {
     if (!next.sourceUrl) next.sourceUrl = notice.sourceUrl;
     if (!next.fileLink) next.fileLink = notice.sourceUrl;
     if (notice.file && next.mirrorFile !== notice.file) next.mirrorFile = notice.file;
+    if (notice.cancelled && !next.cancelled) next.cancelled = true;
 
     const changed = Object.keys(next).some((k) => next[k] !== existing.data[k]);
     if (!changed) { unchanged++; continue; }
@@ -866,7 +871,9 @@ function cardFor(item, snippets, matchInfo) {
     kind ? el('p', { class: 'card-kind', text: kind }) : null,
     el('div', { class: 'card-head' }, [
       el('h2', { class: 'card-title', text: title }),
-      item.data.notInList ? el('span', { class: 'pill pill-warn', text: 'Withdrawn' }) : null,
+      item.data.cancelled ? el('span', { class: 'pill pill-warn', text: 'Cancelled' }) : null,
+      item.data.notInList && !item.data.cancelled
+        ? el('span', { class: 'pill pill-warn', text: 'Withdrawn' }) : null,
       rev ? el('span', {
         class: 'pill ' + (rev.state === 'ok' ? 'pill-sage' : 'pill-warn'),
         text: rev.state === 'ok' ? 'Current' : rev.state === 'never' ? 'Unverified' : 'Check'
@@ -1048,7 +1055,15 @@ function openDetail(id) {
   }
   if (shown) body.append(section);
 
-  if (item.data.notInList) {
+  if (item.data.cancelled) {
+    body.append(el('div', { class: 'detail-sec' }, [
+      el('h4', { text: 'Cancelled by the administration' }),
+      el('p', { class: 'hint', text:
+        `${item.data.flagState || 'The administration'} lists this one as cancelled. It is kept here so it can be read and searched, but it is not in force — check the current circular before relying on it.` })
+    ]));
+  }
+
+  if (item.data.notInList && !item.data.cancelled) {
     body.append(el('div', { class: 'detail-sec' }, [
       el('h4', { text: 'No longer on the administration\u2019s list' }),
       el('p', { class: 'hint', text:

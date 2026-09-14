@@ -1,0 +1,61 @@
+name: Read Panama's own pages and weigh the back catalogue
+
+# The media library reaches back only to August 2025. The back catalogue is on
+# Panama's own pages, and this reads them and measures what holding the
+# documents would cost — without fetching any of them.
+#
+# Measure first: the Singapore estimate was taken from a sample of the newest
+# circulars and came out at half the real average, which turned a budget into
+# a limit nobody chose.
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Commit the catalogue it reads (yes/no)'
+        required: false
+        default: 'no'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror-notices
+  cancel-in-progress: false
+
+env:
+  BRANCH: claude/iphone-offline-storage-app-c14vtc
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Read the catalogues
+        run: node tools/mirror-notices.mjs
+
+      - name: Weigh what holding Panama's documents would cost
+        run: node tools/mirror-docs.mjs --measure --only=Panama
+
+      - name: Commit the catalogue
+        if: ${{ inputs.commit == 'yes' }}
+        run: |
+          if [ -z "$(git status --porcelain library/data)" ]; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add library/data
+          git commit -m "Read Panama's back catalogue from its own pages"
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase origin "$BRANCH" || exit 1
+          done
+          exit 1

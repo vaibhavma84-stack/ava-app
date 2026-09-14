@@ -5,7 +5,7 @@
 // dependencies. They are blunt on purpose, which is exactly why they need
 // pinning down: a regex over markup is easy to get subtly wrong.
 
-import { readFeed, readLinks } from '../tools/mirror-notices.mjs';
+import { readFeed, readLinks, readPanamaPage } from '../tools/mirror-notices.mjs';
 import { textFromHtml, listOnly } from '../tools/mirror-docs.mjs';
 import { singaporeRef, singaporeLooseRef, SG_TYPES, MPA } from '../library/js/updates.js';
 
@@ -205,6 +205,62 @@ check('a notice merely mentioning MIN is still fetched',
   !mca('MGN (Marine Guidance Note)', 'MGN 400'));
 check('and another administration is untouched',
   !listOnly('Panama', { docType: 'MIN (Marine Information Note)', refNo: 'MIN 738' }));
+
+// ── Panama's own pages ──────────────────────────────────────────────────────
+//
+// The media library reaches back only to August 2025; the back catalogue is on
+// these pages, linked as ordinary uploads. Another regex over markup, and the
+// one carrying MMC 1 to 405, so it is worth pinning properly.
+console.log('\nReading a Panama circulars page');
+
+const PANAMA_PAGE = `
+<div class="entry">
+  <ul>
+    <li><a href="/wp-content/uploads/2020/12/MMC-331SeafarersDocumentationDec16-2020.pdf">
+      MMC-331 Seafarers Documentation</a></li>
+    <li><a href="https://www.panamashipregistry.com/wp-content/uploads/2026/04/MMC-230-8-09-2026.pdf">
+      <strong>MMC-230</strong> Safe Manning</a></li>
+    <li><a href="/wp-content/uploads/2019/06/MMN-07-070-rev.pdf">Download</a></li>
+    <li><a href="/wp-content/uploads/2026/01/brochure.pdf">Our brochure</a></li>
+    <li><a href="/segumar/something/">Not a document at all</a></li>
+  </ul>
+</div>`;
+
+const panamaPage = readPanamaPage(PANAMA_PAGE, '/segumar/merchant-marine-circulars/');
+const byRef = Object.fromEntries(panamaPage.map((n) => [n.refNo, n]));
+
+check('every circular on the page is read', panamaPage.length === 3,
+  panamaPage.map((n) => n.refNo).join(' | '));
+check('and nothing that is not one',
+  !panamaPage.some((n) => /brochure/i.test(n.title)), JSON.stringify(panamaPage.map((n) => n.title)));
+check('a relative upload is made absolute',
+  byRef['MMC 331'].sourceUrl.startsWith('https://www.panamashipregistry.com/wp-content/'),
+  byRef['MMC 331'].sourceUrl);
+check('an absolute one is left alone',
+  byRef['MMC 230'].sourceUrl === 'https://www.panamashipregistry.com/wp-content/uploads/2026/04/MMC-230-8-09-2026.pdf',
+  byRef['MMC 230'].sourceUrl);
+check('markup inside the link text is stripped',
+  byRef['MMC 230'].title === 'MMC-230 Safe Manning', JSON.stringify(byRef['MMC 230'].title));
+// A link that says only "Download" is why the file name is a fallback.
+check('a link with no title falls back to the file name',
+  byRef['MMN 07-070'] && /MMN/.test(byRef['MMN 07-070'].title),
+  JSON.stringify(byRef['MMN 07-070'] || null));
+check('the type follows the prefix',
+  byRef['MMC 331'].docType === 'Merchant Marine Circular'
+  && byRef['MMN 07-070'].docType === 'MMN (Merchant Marine Notice)',
+  `${byRef['MMC 331'].docType} · ${byRef['MMN 07-070'].docType}`);
+check('the date comes from the upload path',
+  byRef['MMC 331'].date === '2020-12-01', byRef['MMC 331'].date);
+check('and the document is the link itself',
+  byRef['MMC 331'].docUrl === byRef['MMC 331'].sourceUrl, byRef['MMC 331'].docUrl);
+
+// The same circular appears more than once on some of these pages.
+const twice = readPanamaPage(`
+  <a href="/wp-content/uploads/2021/03/MMC-100.pdf">Download</a>
+  <a href="/wp-content/uploads/2021/03/MMC-100.pdf">MMC-100 Tonnage Measurement</a>`);
+check('a circular linked twice is filed once', twice.length === 1, JSON.stringify(twice));
+check('and keeps the better of the two titles',
+  twice[0].title === 'MMC-100 Tonnage Measurement', twice[0].title);
 
 // ── the links the app sends you to check against ────────────────────────────
 //

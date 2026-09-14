@@ -119,6 +119,65 @@ async function wpAll(host, search) {
   return found;
 }
 
+// Panama's circulars, as Panama lists them. /circulars/ is a 404 and has been
+// for some time; the section lives under /segumar/ and each of these was
+// opened and counted before it was written down here.
+const PANAMA_PAGES = [
+  { path: '/segumar/merchant-marine-circulars/' },
+  { path: '/segumar/merchant-marine-circulars/marine-notices/' },
+  { path: '/segumar/offshore-mmcs/' },
+  { path: '/segumar/merchant-marine-circulars/psc-current/' },
+  { path: '/segumar/merchant-marine-circulars/cancelled-2/', cancelled: true }
+];
+
+/**
+ * Read one of Panama's circular pages.
+ *
+ * Every circular on it is a link to an upload, so the links are the catalogue.
+ * The text of the link is the title where there is one; where there is not,
+ * the file name carries the reference and that is enough to file it by.
+ *
+ * No DOMParser in Node and no dependencies in this project, so this is a regex
+ * over markup like the others here — blunt on purpose, and pinned by tests.
+ */
+export function readPanamaPage(html, from = '') {
+  const seen = new Map();
+  const anchor = /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = anchor.exec(html))) {
+    const href = m[1];
+    if (!/\/wp-content\/uploads\/.+\.pdf(\?|$)/i.test(href)) continue;
+
+    const url = href.startsWith('http') ? href : `${PANAMA}${href.startsWith('/') ? '' : '/'}${href}`;
+    const name = decodeURIComponent(url.split('/').pop() || '');
+    const text = m[2].replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+
+    // The link text first: it is what a person reading the page sees. The
+    // file name stands in when the link is an icon or says only "download".
+    const ref = panamaRef(text) || panamaRef(name);
+    if (!ref) continue;
+
+    // The same circular is linked more than once on some pages. First wins,
+    // and a later one only replaces it if it carries a better title.
+    const had = seen.get(ref.refNo);
+    const title = text.length > 8 ? text : name.replace(/\.pdf$/i, '').replace(/[-_]+/g, ' ').trim();
+    if (had && had.title.length >= title.length) continue;
+
+    seen.set(ref.refNo, {
+      title: title || ref.refNo,
+      refNo: ref.refNo,
+      docType: PANAMA_TYPES[ref.prefix] || '',
+      // The upload path carries the year and month it was published, which is
+      // the only date these pages give.
+      date: (url.match(/\/uploads\/(\d{4})\/(\d{2})\//) || []).slice(1, 3).join('-') + '-01',
+      sourceUrl: url,
+      docUrl: url,
+      listedOn: from
+    });
+  }
+  return [...seen.values()].map((n) => (/^\d{4}-\d{2}-01$/.test(n.date) ? n : { ...n, date: '' }));
+}
+
 /** Each source reports what it managed, so a bad day is visible in the log. */
 const SOURCES = {
   MCA: async () => {
@@ -144,6 +203,22 @@ const SOURCES = {
         try { found.push(...await wpAll(host, search)); }
         catch (ex) { console.warn(`  Panama ${host} ${search}: ${ex.message}`); }
       }
+    }
+
+    // The media library reaches back only to August 2025 for MMCs — the whole
+    // back catalogue is on the pages instead, and those are plain HTML with
+    // the PDFs linked directly. Panama's own site throughout; no rendering and
+    // nobody else's copies.
+    for (const { path, cancelled } of PANAMA_PAGES) {
+      try {
+        const items = readPanamaPage(await get(`${PANAMA}${path}`, 'text'), path);
+        // Panama publishes which circulars it has cancelled. That is worth
+        // holding and worth marking: a cancelled circular read as current is
+        // the thing this app exists to prevent.
+        for (const item of items) if (cancelled) item.cancelled = true;
+        found.push(...items);
+        console.log(`  Panama ${path}: ${items.length}`);
+      } catch (ex) { console.warn(`  Panama ${path}: ${ex.message}`); }
     }
     return found;
   },
