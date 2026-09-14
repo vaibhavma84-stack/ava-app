@@ -26,8 +26,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install a browser
-        run: |
-          npm install --no-save playwright@1.49.1
-          npx playwright install --with-deps chromium
       - run: node tools/diagnose-mpa.mjs

@@ -1,74 +1,64 @@
-// What does a detail page ask for, to draw the circular?
+// The circular is in the page after all — just not where markup usually keeps it.
 //
-// Settled so far: main_content is a fifty-character header, there is no
-// per-item API at any of the obvious shapes, and the served markup holds the
-// menu and not the notice — <main> has 384 characters in it. The page is drawn
-// by script.
+// Rendering one detail page and logging every request showed no content
+// endpoint at all: the only response carrying the notice was the page itself.
+// The _next/ chunks and ?_rsc= requests say what kind of page it is — Next.js,
+// App Router — and that kind ships its content inside the React payload,
+// in self.__next_f.push([1,"…"]) chunks, rather than in <main>. Which is why
+// <main> measured 384 characters while the notice's own words appeared
+// fourteen times in the same markup.
 //
-// Which is how the listing endpoint was found in the first place: render one
-// page and log everything it asks for. A page drawing a circular is fetching
-// that circular from somewhere. If that somewhere can be read directly, 565
-// notices cost 565 plain fetches instead of 565 browser loads.
+// If that payload can be unpacked from a plain fetch, Singapore costs 565
+// ordinary requests and no browser at all. This is that test.
 //
-// One page. Reads only, downloads nothing, commits nothing.
+// Reads only.
 
 import { textFromHtml } from './mirror-docs.mjs';
 
 const MPA = 'https://www.mpa.gov.sg';
-const LIST = '63fc1321-c383-4bc1-8cda-a7718c8eb28c';
+const LISTS = [
+  ['Shipping Circulars', '63fc1321-c383-4bc1-8cda-a7718c8eb28c'],
+  ['Port Marine Circulars', '0b4c161c-92d5-475e-8a41-51e096406f74'],
+  ['Port Marine Notices', '2b89298e-3d17-4bf2-8275-9079e84f63d0']
+];
 
-let chromium;
-try { ({ chromium } = await import('playwright')); }
-catch { console.log('no browser available'); process.exit(1); }
-
-const first = await fetch(`${MPA}/api/items/media_releases_and_circulars?type=${LIST}&year=All&limit=1&page=1`)
-  .then((r) => r.json());
-const items = Array.isArray(first) ? first : first?.data || first?.items || [];
-const item = items[0];
-console.log(`Rendering: ${String(item.title).slice(0, 80)}`);
-console.log(`  ${MPA}/media-centre/details/${item.slug}\n`);
-
-const browser = await chromium.launch();
-const page = await browser.newPage();
-
-const seen = [];
-page.on('response', async (res) => {
-  const url = res.url();
-  if (!/mpa\.gov\.sg|cms\./i.test(url)) return;
-  if (/\.(png|jpe?g|gif|svg|woff2?|ttf|css|ico|webp)(\?|$)/i.test(url)) return;
-  let body = '';
-  try { body = await res.text(); } catch { return; }
-  if (body.length < 200) return;
-  seen.push({ url, status: res.status(), body });
-});
-
-await page.goto(`${MPA}/media-centre/details/${item.slug}`, { waitUntil: 'networkidle', timeout: 60000 });
-await page.waitForTimeout(2500);
-
-// What the page ended up showing, so there is something to compare against.
-const shown = await page.evaluate(() => {
-  const main = document.querySelector('main') || document.body;
-  return (main.innerText || '').replace(/\n{3,}/g, '\n\n').trim();
-});
-console.log(`=== what the rendered page shows: ${shown.length} characters ===`);
-console.log(shown.slice(0, 900).split('\n').filter(Boolean).slice(0, 20).map((l) => '  | ' + l).join('\n'));
-
-console.log(`\n=== ${seen.length} responses worth looking at ===`);
-// A response that carries the circular will carry its distinctive words.
-const words = String(item.title).replace(/[^A-Za-z0-9 ]/g, ' ').split(/\s+/)
-  .filter((w) => w.length > 6).slice(0, 3);
-console.log(`  (looking for: ${words.join(', ')})\n`);
-
-for (const res of seen) {
-  const text = /json/i.test(res.body.slice(0, 200)) || res.body.trim().startsWith('{') || res.body.trim().startsWith('[')
-    ? res.body : textFromHtml(res.body);
-  const hits = words.filter((w) => new RegExp(w, 'i').test(res.body)).length;
-  const flag = hits === words.length ? '  <<< carries the circular' : '';
-  console.log(`  [${res.status}] ${(res.body.length / 1024).toFixed(0)} KB  ${res.url.replace(MPA, '').slice(0, 110)}${flag}`);
-  if (hits === words.length && res.url.includes('/api/')) {
-    console.log('      --- what it holds ---');
-    console.log(textFromHtml(text).slice(0, 500).split('\n').filter(Boolean).slice(0, 10).map((l) => '      | ' + l).join('\n'));
+/** Put the React payload back together and take the words out of it. */
+export function textFromNextPage(html) {
+  // Each chunk is a JSON string literal in a push() call. Parsing them as JSON
+  // is what turns \\n and \\" back into the characters they stand for.
+  const chunks = [];
+  const re = /self\.__next_f\.push\(\[1,\s*("(?:[^"\\]|\\.)*")\s*\]\)/g;
+  let m;
+  while ((m = re.exec(html))) {
+    try { chunks.push(JSON.parse(m[1])); } catch { /* a chunk that will not parse is not the body */ }
   }
+  const flight = chunks.join('');
+  if (!flight) return '';
+
+  // Inside the payload the body is HTML in string fields. Take every run of
+  // markup long enough to be prose rather than a class name.
+  const html_bits = flight.match(/<(?:p|div|table|ul|ol|h[1-6])\b[\s\S]{80,}?<\/(?:p|div|table|ul|ol|h[1-6])>/g) || [];
+  const text = textFromHtml(html_bits.join('\n'));
+  return text;
 }
 
-await browser.close();
+for (const [name, id] of LISTS) {
+  const list = await fetch(`${MPA}/api/items/media_releases_and_circulars?type=${id}&year=All&limit=2&page=1`)
+    .then((r) => r.json());
+  const items = Array.isArray(list) ? list : list?.data || list?.items || [];
+
+  for (const item of items.slice(0, 1)) {
+    console.log(`\n${'='.repeat(70)}`);
+    console.log(`${name}: ${String(item.title).slice(0, 80)}`);
+    const html = await fetch(`${MPA}/media-centre/details/${item.slug}`).then((r) => r.text());
+    const text = textFromNextPage(html);
+    console.log(`  plain fetch: ${(html.length / 1024).toFixed(0)} KB of markup → ${text.length} characters of notice`);
+    console.log('  ---8<---');
+    console.log(text.slice(0, 1100).split('\n').filter((l) => l.trim()).slice(0, 22).map((l) => '  | ' + l).join('\n'));
+    console.log('  ---8<---');
+
+    const pdfs = [...new Set((html.match(/https?:\/\/[^"'\\\s]+\.pdf/gi) || []))];
+    console.log(`  PDFs linked from it: ${pdfs.length}`);
+    pdfs.slice(0, 3).forEach((u) => console.log(`    ${u}`));
+  }
+}
