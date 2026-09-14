@@ -301,7 +301,11 @@ page.on('pageerror', (e) => errors.push(String(e)));
 page.on('console', (m) => {
   if (m.type() !== 'error') return;
   const text = m.text();
-  if (blockingOnPurpose && /net::ERR_FAILED|status of (400|404)/.test(text)) return;
+  // Any network error, not one spelling of it. A sandbox refuses a blocked
+  // host with ERR_TUNNEL_CONNECTION_FAILED rather than ERR_FAILED, so adding a
+  // source to a flag turned "the host is cut off on purpose" into four test
+  // failures that were nothing of the sort.
+  if (blockingOnPurpose && /net::ERR_|status of (400|404)/.test(text)) return;
   errors.push(text);
 });
 page.on('dialog', async (d) => { await d.accept(''); });
@@ -705,8 +709,14 @@ try {
 
   const sourceHrefs = await page.locator('.body a.link-btn').evaluateAll((as) =>
     as.map((a) => ({ text: a.textContent.trim(), href: a.getAttribute('href') })));
+  // Counted from the schema rather than written down here: the number changed
+  // the moment Panama went from one source to five, and a magic number in a
+  // test only ever records what was true the day it was written.
+  const { FLAG_SOURCES: SOURCES } = await import('../library/js/schema.js');
+  const expected = Object.values(SOURCES).reduce((n, links) => n + links.length, 0);
   check('the section links to where the notices are published',
-    sourceHrefs.length === 7, JSON.stringify(sourceHrefs));
+    sourceHrefs.length === expected,
+    `${sourceHrefs.length} shown, ${expected} in the schema`);
   check('the MSN collection is the one supplied',
     sourceHrefs.some((l) => l.href === 'https://www.gov.uk/government/collections/merchant-shipping-notices-msns'),
     JSON.stringify(sourceHrefs));

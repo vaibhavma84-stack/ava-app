@@ -206,5 +206,35 @@ check('a notice merely mentioning MIN is still fetched',
 check('and another administration is untouched',
   !listOnly('Panama', { docType: 'MIN (Marine Information Note)', refNo: 'MIN 738' }));
 
+// ── the links the app sends you to check against ────────────────────────────
+//
+// Panama's /circulars/ was a 404 for some time and nothing noticed: not the
+// reader, which fell through to its next alternative, and not the button,
+// which just opened a missing page. Nothing here can tell whether a URL is
+// alive — that needs the network — but it can hold the shape, so that a path
+// nobody has opened in months is at least a path someone wrote on purpose.
+console.log('\nWhere the app sends you to check');
+
+const { FLAG_SOURCES } = await import('../library/js/schema.js');
+
+for (const [admin, links] of Object.entries(FLAG_SOURCES)) {
+  check(`${admin} offers somewhere to check`, links.length > 0, String(links.length));
+  for (const { label, url } of links) {
+    check(`${admin} · ${label} is a full https address`,
+      /^https:\/\/[a-z0-9.-]+\.[a-z]{2,}\//i.test(url), url);
+    check(`${admin} · ${label} names a page, not just a host`,
+      new URL(url).pathname.replace(/\/+$/, '').length > 1, url);
+  }
+}
+
+// The one that was wrong, named so a revert cannot pass quietly.
+const panama = FLAG_SOURCES.Panama.map((l) => l.url).join(' ');
+check('Panama no longer points at the page that 404s',
+  !/panamashipregistry\.com\/circulars\/?$/m.test(panama)
+  && !FLAG_SOURCES.Panama.some((l) => l.url.endsWith('.com/circulars/')),
+  panama);
+check('and points into the section Panama actually uses',
+  FLAG_SOURCES.Panama.every((l) => /\/segumar\//.test(l.url)), panama);
+
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);

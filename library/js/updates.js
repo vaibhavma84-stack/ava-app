@@ -397,7 +397,17 @@ export const FEEDS = {
           { label: 'Registry API', kind: 'json', paged: wpMedia(PANAMA, 'MMC-'), parse: parseWpMedia },
           { label: 'Authority API', kind: 'json', paged: wpMedia(PANAMA_AMP, 'MMC-'), parse: parseWpMedia },
           {
-            label: 'Circulars page', kind: 'html', url: `${PANAMA}/circulars/`,
+            // The pages themselves, which is where Panama's older circulars
+            // actually are — the media library behind the API above reaches
+            // back only to August 2025. /circulars/ used to be here and has
+            // been a 404 for some time, so this fallback was failing on every
+            // run without ever saying so.
+            label: 'Circulars pages', kind: 'html',
+            urls: [
+              `${PANAMA}/segumar/merchant-marine-circulars/`,
+              `${PANAMA}/segumar/offshore-mmcs/`,
+              `${PANAMA}/segumar/merchant-marine-circulars/cancelled-2/`
+            ],
             parse: parseLinkIndex({
               base: PANAMA, match: /\/wp-content\/uploads\/.+\.pdf(\?|$)/i,
               refOf: panamaRef, types: PANAMA_TYPES

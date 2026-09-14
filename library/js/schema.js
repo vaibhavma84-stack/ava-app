@@ -83,8 +83,17 @@ export const FLAG_SOURCES = {
     { label: 'MGNs', url: 'https://www.gov.uk/government/collections/active-marine-guidance-notes-mgns' },
     { label: 'MINs', url: 'https://www.gov.uk/government/collections/marine-information-notes-mins' }
   ],
+  // /circulars/ is a 404 and had been for some time: Panama moved the whole
+  // section under /segumar/. A button that sends you to a missing page to
+  // check whether a notice is still current is worse than no button, and this
+  // one was doing it silently. Each of these was opened and counted before it
+  // was put here.
   Panama: [
-    { label: 'Circulars', url: 'https://www.panamashipregistry.com/circulars/' }
+    { label: 'Circulars', url: 'https://www.panamashipregistry.com/segumar/merchant-marine-circulars/' },
+    { label: 'Notices', url: 'https://www.panamashipregistry.com/segumar/merchant-marine-circulars/marine-notices/' },
+    { label: 'Cancelled', url: 'https://www.panamashipregistry.com/segumar/merchant-marine-circulars/cancelled-2/' },
+    { label: 'Offshore', url: 'https://www.panamashipregistry.com/segumar/offshore-mmcs/' },
+    { label: 'PSC', url: 'https://www.panamashipregistry.com/segumar/merchant-marine-circulars/psc-current/' }
   ],
   Singapore: [
     { label: 'Shipping', url: 'https://www.mpa.gov.sg/media-centre?type=Shipping+Circulars' },
