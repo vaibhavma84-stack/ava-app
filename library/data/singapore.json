@@ -567,7 +567,8 @@
    "date": "2025-12-31",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-01-of-2026---list-of-active-port-marine-circulars",
    "docUrl": "https://www.mpa.gov.sg/api/media/ba7dd201-3ddc-418e-97af-bddef808d43e/pc26-01.pdf",
-   "file": "docs/singapore/PC-01-2026.pdf"
+   "file": "docs/singapore/PC-01-2026.pdf",
+   "bytes": 411831
   },
   {
    "title": "PORT MARINE NOTICE NO. 174 OF 2025 - EXERCISING SAFETY AND VIGILANCE DURING FESTIVE SEASONS",
@@ -3868,8 +3869,7 @@
    "date": "2009-08-17",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-24-of-2009---guidance-on-shipboard-operational-matters-approved-by-the-85th-and-86th-sessions-of-the-maritime-safety-committee-(msc-85-and-msc-86)-of-imo",
    "docUrl": "https://www.mpa.gov.sg/api/media/609e72c7-2262-44da-8cad-b1d6890193c8/-sc09-24.pdf",
-   "file": "docs/singapore/SC-24-2009.pdf",
-   "bytes": 8552976
+   "file": "docs/singapore/SC-24-2009.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 10 OF 2009 WATER SKIING IN SINGAPORE PORT WATERS",
@@ -3878,8 +3878,7 @@
    "date": "2009-08-13",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/water-skiing-in-singapore-port-waters",
    "docUrl": "https://www.mpa.gov.sg/api/media/9883cc45-1b8e-4999-a718-a1f3e0b29fdf/-pc09-10.pdf",
-   "file": "docs/singapore/PC-10-2009.pdf",
-   "bytes": 2437088
+   "file": "docs/singapore/PC-10-2009.pdf"
   },
   {
    "title": "No. 22 of 2009  - RESOLUTIONS ADOPTED BY THE 86TH SESSION OF THE MARITIME SAFETY COMMITTEE (MSC 86) OF IMO",
@@ -3915,8 +3914,7 @@
    "date": "2009-04-06",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-13-of-2009---resolutions-adopted-by-the-85th-session-of-the-maritime-safety-committee-(msc-85)-of-imo",
    "docUrl": "https://www.mpa.gov.sg/api/media/6dd25517-5e6b-46d9-bec7-73be76953022/-msc-267-85-2008-is-code.pdf",
-   "file": "docs/singapore/SC-13-2009.pdf",
-   "bytes": 1535827
+   "file": "docs/singapore/SC-13-2009.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 05 OF 2009 OCIMF- SIRE INSPECTIONS AT OIL TERMINALS IN SINGAPORE",
@@ -3961,8 +3959,7 @@
    "date": "2009-01-05",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-3-of-2009---draft-international-convention-for-the-safe-and-environmentally-sound-recycling-of-ships",
    "docUrl": "https://cms.mpa.gov.sg/assets/76f11327-d2d0-44c1-ab1e-36329afa0b19/mepc58-23-final-report.pdf",
-   "file": "docs/singapore/SC-03-2009.pdf",
-   "bytes": 1621981
+   "file": "docs/singapore/SC-03-2009.pdf"
   },
   {
    "title": "No. 1 of 2009  - RESOLUTIONS/UNIFIED INTERPRETATIONS (UIS) ADOPTED/APPROVED BY THE 58TH SESSION OF THE MARINE ENVIRONMENT PROTECTION COMMITTEE (MEPC 58) OF IMO",
@@ -3980,8 +3977,7 @@
    "date": "2009-01-02",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-2-of-2009---amendments-to-marpol-annex-vi-(regulations-for-the-prevention-of-air-pollution-from-ships)-and-the-nox-technical-code",
    "docUrl": "https://www.mpa.gov.sg/api/media/d658825c-250f-409c-9359-9dc14d20b28e/-sc09-02a.pdf",
-   "file": "docs/singapore/SC-02-2009.pdf",
-   "bytes": 379635
+   "file": "docs/singapore/SC-02-2009.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 21 OF 2008 THE INTERNATIONAL CONVENTION ON CIVIL LIABILITY FOR BUNKER OIL POLLUTION DAMAGE, 2001 (BUNKER CONVENTION)",
@@ -4008,8 +4004,7 @@
    "date": "2008-11-10",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/revised-reporting-procedures-for-notification-and-confirmation-of-a-vessels-arrival-in-singapore",
    "docUrl": "https://www.mpa.gov.sg/api/media/09a53d9a-a18c-46a2-b685-ec000d2ccc0e/-pc08-20.pdf",
-   "file": "docs/singapore/PC-20-2008.pdf",
-   "bytes": 833791
+   "file": "docs/singapore/PC-20-2008.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 17 OF 2008 NOTIFICATION FOR TANKER CLEANING ACTIVITIES AND DISPOSAL OF SLUDGE AND SLOP",
@@ -4018,8 +4013,7 @@
    "date": "2008-10-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/notification-for-tanker-cleaning-activities-and-disposal-of-sludge-and-slop",
    "docUrl": "https://www.mpa.gov.sg/api/media/3348326d-b56e-4788-afc4-8502fc64e50d/-pc08-17.pdf",
-   "file": "docs/singapore/PC-17-2008.pdf",
-   "bytes": 55796
+   "file": "docs/singapore/PC-17-2008.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 16 OF 2008 PROCEDURES TO CONTROL TANK CLEANING AND DISPOSAL OF SLUDGE AND SLOP",
@@ -4028,8 +4022,7 @@
    "date": "2008-10-13",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/procedures-to-control-tank-cleaning-and-disposal-of-sludge-and-slop",
    "docUrl": "https://www.mpa.gov.sg/api/media/fc3ffe5a-f668-46bd-ada0-c3a1acb00873/-pc08-16.pdf",
-   "file": "docs/singapore/PC-16-2008.pdf",
-   "bytes": 19397
+   "file": "docs/singapore/PC-16-2008.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 15 OF 2008 FUMIGATION",
@@ -4038,8 +4031,7 @@
    "date": "2008-10-13",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/fumigation",
    "docUrl": "https://www.mpa.gov.sg/api/media/5b1b1d82-f6a7-4aec-b376-5f0c65e4333d/-pc08-15.pdf",
-   "file": "docs/singapore/PC-15-2008.pdf",
-   "bytes": 20347
+   "file": "docs/singapore/PC-15-2008.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 14 OF 2008 REPORTING OF MARINE INCIDENTS IN PORT",
@@ -4048,8 +4040,7 @@
    "date": "2008-10-13",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/reporting-of-marine-incidents-in-port",
    "docUrl": "https://www.mpa.gov.sg/api/media/06327018-bb39-4217-9aa3-8cad67e4c98b/-pc08-14.pdf",
-   "file": "docs/singapore/PC-14-2008.pdf",
-   "bytes": 27476
+   "file": "docs/singapore/PC-14-2008.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 12 OF 2008 PRO-ENTERPRISE INITIATIVE: LICENSING REQUIREMENTS FOR SINGAPORE REGISTERED SHIP (SRS) LICENSED AS HARBOUR CRAFT TO OPERATE WITHIN SINGAPORE PORT WATERS",
@@ -4058,8 +4049,7 @@
    "date": "2008-09-23",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/pro-enterprise-initiative-licensing-requirements-for-singapore-registered-ship-(srs)-licensed-as-harbour-craft-to-operate-within-singapore-port-waters",
    "docUrl": "https://www.mpa.gov.sg/api/media/4409fc72-716e-4c68-8826-ae3db5be758e/-pc08-12.pdf",
-   "file": "docs/singapore/PC-12-2008.pdf",
-   "bytes": 19354
+   "file": "docs/singapore/PC-12-2008.pdf"
   },
   {
    "title": "No. 26 of 2008  - THE INTERNATIONAL CONVENTION ON CIVIL LIABILITY FOR BUNKER OIL POLLUTION DAMAGE, 2001 (BUNKER CONVENTION)",
@@ -4068,8 +4058,7 @@
    "date": "2008-09-19",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-26-of-2008---the-international-convention-on-civil-liability-for-bunker-oil-pollution-damage-2001-(bunker-convention)",
    "docUrl": "https://cms.mpa.gov.sg/assets/4b32d8bc-5f1b-4fcd-b5bc-5ca9b8455bd8/sc08-26a.pdf",
-   "file": "docs/singapore/SC-26-2008.pdf",
-   "bytes": 73652
+   "file": "docs/singapore/SC-26-2008.pdf"
   },
   {
    "title": "No. 17 of 2008  - FITTING OF A SIMPLIFIED VOYAGE DATA RECORDER (S-VDR) ON REGIONAL PASSENGER FERRIES AND HIGH SPEED CRAFT",
@@ -4085,8 +4074,7 @@
    "date": "2008-07-23",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-15-of-2008---guidance-on-shipboard-operational-matters-approved-by-the-84th-session-of-the-maritime-safety-committee-(msc-84)-of-imo",
    "docUrl": "https://www.mpa.gov.sg/api/media/ad04bccc-b3b4-476b-b83f-082c1b8da1dc/-sc08-15a.pdf",
-   "file": "docs/singapore/SC-15-2008.pdf",
-   "bytes": 117504
+   "file": "docs/singapore/SC-15-2008.pdf"
   },
   {
    "title": "No. 13 of 2008  - RESOLUTIONS ADOPTED BY THE 84TH SESSION OF THE MARITIME SAFETY COMMITTEE (MSC 84) OF IMO",
@@ -4095,8 +4083,7 @@
    "date": "2008-07-08",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-13-of-2008---resolutions-adopted-by-the-84th-session-of-the-maritime-safety-committee-(msc-84)-of-imo",
    "docUrl": "https://www.mpa.gov.sg/api/media/861babf4-9077-4eae-b715-d8924774a30e/-sc08-13a.pdf",
-   "file": "docs/singapore/SC-13-2008.pdf",
-   "bytes": 275618
+   "file": "docs/singapore/SC-13-2008.pdf"
   },
   {
    "title": "No. 14 of 2008  - DRAFT AMENDMENTS TO MANDATORY INSTRUMENTS APPROVED BY THE 84TH SESSION OF THE MARITIME SAFETY COMMITTEE (MSC 84) OF IMO",
@@ -4105,8 +4092,7 @@
    "date": "2008-07-08",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-14-of-2008---draft-amendments-to-mandatory-instruments-approved-by-the-84th-session-of-the-maritime-safety-committee-(msc-84)-of-imo",
    "docUrl": "https://cms.mpa.gov.sg/assets/5997a8b1-abe9-463e-bdc6-c14c3f7c83c5/sc08-14a.pdf",
-   "file": "docs/singapore/SC-14-2008.pdf",
-   "bytes": 238952
+   "file": "docs/singapore/SC-14-2008.pdf"
   },
   {
    "title": "No. 11 of 2008  - IMO UNIQUE COMPANY AND REGISTERED OWNER IDENTIFICATION NUMBER SCHEME. AMENDMENTS TO THE FORMAT AND GUIDELINES FOR THE MAINTENANCE OF THE CONTINUOUS SYNOPSIS RECORD (CSR) (RESOLUTION A.959(23))",
@@ -4115,8 +4101,7 @@
    "date": "2008-06-16",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-11-of-2008---imo-unique-company-and-registered-owner-identification-number-scheme-amendments-to-the-format-and-guidelines-for-the-maintenance-of-the-continuous-synopsis-record-(csr)-(resolution-a-959(23))",
    "docUrl": "https://www.mpa.gov.sg/api/media/b587401c-79aa-4555-a6cc-6f0ab2ed928d/-sc08-11a.pdf",
-   "file": "docs/singapore/SC-11-2008.pdf",
-   "bytes": 31976
+   "file": "docs/singapore/SC-11-2008.pdf"
   },
   {
    "title": "No. 9 of 2008  - IMO UNIQUE COMPANY AND REGISTERED OWNER IDENTIFICATION NUMBER SCHEME",
@@ -4125,8 +4110,7 @@
    "date": "2008-03-20",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-9-of-2008---imo-unique-company-and-registered-owner-identification-number-scheme",
    "docUrl": "https://www.mpa.gov.sg/api/media/af686f24-6b06-4ebe-87af-a8bc2f700e3a/-sc08-09.pdf",
-   "file": "docs/singapore/SC-09-2008.pdf",
-   "bytes": 177486
+   "file": "docs/singapore/SC-09-2008.pdf"
   },
   {
    "title": "No. 2 of 2008  - GUIDANCE ON SHIPBOARD OPERATIONAL MATTERS APPROVED BY THE 83RD SESSION OF THE MARITIME SAFETY COMMITTEE (MSC 83) OF IMO",
@@ -4135,8 +4119,7 @@
    "date": "2008-01-25",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-2-of-2008---guidance-on-shipboard-operational-matters-approved-by-the-83rd-session-of-the-maritime-safety-committee-(msc-83)-of-imo",
    "docUrl": "https://www.mpa.gov.sg/api/media/3e2f75c2-d4c2-41be-9144-14b15da7ac3d/-sc08-02a.pdf",
-   "file": "docs/singapore/SC-02-2008.pdf",
-   "bytes": 119677
+   "file": "docs/singapore/SC-02-2008.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 02 OF 2008 FIRE SAFETY INSPECTIONS ON HARBOUR CRAFT",
@@ -4145,8 +4128,7 @@
    "date": "2008-01-04",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/fire-safety-inspections-on-harbour-craft",
    "docUrl": "https://www.mpa.gov.sg/api/media/e5364701-94ee-41ab-80b9-ee7fbd3aaf87/-pc08-02.pdf",
-   "file": "docs/singapore/PC-02-2008.pdf",
-   "bytes": 17719
+   "file": "docs/singapore/PC-02-2008.pdf"
   },
   {
    "title": "No. 21 of 2007  - UPDATE ON THE ISM CODE AND THE ROLE OF THE HUMAN ELEMENT",
@@ -4155,8 +4137,7 @@
    "date": "2007-12-06",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-21-of-2007---update-on-the-ism-code-and-the-role-of-the-human-element",
    "docUrl": "https://www.mpa.gov.sg/api/media/226284a6-26db-4630-b7d6-ce3ed965e3aa/-sc07-21a.pdf",
-   "file": "docs/singapore/SC-21-2007.pdf",
-   "bytes": 525014
+   "file": "docs/singapore/SC-21-2007.pdf"
   },
   {
    "title": "No. 20 of 2007  - RESOLUTIONS ADOPTED BY THE 83RD SESSION OF THE MARITIME SAFETY COMMITTEE (MSC 83) OF IMO",
@@ -4165,8 +4146,7 @@
    "date": "2007-12-06",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-20-of-2007---resolutions-adopted-by-the-83rd-session-of-the-maritime-safety-committee-(msc-83)-of-imo",
    "docUrl": "https://www.mpa.gov.sg/api/media/584bbcc8-8207-433c-9d09-09e8b365edbc/-sc07-20a.pdf",
-   "file": "docs/singapore/SC-20-2007.pdf",
-   "bytes": 122485
+   "file": "docs/singapore/SC-20-2007.pdf"
   },
   {
    "title": "No. 18 of 2007  - TRAINING OF COMPANY SECURITY OFFICER (CSO)",
@@ -4175,8 +4155,7 @@
    "date": "2007-09-24",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-18-of-2007---training-of-company-security-officer-(cso)",
    "docUrl": "https://www.mpa.gov.sg/api/media/107d93bd-45f2-45b4-ae33-587a6e6bbb8f/-sc07-18a.pdf",
-   "file": "docs/singapore/SC-18-2007.pdf",
-   "bytes": 188445
+   "file": "docs/singapore/SC-18-2007.pdf"
   },
   {
    "title": "No. 12 of 2007  - RESOLUTIONS ADOPTED BY THE 81ST AND 82ND SESSIONS OF THE MARITIME SAFETY COMMITTEE (MSC 81 AND MSC 82) OF IMO",
@@ -4185,8 +4164,7 @@
    "date": "2007-06-04",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-12-of-2007---resolutions-adopted-by-the-81st-and-82nd-sessions-of-the-maritime-safety-committee-(msc-81-and-msc-82)-of-imo",
    "docUrl": "https://www.mpa.gov.sg/api/media/aeb495fc-5d96-4ab4-86d3-927654457370/-sc07-12a.pdf",
-   "file": "docs/singapore/SC-12-2007.pdf",
-   "bytes": 129289
+   "file": "docs/singapore/SC-12-2007.pdf"
   },
   {
    "title": "No. 10 of 2007  - ON-LINE VERIFICATION OF THE AUTHENTICITY AND VALIDITY OF CERTIFICATES OF COMPETENCY AND OTHER STCW CERTIFICATES",
@@ -4202,8 +4180,7 @@
    "date": "2007-03-01",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-6-of-2007---guidelines-on-annual-testing-of-voyage-data-recorders-(vdr)-and-simplified-voyage-data-recorders-(s-vdr)",
    "docUrl": "https://www.mpa.gov.sg/api/media/71286a4d-bd46-497a-886f-e3689008ace0/-msc-circ1222.pdf",
-   "file": "docs/singapore/SC-06-2007.pdf",
-   "bytes": 47104
+   "file": "docs/singapore/SC-06-2007.pdf"
   },
   {
    "title": "No. 5 of 2007  - DETERMINATION OF GROSS TONNAGE FOR THE PURPOSE OF APPLICATION OF CHAPTER IX (MANAGEMENT FOR THE SAFE OPERATION OF SHIPS) AND THE ISM (INTERNATIONAL SAFETY MANAGEMENT) CODE",
@@ -4212,8 +4189,7 @@
    "date": "2007-02-21",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-5-of-2007---determination-of-gross-tonnage-for-the-purpose-of-application-of-chapter-ix-(management-for-the-safe-operation-of-ships)-and-the-ism-(international-safety-management)-code",
    "docUrl": "https://www.mpa.gov.sg/api/media/dfb5a5cd-0090-4e35-81f6-1b3fde6d5c28/-circ1231.pdf",
-   "file": "docs/singapore/SC-05-2007.pdf",
-   "bytes": 109568
+   "file": "docs/singapore/SC-05-2007.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 20 OF 2006 SAFETY OF NAVIGATION IN THE SINGAPORE STRAIT",
@@ -4222,8 +4198,7 @@
    "date": "2006-11-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/safety-of-navigation-in-the-singapore-strait",
    "docUrl": "https://www.mpa.gov.sg/api/media/fd69bf7a-9bbc-4b10-b843-5af6e68097e6/-pc06-20.pdf",
-   "file": "docs/singapore/PC-20-2006.pdf",
-   "bytes": 54252
+   "file": "docs/singapore/PC-20-2006.pdf"
   },
   {
    "title": "No. 25 of 2006  - GUIDELINES FOR DEVELOPING OPERATION AND MAINTENANCE MANUALS FOR LIFEBOAT SYSTEMS",
@@ -4232,8 +4207,7 @@
    "date": "2006-10-30",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-25-of-2006---guidelines-for-developing-operation-and-maintenance-manuals-for-lifeboat-systems",
    "docUrl": "https://www.mpa.gov.sg/api/media/35920e6a-39a5-4cf5-bb0f-fd922ea97bbb/-sc06-25a.pdf",
-   "file": "docs/singapore/SC-25-2006.pdf",
-   "bytes": 1340416
+   "file": "docs/singapore/SC-25-2006.pdf"
   },
   {
    "title": "No. 23 of 2006  - GUIDE ON RECOVERY TECHNIQUES",
@@ -4242,8 +4216,7 @@
    "date": "2006-10-10",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-23-of-2006---guide-on-recovery-techniques",
    "docUrl": "https://www.mpa.gov.sg/api/media/61dc8ad7-8e71-4f35-8384-dd6f20a3c72f/-sc06-23a.pdf",
-   "file": "docs/singapore/SC-23-2006.pdf",
-   "bytes": 189440
+   "file": "docs/singapore/SC-23-2006.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 18 OF 2006 FALLING OBJECTS FROM SHIPS",
@@ -4252,8 +4225,7 @@
    "date": "2006-09-25",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/falling-objects-from-ships",
    "docUrl": "https://www.mpa.gov.sg/api/media/dc0f31ac-846c-4614-b036-fde37aace2f3/-pc06-18.pdf",
-   "file": "docs/singapore/PC-18-2006.pdf",
-   "bytes": 26990
+   "file": "docs/singapore/PC-18-2006.pdf"
   },
   {
    "title": "No. 21 of 2006  - GUIDELINES ON THE BASIC ELEMENTS OF A SHIPBOARD OCCUPATIONAL HEALTH AND SAFETY PROGRAMME",
@@ -4262,8 +4234,7 @@
    "date": "2006-09-18",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-21-of-2006---guidelines-on-the-basic-elements-of-a-shipboard-occupational-health-and-safety-programme",
    "docUrl": "https://www.mpa.gov.sg/api/media/bd9436b4-24af-46cb-9843-9eb0d4e6f209/-sc06-21a.pdf",
-   "file": "docs/singapore/SC-21-2006.pdf",
-   "bytes": 260096
+   "file": "docs/singapore/SC-21-2006.pdf"
   },
   {
    "title": "No. 20 of 2006  - GUIDANCE ON VOLUNTARY SELF-ASSESSMENT BY ADMINISTRATIONS AND FOR SHIP SECURITY - MSC.1/CIRC. 1193",
@@ -4272,8 +4243,7 @@
    "date": "2006-09-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-20-of-2006---guidance-on-voluntary-self-assessment-by-administrations-and-for-ship-security---msc-1-circ-1193",
    "docUrl": "https://www.mpa.gov.sg/api/media/61a0c2c8-1f17-41ad-b6b4-cd25adf20b55/-sc06-20a.pdf",
-   "file": "docs/singapore/SC-20-2006.pdf",
-   "bytes": 2064384
+   "file": "docs/singapore/SC-20-2006.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 15 OF 2006 LIVE FIRING AREA (LFA)",
@@ -4282,8 +4252,7 @@
    "date": "2006-08-22",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/live-firing-area-(lfa)",
    "docUrl": "https://www.mpa.gov.sg/api/media/482d95d2-94ba-4135-9564-bfbda029e8e8/-pc06-15.pdf",
-   "file": "docs/singapore/PC-15-2006.pdf",
-   "bytes": 1623075
+   "file": "docs/singapore/PC-15-2006.pdf"
   },
   {
    "title": "No. 18 of 2006  - MEASURES TO PREVENT ACCIDENTS WITH LIFEBOATS",
@@ -4292,8 +4261,7 @@
    "date": "2006-07-12",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-18-of-2006---measures-to-prevent-accidents-with-lifeboats",
    "docUrl": "https://www.mpa.gov.sg/api/media/f54fd8da-66e8-421d-8284-1bb21717e098/-sc06-18a.pdf",
-   "file": "docs/singapore/SC-18-2006.pdf",
-   "bytes": 148480
+   "file": "docs/singapore/SC-18-2006.pdf"
   },
   {
    "title": "No. 17 of 2006  - RESOLUTION MSC.150(77)- RECOMMENDATION FOR MATERIAL SAFETY DATA SHEETS FOR MARPOL ANNEX I CARGOES AND MARINE FUEL OILS",
@@ -4302,8 +4270,7 @@
    "date": "2006-06-19",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-17-of-2006---resolution-msc-150(77)--recommendation-for-material-safety-data-sheets-for-marpol-annex-i-cargoes-and-marine-fuel-oils",
    "docUrl": "https://www.mpa.gov.sg/api/media/3d41c2b7-e788-434c-a60d-95191da32585/-sc06-17a.pdf",
-   "file": "docs/singapore/SC-17-2006.pdf",
-   "bytes": 124733
+   "file": "docs/singapore/SC-17-2006.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 14 OF 2006 CONDITIONS FOR REPATRIATION OF STOWAWAYS",
@@ -4312,8 +4279,7 @@
    "date": "2006-06-12",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/conditions-for-repatriation-of-stowaways",
    "docUrl": "https://www.mpa.gov.sg/api/media/cccae733-dd65-4a33-becf-02efe7f74555/-pc06-14.pdf",
-   "file": "docs/singapore/PC-14-2006.pdf",
-   "bytes": 102484
+   "file": "docs/singapore/PC-14-2006.pdf"
   },
   {
    "title": "No. 9 of 2006  - ANNUAL PERFORMANCE TEST FOR VOYAGE DATA RECORDER (VDR)",
@@ -4329,8 +4295,7 @@
    "date": "2006-03-27",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/landing-points-for-ships-crew-passengers-and-other-persons-embarking-on-or-disembarking-from-vessels-at-anchorages-or-at-offshore-terminals",
    "docUrl": "https://www.mpa.gov.sg/api/media/87656629-ee33-49b4-841b-80ed4424a414/-pc06-09.pdf",
-   "file": "docs/singapore/PC-09-2006.pdf",
-   "bytes": 434207
+   "file": "docs/singapore/PC-09-2006.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 08 OF 2006 PLEASURE CRAFT SECURITY CODE",
@@ -4339,8 +4304,7 @@
    "date": "2006-03-27",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/pleasure-craft-security-code",
    "docUrl": "https://www.mpa.gov.sg/api/media/d1ab60f7-28ec-4bda-ada6-198448745b36/-pc06-08.pdf",
-   "file": "docs/singapore/PC-08-2006.pdf",
-   "bytes": 92465
+   "file": "docs/singapore/PC-08-2006.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 05 OF 2006 GUIDELINES FOR PREPARING VESSEL FOR GAS-FREE INSPECTION",
@@ -4349,8 +4313,7 @@
    "date": "2006-02-21",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/guidelines-for-preparing-vessel-for-gas-free-inspection",
    "docUrl": "https://www.mpa.gov.sg/api/media/27d57649-2807-4bfd-a1e2-a6d2a399edcf/-pc06-05.pdf",
-   "file": "docs/singapore/PC-05-2006.pdf",
-   "bytes": 45048
+   "file": "docs/singapore/PC-05-2006.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 04 OF 2006 ONLINE SUBMISSION OF CARGO DECLARATIONS FOR CARGO HANDLED AT THE ANCHORAGES, OIL TERMINALS, AND PRIVATE WHARVES",
@@ -4359,8 +4322,7 @@
    "date": "2006-02-20",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/online-submission-of-cargo-declarations-for-cargo-handled-at-the-anchorages-oil-terminals-and-private-wharves",
    "docUrl": "https://www.mpa.gov.sg/api/media/432d38c1-8019-4f67-93c2-1d89e57befe4/-pc06-04.pdf",
-   "file": "docs/singapore/PC-04-2006.pdf",
-   "bytes": 27942
+   "file": "docs/singapore/PC-04-2006.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 24 OF 2005 SHIP-TO-SHIP TRANSFER OF BUNKERS BETWEEN LICENSED PORT LIMIT TANKERS",
@@ -4369,8 +4331,7 @@
    "date": "2005-10-28",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/ship-to-ship-transfer-of-bunkers-between-licensed-port-limit-tankers",
    "docUrl": "https://www.mpa.gov.sg/api/media/ff4e2147-d20f-4a4b-abc0-2e92177f5cfe/-pc05-24.pdf",
-   "file": "docs/singapore/PC-24-2005.pdf",
-   "bytes": 86877
+   "file": "docs/singapore/PC-24-2005.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 21 OF 2005 ACCURACY OF AIS INFORMATION",
@@ -4379,8 +4340,7 @@
    "date": "2005-10-11",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/accuracy-of-ais-information",
    "docUrl": "https://www.mpa.gov.sg/api/media/ac6f2be7-a36b-4264-9b91-9dc64a184a33/-pc05-21.pdf",
-   "file": "docs/singapore/PC-21-2005.pdf",
-   "bytes": 18642
+   "file": "docs/singapore/PC-21-2005.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 18 OF 2005 CAUTION ON THE USE OF VHF RADIO IN COLLISION AVOIDANCE",
@@ -4389,8 +4349,7 @@
    "date": "2005-07-04",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/caution-on-the-use-of-vhf-radio-in-collision-avoidance",
    "docUrl": "https://www.mpa.gov.sg/api/media/c4a88a00-17ee-4956-bbd7-06107db9d9c3/-pc05-18.pdf",
-   "file": "docs/singapore/PC-18-2005.pdf",
-   "bytes": 39319
+   "file": "docs/singapore/PC-18-2005.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 16 OF 2005  GUIDANCE ON THE ACCESS OF PUBLIC AUTHORITIES, EMERGENCY RESPONSE SERVICES AND PILOTS ON BOARD SHIPS TO WHICH SOLAS CHAPTER XI-2 AND THE ISPS CODE APPLY - MSC/CIRC. 1156",
@@ -4399,8 +4358,7 @@
    "date": "2005-06-17",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-16-of-2005---guidance-on-the-access-of-public-authorities-emergency-response-services-and-pilots-on-board-ships-to-which-solas-chapter-xi-2-and-the-isps-code-apply---msc-circ-1156",
    "docUrl": "https://www.mpa.gov.sg/api/media/470d8a14-5202-4723-8cb5-497e874da005/-pc05-16.pdf",
-   "file": "docs/singapore/PC-16-2005.pdf",
-   "bytes": 160274
+   "file": "docs/singapore/PC-16-2005.pdf"
   },
   {
    "title": "No. 18 of 2005  - THE CONVENTION ON LIMITATION OF LIABILITY FOR MARITIME CLAIMS, 1976 (LLMC 76) MERCHANT SHIPPING (AMENDMENT) ACT 2004",
@@ -4409,8 +4367,7 @@
    "date": "2005-04-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-18-of-2005---the-convention-on-limitation-of-liability-for-maritime-claims-1976-(llmc-76)-merchant-shipping-(amendment)-act-2004",
    "docUrl": "https://www.mpa.gov.sg/api/media/c45edb97-7dbf-43e0-830b-5afb79be226f/-sc05-06a.pdf",
-   "file": "docs/singapore/SC-18-2005.pdf",
-   "bytes": 417538
+   "file": "docs/singapore/SC-18-2005.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 10 OF 2005 BOARDING OF VESSELS BY SECURITY TEAMS",
@@ -4419,8 +4376,7 @@
    "date": "2005-04-01",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/boarding-of-vessels-by-security-teams",
    "docUrl": "https://www.mpa.gov.sg/api/media/4acc505b-4d65-4140-990f-cfbf2284aaed/-pc05-10.pdf",
-   "file": "docs/singapore/PC-10-2005.pdf",
-   "bytes": 30025
+   "file": "docs/singapore/PC-10-2005.pdf"
   },
   {
    "title": "No. 43 of 2005 - PIRACY AND ARMED ROBBERY AGAINST SHIPS",
@@ -4429,8 +4385,7 @@
    "date": "2005-03-22",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-43-of-2005---piracy-and-armed-robbery-against-ships",
    "docUrl": "https://www.mpa.gov.sg/api/media/f291b359-9966-44cc-a808-d1e604e7faad/-pn05-43f291b359996644cca808d1e604e7faad.pdf",
-   "file": "docs/singapore/PN-43-2005.pdf",
-   "bytes": 39495
+   "file": "docs/singapore/PN-43-2005.pdf"
   },
   {
    "title": "No. 13 of 2005  - ACCIDENTS INVOLVING BULK CARGOES NOT SPECIFICALLY LISTED IN THE CODE OF SAFE PRACTICE FOR SOLID BULK CARGOES (BC CODE)",
@@ -4439,8 +4394,7 @@
    "date": "2005-03-16",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-13-of-2005---accidents-involving-bulk-cargoes-not-specifically-listed-in-the-code-of-safe-practice-for-solid-bulk-cargoes-(bc-code)",
    "docUrl": "https://www.mpa.gov.sg/api/media/18e5013b-9e97-47c0-bdcb-9382ef340056/-sc05-13.pdf",
-   "file": "docs/singapore/SC-13-2005.pdf",
-   "bytes": 116736
+   "file": "docs/singapore/SC-13-2005.pdf"
   },
   {
    "title": "No. 12 of 2005  - PREVENTION OF POLLUTION OF THE SEA (OIL) (AMENDMENT) REGULATIONS 2005 - PHASING OUT OF SINGLE HULLED OIL TANKERS",
@@ -4449,8 +4403,7 @@
    "date": "2005-03-15",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-12-of-2005---prevention-of-pollution-of-the-sea-(oil)-(amendment)-regulations-2005---phasing-out-of-single-hulled-oil-tankers",
    "docUrl": "https://cms.mpa.gov.sg/assets/87d7b375-a607-4a24-9dc6-a33f621ae214/sc05-12a.pdf",
-   "file": "docs/singapore/SC-12-2005.pdf",
-   "bytes": 279718
+   "file": "docs/singapore/SC-12-2005.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 08 OF 2005 SPEED LIMIT IN THE EAST JOHOR STRAIT",
@@ -4459,8 +4412,7 @@
    "date": "2005-03-11",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/speed-limit-in-the-east-johor-strait",
    "docUrl": "https://www.mpa.gov.sg/api/media/0bf3a1a8-7168-40ee-a501-7464a69d2603/-pc05-08.pdf",
-   "file": "docs/singapore/PC-08-2005.pdf",
-   "bytes": 19346
+   "file": "docs/singapore/PC-08-2005.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 06 OF 2005 ENTRY INTO FORCE OF REVISED REGULATION 13G AND NEW REGULATION 13H OF MARPOL ANNEX 1 ON 5 APR 2005 - PHASING OUT OF SINGLE HULLED OIL TANKERS",
@@ -4469,8 +4421,7 @@
    "date": "2005-03-09",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/entry-into-force-of-revised-regulation-13g-and-new-regulation-13h-of-marpol-annex-1-on-5-apr-2005---phasing-out-of-single-hulled-oil-tankers",
    "docUrl": "https://www.mpa.gov.sg/api/media/52b29d56-f890-4d76-a4f0-0c170d1ad0fd/-pc05-06.pdf",
-   "file": "docs/singapore/PC-06-2005.pdf",
-   "bytes": 19971
+   "file": "docs/singapore/PC-06-2005.pdf"
   },
   {
    "title": "No. 7 of 2005  - GUIDELINES ON EARLY ASSESSMENT OF HULL DAMAGE AND POSSIBLE NEED FOR ABANDONMENT OF BULK CARRIERS",
@@ -4479,8 +4430,7 @@
    "date": "2005-01-28",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-7-of-2005---guidelines-on-early-assessment-of-hull-damage-and-possible-need-for-abandonment-of-bulk-carriers",
    "docUrl": "https://www.mpa.gov.sg/api/media/6885fa70-32f4-4bc2-8a2b-c1effe84fe57/-sc05-07a.pdf",
-   "file": "docs/singapore/SC-07-2005.pdf",
-   "bytes": 129024
+   "file": "docs/singapore/SC-07-2005.pdf"
   },
   {
    "title": "No. 6 of 2005  - REGISTRATION OF OILRIGS AND OTHER OFFSHORE INDUSTRY MOBILE UNITS WITH THE SINGAPORE REGISTRY OF SHIPS (SRS) MERCHANT SHIPPING (AMENDMENT) ACT 2004.",
@@ -4489,8 +4439,7 @@
    "date": "2005-01-25",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-6-of-2005---registration-of-oilrigs-and-other-offshore-industry-mobile-units-with-the-singapore-registry-of-ships-(srs)-merchant-shipping-(amendment)-act-2004",
    "docUrl": "https://www.mpa.gov.sg/api/media/4d73f766-4a86-496c-afa9-0b57fcf1b951/-sc05-06a4d73f7664a86496cafa90b57fcf1b951.pdf",
-   "file": "docs/singapore/SC-06-2005.pdf",
-   "bytes": 417538
+   "file": "docs/singapore/SC-06-2005.pdf"
   },
   {
    "title": "No. 5 of 2005  - 1) GUIDANCE TO MASTERS, COMPANIES AND DULY AUTHORISED OFFICERS ON THE REQUIREMENTS RELATING TO THE SUBMISSION OF ...",
@@ -4499,8 +4448,7 @@
    "date": "2005-01-24",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-5-of-2005---1)-guidance-to-masters-companies-and-duly-authorised-officers-on-the-requirements-relating-to-the-submission-of",
    "docUrl": "https://www.mpa.gov.sg/api/media/8e89b208-e862-4077-bb4b-b4af1f3d51c2/-sc05-05a8e89b208e8624077bb4bb4af1f3d51c2.pdf",
-   "file": "docs/singapore/SC-05-2005.pdf",
-   "bytes": 307200
+   "file": "docs/singapore/SC-05-2005.pdf"
   },
   {
    "title": "No. 4 of 2005  - FLASH-FIRE IN THE FORWARD STOREROOM CAUSED BY BUNKER FUMES",
@@ -4523,8 +4471,7 @@
    "date": "2004-11-12",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-25-of-2004---prevention-of-pollution-of-the-sea-(oil)-regulations---phasing-out-of-single-hulled-oil-tankers",
    "docUrl": "https://www.mpa.gov.sg/api/media/05f31707-e4b1-4128-8ed0-0b6fa1767e03/-sc04-25a.pdf",
-   "file": "docs/singapore/SC-25-2004.pdf",
-   "bytes": 168456
+   "file": "docs/singapore/SC-25-2004.pdf"
   },
   {
    "title": "No. 24 of 2004  - REPORTING ON ANY CHANGES IN THE REGISTERED PARTICULARS OF A SINGAPORE SHIP",
@@ -4547,8 +4494,7 @@
    "date": "2004-09-09",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/proper-use-of-vhf-channels-at-sea",
    "docUrl": "https://www.mpa.gov.sg/api/media/487ca3da-70f8-490b-8f47-27e7f0a516e1/-pc04-21.pdf",
-   "file": "docs/singapore/PC-21-2004.pdf",
-   "bytes": 141776
+   "file": "docs/singapore/PC-21-2004.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 19 OF 2004 SEGREGATION OF INCOMPATIBLE BULK LIQUID CHEMICAL CARGOES",
@@ -4557,8 +4503,7 @@
    "date": "2004-07-07",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/segregation-of-incompatible-bulk-liquid-chemical-cargoes",
    "docUrl": "https://www.mpa.gov.sg/api/media/b0ff4f61-efa2-4738-ab36-d4fd81ec9ac2/-pc04-19.pdf",
-   "file": "docs/singapore/PC-19-2004.pdf",
-   "bytes": 31404
+   "file": "docs/singapore/PC-19-2004.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 18 OF 2004 (A) HARBOUR CRAFT SECURITY CODE AND HARBOUR CRAFT SECURITY LOG (B) SECURITY ADVISORY FOR SMALL VESSELS CALLING SINGAPORE THAT ARE NOT REQUIRED TO COMPLY WITH THE ISPS CODE (C) COMPLETING THE ‘DECLARATION OF SECURITY",
@@ -4567,8 +4512,7 @@
    "date": "2004-06-30",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-18-of-2004---(a)-harbour-craft-security-code-and-harbour-craft-security-log",
    "docUrl": "https://www.mpa.gov.sg/api/media/4ce0d15f-681a-4c2e-907a-ad7dfb5cd026/-pc04-18.pdf",
-   "file": "docs/singapore/PC-18-2004.pdf",
-   "bytes": 5916666
+   "file": "docs/singapore/PC-18-2004.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 17 OF 2004 DECLARATION OF IMO SECURITY LEVEL",
@@ -4577,8 +4521,7 @@
    "date": "2004-06-29",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/declaration-of-imo-security-level",
    "docUrl": "https://www.mpa.gov.sg/api/media/71521d36-05c7-4597-88fa-0617b59f5d4d/-pc04-17.pdf",
-   "file": "docs/singapore/PC-17-2004.pdf",
-   "bytes": 14110
+   "file": "docs/singapore/PC-17-2004.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 16 OF 2004 VESSELS PROCEEDING OUTSIDE PORT LIMITS FOR SEA TRIALS",
@@ -4587,8 +4530,7 @@
    "date": "2004-06-24",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/vessels-proceeding-outside-port-limits-for-sea-trials",
    "docUrl": "https://www.mpa.gov.sg/api/media/1bed8e07-a173-4b60-a23a-8bf5eadeb03b/-pc04-16.pdf",
-   "file": "docs/singapore/PC-16-2004.pdf",
-   "bytes": 32978
+   "file": "docs/singapore/PC-16-2004.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 13 OF 2004  - CONTACT DETAILS FOR PROPER RECIPIENTS OF MARITIME SECURITY - RELATED COMMUNICATIONS",
@@ -4597,8 +4539,7 @@
    "date": "2004-06-09",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-13-of-2004---contact-details-for-proper-recipients-of-maritime-security---related-communications",
    "docUrl": "https://www.mpa.gov.sg/api/media/a45a0b0e-2d30-4f9a-99f5-732ef7c88576/-pc04-13.pdf",
-   "file": "docs/singapore/PC-13-2004.pdf",
-   "bytes": 40036
+   "file": "docs/singapore/PC-13-2004.pdf"
   },
   {
    "title": "No. 15 of 2004  - SINGAPORE CERTIFICATE OF COMPETENCY (COC) - FUNCTIONS, LEVELS AND LIMITATIONS UNDER THE STCW CODE",
@@ -4614,8 +4555,7 @@
    "date": "2004-04-26",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/the-1988-international-convention-for-the-suppression-of-unlawful-acts-against-the-safety-of-maritime-navigation-(sua-convention)",
    "docUrl": "https://www.mpa.gov.sg/api/media/8869177c-72f5-4fa8-ab00-8bca55b6211f/-pc04-10.pdf",
-   "file": "docs/singapore/PC-10-2004.pdf",
-   "bytes": 24839
+   "file": "docs/singapore/PC-10-2004.pdf"
   },
   {
    "title": "No. 11 of 2004  - LEGISLATION TO GIVE EFFECT TO THE SPECIAL MEASURES TO ENHANCE MARITIME SECURITY AND ISSUES RELATING THERETO",
@@ -4631,8 +4571,7 @@
    "date": "2004-03-31",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-9-of-2004---the-1988-international-convention-for-the-suppresion-of-unlawful-acts-against-the-safety-of-maritime-navigation-(sua-convention)",
    "docUrl": "https://www.mpa.gov.sg/api/media/7c84c2e4-9fa9-45b0-ade1-187292929839/-sc04-09annex1.pdf",
-   "file": "docs/singapore/SC-09-2004.pdf",
-   "bytes": 107394
+   "file": "docs/singapore/SC-09-2004.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 31 OF 2003 PIRACY AND ARMED ROBBERY AGAINST SHIPS",
@@ -4641,8 +4580,7 @@
    "date": "2003-10-28",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/piracy-and-armed-robbery-against-ships",
    "docUrl": "https://www.mpa.gov.sg/api/media/367a4077-dcbf-4e73-a38a-ead3ede7fd12/-pc03-31.pdf",
-   "file": "docs/singapore/PC-31-2003.pdf",
-   "bytes": 234514
+   "file": "docs/singapore/PC-31-2003.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 121 OF 2003  - PORT FACILITY SECURITY OFFICER (PFSO) COURSE",
@@ -4651,8 +4589,7 @@
    "date": "2003-10-20",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-121-of-2003---port-facility-security-officer-(pfso)-course",
    "docUrl": "https://www.mpa.gov.sg/api/media/fbab2d2b-7300-49cf-a127-bc2da80627ec/-pn03-121.pdf",
-   "file": "docs/singapore/PN-121-2003.pdf",
-   "bytes": 60663
+   "file": "docs/singapore/PN-121-2003.pdf"
   },
   {
    "title": "No. 21 of 2003  - MARKING OF SHIP'S IDENTIFICATION NUMBER (IMO)",
@@ -4661,8 +4598,7 @@
    "date": "2003-10-13",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-21-of-2003---marking-of-ships-identification-number-(imo)",
    "docUrl": "https://cms.mpa.gov.sg/assets/798d528a-5165-46d4-9c9a-0ef0ad2b6112/mc03-21a.pdf",
-   "file": "docs/singapore/SC-21-2003.pdf",
-   "bytes": 107140
+   "file": "docs/singapore/SC-21-2003.pdf"
   },
   {
    "title": "PORT MARINE NOTICE No. 113 of 2003  - APPOINTMENT OF RECOGNISED SECURITY ORGANSATIONS (RSOS) FOR PORT FACILITIES",
@@ -4671,8 +4607,7 @@
    "date": "2003-10-10",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-113-of-2003---appointment-of-recognised-security-organsations-(rsos)-for-port-facilities",
    "docUrl": "https://www.mpa.gov.sg/api/media/b2b1d732-b76f-44c7-8f6c-cdd02467ab72/-pn03-113.pdf",
-   "file": "docs/singapore/PN-113-2003.pdf",
-   "bytes": 68452
+   "file": "docs/singapore/PN-113-2003.pdf"
   },
   {
    "title": "No. 17 of 2003  - RECOGNISED SECURITY ORGANISATIONS (RSO) (CHAPTER XI-2) (SPECIAL MEASURES TO ENHANCE MARITIME SECURITY)",
@@ -4688,8 +4623,7 @@
    "date": "2003-07-11",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/safety-at-sea-off-bedok-jetty",
    "docUrl": "https://www.mpa.gov.sg/api/media/592f665e-6204-400a-909f-2ff2a2de2d00/-pc03-27.pdf",
-   "file": "docs/singapore/PC-27-2003.pdf",
-   "bytes": 179188
+   "file": "docs/singapore/PC-27-2003.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 22 OF 2003 PROHIBITED AREA AT PULAU SATUMU (RAFFLES LIGHTHOUSE) AND WATERS SURROUNDING A RADIUS OF 300 METRES AROUND THE LIGHTHOUSE",
@@ -4698,8 +4632,7 @@
    "date": "2003-05-30",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/prohibited-area-at-pulau-satumu-(raffles-lighthouse)-and-waters-surrounding-a-radius-of-300-metres-around-the-lighthouse",
    "docUrl": "https://www.mpa.gov.sg/api/media/f5c0fda0-7a07-444f-9363-069fe7633656/-pc03-22.pdf",
-   "file": "docs/singapore/PC-22-2003.pdf",
-   "bytes": 206103
+   "file": "docs/singapore/PC-22-2003.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 17 OF 2003 DECLARATION OF INFORMATION BY PLEASURE CRAFT DEPARTING SINGAPORE",
@@ -4708,8 +4641,7 @@
    "date": "2003-04-25",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/declaration-of-information-by-pleasure-craft-departing-singapore",
    "docUrl": "https://www.mpa.gov.sg/api/media/a4c1982d-fd92-4b70-9968-4bc5730c580e/-pc03-17.pdf",
-   "file": "docs/singapore/PC-17-2003.pdf",
-   "bytes": 418878
+   "file": "docs/singapore/PC-17-2003.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 03 OF 2003 RECOMMENDED ROUTES AND SPEED LIMITS FOR REGIONAL FERRIES",
@@ -4718,8 +4650,7 @@
    "date": "2003-01-03",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/recommended-routes-and-speed-limits-for-regional-ferries",
    "docUrl": "https://www.mpa.gov.sg/api/media/0f060fea-31f2-4ec4-a58c-9adb0fd62bc7/-pc03-03.pdf",
-   "file": "docs/singapore/PC-03-2003.pdf",
-   "bytes": 785990
+   "file": "docs/singapore/PC-03-2003.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 02 OF 2003 DESIGNATED ROUTES FOR PLEASURE CRAFT AND VISITING YACHTS ARRIVING AND DEPARITNG SINGAPORE",
@@ -4728,8 +4659,7 @@
    "date": "2003-01-02",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/designated-routes-for-pleasure-craft-and-visiting-yachts-arriving-and-deparitng-singapore",
    "docUrl": "https://www.mpa.gov.sg/api/media/19a35136-5cf9-454b-bc22-c7356db0ed3c/-pc03-02.pdf",
-   "file": "docs/singapore/PC-02-2003.pdf",
-   "bytes": 476571
+   "file": "docs/singapore/PC-02-2003.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 065 OF 2002 GUIDELINES FOR THE ONBOARD OPERATIONAL USE OF SHIPBORNE AIS",
@@ -4738,8 +4668,7 @@
    "date": "2002-08-05",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/guidelines-for-the-onboard-operational-use-of-shipborne-ais",
    "docUrl": "https://www.mpa.gov.sg/api/media/85c4aac0-f4b3-4c59-94b7-1f82ce71acd8/-pn02-65.pdf",
-   "file": "docs/singapore/PN-65-2002.pdf",
-   "bytes": 185455
+   "file": "docs/singapore/PN-65-2002.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 15 OF 2002 IMMIGRATION CLEARANCE FOR FOREIGN YACHTS AND PLEASURE CRAFT",
@@ -4748,8 +4677,7 @@
    "date": "2002-04-20",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/immigration-clearance-for-foreign-yachts-and-pleasure-craft",
    "docUrl": "https://www.mpa.gov.sg/api/media/581b62e4-ed2c-4e40-b3c4-e64faed43aaa/-pc02-15.pdf",
-   "file": "docs/singapore/PC-15-2002.pdf",
-   "bytes": 399338
+   "file": "docs/singapore/PC-15-2002.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 12 OF 2002 IMMIGRATION CLEARANCE ON BOARD VESSELS BOUND FOR SHIPYARDS OR WATERFRONT FACILITIES",
@@ -4758,8 +4686,7 @@
    "date": "2002-03-26",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/immigration-clearance-on-board-vessels-bound-for-shipyards-or-waterfront-facilities",
    "docUrl": "https://www.mpa.gov.sg/api/media/2c3741bb-69b1-4779-b847-ecf3250e667c/-pc02-12.pdf",
-   "file": "docs/singapore/PC-12-2002.pdf",
-   "bytes": 308748
+   "file": "docs/singapore/PC-12-2002.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 11 OF 2002 TEMPORARY HOLDING ANCHORAGE FOR BARGES LOADED WITH SAND / GRANITE OFF CHANGI (ACBTH)",
@@ -4768,8 +4695,7 @@
    "date": "2002-03-15",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/temporary-holding-anchorage-for-barges-loaded-with-sand-granite-off-changi-(acbth)",
    "docUrl": "https://www.mpa.gov.sg/api/media/d4463c39-84ba-42dc-83c9-e1a57ba654a8/-pc02-11.pdf",
-   "file": "docs/singapore/PC-11-2002.pdf",
-   "bytes": 360067
+   "file": "docs/singapore/PC-11-2002.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 10 OF 2002 SAFETY DISTANCES AND EXPLOSIVES QUANTITY FOR VESSELS ANCHORING AT THE SUDONG EXPLOSIVE ANCHORAGE (ASUEX)",
@@ -4778,8 +4704,7 @@
    "date": "2002-03-08",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/safety-distances-and-explosives-quantity-for-vessels-anchoring-at-the-sudong-explosive-anchorage-(asuex)",
    "docUrl": "https://www.mpa.gov.sg/api/media/e6ff653c-8814-485c-89d2-aeeb9c5a3855/-pc02-10.pdf",
-   "file": "docs/singapore/PC-10-2002.pdf",
-   "bytes": 17925
+   "file": "docs/singapore/PC-10-2002.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 05 OF 2002 STANDARDS FOR PORT LIMIT TANKERS",
@@ -4788,8 +4713,7 @@
    "date": "2002-02-08",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/standards-for-port-limit-tankers",
    "docUrl": "https://www.mpa.gov.sg/api/media/648e3589-f016-4e43-9753-d40dee2541a5/-pc02-05.pdf",
-   "file": "docs/singapore/PC-05-2002.pdf",
-   "bytes": 17888
+   "file": "docs/singapore/PC-05-2002.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 04 OF 2002 PASSENGER FERRY SAFETY COURSE",
@@ -4798,8 +4722,7 @@
    "date": "2002-02-01",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/passenger-ferry-safety-course",
    "docUrl": "https://www.mpa.gov.sg/api/media/2f57716c-3473-4f50-9ceb-198362a46fc2/-pc02-04.pdf",
-   "file": "docs/singapore/PC-04-2002.pdf",
-   "bytes": 18255
+   "file": "docs/singapore/PC-04-2002.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 39 OF 2001 MPA GAS FREE CERTIFICATES WITH SEVEN-DAY VALIDITY",
@@ -4808,8 +4731,7 @@
    "date": "2001-12-29",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/mpa-gas-free-certificates-with-seven-day-validity",
    "docUrl": "https://www.mpa.gov.sg/api/media/f0203580-f2e7-4ab5-a858-9d82bd9ff2bb/-pc01-39.pdf",
-   "file": "docs/singapore/PC-39-2001.pdf",
-   "bytes": 17439
+   "file": "docs/singapore/PC-39-2001.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 38 OF 2001 MAINTENANCE WORK INVOLVING CHIPPING ONBOARD LICENSED HARBOUR TANKERS",
@@ -4818,8 +4740,7 @@
    "date": "2001-12-28",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/maintenance-work-involving-chipping-onboard-licensed-harbour-tankers",
    "docUrl": "https://www.mpa.gov.sg/api/media/044dcf71-e047-4bb0-a1e0-954100e2081d/-pc01-38.pdf",
-   "file": "docs/singapore/PC-38-2001.pdf",
-   "bytes": 17479
+   "file": "docs/singapore/PC-38-2001.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 37 OF 2001 RULES TO BE OBSERVED BY PERSONS FINDING WRECK",
@@ -4828,8 +4749,7 @@
    "date": "2001-12-28",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/rules-to-be-observed-by-persons-finding-wreck",
    "docUrl": "https://www.mpa.gov.sg/api/media/ec39bb96-d6fc-4cf4-a6eb-03b0b4ed6d37/-pc01-37.pdf",
-   "file": "docs/singapore/PC-37-2001.pdf",
-   "bytes": 17959
+   "file": "docs/singapore/PC-37-2001.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 36 OF 2001 LANDING PLACE FOR EXPLOSIVES AND DANGEROUS GOODS AT TUAS JETTY",
@@ -4838,8 +4758,7 @@
    "date": "2001-12-28",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/landing-place-for-explosives-and-dangerous-goods-at-tuas-jetty",
    "docUrl": "https://www.mpa.gov.sg/api/media/02c6c363-02ab-484d-94c7-c0b721dad2ff/-pc01-036.pdf",
-   "file": "docs/singapore/PC-36-2001.pdf",
-   "bytes": 528284
+   "file": "docs/singapore/PC-36-2001.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 33 OF 2001 ADDITIONAL CONDITIONS FOR HARBOUR CRAFT LICENSED FOR USE AS A TANKER IN PORT",
@@ -4848,8 +4767,7 @@
    "date": "2001-11-26",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/additional-conditions-for-harbour-craft-licensed-for-use-as-a-tanker-in-port",
    "docUrl": "https://www.mpa.gov.sg/api/media/a2ca57f7-5ff0-4ac7-80cd-5b68698f2e39/-pc01-33.pdf",
-   "file": "docs/singapore/PC-33-2001.pdf",
-   "bytes": 18283
+   "file": "docs/singapore/PC-33-2001.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 31 OF 2001 IMMIGRATION CLEARANCE",
@@ -4858,8 +4776,7 @@
    "date": "2001-11-24",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/immigration-clearance",
    "docUrl": "https://www.mpa.gov.sg/api/media/aaf71ce6-b510-42cb-b040-5e2a2f4dc9f3/-pc01-31.pdf",
-   "file": "docs/singapore/PC-31-2001.pdf",
-   "bytes": 25093
+   "file": "docs/singapore/PC-31-2001.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 26 OF 2001 DISSEMINATION OF PASSAGE PLAN TO SHIPMASTERS",
@@ -4868,8 +4785,7 @@
    "date": "2001-09-27",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/dissemination-of-passage-plan-to-shipmasters",
    "docUrl": "https://www.mpa.gov.sg/api/media/ca98a752-a32f-4be2-9e98-4f522823be3b/-pc01-26.pdf",
-   "file": "docs/singapore/PC-26-2001.pdf",
-   "bytes": 26746
+   "file": "docs/singapore/PC-26-2001.pdf"
   },
   {
    "title": "No. 5 of 2001  - GUIDELINES FOR REVALIDATING/CONVERSION AND UPDATING OF SINGAPORE CERTIFICATE OF COMPETENCY (DECK OFFICER) CLASS 6...",
@@ -4878,8 +4794,7 @@
    "date": "2001-05-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no-5-of-2001---guidelines-for-revalidating-conversion-and-updating-of-singapore-certificate-of-competency-(deck-officer)-class-6",
    "docUrl": "https://cms.mpa.gov.sg/assets/8f1d8da7-100e-4f26-82f6-052e17fefedc/sc01-5.pdf",
-   "file": "docs/singapore/SC-05-2001.pdf",
-   "bytes": 65917
+   "file": "docs/singapore/SC-05-2001.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR  NO 6 OF 2000 PROHIBITION OF EXPORT OF EXCAVATED MATERIAL, MARINE CLAY AND CONSTRUCTION DEBRIS FROM SINGAPORE TO INDONESIA WITH IMMEDIATE EFFECT",
@@ -4888,8 +4803,7 @@
    "date": "2000-05-03",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/prohibition-of-export-of-excavated-material-marine-clay-and-construction-debris-from-singapore-to-indonesia-with-immediate-effect",
    "docUrl": "https://www.mpa.gov.sg/api/media/19652d44-65ac-4cf1-93a5-cb7fd84844b0/-pc00-6.pdf",
-   "file": "docs/singapore/PC-06-2000.pdf",
-   "bytes": 21257
+   "file": "docs/singapore/PC-06-2000.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR  NO 04 OF 2000 PROHIBITION OF LINE-TOWED BARGES AT NIGHT IN THE WESTERN SECTOR",
@@ -4898,8 +4812,7 @@
    "date": "2000-03-09",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/prohibition-of-line-towed-barges-at-night-in-the-western-sector",
    "docUrl": "https://www.mpa.gov.sg/api/media/2f2b0762-ba8d-4a77-93ae-06abc2ad0b48/-pc00-4.pdf",
-   "file": "docs/singapore/PC-04-2000.pdf",
-   "bytes": 188383
+   "file": "docs/singapore/PC-04-2000.pdf"
   },
   {
    "title": "No. 13 of 1999  - NATIONAL COLOURS FOR SINGAPORE SHIPS",
@@ -4915,8 +4828,7 @@
    "date": "1999-03-30",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/navigation-in-the-singapore-strait-traffic-separation-scheme-(tss)",
    "docUrl": "https://www.mpa.gov.sg/api/media/7b7d7766-f2cb-4ee6-afb8-d5dc455dfb62/-pc99-13.pdf",
-   "file": "docs/singapore/PC-13-1999.pdf",
-   "bytes": 22588
+   "file": "docs/singapore/PC-13-1999.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR  NO. 67 OF 1998 REPORTING PROCEDURES FOR VESSELS NAVIGATING THE SINGAPORE STRAIT WHEN VTIS IS NOT OPERATIONAL",
@@ -4925,8 +4837,7 @@
    "date": "1998-10-26",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/reporting-procedures-for-vessels-navigating-the-singapore-strait-when-vtis-is-not-operational",
    "docUrl": "https://www.mpa.gov.sg/api/media/3b2a4da7-d258-478c-b324-fdcce3d18865/-pc98-67.pdf",
-   "file": "docs/singapore/PC-67-1998.pdf",
-   "bytes": 79540
+   "file": "docs/singapore/PC-67-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR  NO. 65 OF 1998 MANDATORY SHIP REPORTING SYSTEM IN THE STRAITS OF MALACCA AND SINGAPORE-STRAITREP",
@@ -4935,8 +4846,7 @@
    "date": "1998-10-20",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/mandatory-ship-reporting-system-in-the-straits-of-malacca-and-singapore-straitrep",
    "docUrl": "https://www.mpa.gov.sg/api/media/78c165e3-67e4-4da3-9496-c196739374d2/-pc98-65.pdf",
-   "file": "docs/singapore/PC-65-1998.pdf",
-   "bytes": 327244
+   "file": "docs/singapore/PC-65-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 57 OF 1998 GAS-FREE CERTIFICATE FOR VESSELS SHIFTING OUT OF THEIR DESIGNATED ANCHORAGES OR PROCEEDING TO A SHIPYARD",
@@ -4945,8 +4855,7 @@
    "date": "1998-09-12",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/gas-free-certificate-for-vessels-shifting-out-of-their-designated-anchorages-or-proceeding-to-a-shipyard",
    "docUrl": "https://www.mpa.gov.sg/api/media/4bf41f3b-a9f0-440d-86ba-726c2d373cce/-pc98-57.pdf",
-   "file": "docs/singapore/PC-57-1998.pdf",
-   "bytes": 160320
+   "file": "docs/singapore/PC-57-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 49 OF 1998 REQUIREMENTS FOR PONTOONS USED AS TEMPORARY LANDING PLATFORMS",
@@ -4955,8 +4864,7 @@
    "date": "1998-08-28",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/requirements-for-pontoons-used-as-temporary-landing-platforms",
    "docUrl": "https://www.mpa.gov.sg/api/media/98727c28-3786-4529-a84d-c23767fd448d/-pc98-49.pdf",
-   "file": "docs/singapore/PC-49-1998.pdf",
-   "bytes": 20026
+   "file": "docs/singapore/PC-49-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 43 OF 1998 ISSUE OF PILOTAGE EXEMPTION CERTIFICATES",
@@ -4965,8 +4873,7 @@
    "date": "1998-08-08",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/issue-of-pilotage-exemption-certificates",
    "docUrl": "https://www.mpa.gov.sg/api/media/75175a02-be63-4a80-b25a-f05a31deb221/-pc98-43.pdf",
-   "file": "docs/singapore/PC-43-1998.pdf",
-   "bytes": 15883
+   "file": "docs/singapore/PC-43-1998.pdf"
   },
   {
    "title": "No. 6 of 1998  - THE 1992 PROTOCOL OF THE INTERNATIONAL CONVENTION ON CIVIL LIABILITY FOR OIL POLLUTION DAMAGE 1969",
@@ -4982,8 +4889,7 @@
    "date": "1998-08-03",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/steel-constructed-non-mechanical-propelled-harbour-craft-ferrying-vehicles",
    "docUrl": "https://www.mpa.gov.sg/api/media/7708b379-27c7-4b56-989b-b78a1c6342f6/-pc98-41.pdf",
-   "file": "docs/singapore/PC-41-1998.pdf",
-   "bytes": 18256
+   "file": "docs/singapore/PC-41-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR   NO 37 OF 1998 VESSEL'S CHECKLIST FOR PILOTED MOVEMENTS",
@@ -4992,8 +4898,7 @@
    "date": "1998-07-27",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/vessels-checklist-for-piloted-movements",
    "docUrl": "https://www.mpa.gov.sg/api/media/db03b1e8-2df0-43bd-b9e7-0ff710249a4c/-pc98-37.pdf",
-   "file": "docs/singapore/PC-37-1998.pdf",
-   "bytes": 16024
+   "file": "docs/singapore/PC-37-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR  NO. 27 OF 1998 SAFETY OF AIR NAVIGATION - EXHIBIT LOW INTENSITY OBSTACLE LIGHTS",
@@ -5002,8 +4907,7 @@
    "date": "1998-07-13",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/safety-of-air-navigation---exhibit-low-intensity-obstacle-lights",
    "docUrl": "https://www.mpa.gov.sg/api/media/b3b152b3-f0a8-43f5-8fe0-57d8dff47002/-pc98-27.pdf",
-   "file": "docs/singapore/PC-27-1998.pdf",
-   "bytes": 18009
+   "file": "docs/singapore/PC-27-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR  NO 20 OF 1998 PROHIBITION OF THE USE OF AUTO-PILOT IN PORT",
@@ -5012,8 +4916,7 @@
    "date": "1998-06-23",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/prohibition-of-the-use-of-auto-pilot-in-port",
    "docUrl": "https://www.mpa.gov.sg/api/media/b86cf66d-f55b-4f0d-99fb-d8ef983a7d15/-pc98-20.pdf",
-   "file": "docs/singapore/PC-20-1998.pdf",
-   "bytes": 15950
+   "file": "docs/singapore/PC-20-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO 14 OF 1998 SURVIVORS/REFUGEES RESCUED AT SEA",
@@ -5022,8 +4925,7 @@
    "date": "1998-06-10",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/survivors-refugees-rescued-at-sea",
    "docUrl": "https://www.mpa.gov.sg/api/media/4a737e01-9a59-4251-8434-7af736d55ca9/-pc98-14.pdf",
-   "file": "docs/singapore/PC-14-1998.pdf",
-   "bytes": 16490
+   "file": "docs/singapore/PC-14-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 08 OF 1998 PORT LIMIT SPECIAL GRADE MANNING LICENCE TO BE ISSUED TO NON-SINGAPOREAN DECK AND ENGINE OFFICERS TO OPERATE 'PURE'HARBOUR CRAFT",
@@ -5032,8 +4934,7 @@
    "date": "1998-03-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-limit-special-grade-manning-licence-to-be-issued-to-non-singaporean-deck-and-engine-officers-to-operate-pureharbour-craft",
    "docUrl": "https://www.mpa.gov.sg/api/media/aaeabc1c-efe5-4fec-a028-cd60d5468e84/-pc98-08.pdf",
-   "file": "docs/singapore/PC-08-1998.pdf",
-   "bytes": 21718
+   "file": "docs/singapore/PC-08-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 05 OF 1998 PROCEDURES AND GUIDELINES FOR THE BERTHING OF TANKERS AND CONVENTIONAL VESSELS CARRYING BULK LIQUID CARGO AT APPROVED CONVENTIONAL WHARVES",
@@ -5042,8 +4943,7 @@
    "date": "1998-02-03",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/procedures-and-guidelines-for-the-berthing-of-tankers-and-conventional-vessels-carrying-bulk-liquid-cargo-at-approved-conventional-wharves",
    "docUrl": "https://www.mpa.gov.sg/api/media/03b5c176-8b10-46ac-8ae3-c796bbbefa18/-pc98-05.pdf",
-   "file": "docs/singapore/PC-05-1998.pdf",
-   "bytes": 34262
+   "file": "docs/singapore/PC-05-1998.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR  NO 99 OF 1997 HEIGHT RESTRICTION AT THE SECOND CROSSING (BRIDGE) FOR VESSELS USING THE SINGAPORE CHANNEL TO ENTER OR LEAVE THE WEST JOHOR STRAIT",
@@ -5052,8 +4952,7 @@
    "date": "1997-12-29",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/height-restriction-at-the-second-crossing-(bridge)-for-vessels-using-the-singapore-channel-to-enter-or-leave-the-west-johor-strait",
    "docUrl": "https://www.mpa.gov.sg/api/media/1ef61d58-fd10-4e48-820a-ec88ab766ed3/-pc97-99.pdf",
-   "file": "docs/singapore/PC-99-1997.pdf",
-   "bytes": 355392
+   "file": "docs/singapore/PC-99-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 97 OF 1997 SAFETY MEASURE FOR JET-SKIING IN SINGAPORE PORT WATERS",
@@ -5062,8 +4961,7 @@
    "date": "1997-12-01",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/safety-measure-for-jet-skiing-in-singapore-port-waters",
    "docUrl": "https://www.mpa.gov.sg/api/media/e91c0999-656a-4458-96e0-0cfc8ca5cac5/-pc97-97.pdf",
-   "file": "docs/singapore/PC-97-1997.pdf",
-   "bytes": 350774
+   "file": "docs/singapore/PC-97-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 94 OF 1997 SELF-PROPELLED OR COMPOSITE MODE REQUIRED FOR ALL BARGES FERRYING ROAD-TANKERS OR OTHER VEHICLES LOADED WITH DANGEROUS CARGOES",
@@ -5072,8 +4970,7 @@
    "date": "1997-11-24",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/self-propelled-or-composite-mode-required-for-all-barges-ferrying-road-tankers-or-other-vehicles-loaded-with-dangerous-cargoes",
    "docUrl": "https://www.mpa.gov.sg/api/media/a0a5ab59-5c6b-4754-80a9-92f8b6f28993/-pc97-94.pdf",
-   "file": "docs/singapore/PC-94-1997.pdf",
-   "bytes": 15897
+   "file": "docs/singapore/PC-94-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 88 OF 1997 TALL VESSELS' MOVEMENTS SOUTH OF CHANGI AIRPORT",
@@ -5082,8 +4979,7 @@
    "date": "1997-10-06",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/tall-vessels-movements-south-of-changi-airport",
    "docUrl": "https://www.mpa.gov.sg/api/media/76f0deb3-da08-43ce-a5ce-d758904a1cde/-pc97-88.pdf",
-   "file": "docs/singapore/PC-88-1997.pdf",
-   "bytes": 304328
+   "file": "docs/singapore/PC-88-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 68 OF 1997 IMMOBILIZATION OF VESSEL'S ENGINES AT ANCHORAGES/WHARVES",
@@ -5092,8 +4988,7 @@
    "date": "1997-09-15",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/immobilization-of-vessels-engines-at-anchorages-wharves",
    "docUrl": "https://www.mpa.gov.sg/api/media/e661e251-02d0-4457-aefc-0bc74087e277/-pc97-68.pdf",
-   "file": "docs/singapore/PC-68-1997.pdf",
-   "bytes": 18918
+   "file": "docs/singapore/PC-68-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 51 OF 1997 TEMPORARY HARBOUR CRAFT PERMIT (FOR AN UNLICENSED VESSEL INTENDING TO BE USED TEMPORARILY FOR INTRA-PORT ACTIVITIES)",
@@ -5102,8 +4997,7 @@
    "date": "1997-07-28",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/temporary-harbour-craft-permit-(for-an-unlicensed-vessel-intending-to-be-used-temporarily-for-intra-port-activities)",
    "docUrl": "https://www.mpa.gov.sg/api/media/c82b1d83-c675-439e-b295-1c7a22f01083/-pc97-51.pdf",
-   "file": "docs/singapore/PC-51-1997.pdf",
-   "bytes": 23156
+   "file": "docs/singapore/PC-51-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 44 OF 1997 POWERED PLEASURE CRAFT DRIVING LICENCE FOR HOLDERS OF PORT LIMIT STEERSMAN/HELMSMAN OR SPECIAL GRADE (DECK OFFICER) MANNING LICENCE",
@@ -5112,8 +5006,7 @@
    "date": "1997-07-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/powered-pleasure-craft-driving-licence-for-holders-of-port-limit-steersman-helmsman-or-special-grade-(deck-officer)-manning-licence",
    "docUrl": "https://www.mpa.gov.sg/api/media/15b1bf36-3f0e-4ff5-b29e-e60ffc0dc123/-pc97-44.pdf",
-   "file": "docs/singapore/PC-44-1997.pdf",
-   "bytes": 17818
+   "file": "docs/singapore/PC-44-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 41 OF 1997 COMPLIANCE WITH THE MERCHANT SHIPPING  SAFETY REGULATIONS, 1981 IN RESPECT OF SELF-PROPELLED LANDING CRAFT USED FOR THE PURPOSE OF FERRYING ROAD TANKERS OR OTHER VEHICLES WITH DANGEROUS GOODS WITHIN THE PORT",
@@ -5122,8 +5015,7 @@
    "date": "1997-07-07",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/compliance-with-the-merchant-shipping-(non-convention-ships)-safety-regulations-1981-in-respect-of-self-propelled-landing-craft-used-for-the-purpose-of-ferrying-road-tankers-or-other-vehicles-with-dangerous-goods-within-the-port",
    "docUrl": "https://www.mpa.gov.sg/api/media/0e981ae3-f193-4a41-ab2c-e29451255cc2/-pc97-41.pdf",
-   "file": "docs/singapore/PC-41-1997.pdf",
-   "bytes": 18381
+   "file": "docs/singapore/PC-41-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 38 OF 1997 PORT LIMIT MANNING LICENCE ISSUED TO NON-SINGAPOREAN DECK AND ENGINE OFFICERS",
@@ -5132,8 +5024,7 @@
    "date": "1997-07-03",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-limit-manning-licence-issued-to-non-singaporean-deck-and-engine-officers",
    "docUrl": "https://www.mpa.gov.sg/api/media/f6716874-919a-4875-8167-296a4083d64a/-pc97-38.pdf",
-   "file": "docs/singapore/PC-38-1997.pdf",
-   "bytes": 19421
+   "file": "docs/singapore/PC-38-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 29 OF 1997 BUNKERING AT SHIPYARD",
@@ -5142,8 +5033,7 @@
    "date": "1997-06-07",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/bunkering-at-shipyard",
    "docUrl": "https://www.mpa.gov.sg/api/media/b5e2ab46-520c-4eb2-82f3-8d0b005f1df6/-pc97-29.pdf",
-   "file": "docs/singapore/PC-29-1997.pdf",
-   "bytes": 17929
+   "file": "docs/singapore/PC-29-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 27 OF 1997 CONTROL OF PARACHUTISTS AND HAND-GLIDING ACTIVITIES",
@@ -5152,8 +5042,7 @@
    "date": "1997-06-06",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/control-of-parachutists-and-hand-gliding-activities",
    "docUrl": "https://www.mpa.gov.sg/api/media/3a7d248c-ae47-42f9-bda5-63e73c02b187/-pc97-27.pdf",
-   "file": "docs/singapore/PC-27-1997.pdf",
-   "bytes": 16790
+   "file": "docs/singapore/PC-27-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 23 OF 1997 REQUIREMENT FOR DAMAGED VESSELS ENTERING PORT",
@@ -5162,8 +5051,7 @@
    "date": "1997-05-30",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/requirement-for-damaged-vessels-entering-port",
    "docUrl": "https://www.mpa.gov.sg/api/media/70ad2e52-50de-4588-b640-40ac38d8d71b/-pc97-23.pdf",
-   "file": "docs/singapore/PC-23-1997.pdf",
-   "bytes": 17551
+   "file": "docs/singapore/PC-23-1997.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR  NO. 14 OF 1997 HANDLING OF VESSELS CARRYING LIQUEFIED GASES IN BULK",
@@ -5172,8 +5060,7 @@
    "date": "1997-05-15",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/handling-of-vessels-carrying-liquefied-gases-in-bulk",
    "docUrl": "https://www.mpa.gov.sg/api/media/b1a6b75f-1f1d-4acc-91b7-d4e24c2072ec/-pc97-14.pdf",
-   "file": "docs/singapore/PC-14-1997.pdf",
-   "bytes": 16769
+   "file": "docs/singapore/PC-14-1997.pdf"
   }
  ]
 }
