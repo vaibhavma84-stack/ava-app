@@ -17,11 +17,10 @@ import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   MPA, SG_TYPES, PANAMA_TYPES, MCA_TYPES,
-  singaporeRef, singaporeLooseRef, panamaRef,
+  singaporeRef, singaporeLooseRef, panamaRef, clean,
   parseGovukCollection, parseWpMedia
 } from '../library/js/updates.js';
 
-const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
 
 const decode = (s) => clean(s)
   .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
@@ -150,7 +149,9 @@ export function readPanamaPage(html, from = '') {
 
     const url = href.startsWith('http') ? href : `${PANAMA}${href.startsWith('/') ? '' : '/'}${href}`;
     const name = decodeURIComponent(url.split('/').pop() || '');
-    const text = m[2].replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+    // The same reader the rest of the app uses, so an entity is turned back
+    // into its character here too rather than only where someone remembered.
+    const text = clean(m[2].replace(/<[^>]+>/g, ' '));
 
     // The link text first: it is what a person reading the page sees. The
     // file name stands in when the link is an icon or says only "download".

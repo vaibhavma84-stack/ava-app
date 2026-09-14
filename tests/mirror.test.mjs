@@ -7,7 +7,7 @@
 
 import { readFeed, readLinks, readPanamaPage } from '../tools/mirror-notices.mjs';
 import { textFromHtml, listOnly } from '../tools/mirror-docs.mjs';
-import { singaporeRef, singaporeLooseRef, SG_TYPES, MPA } from '../library/js/updates.js';
+import { singaporeRef, singaporeLooseRef, SG_TYPES, MPA, panamaRef } from '../library/js/updates.js';
 
 let passed = 0, failed = 0;
 const check = (name, ok, detail) => {
@@ -206,6 +206,30 @@ check('a notice merely mentioning MIN is still fetched',
 check('and another administration is untouched',
   !listOnly('Panama', { docType: 'MIN (Marine Information Note)', refNo: 'MIN 738' }));
 
+// ── reading a Panama reference ──────────────────────────────────────────────
+//
+// Panama writes the date into the file name, so MMC-270-03-09-2026 has a 03 in
+// it that is the third of the month and not part of the number. Reading it as
+// part of the number filed the same circular twice — once as MMC 270 from the
+// media library and once as "MMC 270-03", a circular that does not exist.
+// Only the notices genuinely carry a hyphenated reference.
+console.log('\nReading a Panama reference');
+
+const refCases = [
+  ['MMC-270-03-09-2026.pdf', 'MMC 270', 'a date in the file name is not the number'],
+  ['MMC-359-18-08-2025.pdf', 'MMC 359', 'nor is the day when it is two digits'],
+  ['MMC 270 \u2013 03 09 2026', 'MMC 270', 'nor when the title spells it out'],
+  ['MMN 7-070', 'MMN 7-070', 'a notice keeps its hyphenated reference'],
+  ['MMN-15-2026.pdf', 'MMN 15-2026', 'including the number-year form'],
+  ['MMC-331SeafarersDocumentationDec16-2020.pdf', 'MMC 331', 'a number running into words is still read'],
+  ['MMC 405', 'MMC 405', 'and a plain one is left alone'],
+  ['brochure.pdf', null, 'something that is not a circular is not one']
+];
+for (const [input, want, why] of refCases) {
+  const got = panamaRef(input);
+  check(why, (got ? got.refNo : null) === want, `${input} -> ${got ? got.refNo : null}`);
+}
+
 // ── Panama's own pages ──────────────────────────────────────────────────────
 //
 // The media library reaches back only to August 2025; the back catalogue is on
@@ -245,6 +269,12 @@ check('markup inside the link text is stripped',
 check('a link with no title falls back to the file name',
   byRef['MMN 07-070'] && /MMN/.test(byRef['MMN 07-070'].title),
   JSON.stringify(byRef['MMN 07-070'] || null));
+// WordPress hands its titles back with the entities still in them.
+check('an entity in the title is turned back into the character it stands for',
+  !readPanamaPage('<a href="/wp-content/uploads/2026/09/MMC-270.pdf">MMC 270 &#8211; Bunkering</a>')[0]
+    .title.includes('&#'),
+  readPanamaPage('<a href="/wp-content/uploads/2026/09/MMC-270.pdf">MMC 270 &#8211; Bunkering</a>')[0].title);
+
 check('the type follows the prefix',
   byRef['MMC 331'].docType === 'Merchant Marine Circular'
   && byRef['MMN 07-070'].docType === 'MMN (Merchant Marine Notice)',

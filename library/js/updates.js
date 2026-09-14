@@ -11,7 +11,20 @@
 // falls back to its links, rather than being a button that quietly does
 // nothing at sea.
 
-const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
+// WordPress hands back its titles with the entities still in them, so a
+// circular arrived called "MMC 270 &#8211; 03 09 2026" and was filed under
+// that name. The dash is the only one that shows up in practice, but a title
+// is read by a person and none of them should be left as source code.
+const ENTITIES = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+  ndash: '\u2013', mdash: '\u2014', lsquo: '\u2018', rsquo: '\u2019',
+  ldquo: '\u201c', rdquo: '\u201d', hellip: '\u2026', deg: '\u00b0'
+};
+export const clean = (s) => String(s || '')
+  .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+  .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)))
+  .replace(/&([a-z][a-z0-9]*);/gi, (whole, name) => ENTITIES[name.toLowerCase()] ?? whole)
+  .replace(/\s+/g, ' ').trim();
 const pad2 = (n) => String(parseInt(n, 10)).padStart(2, '0');
 
 function isoDate(value) {
@@ -82,12 +95,24 @@ export const PANAMA_TYPES = {
   MMN: 'MMN (Merchant Marine Notice)'
 };
 
-/** Circulars are referenced as MMC-230, notices as MMN 7-070. */
+/**
+ * Circulars are referenced as MMC 230, notices as MMN 7-070 or MMN 15-2026.
+ *
+ * Only the notices carry the hyphenated form. Allowing it for circulars too
+ * read the day out of a file name as part of the reference — MMC-270-03-09-2026
+ * became "MMC 270-03" — so the same circular was filed twice, once from the
+ * media library under its real number and once from the page under a number
+ * that does not exist.
+ */
 export function panamaRef(text) {
-  const m = String(text).match(/\b(MMC|MMN)[\s._-]*(\d{1,4}(?:-\d{1,4})?)\b/i);
+  // The number ends where the digits end, not at a word boundary: Panama runs
+  // its titles straight into the file name, as in MMC-331SeafarersDocumentation,
+  // and a boundary never comes.
+  const m = String(text).match(/\b(MMC|MMN)[\s._-]*(\d{1,4})(?!\d)(-\d{1,4}(?!\d))?/i);
   if (!m) return null;
   const prefix = m[1].toUpperCase();
-  return { prefix, refNo: `${prefix} ${m[2]}` };
+  const tail = prefix === 'MMN' && m[3] ? m[3] : '';
+  return { prefix, refNo: `${prefix} ${m[2]}${tail}` };
 }
 
 /**

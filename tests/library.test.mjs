@@ -45,6 +45,19 @@ const mirrorBefore = new Map([
   const file = path.join(MIRROR_DIR, name);
   return [file, fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null];
 }));
+// Emptied before anything syncs. Leaving the real indexes in place let live
+// data into the fixture world — Panama's index grew to 404 documents and began
+// matching a stubbed notice, turning a count this suite fixes at zero into
+// one. Written here rather than beside the catalogues further down, because
+// the flag syncs run before that point and read whatever is on disk at the
+// time.
+for (const admin of ['mca', 'panama', 'singapore']) {
+  fs.writeFileSync(path.join(MIRROR_DIR, `${admin}-files.json`), JSON.stringify({
+    administration: admin, urlPrefix: 'https://example.invalid/', filePrefix: 'docs/none/',
+    held: 0, listed: 0, files: {}
+  }));
+}
+
 const restoreMirror = () => {
   for (const [file, content] of mirrorBefore) {
     if (content === null) { try { fs.rmSync(file); } catch {} }
