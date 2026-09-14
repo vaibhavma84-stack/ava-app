@@ -58,6 +58,17 @@ for (const admin of ['mca', 'panama', 'singapore']) {
   }));
 }
 
+// The catalogues too, and for the same reason. These were emptied further
+// down, after the flag syncs had already run — which did no harm while Panama
+// read its API first and reached the mirror only if that failed. The moment
+// the mirror led, the real 373 circulars walked into a fixture expecting
+// three, and the tests that walk WordPress's paging stopped exercising it at
+// all. Singapore is written later with a catalogue of its own.
+for (const admin of ['mca', 'panama']) {
+  fs.writeFileSync(path.join(MIRROR_DIR, `${admin}.json`),
+    JSON.stringify({ administration: admin, notices: [] }));
+}
+
 const restoreMirror = () => {
   for (const [file, content] of mirrorBefore) {
     if (content === null) { try { fs.rmSync(file); } catch {} }
@@ -1045,14 +1056,6 @@ try {
       'media-centre/details/port-marine-notice-no.-44-of-2026': 'TEST-FIXTURE-PN-44-2026.txt'
     }
   }));
-  // MCA and Panama reach their mirror only once every live route has failed,
-  // which is what the refusal cases below arrange. Empty ones there keep those
-  // cases about the live routes rather than about this file — and the real
-  // ones now hold hundreds of notices, which would swamp any assertion.
-  for (const name of ['mca.json', 'panama.json']) {
-    fs.writeFileSync(path.join(MIRROR_DIR, name),
-      JSON.stringify({ administration: name.replace('.json', ''), notices: [] }));
-  }
 
   // Left in place behind the mirror, and it must stay behind it: trying MPA
   // first would spend data to be refused before falling back here anyway.

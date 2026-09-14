@@ -414,11 +414,19 @@ export const FEEDS = {
 
   Panama: {
     issuer: 'Panama Maritime Authority',
-    note: 'The registry runs on WordPress, whose REST API is readable where its pages are not.',
+    note: 'Read from this site, which holds every circular off the registry\u2019s own pages \u2014 its API carries only the recent ones.',
     groups: [
       {
         name: 'Merchant Marine Circulars',
         alternatives: [
+          // The mirror leads, as it does for Singapore, and for a reason that
+          // took a while to see: the registry's media library holds only what
+          // was uploaded since August 2025. Reading it first meant the app
+          // filed 53 circulars and stopped — the first source that yields wins,
+          // so the mirror behind it, holding all 373 off Panama's own pages,
+          // was never reached. A source that answers is not the same as a
+          // source that answers fully.
+          mirror('Panama'),
           { label: 'Registry API', kind: 'json', paged: wpMedia(PANAMA, 'MMC-'), parse: parseWpMedia },
           { label: 'Authority API', kind: 'json', paged: wpMedia(PANAMA_AMP, 'MMC-'), parse: parseWpMedia },
           {
@@ -437,16 +445,15 @@ export const FEEDS = {
               base: PANAMA, match: /\/wp-content\/uploads\/.+\.pdf(\?|$)/i,
               refOf: panamaRef, types: PANAMA_TYPES
             })
-          },
-          mirror('Panama')
+          }
         ]
       },
       {
         name: 'Merchant Marine Notices',
         alternatives: [
+          mirror('Panama'),
           { label: 'Registry API', kind: 'json', paged: wpMedia(PANAMA, 'MMN-'), parse: parseWpMedia },
-          { label: 'Authority API', kind: 'json', paged: wpMedia(PANAMA_AMP, 'MMN-'), parse: parseWpMedia },
-          mirror('Panama')
+          { label: 'Authority API', kind: 'json', paged: wpMedia(PANAMA_AMP, 'MMN-'), parse: parseWpMedia }
         ]
       }
     ]

@@ -295,6 +295,45 @@ check('a circular linked twice is filed once', twice.length === 1, JSON.stringif
 check('and keeps the better of the two titles',
   twice[0].title === 'MMC-100 Tonnage Measurement', twice[0].title);
 
+// ── which source each flag reads first ──────────────────────────────────────
+//
+// The first alternative that yields wins, so the order is the whole behaviour.
+// Panama read its registry's API first, that API holds only what was uploaded
+// since August 2025, and the app filed 53 circulars and stopped — with the
+// mirror holding all 373 sitting behind it, never reached. A source that
+// answers is not the same as a source that answers fully.
+console.log('\nWhich source each flag reads first');
+
+const { FEEDS } = await import('../library/js/updates.js');
+
+for (const admin of ['Panama', 'Singapore']) {
+  for (const group of FEEDS[admin].groups) {
+    check(`${admin} · ${group.name} reads this site first`,
+      group.alternatives[0]?.label === 'This site',
+      group.alternatives.map((a) => a.label).join(' | '));
+  }
+}
+
+// MCA is the other way round on purpose: GOV.UK lists all of its notices, so
+// the live read is both complete and fresher than a weekly mirror.
+for (const group of FEEDS.MCA.groups) {
+  check(`MCA · ${group.name} reads GOV.UK first`,
+    /GOV\.UK/.test(group.alternatives[0]?.label || ''),
+    group.alternatives.map((a) => a.label).join(' | '));
+  check(`MCA · ${group.name} still falls back to this site`,
+    group.alternatives.some((a) => a.label === 'This site'),
+    group.alternatives.map((a) => a.label).join(' | '));
+}
+
+// A source listed twice is a source someone forgot they had already put there.
+for (const [admin, feed] of Object.entries(FEEDS)) {
+  for (const group of feed.groups) {
+    const labels = group.alternatives.map((a) => a.label);
+    check(`${admin} · ${group.name} lists no source twice`,
+      new Set(labels).size === labels.length, labels.join(' | '));
+  }
+}
+
 // ── the links the app sends you to check against ────────────────────────────
 //
 // Panama's /circulars/ was a 404 for some time and nothing noticed: not the
