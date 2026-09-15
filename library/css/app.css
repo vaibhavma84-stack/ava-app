@@ -338,3 +338,28 @@ select.field {
   margin: 0; padding: 18px 16px; white-space: pre-wrap; overflow-wrap: anywhere;
   font-family: var(--mono); font-size: 13.5px; line-height: 1.6; color: var(--text);
 }
+
+/* Everything that is not a circular, folded into one line. */
+/* The body is a flex column, and a flex item shrinks before its container
+   scrolls — so an opened panel taller than the space left was squeezed to a
+   third of its height and the rest clipped away by overflow:hidden. It keeps
+   its own height and lets the body scroll. */
+.tools-panel { padding: 0; overflow: hidden; flex: 0 0 auto; }
+.tools-head {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  background: transparent; border: 0; cursor: pointer;
+  padding: 14px 16px; min-height: 52px; text-align: left; color: var(--text);
+}
+.tools-title {
+  flex: 1; min-width: 0;
+  font-family: var(--display); font-size: 13px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--copper-bright);
+}
+.tools-chevron {
+  font-family: var(--mono); font-size: 19px; line-height: 1;
+  color: var(--text-dim); width: 18px; text-align: center;
+}
+.tools-body { padding: 0 12px 12px; }
+/* The panels inside lose their own frame, so it reads as one section. */
+.tools-body .panel { border: 0; background: transparent; padding: 6px 4px 14px; margin: 0; }
+.tools-body .panel + .panel { border-top: 1px solid var(--line); }

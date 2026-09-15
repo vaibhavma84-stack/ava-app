@@ -295,6 +295,45 @@ check('a circular linked twice is filed once', twice.length === 1, JSON.stringif
 check('and keeps the better of the two titles',
   twice[0].title === 'MMC-100 Tonnage Measurement', twice[0].title);
 
+// ── what a run of fetching says when it finishes ────────────────────────────
+//
+// "1 could not be fetched" out of 373 is a number with nothing to act on: it
+// does not say whether the connection dropped for a moment or a document is
+// gone for good, and those want different things done. Tested here rather than
+// in the app because the documents are same-origin, so the service worker
+// fetches them and nothing in a browser test can make one fail.
+console.log('\nWhat a run of fetching says');
+
+const { fetchSummary } = await import('../library/js/summary.js');
+
+check('a clean run says what came down',
+  fetchSummary({ held: 372, bytes: 128234567 }) === '372 documents fetched, 122.3 MB',
+  fetchSummary({ held: 372, bytes: 128234567 }));
+check('one document is not "1 documents"',
+  /^1 document fetched/.test(fetchSummary({ held: 1, bytes: 1048576 })),
+  fetchSummary({ held: 1, bytes: 1048576 }));
+check('a document that would not come is named',
+  /could not fetch MMC 270/.test(fetchSummary({ held: 372, bytes: 1, failures: ['MMC 270 (network)'] })),
+  fetchSummary({ held: 372, bytes: 1, failures: ['MMC 270 (network)'] }));
+check('and says what to do about it',
+  /tap again to retry/.test(fetchSummary({ held: 1, bytes: 1, failures: ['MMC 270 (network)'] })),
+  fetchSummary({ held: 1, bytes: 1, failures: ['MMC 270 (network)'] }));
+
+// Named, but not all of them: a run that fails a hundred times must not put a
+// hundred references into one line.
+const many = fetchSummary({ held: 0, bytes: 0, failures: ['A', 'B', 'C', 'D', 'E'] });
+check('a few are named and the rest counted', /A, B, C and 2 more/.test(many), many);
+
+check('nothing held on the site is said separately',
+  /72 not held on the site/.test(fetchSummary({ held: 424, bytes: 1, missing: 72 })),
+  fetchSummary({ held: 424, bytes: 1, missing: 72 }));
+check('and being stopped is said too',
+  / · stopped$/.test(fetchSummary({ held: 40, bytes: 1, stopped: true })),
+  fetchSummary({ held: 40, bytes: 1, stopped: true }));
+check('a clean run says nothing it does not need to',
+  fetchSummary({ held: 10, bytes: 1048576 }) === '10 documents fetched, 1.0 MB',
+  fetchSummary({ held: 10, bytes: 1048576 }));
+
 // ── which source each flag reads first ──────────────────────────────────────
 //
 // The first alternative that yields wins, so the order is the whole behaviour.

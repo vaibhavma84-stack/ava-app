@@ -5,13 +5,14 @@ import { search as runSearch } from './search.js';
 import { isPdf, extract, describe, selfTest, STATUS } from './pdftext.js';
 import { suggestFields, titleFromFilename } from './suggest.js';
 import { probeAll, fetchNotices, FEEDS, SYNCABLE } from './updates.js';
+import { fetchSummary } from './summary.js';
 import { IMO_CONVENTIONS, IMO_LIST_URL, asPublication, notHeld } from './imo.js';
 import { el, $, clear, toast, formatBytes, titleCase } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.14';
+const APP_VERSION = '2026.10.15';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -24,7 +25,9 @@ const view = {
   // Kept in view state: the panel is rebuilt when the list redraws, so a
   // summary held only in the DOM disappears the moment it is shown.
   lastSync: null,
-  imoOpen: false
+  imoOpen: false,
+  // Folded by default: what the section is for is the circulars.
+  toolsOpen: false
 };
 
 let lockTimer = null;
@@ -235,16 +238,62 @@ function renderHome(body) {
   }
 }
 
+/**
+ * Everything that is not a circular, folded away.
+ *
+ * Flag Circulars had four panels stacked above the list — updating, fetching,
+ * importing, and eleven links to check against the source — so reaching the
+ * circulars meant scrolling past around twenty buttons. The panels each earn
+ * their place; having all of them open at once does not.
+ *
+ * One line instead, which opens when it is wanted. What the section is for is
+ * the circulars, and they now start directly under it.
+ */
+function toolsPanel(def, panels) {
+  const open = view.toolsOpen;
+  const wrap = el('div', { class: 'panel tools-panel' });
+
+  const outstanding = view.section === 'flag'
+    ? SYNCABLE.reduce((n, admin) => n + withoutDocuments(admin).length, 0)
+    : 0;
+
+  const head = el('button', {
+    class: 'tools-head', 'aria-expanded': String(open),
+    onclick: () => { view.toolsOpen = !view.toolsOpen; render(); }
+  }, [
+    el('span', { class: 'tools-title', text: 'Update, fetch and import' }),
+    // A number worth seeing without opening anything: documents the site holds
+    // that this phone has not taken yet.
+    outstanding ? el('span', { class: 'pill pill-copper', text: `${outstanding} to fetch` }) : null,
+    el('span', { class: 'tools-chevron', text: open ? '\u2212' : '+' })
+  ]);
+  wrap.append(head);
+
+  if (open) {
+    const inner = el('div', { class: 'tools-body' });
+    for (const panel of panels) if (panel) inner.append(panel);
+    wrap.append(inner);
+  }
+  return wrap;
+}
+
 function renderSection(body) {
   const def = TYPES[view.section];
+  const panels = [];
   if (view.section === 'flag') {
-    body.append(updatePanel());
-    const docs = documentPanel();
-    if (docs) body.append(docs);
+    panels.push(updatePanel(), documentPanel());
   }
-  body.append(importPanel(def));
-  if (view.section === 'publication') body.append(conventionPanel());
-  if (def.sources) body.append(sourceLinks(def.sources));
+  panels.push(importPanel(def));
+  if (view.section === 'publication') panels.push(conventionPanel());
+  if (def.sources) panels.push(sourceLinks(def.sources));
+
+  // Folded only where it is genuinely in the way. Flag Circulars stacked four
+  // panels and about twenty buttons above the list; Publications has three
+  // panels and one of them is the convention list, which is worth having in
+  // sight. A fold that hides something wanted is a worse change than the
+  // crowding it fixes.
+  if (view.section === 'flag') body.append(toolsPanel(def, panels));
+  else for (const panel of panels) if (panel) body.append(panel);
   let items = store.itemsOfType(view.section);
   if (view.filter && def.filterBy) {
     items = items.filter((i) => i.data[def.filterBy.key] === view.filter);
@@ -559,26 +608,28 @@ async function fetchDocuments(admins, button, out) {
   stop.addEventListener('click', () => { stopFetching = true; stop.textContent = 'Stopping…'; });
   clear(out).append(status, bar, stop);
 
-  let done = 0, bytes = 0, missing = 0, failed = 0;
+  let done = 0, bytes = 0, missing = 0;
+  // Which ones, not how many. "1 could not be fetched" out of 373 leaves you
+  // with a number and no way to tell a bad minute on the connection from a
+  // document that will never come — and those want different things done.
+  const failures = [];
   for (const item of queue) {
     if (stopFetching) break;
     status.textContent = `${done + 1} of ${queue.length} — ${item.data.refNo}`;
     try {
       bytes += await downloadDocument(item);
     } catch (ex) {
-      if (/not held/.test(ex.message)) missing++; else failed++;
+      if (/not held/.test(ex.message)) missing++;
+      else failures.push(`${item.data.refNo || item.data.title} (${ex.message})`);
     }
     done++;
     bar.firstChild.style.width = `${Math.round((done / queue.length) * 100)}%`;
   }
 
-  const held = done - missing - failed;
+  const held = done - missing - failures.length;
   view.lastSync = {
     ok: held > 0,
-    text: `${held} document${held === 1 ? '' : 's'} fetched, ${(bytes / 1048576).toFixed(1)} MB`
-      + (missing ? ` · ${missing} not held on the site` : '')
-      + (failed ? ` · ${failed} could not be fetched` : '')
-      + (stopFetching ? ' · stopped' : '')
+    text: fetchSummary({ held, bytes, missing, failures, stopped: stopFetching })
   };
   button.disabled = false;
   button.textContent = label;

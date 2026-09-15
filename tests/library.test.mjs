@@ -352,6 +352,17 @@ const save = async (timeout = 30000) => {
 };
 
 /** Editing from the detail view reopens it on save; dismiss it before going on. */
+// Flag Circulars folds its four panels behind one line so the circulars are
+// what the section opens on. Everything the suite does with those panels needs
+// them unfolded first.
+const openTools = async () => {
+  const head = page.locator('.tools-head');
+  if (await head.count() === 0) return;
+  if ((await head.getAttribute('aria-expanded')) === 'true') return;
+  await head.click();
+  await page.waitForSelector('.tools-body', { timeout: 5000 });
+};
+
 const closeDetail = async () => {
   if (await page.locator('#detail').isVisible()) {
     await page.click('#detailClose');
@@ -730,6 +741,8 @@ try {
   await page.waitForTimeout(200);
   await page.locator('.section-card', { hasText: 'Flag Circulars' }).click();
   await page.waitForTimeout(200);
+  await openTools();
+  await page.waitForTimeout(200);
 
   const sourceHrefs = await page.locator('.body a.link-btn').evaluateAll((as) =>
     as.map((a) => ({ text: a.textContent.trim(), href: a.getAttribute('href') })));
@@ -830,6 +843,8 @@ try {
   await page.click('#backBtn');
   await page.waitForTimeout(300);
   await page.locator('.section-card', { hasText: 'Flag Circulars' }).click();
+  await page.waitForTimeout(200);
+  await openTools();
   await page.waitForTimeout(300);
   await page.fill('#search', 'notice');
   await page.waitForTimeout(600);
@@ -1157,7 +1172,51 @@ try {
   await page.reload({ waitUntil: 'networkidle' });
   await page.waitForTimeout(400);
   await page.locator('.section-card', { hasText: 'Flag Circulars' }).click();
+  await page.waitForTimeout(200);
+  await openTools();
   await page.waitForTimeout(300);
+
+  // ---- the circulars first, the buttons folded away --------------------
+  // Four panels and about twenty buttons used to stand between the top of this
+  // section and the first circular. What the section is for is the circulars.
+  // Folded again first: it stays open once opened, and an earlier part of this
+  // run opened it. Asserting the default here without closing it would have
+  // been asserting whatever the previous test left behind.
+  if ((await page.locator('.tools-head').getAttribute('aria-expanded')) === 'true') {
+    await page.locator('.tools-head').click();
+    await page.waitForTimeout(250);
+  }
+  const folded = await page.evaluate(() => {
+    const head = document.querySelector('.tools-head');
+    const firstCard = document.querySelector('.card');
+    const body = document.querySelector('.tools-body');
+    return {
+      hasLine: Boolean(head),
+      open: head?.getAttribute('aria-expanded'),
+      bodyShown: Boolean(body),
+      buttonsAboveTheFirstCard: firstCard
+        ? [...document.querySelectorAll('.body button')]
+          .filter((b) => b.getBoundingClientRect().top < firstCard.getBoundingClientRect().top).length
+        : -1
+    };
+  });
+  check('the section opens on one line, not four panels', folded.hasLine && folded.bodyShown === false,
+    JSON.stringify(folded));
+  check('and at most that one button stands above the first circular',
+    folded.buttonsAboveTheFirstCard <= 1, JSON.stringify(folded));
+
+  await openTools();
+  const unfolded = await page.evaluate(() => ({
+    open: document.querySelector('.tools-head')?.getAttribute('aria-expanded'),
+    panels: document.querySelectorAll('.tools-body .panel').length,
+    // Opened, it must not be clipped: the body is a flex column and a flex
+    // item shrinks before its container scrolls, which cut it to a third.
+    clipped: document.querySelector('.tools-panel').getBoundingClientRect().height
+      < document.querySelector('.tools-body').getBoundingClientRect().height
+  }));
+  check('opening it brings every panel back', unfolded.open === 'true' && unfolded.panels >= 3,
+    JSON.stringify(unfolded));
+  check('and none of it is clipped away', !unfolded.clipped, JSON.stringify(unfolded));
 
   const docPanel = '.doc-panel';
   check('the documents are offered separately from the list',
