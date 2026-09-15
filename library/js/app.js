@@ -12,7 +12,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.16';
+const APP_VERSION = '2026.10.17';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1009,7 +1009,7 @@ function cardFor(item, snippets, matchInfo) {
         class: 'pill ' + (rev.state === 'ok' ? 'pill-sage' : 'pill-warn'),
         text: rev.state === 'ok' ? 'Current' : rev.state === 'never' ? 'Unverified' : 'Check'
       }) : null,
-      atts.length ? el('span', { class: 'pill pill-dim', text: `${atts.length} file${atts.length === 1 ? '' : 's'}` }) : null
+      searchablePill(item.data)
     ])
   ]);
   if (rev) {
@@ -1258,6 +1258,49 @@ function textStatusOf(att) {
   return null;
 }
 
+/**
+ * Whether the words inside an entry's files can be found by searching.
+ *
+ * "It has a file" and "you can find it again" are different things, and the
+ * card only ever said the first. A scan is a picture of its pages until it has
+ * been read, and nothing on the list said so -- you had to open each entry to
+ * find out. This is what the pill on the card answers.
+ *
+ * Pictures are deliberately not part of the verdict. Reading them costs a few
+ * seconds a page for every page, and most documents do not need it, so a card
+ * marked "pictures unread" would be nagging for an evening's work the reader
+ * has no reason to do. That one stays where it can be judged: on the document.
+ */
+function searchableState(data) {
+  const atts = data.attachments || [];
+  if (!atts.length) return null;
+  let worst = 'yes';
+  const worse = (a, b) => (['yes', 'part', 'no'].indexOf(a) > ['yes', 'part', 'no'].indexOf(b) ? a : b);
+  for (const att of atts) {
+    // Already nothing but words.
+    if (/^text\//i.test(att.type || '') || /\.txt$/i.test(att.name || '')) continue;
+    const state = textStatusOf(att);
+    if (state !== STATUS.INDEXED) { worst = 'no'; continue; }
+    // readTo is set by the reader alone, so it is what tells a scan stopped
+    // half way from a PDF whose text was simply extracted.
+    const partRead = (att.readTo || 0) > 0 && att.readTo < (att.pageCount || 1);
+    if (partRead) worst = worse(worst, 'part');
+  }
+  return worst;
+}
+
+/** The pill that says it, or null where there is no file to say it about. */
+function searchablePill(data) {
+  const state = searchableState(data);
+  if (!state) return null;
+  const count = (data.attachments || []).length;
+  const said = state === 'yes' ? 'searchable' : state === 'part' ? 'part read' : 'not searchable';
+  return el('span', {
+    class: 'pill ' + (state === 'yes' ? 'pill-sage' : 'pill-warn'),
+    text: count > 1 ? `${count} files \u00b7 ${said}` : said
+  });
+}
+
 function attachmentRow(att, onRemove) {
   const state = textStatusOf(att);
   const status =
@@ -1276,7 +1319,21 @@ function attachmentRow(att, onRemove) {
       onRemove ? el('button', { class: 'del-btn', onclick: onRemove, 'aria-label': 'Remove file' }, ['×']) : null
     ])
   ]);
-  if (status) row.append(el('div', { style: 'margin-top:8px' }, [status]));
+  // Two separate things get read, and a reader who has done one needs to see
+  // that it took. The words of the document are the pill above; the words
+  // inside its pictures are their own, because nothing else on the screen said
+  // whether that had been done -- the button simply stopped being offered.
+  const picsTo = att.picturesTo || 0;
+  const picsAll = picsTo > 0 && picsTo >= (att.pageCount || 1);
+  const pictures = picsAll
+    ? el('span', { class: 'pill pill-sage', text: 'Pictures read' })
+    : picsTo > 0
+      ? el('span', { class: 'pill pill-warn', text: `Pictures read to page ${picsTo}` })
+      : null;
+  if (status || pictures) {
+    row.append(el('div', { class: 'pill-row', style: 'margin-top:8px' },
+      [status, pictures].filter(Boolean)));
+  }
   if (state === STATUS.NO_TEXT) {
     row.append(el('p', { class: 'hint', text: 'This file is a picture of its pages, so there are no words to search. Its title and fields are still searchable.' }));
   }

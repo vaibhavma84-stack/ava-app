@@ -363,6 +363,11 @@ const openTools = async () => {
   await page.waitForSelector('.tools-body', { timeout: 5000 });
 };
 
+// "It has a file" and "you can find it again" are different things, and the
+// card is where the second one has to be legible without opening anything.
+const cardPill = async (title) =>
+  (await page.locator('.card', { hasText: title }).first().locator('.pill').allInnerTexts()).join(' ');
+
 // And the circulars themselves are a tree, shut by default -- a flag opens to
 // its classes of notice, a class opens to the notices. Assertions about cards
 // have to open it first.
@@ -691,6 +696,11 @@ try {
     (await page.locator('.group-head').allTextContents()).join(' | '));
   check('and it is not offered a second time',
     await page.locator(`${imoPanel} .stat`, { hasText: 'SOLAS 1974' }).count() === 0);
+  // Nothing has been added to it yet, so there is nothing to be searchable or
+  // not. A verdict here would be a verdict about a document that is not there.
+  check('an entry with no document is not labelled either way',
+    (await cardPill('Safety of Life at Sea')).trim() === '',
+    await cardPill('Safety of Life at Sea'));
 
   await page.locator('.card', { hasText: 'Safety of Life at Sea' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
@@ -1705,6 +1715,12 @@ try {
   check('and is offered the reading of its pictures',
     /Read the pictures and diagrams too/i.test(diagramDetail),
     diagramDetail.replace(/\n/g, ' / ').slice(0, 300));
+  check('with nothing yet claiming its pictures have been read',
+    !/Pictures read/i.test(diagramDetail),
+    diagramDetail.replace(/\n/g, ' / ').slice(0, 300));
+  check('a PDF whose text was extracted says searchable on its card',
+    /^searchable$/i.test((await cardPill('Hydraulic System Overview')).trim()),
+    await cardPill('Hydraulic System Overview'));
   await closeDetail();
 
   // The prose is findable from the start; the label on the drawing is not,
@@ -1731,6 +1747,11 @@ try {
   const pictureRead = await page.locator('.toast', { hasText: /Read the pictures on|Stopped at|Could not/ }).innerText();
   check('the pictures are read', /Read the pictures on all/.test(pictureRead), pictureRead);
   await page.waitForTimeout(800);
+  // The button simply stopped being offered before this. Absence is not an
+  // answer to "have the pictures been read?".
+  check('and the document says so afterwards rather than going quiet',
+    /Pictures read/i.test(await page.locator('#detailBody').innerText()),
+    (await page.locator('#detailBody').innerText()).replace(/\n/g, ' / ').slice(0, 300));
   await closeDetail();
 
   await page.fill('#search', 'bilge');
@@ -1934,6 +1955,10 @@ try {
   await page.waitForTimeout(2500);
   await save();
 
+  check('a scan says on its card that it cannot be searched',
+    /not searchable/i.test(await cardPill('L-001 Operational Manual')),
+    await cardPill('L-001 Operational Manual'));
+
   await page.locator('.card', { hasText: 'L-001 Operational Manual' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
   const asScan = await page.locator('#detailBody').innerText();
@@ -1956,6 +1981,12 @@ try {
   check('and its words are searchable now',
     !/no text layer/i.test(afterRead), afterRead.slice(0, 200).replace(/\n/g, ' / '));
   await closeDetail();
+
+  // Three pages of four. Calling that searchable would be a lie the reader
+  // only finds out about when the thing they are looking for is not found.
+  check('a scan read part way says so rather than claiming to be searchable',
+    /part read/i.test(await cardPill('L-001 Operational Manual')),
+    await cardPill('L-001 Operational Manual'));
 
   // The point of reading it: findable by what is printed on the page. This
   // phrase is on page two, behind a cover sheet — which one page would miss.
@@ -1992,6 +2023,10 @@ try {
   check('the whole document is read', /Read all 4 pages/.test(whole), whole);
   await page.waitForTimeout(800);
   await closeDetail();
+
+  check('and once every page is read the card says it is searchable',
+    /^searchable$/i.test((await cardPill('L-001 Operational Manual')).trim()),
+    await cardPill('L-001 Operational Manual'));
 
   await page.fill('#search', 'chartroom cabinet');
   await page.waitForTimeout(900);

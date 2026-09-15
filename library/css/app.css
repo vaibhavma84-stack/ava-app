@@ -179,7 +179,10 @@ select.field {
   padding: 12px 13px; cursor: pointer;
 }
 .card:active { background: var(--ink-750); }
-.card-head { display: flex; align-items: flex-start; gap: 9px; }
+/* Pills wrap rather than crushing the title: a card can carry a withdrawal,
+   a revision state and a searchable verdict at once. */
+.card-head { display: flex; align-items: flex-start; gap: 9px; flex-wrap: wrap; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .card-title {
   font-family: var(--display); font-size: 16.5px; font-weight: 500; letter-spacing: .02em;
   margin: 0; flex: 1; min-width: 0; overflow-wrap: anywhere; color: var(--text);
