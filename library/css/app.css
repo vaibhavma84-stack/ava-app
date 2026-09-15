@@ -221,6 +221,28 @@ select.field {
 .group-head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .group-count { font-family: var(--mono); color: var(--text-dim); letter-spacing: 0; }
 
+/* ── collapsible groups ──────────────────────────────────────────────────── */
+.group-head-btn {
+  width: 100%; min-height: 42px; margin: 6px 0 0; cursor: pointer;
+  background: transparent; border: 0; padding: 0;
+  color: var(--copper); text-align: left;
+}
+/* The rule is its own span here, so it can sit before the count rather than
+   after the chevron. */
+.group-head-btn::after { content: none; }
+.group-head-btn .group-rule { flex: 1 1 auto; height: 1px; background: var(--line); }
+.group-head-btn .group-name { flex: 0 1 auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.group-head-btn .group-chevron {
+  flex: 0 0 auto; width: 18px; text-align: center;
+  font-family: var(--mono); font-size: 15px; letter-spacing: 0; color: var(--copper-dim);
+}
+.group-head-btn:active .group-name, .group-head-btn:active .group-chevron { color: var(--copper-bright); }
+.group-head-btn.depth-2 {
+  margin: 2px 0 0; padding-left: 14px;
+  font-size: 10.5px; color: var(--text-dim); min-height: 38px;
+}
+.group-head-btn.depth-2 .group-chevron { color: var(--text-faint); }
+
 .snippet {
   display: block; width: 100%; text-align: left; cursor: pointer;
   margin-top: 9px; padding: 9px 11px; border-radius: 8px;

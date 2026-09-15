@@ -259,6 +259,11 @@ export const TYPES = {
     // sourceUrl is written by the MCA sync and is not edited by hand.
     // Filed by flag, since an officer serves under one at a time.
     groupBy: { key: 'flagState', label: 'Flag / Administration', blank: 'No flag set' },
+    // And by class of notice inside each flag. Fourteen hundred circulars in
+    // one list is not something anyone browses, and the numbering already
+    // says how people look for them: you look for an MGN, not for a notice.
+    subGroupBy: { key: 'docType', label: 'Type', blank: 'Unclassified' },
+    collapsible: true,
     sources: FLAG_SOURCES,
     filterBy: { key: 'docType', label: 'Type' },
     // By number, not by date. A shelf of notices is looked along for the one

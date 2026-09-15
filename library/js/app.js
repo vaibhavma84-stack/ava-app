@@ -12,7 +12,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.15';
+const APP_VERSION = '2026.10.16';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -27,7 +27,10 @@ const view = {
   lastSync: null,
   imoOpen: false,
   // Folded by default: what the section is for is the circulars.
-  toolsOpen: false
+  toolsOpen: false,
+  // Which branches of the flag tree are open. Kept here rather than in the
+  // DOM, because every render empties the body.
+  openGroups: new Set()
 };
 
 let lockTimer = null;
@@ -277,6 +280,80 @@ function toolsPanel(def, panels) {
   return wrap;
 }
 
+/**
+ * True when a branch should show what is inside it.
+ *
+ * A pill filter has already narrowed the list to one class of notice, so
+ * making the user open the branches again to see the handful left would be
+ * asking twice for the same thing.
+ */
+function branchOpen(key) {
+  return Boolean(view.filter) || view.openGroups.has(key);
+}
+
+/** A header that opens and shuts, used at both levels of the tree. */
+function branch(key, label, count, depth) {
+  const open = branchOpen(key);
+  return el('button', {
+    class: `group-head group-head-btn depth-${depth}`,
+    'aria-expanded': String(open),
+    onclick: () => {
+      if (open) view.openGroups.delete(key); else view.openGroups.add(key);
+      render();
+    }
+  }, [
+    el('span', { class: 'group-name', text: label }),
+    el('span', { class: 'group-rule' }),
+    el('span', { class: 'group-count', text: String(count) }),
+    el('span', { class: 'group-chevron', text: open ? '\u2212' : '+' })
+  ]);
+}
+
+/**
+ * Flags, then the classes of notice inside them, then the notices.
+ *
+ * Fourteen hundred circulars in one list is not something anyone browses. A
+ * flag holds three or four classes and a class holds a few hundred, so two
+ * levels is what the numbering already implies: you look for an MGN, not for
+ * a notice.
+ *
+ * Shut by default, and what is open is remembered while the app is open, so
+ * coming back from reading a circular leaves the list where it was rather
+ * than folded up again.
+ */
+function renderTree(body, def, groups, names) {
+  const subKey = def.subGroupBy?.key;
+  for (const name of names) {
+    const inGroup = groups.get(name);
+    body.append(branch(name, name, inGroup.length, 1));
+    if (!branchOpen(name)) continue;
+
+    if (!subKey) {
+      for (const item of inGroup) body.append(cardFor(item));
+      continue;
+    }
+
+    const kinds = new Map();
+    for (const item of inGroup) {
+      const kind = item.data[subKey] || def.subGroupBy.blank;
+      if (!kinds.has(kind)) kinds.set(kind, []);
+      kinds.get(kind).push(item);
+    }
+    for (const kind of [...kinds.keys()].sort((a, b) => {
+      if (a === def.subGroupBy.blank) return 1;
+      if (b === def.subGroupBy.blank) return -1;
+      return a.localeCompare(b);
+    })) {
+      // Keyed by both, so opening MGN under MCA does not open it under a flag
+      // that happens to use the same word for something else.
+      const key = `${name} \u203a ${kind}`;
+      body.append(branch(key, kind, kinds.get(kind).length, 2));
+      if (!branchOpen(key)) continue;
+      for (const item of kinds.get(kind)) body.append(cardFor(item));
+    }
+  }
+}
+
 function renderSection(body) {
   const def = TYPES[view.section];
   const panels = [];
@@ -317,6 +394,9 @@ function renderSection(body) {
       if (b === def.groupBy.blank) return -1;
       return a.localeCompare(b);
     });
+
+    if (def.collapsible) { renderTree(body, def, groups, names); return; }
+
     for (const name of names) {
       body.append(el('div', { class: 'group-head' }, [
         name, el('span', { class: 'group-count', text: String(groups.get(name).length) })

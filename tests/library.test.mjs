@@ -363,6 +363,18 @@ const openTools = async () => {
   await page.waitForSelector('.tools-body', { timeout: 5000 });
 };
 
+// And the circulars themselves are a tree, shut by default -- a flag opens to
+// its classes of notice, a class opens to the notices. Assertions about cards
+// have to open it first.
+const openBranches = async () => {
+  for (let i = 0; i < 60; i++) {
+    const shut = page.locator('.group-head-btn[aria-expanded="false"]').first();
+    if (await shut.count() === 0) return;
+    await shut.click();
+    await page.waitForTimeout(40);
+  }
+};
+
 const closeDetail = async () => {
   if (await page.locator('#detail').isVisible()) {
     await page.click('#detailClose');
@@ -806,6 +818,7 @@ try {
   await page.waitForTimeout(200);
   await pick('docType', 'MMN (Merchant Marine Notice)');
   await save();
+  await openBranches();
   check('saves a flag circular', (await page.locator('.card').count()) === 1);
 
   const flagOptions = await page.evaluate(() => {
@@ -897,6 +910,7 @@ try {
   check('the collection the user gave is the one used',
     mgnTried.some((u) => /active-marine-guidance-notes-mgns/.test(u)), mgnTried.join(', '));
 
+  await openBranches();
   const cards = await page.locator('.card').allInnerTexts();
   check('the reference is parsed from the title',
     cards.some((c) => /MSN 1871 \(M\)/.test(c)), cards.join(' | '));
@@ -987,6 +1001,7 @@ try {
     asked(/search=MMN/).length === 1, panamaPages.join(' | '));
   check('and the walk stops rather than running on past the end',
     asked(/page=4/).length === 0, panamaPages.join(' | '));
+  await openBranches();
   check('what the filler uploads carry is not filed',
     !(await page.locator('.card').allInnerTexts()).some((c) => /brochure/i.test(c)));
 
@@ -999,6 +1014,7 @@ try {
     (await page.locator('#detailBody').innerText()).slice(0, 200));
   await closeDetail();
 
+  await openBranches();
   const panamaCards = await page.locator('.card').allInnerTexts();
   check('a Panama circular reference is parsed',
     panamaCards.some((c) => /MMC 230/.test(c)), panamaCards.join(' | '));
@@ -1023,6 +1039,7 @@ try {
   await page.waitForSelector('.hint:has-text("Panama: 0 new")', { timeout: 20000 });
   const panamaAgain = await page.locator(`${panel} .sync-result`).innerText();
   check('a repeat Panama sync adds nothing', /Panama: 0 new/.test(panamaAgain), panamaAgain);
+  await openBranches();
   check('a title rewritten by hand is kept',
     (await page.locator('.card').allInnerTexts())
       .some((c) => /Recognised [Oo]rganisations [Aa]cting for Panama/.test(c)));
@@ -1116,6 +1133,7 @@ try {
   check('and the notices are told where their documents are',
     /2 now know where their document is/.test(sgRun), sgRun);
 
+  await openBranches();
   const sgCards = await page.locator('.card').allInnerTexts();
   check('a spelt-out Singapore reference is parsed',
     sgCards.some((c) => /PC 01\/2026/.test(c)), sgCards.join(' | '));
@@ -1173,6 +1191,56 @@ try {
   await page.waitForTimeout(400);
   await page.locator('.section-card', { hasText: 'Flag Circulars' }).click();
   await page.waitForTimeout(200);
+
+  // ---- the circulars as a tree, shut ------------------------------------
+  // Fourteen hundred notices in one list is not something anyone browses.
+  // The page has just been reloaded, so nothing is open: this is what the
+  // section looks like when it is first reached.
+  const shutHeads = await page.locator('.group-head-btn').allInnerTexts();
+  check('the flags are lines that open, not headings over a long list',
+    shutHeads.length >= 3 && shutHeads.every((h) => /\+$/.test(h.trim())),
+    shutHeads.join(' | '));
+  check('and nothing is unfolded until it is asked for',
+    (await page.locator('.card').count()) === 0,
+    String(await page.locator('.card').count()));
+  check('each says how many it holds',
+    shutHeads.some((h) => /MCA[\s\S]*\d/.test(h)), shutHeads.join(' | '));
+
+  await page.locator('.group-head-btn', { hasText: 'MCA' }).first().click();
+  await page.waitForTimeout(250);
+  const mcaOpen = await page.locator('.group-head-btn.depth-2').allInnerTexts();
+  check('opening a flag shows its classes of notice, not its notices',
+    mcaOpen.some((h) => /MGN/.test(h)) && (await page.locator('.card').count()) === 0,
+    mcaOpen.join(' | '));
+  check('and only that flag opened',
+    (await page.locator('.group-head-btn[aria-expanded="true"]').count()) === 1);
+
+  await page.locator('.group-head-btn.depth-2', { hasText: 'MGN' }).first().click();
+  await page.waitForTimeout(250);
+  const mgnCards = await page.locator('.card').allInnerTexts();
+  check('opening a class shows the notices in it',
+    mgnCards.length > 0 && mgnCards.every((c) => /MGN/.test(c)), mgnCards.join(' | '));
+
+  // Two levels down and back: coming out of a circular must not fold the
+  // list up again, or every read costs two taps to get back to where you were.
+  await page.locator('.card').first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await closeDetail();
+  await page.waitForTimeout(250);
+  check('and reading one and coming back leaves the list where it was',
+    (await page.locator('.card').count()) === mgnCards.length,
+    String(await page.locator('.card').count()));
+
+  // A pill has already narrowed the list to one class. Making the reader open
+  // the branches again to see the few left would be asking twice.
+  await page.locator('.scope-btn', { hasText: 'MSN' }).first().click();
+  await page.waitForTimeout(300);
+  const filtered = await page.locator('.card').allInnerTexts();
+  check('filtering by a class shows them without opening anything',
+    filtered.length > 0 && filtered.every((c) => /MSN/.test(c)), filtered.join(' | '));
+  await page.locator('.scope-btn', { hasText: 'All' }).first().click();
+  await page.waitForTimeout(300);
+
   await openTools();
   await page.waitForTimeout(300);
 
@@ -1186,6 +1254,10 @@ try {
     await page.locator('.tools-head').click();
     await page.waitForTimeout(250);
   }
+  // The branches of the tree are buttons too, and they belong above the
+  // circulars -- they are how you reach them. What is being counted is what
+  // stands in the way.
+  await openBranches();
   const folded = await page.evaluate(() => {
     const head = document.querySelector('.tools-head');
     const firstCard = document.querySelector('.card');
@@ -1195,7 +1267,7 @@ try {
       open: head?.getAttribute('aria-expanded'),
       bodyShown: Boolean(body),
       buttonsAboveTheFirstCard: firstCard
-        ? [...document.querySelectorAll('.body button')]
+        ? [...document.querySelectorAll('.body button:not(.group-head-btn)')]
           .filter((b) => b.getBoundingClientRect().top < firstCard.getBoundingClientRect().top).length
         : -1
     };
@@ -1203,7 +1275,7 @@ try {
   check('the section opens on one line, not four panels', folded.hasLine && folded.bodyShown === false,
     JSON.stringify(folded));
   check('and at most that one button stands above the first circular',
-    folded.buttonsAboveTheFirstCard <= 1, JSON.stringify(folded));
+    folded.buttonsAboveTheFirstCard === 1, JSON.stringify(folded));
 
   await openTools();
   const unfolded = await page.evaluate(() => ({
@@ -1243,6 +1315,7 @@ try {
   check('nothing is fetched from the administration itself',
     !docOutbound.some((u) => /mpa\.gov\.sg/.test(u)), docOutbound.join(', '));
 
+  await openBranches();
   await page.locator('.card', { hasText: 'PC 01/2026' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
   const withDoc = await page.locator('#detailBody').innerText();
@@ -1263,6 +1336,7 @@ try {
 
   // A notice its administration publishes as a page, not a file. There is no
   // PDF to hold, so holding its words is the only way it reaches the phone.
+  await openBranches();
   await page.locator('.card', { hasText: 'PN 44/2026' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
   const asText = await page.locator('#detailBody').innerText();
@@ -1297,6 +1371,7 @@ try {
   // A notice with nothing held must say why rather than just ending at a link.
   // "Where is the circular?" is the right question to ask of an entry that
   // stops at Open link with no explanation.
+  await openBranches();
   await page.locator('.card', { hasText: 'SC 09/2025' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
   const nothingHeld = await page.locator('#detailBody').innerText();
@@ -1312,6 +1387,7 @@ try {
   await closeDetail();
 
   // One that does hold its document must not carry the notice.
+  await openBranches();
   await page.locator('.card', { hasText: 'PC 01/2026' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
   check('a notice that has its document does not',
@@ -1398,6 +1474,7 @@ try {
   check('a notice no longer on the list is reported',
     /1 no longer on the administration's list/.test(withdrawnRun), withdrawnRun);
 
+  await openBranches();
   const withdrawnCard = page.locator('.card', { hasText: 'SC 03/2019' }).first();
   check('and marked on the card',
     /withdrawn/i.test(await withdrawnCard.innerText()),
@@ -1452,6 +1529,7 @@ try {
     });
   });
   await page.waitForTimeout(400);
+  await openBranches();
   await page.locator('.card', { hasText: 'MGN 718' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
   const staleNote = await page.locator('#detailBody').innerText();
