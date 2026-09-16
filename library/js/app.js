@@ -13,7 +13,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.21';
+const APP_VERSION = '2026.10.22';
 
 const view = {
   screen: 'home',      // home | section | search

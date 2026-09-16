@@ -31,6 +31,37 @@ function bodySize(pages) {
 const NUMBERED = /^(\d{1,2}(?:\.\d{1,3}){0,4})[.):]?\s+(\S.*)$/;
 
 /**
+ * The lines a document prints on every page: its running head and its footer.
+ *
+ * These are set apart from the body exactly as a heading is, and they are
+ * short and unpunctuated exactly as a heading is, so nothing about one line of
+ * it says it is not a heading. What says so is that it is on page after page.
+ * A real heading appears once, where its section starts.
+ *
+ * Counted on exact text rather than on text with the numbers stripped out.
+ * Stripping them would catch a running head carrying a page number, and would
+ * also collapse "Chapter 1" through "Chapter 20" into one repeated line and
+ * throw away every chapter in the book.
+ */
+function runningHeads(pages) {
+  const onPages = new Map();
+  for (const lines of pages) {
+    const seenHere = new Set();
+    for (const line of lines) {
+      if (seenHere.has(line.text)) continue;
+      seenHere.add(line.text);
+      onPages.set(line.text, (onPages.get(line.text) || 0) + 1);
+    }
+  }
+  // Proportional, so it holds for a booklet and for a manual: on 326 pages a
+  // line has to be on 14 of them, on 12 pages it has to be on 3.
+  const enough = Math.max(3, Math.ceil(pages.length * 0.04));
+  const heads = new Set();
+  for (const [text, count] of onPages) if (count >= enough) heads.add(text);
+  return heads;
+}
+
+/**
  * The contents of a document, with the page each entry is on.
  *
  * A heading is a line set larger than the body, or a numbered line short
@@ -41,10 +72,14 @@ export function outlineFrom(pages) {
   const body = bodySize(pages);
   const sizes = new Set();
   const found = [];
+  const running = runningHeads(pages);
 
   for (const lines of pages) {
     for (const line of lines) {
       if (line.text.includes('\t')) continue;
+      // The title of the manual, printed at the top of all 326 of its pages,
+      // is not 326 entries in its contents.
+      if (running.has(line.text)) continue;
       const bigger = line.size > body + 0.4;
       const numbered = NUMBERED.exec(line.text);
 
@@ -70,16 +105,26 @@ export function outlineFrom(pages) {
   // indented the way the document is. Where a document sets every heading the
   // same, the number of parts in its reference says the same thing.
   const ranked = [...sizes].sort((a, b) => b - a);
-  return found.map((entry) => {
+  const seen = new Set();
+  const out = [];
+  for (const entry of found) {
+    // The same words twice on one page is a heading and the line under it
+    // repeating it, or a heading caught in two pieces. Either way it is one
+    // entry, and a contents list that says a thing twice is read as wrong.
+    const key = `${entry.page}|${entry.ref || ''}|${entry.title.toLowerCase()}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+
     const bySize = ranked.indexOf(Math.round(entry.size * 2) / 2);
     const byRef = entry.ref ? entry.ref.split('.').length - 1 : null;
-    return {
+    out.push({
       ref: entry.ref,
       title: entry.title,
       page: entry.page,
       level: Math.min(ranked.length > 1 ? bySize : (byRef ?? 0), 3)
-    };
-  });
+    });
+  }
+  return out;
 }
 
 // What a document calls the maker of something, and what it calls the thing.
