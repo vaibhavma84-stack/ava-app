@@ -2218,6 +2218,81 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
+  // ---- reading a whole section without opening anything ------------------
+  // A ship's manuals are dozens of documents and thousands of pages. Reading
+  // them one at a time means opening each entry, finding the button and
+  // waiting at it, which nobody does.
+  console.log('\nReading a whole section');
+  for (const title of ['L-002 Cargo Manual', 'L-003 Ballast Manual']) {
+    await page.click('#fab');
+    await page.waitForSelector('#editor:not([hidden])');
+    await set('title', title);
+    await page.setInputFiles('#filePicker', SCAN_PATH);
+    await page.waitForTimeout(2500);
+    await save();
+  }
+
+  const readPanel = '.read-panel';
+  check('the section says what is still unread',
+    /2 documents hold words no search can reach/i.test(await page.locator(readPanel).innerText()),
+    (await page.locator(readPanel).innerText()).replace(/\n/g, ' / '));
+  check('and how many pages that is, so the cost is known before it starts',
+    /about 8 pages/i.test(await page.locator(readPanel).innerText()),
+    (await page.locator(readPanel).innerText()).replace(/\n/g, ' / '));
+
+  // Nothing is read until it is asked for: the reader is 7 MB and seconds a
+  // page, which on a ship is a decision about battery and data.
+  const stillScans = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    return store.itemsOfType('manual')
+      .filter((i) => /L-00[23]/.test(i.data.title))
+      .every((i) => (i.data.attachments || []).every((a) => a.textStatus === 'no-text'));
+  });
+  check('and none of it is read before the button is pressed', stillScans);
+
+  await page.locator(`${readPanel} button`, { hasText: 'Read 2 documents' }).click();
+  // Two four-page scans through the OCR engine.
+  await page.locator('.toast', { hasText: /Read 2 documents|Stopped/ }).waitFor({ timeout: 480000 });
+  const sectionRun = await page.locator('.toast', { hasText: /Read 2 documents|Stopped/ }).innerText();
+  check('both are read in one run, with nothing opened',
+    /Read 2 documents/.test(sectionRun), sectionRun);
+  await page.waitForTimeout(800);
+
+  await openBranches();
+  const bothSearchable = await page.locator('.card', { hasText: 'L-002 Cargo Manual' }).first().innerText();
+  check('a scan read by the run says searchable on its card',
+    /searchable/i.test(bothSearchable) && !/not searchable|part read/i.test(bothSearchable),
+    bothSearchable.replace(/\n/g, ' / '));
+
+  // The last page of the scan, which only a whole-document read reaches.
+  await page.fill('#search', 'chartroom cabinet');
+  await page.waitForTimeout(1000);
+  check('the last page of every one of them is findable',
+    (await page.locator('.card').count()) >= 3, String(await page.locator('.card').count()));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  // The pictures are the separate, more expensive job, and it is offered
+  // separately with its own count.
+  const afterWords = await page.locator(readPanel).innerText();
+  check('what is left over is the pictures, counted on their own',
+    !/words no search can reach/i.test(afterWords)
+    && /pictures and diagrams that have never been read/i.test(afterWords),
+    afterWords.replace(/\n/g, ' / '));
+
+  await page.locator(`${readPanel} button`, { hasText: 'Read the pictures too' }).click();
+  await page.locator('.toast', { hasText: /Read the pictures in|Stopped/ }).waitFor({ timeout: 480000 });
+  const picRun = await page.locator('.toast', { hasText: /Read the pictures in|Stopped/ }).innerText();
+  check('and the pictures across the section are read in one run too',
+    /Read the pictures in/.test(picRun), picRun);
+  await page.waitForTimeout(800);
+
+  // "Is there anything left?" answered by a sentence rather than by the
+  // absence of a button.
+  check('and then it says so plainly rather than going quiet',
+    /Everything here is read/i.test(await page.locator(readPanel).innerText()),
+    (await page.locator(readPanel).innerText()).replace(/\n/g, ' / '));
+
   console.log('\nImporting a stack at once');
   await page.click('#backBtn');
   await page.waitForTimeout(200);

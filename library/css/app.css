@@ -349,6 +349,12 @@ select.field {
 .link-btn { display: block; text-align: center; text-decoration: none; }
 
 /* ── progress ────────────────────────────────────────────────────────────── */
+/* Reading a whole section: the document being read, then the bar, then which
+   one of how many. The title can be long and must not be cut. */
+.read-panel .stat-line { margin: 0 0 10px; color: var(--text); font-size: 13.5px; line-height: 1.45; overflow-wrap: anywhere; }
+.read-panel .bar { margin-bottom: 9px; }
+.read-panel .hint { margin-bottom: 11px; }
+
 .bar { height: 4px; border-radius: 2px; background: var(--ink-700); overflow: hidden; margin-top: 8px; }
 .bar i { display: block; height: 100%; width: 0; background: var(--copper); transition: width .15s linear; }
 

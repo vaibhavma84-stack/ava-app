@@ -186,6 +186,9 @@ export const TYPES = {
     // and they are all for the same ship. Setting that one at a time is the
     // work the import was meant to save.
     bulkFields: ['vessel', 'category'],
+    // Dozens of documents and thousands of pages: nobody reads them one at a
+    // time, so the whole section can be queued and worked through.
+    bulkRead: true,
     filterBy: { key: 'category', label: 'Type' },
     sort: (a, b) => (a.category || '').localeCompare(b.category || '')
                  || (a.title || '').localeCompare(b.title || '')
@@ -222,6 +225,9 @@ export const TYPES = {
     subGroupBy: { key: 'category', label: 'Job', blank: 'Unsorted' },
     collapsible: true,
     bulkFields: ['vessel', 'category'],
+    // Dozens of documents and thousands of pages: nobody reads them one at a
+    // time, so the whole section can be queued and worked through.
+    bulkRead: true,
     filterBy: { key: 'category', label: 'Job' },
     sort: (a, b) => (a.category || '').localeCompare(b.category || '')
                  || (a.title || '').localeCompare(b.title || '')
@@ -251,6 +257,7 @@ export const TYPES = {
     // together as their own section rather than mixed in among the charts.
     groupBy: { key: 'category', label: 'Category', blank: 'Uncategorised' },
     filterBy: { key: 'category', label: 'Type' },
+    bulkRead: true,
     sources: { IMO: [{ label: 'Conventions', url: IMO_LIST_URL }] },
     sort: (a, b) => (a.title || '').localeCompare(b.title || '')
   },
@@ -279,6 +286,7 @@ export const TYPES = {
     ],
     listFields: ['refNo', 'revision'],
     tracksRevision: true,
+    bulkRead: true,
     filterBy: { key: 'docType', label: 'Type' },
     sort: (a, b) => (a.docType || '').localeCompare(b.docType || '')
                  || (a.title || '').localeCompare(b.title || '')

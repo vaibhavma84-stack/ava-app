@@ -12,7 +12,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.18';
+const APP_VERSION = '2026.10.19';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -31,6 +31,9 @@ const view = {
   // Which branches of the flag tree are open. Kept here rather than in the
   // DOM, because every render empties the body.
   openGroups: new Set(),
+  // A run of the reader over a whole section, so the panel can show where it
+  // has got to across every redraw the saving of each page causes.
+  reading: null,
   // Picking several entries to set one field on all of them at once.
   selecting: false,
   selected: new Set(),
@@ -507,6 +510,7 @@ function renderSection(body) {
     panels.push(updatePanel(), documentPanel());
   }
   panels.push(importPanel(def));
+  if (def.bulkRead) panels.push(readAllPanel(def));
   if (view.section === 'publication') panels.push(conventionPanel());
   if (def.sources) panels.push(sourceLinks(def.sources));
 
@@ -1559,7 +1563,10 @@ function attachmentRow(att, onRemove) {
     // a page, and most documents do not need it.
     const picturesDone = (att.picturesTo || 0) > 0
       && att.picturesTo >= (att.pageCount || 1);
-    if (state === STATUS.INDEXED && !picturesDone) {
+    // Not for a scan: its pages are pictures already, and the read above has
+    // been through them. Offering it here would read the same pixels twice.
+    const cameFromPixels = (att.readTo || 0) > 0;
+    if (state === STATUS.INDEXED && !picturesDone && !cameFromPixels) {
       const done = att.picturesTo || 0;
       row.append(el('button', {
         class: 'btn btn-sm btn-block', style: 'margin-top:8px',
@@ -1687,21 +1694,12 @@ async function readPicture(att, button) {
  * and the button afterwards says where it will resume from. Closing the app
  * mid-read costs the page in progress and nothing more.
  */
-async function readWholeScan(att, button, { into = 'text' } = {}) {
+async function readPages(itemId, att, { into = 'text', onProgress, onPage, shouldStop } = {}) {
   // 'text' is a scan with no words in it at all. 'pictures' is a PDF that has
   // its text but whose diagrams and photographs carry words of their own —
   // drawn rather than typed, so extraction never saw them. Same walk over the
   // pages, kept in a different place, so one never overwrites the other.
   const mark = into === 'pictures' ? 'picturesTo' : 'readTo';
-  const label = button.textContent;
-  button.disabled = true;
-
-  const note = el('p', { class: 'hint', style: 'margin-top:6px', text: 'Starting…' });
-  const bar = el('div', { class: 'bar', style: 'margin-top:6px' }, [el('i')]);
-  let stopped = false;
-  const stop = el('button', { class: 'btn btn-sm btn-block', style: 'margin-top:8px' }, ['Stop']);
-  stop.addEventListener('click', () => { stopped = true; stop.textContent = 'Stopping…'; });
-  button.after(note, bar, stop);
 
   // Whatever has already been read stays; this adds to it rather than
   // replacing it, so a resumed read does not lose the pages before it.
@@ -1717,7 +1715,10 @@ async function readWholeScan(att, button, { into = 'text' } = {}) {
     const pages = [...held.values()].sort((a, b) => a.page - b.page);
     await store.storeText(att.id, pages);
     lastKept = upTo;
-    const item = store.getItem(view.detailId);
+    // Looked up afresh each time rather than captured: a run over a whole
+    // section outlives any one open document, and the entry may have been
+    // edited or deleted while the reader was working through it.
+    const item = store.getItem(itemId);
     if (!item) return;
     const next = (item.data.attachments || []).map((a) => a.id === att.id
       ? { ...a, textPages: held.size, [mark]: upTo, textStatus: STATUS.INDEXED, scanned: false }
@@ -1725,30 +1726,58 @@ async function readWholeScan(att, button, { into = 'text' } = {}) {
     await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, attachments: next } });
   };
 
+  const { readAllPages } = await import('./ocr.js');
+  const blob = await store.readFile(att);
+  const walked = await readAllPages(await blob.arrayBuffer(), {
+    from,
+    shouldStop: shouldStop || (() => false),
+    onProgress,
+    onPage: async ({ page, text }) => {
+      // Whichever half this run is filling, the other half of the page is
+      // kept exactly as it was.
+      const had = held.get(page) || { page, text: '' };
+      held.set(page, into === 'pictures' ? { ...had, pictures: text } : { ...had, text });
+      // Kept as it goes, not at the end: the end may never come.
+      await keep(page);
+      onPage?.(page);
+    }
+  });
+
+  // A run that ends without being stopped has seen every page, including the
+  // blank ones that were passed over.
+  if (!walked.stopped) await keep(walked.pageCount);
+  else if (walked.lastPage > lastKept) await keep(walked.lastPage);
+  return { walked, lastKept };
+}
+
+/** The button on an open document: the same walk, with its own progress. */
+async function readWholeScan(att, button, { into = 'text' } = {}) {
+  const label = button.textContent;
+  button.disabled = true;
+
+  const note = el('p', { class: 'hint', style: 'margin-top:6px', text: 'Starting…' });
+  const bar = el('div', { class: 'bar', style: 'margin-top:6px' }, [el('i')]);
+  let stopped = false;
+  const stop = el('button', { class: 'btn btn-sm btn-block', style: 'margin-top:8px' }, ['Stop']);
+  stop.addEventListener('click', () => { stopped = true; stop.textContent = 'Stopping…'; });
+  button.after(note, bar, stop);
+
+  const itemId = view.detailId;
+  let lastKept = att[into === 'pictures' ? 'picturesTo' : 'readTo'] || 0;
+
   try {
-    const { readAllPages } = await import('./ocr.js');
-    const blob = await store.readFile(att);
-    const walked = await readAllPages(await blob.arrayBuffer(), {
-      from,
+    const done = await readPages(itemId, att, {
+      into,
       shouldStop: () => stopped,
       onProgress: (said) => { note.textContent = said; },
-      onPage: async ({ page, text }) => {
-        // Whichever half this run is filling, the other half of the page is
-        // kept exactly as it was.
-        const had = held.get(page) || { page, text: '' };
-        held.set(page, into === 'pictures' ? { ...had, pictures: text } : { ...had, text });
-        // Kept as it goes, not at the end: the end may never come.
-        await keep(page);
+      onPage: (page) => {
         if (att.pageCount) bar.firstChild.style.width = `${Math.round((page / att.pageCount) * 100)}%`;
       }
     });
+    const walked = done.walked;
+    lastKept = done.lastKept;
 
-    // A run that ends without being stopped has seen every page, including the
-    // blank ones that were passed over.
-    if (!walked.stopped) await keep(walked.pageCount);
-    else if (walked.lastPage > lastKept) await keep(walked.lastPage);
-
-    openDetail(view.detailId);
+    openDetail(itemId);
     const what = into === 'pictures' ? 'the pictures on ' : '';
     toast(walked.stopped
       ? `Stopped at page ${lastKept} of ${walked.pageCount} — what was read is kept`
@@ -1761,6 +1790,224 @@ async function readWholeScan(att, button, { into = 'text' } = {}) {
     button.disabled = false;
     button.textContent = label;
   }
+}
+
+// ── reading a whole section ─────────────────────────────────────────────────
+//
+// Reading one document at a time means opening each entry, finding the button
+// and waiting at it. A ship's manuals are dozens of documents and thousands of
+// pages; nobody sits through that one at a time. This queues every document in
+// a section that still has words the search cannot reach and works through
+// them, keeping each page as it is read exactly as the single-document read
+// does, so Stop keeps everything up to that point and starting again picks up
+// where it left off.
+//
+// Still asked for rather than done: the reader is about 7 MB the first time
+// and a few seconds a page after that, which on a ship is a decision about
+// battery and time, not something to spring on anyone.
+
+/**
+ * Everything in a section a reader could still do something with.
+ *
+ * 'text' is what cannot be searched at all -- scans, and scans stopped part
+ * way. 'pictures' is the extra: documents whose own words are already indexed
+ * but whose diagrams and photographs carry words of their own.
+ */
+function outstandingReads(type, into) {
+  const jobs = [];
+  for (const item of store.itemsOfType(type)) {
+    const title = item.data[TYPES[type].titleKey] || 'Untitled';
+    for (const att of item.data.attachments || []) {
+      // Already nothing but words.
+      if (/^text\//i.test(att.type || '') || /\.txt$/i.test(att.name || '')) continue;
+      const state = textStatusOf(att);
+      const pageCount = att.pageCount || 0;
+
+      if (into === 'pictures') {
+        // A document whose own text is still missing is the first job, not
+        // this one -- reading its pictures would leave the text unread.
+        if (state !== STATUS.INDEXED || isImage(att)) continue;
+        // A scan has no pictures to read separately: its pages ARE pictures,
+        // and the text pass has already read them. readTo is set by the reader
+        // and by nothing else, so it is what says the words came out of the
+        // pixels rather than out of a text layer. Without this a read scan is
+        // queued to have the same pixels read a second time, into a second
+        // place, for nothing -- 61 pages of it in the count above.
+        if ((att.readTo || 0) > 0) continue;
+        const done = att.picturesTo || 0;
+        if (done > 0 && done >= (pageCount || 1)) continue;
+        jobs.push({ itemId: item.id, att, title, into, pages: Math.max((pageCount || 1) - done, 1) });
+        continue;
+      }
+
+      if (isImage(att)) {
+        if (state !== STATUS.INDEXED) jobs.push({ itemId: item.id, att, title, into, image: true, pages: 1 });
+        continue;
+      }
+      const partRead = (att.readTo || 0) > 0 && att.readTo < (pageCount || 1);
+      if (state === STATUS.INDEXED && !partRead) continue;
+      jobs.push({
+        itemId: item.id, att, title, into,
+        pages: Math.max((pageCount || 1) - (att.readTo || 0), 1)
+      });
+    }
+  }
+  return jobs;
+}
+
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+
+/** Work through the queue, one document after another. */
+async function readSection(type, into) {
+  // One at a time. The panel is replaced by the progress while a run is going,
+  // but only in the section being read -- walk to another one and its own
+  // button is still there, and two runs sharing this one piece of state would
+  // each overwrite what the other was showing and stop each other.
+  if (view.reading) { toast('A read is already running'); return; }
+
+  const jobs = outstandingReads(type, into);
+  if (!jobs.length) return;
+
+  view.reading = {
+    type, into, stopped: false,
+    index: 0, total: jobs.length,
+    title: jobs[0].title, said: 'Starting\u2026',
+    page: 0, pages: jobs[0].pages
+  };
+  render();
+
+  let read = 0;
+  let stoppedAt = null;
+  try {
+    for (const [i, job] of jobs.entries()) {
+      if (view.reading.stopped) break;
+      Object.assign(view.reading, {
+        index: i, title: job.title, pages: job.pages, page: 0, said: 'Starting\u2026'
+      });
+      render();
+
+      // A photograph is one picture, not a document of pages, and it has its
+      // own reader.
+      if (job.image) {
+        const { readImage } = await import('./ocr.js');
+        const blob = await store.readFile(job.att);
+        const result = await readImage(blob, {
+          onProgress: (said) => { if (view.reading) { view.reading.said = said; render(); } }
+        });
+        if (result.ok) {
+          await store.storeText(job.att.id, [{ page: 1, text: result.text }]);
+          const item = store.getItem(job.itemId);
+          if (item) {
+            const next = (item.data.attachments || []).map((a) => a.id === job.att.id
+              ? { ...a, textPages: 1, pageCount: 1, readTo: 1, textStatus: STATUS.INDEXED, textError: '' }
+              : a);
+            await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, attachments: next } });
+          }
+        }
+        read++;
+        continue;
+      }
+
+      const done = await readPages(job.itemId, job.att, {
+        into,
+        shouldStop: () => !view.reading || view.reading.stopped,
+        // Redrawn as it is said, not only when a page is stored: a page takes
+        // seconds, and a line that has not moved for seconds reads as stuck.
+        onProgress: (said) => { if (view.reading) { view.reading.said = said; render(); } },
+        onPage: (page) => { if (view.reading) view.reading.page = page; }
+      });
+      if (done.walked.stopped) { stoppedAt = job.title; break; }
+      read++;
+    }
+  } catch (ex) {
+    view.reading = null;
+    render();
+    toast(`Stopped: ${ex.message}`);
+    return;
+  }
+
+  view.reading = null;
+  render();
+  const what = into === 'pictures' ? 'the pictures in ' : '';
+  toast(stoppedAt
+    ? `Stopped in ${stoppedAt} \u2014 ${plural(read, 'document', 'documents')} finished, and what was read of that one is kept`
+    : `Read ${what}${plural(read, 'document', 'documents')}`);
+}
+
+/**
+ * The line above the list: what is still unread here, and one button for it.
+ */
+function readAllPanel(def) {
+  const held = store.itemsOfType(view.section)
+    .reduce((n, i) => n + (i.data.attachments || []).length, 0);
+  if (!held) return null;
+
+  if (view.reading && view.reading.type === view.section) {
+    const run = view.reading;
+    const pct = run.pages ? Math.min(Math.round((run.page / run.pages) * 100), 100) : 0;
+    return el('div', { class: 'panel read-panel' }, [
+      el('h3', { text: run.into === 'pictures' ? 'Reading the pictures' : 'Reading' }),
+      el('p', { class: 'stat-line', text: `${run.title} \u2014 ${run.said}` }),
+      el('div', { class: 'bar' }, [el('i', { style: `width:${pct}%` })]),
+      el('p', { class: 'hint', text: `Document ${run.index + 1} of ${run.total}. Each page is kept as it is read, so stopping loses nothing.` }),
+      el('button', {
+        class: 'btn btn-block', disabled: run.stopped,
+        onclick: () => { view.reading.stopped = true; render(); }
+      }, [run.stopped ? 'Stopping…' : 'Stop'])
+    ]);
+  }
+
+  // A run in another section is still a run: offering a button here that can
+  // only answer "already running" is worse than saying so.
+  if (view.reading) {
+    return el('div', { class: 'panel read-panel' }, [
+      el('h3', { text: 'Reading' }),
+      el('p', { class: 'stat-line',
+        text: `${TYPES[view.reading.type].label} are being read. This section waits its turn.` })
+    ]);
+  }
+
+  const words = outstandingReads(view.section, 'text');
+  const pics = outstandingReads(view.section, 'pictures');
+  if (!words.length && !pics.length) {
+    // Headed "All read" rather than "Reading": on the screen those two words
+    // are a sentence apart and mean the opposite thing, and this panel sits
+    // exactly where the running one does.
+    return el('div', { class: 'panel read-panel' }, [
+      el('h3', { text: 'All read' }),
+      el('p', { class: 'stat-line', style: 'color:var(--sage)',
+        text: `Everything here is read \u2014 ${plural(held, 'document', 'documents')}, pictures and all.` })
+    ]);
+  }
+
+  const pages = (jobs) => jobs.reduce((n, j) => n + j.pages, 0);
+  const panel = el('div', { class: 'panel read-panel' }, [el('h3', { text: 'Read them all' })]);
+
+  if (words.length) {
+    panel.append(
+      el('p', { class: 'stat-line',
+        text: `${plural(words.length, 'document holds', 'documents hold')} words no search can reach \u2014 about ${plural(pages(words), 'page', 'pages')}.` }),
+      el('button', {
+        class: 'btn btn-block btn-primary',
+        onclick: () => readSection(view.section, 'text')
+      }, [`Read ${plural(words.length, 'document', 'documents')}`])
+    );
+  }
+
+  if (pics.length) {
+    panel.append(
+      el('p', { class: 'stat-line', style: words.length ? 'margin-top:14px' : '',
+        text: `${plural(pics.length, 'document has', 'documents have')} pictures and diagrams that have never been read \u2014 about ${plural(pages(pics), 'page', 'pages')}.` }),
+      el('button', {
+        class: 'btn btn-block',
+        onclick: () => readSection(view.section, 'pictures')
+      }, ['Read the pictures too'])
+    );
+  }
+
+  panel.append(el('p', { class: 'hint',
+    text: 'A few seconds a page, and the reader is about 7 MB the first time. It can be stopped at any point and picked up where it left off.' }));
+  return panel;
 }
 
 /** Re-run extraction on a stored file, without needing it added again. */
