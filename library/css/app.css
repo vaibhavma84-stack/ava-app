@@ -224,6 +224,30 @@ select.field {
 .group-head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .group-count { font-family: var(--mono); color: var(--text-dim); letter-spacing: 0; }
 
+/* ── picking several at once ─────────────────────────────────────────────── */
+.select-bar { display: flex; align-items: center; margin: 2px 0 4px; }
+.select-bar .btn-sm { flex: 0 0 auto; }
+.select-bar-on {
+  position: sticky; top: 0; z-index: 3;
+  margin: 0 -2px 8px; padding: 7px 2px 9px;
+  background: var(--ink-900); border-bottom: 1px solid var(--line);
+}
+.select-top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.select-count {
+  flex: 1 1 auto; min-width: 0;
+  font-family: var(--display); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--copper);
+}
+.select-x { flex: 0 0 auto; min-width: 42px; padding-left: 0; padding-right: 0; }
+.card.picked { border-color: var(--copper); background: var(--ink-750); }
+.tick {
+  flex: 0 0 auto; width: 22px; height: 22px; margin-right: 2px;
+  border: 1px solid var(--line-strong); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--ink-900); line-height: 1;
+}
+.tick-on { background: var(--copper); border-color: var(--copper); }
+
 /* ── collapsible groups ──────────────────────────────────────────────────── */
 .group-head-btn {
   width: 100%; min-height: 42px; margin: 6px 0 0; cursor: pointer;

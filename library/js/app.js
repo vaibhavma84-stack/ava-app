@@ -12,7 +12,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.17';
+const APP_VERSION = '2026.10.18';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -30,7 +30,11 @@ const view = {
   toolsOpen: false,
   // Which branches of the flag tree are open. Kept here rather than in the
   // DOM, because every render empties the body.
-  openGroups: new Set()
+  openGroups: new Set(),
+  // Picking several entries to set one field on all of them at once.
+  selecting: false,
+  selected: new Set(),
+  bulk: null
 };
 
 let lockTimer = null;
@@ -181,7 +185,9 @@ function render() {
   $('#backBtn').hidden = view.screen === 'home';
   clear($('#backBtn'));
   if (view.screen !== 'home') $('#backBtn').append(icon('back', 20));
-  $('#fab').hidden = view.screen !== 'section';
+  // A floating + while picking entries offers to make a new one, which is not
+  // what the screen is for at that moment.
+  $('#fab').hidden = view.screen !== 'section' || view.selecting;
 
   const title = view.screen === 'search' ? 'Search'
     : view.section ? TYPES[view.section].label : 'LIBRARY';
@@ -280,6 +286,135 @@ function toolsPanel(def, panels) {
   return wrap;
 }
 
+// ── picking several at once ─────────────────────────────────────────────────
+//
+// A stack of manuals imported together arrives with no ship on any of them,
+// and they are all for the same ship. Opening twenty entries to type "Gas
+// Planet" twenty times is the work the stack import was supposed to save.
+//
+// Only the fields worth setting on a whole stack are offered, named by the
+// section itself, and only the ones actually filled in are written -- a field
+// left blank leaves each entry's own value alone rather than clearing twenty
+// of them at once.
+
+function endSelecting() {
+  view.selecting = false;
+  view.selected.clear();
+}
+
+function toggleSelected(id) {
+  if (view.selected.has(id)) view.selected.delete(id);
+  else view.selected.add(id);
+  render();
+}
+
+/** The entries the list is showing right now, in the order it shows them. */
+function shownItems(def) {
+  let items = store.itemsOfType(view.section);
+  if (view.filter && def.filterBy) {
+    items = items.filter((i) => i.data[def.filterBy.key] === view.filter);
+  }
+  // In a tree, only what is unfolded is on the screen, and "select all shown"
+  // must mean what it says.
+  if (!def.collapsible || !def.groupBy) return items;
+  return items.filter((item) => {
+    const name = item.data[def.groupBy.key] || def.groupBy.blank;
+    if (!branchOpen(groupKey(name))) return false;
+    if (!def.subGroupBy) return true;
+    const kind = item.data[def.subGroupBy.key] || def.subGroupBy.blank;
+    return branchOpen(groupKey(`${name} \u203a ${kind}`));
+  });
+}
+
+function selectBar(def) {
+  if (!view.selecting) {
+    return el('div', { class: 'select-bar' }, [
+      el('button', {
+        class: 'btn btn-sm',
+        onclick: () => { view.selecting = true; render(); }
+      }, ['Select several'])
+    ]);
+  }
+
+  const n = view.selected.size;
+  const shown = shownItems(def);
+  const allShown = shown.length > 0 && shown.every((i) => view.selected.has(i.id));
+
+  // Two rows rather than four buttons fighting for one: on a phone the third
+  // one wraps onto a line of its own and the bar takes a quarter of the
+  // screen, pushing the entries being picked off the bottom of it.
+  return el('div', { class: 'select-bar-on' }, [
+    el('div', { class: 'select-top' }, [
+      el('span', { class: 'select-count', text: n ? `${n} selected` : 'Tap the ones to change' }),
+      el('button', {
+        class: 'btn btn-sm select-x', 'aria-label': 'Stop selecting',
+        onclick: () => { endSelecting(); render(); }
+      }, ['\u2715'])
+    ]),
+    el('div', { class: 'fieldrow' }, [
+      el('div', {}, [el('button', {
+        class: 'btn btn-sm btn-block',
+        onclick: () => {
+          if (allShown) for (const i of shown) view.selected.delete(i.id);
+          else for (const i of shown) view.selected.add(i.id);
+          render();
+        }
+      }, [allShown ? 'None' : 'All shown'])]),
+      el('div', {}, [el('button', {
+        class: 'btn btn-sm btn-block btn-primary', disabled: n === 0,
+        onclick: () => openBulk(def)
+      }, ['Set fields'])])
+    ])
+  ]);
+}
+
+function openBulk(def) {
+  view.bulk = { type: view.section, data: {} };
+  const count = view.selected.size;
+  $('#bulkTitle').textContent = `${count} ${count === 1 ? def.singular.toLowerCase() : def.label.toLowerCase()}`;
+  const body = clear($('#bulkBody'));
+  body.append(el('p', { class: 'hint', style: 'margin:0 0 12px',
+    text: 'Only what you fill in is changed. Anything left blank stays as it is on each entry.' }));
+  for (const key of def.bulkFields) {
+    const field = def.fields.find((f) => f.key === key);
+    if (field) body.append(fieldFor(field, view.bulk));
+  }
+  $('#bulk').hidden = false;
+  $('#bulkBody').scrollTop = 0;
+}
+
+async function applyBulk() {
+  const def = TYPES[view.bulk.type];
+  const changes = Object.entries(view.bulk.data)
+    .filter(([, value]) => String(value ?? '').trim() !== '');
+  if (!changes.length) { toast('Nothing filled in to set'); return; }
+
+  let changed = 0;
+  for (const id of view.selected) {
+    const item = store.getItem(id);
+    if (!item) continue;
+    await store.saveItem({
+      id: item.id, type: item.type,
+      data: { ...item.data, ...Object.fromEntries(changes) }
+    });
+    changed++;
+  }
+
+  // They have just moved into a branch that is very likely shut, and a stack
+  // that vanishes on being filed looks like a stack that was lost.
+  if (def.groupBy) {
+    const moved = Object.fromEntries(changes)[def.groupBy.key];
+    if (moved) view.openGroups.add(groupKey(moved));
+  }
+
+  $('#bulk').hidden = true;
+  view.bulk = null;
+  endSelecting();
+  const said = changes.map(([key]) => def.fields.find((f) => f.key === key)?.label || key);
+  toast(`${said.join(' and ')} set on ${changed} ${changed === 1 ? 'entry' : 'entries'}`);
+  render();
+}
+
 /**
  * True when a branch should show what is inside it.
  *
@@ -289,6 +424,17 @@ function toolsPanel(def, panels) {
  */
 function branchOpen(key) {
   return Boolean(view.filter) || view.openGroups.has(key);
+}
+
+/**
+ * Branch keys carry their section.
+ *
+ * Two sections group by different things and can still land on the same word
+ * -- a ship and a flag both called Panama, say -- and one open state shared
+ * between them would open a branch the reader never touched.
+ */
+function groupKey(name) {
+  return `${view.section}\u203a${name}`;
 }
 
 /** A header that opens and shuts, used at both levels of the tree. */
@@ -325,8 +471,8 @@ function renderTree(body, def, groups, names) {
   const subKey = def.subGroupBy?.key;
   for (const name of names) {
     const inGroup = groups.get(name);
-    body.append(branch(name, name, inGroup.length, 1));
-    if (!branchOpen(name)) continue;
+    body.append(branch(groupKey(name), name, inGroup.length, 1));
+    if (!branchOpen(groupKey(name))) continue;
 
     if (!subKey) {
       for (const item of inGroup) body.append(cardFor(item));
@@ -346,7 +492,7 @@ function renderTree(body, def, groups, names) {
     })) {
       // Keyed by both, so opening MGN under MCA does not open it under a flag
       // that happens to use the same word for something else.
-      const key = `${name} \u203a ${kind}`;
+      const key = groupKey(`${name} \u203a ${kind}`);
       body.append(branch(key, kind, kinds.get(kind).length, 2));
       if (!branchOpen(key)) continue;
       for (const item of kinds.get(kind)) body.append(cardFor(item));
@@ -371,6 +517,7 @@ function renderSection(body) {
   // crowding it fixes.
   if (view.section === 'flag') body.append(toolsPanel(def, panels));
   else for (const panel of panels) if (panel) body.append(panel);
+  if (def.bulkFields && store.itemsOfType(view.section).length) body.append(selectBar(def));
   let items = store.itemsOfType(view.section);
   if (view.filter && def.filterBy) {
     items = items.filter((i) => i.data[def.filterBy.key] === view.filter);
@@ -995,12 +1142,16 @@ function cardFor(item, snippets, matchInfo) {
     : (def.listFields || []).map((k) => item.data[k]).filter(Boolean).join(' \u00b7 ');
 
   const rev = def.tracksRevision ? revisionStatus(item.data) : null;
+  const picking = view.selecting && view.screen === 'section' && item.type === view.section;
+  const picked = picking && view.selected.has(item.id);
   const card = el('article', {
-    class: 'card' + (rev && rev.state !== 'ok' ? ' due' : ''),
-    onclick: () => openDetail(item.id)
+    class: 'card' + (rev && rev.state !== 'ok' ? ' due' : '') + (picked ? ' picked' : ''),
+    ...(picking ? { 'aria-pressed': String(picked) } : {}),
+    onclick: () => (picking ? toggleSelected(item.id) : openDetail(item.id))
   }, [
     kind ? el('p', { class: 'card-kind', text: kind }) : null,
     el('div', { class: 'card-head' }, [
+      picking ? el('span', { class: 'tick' + (picked ? ' tick-on' : ''), text: picked ? '\u2713' : '' }) : null,
       el('h2', { class: 'card-title', text: title }),
       item.data.cancelled ? el('span', { class: 'pill pill-warn', text: 'Cancelled' }) : null,
       item.data.notInList && !item.data.cancelled
@@ -1127,7 +1278,7 @@ function wireApp() {
   });
   $('#backBtn').addEventListener('click', () => {
     if (view.query) { view.query = ''; $('#search').value = ''; }
-    else { view.section = null; view.filter = null; }
+    else { view.section = null; view.filter = null; endSelecting(); }
     render();
   });
   $('#settingsBtn').addEventListener('click', openSettings);
@@ -1144,7 +1295,9 @@ function wireApp() {
   $('#filePicker').addEventListener('change', onFilesPicked);
   $('#importPicker').addEventListener('change', onImportPicked);
   $('#viewerClose').addEventListener('click', closeViewer);
-  for (const id of ['#detail', '#editor', '#settings']) {
+  $('#bulkCancel').addEventListener('click', () => { $('#bulk').hidden = true; view.bulk = null; });
+  $('#bulkApply').addEventListener('click', applyBulk);
+  for (const id of ['#detail', '#editor', '#settings', '#bulk']) {
     $(id).addEventListener('click', (e) => { if (e.target.id === id.slice(1)) e.target.hidden = true; });
   }
 }
@@ -1794,10 +1947,31 @@ function fieldFor(f, draft) {
     // left alone. Applied when the field is left rather than while typing,
     // which would fight the keyboard mid-word.
     const cased = f.type === 'text' && !f.keepCase;
+
+    // A ship's name is typed on every manual, every publication and every
+    // procedure aboard her, and it has to match exactly or the entry files
+    // itself under a second ship one letter different. Offer what is already
+    // in use; it stays a text field, so a new ship is just typed.
+    let listId = null;
+    if (f.suggestFrom) {
+      const seen = new Set();
+      for (const item of store.itemsOfType(draft.type)) {
+        const v = item.data[f.key];
+        if (v) seen.add(v);
+      }
+      if (seen.size) {
+        listId = `suggest-${draft.type}-${f.key}`;
+        const list = el('datalist', { id: listId });
+        for (const v of [...seen].sort()) list.append(el('option', { value: v }));
+        wrap.append(list);
+      }
+    }
+
     wrap.append(el('input', {
       class: 'field', 'data-field': f.key,
       type: f.type === 'date' ? 'date' : f.type === 'url' ? 'url' : 'text',
       value, placeholder: f.placeholder || '',
+      ...(listId ? { list: listId } : {}),
       ...(cased ? { autocapitalize: 'words' } : {}),
       oninput: (e) => { draft.data[f.key] = e.target.value; },
       ...(cased ? {

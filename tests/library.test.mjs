@@ -394,10 +394,11 @@ try {
   check('opens straight away, with no passcode', true);
   check('no lock screen is shown', await page.locator('#lock').isHidden());
   check('opens on the sections screen',
-    (await page.locator('.section-card').count()) === 5);
+    (await page.locator('.section-card').count()) === 6);
   const names = await page.locator('.section-name').allTextContents();
   check('sections appear in the configured order',
-    names.join(',') === 'Publications,Manuals,Synergy,Flag Circulars,Circulars', names.join(','));
+    names.join(',') === 'Publications,Manuals,Local Procedures,Synergy,Flag Circulars,Circulars',
+    names.join(','));
   await shot('lib-01-home');
 
   console.log('\nAdding a manual with a PDF');
@@ -414,6 +415,8 @@ try {
   check('the picked PDF is staged before saving',
     (await page.locator('#editorBody .attach').count()) === 1);
   await save();
+  // Manuals are a tree now, filed under the ship: shut until asked for.
+  await openBranches();
   check('saves with the PDF attached', (await page.locator('.card').count()) === 1);
 
   await page.locator('.card').first().click();
@@ -640,11 +643,42 @@ try {
   await set('vessel', 'MV Northern Star');
   await save();
 
-  const heads = await page.locator('.group-head').allTextContents();
+  // A ship carries hundreds of manuals. They are a tree like the circulars:
+  // the ship, then what kind of manual, then the manuals.
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(400);
+  await page.locator('.section-card', { hasText: 'Manuals' }).click();
+  await page.waitForTimeout(300);
+
+  const heads = await page.locator('.group-head-btn.depth-1').allTextContents();
   check('manuals are grouped under each ship', heads.length === 2, heads.join(' | '));
   check('groups are the vessel names',
     heads.some((h) => h.includes('MV Northern Star')) && heads.some((h) => h.includes('MT Baltic Trader')),
     heads.join(' | '));
+  check('and the ships are shut until one is opened',
+    (await page.locator('.card').count()) === 0,
+    String(await page.locator('.card').count()));
+
+  await page.locator('.group-head-btn', { hasText: 'MV Northern Star' }).click();
+  await page.waitForTimeout(250);
+  const manualKinds = await page.locator('.group-head-btn.depth-2').allTextContents();
+  check('opening a ship shows the kinds of manual she carries',
+    manualKinds.some((h) => /Deck/.test(h)) && manualKinds.some((h) => /Engine/.test(h)),
+    manualKinds.join(' | '));
+  check('and still no manuals until a kind is opened',
+    (await page.locator('.card').count()) === 0,
+    String(await page.locator('.card').count()));
+  await page.locator('.group-head-btn.depth-2', { hasText: 'Deck' }).click();
+  await page.waitForTimeout(250);
+  const deckCards = await page.locator('.card').allInnerTexts();
+  check('opening a kind shows that ship\u2019s manuals of it',
+    deckCards.length === 1 && /Crane Manual/.test(deckCards[0]), deckCards.join(' | '));
+
+  // Two ships can carry a manual of the same kind, and opening Deck under one
+  // must not open Deck under the other.
+  check('and a kind opened under one ship is not opened under another',
+    (await page.locator('.group-head-btn.depth-2').count()) === 2,
+    String(await page.locator('.group-head-btn.depth-2').count()));
 
   const chips = await page.locator('.scope-btn').allTextContents();
   check('a type filter is offered', chips.includes('Engine') && chips.includes('Deck'), chips.join(','));
@@ -653,8 +687,95 @@ try {
   check('filtering by type narrows the list', (await page.locator('.card').count()) === 1);
   await page.locator('.scope-btn', { hasText: 'All' }).click();
   await page.waitForTimeout(200);
+  await openBranches();
   check('clearing the filter restores it', (await page.locator('.card').count()) === 3);
   await shot('lib-04-grouped');
+
+  // ---- setting the ship on a stack at once -------------------------------
+  // A stack imported together arrives with no ship on any of them, and they
+  // are all for the same ship. Twenty entries opened one at a time to type the
+  // same name is the work the stack import was meant to save.
+  console.log('\nSetting fields on several at once');
+  for (const title of ['Purifier Manual', 'Air Compressor Manual', 'Windlass Manual']) {
+    await page.click('#fab');
+    await page.waitForSelector('#editor:not([hidden])');
+    await set('title', title);
+    await save();
+  }
+  await openBranches();
+
+  check('picking several is offered', await page.locator('.select-bar button').count() === 1);
+  await page.locator('.select-bar button', { hasText: 'Select several' }).click();
+  await page.waitForTimeout(250);
+  check('and nothing is picked to begin with',
+    /Tap the ones to change/i.test(await page.locator('.select-count').innerText()),
+    await page.locator('.select-count').innerText());
+
+  await page.locator('.card', { hasText: 'Purifier Manual' }).first().click();
+  await page.locator('.card', { hasText: 'Air Compressor Manual' }).first().click();
+  await page.waitForTimeout(250);
+  check('tapping an entry picks it rather than opening it',
+    await page.locator('#detail').isHidden() && /2 selected/i.test(await page.locator('.select-count').innerText()),
+    await page.locator('.select-count').innerText());
+
+  await page.locator('button', { hasText: 'Set fields' }).first().click();
+  await page.waitForSelector('#bulk:not([hidden])');
+  const bulkOffered = await page.locator('#bulkBody [data-field]').evaluateAll(
+    (nodes) => nodes.map((n) => n.getAttribute('data-field')));
+  check('only the fields worth setting on a stack are offered',
+    bulkOffered.join(',') === 'vessel,category', bulkOffered.join(','));
+
+  // Typing a ship's name on every entry is how a fleet ends up with two ships
+  // one letter apart, neither of which holds all her manuals.
+  const suggested = await page.locator('#bulkBody datalist option').evaluateAll(
+    (nodes) => nodes.map((n) => n.value));
+  check('the ships already in use are offered rather than retyped',
+    suggested.includes('MV Northern Star') && suggested.includes('MT Baltic Trader'),
+    suggested.join(' | '));
+
+  await page.fill('#bulkBody [data-field="vessel"]', 'Gas Planet');
+  await page.selectOption('#bulkBody [data-field="category"]', 'Engine');
+  await page.click('#bulkApply');
+  await page.waitForTimeout(600);
+
+  const applied = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    return store.itemsOfType('manual')
+      .map((i) => `${i.data.title}::${i.data.vessel || '-'}/${i.data.category || '-'}`);
+  });
+  check('the ship and the type are set on every one picked',
+    applied.filter((r) => /Gas Planet\/Engine/.test(r)).length === 2, applied.join(' | '));
+  check('and the one left unpicked is untouched',
+    applied.some((r) => /^Windlass Manual::-\/-$/.test(r)), applied.join(' | '));
+  check('a manual entered by hand keeps what was typed on it',
+    applied.some((r) => /^Crane Manual::MV Northern Star\/Deck$/.test(r)), applied.join(' | '));
+
+  check('the picking ends once it is applied',
+    await page.locator('.select-bar button', { hasText: 'Select several' }).count() === 1);
+  // A stack that vanishes on being filed looks like a stack that was lost.
+  check('and the ship they moved to is opened so they can be seen',
+    (await page.locator('.group-head-btn.depth-1[aria-expanded="true"]').allTextContents())
+      .some((h) => /Gas Planet/.test(h)),
+    (await page.locator('.group-head-btn.depth-1').allTextContents()).join(' | '));
+
+  // A field left blank must leave twenty entries alone, not clear them.
+  await page.locator('.select-bar button', { hasText: 'Select several' }).click();
+  await page.waitForTimeout(200);
+  await openBranches();
+  await page.locator('.card', { hasText: 'Crane Manual' }).first().click();
+  await page.waitForTimeout(200);
+  await page.locator('button', { hasText: 'Set fields' }).first().click();
+  await page.waitForSelector('#bulk:not([hidden])');
+  await page.selectOption('#bulkBody [data-field="category"]', 'Safety');
+  await page.click('#bulkApply');
+  await page.waitForTimeout(600);
+  const afterBlank = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    const one = store.itemsOfType('manual').find((i) => i.data.title === 'Crane Manual');
+    return `${one.data.vessel || '-'}/${one.data.category || '-'}`;
+  });
+  check('a field left blank leaves what each entry already had',
+    afterBlank === 'MV Northern Star/Safety', afterBlank);
 
   console.log('\nIMO conventions');
   await page.click('#backBtn');
@@ -1706,6 +1827,7 @@ try {
   await page.waitForSelector('#editorBody .attach', { timeout: 25000 });
   await set('title', 'Hydraulic System Overview');
   await save();
+  await openBranches();
 
   await page.locator('.card', { hasText: 'Hydraulic System Overview' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
@@ -1816,6 +1938,59 @@ try {
     await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
   await page.fill('#search', '');
   await page.waitForTimeout(300);
+
+  // ---- the ship's own procedures -----------------------------------------
+  // What the company manual says in general and how the job is actually done
+  // on this ship are two documents, and the second one is the one you are
+  // holding when you do the job.
+  console.log('\nLocal procedures');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card:has(.section-name:text-is("Local Procedures"))').click();
+  await page.waitForTimeout(300);
+  check('the section opens', /^Local Procedures$/i.test(await page.locator('#screenTitle').innerText()),
+    await page.locator('#screenTitle').innerText());
+
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'Entry into cargo compressor room');
+  await set('refNo', 'LP-07');
+  await pick('category', 'Enclosed Space Entry');
+  await set('vessel', 'Gas Planet');
+  await save();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'Forward station mooring on arrival');
+  await pick('category', 'Mooring');
+  await set('vessel', 'Gas Planet');
+  await save();
+
+  const localHeads = await page.locator('.group-head-btn.depth-1').allTextContents();
+  check('procedures are filed under the ship they belong to',
+    localHeads.length === 1 && /Gas Planet/.test(localHeads[0]), localHeads.join(' | '));
+  await page.locator('.group-head-btn', { hasText: 'Gas Planet' }).click();
+  await page.waitForTimeout(250);
+  const jobs = await page.locator('.group-head-btn.depth-2').allTextContents();
+  check('and under the job they cover',
+    jobs.some((h) => /Enclosed Space Entry/i.test(h)) && jobs.some((h) => /Mooring/i.test(h)),
+    jobs.join(' | '));
+  await openBranches();
+  check('the reference is on the card',
+    /LP-07/.test((await page.locator('.card', { hasText: 'cargo compressor room' }).first().innerText())),
+    await page.locator('.card', { hasText: 'cargo compressor room' }).first().innerText());
+  check('a stack of them can be set to a ship at once too',
+    await page.locator('.select-bar button', { hasText: 'Select several' }).count() === 1);
+
+  // Leaving mid-pick must not leave the next section in selection mode.
+  await page.locator('.select-bar button', { hasText: 'Select several' }).click();
+  await page.waitForTimeout(200);
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card:has(.section-name:text-is("Local Procedures"))').click();
+  await page.waitForTimeout(250);
+  check('and leaving the section stops the picking',
+    await page.locator('.select-bar button', { hasText: 'Select several' }).count() === 1,
+    (await page.locator('.select-bar button').allInnerTexts()).join(' | '));
 
   console.log('\nOther sections');
   await page.click('#backBtn');

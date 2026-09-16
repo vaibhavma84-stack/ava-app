@@ -7,7 +7,8 @@ const PATHS = {
   search: '<circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.6" y2="16.6"/>',
   back: '<polyline points="15,4 7,12 15,20"/>',
   file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/>',
-  flag: '<path d="M5 22V4"/><path d="M5 5h11l-2 3.5L16 12H5z"/>'
+  flag: '<path d="M5 22V4"/><path d="M5 5h11l-2 3.5L16 12H5z"/>',
+  clipboard: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="8.5" y1="11" x2="15.5" y2="11"/><line x1="8.5" y1="15" x2="13" y2="15"/>'
 };
 
 export function icon(name, size = 22) {

@@ -38,6 +38,16 @@ export const SYNERGY_DOC_TYPES = [
   'Bulletin', 'Training', 'Fleet Instruction', 'Other'
 ];
 
+// A local procedure is the ship's own working instruction -- how a job is
+// actually done on this ship, which is not what the company manual says in
+// general. Filed by the job rather than by the department, because that is
+// what you are looking for when you go to find one.
+export const LOCAL_PROCEDURE_CATEGORIES = [
+  'Enclosed Space Entry', 'Mooring', 'Cargo Operations', 'Bunkering',
+  'Hot Work', 'Working Aloft', 'Machinery Operation', 'Navigation / Bridge',
+  'Emergency', 'Maintenance', 'Permit to Work', 'Other'
+];
+
 export const FLAG_STATES = ['MCA', 'Panama', 'Singapore', 'Other'];
 
 /**
@@ -161,7 +171,7 @@ export const TYPES = {
     fields: [
       { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Main Engine Operating Manual' },
       { key: 'category', label: 'Category', type: 'select', options: MANUAL_CATEGORIES },
-      { key: 'vessel', label: 'Vessel', type: 'text', group: 'where' },
+      { key: 'vessel', label: 'Vessel', type: 'text', group: 'where', suggestFrom: true },
       { key: 'location', label: 'Location onboard', type: 'text', group: 'where', placeholder: 'e.g. ECR shelf 3' },
       { ...NOTES, label: 'Notes / extracted procedures' },
       ATTACHMENTS,
@@ -170,7 +180,49 @@ export const TYPES = {
     listFields: ['category'],
     // Manuals are filed by ship, then by what kind of manual they are.
     groupBy: { key: 'vessel', label: 'Vessel', blank: 'No vessel set' },
+    subGroupBy: { key: 'category', label: 'Type', blank: 'Uncategorised' },
+    collapsible: true,
+    // A stack of manuals imported at once arrives with no ship and no type,
+    // and they are all for the same ship. Setting that one at a time is the
+    // work the import was meant to save.
+    bulkFields: ['vessel', 'category'],
     filterBy: { key: 'category', label: 'Type' },
+    sort: (a, b) => (a.category || '').localeCompare(b.category || '')
+                 || (a.title || '').localeCompare(b.title || '')
+  },
+
+  local: {
+    label: 'Local Procedures',
+    short: 'Local',
+    singular: 'Local procedure',
+    icon: 'clipboard',
+    titleKey: 'title',
+    fields: [
+      { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Entry into cargo compressor room' },
+      { key: 'category', label: 'Job', type: 'select', options: LOCAL_PROCEDURE_CATEGORIES },
+      { keepCase: true, key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. LP-07', group: 'ident' },
+      { keepCase: true, key: 'revision', label: 'Revision', type: 'text', placeholder: 'e.g. Rev 2', group: 'ident' },
+      { key: 'vessel', label: 'Vessel', type: 'text', group: 'where', suggestFrom: true },
+      { key: 'location', label: 'Location onboard', type: 'text', group: 'where', placeholder: 'e.g. Ship\u2019s office' },
+      { key: 'date', label: 'Issued', type: 'date' },
+      {
+        key: 'revisionChecked', label: 'Revision checked', type: 'date',
+        hint: 'When you last confirmed this is still the current revision. The app flags it after 90 days \u2014 a superseded copy is worse than no copy.'
+      },
+      { ...NOTES, label: 'Notes / what differs from the company procedure' },
+      ATTACHMENTS,
+      FILE_LINK
+    ],
+    listFields: ['refNo', 'revision'],
+    tracksRevision: true,
+    // Same shape as the manuals: the ship, then the job, then the procedures.
+    // A procedure belongs to one ship and moves with her, so a stack brought
+    // aboard at once is set to the ship in one go.
+    groupBy: { key: 'vessel', label: 'Vessel', blank: 'No vessel set' },
+    subGroupBy: { key: 'category', label: 'Job', blank: 'Unsorted' },
+    collapsible: true,
+    bulkFields: ['vessel', 'category'],
+    filterBy: { key: 'category', label: 'Job' },
     sort: (a, b) => (a.category || '').localeCompare(b.category || '')
                  || (a.title || '').localeCompare(b.title || '')
   },
@@ -188,7 +240,7 @@ export const TYPES = {
       { key: 'category', label: 'Category', type: 'select', options: PUBLICATION_CATEGORIES },
       { key: 'publisher', label: 'Publisher', type: 'text', placeholder: 'e.g. UKHO' },
       { keepCase: true, key: 'correctedTo', label: 'Corrected to', type: 'text', placeholder: 'e.g. NtM 12/2026' },
-      { key: 'vessel', label: 'Vessel', type: 'text', group: 'where' },
+      { key: 'vessel', label: 'Vessel', type: 'text', group: 'where', suggestFrom: true },
       { key: 'location', label: 'Location onboard', type: 'text', group: 'where' },
       NOTES,
       ATTACHMENTS,
@@ -327,4 +379,4 @@ export const TYPES = {
 // 'notice' is defined above but parked: it is not listed here, so nothing
 // renders it, and any records already saved under it stay untouched. Adding it
 // back to this list restores both the section and its entries.
-export const TAB_ORDER = ['publication', 'manual', 'synergy', 'flag', 'circular'];
+export const TAB_ORDER = ['publication', 'manual', 'local', 'synergy', 'flag', 'circular'];
