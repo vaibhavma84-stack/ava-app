@@ -289,6 +289,41 @@ const DIAGRAM_PATH = path.join(tmp, 'Hydraulic System Overview.pdf');
   await maker.close();
 }
 
+// A company manual numbered the way company manuals are, and a stand-in
+// question library that says the same words about the same subject. Both are
+// needed together: the point of narrowing a search to a section is that the
+// question library outranks the manual that answers it, because the question
+// is worded to be about exactly that.
+const SMS_PATH = path.join(tmp, 'SMS Manual Vol 1.pdf');
+const LIBRARY_PATH = path.join(tmp, 'Question Library Part 2.pdf');
+{
+  const maker = await browser.newPage();
+  const page = (html) => `<div style="page-break-after:always">${html}</div>`;
+  const style = '<style>@page{size:A4;margin:18mm}body{font:13pt Georgia,serif;line-height:1.6}'
+    + 'h2{font-size:15pt;margin:0 0 10pt}</style>';
+  await maker.setContent(style
+    + page('<h2>1 INTRODUCTION</h2><p>1.1 This manual sets out the safety management system.</p>')
+    + page('<h2>5 CERTIFICATION AND DOCUMENTATION</h2>'
+      + '<p>5.3 Maintenance of statutory certificates</p>'
+      + '<p>5.3.1 The Master shall ensure that all statutory certificates and documents required'
+      + ' by the flag Administration are maintained valid at all times, and that surveys falling'
+      + ' due are requested through the Technical Superintendent not less than sixty days before'
+      + ' expiry.</p>'
+      + '<p>5.3.2 A register of statutory certificates shall be kept in the ship\u2019s office.</p>')
+    + page('<h2>6 CREW MANAGEMENT</h2><p>6.1 Manning shall meet the Safe Manning Document.</p>'),
+    { waitUntil: 'load' });
+  await maker.pdf({ path: SMS_PATH, format: 'A4' });
+
+  await maker.setContent(style
+    + page('<h2>Chapter 2</h2><p>2.1 Maintenance of statutory certificates</p>'
+      + '<p>Has the vessel maintained its statutory certificates? The inspector shall verify'
+      + ' that the maintenance of statutory certificates is recorded and that each one is'
+      + ' valid.</p>'),
+    { waitUntil: 'load' });
+  await maker.pdf({ path: LIBRARY_PATH, format: 'A4' });
+  await maker.close();
+}
+
 // A photograph attached on its own — a nameplate, the sort of thing that gets
 // taken on a phone and dropped into an entry. Not a PDF at all, so nothing was
 // ever read out of it.
@@ -394,10 +429,10 @@ try {
   check('opens straight away, with no passcode', true);
   check('no lock screen is shown', await page.locator('#lock').isHidden());
   check('opens on the sections screen',
-    (await page.locator('.section-card').count()) === 6);
+    (await page.locator('.section-card').count()) === 7);
   const names = await page.locator('.section-name').allTextContents();
   check('sections appear in the configured order',
-    names.join(',') === 'Publications,Manuals,Local Procedures,Synergy,Flag Circulars,Circulars',
+    names.join(',') === 'Publications,Manuals,Local Procedures,Synergy,Flag Circulars,Circulars,SIRE 2.0',
     names.join(','));
   await shot('lib-01-home');
 
@@ -1991,6 +2026,159 @@ try {
   check('and leaving the section stops the picking',
     await page.locator('.select-bar button', { hasText: 'Select several' }).count() === 1,
     (await page.locator('.select-bar button').allInnerTexts()).join(' | '));
+
+  // ---- a vetting question, and the clause that answers it ----------------
+  // An inspector asks question 2.1 and what is needed back is the company
+  // clause that governs it, not a page number in a 600-page question library.
+  console.log('\nLinking a SIRE question to the clause that answers it');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card:has(.section-name:text-is("Synergy"))').click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'SMS Manual Vol 1');
+  await page.setInputFiles('#filePicker', SMS_PATH);
+  await page.waitForTimeout(3000);
+  await save();
+
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card:has(.section-name:text-is("Publications"))').click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'Question Library Part 2');
+  await page.setInputFiles('#filePicker', LIBRARY_PATH);
+  await page.waitForTimeout(3000);
+  await save();
+
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card:has(.section-name:text-is("SIRE 2.0"))').click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('refNo', '2.1');
+  await set('title', 'Maintenance of statutory certificates');
+  await save();
+  await openBranches();
+
+  // The chapter is in the question number. Asking for it twice is asking the
+  // reader to do the app's arithmetic.
+  const sireHeads = await page.locator('.group-head-btn.depth-1').allTextContents();
+  check('a question files itself under the chapter its number gives',
+    sireHeads.some((h) => /Chapter 2/i.test(h)), sireHeads.join(' | '));
+
+  await page.locator('.card', { hasText: 'Maintenance of statutory certificates' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  check('a question with nothing linked says so rather than showing an empty heading',
+    /Nothing linked yet/i.test(await page.locator('#detailBody').innerText()),
+    (await page.locator('#detailBody').innerText()).replace(/\n/g, ' / '));
+
+  await page.locator('#detailBody button', { hasText: 'Find where this is answered' }).click();
+  await page.waitForTimeout(1800);
+  // Matched without regard to case: a subject typed in is title-cased on save,
+  // and it is the saved wording that becomes the search.
+  check('finding starts a search on the question\u2019s own words',
+    /^maintenance of statutory certificates$/i.test(await page.locator('#search').inputValue()),
+    await page.locator('#search').inputValue());
+  check('and says which question is being answered',
+    /Linking to 2.1/i.test(await page.locator('.link-banner').innerText()),
+    (await page.locator('.link-banner').innerText()).replace(/\n/g, ' / '));
+
+  // The clause, not the page. A page number changes with every revision of the
+  // manual; the clause is what an inspector is told.
+  const hits = (await page.locator('.snippet-page').allInnerTexts()).join(' | ');
+  check('a hit names the clause it is in, and the heading over it',
+    /5\.3 \u2014 MAINTENANCE OF STATUTORY CERTIFICATES/i.test(hits), hits);
+
+  // "Where in the Synergy manuals is this" is a different question from "where
+  // is this anywhere", and the question library says the words too.
+  const searchChips = await page.locator('.scope-btn').allTextContents();
+  check('the sections that matched are offered to narrow to',
+    searchChips.some((c) => /^Synergy/.test(c)) && searchChips.some((c) => /^Pubs/.test(c)),
+    searchChips.join(' | '));
+  await page.locator('.scope-btn', { hasText: 'Synergy' }).click();
+  await page.waitForTimeout(700);
+  const narrowed = (await page.locator('#body .card-title').allInnerTexts()).join(' | ');
+  check('narrowing to one section leaves the question library out of it',
+    narrowed === 'SMS Manual Vol 1', narrowed);
+
+  await page.locator('button', { hasText: /^Link to 2\.1$/ }).first().click();
+  await page.waitForTimeout(800);
+  check('linking records where the answer is',
+    /2\.1/.test(await page.locator('.toast').innerText())
+    && /5\.3/.test(await page.locator('.toast').innerText()),
+    await page.locator('.toast').innerText());
+  check('and the same passage is not offered to be filed twice',
+    (await page.locator('button', { hasText: /^Linked$/ }).count()) >= 1);
+
+  await page.locator('.link-banner button').click();
+  await page.waitForTimeout(700);
+  check('and finishing puts you back where the question was',
+    /^SIRE 2.0$/i.test(await page.locator('#screenTitle').innerText()),
+    await page.locator('#screenTitle').innerText());
+
+  await openBranches();
+  await page.locator('.card', { hasText: 'Maintenance of statutory certificates' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const answered = await page.locator('#detailBody').innerText();
+  check('the question now carries the clause that answers it',
+    /5\.3/.test(answered) && /SMS Manual Vol 1/.test(answered),
+    answered.replace(/\n/g, ' / '));
+
+  // The point of the link: one tap from the question to the page.
+  await page.locator('.answer-open').first().click();
+  await page.waitForSelector('#viewer:not([hidden])', { timeout: 20000 });
+  await page.waitForTimeout(2500);
+  check('and opens the document at the page it names, not at page one',
+    /page 2 of/i.test(await page.locator('#viewerTitle').innerText()),
+    await page.locator('#viewerTitle').innerText());
+
+  // ---- a note written on the page being read ----------------------------
+  await page.click('#viewerNote');
+  await page.waitForSelector('#noteBox');
+  await page.fill('#noteText', 'Register is in the ship office folder, top drawer.');
+  await page.locator('#noteBox button', { hasText: 'Save' }).click();
+  await page.waitForTimeout(800);
+  check('a note can be written on the page being read',
+    /Noted on page 2/i.test(await page.locator('.toast').innerText()),
+    await page.locator('.toast').innerText());
+  await page.click('#viewerClose');
+  await page.waitForTimeout(400);
+  await closeDetail();
+
+  // The note belongs to the document, not to whatever was open when it was
+  // written. Reached from a question, the entry on screen is the question.
+  const filed = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    return store.allItems().filter((i) => (i.data.pageNotes || []).length)
+      .map((i) => `${i.type}:${i.data.title}`);
+  });
+  check('and it is filed on the document it was written on, not on the question',
+    filed.join(' | ') === 'synergy:SMS Manual Vol 1', filed.join(' | '));
+
+  // The words a person typed are the ones most worth finding again, and a list
+  // of records stringifies to "[object Object]" unless something is done.
+  await page.fill('#search', 'top drawer');
+  await page.waitForTimeout(1200);
+  const found = (await page.locator('#body .card-title').allInnerTexts()).join(' | ');
+  check('a note is searchable by what was typed in it',
+    found === 'SMS Manual Vol 1', found);
+  await page.fill('#search', '');
+  await page.waitForTimeout(400);
+
+  // These three exist to be linked to each other and nothing else. Left in
+  // place they are a Synergy document with no revision checked, which the
+  // sections screen is right to flag and the tests after this are right to
+  // count -- but neither is about them.
+  await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    for (const title of ['SMS Manual Vol 1', 'Question Library Part 2',
+                         'Maintenance of Statutory Certificates']) {
+      const made = store.allItems().find((i) => i.data.title === title);
+      if (made) await store.deleteItem(made.id);
+    }
+  });
+  await page.waitForTimeout(400);
 
   console.log('\nOther sections');
   await page.click('#backBtn');

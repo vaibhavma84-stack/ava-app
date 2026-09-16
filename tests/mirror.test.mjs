@@ -11,6 +11,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { textFromHtml, listOnly, sweepUnreferenced } from '../tools/mirror-docs.mjs';
 import { singaporeRef, singaporeLooseRef, SG_TYPES, MPA, panamaRef } from '../library/js/updates.js';
+import { clauseAt } from '../library/js/search.js';
 
 let passed = 0, failed = 0;
 const check = (name, ok, detail) => {
@@ -445,6 +446,63 @@ check('and the documents survive that too',
   fs.readdirSync(docs).length === 10, String(fs.readdirSync(docs).length));
 
 fs.rmSync(sweepDir, { recursive: true, force: true });
+
+// ── which clause a hit is in ───────────────────────────────────────────────
+//
+// "Page 84" is not what anyone cites, and a page number changes with every
+// revision of the manual. The clause is what an inspector is told.
+//
+// The text here is exactly what pdf.js produces from a page of a manual: ONE
+// unbroken line. There are no paragraph breaks in extracted text -- they are
+// in the layout, not in the characters -- and the first version of this looked
+// for clause numbers at the start of a line, so it found the first number on
+// the page and reported it for every hit on it.
+console.log('\nWhich clause a search hit is in');
+const CLAUSE_PAGE = '5 CERTIFICATION AND DOCUMENTATION 5.3 Maintenance of statutory certificates '
+  + '5.3.1 The Master shall ensure that all statutory certificates and documents required by '
+  + 'the flag Administration are maintained valid at all times, and that surveys falling due '
+  + 'are requested through the Technical Superintendent not less than sixty days before expiry. '
+  + '5.3.2 A register of statutory certificates shall be kept in the ship\u2019s office.';
+const clauseIn = (needle) => clauseAt(CLAUSE_PAGE, CLAUSE_PAGE.indexOf(needle));
+
+check('a hit inside a clause is given that clause',
+  clauseIn('maintained valid')?.ref === '5.3.1', JSON.stringify(clauseIn('maintained valid')));
+check('and the heading it sits under, which is what the question is about',
+  clauseIn('maintained valid')?.label === 'Maintenance of statutory certificates',
+  JSON.stringify(clauseIn('maintained valid')));
+// The clause number is matched by the capital that follows it, so a window
+// ending at the hit cannot see the clause the hit is the first word of.
+check('a hit on the first word of a clause belongs to that clause, not the one before',
+  clauseIn('A register of statutory')?.ref === '5.3.2', JSON.stringify(clauseIn('A register of statutory')));
+check('a chapter heading is a clause of its own',
+  clauseIn('CERTIFICATION')?.ref === '5' && /CERTIFICATION AND DOCUMENTATION/.test(clauseIn('CERTIFICATION').label),
+  JSON.stringify(clauseIn('CERTIFICATION')));
+
+// A heading that does not cover the clause is not its title.
+const twoBranches = '5.2 Drills and training 5.2.1 Drills shall be held monthly. '
+  + '5.3 Maintenance of statutory certificates 5.3.1 The Master shall keep them valid.';
+const under = clauseAt(twoBranches, twoBranches.indexOf('keep them valid'));
+check('a heading from a different branch is never used as the title',
+  under.ref === '5.3.1' && under.label === 'Maintenance of statutory certificates',
+  JSON.stringify(under));
+
+// Silence beats invention. A wrong clause reference given to an inspector is
+// worse than a page number.
+const unnumbered = 'This manual describes how statutory certificates are maintained on board.';
+check('a document with no numbering is not given an invented clause',
+  clauseAt(unnumbered, unnumbered.indexOf('certificates')) === null);
+const noisy = 'The fleet carried 3.4 million tonnes and page 5 of 9 lists the certificates for 2019.';
+check('and a decimal in a sentence is not mistaken for one',
+  clauseAt(noisy, noisy.indexOf('certificates')) === null,
+  JSON.stringify(clauseAt(noisy, noisy.indexOf('certificates'))));
+
+// A numbered paragraph and a heading are the same shape. Showing the opening
+// words of a paragraph as if they were a title tells the reader nothing.
+const para = '7.1 The Company shall ensure that each ship is manned with qualified seafarers '
+  + 'in accordance with national and international requirements at all material times.';
+check('the opening words of a paragraph are not offered as a heading',
+  clauseAt(para, para.indexOf('qualified')).label === null,
+  JSON.stringify(clauseAt(para, para.indexOf('qualified'))));
 
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);

@@ -8,6 +8,7 @@ const PATHS = {
   back: '<polyline points="15,4 7,12 15,20"/>',
   file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/>',
   flag: '<path d="M5 22V4"/><path d="M5 5h11l-2 3.5L16 12H5z"/>',
+  inspect: '<line x1="4" y1="5.5" x2="15" y2="5.5"/><line x1="4" y1="10.5" x2="11" y2="10.5"/><line x1="4" y1="15.5" x2="9" y2="15.5"/><circle cx="16" cy="15" r="4.6"/><line x1="19.5" y1="18.5" x2="22" y2="21"/>',
   clipboard: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="8.5" y1="11" x2="15.5" y2="11"/><line x1="8.5" y1="15" x2="13" y2="15"/>'
 };
 

@@ -12,7 +12,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.19';
+const APP_VERSION = '2026.10.20';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -31,6 +31,15 @@ const view = {
   // Which branches of the flag tree are open. Kept here rather than in the
   // DOM, because every render empties the body.
   openGroups: new Set(),
+  // Which entry's file the viewer is showing, so a note written while reading
+  // knows where to be kept.
+  viewing: null,
+  // A question waiting to be told where it is answered: while this is set,
+  // every passage in the search results offers to be linked to it.
+  linking: null,
+  // Narrowing a search to one section. Cleared with the query, so a new
+  // search is never quietly answered from inside the last one's filter.
+  searchScope: null,
   // A run of the reader over a whole section, so the panel can show where it
   // has got to across every redraw the saving of each page causes.
   reading: null,
@@ -199,7 +208,8 @@ function render() {
 
   if (view.screen === 'home') { renderScope(null); renderHome(body); }
   else if (view.screen === 'section') { renderScope(TYPES[view.section]); renderSection(body); }
-  else { renderScope(null); renderSearch(body); }
+  // The search screen fills the scope row itself, from what its results hit.
+  else renderSearch(body);
 }
 
 /** Filter chips for a section; hidden elsewhere. */
@@ -220,6 +230,155 @@ function renderScope(def) {
   }, [label]));
   add('All', null);
   for (const v of [...values].sort()) add(v, v);
+}
+
+// ── linking a question to the clause that answers it ────────────────────────
+//
+// An inspector asks question 2.1 and what is needed back is the company clause
+// that governs it -- not a page number in a 600-page question library. That
+// link is found by searching and then kept, so it is found once.
+//
+// The finding reuses the search screen rather than a screen of its own: the
+// section filter, the clause on each hit and the tap-to-open are all wanted
+// here, and a second search built inside a sheet would be a worse copy of it.
+
+function startLinking(item) {
+  view.linking = { id: item.id, ref: item.data.refNo || '', title: item.data[TYPES[item.type].titleKey] || '' };
+  $('#detail').hidden = true;
+  view.detailId = null;
+  // The question's own wording is the search, because it is what the company
+  // document will be saying too.
+  view.query = view.linking.title;
+  view.searchScope = null;
+  $('#search').value = view.query;
+  render();
+  $('#body').scrollTop = 0;
+}
+
+function stopLinking() {
+  view.linking = null;
+  view.query = '';
+  view.searchScope = null;
+  $('#search').value = '';
+  render();
+}
+
+/** Already recorded, so the same passage is not filed twice. */
+function alreadyLinked(question, snip) {
+  return (question.data.answers || []).some((a) => a.attId === snip.attachmentId && a.page === snip.page);
+}
+
+async function linkAnswer(item, snip) {
+  const question = store.getItem(view.linking.id);
+  if (!question) { stopLinking(); return; }
+  if (alreadyLinked(question, snip)) { toast('Already linked'); return; }
+
+  const answers = [...(question.data.answers || []), {
+    id: store.newId(),
+    itemId: item.id,
+    // Kept alongside the id rather than looked up each time: a link is a record
+    // of what was found, and it must still read as one if the entry it points
+    // at is later deleted or renamed.
+    entry: item.data[TYPES[item.type].titleKey] || 'Untitled',
+    section: TYPES[item.type].label,
+    attId: snip.attachmentId,
+    file: snip.file,
+    page: snip.page,
+    clause: snip.clause ? snip.clause.ref : null,
+    label: snip.clause ? snip.clause.label : null
+  }];
+  await store.saveItem({ id: question.id, type: question.type, data: { ...question.data, answers } });
+  const where = snip.clause ? `${snip.clause.ref} of ${snip.file}` : `page ${snip.page} of ${snip.file}`;
+  toast(`${view.linking.ref || 'The question'} \u2190 ${where}`);
+  render();
+}
+
+/** The standing banner while a question is waiting to be answered. */
+function linkingBanner() {
+  const question = store.getItem(view.linking.id);
+  if (!question) { view.linking = null; return null; }
+  const held = (question.data.answers || []).length;
+  return el('div', { class: 'panel link-banner' }, [
+    el('h3', { text: `Linking to ${view.linking.ref || 'a SIRE question'}` }),
+    el('p', { class: 'stat-line', text: view.linking.title }),
+    el('p', { class: 'hint', text: held
+      ? `${held} clause${held === 1 ? '' : 's'} linked so far. Narrow to a section above, then Link the passage that answers it.`
+      : 'Narrow to a section above, then Link the passage that answers it.' }),
+    el('button', { class: 'btn btn-block', onclick: stopLinking }, [held ? 'Done' : 'Cancel'])
+  ]);
+}
+
+/** The clauses recorded against a question, each one a way back to the page. */
+function answersSection(item) {
+  const answers = item.data.answers || [];
+  const sec = el('div', { class: 'detail-sec' }, [el('h4', { text: 'Answered by' })]);
+
+  if (!answers.length) {
+    sec.append(el('p', { class: 'hint', text:
+      'Nothing linked yet. Search the company documents for this subject and link the clause that answers it, so it is found once rather than every time.' }));
+  }
+
+  for (const answer of answers) {
+    const target = store.getItem(answer.itemId);
+    const att = (target?.data.attachments || []).find((a) => a.id === answer.attId);
+    const row = el('div', { class: 'answer-row' }, [
+      el('button', {
+        class: 'answer-open', disabled: !att,
+        // The entry that owns the file, not the question that points at it. A
+        // note written while reading the manual belongs on the manual; without
+        // this it was filed on whichever entry happened to be open, which from
+        // here is always the question.
+        onclick: () => att && openAttachment(att, answer.page, answer.itemId)
+      }, [
+        el('span', { class: 'answer-ref', text: answer.clause
+          ? `${answer.clause}${answer.label ? ` \u2014 ${answer.label}` : ''}`
+          : `Page ${answer.page}` }),
+        el('span', { class: 'answer-where',
+          text: `${answer.entry} \u00b7 ${answer.section} \u00b7 page ${answer.page}` }),
+        att ? null : el('span', { class: 'hint', text: 'The document this pointed at is no longer here.' })
+      ]),
+      el('button', {
+        class: 'del-btn', 'aria-label': 'Remove this link',
+        onclick: async () => {
+          const next = (item.data.answers || []).filter((a) => a.id !== answer.id);
+          await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, answers: next } });
+          openDetail(item.id);
+        }
+      }, ['\u00d7'])
+    ]);
+    sec.append(row);
+  }
+
+  sec.append(el('button', {
+    class: 'btn btn-block', style: 'margin-top:10px',
+    onclick: () => startLinking(item)
+  }, [answers.length ? 'Link another clause' : 'Find where this is answered']));
+  return sec;
+}
+
+/** Chips that narrow a search to one section, built from what actually hit. */
+function renderSearchScope(results) {
+  const scope = clear($('#scope'));
+  const counts = new Map();
+  for (const r of results) counts.set(r.item.type, (counts.get(r.item.type) || 0) + 1);
+
+  // Nothing to choose between: one section, or none.
+  if (counts.size < 2) {
+    scope.hidden = true;
+    if (view.searchScope && !counts.has(view.searchScope)) view.searchScope = null;
+    return;
+  }
+  scope.hidden = false;
+  const add = (label, value) => scope.append(el('button', {
+    class: 'scope-btn',
+    'aria-pressed': String(view.searchScope === value),
+    onclick: () => { view.searchScope = value; render(); }
+  }, [label]));
+  add(`All ${results.length}`, null);
+  for (const type of TAB_ORDER) {
+    if (!counts.has(type)) continue;
+    add(`${TYPES[type].short} ${counts.get(type)}`, type);
+  }
 }
 
 function renderHome(body) {
@@ -573,7 +732,21 @@ async function renderSearch(body) {
   }
 
   const texts = store.textsLoaded() ? await store.loadTexts() : null;
-  const results = runSearch(query, store.allItems(), texts);
+  const all = runSearch(query, store.allItems(), texts);
+
+  // "Where in the Synergy manuals is this" is a different question from "where
+  // is this anywhere", and on a library holding both a question and the
+  // documents that answer it, the question's own wording outranks every
+  // answer. Narrowing to a section is how the second question gets asked.
+  renderSearchScope(all);
+  const results = view.searchScope
+    ? all.filter((r) => r.item.type === view.searchScope)
+    : all;
+
+  if (view.linking) {
+    const banner = linkingBanner();
+    if (banner) body.append(banner);
+  }
 
   if (!texts) {
     body.append(el('div', { class: 'panel' }, [
@@ -583,9 +756,10 @@ async function renderSearch(body) {
   }
 
   if (!results.length) {
+    const scoped = view.searchScope ? ` in ${TYPES[view.searchScope].label}` : '';
     body.append(emptyState(
       texts ? 'Nothing found' : 'Nothing found yet',
-      texts ? `No entry matches “${query}”.` : 'Still opening document text…'));
+      texts ? `No entry matches “${query}”${scoped}.` : 'Still opening document text…'));
     return;
   }
 
@@ -1225,18 +1399,36 @@ function matchList(item, snippets, info) {
       const box = el('button', {
         class: 'snippet',
         // Tapping a hit opens the document at that page rather than page one.
-        onclick: (e) => { e.stopPropagation(); if (att) openAttachment(att, snip.page); }
+        onclick: (e) => { e.stopPropagation(); if (att) openAttachment(att, snip.page, item.id); }
       }, [
         // Said plainly, because a word read out of a diagram is a guess in a
         // way the document's own text is not.
-        el('span', { class: 'snippet-page',
-          text: `${snip.file} · page ${snip.page}${snip.inPicture ? ' · in a picture' : ''}` })
+        // The clause first, because that is what gets cited and what an
+        // inspector is told. The page is how to get to it, and it changes with
+        // every revision of the manual.
+        el('span', { class: 'snippet-page', text: [
+          snip.clause ? `${snip.clause.ref}${snip.clause.label ? ` \u2014 ${snip.clause.label}` : ''}` : null,
+          snip.file,
+          `page ${snip.page}`,
+          snip.inPicture ? 'in a picture' : null
+        ].filter(Boolean).join(' \u00b7 ') })
       ]);
       // Built from text nodes, so a document's own words cannot become markup.
       for (const part of snip.parts) {
         box.append(part.hit ? el('mark', { text: part.text }) : document.createTextNode(part.text));
       }
       holder.append(box);
+
+      // A question cannot answer itself: the question library says the words
+      // too, and more prominently than the manual that governs them.
+      if (view.linking && item.id !== view.linking.id && item.type !== 'sire') {
+        const question = store.getItem(view.linking.id);
+        const had = question && alreadyLinked(question, snip);
+        holder.append(el('button', {
+          class: 'btn btn-sm btn-block link-btn', disabled: Boolean(had),
+          onclick: (e) => { e.stopPropagation(); linkAnswer(item, snip); }
+        }, [had ? 'Linked' : `Link to ${view.linking.ref || 'the question'}`]));
+      }
     }
   };
 
@@ -1277,11 +1469,15 @@ function wireApp() {
   let searchTimer = null;
   $('#search').addEventListener('input', (e) => {
     view.query = e.target.value;
+    // A new search starts unnarrowed. Leaving the last one's section in place
+    // would answer the new question from inside the old one's filter and say
+    // nothing about it.
+    view.searchScope = null;
     clearTimeout(searchTimer);
     searchTimer = setTimeout(render, 120);
   });
   $('#backBtn').addEventListener('click', () => {
-    if (view.query) { view.query = ''; $('#search').value = ''; }
+    if (view.query) { view.query = ''; $('#search').value = ''; view.searchScope = null; }
     else { view.section = null; view.filter = null; endSelecting(); }
     render();
   });
@@ -1299,6 +1495,7 @@ function wireApp() {
   $('#filePicker').addEventListener('change', onFilesPicked);
   $('#importPicker').addEventListener('change', onImportPicked);
   $('#viewerClose').addEventListener('click', closeViewer);
+  $('#viewerNote').addEventListener('click', openNoteBox);
   $('#bulkCancel').addEventListener('click', () => { $('#bulk').hidden = true; view.bulk = null; });
   $('#bulkApply').addEventListener('click', applyBulk);
   for (const id of ['#detail', '#editor', '#settings', '#bulk']) {
@@ -1332,7 +1529,7 @@ function openDetail(id) {
   const section = el('div', { class: 'detail-sec' });
   let shown = 0;
   for (const f of def.fields) {
-    if (['attachments', 'fileLink'].includes(f.key) || f.key === def.titleKey) continue;
+    if (['attachments', 'fileLink', 'answers'].includes(f.key) || f.key === def.titleKey) continue;
     const raw = item.data[f.key];
     if (raw === undefined || raw === null || raw === '') continue;
     section.append(el('div', { class: 'stat' }, [
@@ -1359,10 +1556,16 @@ function openDetail(id) {
     ]));
   }
 
+  if (def.fields.some((f) => f.type === 'answers')) body.append(answersSection(item));
+
   const atts = item.data.attachments || [];
   if (atts.length) {
     const sec3 = el('div', { class: 'detail-sec' }, [el('h4', { text: 'Files on this device' })]);
-    for (const att of atts) sec3.append(attachmentRow(att));
+    for (const att of atts) {
+      sec3.append(attachmentRow(att));
+      const notes = pageNotesFor(item, att);
+      if (notes) sec3.append(notes);
+    }
     body.append(sec3);
   }
 
@@ -2047,10 +2250,16 @@ let disposeViewer = null;
  * Show a document in the app. An installed iOS web app cannot open a blob: URL
  * in a new tab, so this renders it here instead of handing it to the browser.
  */
-async function openAttachment(att, startPage = 1) {
+async function openAttachment(att, startPage = 1, itemId = view.detailId) {
   const sheet = $('#viewer');
   const body = clear($('#viewerBody'));
   $('#viewerTitle').textContent = att.name || 'Document';
+  // Which entry this file belongs to, so a note written while reading it knows
+  // where to be kept. Opened from a search result there is no open entry to
+  // read it off, so the caller says.
+  view.viewing = { itemId, attId: att.id };
+  $('#viewerNote').hidden = !itemId;
+  closeNoteBox();
   sheet.hidden = false;
   body.append(el('p', { class: 'hint', style: 'padding:24px', text: 'Opening…' }));
 
@@ -2079,6 +2288,116 @@ function closeViewer() {
   disposeViewer?.();
   disposeViewer = null;
   clear($('#viewerBody'));
+  closeNoteBox();
+  view.viewing = null;
+}
+
+// ── notes written on a page ─────────────────────────────────────────────────
+//
+// A manual is read once and understood once, and what was understood belongs
+// beside the page rather than in the reader's memory. A note is kept against
+// the page it was written on, so it comes back with that page -- and it is
+// searched like anything else, which is the whole of its value: the words a
+// person typed are the ones most worth finding again.
+
+/**
+ * The page being looked at.
+ *
+ * The viewer is a scroller of page canvases, so there is no current page to
+ * ask for -- it is whichever one the middle of the screen is on. Read off the
+ * DOM rather than by changing the viewer, which has no reason to know.
+ */
+function pageInView() {
+  const body = $('#viewerBody');
+  const middle = body.getBoundingClientRect().top + body.clientHeight / 2;
+  let best = 1;
+  let nearest = Infinity;
+  for (const canvas of body.querySelectorAll('canvas[data-page]')) {
+    const box = canvas.getBoundingClientRect();
+    if (box.bottom < middle || box.top > middle) {
+      const gap = box.bottom < middle ? middle - box.bottom : box.top - middle;
+      if (gap < nearest) { nearest = gap; best = Number(canvas.dataset.page); }
+      continue;
+    }
+    return Number(canvas.dataset.page);
+  }
+  return best;
+}
+
+function closeNoteBox() {
+  const box = $('#noteBox');
+  if (box) box.remove();
+}
+
+function openNoteBox() {
+  if ($('#noteBox')) { closeNoteBox(); return; }
+  const item = store.getItem(view.viewing?.itemId);
+  if (!item) return;
+  const page = pageInView();
+  const held = (item.data.pageNotes || []).filter((n) => n.attId === view.viewing.attId && n.page === page);
+
+  const field = el('textarea', {
+    class: 'field', id: 'noteText', rows: '3',
+    placeholder: `A note on page ${page}…`
+  });
+  const box = el('div', { class: 'note-box', id: 'noteBox' }, [
+    el('p', { class: 'note-page', text: `Page ${page}` }),
+    ...held.map((n) => el('p', { class: 'hint note-held', text: n.text })),
+    field,
+    el('div', { class: 'fieldrow', style: 'margin-top:8px' }, [
+      el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: closeNoteBox }, ['Cancel'])]),
+      el('div', {}, [el('button', {
+        class: 'btn btn-sm btn-block btn-primary',
+        onclick: async () => {
+          const text = field.value.trim();
+          if (!text) { closeNoteBox(); return; }
+          await savePageNote(item, view.viewing.attId, page, text);
+          closeNoteBox();
+          toast(`Noted on page ${page}`);
+        }
+      }, ['Save'])])
+    ])
+  ]);
+  $('#viewer').querySelector('.viewer-panel').insertBefore(box, $('#viewer').querySelector('.sheet-actions'));
+  field.focus();
+}
+
+async function savePageNote(item, attId, page, text) {
+  const pageNotes = [...(item.data.pageNotes || []),
+    { id: store.newId(), attId, page, text, at: new Date().toISOString().slice(0, 10) }];
+  await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, pageNotes } });
+}
+
+/** The notes written on a file, under it, each a way back to its page. */
+function pageNotesFor(item, att) {
+  const notes = (item.data.pageNotes || [])
+    .filter((n) => n.attId === att.id)
+    .sort((a, b) => a.page - b.page);
+  if (!notes.length) return null;
+
+  const wrap = el('div', { class: 'page-notes' }, [
+    el('p', { class: 'dkey', text: `${notes.length} note${notes.length === 1 ? '' : 's'}` })
+  ]);
+  for (const note of notes) {
+    wrap.append(el('div', { class: 'answer-row' }, [
+      el('button', {
+        class: 'answer-open',
+        onclick: () => openAttachment(att, note.page, item.id)
+      }, [
+        el('span', { class: 'answer-ref', text: `Page ${note.page}` }),
+        el('span', { class: 'answer-where', text: note.text })
+      ]),
+      el('button', {
+        class: 'del-btn', 'aria-label': 'Remove this note',
+        onclick: async () => {
+          const next = (item.data.pageNotes || []).filter((n) => n.id !== note.id);
+          await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, pageNotes: next } });
+          openDetail(item.id);
+        }
+      }, ['\u00d7'])
+    ]));
+  }
+  return wrap;
 }
 
 async function shareAttachment(att) {
@@ -2130,7 +2449,8 @@ function renderEditor() {
       while (i < def.fields.length && def.fields[i].group === f.group) run.push(def.fields[i++]);
       body.append(el('div', { class: 'fieldrow' }, run.map((g) => el('div', {}, [fieldFor(g, draft)]))));
     } else {
-      body.append(fieldFor(f, draft));
+      const control = fieldFor(f, draft);
+      if (control) body.append(control);
       i++;
     }
   }
@@ -2150,6 +2470,9 @@ function renderEditor() {
 
 function fieldFor(f, draft) {
   if (f.type === 'attachments') return attachmentsEditor(draft, f);
+  // Built by searching and linking, on the entry rather than in the form: a
+  // clause reference retyped into a box is the thing this exists to avoid.
+  if (f.type === 'answers') return null;
   const wrap = el('div', {}, [el('label', { class: 'label', text: f.label })]);
   const value = draft.data[f.key] ?? '';
 
@@ -2397,6 +2720,8 @@ async function saveEditor() {
   const draft = view.draft;
   if (!draft) return;
   const def = TYPES[draft.type];
+  // Fields a section can work out for itself, so they are not asked for twice.
+  def.derive?.(draft.data);
   const required = def.fields.find((f) => f.required && !String(draft.data[f.key] || '').trim());
   if (required) return toast(`${required.label} is required`);
 

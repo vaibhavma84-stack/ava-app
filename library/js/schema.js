@@ -161,6 +161,15 @@ const ATTACHMENTS = {
 
 const NOTES = { key: 'notes', label: 'Notes', type: 'textarea' };
 
+// Where a question is answered: a clause of a company document, held as a
+// list on the question. Added from a search rather than typed -- the whole
+// point is that you found the passage, and what is recorded is the passage you
+// found, not a reference retyped from memory.
+const ANSWERS = {
+  key: 'answers', label: 'Answered by', type: 'answers',
+  hint: 'The clauses of the company documents that answer this question. Added from a search.'
+};
+
 export const TYPES = {
   manual: {
     label: 'Manuals',
@@ -231,6 +240,44 @@ export const TYPES = {
     filterBy: { key: 'category', label: 'Job' },
     sort: (a, b) => (a.category || '').localeCompare(b.category || '')
                  || (a.title || '').localeCompare(b.title || '')
+  },
+
+  // A vetting question set, held as one entry per question, so a question can
+  // be looked up by its number and carry the company clauses that answer it.
+  //
+  // The questions are not shipped with the app. They are OCIMF's, they differ
+  // by vessel type, and they are revised -- so what the app holds is the shape
+  // of a question and the links out of it, and the questions themselves come
+  // off the copy on the phone.
+  sire: {
+    label: 'SIRE 2.0',
+    short: 'SIRE',
+    singular: 'SIRE question',
+    icon: 'inspect',
+    titleKey: 'title',
+    fields: [
+      { keepCase: true, key: 'refNo', label: 'Question', type: 'text', required: true, placeholder: 'e.g. 2.1', group: 'ident' },
+      { key: 'chapter', label: 'Chapter', type: 'text', group: 'ident', suggestFrom: true, placeholder: 'e.g. Chapter 2' },
+      { key: 'title', label: 'Subject', type: 'text', required: true, placeholder: 'e.g. Maintenance of statutory certificates' },
+      { key: 'vessel', label: 'Applies to', type: 'text', placeholder: 'e.g. All vessels' },
+      { ...NOTES, label: 'Notes / evidence to show' },
+      ANSWERS,
+      ATTACHMENTS,
+      FILE_LINK
+    ],
+    listFields: ['refNo'],
+    groupBy: { key: 'chapter', label: 'Chapter', blank: 'No chapter set' },
+    collapsible: true,
+    bulkFields: ['chapter', 'vessel'],
+    // The chapter is in the question number, so it is not asked for twice.
+    // Typed over freely afterwards -- "Chapter 2" becomes "2 \u2014 Certification"
+    // once, and every question after it is offered that.
+    derive: (data) => {
+      const number = String(data.refNo || '').trim();
+      if (!data.chapter && /^\d/.test(number)) data.chapter = `Chapter ${number.split('.')[0]}`;
+    },
+    // Ascending: a question set is read from 1.1 down, not newest first.
+    sort: (a, b) => byReference(a.refNo, b.refNo) || (a.title || '').localeCompare(b.title || '')
   },
 
   publication: {
@@ -387,4 +434,4 @@ export const TYPES = {
 // 'notice' is defined above but parked: it is not listed here, so nothing
 // renders it, and any records already saved under it stay untouched. Adding it
 // back to this list restores both the section and its entries.
-export const TAB_ORDER = ['publication', 'manual', 'local', 'synergy', 'flag', 'circular'];
+export const TAB_ORDER = ['publication', 'manual', 'local', 'synergy', 'flag', 'circular', 'sire'];

@@ -224,6 +224,43 @@ select.field {
 .group-head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .group-count { font-family: var(--mono); color: var(--text-dim); letter-spacing: 0; }
 
+/* ── a clause that answers a question, and a note on a page ──────────────── */
+.answer-row { display: flex; align-items: stretch; gap: 8px; margin-top: 8px; }
+.answer-open {
+  flex: 1; min-width: 0; text-align: left; cursor: pointer;
+  padding: 9px 11px; border-radius: 8px;
+  background: var(--ink-850); border: 1px solid var(--line);
+  border-left: 2px solid var(--copper-dim); color: var(--text);
+}
+.answer-open:active { background: var(--ink-700); }
+.answer-open:disabled { opacity: .55; }
+.answer-ref {
+  display: block; font-family: var(--display); font-size: 12px;
+  letter-spacing: .06em; color: var(--copper-bright); overflow-wrap: anywhere;
+}
+.answer-where {
+  display: block; margin-top: 3px; font-size: 12.5px; line-height: 1.45;
+  color: var(--text-dim); overflow-wrap: anywhere;
+}
+.answer-row .del-btn { flex: 0 0 auto; align-self: flex-start; }
+.page-notes { margin: 2px 0 4px; }
+.link-banner .stat-line { margin: 0 0 8px; color: var(--text); font-size: 14px; overflow-wrap: anywhere; }
+.link-btn { margin-top: 6px; }
+
+/* Written over the document being read, above the buttons that close it. */
+.note-box {
+  flex: 0 0 auto; padding: 11px 13px;
+  background: var(--ink-850); border-top: 1px solid var(--line);
+}
+.note-page {
+  margin: 0 0 7px; font-family: var(--display); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--copper);
+}
+.note-held {
+  margin: 0 0 7px; padding-left: 9px; border-left: 2px solid var(--copper-dim);
+  overflow-wrap: anywhere;
+}
+
 /* ── picking several at once ─────────────────────────────────────────────── */
 .select-bar { display: flex; align-items: center; margin: 2px 0 4px; }
 .select-bar .btn-sm { flex: 0 0 auto; }
