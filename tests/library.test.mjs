@@ -2257,8 +2257,59 @@ try {
   check('a note can be written on the page being read',
     /Noted on page 2/i.test(await page.locator('.toast').innerText()),
     await page.locator('.toast').innerText());
+
+  // A note you cannot see until you close the document and go and look at the
+  // entry is not a note. It is stuck on the page it was written on.
+  check('and it shows on the page it was written on, as a note stuck there',
+    (await page.locator('.sticky').count()) === 1
+    && /top drawer/i.test(await page.locator('.sticky').first().innerText()),
+    (await page.locator('.sticky').allInnerTexts()).join(' | '));
+  check('yellow unless it is asked to be something else',
+    /sticky-yellow/.test(await page.locator('.sticky').first().getAttribute('class')),
+    await page.locator('.sticky').first().getAttribute('class'));
+
+  // A page can be marked without anything being typed about it, in a colour.
+  await page.click('#viewerNote');
+  await page.waitForSelector('#noteBox');
+  await page.locator('.swatch[data-colour="blue"]').click();
+  await page.locator('#noteBox button', { hasText: 'Save' }).click();
+  await page.waitForTimeout(700);
+  check('a page can be bookmarked with no note at all',
+    /bookmarked/i.test(await page.locator('.toast').innerText()),
+    await page.locator('.toast').innerText());
+  const stuck = await page.locator('.sticky').evaluateAll((n) => n.map((s) => s.className));
+  check('and each one is the colour it was given',
+    stuck.length === 2 && /yellow/.test(stuck[0]) && /blue/.test(stuck[1]), stuck.join(' | '));
+
+  // Two on one page must not sit on top of each other: the one underneath can
+  // be neither read nor tapped, which is the whole of what a note has to be.
+  const boxes = await page.locator('.sticky').evaluateAll(
+    (n) => n.map((s) => s.getBoundingClientRect()).map((r) => [r.top, r.bottom]));
+  check('and they sit one under the other rather than in a pile',
+    boxes[1][0] >= boxes[0][1], JSON.stringify(boxes));
+
+  // Tapping one opens it, to change what it says or what colour it is.
+  await page.locator('.sticky').first().click();
+  await page.waitForSelector('#noteBox');
+  await page.locator('.swatch[data-colour="pink"]').click();
+  await page.locator('#noteBox button', { hasText: 'Save' }).click();
+  await page.waitForTimeout(700);
+  check('tapping a note opens it, and its colour can be changed',
+    /sticky-pink/.test((await page.locator('.sticky').evaluateAll((n) => n.map((s) => s.className))).join(' ')),
+    (await page.locator('.sticky').evaluateAll((n) => n.map((s) => s.className))).join(' | '));
+
   await page.click('#viewerClose');
-  await page.waitForTimeout(400);
+  await page.waitForTimeout(500);
+
+  // This document was opened from the question that points at it, so the entry
+  // behind the viewer is the question, not the manual the note belongs to.
+  check('and the notes are listed on the entry that holds the document',
+    (await page.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const manual = store.itemsOfType('synergy').find((i) => i.data.title === 'SMS Manual Vol 1');
+      return (manual?.data.pageNotes || []).length;
+    })) === 2, 'two notes on the manual');
+
   await closeDetail();
 
   // The note belongs to the document, not to whatever was open when it was

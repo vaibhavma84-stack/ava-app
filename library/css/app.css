@@ -264,9 +264,43 @@ select.field {
   letter-spacing: .12em; text-transform: uppercase; color: var(--copper);
 }
 .note-held {
+  display: flex; align-items: flex-start; gap: 8px;
   margin: 0 0 7px; padding-left: 9px; border-left: 2px solid var(--copper-dim);
-  overflow-wrap: anywhere;
+  color: var(--text-dim); font-size: 13px; line-height: 1.5; overflow-wrap: anywhere;
 }
+.note-held span { flex: 1; min-width: 0; }
+
+/* ── notes stuck on the page ─────────────────────────────────────────────── */
+/* Paper colours, and dark ink on all of them: a note is read against a white
+   page, not against the app's own dark ground. */
+.sticky-yellow { --paper: #f2d675; --ink: #40371c; }
+.sticky-pink   { --paper: #f0a8b6; --ink: #46222a; }
+.sticky-blue   { --paper: #9cc4e4; --ink: #1f3345; }
+.sticky-green  { --paper: #a7d19c; --ink: #22391e; }
+.sticky-orange { --paper: #efb178; --ink: #452b13; }
+
+.sticky {
+  position: absolute; z-index: 2; width: 84px; height: 76px;
+  padding: 7px 8px; border: 0; border-radius: 2px; cursor: pointer;
+  background: var(--paper); color: var(--ink); text-align: left;
+  font-family: var(--body); font-size: 10.5px; line-height: 1.32;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .4);
+  transform: rotate(-1.6deg);
+  overflow: hidden;
+}
+.sticky:nth-of-type(even) { transform: rotate(1.4deg); }
+.sticky:active { filter: brightness(1.06); }
+.sticky-text {
+  display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;
+  overflow: hidden; overflow-wrap: anywhere;
+}
+
+.swatches { display: flex; gap: 9px; margin-top: 9px; }
+.swatch {
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer; padding: 0;
+  background: var(--paper); border: 2px solid transparent;
+}
+.swatch[aria-pressed="true"] { border-color: var(--text); }
 
 /* ── picking several at once ─────────────────────────────────────────────── */
 .select-bar { display: flex; align-items: center; margin: 2px 0 4px; }
@@ -417,6 +451,9 @@ select.field {
 /* ── document viewer ─────────────────────────────────────────────────────── */
 .viewer-panel { height: calc(100dvh - var(--safe-t) - 12px); }
 .viewer-body {
+  /* Stickies are positioned against the pages inside this, so they scroll
+     with the document rather than sitting still on the screen. */
+  position: relative;
   flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;
   background: var(--ink-1000);
   padding: 10px calc(var(--safe-r) + 8px) 10px calc(var(--safe-l) + 8px);

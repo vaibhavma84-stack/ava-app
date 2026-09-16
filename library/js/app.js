@@ -13,7 +13,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.22';
+const APP_VERSION = '2026.10.23';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1496,7 +1496,11 @@ function wireApp() {
   $('#filePicker').addEventListener('change', onFilesPicked);
   $('#importPicker').addEventListener('change', onImportPicked);
   $('#viewerClose').addEventListener('click', closeViewer);
-  $('#viewerNote').addEventListener('click', openNoteBox);
+  // Wrapped, not passed straight in: a listener is handed the click event as
+  // its first argument, and openNoteBox reads its first argument as the note
+  // being edited. That made every new note an edit of a note that does not
+  // exist, which saved nothing and said "Note saved".
+  $('#viewerNote').addEventListener('click', () => openNoteBox());
   $('#bulkCancel').addEventListener('click', () => { $('#bulk').hidden = true; view.bulk = null; });
   $('#bulkApply').addEventListener('click', applyBulk);
   for (const id of ['#detail', '#editor', '#settings', '#bulk']) {
@@ -2277,6 +2281,8 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId) {
       }
     });
     $('#viewerShare').onclick = () => shareAttachment(att);
+    watchPageMarks();
+    drawStickies();
   } catch (ex) {
     clear(body).append(el('div', { class: 'empty' }, [
       el('h3', { text: 'Could not open it' }),
@@ -2285,7 +2291,32 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId) {
   }
 }
 
+let unwatchMarks = null;
+
+/**
+ * Follow the scroll, so the bar shows what is marked on the page in front of
+ * you rather than on the page the document was opened at.
+ */
+function watchPageMarks() {
+  unwatchMarks?.();
+  const body = $('#viewerBody');
+  let waiting = null;
+  const onScroll = () => {
+    if (waiting) return;
+    // Throttled: a scroll fires many times a second and each one of these
+    // measures every page canvas on the screen.
+    waiting = setTimeout(() => { waiting = null; drawStickies(); }, 180);
+  };
+  body.addEventListener('scroll', onScroll, { passive: true });
+  unwatchMarks = () => {
+    clearTimeout(waiting);
+    body.removeEventListener('scroll', onScroll);
+    unwatchMarks = null;
+  };
+}
+
 function closeViewer() {
+  unwatchMarks?.();
   $('#viewer').hidden = true;
   disposeViewer?.();
   disposeViewer = null;
@@ -2328,34 +2359,115 @@ function pageInView() {
 
 function closeNoteBox() {
   const box = $('#noteBox');
-  if (box) box.remove();
+  if (!box) return;
+  box.remove();
+  // Refreshed here rather than by whoever saved: the bar hides itself while
+  // the box is open, so a refresh before the box closes leaves it hidden --
+  // which is a bookmark you cannot see, the thing this exists to fix.
+  drawStickies();
 }
 
-function openNoteBox() {
-  if ($('#noteBox')) { closeNoteBox(); return; }
+async function removePageNote(itemId, noteId) {
+  const item = store.getItem(itemId);
+  if (!item) return;
+  const pageNotes = (item.data.pageNotes || []).filter((n) => n.id !== noteId);
+  await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, pageNotes } });
+  if (view.detailId === itemId) openDetail(itemId);
+  drawStickies();
+}
+
+// The colours a note can be. Dark ink on all of them, because a note is read
+// against a white page.
+const STICKY_COLOURS = ['yellow', 'pink', 'blue', 'green', 'orange'];
+
+/**
+ * Notes drawn on the page they were written on, the way they would be stuck
+ * there.
+ *
+ * Positioned against the page rather than against the screen, so a note stays
+ * on its own page as the document is scrolled past it. Redrawn as it scrolls,
+ * because a page's height is a guess until it has been drawn -- every canvas
+ * starts at A4 and takes its real shape later, which moves everything below it.
+ */
+function drawStickies() {
+  const body = $('#viewerBody');
+  if (!body) return;
+  for (const old of body.querySelectorAll('.sticky')) old.remove();
+
   const item = store.getItem(view.viewing?.itemId);
   if (!item) return;
-  const page = pageInView();
-  const held = (item.data.pageNotes || []).filter((n) => n.attId === view.viewing.attId && n.page === page);
+
+  const byPage = new Map();
+  for (const note of item.data.pageNotes || []) {
+    if (note.attId !== view.viewing.attId) continue;
+    if (!byPage.has(note.page)) byPage.set(note.page, []);
+    byPage.get(note.page).push(note);
+  }
+
+  for (const [page, notes] of byPage) {
+    const canvas = body.querySelector(`[data-page="${page}"]`);
+    if (!canvas) continue;
+    notes.forEach((note, i) => {
+      const sticky = el('button', {
+        class: `sticky sticky-${STICKY_COLOURS.includes(note.colour) ? note.colour : 'yellow'}`,
+        'aria-label': `Note on page ${page}`,
+        onclick: (e) => { e.stopPropagation(); openNoteBox(note); }
+      }, [el('span', { class: 'sticky-text', text: note.text || `Page ${page}` })]);
+      // Down the margin rather than piled on top of each other: overlapped,
+      // the one underneath cannot be read or tapped, which is the one thing a
+      // note on a page has to be.
+      sticky.style.top = `${canvas.offsetTop + 12 + i * 84}px`;
+      sticky.style.right = '12px';
+      body.append(sticky);
+    });
+  }
+}
+
+function openNoteBox(existing = null) {
+  if ($('#noteBox')) { closeNoteBox(); if (!existing) return; }
+  const item = store.getItem(view.viewing?.itemId);
+  if (!item) return;
+  const page = existing ? existing.page : pageInView();
+  let colour = existing && STICKY_COLOURS.includes(existing.colour) ? existing.colour : 'yellow';
 
   const field = el('textarea', {
     class: 'field', id: 'noteText', rows: '3',
-    placeholder: `A note on page ${page}…`
-  });
+    placeholder: 'A note, if you want one\u2026'
+  }, [existing?.text || '']);
+
+  const swatches = el('div', { class: 'swatches' });
+  const paint = () => {
+    for (const button of swatches.children) {
+      button.setAttribute('aria-pressed', String(button.dataset.colour === colour));
+    }
+  };
+  for (const name of STICKY_COLOURS) {
+    swatches.append(el('button', {
+      class: `swatch sticky-${name}`, 'data-colour': name, 'aria-label': name,
+      onclick: () => { colour = name; paint(); }
+    }));
+  }
+  paint();
+
   const box = el('div', { class: 'note-box', id: 'noteBox' }, [
-    el('p', { class: 'note-page', text: `Page ${page}` }),
-    ...held.map((n) => el('p', { class: 'hint note-held', text: n.text })),
+    el('p', { class: 'note-page', text: existing ? `Note on page ${page}` : `Bookmark page ${page}` }),
     field,
-    el('div', { class: 'fieldrow', style: 'margin-top:8px' }, [
-      el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: closeNoteBox }, ['Cancel'])]),
+    swatches,
+    el('div', { class: 'fieldrow', style: 'margin-top:9px' }, [
+      el('div', {}, [el('button', {
+        class: 'btn btn-sm btn-block',
+        onclick: existing
+          ? () => removePageNote(view.viewing.itemId, existing.id)
+          : closeNoteBox
+      }, [existing ? 'Remove' : 'Cancel'])]),
       el('div', {}, [el('button', {
         class: 'btn btn-sm btn-block btn-primary',
         onclick: async () => {
           const text = field.value.trim();
-          if (!text) { closeNoteBox(); return; }
-          await savePageNote(item, view.viewing.attId, page, text);
+          if (existing) await updatePageNote(view.viewing.itemId, existing.id, { text, colour });
+          else await savePageNote(view.viewing.itemId, view.viewing.attId, page, text, colour);
           closeNoteBox();
-          toast(`Noted on page ${page}`);
+          toast(existing ? 'Note saved' : text ? `Noted on page ${page}` : `Page ${page} bookmarked`);
         }
       }, ['Save'])])
     ])
@@ -2364,10 +2476,32 @@ function openNoteBox() {
   field.focus();
 }
 
-async function savePageNote(item, attId, page, text) {
-  const pageNotes = [...(item.data.pageNotes || []),
-    { id: store.newId(), attId, page, text, at: new Date().toISOString().slice(0, 10) }];
+/** Change what a note says, or what colour it is. */
+async function updatePageNote(itemId, noteId, changes) {
+  const item = store.getItem(itemId);
+  if (!item) return;
+  const pageNotes = (item.data.pageNotes || []).map((n) => (n.id === noteId ? { ...n, ...changes } : n));
   await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, pageNotes } });
+  if (view.detailId === itemId) openDetail(itemId);
+  drawStickies();
+}
+
+async function savePageNote(itemId, attId, page, text, colour = 'yellow') {
+  // Read fresh rather than using the entry as it was when the box was opened.
+  // Spreading a stale copy back over the record puts the entry back as it was
+  // at that moment, and anything written in between is gone.
+  const item = store.getItem(itemId);
+  if (!item) return;
+  const pageNotes = [...(item.data.pageNotes || []),
+    { id: store.newId(), attId, page, text, colour, at: new Date().toISOString().slice(0, 10) }];
+  await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, pageNotes } });
+
+  // The entry is open behind the viewer and was drawn before this existed.
+  // render() redraws the list, not an open sheet, so without this the note is
+  // saved and the entry still shows nothing the moment the viewer is closed --
+  // which reads exactly like the note having been lost.
+  if (view.detailId === itemId) openDetail(itemId);
+  drawStickies();
 }
 
 // ── a document's own contents, and the machinery it names ───────────────────
@@ -2495,8 +2629,11 @@ function pageNotesFor(item, att) {
     .sort((a, b) => a.page - b.page);
   if (!notes.length) return null;
 
+  const written = notes.filter((n) => n.text).length;
   const wrap = el('div', { class: 'page-notes' }, [
-    el('p', { class: 'dkey', text: `${notes.length} note${notes.length === 1 ? '' : 's'}` })
+    el('p', { class: 'dkey', text: written === notes.length
+      ? `${notes.length} note${notes.length === 1 ? '' : 's'}`
+      : `${notes.length} bookmark${notes.length === 1 ? '' : 's'}` })
   ]);
   for (const note of notes) {
     wrap.append(el('div', { class: 'answer-row' }, [
@@ -2504,16 +2641,15 @@ function pageNotesFor(item, att) {
         class: 'answer-open',
         onclick: () => openAttachment(att, note.page, item.id)
       }, [
-        el('span', { class: 'answer-ref', text: `Page ${note.page}` }),
-        el('span', { class: 'answer-where', text: note.text })
+        // The note leads where there is one: a list of page numbers says
+        // nothing about which page is the one you wanted.
+        el('span', { class: 'answer-ref', text: note.text || `Page ${note.page}` }),
+        el('span', { class: 'answer-where',
+          text: note.text ? `page ${note.page}` : 'Bookmarked' })
       ]),
       el('button', {
-        class: 'del-btn', 'aria-label': 'Remove this note',
-        onclick: async () => {
-          const next = (item.data.pageNotes || []).filter((n) => n.id !== note.id);
-          await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, pageNotes: next } });
-          openDetail(item.id);
-        }
+        class: 'del-btn', 'aria-label': 'Remove this bookmark',
+        onclick: () => removePageNote(item.id, note.id)
       }, ['\u00d7'])
     ]));
   }
