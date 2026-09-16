@@ -244,6 +244,13 @@ select.field {
 }
 .answer-row .del-btn { flex: 0 0 auto; align-self: flex-start; }
 .page-notes { margin: 2px 0 4px; }
+.index-block { margin: 10px 0 4px; }
+.index-list { margin-top: 4px; }
+.index-row { display: block; width: 100%; margin-top: 6px; }
+/* Indented the way the document is, so a contents list reads as one. */
+.index-row.depth-1 { margin-left: 12px; }
+.index-row.depth-2 { margin-left: 24px; }
+.index-row.depth-3 { margin-left: 34px; }
 .link-banner .stat-line { margin: 0 0 8px; color: var(--text); font-size: 14px; overflow-wrap: anywhere; }
 .link-btn { margin-top: 6px; }
 

@@ -2,7 +2,8 @@ import * as store from './store.js';
 import * as db from './db.js';
 import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch } from './search.js';
-import { isPdf, extract, describe, selfTest, STATUS } from './pdftext.js';
+import { isPdf, extract, describe, selfTest, readLayout, STATUS } from './pdftext.js';
+import { outlineFrom, equipmentFrom } from './outline.js';
 import { suggestFields, titleFromFilename } from './suggest.js';
 import { probeAll, fetchNotices, FEEDS, SYNCABLE } from './updates.js';
 import { fetchSummary } from './summary.js';
@@ -12,7 +13,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.20';
+const APP_VERSION = '2026.10.21';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1565,6 +1566,7 @@ function openDetail(id) {
       sec3.append(attachmentRow(att));
       const notes = pageNotesFor(item, att);
       if (notes) sec3.append(notes);
+      if (isPdf(att) || /\.pdf$/i.test(att.name || '')) sec3.append(indexFor(item, att));
     }
     body.append(sec3);
   }
@@ -2366,6 +2368,124 @@ async function savePageNote(item, attId, page, text) {
   const pageNotes = [...(item.data.pageNotes || []),
     { id: store.newId(), attId, page, text, at: new Date().toISOString().slice(0, 10) }];
   await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, pageNotes } });
+}
+
+// ── a document's own contents, and the machinery it names ───────────────────
+//
+// Read from the layout rather than from the flattened text: a heading is
+// mostly just bigger than the body, and a table is only a table while its
+// column boundaries survive. Both are thrown away by the read that feeds the
+// search, so this is a second pass over the file, made when it is asked for.
+//
+// Kept as flat lists on the entry so that a maker's name is searchable like
+// anything else -- "Hatlapa" should find the manual that names it.
+
+async function buildIndex(item, att, button) {
+  const label = button.textContent;
+  button.disabled = true;
+  const note = el('p', { class: 'hint', style: 'margin-top:6px', text: 'Reading\u2026' });
+  button.after(note);
+
+  try {
+    const blob = await store.readFile(att);
+    const read = await readLayout(await blob.arrayBuffer(), {
+      onProgress: (said) => { note.textContent = said; }
+    });
+    if (!read.ok) { toast(`Could not read it: ${read.error}`); return; }
+
+    const contents = outlineFrom(read.pages).map((e) => ({ attId: att.id, ...e }));
+    const equipment = equipmentFrom(read.pages).map((e) => ({ attId: att.id, ...e }));
+
+    const fresh = store.getItem(item.id);
+    if (!fresh) return;
+    const data = { ...fresh.data };
+    // Only this file's, so building the index of one document does not throw
+    // away what was read from another in the same entry.
+    data.contents = [...(fresh.data.contents || []).filter((c) => c.attId !== att.id), ...contents];
+    data.equipment = [...(fresh.data.equipment || []).filter((e) => e.attId !== att.id), ...equipment];
+    await store.saveItem({ id: item.id, type: item.type, data });
+    openDetail(item.id);
+
+    toast(contents.length || equipment.length
+      ? `${contents.length} in the contents, ${equipment.length} with a maker named`
+      : 'Nothing found: this document numbers no sections and names no makers');
+  } catch (ex) {
+    toast(`Could not read it: ${ex.message}`);
+  } finally {
+    note.remove();
+    button.disabled = false;
+    button.textContent = label;
+  }
+}
+
+/** A list that opens the document where the entry is, folded if it is long. */
+function pageList(rows, draw, onOpen) {
+  const FIRST = 8;
+  const holder = el('div', {});
+  let shown = 0;
+  const fill = (upTo) => {
+    for (; shown < Math.min(upTo, rows.length); shown++) {
+      const row = rows[shown];
+      holder.append(el('button', {
+        class: `answer-open index-row depth-${row.level ?? 0}`,
+        onclick: () => onOpen(row)
+      }, draw(row)));
+    }
+  };
+  fill(FIRST);
+  const wrap = el('div', { class: 'index-list' }, [holder]);
+  if (rows.length > FIRST) {
+    const more = el('button', {
+      class: 'btn btn-sm btn-block', style: 'margin-top:8px',
+      onclick: () => { fill(rows.length); more.remove(); }
+    }, [`Show all ${rows.length}`]);
+    wrap.append(more);
+  }
+  return wrap;
+}
+
+/** What was read out of a file: its contents, and the makers it names. */
+function indexFor(item, att) {
+  const contents = (item.data.contents || []).filter((c) => c.attId === att.id);
+  const equipment = (item.data.equipment || []).filter((e) => e.attId === att.id);
+  const built = contents.length || equipment.length;
+
+  const wrap = el('div', { class: 'index-block' });
+
+  if (contents.length) {
+    wrap.append(el('p', { class: 'dkey', text: `Contents \u00b7 ${contents.length}` }));
+    wrap.append(pageList(contents,
+      (row) => [
+        el('span', { class: 'answer-ref', text: [row.ref, row.title].filter(Boolean).join(' ') }),
+        el('span', { class: 'answer-where', text: `page ${row.page}` })
+      ],
+      (row) => openAttachment(att, row.page, item.id)));
+  }
+
+  if (equipment.length) {
+    wrap.append(el('p', { class: 'dkey', style: 'margin-top:12px', text: `Equipment \u00b7 ${equipment.length}` }));
+    wrap.append(pageList(equipment,
+      (row) => [
+        el('span', { class: 'answer-ref', text: row.name || row.maker }),
+        el('span', { class: 'answer-where', text: [
+          row.name ? row.maker : null, row.model, `page ${row.page}`
+        ].filter(Boolean).join(' \u00b7 ') })
+      ],
+      (row) => openAttachment(att, row.page, item.id)));
+  }
+
+  wrap.append(el('button', {
+    class: 'btn btn-sm btn-block', style: 'margin-top:10px',
+    onclick: (e) => buildIndex(item, att, e.target)
+  }, [built ? 'Read the index again' : 'Read the index and the makers']));
+
+  if (!built) {
+    wrap.append(el('p', { class: 'hint', style: 'margin-top:6px', text:
+      'Lists the numbered sections with their pages, and anything the document says the maker of. '
+      + 'What is written in a sentence rather than labelled or tabled is not found \u2014 a maker picked '
+      + 'out of prose is a guess about which thing it belongs to.' }));
+  }
+  return wrap;
 }
 
 /** The notes written on a file, under it, each a way back to its page. */

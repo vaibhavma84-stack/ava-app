@@ -12,6 +12,7 @@ import path from 'node:path';
 import { textFromHtml, listOnly, sweepUnreferenced } from '../tools/mirror-docs.mjs';
 import { singaporeRef, singaporeLooseRef, SG_TYPES, MPA, panamaRef } from '../library/js/updates.js';
 import { clauseAt } from '../library/js/search.js';
+import { outlineFrom, equipmentFrom } from '../library/js/outline.js';
 
 let passed = 0, failed = 0;
 const check = (name, ok, detail) => {
@@ -503,6 +504,79 @@ const para = '7.1 The Company shall ensure that each ship is manned with qualifi
 check('the opening words of a paragraph are not offered as a heading',
   clauseAt(para, para.indexOf('qualified')).label === null,
   JSON.stringify(clauseAt(para, para.indexOf('qualified'))));
+
+// ── a document's contents, and the machinery it names ──────────────────────
+//
+// These lines are what readLayout produces from a real printed PDF: a size per
+// line, and tabs where the column gaps were. The flattened text the search
+// uses has neither, which is why this is a second pass -- "Equipment Maker
+// Model Mooring Winch Rolls-Royce MW-250" cannot be read by anyone.
+console.log('\nReading a document\u2019s contents and its makers');
+const L = (page, size, text) => ({ page, size, text });
+const MANUAL = [
+  [L(1, 14, '1 INTRODUCTION'), L(1, 11, '1.1 This manual covers the engine room machinery.')],
+  [L(2, 14, '3 MACHINERY PARTICULARS'),
+   L(2, 12, '3.1 Main Air Compressor'),
+   L(2, 11, 'Maker: Hatlapa Model: W110 Serial No: 884-2019'),
+   L(2, 11, '3.1.1 The compressor shall be run up in accordance with the maker\u2019s instructions.'),
+   L(2, 12, '3.2 Oily Water Separator'),
+   L(2, 11, 'Manufacturer: Victor Marine Type: VM-15 Capacity: 1.0 m3/h')],
+  [L(3, 14, '4 DECK MACHINERY'),
+   L(3, 12, 'Equipment\tMaker\tModel'),
+   L(3, 12, 'Mooring Winch\tRolls-Royce\tMW-250'),
+   L(3, 12, 'Windlass\tMacGregor\tWL-90'),
+   L(3, 12, '4.3 Provision Crane'),
+   L(3, 11, 'Make - TTS Marine. SWL 3.2 t.')]
+];
+
+const contents = outlineFrom(MANUAL);
+check('every numbered section is in the contents',
+  contents.length === 6, contents.map((c) => c.ref).join(' '));
+check('and each one carries the page it is on',
+  contents.find((c) => c.ref === '4').page === 3
+  && contents.find((c) => c.ref === '3.1').page === 2,
+  JSON.stringify(contents.map((c) => `${c.ref}:p${c.page}`)));
+check('a section is nested under its chapter by the size it is set at',
+  contents.find((c) => c.ref === '4').level < contents.find((c) => c.ref === '4.3').level,
+  JSON.stringify(contents.map((c) => `${c.ref}:L${c.level}`)));
+// A numbered paragraph is the same shape as a numbered heading, and a contents
+// list full of paragraph openings is not a contents list.
+check('a numbered paragraph is not an entry in the contents',
+  !contents.some((c) => c.ref === '3.1.1'), contents.map((c) => c.ref).join(' '));
+// Every cell of a table is set at heading size in plenty of documents.
+check('and nor is a row of a table',
+  !contents.some((c) => /Mooring Winch|Equipment/.test(c.title)),
+  contents.map((c) => c.title).join(' | '));
+
+const kit = equipmentFrom(MANUAL);
+const maker = (name) => kit.find((e) => e.name === name);
+check('a labelled maker is read, with the heading as the name of the thing',
+  maker('Main Air Compressor')?.maker === 'Hatlapa', JSON.stringify(kit));
+check('and the model beside it, stopping before the next label',
+  maker('Main Air Compressor')?.model === 'W110', JSON.stringify(maker('Main Air Compressor')));
+check('Manufacturer is read as well as Maker',
+  maker('Oily Water Separator')?.maker === 'Victor Marine', JSON.stringify(maker('Oily Water Separator')));
+// The whole reason for reading the layout: flattened, this row is
+// "Mooring Winch Rolls-Royce MW-250" and nothing says where the maker starts.
+check('a table is read by its own header row, whatever order its columns are in',
+  maker('Mooring Winch')?.maker === 'Rolls-Royce' && maker('Windlass')?.maker === 'MacGregor',
+  JSON.stringify(kit.map((e) => `${e.name}=${e.maker}`)));
+check('and a value is not run on into the sentence after it',
+  maker('Provision Crane')?.maker === 'TTS Marine', JSON.stringify(maker('Provision Crane')));
+check('every maker named is found and no more than that',
+  kit.length === 5, JSON.stringify(kit.map((e) => e.name)));
+
+// Silence beats invention: a wrong maker sends someone to order the wrong part.
+const prose = [[L(1, 11, 'The compressor was supplied new by Hatlapa in 2019 and has run well since.')]];
+check('a maker mentioned in a sentence is not guessed at',
+  equipmentFrom(prose).length === 0, JSON.stringify(equipmentFrom(prose)));
+const plainPages = [[L(1, 11, 'This manual describes the engine room and how it is operated.')]];
+check('a document that numbers nothing gets no contents rather than an invented one',
+  outlineFrom(plainPages).length === 0, JSON.stringify(outlineFrom(plainPages)));
+// A table of readings has no maker column and is not a list of equipment.
+const readings = [[L(1, 11, 'Date\tPressure\tTemperature'), L(1, 11, '01/05\t7.2 bar\t38 C')]];
+check('a table with no maker column is not read as equipment',
+  equipmentFrom(readings).length === 0, JSON.stringify(equipmentFrom(readings)));
 
 console.log(`\n${passed} passed, ${failed} failed`);
 process.exit(failed ? 1 : 0);

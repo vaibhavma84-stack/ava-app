@@ -324,6 +324,37 @@ const LIBRARY_PATH = path.join(tmp, 'Question Library Part 2.pdf');
   await maker.close();
 }
 
+// A machinery manual the way one is actually laid out: chapter headings set
+// larger, numbered sections under them, labelled particulars, and a table of
+// deck machinery. The table is the point -- flattened to text it reads
+// "Equipment Maker Model Mooring Winch Rolls-Royce MW-250" and nothing in it
+// says where the maker starts.
+const MACHINERY_PATH = path.join(tmp, 'Engine Room Manual.pdf');
+{
+  const maker = await browser.newPage();
+  const sheet = (html) => `<div style="page-break-after:always">${html}</div>`;
+  await maker.setContent(
+    '<style>@page{size:A4;margin:16mm}body{font:11pt Helvetica,Arial,sans-serif;line-height:1.5}'
+    + 'h2{font-size:14pt;margin:0 0 8pt}h3{font-size:12pt;margin:12pt 0 4pt}'
+    + 'table{border-collapse:collapse;width:100%;margin:6pt 0}'
+    + 'td,th{border:1px solid #888;padding:4pt 6pt;text-align:left}</style>'
+    + sheet('<h2>1 INTRODUCTION</h2><p>1.1 This manual covers the engine room machinery.</p>')
+    + sheet('<h2>3 MACHINERY PARTICULARS</h2>'
+      + '<h3>3.1 Main Air Compressor</h3>'
+      + '<p>Maker: Hatlapa &nbsp; Model: W110 &nbsp; Serial No: 884-2019</p>'
+      + '<p>3.1.1 The compressor shall be run up in accordance with the maker\u2019s instructions.</p>'
+      + '<h3>3.2 Oily Water Separator</h3>'
+      + '<p>Manufacturer: Victor Marine &nbsp; Type: VM-15 &nbsp; Capacity: 1.0 m3/h</p>')
+    + sheet('<h2>4 DECK MACHINERY</h2>'
+      + '<table><tr><th>Equipment</th><th>Maker</th><th>Model</th></tr>'
+      + '<tr><td>Mooring Winch</td><td>Rolls-Royce</td><td>MW-250</td></tr>'
+      + '<tr><td>Windlass</td><td>MacGregor</td><td>WL-90</td></tr></table>'
+      + '<h3>4.3 Provision Crane</h3><p>Make - TTS Marine. SWL 3.2 t.</p>'),
+    { waitUntil: 'load' });
+  await maker.pdf({ path: MACHINERY_PATH, format: 'A4' });
+  await maker.close();
+}
+
 // A photograph attached on its own — a nameplate, the sort of thing that gets
 // taken on a phone and dropped into an entry. Not a PDF at all, so nothing was
 // ever read out of it.
@@ -2030,6 +2061,90 @@ try {
   // ---- a vetting question, and the clause that answers it ----------------
   // An inspector asks question 2.1 and what is needed back is the company
   // clause that governs it, not a page number in a 600-page question library.
+  // ---- a document's own contents, and the machinery it names -------------
+  // The shell list is written by hand, and a module left off it is only
+  // noticed by a phone that installs the app and then loses its signal --
+  // which is a ship. summary.js and outline.js were both missing when this was
+  // written; nothing failed, because a module fetched once while online is
+  // kept by the runtime cache, and that is exactly what makes it easy to miss.
+  console.log('\nThe offline shell');
+  {
+    const appSource = fs.readFileSync(path.join(ROOT, 'library', 'js', 'app.js'), 'utf8');
+    const swSource = fs.readFileSync(path.join(ROOT, 'library', 'sw.js'), 'utf8');
+    const imported = [...appSource.matchAll(/from '\.\/([\w.-]+\.js)'/g)].map((m) => m[1]);
+    const missing = imported.filter((f) => !swSource.includes(`'js/${f}'`));
+    check('every module the app loads at boot is in the offline shell',
+      missing.length === 0, missing.join(', '));
+    check('and the list found something to check',
+      imported.length >= 8, String(imported.length));
+  }
+
+  console.log('\nReading a document\u2019s index and its makers');
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card:has(.section-name:text-is("Manuals"))').click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'Engine Room Manual');
+  await page.setInputFiles('#filePicker', MACHINERY_PATH);
+  await page.waitForTimeout(3000);
+  await save();
+  await openBranches();
+  await page.locator('.card', { hasText: 'Engine Room Manual' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+
+  check('an index is offered but not built until it is asked for',
+    (await page.locator('#detailBody button', { hasText: 'Read the index and the makers' }).count()) === 1
+    && (await page.locator('.index-row').count()) === 0);
+
+  await page.locator('#detailBody button', { hasText: 'Read the index and the makers' }).click();
+  await page.locator('.toast', { hasText: /in the contents|Nothing found|Could not/ })
+    .waitFor({ timeout: 90000 });
+  const indexRun = await page.locator('.toast', { hasText: /in the contents|Nothing found|Could not/ }).innerText();
+  check('the index is read from the document',
+    /6 in the contents, 5 with a maker named/.test(indexRun), indexRun);
+  await page.waitForTimeout(800);
+
+  const indexText = await page.locator('#detailBody').innerText();
+  check('every chapter is listed with the page it starts on',
+    /4 DECK MACHINERY/i.test(indexText) && /page 3/.test(indexText),
+    indexText.replace(/\n/g, ' / ').slice(0, 400));
+  check('and the machinery is listed with who made it',
+    /Hatlapa/.test(indexText) && /Victor Marine/.test(indexText),
+    indexText.replace(/\n/g, ' / ').slice(-400));
+  // Flattened to text this row reads "Mooring Winch Rolls-Royce MW-250" and
+  // nothing says where the maker starts. Only the layout does.
+  check('including a table, which the flattened text cannot be read from',
+    /Mooring Winch/.test(indexText) && /Rolls-Royce/.test(indexText),
+    indexText.replace(/\n/g, ' / ').slice(-400));
+
+  // The point of an index: a chapter is one tap away.
+  await page.locator('.index-row', { hasText: 'DECK MACHINERY' }).first().click();
+  await page.waitForSelector('#viewer:not([hidden])', { timeout: 20000 });
+  await page.waitForTimeout(2500);
+  check('a chapter in the index opens the document where it starts',
+    /page 3 of/i.test(await page.locator('#viewerTitle').innerText()),
+    await page.locator('#viewerTitle').innerText());
+  await page.click('#viewerClose');
+  await page.waitForTimeout(400);
+  await closeDetail();
+
+  // A maker's name is a thing people search for -- "which manual is the
+  // Hatlapa one" -- and it is only in the index, not in any field.
+  await page.fill('#search', 'Hatlapa');
+  await page.waitForTimeout(1200);
+  check('and a maker read out of a document is searchable by name',
+    (await page.locator('#body .card-title').allInnerTexts()).join(' | ') === 'Engine Room Manual',
+    (await page.locator('#body .card-title').allInnerTexts()).join(' | '));
+  await page.fill('#search', '');
+  await page.waitForTimeout(400);
+  await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    const made = store.itemsOfType('manual').find((i) => i.data.title === 'Engine Room Manual');
+    if (made) await store.deleteItem(made.id);
+  });
+  await page.waitForTimeout(300);
+
   console.log('\nLinking a SIRE question to the clause that answers it');
   await page.click('#backBtn');
   await page.waitForTimeout(200);

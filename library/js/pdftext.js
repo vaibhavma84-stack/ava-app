@@ -85,6 +85,80 @@ export async function extract(buffer, { onProgress } = {}) {
 }
 
 /**
+ * Read a document keeping its layout, one array of lines per page.
+ *
+ * The ordinary read joins every text fragment with a space, which is right for
+ * searching and wrong for everything else: a table comes out as
+ * "Equipment Maker Model Mooring Winch Rolls-Royce MW-250", where the column
+ * boundaries -- the only thing saying which of those words is the maker -- have
+ * been thrown away. They are in the fragments' coordinates, which the ordinary
+ * read discards.
+ *
+ * So this is a second, slower read, used for building a contents list and for
+ * reading a machinery table. The stored text the search uses is left exactly
+ * as it was. Lines carry the size they were drawn at, because a heading is
+ * mostly just bigger, and cells are separated by tabs.
+ */
+export async function readLayout(buffer, { onProgress, shouldStop } = {}) {
+  let task = null;
+  try {
+    const pdfjsLib = await lib();
+    task = pdfjsLib.getDocument({ data: new Uint8Array(buffer) });
+    const doc = await task.promise;
+    const pages = [];
+
+    for (let n = 1; n <= doc.numPages; n++) {
+      if (shouldStop?.()) break;
+      onProgress?.(`Page ${n} of ${doc.numPages}`);
+      const page = await doc.getPage(n);
+      const content = await page.getTextContent();
+
+      // Fragments sharing a baseline are one line. Rounded, because a line is
+      // rarely laid out to the exact same y -- a font change or a subscript
+      // shifts it by a fraction.
+      const rows = new Map();
+      for (const item of content.items) {
+        if (!item.str.trim()) continue;
+        const y = Math.round(item.transform[5]);
+        const size = Math.abs(item.transform[0]) || item.height || 0;
+        const row = rows.get(y) || { y, size: 0, parts: [] };
+        row.size = Math.max(row.size, size);
+        row.parts.push({ x: item.transform[4], width: item.width || 0, str: item.str });
+        rows.set(y, row);
+      }
+
+      const lines = [];
+      for (const row of [...rows.values()].sort((a, b) => b.y - a.y)) {
+        row.parts.sort((a, b) => a.x - b.x);
+        let text = '';
+        let endOfLast = null;
+        for (const part of row.parts) {
+          if (endOfLast !== null) {
+            const gap = part.x - endOfLast;
+            // A gap wider than a space is a column. Measured against the size
+            // the line is drawn at, so it holds for a footnote and a heading
+            // alike. Below that, join as the page joins them.
+            if (gap > row.size * 0.9) text += '\t';
+            else if (gap > row.size * 0.12 && !/\s$/.test(text)) text += ' ';
+          }
+          text += part.str;
+          endOfLast = part.x + part.width;
+        }
+        const cleaned = text.replace(/[ \u00a0]+/g, ' ').replace(/ ?\t ?/g, '\t').trim();
+        if (cleaned.length > 1) lines.push({ page: n, size: row.size, text: cleaned });
+      }
+      pages.push(lines);
+      page.cleanup();
+    }
+    return { ok: true, pageCount: doc.numPages, pages };
+  } catch (ex) {
+    return { ok: false, pageCount: 0, pages: [], error: String(ex?.message || ex) };
+  } finally {
+    try { await task?.destroy(); } catch { /* nothing useful to do */ }
+  }
+}
+
+/**
  * Read just enough of a PDF to describe it: its embedded metadata and the text
  * of the first page, with the largest lines picked out. Only one page is
  * parsed, so this is quick enough to run the moment a file is chosen.
