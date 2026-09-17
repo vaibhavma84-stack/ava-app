@@ -107,13 +107,24 @@ export function itemsOfType(type) {
     .sort((a, b) => (def?.sort ? def.sort(a.data, b.data) || 0 : b.updatedAt - a.updatedAt));
 }
 
-export async function saveItem({ id, type, data }) {
+/**
+ * Write an entry, merging what is given over what is already there.
+ *
+ * `drop` names fields to take off the record. Leaving a key out of `data` does
+ * not remove it -- the merge spreads the stored data first, so an omitted key
+ * keeps its old value. Without this there is no way to take a field off an
+ * entry at all, and a delete written as `delete data.thing` quietly does
+ * nothing.
+ */
+export async function saveItem({ id, type, data, drop = [] }) {
   const now = Date.now();
   const existing = id ? state.items.get(id) : null;
+  const merged = { ...(existing?.data || {}), ...data };
+  for (const key of drop) delete merged[key];
   const item = {
     id: id || newId(),
     type: type || existing?.type,
-    data: { ...(existing?.data || {}), ...data },
+    data: merged,
     createdAt: existing?.createdAt ?? now,
     updatedAt: now
   };

@@ -1,15 +1,21 @@
-// What a document says about its own shape: its contents, and the machinery it
-// names together with who made it.
+// The machinery a document names, and who made it.
 //
-// Both are read from the layout-preserving pass in pdftext.js, not from the
-// flattened text the search uses. A heading is mostly just bigger than the
-// body, and a table is only a table while its column boundaries survive --
-// neither survives being joined with spaces.
+// Read from the layout-preserving pass in pdftext.js rather than from the
+// flattened text the search uses: a table is only a table while its column
+// boundaries survive, and they do not survive being joined with spaces. The
+// size each line is set at comes with it, which is how the heading above a
+// labelled maker is told from the paragraph around it.
 //
-// Nothing here guesses. A document that does not number its sections gets no
-// contents, and a document that never says who made anything gets no equipment
-// list. An invented clause reference or a wrong maker is worse than an empty
-// list: the empty list sends you to look, and the wrong one does not.
+// There was a contents list here too, built from the headings. On a real
+// question library it made 1250 entries out of a few hundred sections -- the
+// cover page line by line, and a good deal else -- and every attempt to tell a
+// heading from the furniture around it cost a heading somewhere. Taken out
+// rather than left half right: a contents list that cannot be trusted is worse
+// than the one already printed on page 2 of the document.
+//
+// What is left does not guess. A document that never says who made anything
+// gets an empty list, and an empty list sends you to look where a wrong maker
+// sends you to order the wrong part.
 
 /** The size the body text of a document is set at: the commonest one. */
 function bodySize(pages) {
@@ -29,103 +35,6 @@ function bodySize(pages) {
 }
 
 const NUMBERED = /^(\d{1,2}(?:\.\d{1,3}){0,4})[.):]?\s+(\S.*)$/;
-
-/**
- * The lines a document prints on every page: its running head and its footer.
- *
- * These are set apart from the body exactly as a heading is, and they are
- * short and unpunctuated exactly as a heading is, so nothing about one line of
- * it says it is not a heading. What says so is that it is on page after page.
- * A real heading appears once, where its section starts.
- *
- * Counted on exact text rather than on text with the numbers stripped out.
- * Stripping them would catch a running head carrying a page number, and would
- * also collapse "Chapter 1" through "Chapter 20" into one repeated line and
- * throw away every chapter in the book.
- */
-function runningHeads(pages) {
-  const onPages = new Map();
-  for (const lines of pages) {
-    const seenHere = new Set();
-    for (const line of lines) {
-      if (seenHere.has(line.text)) continue;
-      seenHere.add(line.text);
-      onPages.set(line.text, (onPages.get(line.text) || 0) + 1);
-    }
-  }
-  // Proportional, so it holds for a booklet and for a manual: on 326 pages a
-  // line has to be on 14 of them, on 12 pages it has to be on 3.
-  const enough = Math.max(3, Math.ceil(pages.length * 0.04));
-  const heads = new Set();
-  for (const [text, count] of onPages) if (count >= enough) heads.add(text);
-  return heads;
-}
-
-/**
- * The contents of a document, with the page each entry is on.
- *
- * A heading is a line set larger than the body, or a numbered line short
- * enough to be a title rather than the opening of a paragraph. A line holding
- * a tab is a row of a table and is never a heading however it is set.
- */
-export function outlineFrom(pages) {
-  const body = bodySize(pages);
-  const sizes = new Set();
-  const found = [];
-  const running = runningHeads(pages);
-
-  for (const lines of pages) {
-    for (const line of lines) {
-      if (line.text.includes('\t')) continue;
-      // The title of the manual, printed at the top of all 326 of its pages,
-      // is not 326 entries in its contents.
-      if (running.has(line.text)) continue;
-      const bigger = line.size > body + 0.4;
-      const numbered = NUMBERED.exec(line.text);
-
-      // Numbered and short, or simply set larger. A numbered paragraph is the
-      // same shape as a numbered heading and only its length tells them apart.
-      const short = line.text.length <= 70;
-      if (!bigger && !(numbered && short && !/[.,;:]$/.test(line.text))) continue;
-      // Something set larger but running to a paragraph's length is a pull
-      // quote or an opening statement, not a heading.
-      if (bigger && line.text.length > 90) continue;
-
-      sizes.add(Math.round(line.size * 2) / 2);
-      found.push({
-        page: line.page,
-        size: line.size,
-        ref: numbered ? numbered[1] : null,
-        title: numbered ? numbered[2].trim() : line.text
-      });
-    }
-  }
-
-  // Depth from the size it is set at, biggest first, so a contents list can be
-  // indented the way the document is. Where a document sets every heading the
-  // same, the number of parts in its reference says the same thing.
-  const ranked = [...sizes].sort((a, b) => b - a);
-  const seen = new Set();
-  const out = [];
-  for (const entry of found) {
-    // The same words twice on one page is a heading and the line under it
-    // repeating it, or a heading caught in two pieces. Either way it is one
-    // entry, and a contents list that says a thing twice is read as wrong.
-    const key = `${entry.page}|${entry.ref || ''}|${entry.title.toLowerCase()}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
-
-    const bySize = ranked.indexOf(Math.round(entry.size * 2) / 2);
-    const byRef = entry.ref ? entry.ref.split('.').length - 1 : null;
-    out.push({
-      ref: entry.ref,
-      title: entry.title,
-      page: entry.page,
-      level: Math.min(ranked.length > 1 ? bySize : (byRef ?? 0), 3)
-    });
-  }
-  return out;
-}
 
 // What a document calls the maker of something, and what it calls the thing.
 const MAKER_LABEL = /\b(maker|manufacturer|make|builder|supplier|supplied by)\b\s*[:–—-]\s*/i;

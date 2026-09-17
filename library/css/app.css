@@ -307,6 +307,19 @@ select.field {
   overflow: hidden; overflow-wrap: anywhere;
 }
 
+/* A bookmark is a ribbon, not a blank note: it marks a place rather than
+   saying anything, and it hangs over the top edge the way one does in a book. */
+.ribbon {
+  /* Above the notes: a note can be dragged anywhere, including over this, and
+     a bookmark that cannot be tapped cannot be taken off. */
+  position: absolute; z-index: 4; width: 26px; height: 58px;
+  padding: 0; border: 0; cursor: pointer;
+  background: var(--copper);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .35);
+}
+.ribbon:active { background: var(--copper-bright); }
+
 .swatches { display: flex; gap: 9px; margin-top: 9px; }
 .swatch {
   width: 30px; height: 30px; border-radius: 50%; cursor: pointer; padding: 0;

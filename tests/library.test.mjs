@@ -2079,7 +2079,7 @@ try {
       imported.length >= 8, String(imported.length));
   }
 
-  console.log('\nReading a document\u2019s index and its makers');
+  console.log('\nReading the makers a document names');
   await page.click('#backBtn');
   await page.waitForTimeout(200);
   await page.locator('.section-card:has(.section-name:text-is("Manuals"))').click();
@@ -2093,23 +2093,24 @@ try {
   await page.locator('.card', { hasText: 'Engine Room Manual' }).first().click();
   await page.waitForSelector('#detail:not([hidden])');
 
-  check('an index is offered but not built until it is asked for',
-    (await page.locator('#detailBody button', { hasText: 'Read the index and the makers' }).count()) === 1
+  check('the makers are offered but not read until it is asked for',
+    (await page.locator('#detailBody button', { hasText: 'Read the makers named in it' }).count()) === 1
     && (await page.locator('.index-row').count()) === 0);
 
-  await page.locator('#detailBody button', { hasText: 'Read the index and the makers' }).click();
-  await page.locator('.toast', { hasText: /in the contents|Nothing found|Could not/ })
+  await page.locator('#detailBody button', { hasText: 'Read the makers named in it' }).click();
+  await page.locator('.toast', { hasText: /with a maker named|Nothing found|Could not/ })
     .waitFor({ timeout: 90000 });
-  const indexRun = await page.locator('.toast', { hasText: /in the contents|Nothing found|Could not/ }).innerText();
-  check('the index is read from the document',
-    /6 in the contents, 5 with a maker named/.test(indexRun), indexRun);
+  const indexRun = await page.locator('.toast', { hasText: /with a maker named|Nothing found|Could not/ }).innerText();
+  check('the makers are read from the document',
+    /5 with a maker named/.test(indexRun), indexRun);
   await page.waitForTimeout(800);
 
   const indexText = await page.locator('#detailBody').innerText();
-  check('every chapter is listed with the page it starts on',
-    /4 DECK MACHINERY/i.test(indexText) && /page 3/.test(indexText),
-    indexText.replace(/\n/g, ' / ').slice(0, 400));
-  check('and the machinery is listed with who made it',
+  // The contents list this used to build made 1250 entries out of a few
+  // hundred sections on a real question library, and is gone.
+  check('and no contents list is built or shown',
+    !/Contents \u00b7/.test(indexText), indexText.replace(/\n/g, ' / ').slice(0, 300));
+  check('the machinery is listed with who made it',
     /Hatlapa/.test(indexText) && /Victor Marine/.test(indexText),
     indexText.replace(/\n/g, ' / ').slice(-400));
   // Flattened to text this row reads "Mooring Winch Rolls-Royce MW-250" and
@@ -2118,11 +2119,11 @@ try {
     /Mooring Winch/.test(indexText) && /Rolls-Royce/.test(indexText),
     indexText.replace(/\n/g, ' / ').slice(-400));
 
-  // The point of an index: a chapter is one tap away.
-  await page.locator('.index-row', { hasText: 'DECK MACHINERY' }).first().click();
+  // The point of the list: the page that names the maker is one tap away.
+  await page.locator('.index-row', { hasText: 'Mooring Winch' }).first().click();
   await page.waitForSelector('#viewer:not([hidden])', { timeout: 20000 });
   await page.waitForTimeout(2500);
-  check('a chapter in the index opens the document where it starts',
+  check('a maker in the list opens the document at the page that names it',
     /page 3 of/i.test(await page.locator('#viewerTitle').innerText()),
     await page.locator('#viewerTitle').innerText());
   await page.click('#viewerClose');
@@ -2138,11 +2139,47 @@ try {
     (await page.locator('#body .card-title').allInnerTexts()).join(' | '));
   await page.fill('#search', '');
   await page.waitForTimeout(400);
+
+  // A contents list built by an older copy of the app is not merely hidden.
+  // Every entry of it is a string on the record and the search reads the
+  // record, so "Version 1.0" and "(January 2022)" were matching a publication.
+  await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    const made = store.itemsOfType('manual').find((i) => i.data.title === 'Engine Room Manual');
+    await store.saveItem({ id: made.id, type: made.type, data: {
+      contents: [{ attId: 'x', ref: '1', title: 'Verzatrix Cover Line', page: 1, level: 0 }]
+    } });
+  });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(1200);
+  const swept = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    const made = store.itemsOfType('manual').find((i) => i.data.title === 'Engine Room Manual');
+    return { has: 'contents' in made.data, equipment: (made.data.equipment || []).length };
+  });
+  // saveItem merges what it is given over what is stored, so leaving the field
+  // out does not remove it -- it has to be dropped by name.
+  check('a contents list left by an older version is cleared off the record',
+    swept.has === false, JSON.stringify(swept));
+  check('and what was read about the makers is kept',
+    swept.equipment === 5, JSON.stringify(swept));
+  await page.fill('#search', 'Verzatrix');
+  await page.waitForTimeout(1000);
+  check('so it stops turning up in searches',
+    (await page.locator('#body .card-title').count()) === 0,
+    (await page.locator('#body .card-title').allInnerTexts()).join(' | '));
+  await page.fill('#search', '');
+  await page.waitForTimeout(400);
+
   await page.evaluate(async () => {
     const store = await import('./js/store.js');
     const made = store.itemsOfType('manual').find((i) => i.data.title === 'Engine Room Manual');
     if (made) await store.deleteItem(made.id);
   });
+  await page.waitForTimeout(300);
+  // The reload above put the app back on the sections screen, and what comes
+  // next expects to be inside one.
+  await page.locator('.section-card:has(.section-name:text-is("Manuals"))').click();
   await page.waitForTimeout(300);
 
   console.log('\nLinking a SIRE question to the clause that answers it');
@@ -2268,15 +2305,13 @@ try {
     /sticky-yellow/.test(await page.locator('.sticky').first().getAttribute('class')),
     await page.locator('.sticky').first().getAttribute('class'));
 
-  // A page can be marked without anything being typed about it, in a colour.
+  // A second note, in a colour of its own.
   await page.click('#viewerNote');
   await page.waitForSelector('#noteBox');
   await page.locator('.swatch[data-colour="blue"]').click();
+  await page.fill('#noteText', 'Ask the Master for the last audit report.');
   await page.locator('#noteBox button', { hasText: 'Save' }).click();
   await page.waitForTimeout(700);
-  check('a page can be bookmarked with no note at all',
-    /bookmarked/i.test(await page.locator('.toast').innerText()),
-    await page.locator('.toast').innerText());
   const stuck = await page.locator('.sticky').evaluateAll((n) => n.map((s) => s.className));
   check('and each one is the colour it was given',
     stuck.length === 2 && /yellow/.test(stuck[0]) && /blue/.test(stuck[1]), stuck.join(' | '));
@@ -2287,6 +2322,40 @@ try {
     (n) => n.map((s) => s.getBoundingClientRect()).map((r) => [r.top, r.bottom]));
   check('and they sit one under the other rather than in a pile',
     boxes[1][0] >= boxes[0][1], JSON.stringify(boxes));
+
+  // ---- a bookmark is not a note -----------------------------------------
+  // A note is something written and looks like it. A bookmark is not written
+  // at all, so a blank post-it asks the reader to see writing that is not
+  // there.
+  check('a note with nothing written on it is not saved',
+    await (async () => {
+      const before = await page.locator('.sticky').count();
+      await page.click('#viewerNote');
+      await page.waitForSelector('#noteBox');
+      await page.locator('#noteBox button', { hasText: 'Save' }).click();
+      await page.waitForTimeout(600);
+      return (await page.locator('.sticky').count()) === before;
+    })());
+
+  await page.click('#viewerMark');
+  await page.waitForTimeout(700);
+  check('bookmarking a page takes one tap and asks for nothing',
+    (await page.locator('#noteBox').count()) === 0
+    && /bookmarked/i.test(await page.locator('.toast').innerText()),
+    await page.locator('.toast').innerText());
+  check('and it is a ribbon on the page, not a blank note',
+    (await page.locator('.ribbon').count()) === 1
+    && (await page.locator('.sticky').count()) === 2,
+    `${await page.locator('.ribbon').count()} ribbons, ${await page.locator('.sticky').count()} notes`);
+
+  // A note can be dragged anywhere, including over the ribbon, and a bookmark
+  // that cannot be tapped cannot be taken off.
+  const ribbonOver = await page.locator('.ribbon').first().evaluate((r) => {
+    const box = r.getBoundingClientRect();
+    const top = document.elementFromPoint(box.left + box.width / 2, box.top + 8);
+    return top === r || r.contains(top);
+  });
+  check('and the ribbon stays reachable whatever is dropped on it', ribbonOver);
 
   // The top-right corner is the one place a note is certain to be in the way:
   // on a SIRE question it sits over the first line of the question.
@@ -2352,7 +2421,15 @@ try {
       const store = await import('./js/store.js');
       const manual = store.itemsOfType('synergy').find((i) => i.data.title === 'SMS Manual Vol 1');
       return (manual?.data.pageNotes || []).length;
-    })) === 2, 'two notes on the manual');
+    })) === 3, 'two notes and a bookmark on the manual');
+  // Listed apart, because they are different things.
+  const marks = (await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    const manual = store.itemsOfType('synergy').find((i) => i.data.title === 'SMS Manual Vol 1');
+    return (manual.data.pageNotes || []).map((n) => n.kind || (n.text ? 'note' : 'bookmark'));
+  })).sort().join(',');
+  check('kept apart as bookmarks and notes rather than one muddled list',
+    marks === 'bookmark,note,note', marks);
 
   await closeDetail();
 
@@ -2527,6 +2604,9 @@ try {
   await page.setInputFiles('#filePicker', SCAN_PATH);
   await page.waitForTimeout(2500);
   await save();
+  // The reload earlier in the run shut the tree, and a card inside a shut
+  // branch is not on the screen to be read.
+  await openBranches();
 
   check('a scan says on its card that it cannot be searched',
     /not searchable/i.test(await cardPill('L-001 Operational Manual')),

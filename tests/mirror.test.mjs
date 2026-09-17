@@ -12,7 +12,7 @@ import path from 'node:path';
 import { textFromHtml, listOnly, sweepUnreferenced } from '../tools/mirror-docs.mjs';
 import { singaporeRef, singaporeLooseRef, SG_TYPES, MPA, panamaRef } from '../library/js/updates.js';
 import { clauseAt } from '../library/js/search.js';
-import { outlineFrom, equipmentFrom } from '../library/js/outline.js';
+import { equipmentFrom } from '../library/js/outline.js';
 
 let passed = 0, failed = 0;
 const check = (name, ok, detail) => {
@@ -511,7 +511,7 @@ check('the opening words of a paragraph are not offered as a heading',
 // line, and tabs where the column gaps were. The flattened text the search
 // uses has neither, which is why this is a second pass -- "Equipment Maker
 // Model Mooring Winch Rolls-Royce MW-250" cannot be read by anyone.
-console.log('\nReading a document\u2019s contents and its makers');
+console.log('\nReading the machinery a document names');
 const L = (page, size, text) => ({ page, size, text });
 const MANUAL = [
   [L(1, 14, '1 INTRODUCTION'), L(1, 11, '1.1 This manual covers the engine room machinery.')],
@@ -528,25 +528,6 @@ const MANUAL = [
    L(3, 12, '4.3 Provision Crane'),
    L(3, 11, 'Make - TTS Marine. SWL 3.2 t.')]
 ];
-
-const contents = outlineFrom(MANUAL);
-check('every numbered section is in the contents',
-  contents.length === 6, contents.map((c) => c.ref).join(' '));
-check('and each one carries the page it is on',
-  contents.find((c) => c.ref === '4').page === 3
-  && contents.find((c) => c.ref === '3.1').page === 2,
-  JSON.stringify(contents.map((c) => `${c.ref}:p${c.page}`)));
-check('a section is nested under its chapter by the size it is set at',
-  contents.find((c) => c.ref === '4').level < contents.find((c) => c.ref === '4.3').level,
-  JSON.stringify(contents.map((c) => `${c.ref}:L${c.level}`)));
-// A numbered paragraph is the same shape as a numbered heading, and a contents
-// list full of paragraph openings is not a contents list.
-check('a numbered paragraph is not an entry in the contents',
-  !contents.some((c) => c.ref === '3.1.1'), contents.map((c) => c.ref).join(' '));
-// Every cell of a table is set at heading size in plenty of documents.
-check('and nor is a row of a table',
-  !contents.some((c) => /Mooring Winch|Equipment/.test(c.title)),
-  contents.map((c) => c.title).join(' | '));
 
 const kit = equipmentFrom(MANUAL);
 const maker = (name) => kit.find((e) => e.name === name);
@@ -566,49 +547,10 @@ check('and a value is not run on into the sentence after it',
 check('every maker named is found and no more than that',
   kit.length === 5, JSON.stringify(kit.map((e) => e.name)));
 
-// A manual prints its own title at the top of every page. On a 326-page health
-// and safety manual that alone was 326 entries in a contents list of 808 --
-// nothing about one line of it says it is not a heading, because it is set
-// apart from the body and short and unpunctuated exactly as a heading is. What
-// says so is that it is on page after page.
-const LONG = [];
-for (let n = 1; n <= 25; n++) {
-  const lines = [L(n, 9, 'HEALTH AND SAFETY MANUAL'), L(n, 9, 'RECORD OF REVISION')];
-  if (n === 1) lines.push(L(n, 16, '1 POLICY'));
-  if (n === 8) lines.push(L(n, 16, '2 RESPONSIBILITIES'));
-  if (n === 9) lines.push(L(n, 13, '2.1 The Master'));
-  if (n === 17) lines.push(L(n, 16, '3 RISK ASSESSMENT'));
-  lines.push(L(n, 11, 'Body text about how work aboard is planned and carried out safely.'));
-  LONG.push(lines);
-}
-const longContents = outlineFrom(LONG);
-check('a running head is not an entry in the contents, once per page it is on',
-  longContents.length === 4, JSON.stringify(longContents.map((c) => `${c.ref}:p${c.page}`)));
-check('and the real headings under it all survive',
-  longContents.map((c) => c.ref).join(' ') === '1 2 2.1 3',
-  longContents.map((c) => c.ref).join(' '));
-
-// Stripping the numbers out before counting repeats would catch a running head
-// carrying a page number -- and would also throw away every chapter in the book.
-const chapters = [];
-for (let n = 1; n <= 25; n++) {
-  chapters.push([L(n, 16, `Chapter ${n}`), L(n, 11, 'Body text under the chapter heading on this page.')]);
-}
-check('chapters numbered one after another are not mistaken for a running head',
-  outlineFrom(chapters).length === 25, String(outlineFrom(chapters).length));
-
-// A heading picked up twice on one page is one entry, not two.
-const doubled = [[L(1, 16, '1 POLICY'), L(1, 16, '1 POLICY'), L(1, 11, 'Body text here.')]];
-check('and the same heading twice on a page is one entry',
-  outlineFrom(doubled).length === 1, JSON.stringify(outlineFrom(doubled)));
-
 // Silence beats invention: a wrong maker sends someone to order the wrong part.
 const prose = [[L(1, 11, 'The compressor was supplied new by Hatlapa in 2019 and has run well since.')]];
 check('a maker mentioned in a sentence is not guessed at',
   equipmentFrom(prose).length === 0, JSON.stringify(equipmentFrom(prose)));
-const plainPages = [[L(1, 11, 'This manual describes the engine room and how it is operated.')]];
-check('a document that numbers nothing gets no contents rather than an invented one',
-  outlineFrom(plainPages).length === 0, JSON.stringify(outlineFrom(plainPages)));
 // A table of readings has no maker column and is not a list of equipment.
 const readings = [[L(1, 11, 'Date\tPressure\tTemperature'), L(1, 11, '01/05\t7.2 bar\t38 C')]];
 check('a table with no maker column is not read as equipment',

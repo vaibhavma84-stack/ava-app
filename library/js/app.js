@@ -3,7 +3,7 @@ import * as db from './db.js';
 import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch } from './search.js';
 import { isPdf, extract, describe, selfTest, readLayout, STATUS } from './pdftext.js';
-import { outlineFrom, equipmentFrom } from './outline.js';
+import { equipmentFrom } from './outline.js';
 import { suggestFields, titleFromFilename } from './suggest.js';
 import { probeAll, fetchNotices, FEEDS, SYNCABLE } from './updates.js';
 import { fetchSummary } from './summary.js';
@@ -13,7 +13,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.24';
+const APP_VERSION = '2026.10.25';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -185,6 +185,28 @@ function enterApp() {
   render();
   // After the first render, so a slow reply never delays the app opening.
   announceIfStale();
+  dropOldContents();
+}
+
+/**
+ * Throw away the contents lists a previous version built.
+ *
+ * It read a document's headings and, on a real question library, produced 1250
+ * entries out of a few hundred sections: the cover page line by line, and a
+ * great deal else. It has been taken out.
+ *
+ * Clearing what it already wrote matters rather than just hiding it, because
+ * every one of those entries is a string on the record and the search reads
+ * the record -- so "Version 1.0" and "(January 2022)" were matching a
+ * publication. Nothing here was typed by anyone; it was all worked out from
+ * the file, and can be again.
+ */
+async function dropOldContents() {
+  const stale = store.allItems().filter((i) => Array.isArray(i.data?.contents));
+  if (!stale.length) return;
+  for (const item of stale) {
+    await store.saveItem({ id: item.id, type: item.type, data: {}, drop: ['contents'] });
+  }
 }
 
 // ── render ──────────────────────────────────────────────────────────────────
@@ -1500,6 +1522,11 @@ function wireApp() {
   // its first argument, and openNoteBox reads its first argument as the note
   // being edited. That made every new note an edit of a note that does not
   // exist, which saved nothing and said "Note saved".
+  $('#viewerMark').addEventListener('click', toggleBookmark);
+  // Wrapped, not passed straight in: a listener is handed the click event as
+  // its first argument, and openNoteBox reads its first argument as the note
+  // being edited. That made every new note an edit of a note that does not
+  // exist, which saved nothing and said "Note saved".
   $('#viewerNote').addEventListener('click', () => openNoteBox());
   $('#bulkCancel').addEventListener('click', () => { $('#bulk').hidden = true; view.bulk = null; });
   $('#bulkApply').addEventListener('click', applyBulk);
@@ -2265,6 +2292,7 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId) {
   // read it off, so the caller says.
   view.viewing = { itemId, attId: att.id };
   $('#viewerNote').hidden = !itemId;
+  $('#viewerMark').hidden = !itemId;
   closeNoteBox();
   sheet.hidden = false;
   body.append(el('p', { class: 'hint', style: 'padding:24px', text: 'Opening…' }));
@@ -2280,7 +2308,10 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId) {
           : `${att.name} · ${text}`;
       }
     });
-    $('#viewerShare').onclick = () => shareAttachment(att);
+    // Saving the file to Files is on the entry, under the file it belongs to.
+    // Carrying it here as well cost the room the two buttons that are only
+    // usable while reading needed, and left them abbreviated to "Mark".
+
     watchPageMarks();
     drawStickies();
   } catch (ex) {
@@ -2389,10 +2420,26 @@ const STICKY_COLOURS = ['yellow', 'pink', 'blue', 'green', 'orange'];
  * because a page's height is a guess until it has been drawn -- every canvas
  * starts at A4 and takes its real shape later, which moves everything below it.
  */
+/**
+ * A bookmark and a note are not the same thing.
+ *
+ * A note is something written, and it looks like what it is: a small piece of
+ * paper stuck on the page. A bookmark is not written at all -- it is a ribbon
+ * marking a page you mean to come back to, and dressing it up as a blank note
+ * asks the reader to see writing that is not there.
+ *
+ * One list holds both, so that everything marked on a page is in one place.
+ * Records made before this existed carry no kind, and what they are is plain
+ * from whether anybody wrote anything on them.
+ */
+function markKind(mark) {
+  return mark.kind || (mark.text ? 'note' : 'bookmark');
+}
+
 function drawStickies() {
   const body = $('#viewerBody');
   if (!body) return;
-  for (const old of body.querySelectorAll('.sticky')) old.remove();
+  for (const old of body.querySelectorAll('.sticky, .ribbon')) old.remove();
 
   const item = store.getItem(view.viewing?.itemId);
   if (!item) return;
@@ -2404,10 +2451,22 @@ function drawStickies() {
     byPage.get(note.page).push(note);
   }
 
-  for (const [page, notes] of byPage) {
+  for (const [page, marks] of byPage) {
     const canvas = body.querySelector(`[data-page="${page}"]`);
     if (!canvas) continue;
-    notes.forEach((note, i) => {
+
+    for (const mark of marks.filter((m) => markKind(m) === 'bookmark')) {
+      const ribbon = el('button', {
+        class: 'ribbon', 'aria-label': `Bookmark on page ${page}`,
+        onclick: (e) => { e.stopPropagation(); removePageNote(view.viewing.itemId, mark.id); }
+      });
+      // Hung over the top edge of the page, the way one sticks out of a book.
+      ribbon.style.top = `${canvas.offsetTop - 8}px`;
+      ribbon.style.left = `${canvas.offsetLeft + canvas.offsetWidth - 52}px`;
+      body.append(ribbon);
+    }
+
+    marks.filter((m) => markKind(m) === 'note').forEach((note, i) => {
       const sticky = el('button', {
         class: `sticky sticky-${STICKY_COLOURS.includes(note.colour) ? note.colour : 'yellow'}`,
         'aria-label': `Note on page ${page}`,
@@ -2419,13 +2478,36 @@ function drawStickies() {
           if (sticky.dataset.dragged === 'yes') { delete sticky.dataset.dragged; return; }
           openNoteBox(note);
         }
-      }, [el('span', { class: 'sticky-text', text: note.text || `Page ${page}` })]);
+      }, [el('span', { class: 'sticky-text', text: note.text })]);
 
       placeSticky(sticky, note, canvas, i);
       dragSticky(sticky, note, canvas);
       body.append(sticky);
     });
   }
+}
+
+/**
+ * Mark the page being read, or unmark it.
+ *
+ * No box and nothing to type: a bookmark is a place, and asking for a
+ * sentence about it is asking for the thing that makes it a note. One to a
+ * page, because a page is either marked or it is not.
+ */
+async function toggleBookmark() {
+  const item = store.getItem(view.viewing?.itemId);
+  if (!item) return;
+  const page = pageInView();
+  const had = (item.data.pageNotes || []).find(
+    (n) => n.attId === view.viewing.attId && n.page === page && markKind(n) === 'bookmark');
+
+  if (had) {
+    await removePageNote(view.viewing.itemId, had.id);
+    toast(`Page ${page} unmarked`);
+    return;
+  }
+  await savePageNote(view.viewing.itemId, view.viewing.attId, page, '', null, 'bookmark');
+  toast(`Page ${page} bookmarked`);
 }
 
 /**
@@ -2446,9 +2528,10 @@ function placeSticky(sticky, note, canvas, index) {
     return;
   }
   // Never moved: the top-right corner, stacked down so two on a page do not
-  // cover each other.
+  // cover each other -- and starting below the ribbon, because a note landing
+  // on the bookmark leaves the bookmark impossible to tap off.
   sticky.style.left = `${canvas.offsetLeft + width - 96}px`;
-  sticky.style.top = `${canvas.offsetTop + 12 + index * 84}px`;
+  sticky.style.top = `${canvas.offsetTop + 74 + index * 84}px`;
 }
 
 /**
@@ -2518,7 +2601,7 @@ function openNoteBox(existing = null) {
 
   const field = el('textarea', {
     class: 'field', id: 'noteText', rows: '3',
-    placeholder: 'A note, if you want one\u2026'
+    placeholder: `A note on page ${page}\u2026`
   }, [existing?.text || '']);
 
   const swatches = el('div', { class: 'swatches' });
@@ -2536,7 +2619,7 @@ function openNoteBox(existing = null) {
   paint();
 
   const box = el('div', { class: 'note-box', id: 'noteBox' }, [
-    el('p', { class: 'note-page', text: existing ? `Note on page ${page}` : `Bookmark page ${page}` }),
+    el('p', { class: 'note-page', text: `Note on page ${page}` }),
     field,
     swatches,
     el('div', { class: 'fieldrow', style: 'margin-top:9px' }, [
@@ -2550,10 +2633,13 @@ function openNoteBox(existing = null) {
         class: 'btn btn-sm btn-block btn-primary',
         onclick: async () => {
           const text = field.value.trim();
+          // Nothing written is nothing to keep. A blank note is a bookmark,
+          // and there is a button for those.
+          if (!text) { closeNoteBox(); return; }
           if (existing) await updatePageNote(view.viewing.itemId, existing.id, { text, colour });
-          else await savePageNote(view.viewing.itemId, view.viewing.attId, page, text, colour);
+          else await savePageNote(view.viewing.itemId, view.viewing.attId, page, text, colour, 'note');
           closeNoteBox();
-          toast(existing ? 'Note saved' : text ? `Noted on page ${page}` : `Page ${page} bookmarked`);
+          toast(existing ? 'Note saved' : `Noted on page ${page}`);
         }
       }, ['Save'])])
     ])
@@ -2572,14 +2658,15 @@ async function updatePageNote(itemId, noteId, changes) {
   drawStickies();
 }
 
-async function savePageNote(itemId, attId, page, text, colour = 'yellow') {
+async function savePageNote(itemId, attId, page, text, colour = 'yellow', kind = 'note') {
   // Read fresh rather than using the entry as it was when the box was opened.
   // Spreading a stale copy back over the record puts the entry back as it was
   // at that moment, and anything written in between is gone.
   const item = store.getItem(itemId);
   if (!item) return;
   const pageNotes = [...(item.data.pageNotes || []),
-    { id: store.newId(), attId, page, text, colour, at: new Date().toISOString().slice(0, 10) }];
+    { id: store.newId(), attId, page, text, colour, kind,
+      at: new Date().toISOString().slice(0, 10) }];
   await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, pageNotes } });
 
   // The entry is open behind the viewer and was drawn before this existed.
@@ -2613,22 +2700,20 @@ async function buildIndex(item, att, button) {
     });
     if (!read.ok) { toast(`Could not read it: ${read.error}`); return; }
 
-    const contents = outlineFrom(read.pages).map((e) => ({ attId: att.id, ...e }));
     const equipment = equipmentFrom(read.pages).map((e) => ({ attId: att.id, ...e }));
 
     const fresh = store.getItem(item.id);
     if (!fresh) return;
     const data = { ...fresh.data };
-    // Only this file's, so building the index of one document does not throw
-    // away what was read from another in the same entry.
-    data.contents = [...(fresh.data.contents || []).filter((c) => c.attId !== att.id), ...contents];
+    // Only this file's, so reading one document does not throw away what was
+    // read from another in the same entry.
     data.equipment = [...(fresh.data.equipment || []).filter((e) => e.attId !== att.id), ...equipment];
-    await store.saveItem({ id: item.id, type: item.type, data });
+    await store.saveItem({ id: item.id, type: item.type, data, drop: ['contents'] });
     openDetail(item.id);
 
-    toast(contents.length || equipment.length
-      ? `${contents.length} in the contents, ${equipment.length} with a maker named`
-      : 'Nothing found: this document numbers no sections and names no makers');
+    toast(equipment.length
+      ? `${equipment.length} with a maker named`
+      : 'Nothing found: this document names no makers');
   } catch (ex) {
     toast(`Could not read it: ${ex.message}`);
   } finally {
@@ -2664,26 +2749,15 @@ function pageList(rows, draw, onOpen) {
   return wrap;
 }
 
-/** What was read out of a file: its contents, and the makers it names. */
+/** What was read out of a file: the machinery it names, and who made it. */
 function indexFor(item, att) {
-  const contents = (item.data.contents || []).filter((c) => c.attId === att.id);
   const equipment = (item.data.equipment || []).filter((e) => e.attId === att.id);
-  const built = contents.length || equipment.length;
+  const built = equipment.length > 0;
 
   const wrap = el('div', { class: 'index-block' });
 
-  if (contents.length) {
-    wrap.append(el('p', { class: 'dkey', text: `Contents \u00b7 ${contents.length}` }));
-    wrap.append(pageList(contents,
-      (row) => [
-        el('span', { class: 'answer-ref', text: [row.ref, row.title].filter(Boolean).join(' ') }),
-        el('span', { class: 'answer-where', text: `page ${row.page}` })
-      ],
-      (row) => openAttachment(att, row.page, item.id)));
-  }
-
   if (equipment.length) {
-    wrap.append(el('p', { class: 'dkey', style: 'margin-top:12px', text: `Equipment \u00b7 ${equipment.length}` }));
+    wrap.append(el('p', { class: 'dkey', text: `Equipment \u00b7 ${equipment.length}` }));
     wrap.append(pageList(equipment,
       (row) => [
         el('span', { class: 'answer-ref', text: row.name || row.maker }),
@@ -2697,11 +2771,11 @@ function indexFor(item, att) {
   wrap.append(el('button', {
     class: 'btn btn-sm btn-block', style: 'margin-top:10px',
     onclick: (e) => buildIndex(item, att, e.target)
-  }, [built ? 'Read the index again' : 'Read the index and the makers']));
+  }, [built ? 'Read the makers again' : 'Read the makers named in it']));
 
   if (!built) {
     wrap.append(el('p', { class: 'hint', style: 'margin-top:6px', text:
-      'Lists the numbered sections with their pages, and anything the document says the maker of. '
+      'Lists anything the document says the maker of, with the model and the page. '
       + 'What is written in a sentence rather than labelled or tabled is not found \u2014 a maker picked '
       + 'out of prose is a guess about which thing it belongs to.' }));
   }
@@ -2715,30 +2789,34 @@ function pageNotesFor(item, att) {
     .sort((a, b) => a.page - b.page);
   if (!notes.length) return null;
 
-  const written = notes.filter((n) => n.text).length;
-  const wrap = el('div', { class: 'page-notes' }, [
-    el('p', { class: 'dkey', text: written === notes.length
-      ? `${notes.length} note${notes.length === 1 ? '' : 's'}`
-      : `${notes.length} bookmark${notes.length === 1 ? '' : 's'}` })
+  const wrap = el('div', { class: 'page-notes' });
+  const listed = (label, rows, describe) => {
+    if (!rows.length) return;
+    wrap.append(el('p', { class: 'dkey', style: wrap.children.length ? 'margin-top:11px' : '',
+      text: `${rows.length} ${label}${rows.length === 1 ? '' : 's'}` }));
+    for (const row of rows) {
+      wrap.append(el('div', { class: 'answer-row' }, [
+        el('button', {
+          class: 'answer-open',
+          onclick: () => openAttachment(att, row.page, item.id)
+        }, describe(row)),
+        el('button', {
+          class: 'del-btn', 'aria-label': `Remove this ${label}`,
+          onclick: () => removePageNote(item.id, row.id)
+        }, ['\u00d7'])
+      ]));
+    }
+  };
+
+  listed('bookmark', notes.filter((n) => markKind(n) === 'bookmark'), (row) => [
+    el('span', { class: 'answer-ref', text: `Page ${row.page}` })
   ]);
-  for (const note of notes) {
-    wrap.append(el('div', { class: 'answer-row' }, [
-      el('button', {
-        class: 'answer-open',
-        onclick: () => openAttachment(att, note.page, item.id)
-      }, [
-        // The note leads where there is one: a list of page numbers says
-        // nothing about which page is the one you wanted.
-        el('span', { class: 'answer-ref', text: note.text || `Page ${note.page}` }),
-        el('span', { class: 'answer-where',
-          text: note.text ? `page ${note.page}` : 'Bookmarked' })
-      ]),
-      el('button', {
-        class: 'del-btn', 'aria-label': 'Remove this bookmark',
-        onclick: () => removePageNote(item.id, note.id)
-      }, ['\u00d7'])
-    ]));
-  }
+  // The note leads where there is one: a list of page numbers says nothing
+  // about which page is the one you wanted.
+  listed('note', notes.filter((n) => markKind(n) === 'note'), (row) => [
+    el('span', { class: 'answer-ref', text: row.text }),
+    el('span', { class: 'answer-where', text: `page ${row.page}` })
+  ]);
   return wrap;
 }
 
