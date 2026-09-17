@@ -2288,6 +2288,50 @@ try {
   check('and they sit one under the other rather than in a pile',
     boxes[1][0] >= boxes[0][1], JSON.stringify(boxes));
 
+  // The top-right corner is the one place a note is certain to be in the way:
+  // on a SIRE question it sits over the first line of the question.
+  {
+    const sticky = page.locator('.sticky').first();
+    const before = await sticky.boundingBox();
+    await page.mouse.move(before.x + before.width / 2, before.y + before.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(before.x - 120, before.y + 200, { steps: 10 });
+    await page.mouse.up();
+    await page.waitForTimeout(800);
+
+    const after = await sticky.boundingBox();
+    check('a note can be dragged anywhere on its page',
+      Math.abs(after.x - before.x) > 60 && after.y - before.y > 100,
+      JSON.stringify({ before: [before.x, before.y], after: [after.x, after.y] }));
+    // A drag ends in a click. Opening the note every time it is moved would
+    // make it impossible to move one without being interrupted by it.
+    check('and moving it does not open it',
+      (await page.locator('#noteBox').count()) === 0);
+
+    // Kept as a fraction of the page, not in pixels: a note pinned 320px down
+    // is somewhere else on every device, and moves under itself when the page
+    // stops being a placeholder and takes its real shape.
+    const stored = await page.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const manual = store.itemsOfType('synergy').find((i) => i.data.title === 'SMS Manual Vol 1');
+      const note = (manual.data.pageNotes || []).find((n) => /top drawer/i.test(n.text || ''));
+      return { nx: note.nx, ny: note.ny };
+    });
+    check('and where it was put is kept as a fraction of the page',
+      stored.nx > 0 && stored.nx < 1 && stored.ny > 0 && stored.ny < 1, JSON.stringify(stored));
+
+    // Closing and opening the document again must put it back where it was.
+    await page.click('#viewerClose');
+    await page.waitForTimeout(400);
+    await page.locator('.answer-open').first().click();
+    await page.waitForSelector('#viewer:not([hidden])', { timeout: 20000 });
+    await page.waitForTimeout(2500);
+    const reopened = await page.locator('.sticky').first().boundingBox();
+    check('and it is still there when the document is opened again',
+      Math.abs(reopened.x - after.x) < 4 && Math.abs(reopened.y - after.y) < 4,
+      JSON.stringify({ after: [after.x, after.y], reopened: [reopened.x, reopened.y] }));
+  }
+
   // Tapping one opens it, to change what it says or what colour it is.
   await page.locator('.sticky').first().click();
   await page.waitForSelector('#noteBox');

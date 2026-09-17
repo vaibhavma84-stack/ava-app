@@ -272,24 +272,36 @@ select.field {
 
 /* ── notes stuck on the page ─────────────────────────────────────────────── */
 /* Paper colours, and dark ink on all of them: a note is read against a white
-   page, not against the app's own dark ground. */
-.sticky-yellow { --paper: #f2d675; --ink: #40371c; }
-.sticky-pink   { --paper: #f0a8b6; --ink: #46222a; }
-.sticky-blue   { --paper: #9cc4e4; --ink: #1f3345; }
-.sticky-green  { --paper: #a7d19c; --ink: #22391e; }
-.sticky-orange { --paper: #efb178; --ink: #452b13; }
+   page, not against the app's own dark ground.
+   Held as bare channels so the paper can be made translucent without taking
+   the writing on it down with it -- opacity on the note would fade both. */
+.sticky-yellow { --paper: 242 214 117; --ink: #40371c; }
+.sticky-pink   { --paper: 240 168 182; --ink: #46222a; }
+.sticky-blue   { --paper: 156 196 228; --ink: #1f3345; }
+.sticky-green  { --paper: 167 209 156; --ink: #22391e; }
+.sticky-orange { --paper: 239 177 120; --ink: #452b13; }
 
 .sticky {
   position: absolute; z-index: 2; width: 84px; height: 76px;
   padding: 7px 8px; border: 0; border-radius: 2px; cursor: pointer;
-  background: var(--paper); color: var(--ink); text-align: left;
+  /* Half-transparent paper, solid writing: the page underneath stays readable
+     through a note left sitting on top of it. */
+  background: rgb(var(--paper) / .5); color: var(--ink); text-align: left;
   font-family: var(--body); font-size: 10.5px; line-height: 1.32;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, .4);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .28);
   transform: rotate(-1.6deg);
   overflow: hidden;
 }
 .sticky:nth-of-type(even) { transform: rotate(1.4deg); }
 .sticky:active { filter: brightness(1.06); }
+/* The document must not scroll out from under a note being dragged. */
+.sticky { touch-action: none; }
+.sticky-moving {
+  z-index: 3; transform: rotate(0deg) scale(1.06);
+  /* Solid while it is being moved, so it is clear what is in hand. */
+  background: rgb(var(--paper) / .92);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .5);
+}
 .sticky-text {
   display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;
   overflow: hidden; overflow-wrap: anywhere;
@@ -298,7 +310,8 @@ select.field {
 .swatches { display: flex; gap: 9px; margin-top: 9px; }
 .swatch {
   width: 30px; height: 30px; border-radius: 50%; cursor: pointer; padding: 0;
-  background: var(--paper); border: 2px solid transparent;
+  /* Solid here: this is a colour being chosen, not a note lying on a page. */
+  background: rgb(var(--paper)); border: 2px solid transparent;
 }
 .swatch[aria-pressed="true"] { border-color: var(--text); }
 

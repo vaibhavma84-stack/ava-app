@@ -13,7 +13,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.23';
+const APP_VERSION = '2026.10.24';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -2411,16 +2411,102 @@ function drawStickies() {
       const sticky = el('button', {
         class: `sticky sticky-${STICKY_COLOURS.includes(note.colour) ? note.colour : 'yellow'}`,
         'aria-label': `Note on page ${page}`,
-        onclick: (e) => { e.stopPropagation(); openNoteBox(note); }
+        onclick: (e) => {
+          e.stopPropagation();
+          // A drag ends in a click too. Opening the note every time it is
+          // moved would make it impossible to move one without being
+          // interrupted by it.
+          if (sticky.dataset.dragged === 'yes') { delete sticky.dataset.dragged; return; }
+          openNoteBox(note);
+        }
       }, [el('span', { class: 'sticky-text', text: note.text || `Page ${page}` })]);
-      // Down the margin rather than piled on top of each other: overlapped,
-      // the one underneath cannot be read or tapped, which is the one thing a
-      // note on a page has to be.
-      sticky.style.top = `${canvas.offsetTop + 12 + i * 84}px`;
-      sticky.style.right = '12px';
+
+      placeSticky(sticky, note, canvas, i);
+      dragSticky(sticky, note, canvas);
       body.append(sticky);
     });
   }
+}
+
+/**
+ * Where a note sits on its page.
+ *
+ * Kept as a fraction of the page rather than in pixels, because the page is
+ * drawn at whatever width the phone is and at a placeholder height until it
+ * has actually been rendered. A note pinned at 320px from the top is in a
+ * different place on every device and moves under itself when the page takes
+ * its real shape; a note at three-tenths down the page is where it was put.
+ */
+function placeSticky(sticky, note, canvas, index) {
+  const width = canvas.offsetWidth || 1;
+  const height = canvas.offsetHeight || 1;
+  if (typeof note.nx === 'number' && typeof note.ny === 'number') {
+    sticky.style.left = `${canvas.offsetLeft + note.nx * width}px`;
+    sticky.style.top = `${canvas.offsetTop + note.ny * height}px`;
+    return;
+  }
+  // Never moved: the top-right corner, stacked down so two on a page do not
+  // cover each other.
+  sticky.style.left = `${canvas.offsetLeft + width - 96}px`;
+  sticky.style.top = `${canvas.offsetTop + 12 + index * 84}px`;
+}
+
+/**
+ * Drag a note to wherever it belongs on the page.
+ *
+ * The top-right corner is the one place a note is certain to be in the way:
+ * it is where the page number and the first line of a question live. Pointer
+ * events rather than touch events, so it is the same code for a finger and a
+ * mouse, and the pointer is captured so the note keeps following it when the
+ * finger leaves it.
+ */
+function dragSticky(sticky, note, canvas) {
+  let from = null;
+
+  sticky.addEventListener('pointerdown', (e) => {
+    from = {
+      x: e.clientX, y: e.clientY,
+      left: sticky.offsetLeft, top: sticky.offsetTop, moved: false
+    };
+    sticky.setPointerCapture(e.pointerId);
+  });
+
+  sticky.addEventListener('pointermove', (e) => {
+    if (!from) return;
+    const dx = e.clientX - from.x;
+    const dy = e.clientY - from.y;
+    // A tap wanders by a pixel or two. Below that it is a tap, and treating it
+    // as a drag would stop notes opening at all.
+    if (!from.moved && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+    from.moved = true;
+    sticky.classList.add('sticky-moving');
+    sticky.style.left = `${from.left + dx}px`;
+    sticky.style.top = `${from.top + dy}px`;
+  });
+
+  const drop = async (e) => {
+    if (!from) return;
+    const moved = from.moved;
+    from = null;
+    sticky.classList.remove('sticky-moving');
+    try { sticky.releasePointerCapture(e.pointerId); } catch { /* already gone */ }
+    if (!moved) return;
+
+    // Marked so the click that ends the drag does not open the note.
+    sticky.dataset.dragged = 'yes';
+
+    // Clamped so a note cannot be dropped off the edge of its own page and
+    // become unreachable.
+    const width = canvas.offsetWidth || 1;
+    const height = canvas.offsetHeight || 1;
+    const within = (value, span) => Math.min(Math.max(value, 0), Math.max(span, 0));
+    const nx = within(sticky.offsetLeft - canvas.offsetLeft, width - sticky.offsetWidth) / width;
+    const ny = within(sticky.offsetTop - canvas.offsetTop, height - sticky.offsetHeight) / height;
+    await updatePageNote(view.viewing.itemId, note.id, { nx, ny });
+  };
+
+  sticky.addEventListener('pointerup', drop);
+  sticky.addEventListener('pointercancel', drop);
 }
 
 function openNoteBox(existing = null) {
