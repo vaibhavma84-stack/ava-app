@@ -817,6 +817,32 @@ try {
   check('clearing the filter restores it', (await page.locator('.card').count()) === 3);
   await shot('lib-04-grouped');
 
+  // Searching across ships, then keeping to one of them.
+  await page.fill('#search', 'manual');
+  await page.waitForTimeout(500);
+  const refineChips = await page.locator('#refine .scope-btn').allTextContents();
+  check('a search across ships offers to narrow by ship',
+    refineChips.includes('MV Northern Star 2') && refineChips.includes('MT Baltic Trader 1'), refineChips.join(','));
+  check('and by type', refineChips.includes('Engine 2') && refineChips.includes('Deck 1'), refineChips.join(','));
+  await page.locator('#refine .scope-btn', { hasText: 'MV Northern Star' }).click();
+  await page.waitForTimeout(250);
+  check('choosing a ship keeps only her documents', (await page.locator('.card').count()) === 2,
+    String(await page.locator('.card').count()));
+  const byShip = await page.locator('#refine .scope-btn').allTextContents();
+  check('the type counts follow the ship chosen', byShip.includes('Engine 1') && byShip.includes('Deck 1'),
+    byShip.join(','));
+  await page.locator('#refine .scope-btn', { hasText: 'Engine' }).click();
+  await page.waitForTimeout(250);
+  const both = await page.locator('.card').allInnerTexts();
+  check('ship and type together narrow to one', both.length === 1 && /Main Engine/.test(both[0]), both.join(' | '));
+  await page.fill('#search', 'crane');
+  await page.waitForTimeout(400);
+  check('a new search starts unnarrowed', (await page.locator('.card').count()) === 1
+    && await page.locator('#refine').isHidden());
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+  check('and the row goes when the search does', await page.locator('#refine').isHidden());
+
   // ---- setting the ship on a stack at once -------------------------------
   // A stack imported together arrives with no ship on any of them, and they
   // are all for the same ship. Twenty entries opened one at a time to type the

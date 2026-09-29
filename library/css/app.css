@@ -148,6 +148,8 @@ select.field {
   flex: 0 0 auto; border: 1px solid var(--line); background: var(--ink-850); color: var(--text-dim);
   border-radius: 999px; padding: 6px 13px; font-size: 12.5px; cursor: pointer; white-space: nowrap;
 }
+.scope-label { flex: 0 0 auto; align-self: center; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); padding-right: 2px; }
+.scope-gap { flex: 0 0 10px; }
 .scope-btn[aria-pressed="true"] { background: var(--copper); border-color: var(--copper); color: #17100a; font-weight: 600; }
 
 .body {

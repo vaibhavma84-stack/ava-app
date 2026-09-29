@@ -15,7 +15,7 @@ import { revisionStatus, revisionLabel, countDue } from './revision.js';
 import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip } from './zip.js';
 
-const APP_VERSION = '2026.10.28';
+const APP_VERSION = '2026.10.29';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -43,6 +43,10 @@ const view = {
   // Narrowing a search to one section. Cleared with the query, so a new
   // search is never quietly answered from inside the last one's filter.
   searchScope: null,
+  // Narrowing a search further, to one ship or one kind of document. Cleared
+  // with the query for the same reason the section is.
+  searchVessel: null,
+  searchCategory: null,
   // A run of the reader over a whole section, so the panel can show where it
   // has got to across every redraw the saving of each page causes.
   reading: null,
@@ -231,6 +235,7 @@ function render() {
   $('#screenTitle').textContent = title;
   $('#screenTitle').className = view.screen === 'home' ? 'brand' : 'brand small';
 
+  if (view.screen !== 'search') $('#refine').hidden = true;
   if (view.screen === 'home') { renderScope(null); renderHome(body); }
   else if (view.screen === 'section') { renderScope(TYPES[view.section]); renderSection(body); }
   // The search screen fills the scope row itself, from what its results hit.
@@ -404,6 +409,62 @@ function renderSearchScope(results) {
     if (!counts.has(type)) continue;
     add(`${TYPES[type].short} ${counts.get(type)}`, type);
   }
+}
+
+// The fields a search can be narrowed by, as they are written on the entry.
+const REFINE = [
+  { key: 'vessel', state: 'searchVessel', label: 'Ship' },
+  { key: 'category', state: 'searchCategory', label: 'Type' }
+];
+const refineValue = (item, key) => String(item.data?.[key] || '').trim();
+
+/**
+ * One ship's manuals, or only the cargo ones: a row of chips under the
+ * sections, from what the results actually hold. Offered only where there is
+ * a choice -- results all from one ship have nothing to narrow by ship.
+ *
+ * Returns the results narrowed by whatever is chosen.
+ */
+function renderRefine(results) {
+  const row = clear($('#refine'));
+  let shown = results;
+  let any = false;
+
+  for (const f of REFINE) {
+    // Counted after the other filter, so the numbers on the chips are what
+    // tapping them would actually show.
+    const others = results.filter((r) => REFINE.every((o) =>
+      o === f || !view[o.state] || refineValue(r.item, o.key) === view[o.state]));
+    const counts = new Map();
+    for (const r of others) {
+      const v = refineValue(r.item, f.key);
+      if (v) counts.set(v, (counts.get(v) || 0) + 1);
+    }
+    // A choice that has fallen out of the results is let go of, not kept as
+    // a filter that silently hides everything.
+    if (view[f.state] && !counts.has(view[f.state])) view[f.state] = null;
+    if (counts.size < 2 && !view[f.state]) continue;
+
+    if (any) row.append(el('span', { class: 'scope-gap' }));
+    any = true;
+    row.append(el('span', { class: 'scope-label', text: f.label }));
+    row.append(el('button', {
+      class: 'scope-btn', 'aria-pressed': String(!view[f.state]),
+      onclick: () => { view[f.state] = null; render(); }
+    }, ['Any']));
+    for (const [value, n] of [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))) {
+      row.append(el('button', {
+        class: 'scope-btn', 'aria-pressed': String(view[f.state] === value),
+        onclick: () => { view[f.state] = value; render(); }
+      }, [`${value} ${n}`]));
+    }
+  }
+
+  for (const f of REFINE) {
+    if (view[f.state]) shown = shown.filter((r) => refineValue(r.item, f.key) === view[f.state]);
+  }
+  row.hidden = !any;
+  return shown;
 }
 
 function renderHome(body) {
@@ -764,9 +825,10 @@ async function renderSearch(body) {
   // documents that answer it, the question's own wording outranks every
   // answer. Narrowing to a section is how the second question gets asked.
   renderSearchScope(all);
-  const results = view.searchScope
+  const inSection = view.searchScope
     ? all.filter((r) => r.item.type === view.searchScope)
     : all;
+  const results = renderRefine(inSection);
 
   if (view.linking) {
     const banner = linkingBanner();
@@ -1498,11 +1560,16 @@ function wireApp() {
     // would answer the new question from inside the old one's filter and say
     // nothing about it.
     view.searchScope = null;
+    view.searchVessel = null;
+    view.searchCategory = null;
     clearTimeout(searchTimer);
     searchTimer = setTimeout(render, 120);
   });
   $('#backBtn').addEventListener('click', () => {
-    if (view.query) { view.query = ''; $('#search').value = ''; view.searchScope = null; }
+    if (view.query) {
+      view.query = ''; $('#search').value = '';
+      view.searchScope = null; view.searchVessel = null; view.searchCategory = null;
+    }
     else { view.section = null; view.filter = null; endSelecting(); }
     render();
   });
