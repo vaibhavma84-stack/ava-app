@@ -9,7 +9,7 @@
  *   node tests/library.test.mjs [--shots]
  */
 import { chromium, devices } from 'playwright';
-import { spawn } from 'node:child_process';
+import { spawn, execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
@@ -622,6 +622,28 @@ try {
   await page.waitForSelector('#viewer', { state: 'hidden' });
   check('closing the viewer tears it down',
     (await page.locator('#viewerBody canvas').count()) === 0);
+  await page.click('#detailClose');
+
+  console.log('\nExporting a document as text');
+  await page.locator('.card').first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  const [txtDownload] = await Promise.all([
+    page.waitForEvent('download', { timeout: 10000 }),
+    page.click('#detailBody button:has-text("Export text (.txt)")')
+  ]);
+  const txt = fs.readFileSync(await txtDownload.path(), 'utf8');
+  check('the text file is named after the entry',
+    txtDownload.suggestedFilename() === 'Main Engine Operating Manual.txt', txtDownload.suggestedFilename());
+  check('it opens with the entry\'s own fields',
+    /^Main Engine Operating Manual\n=+\n/.test(txt) && /Vessel: MV Northern Star/.test(txt) && /Category: Engine/.test(txt),
+    txt.slice(0, 200).replace(/\n/g, ' / '));
+  check('every page is marked, in order',
+    txt.indexOf('--- Page 1 ---') > 0 && txt.indexOf('--- Page 2 ---') > txt.indexOf('--- Page 1 ---'));
+  check('and the words of each page are under their own marker',
+    txt.indexOf('ZEPHYRTESTONE') > txt.indexOf('--- Page 1 ---')
+      && txt.indexOf('QUAYSIDEMARKER') > txt.indexOf('--- Page 2 ---'));
+  check('the text is far smaller than the PDF', Buffer.byteLength(txt) < fs.statSync(PDF_PATH).size / 3,
+    `${Buffer.byteLength(txt)} vs ${fs.statSync(PDF_PATH).size}`);
   await page.click('#detailClose');
 
   console.log('\nSearching inside the PDF');
@@ -2897,6 +2919,31 @@ try {
   const spaceSaid = await page.locator('#spaceAvailable').innerText();
   check('settings says how much space is left, out of how much',
     /\d.*(KB|MB|GB) of \d.*(KB|MB|GB)/.test(spaceSaid), spaceSaid.replace(/\n/g, ' / '));
+  await page.click('#settingsClose');
+  await page.waitForTimeout(200);
+
+  console.log('\nExporting the library as text');
+  await page.click('#settingsBtn');
+  await page.waitForSelector('#settings:not([hidden])');
+  const [zipDownload] = await Promise.all([
+    page.waitForEvent('download', { timeout: 20000 }),
+    page.click('#textExport button:has-text("Export all")')
+  ]);
+  const zipPath = await zipDownload.path();
+  // Read by Python's own zip module rather than by the code that wrote it.
+  const zipped = JSON.parse(execFileSync('python3', ['-c', `
+import zipfile, json, sys
+z = zipfile.ZipFile(sys.argv[1])
+bad = z.testzip()
+print(json.dumps({"bad": bad, "names": z.namelist(),
+  "engine": z.read("Main Engine Operating Manual.txt").decode("utf-8") if "Main Engine Operating Manual.txt" in z.namelist() else ""}))
+`, zipPath]).toString());
+  check('the zip opens and every entry checks out', zipped.bad === null && zipped.names.length > 1,
+    JSON.stringify({ bad: zipped.bad, n: zipped.names.length }));
+  check('one .txt per document', zipped.names.every((n) => n.endsWith('.txt')), zipped.names.join(', ').slice(0, 200));
+  check('no two documents share a name',
+    new Set(zipped.names.map((n) => n.toLowerCase())).size === zipped.names.length);
+  check('the manual is in it with its pages', /--- Page 2 ---[\s\S]*QUAYSIDEMARKER/.test(zipped.engine));
   await page.click('#settingsClose');
   await page.waitForTimeout(200);
 

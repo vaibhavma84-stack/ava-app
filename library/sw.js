@@ -4,7 +4,7 @@
 // launch with no connection falls straight back to the cache. PDF.js is bundled
 // into the precache, so text extraction and search work with no signal.
 
-const VERSION = 'v60';
+const VERSION = 'v61';
 const CACHE = `library-shell-${VERSION}`;
 
 const SHELL = [
@@ -29,6 +29,8 @@ const SHELL = [
   'js/revision.js',
   'js/summary.js',
   'js/outline.js',
+  'js/textexport.js',
+  'js/zip.js',
   '../vendor/polyfills.mjs',
   '../vendor/pdf.min.mjs',
   '../vendor/pdf.worker.min.mjs',

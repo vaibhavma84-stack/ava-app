@@ -12,8 +12,10 @@ import { el, $, clear, toast, formatBytes, titleCase } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
+import { documentText, textFileName, exportable } from './textexport.js';
+import { makeZip } from './zip.js';
 
-const APP_VERSION = '2026.10.26';
+const APP_VERSION = '2026.10.27';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1738,6 +1740,12 @@ function attachmentRow(att, onRemove) {
       el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => openAttachment(att) }, ['Open'])]),
       el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => shareAttachment(att) }, ['Save to Files'])])
     ]));
+    if (state === STATUS.INDEXED) {
+      row.append(el('button', {
+        class: 'btn btn-sm btn-block', style: 'margin-top:8px',
+        onclick: () => exportOneText(att)
+      }, ['Export text (.txt)']));
+    }
     // Already nothing but words: no picture to read, no text layer to retry.
     if (/^text\//i.test(att.type || '') || /\.txt$/i.test(att.name || '')) return row;
 
@@ -2820,6 +2828,109 @@ function pageNotesFor(item, att) {
   return wrap;
 }
 
+/**
+ * Hand a file to the share sheet, or download it where there is none.
+ * Returns false only when the person cancelled.
+ */
+async function shareBlob(blob, filename, type) {
+  const file = new File([blob], filename, { type });
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    try { await navigator.share({ files: [file], title: filename }); return true; }
+    catch (ex) { if (ex.name === 'AbortError') return false; }
+  }
+  const url = URL.createObjectURL(blob);
+  const a = el('a', { href: url, download: filename });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
+  return true;
+}
+
+/** The entry a file belongs to. */
+function itemHolding(attId) {
+  return store.allItems().find((i) => (i.data.attachments || []).some((a) => a.id === attId)) || null;
+}
+
+/** One document's words as a .txt, for a Claude project or anywhere else. */
+async function exportOneText(att) {
+  const item = itemHolding(att.id);
+  const pages = (await store.loadTexts()).get(att.id);
+  if (!item || !pages?.length) return toast('No text has been read from this file yet');
+  const text = documentText(item, att, pages);
+  const name = textFileName(item, att);
+  if (await shareBlob(new Blob([text], { type: 'text/plain' }), name, 'text/plain')) {
+    toast(`Text exported — ${formatBytes(new Blob([text]).size)} against ${formatBytes(att.size)} for the file`);
+  }
+}
+
+/**
+ * Every document's words, one .txt each, in a single zip.
+ *
+ * Unzipped in the Files app, the .txt files go into a Claude project as they
+ * are. One file per document rather than one enormous file, so a question
+ * answered from it can name which manual the answer came from.
+ */
+async function exportAllText(type, button) {
+  const label = button.textContent;
+  button.disabled = true;
+  try {
+    const docs = exportable(store.allItems(), await store.loadTexts(), type);
+    if (!docs.length) { toast('Nothing has text to export yet'); return; }
+    const taken = new Set();
+    const entries = docs.map(({ item, att, pages }) => ({
+      name: textFileName(item, att, taken),
+      data: documentText(item, att, pages)
+    }));
+    const zip = await makeZip(entries, {
+      onProgress: (n, total) => { button.textContent = `Packing ${n} of ${total}…`; }
+    });
+    const stamp = new Date().toISOString().slice(0, 10);
+    const what = type ? TYPES[type].label.toLowerCase().replace(/\s+/g, '-') : 'library';
+    if (await shareBlob(zip, `${what}-text-${stamp}.zip`, 'application/zip')) {
+      toast(`${plural(entries.length, 'document', 'documents')} exported — ${formatBytes(zip.size)}`);
+    }
+  } catch (ex) {
+    toast(`Could not export: ${ex.message}`);
+  } finally {
+    button.disabled = false;
+    button.textContent = label;
+  }
+}
+
+/** Settings: the words of the library, for reading somewhere else. */
+function textExportPanel() {
+  const panel = el('div', { class: 'panel', id: 'textExport' }, [
+    el('h3', { text: 'Export text' }),
+    el('p', { text: 'The words of every document that has been read, as one .txt file per document in a zip. Unzip it in the Files app and add the files to a Claude project. Each page is marked, so an answer can still name its page. Far smaller than the PDFs.' })
+  ]);
+  const counts = new Map();
+  let total = 0;
+  for (const item of store.allItems()) {
+    for (const att of item.data.attachments || []) {
+      if (textStatusOf(att) !== STATUS.INDEXED) continue;
+      counts.set(item.type, (counts.get(item.type) || 0) + 1);
+      total++;
+    }
+  }
+  if (!total) {
+    panel.append(el('p', { class: 'hint', text: 'No document has been read yet.' }));
+    return panel;
+  }
+  panel.append(el('button', {
+    class: 'btn btn-primary btn-block', style: 'margin-bottom:8px',
+    onclick: (e) => exportAllText(null, e.target)
+  }, [`Export all — ${plural(total, 'document', 'documents')}`]));
+  if (counts.size > 1) {
+    for (const t of TAB_ORDER) {
+      if (!counts.has(t)) continue;
+      panel.append(el('button', {
+        class: 'btn btn-sm btn-block', style: 'margin-bottom:6px',
+        onclick: (e) => exportAllText(t, e.target)
+      }, [`${TYPES[t].label} only — ${counts.get(t)}`]));
+    }
+  }
+  return panel;
+}
+
 async function shareAttachment(att) {
   try {
     const blob = await store.readFile(att);
@@ -3266,6 +3377,8 @@ async function openSettings() {
     el('button', { class: 'btn btn-block', onclick: () => $('#backupPicker').click() }, ['Restore records'])
   ]));
 
+  body.append(textExportPanel());
+
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Bring records from AVA' }),
     el('p', { text: 'Takes a handover file exported from AVA. Fields come across; files do not, so re-attach the PDFs here.' }),
@@ -3385,16 +3498,7 @@ async function openSettings() {
 
 async function shareJSON(payload, filename) {
   const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-  const file = new File([blob], filename, { type: 'application/json' });
-  if (navigator.canShare && navigator.canShare({ files: [file] })) {
-    try { await navigator.share({ files: [file], title: filename }); return true; }
-    catch (ex) { if (ex.name === 'AbortError') return false; }
-  }
-  const url = URL.createObjectURL(blob);
-  const a = el('a', { href: url, download: filename });
-  document.body.append(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 30000);
-  return true;
+  return shareBlob(blob, filename, 'application/json');
 }
 
 async function doExport() {
