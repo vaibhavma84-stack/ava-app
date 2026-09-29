@@ -1,7 +1,8 @@
 import * as store from './store.js';
 import * as db from './db.js';
 import { TYPES, TAB_ORDER } from './schema.js';
-import { search as runSearch } from './search.js';
+import { search as runSearch, matcher } from './search.js';
+import { alarmsFrom, linesFromText, rowText } from './alarms.js';
 import { isPdf, extract, describe, selfTest, readLayout, STATUS } from './pdftext.js';
 import { equipmentFrom } from './outline.js';
 import { suggestFields, titleFromFilename } from './suggest.js';
@@ -15,7 +16,7 @@ import { revisionStatus, revisionLabel, countDue } from './revision.js';
 import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip, readZip } from './zip.js';
 
-const APP_VERSION = '2026.10.31';
+const APP_VERSION = '2026.10.32';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -852,6 +853,9 @@ async function renderSearch(body) {
       texts ? `No entry matches “${query}”${scoped}.` : 'Still opening document text…'));
     return;
   }
+
+  const settings = alarmHits(query, results);
+  if (settings) body.append(settings);
 
   for (const type of TAB_ORDER) {
     const group = results.filter((r) => r.item.type === type);
@@ -2952,6 +2956,95 @@ async function buildIndex(item, att, button) {
   }
 }
 
+/** One alarm row, drawn: what it watches, then its setting and where. */
+function alarmRowParts(row) {
+  return [
+    el('span', { class: 'answer-ref', text: [row.tag, row.description].filter(Boolean).join(' \u2014 ') }),
+    el('span', { class: 'answer-where', text: [
+      [row.level, row.setpoint].filter(Boolean).join(' '),
+      row.delay ? `delay ${row.delay}` : null,
+      row.action || null,
+      `page ${row.page}`
+    ].filter(Boolean).join(' \u00b7 ') })
+  ];
+}
+
+/**
+ * Read a document's alarm and setpoint tables into rows.
+ *
+ * A text PDF is read again with its layout kept, since the search's own copy
+ * of the text has had its columns joined up. A scan's recognised text still
+ * has its lines, and is read from that without opening the file.
+ */
+async function buildAlarms(item, att, button) {
+  const label = button.textContent;
+  button.disabled = true;
+  const note = el('p', { class: 'hint', style: 'margin-top:6px', text: 'Reading\u2026' });
+  button.after(note);
+  try {
+    let pages;
+    if (readFromScan(att)) {
+      pages = linesFromText((await store.loadTexts()).get(att.id));
+    } else {
+      const blob = await store.readFile(att);
+      const read = await readLayout(await blob.arrayBuffer(), {
+        onProgress: (said) => { note.textContent = said; }
+      });
+      if (!read.ok) { toast(`Could not read it: ${read.error}`); return; }
+      pages = read.pages;
+    }
+    const rows = alarmsFrom(pages).map((r) => ({ attId: att.id, ...r }));
+
+    const fresh = store.getItem(item.id);
+    if (!fresh) return;
+    const data = { ...fresh.data };
+    data.alarms = [...(fresh.data.alarms || []).filter((a) => a.attId !== att.id), ...rows];
+    data.alarmsRead = [...new Set([...(fresh.data.alarmsRead || []), att.id])];
+    await store.saveItem({ id: item.id, type: item.type, data });
+    openDetail(item.id);
+    toast(rows.length
+      ? `${plural(rows.length, 'setting', 'settings')} found`
+      : 'No alarm or setpoint table found in it');
+  } catch (ex) {
+    toast(`Could not read it: ${ex.message}`);
+  } finally {
+    note.remove();
+    button.disabled = false;
+    button.textContent = label;
+  }
+}
+
+/**
+ * Search: the rows of alarm tables that answer the query, above the documents.
+ * A setting found is the answer; the document it is in is where to check it.
+ */
+function alarmHits(query, results) {
+  const matches = matcher(query);
+  const hits = [];
+  for (const r of results) {
+    const atts = new Map((r.item.data.attachments || []).map((a) => [a.id, a]));
+    for (const row of r.item.data.alarms || []) {
+      const att = atts.get(row.attId);
+      if (!att) continue;
+      if (matches(rowText(row), readFromScan(att))) hits.push({ item: r.item, att, row });
+    }
+  }
+  if (!hits.length) return null;
+  const panel = el('div', { class: 'panel', id: 'alarmHits' }, [
+    el('h3', { text: `Alarms and settings \u00b7 ${hits.length}` })
+  ]);
+  panel.append(pageList(hits.map((h) => ({ ...h.row, hit: h })),
+    (row) => {
+      const parts = alarmRowParts(row);
+      const title = row.hit.item.data[TYPES[row.hit.item.type].titleKey] || row.hit.att.name;
+      parts[1].textContent += ` \u00b7 ${title}`;
+      return parts;
+    },
+    (row) => openAttachment(row.hit.att, row.page, row.hit.item.id)));
+  panel.append(el('p', { class: 'hint', text: 'Read out of the document\u2019s tables. Check the figure on the page before acting on it.' }));
+  return panel;
+}
+
 /** A list that opens the document where the entry is, folded if it is long. */
 function pageList(rows, draw, onOpen) {
   const FIRST = 8;
@@ -3001,6 +3094,23 @@ function indexFor(item, att) {
     class: 'btn btn-sm btn-block', style: 'margin-top:10px',
     onclick: (e) => buildIndex(item, att, e.target)
   }, [built ? 'Read the makers again' : 'Read the makers named in it']));
+
+  const alarms = (item.data.alarms || []).filter((a) => a.attId === att.id);
+  if (alarms.length) {
+    wrap.append(el('p', { class: 'dkey', style: 'margin-top:14px', text: `Alarms and settings \u00b7 ${alarms.length}` }));
+    wrap.append(pageList(alarms, alarmRowParts, (row) => openAttachment(att, row.page, item.id)));
+  }
+  const alarmsRead = (item.data.alarmsRead || []).includes(att.id);
+  wrap.append(el('button', {
+    class: 'btn btn-sm btn-block', style: 'margin-top:10px',
+    onclick: (e) => buildAlarms(item, att, e.target)
+  }, [alarmsRead ? 'Read the alarm tables again' : 'Read alarm and setpoint tables']));
+  if (!alarmsRead) {
+    wrap.append(el('p', { class: 'hint', style: 'margin-top:6px', text:
+      'Picks out each line of an alarm list or setpoint table as a row \u2014 the point, what it watches, '
+      + 'the setting, the delay, what it does \u2014 so a search shows the setting rather than a run of words. '
+      + 'Always check the figure on the page before acting on it.' }));
+  }
 
   if (!built) {
     wrap.append(el('p', { class: 'hint', style: 'margin-top:6px', text:

@@ -145,7 +145,7 @@ export async function readLayout(buffer, { onProgress, shouldStop } = {}) {
           endOfLast = part.x + part.width;
         }
         const cleaned = text.replace(/[ \u00a0]+/g, ' ').replace(/ ?\t ?/g, '\t').trim();
-        if (cleaned.length > 1) lines.push({ page: n, size: row.size, text: cleaned });
+        if (cleaned.length > 1) lines.push({ page: n, size: row.size, y: row.y, text: cleaned });
       }
       pages.push(lines);
       page.cleanup();

@@ -117,10 +117,24 @@ function findAll(lower, group, ocr) {
 
 const found = (lower, group, ocr) => findAll(lower, group, ocr).length > 0;
 
+/**
+ * A test for a single piece of text: does it hold everything the query asks
+ * for? For rows read out of a table, which are matched whole rather than
+ * ranked page by page.
+ */
+export function matcher(query) {
+  const groups = compile(query);
+  return (text, ocr = false) => groups.length > 0 && groups.every((g) => found(String(text).toLowerCase(), g, ocr));
+}
+
 /** Everything about a record that is worth matching, excluding file contents. */
 function metaText(item) {
   const parts = [TYPES[item.type]?.label || ''];
   for (const [key, value] of Object.entries(item.data || {})) {
+    // Rows read out of the document's own tables: its text is searched as
+    // text already, and counting them again as fields of the entry would rank
+    // a document by how many settings it lists.
+    if (key === 'alarms' || key === 'alarmsRead') continue;
     if (key === 'attachments' && Array.isArray(value)) {
       for (const a of value) parts.push(a.name || '');
     } else if (Array.isArray(value)) {

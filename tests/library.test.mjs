@@ -222,6 +222,26 @@ const NAMED_ALERT_PATH = path.join(tmp, 'Fleet Alert 077-2026 Gangway net riggin
 // A scan: the page drawn into a canvas and put back as an image, so the PDF
 // holds a picture of the words and no text at all. This is what a photocopied
 // manual actually is, and why nothing can be read out of one without OCR.
+const ALARM_PATH = path.join(tmp, 'ME Alarm List.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent(`
+    <style>@page{size:A4;margin:20mm} body{font-family:sans-serif;font-size:10pt}
+      td,th{padding:4px 14px;text-align:left}</style>
+    <h1>Main Engine Alarm and Monitoring List</h1>
+    <p>The settings below are those of the alarm and monitoring system.</p>
+    <table>
+      <tr><th>Tag</th><th>Description</th><th>Level</th><th>Set point</th><th>Delay</th><th>Action</th></tr>
+      <tr><td>PT-1101</td><td>ME LO inlet pressure</td><td>L</td><td>2.5 bar</td><td>5 s</td><td>Alarm</td></tr>
+      <tr><td>PT-1102</td><td>ME LO inlet pressure</td><td>LL</td><td>1.8 bar</td><td>3 s</td><td>Shut down</td></tr>
+      <tr><td>TE-2201</td><td>ME jacket cooling water outlet temp</td><td>H</td><td>90 °C</td><td>10 s</td><td>Slow down</td></tr>
+      <tr><td>LS-301</td><td>FO service tank level</td><td>Low</td><td>40 %</td><td></td><td>Alarm</td></tr>
+    </table>
+    <p>The engine is rated 12 500 kW at 105 rpm.</p>`, { waitUntil: 'load' });
+  await maker.pdf({ path: ALARM_PATH, format: 'A4' });
+  await maker.close();
+}
+
 const SCAN_PATH = path.join(tmp, 'L-001 Operational Manual.pdf');
 {
   // Four pages. The first is a cover sheet that says nothing useful, which is
@@ -2679,6 +2699,62 @@ try {
     !/to check/i.test(synergyCard), synergyCard.replace(/\n/g, ' / '));
   await page.locator('.section-card', { hasText: 'Synergy' }).click();
   await page.waitForTimeout(200);
+
+  console.log('\nAlarm lists read as rows');
+  if (await page.locator('#backBtn').isVisible()) { await page.click('#backBtn'); await page.waitForTimeout(200); }
+  if (await page.locator('#backBtn').isVisible()) { await page.click('#backBtn'); await page.waitForTimeout(200); }
+  await page.locator('.section-card', { hasText: 'Manuals' }).click();
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'ME Alarm List');
+  await page.setInputFiles('#filePicker', ALARM_PATH);
+  await page.waitForTimeout(1500);
+  await save();
+  await openBranches();
+  await page.locator('.card', { hasText: 'ME Alarm List' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailBody button:has-text("Read alarm and setpoint tables")');
+  await page.locator('.toast', { hasText: /settings? found|No alarm/ }).waitFor({ timeout: 30000 });
+  const alarmSaid = await page.locator('.toast', { hasText: /settings? found|No alarm/ }).innerText();
+  check('every row of the alarm table is found', /^4 settings found/.test(alarmSaid), alarmSaid);
+  const alarmRows = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    return store.itemsOfType('manual').find((i) => i.data.title === 'ME Alarm List').data.alarms;
+  });
+  const shutdown = alarmRows.find((r) => r.tag === 'PT-1102') || {};
+  check('each row is taken apart into its columns',
+    shutdown.description === 'ME LO inlet pressure' && shutdown.setpoint === '1.8 bar'
+      && shutdown.level === 'LL' && shutdown.delay === '3 s' && /shut ?down/.test(shutdown.action),
+    JSON.stringify(shutdown));
+  check('a rating in a sentence is not taken for a setting',
+    !alarmRows.some((r) => /kW|rpm/.test(r.setpoint)), alarmRows.map((r) => r.setpoint).join(','));
+  check('the rows are listed on the entry',
+    /Alarms and settings · 4/i.test(await page.locator('#detailBody').innerText()));
+  await closeDetail();
+
+  await page.fill('#search', 'LO inlet press');
+  await page.waitForTimeout(800);
+  const settingsFound = await page.locator('#alarmHits').innerText().catch(() => '');
+  check('a search shows the settings themselves, above the documents',
+    /Alarms and settings · 2/i.test(settingsFound) && /2\.5 bar/.test(settingsFound) && /1\.8 bar/.test(settingsFound),
+    settingsFound.replace(/\n/g, ' / '));
+  check('with where each one is, to check it', /page 1/.test(settingsFound) && /ME Alarm List/.test(settingsFound));
+  await page.locator('#alarmHits .answer-open').first().click();
+  await page.waitForSelector('#viewer:not([hidden])');
+  check('tapping a setting opens the page it is on', true);
+  await page.click('#viewerClose');
+  await page.waitForSelector('#viewer', { state: 'hidden' });
+  await page.fill('#search', 'jacket water');
+  await page.waitForTimeout(600);
+  check('the abbreviations work on rows too',
+    /90 °C/.test(await page.locator('#alarmHits').innerText().catch(() => '')));
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+  // Out of the way of what follows, which counts manuals.
+  await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    await store.deleteItem(store.itemsOfType('manual').find((i) => i.data.title === 'ME Alarm List').id);
+  });
 
   console.log('\nReading a scan');
   await page.click('#backBtn');
