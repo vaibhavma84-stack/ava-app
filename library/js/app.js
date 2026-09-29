@@ -15,7 +15,7 @@ import { revisionStatus, revisionLabel, countDue } from './revision.js';
 import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip } from './zip.js';
 
-const APP_VERSION = '2026.10.27';
+const APP_VERSION = '2026.10.28';
 
 const view = {
   screen: 'home',      // home | section | search

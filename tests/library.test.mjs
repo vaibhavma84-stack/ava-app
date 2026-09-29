@@ -717,6 +717,44 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
+  console.log('\nAbbreviations and misread scans');
+  const smart = await page.evaluate(async () => {
+    const { search } = await import('./js/search.js');
+    const mk = (id, title, readTo = 0) => ({ id, type: 'manual',
+      data: { title, attachments: [{ id: `a${id}`, name: `${title}.pdf`, readTo }] } });
+    const items = [mk(1, 'Alarm list'), mk(2, 'Pump scan', 3), mk(3, 'System manual'), mk(4, 'Typed manual')];
+    const texts = new Map([
+      ['a1', [{ page: 1, text: 'ME LO INLET PRESS LOW alarm at 1.8 bar. Slow down.' }]],
+      ['a2', [{ page: 4, text: 'MAIN ENGINE LUBE O1L PUMP 5EAL' }]],
+      ['a3', [{ page: 2, text: 'The lubricating oil system of the main engine. Local slow.' }]],
+      ['a4', [{ page: 1, text: 'Seal ring 150 mm. ISO standard. Misprinted O1L.' }]]
+    ]);
+    const titles = (q) => search(q, items, texts).map((r) => r.item.data.title).sort().join(',');
+    return {
+      lo: titles('LO'),
+      lubeOil: titles('lube oil'),
+      dotted: titles('L.O.'),
+      meLoPress: titles('ME LO press'),
+      oilSeal: titles('oil seal'),
+      slow: titles('slow'),
+      figure: titles('150'),
+      iso: titles('iso'),
+      mark: search('lube oil', items, texts).find((r) => r.item.id === 1)
+        .snippets[0].parts.filter((p) => p.hit).map((p) => p.text).join('|')
+    };
+  });
+  check('an abbreviation finds the words it stands for',
+    smart.lo === 'Alarm list,Pump scan,System manual', smart.lo);
+  check('and the words find the abbreviation', smart.lubeOil === smart.lo, smart.lubeOil);
+  check('written with dots it is the same abbreviation', smart.dotted === smart.lo, smart.dotted);
+  check('the abbreviation is highlighted where it was found', smart.mark === 'LO', smart.mark);
+  check('an alarm name typed as it is written finds its alarm', smart.meLoPress === 'Alarm list', smart.meLoPress);
+  check('LO inside another word is not lube oil', smart.slow === 'Alarm list,System manual', smart.slow);
+  check('a scan\'s misread letters are still found', smart.oilSeal === 'Pump scan', smart.oilSeal);
+  check('but a document\'s own text is searched as written', !smart.oilSeal.includes('Typed manual'), smart.oilSeal);
+  check('a figure is never folded into letters', smart.figure === 'Typed manual', smart.figure);
+  check('nor letters into a figure on typed text', smart.iso === 'Typed manual', smart.iso);
+
   console.log('\nGrouping by vessel');
   await page.click('#fab');
   await page.waitForSelector('#editor:not([hidden])');

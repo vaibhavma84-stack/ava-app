@@ -5,6 +5,7 @@
 // markup.
 
 import { TYPES } from './schema.js';
+import { expandAbbreviation, phraseAt } from './abbrev.js';
 
 const SNIPPET_BEFORE = 55;
 const SNIPPET_AFTER = 95;
@@ -12,6 +13,109 @@ const SNIPPET_AFTER = 95;
 export function terms(query) {
   return query.trim().toLowerCase().split(/\s+/).filter(Boolean);
 }
+
+// ── what a query asks for ───────────────────────────────────────────────────
+//
+// A query is a list of things that must all be found. Most are a word, found
+// anywhere -- "press" finds "pressure", as it always has. Two kinds are more:
+//
+// An abbreviation stands for its words and they for it. "LO" finds "lube oil"
+// and "L.O.", and "lube oil" finds "LO". An abbreviation is only found as a
+// word of its own: "lo" inside "slow" is not lube oil.
+//
+// A page read by text recognition is searched with the characters it confuses
+// folded together, so "Pump" misread as "Purnp" is not helped, but "O1L" for
+// "OIL" and "5EAL" for "SEAL" are found. Only on those pages -- a PDF's own
+// text layer is what the document says, and is searched as written.
+
+const esc = (s) => s.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
+
+// Letters and figures that text recognition mistakes for each other, folded
+// to one. Length-preserving, so a position found in the folded text is the
+// same position in the page.
+const FOLD = { '0': 'o', '1': 'l', 'i': 'l', '|': 'l', '!': 'l', '5': 's' };
+export function fold(s) {
+  let out = '';
+  for (const ch of s) out += FOLD[ch] || ch;
+  return out;
+}
+
+// A phrase with anything between its words: a line break, two spaces, a
+// hyphen at the end of a line.
+const phraseSource = (phrase) => phrase.split(' ').map(esc).join('[\\s\\-]+');
+
+// Found only as a word of its own. No lookbehind, which older Safari rejects
+// outright -- the boundary before is matched and measured off instead.
+const wholeSource = (word) => `(?:^|[^a-z0-9])(${esc(word)})(?![a-z0-9])`;
+
+/**
+ * Turn a query into what must be found: [{ label, exact, folded }], where
+ * exact and folded are RegExp sources (folded is null where folding does not
+ * apply). Each source has exactly one capture group, around the words.
+ */
+export function compile(query) {
+  const words = terms(query);
+  const groups = [];
+  for (let i = 0; i < words.length; i++) {
+    const phrase = phraseAt(words, i);
+    // "L.O." and "L/O" typed are the same abbreviation as "LO".
+    const entry = phrase ? phrase[0] : expandAbbreviation(words[i].replace(/[./-]/g, ''));
+    if (entry) {
+      const used = phrase ? phrase[1] : 1;
+      const alts = [
+        ...entry.spellings.map((a) => wholeSource(a)),
+        ...entry.full.map((f) => `(${phraseSource(f)})`)
+      ];
+      groups.push({
+        label: words.slice(i, i + used).join(' '),
+        exact: alts.join('|'),
+        // The words written out can be misread on a scan like any others; the
+        // abbreviation itself is too short to fold safely.
+        folded: entry.full.map((f) => `(${phraseSource(fold(f))})`).join('|')
+      });
+      i += used - 1;
+      continue;
+    }
+    const w = words[i];
+    // Folding a number would make "150" find "ISO"; a figure is searched as
+    // typed. Nor is it worth it for a word too short to be mistaken for much.
+    const foldable = w.length >= 3 && /[a-z]/.test(w);
+    groups.push({
+      label: w,
+      exact: `(${esc(w)})`,
+      folded: foldable ? `(${esc(fold(w))})` : null
+    });
+  }
+  return groups;
+}
+
+/**
+ * Every place a group is found in some text: [[start, end]].
+ * `ocr` says the text was read by recognition, and may be searched folded.
+ */
+function findAll(lower, group, ocr) {
+  const useFold = ocr && group.folded;
+  const hay = useFold ? fold(lower) : null;
+  const out = [];
+  const scan = (text, key, src) => {
+    // Built once per query, not once per page: a library is thousands of them.
+    const re = group[key] || (group[key] = new RegExp(src, 'g'));
+    re.lastIndex = 0;
+    for (let m = re.exec(text); m; m = re.exec(text)) {
+      const word = m.slice(1).find((g) => g !== undefined) || m[0];
+      const start = m.index + m[0].lastIndexOf(word);
+      out.push([start, start + word.length]);
+      if (m[0].length === 0) re.lastIndex++;
+    }
+  };
+  scan(lower, 'exactRe', group.exact);
+  if (useFold) scan(hay, 'foldedRe', group.folded);
+  // The same place found both ways is one hit.
+  const seen = new Set();
+  return out.filter(([s]) => (seen.has(s) ? false : (seen.add(s), true))).sort((a, b) => a[0] - b[0]);
+}
+
+const found = (lower, group, ocr) => findAll(lower, group, ocr).length > 0;
 
 /** Everything about a record that is worth matching, excluding file contents. */
 function metaText(item) {
@@ -43,18 +147,10 @@ function metaText(item) {
  * Split a passage around the first match so the UI can highlight it.
  * Returns [{ text, hit }].
  */
-function markUp(passage, words) {
+function markUp(passage, groups, ocr) {
   const lower = passage.toLowerCase();
   const spans = [];
-  for (const w of words) {
-    let from = 0;
-    for (;;) {
-      const at = lower.indexOf(w, from);
-      if (at === -1) break;
-      spans.push([at, at + w.length]);
-      from = at + w.length;
-    }
-  }
+  for (const g of groups) spans.push(...findAll(lower, g, ocr));
   if (!spans.length) return [{ text: passage, hit: false }];
 
   spans.sort((a, b) => a[0] - b[0]);
@@ -77,18 +173,10 @@ function markUp(passage, words) {
 }
 
 /** Every position on a page where any search term appears. */
-function hitPositions(text, words) {
+function hitPositions(text, groups, ocr) {
   const lower = text.toLowerCase();
   const positions = [];
-  for (const w of words) {
-    let from = 0;
-    for (;;) {
-      const at = lower.indexOf(w, from);
-      if (at === -1) break;
-      positions.push(at);
-      from = at + w.length;
-    }
-  }
+  for (const g of groups) for (const [at] of findAll(lower, g, ocr)) positions.push(at);
   return positions.sort((a, b) => a - b);
 }
 
@@ -195,11 +283,11 @@ export function clauseAt(text, at) {
 }
 
 /** A readable window of text around one hit. */
-function snippetAt(text, at, words) {
+function snippetAt(text, at, groups, ocr) {
   const start = Math.max(0, at - SNIPPET_BEFORE);
   const end = Math.min(text.length, at + SNIPPET_AFTER);
   const passage = (start > 0 ? '… ' : '') + text.slice(start, end).trim() + (end < text.length ? ' …' : '');
-  return markUp(passage, words);
+  return markUp(passage, groups, ocr);
 }
 
 /**
@@ -213,31 +301,34 @@ function snippetAt(text, at, words) {
  * only, which is what happens before the text index has been loaded.
  */
 export function search(query, items, texts, { type = null, perPage = 2 } = {}) {
-  const words = terms(query);
-  if (!words.length) return [];
+  const groups = compile(query);
+  if (!groups.length) return [];
 
   const results = [];
   for (const item of items) {
     if (type && item.type !== type) continue;
 
     const meta = metaText(item);
-    const metaHits = words.filter((w) => meta.includes(w)).length;
+    const inMeta = groups.map((g) => found(meta, g, false));
+    const metaHits = inMeta.filter(Boolean).length;
 
     const snippets = [];
-    const contentWords = new Set();
+    const contentGroups = new Set();
     let matchCount = 0;
     let pagesWithHits = 0;
     if (texts) {
       for (const att of item.data?.attachments || []) {
         const pages = texts.get(att.id);
         if (!pages) continue;
-        for (const { page, text, pictures } of pages) {
+        // A scan's pages were read by recognition; a PDF's text layer was not.
+        const scanned = (att.readTo || 0) > 0;
+        for (const { page, text = '', pictures } of pages) {
           const lower = text.toLowerCase();
-          const present = words.filter((w) => lower.includes(w));
+          const present = groups.filter((g) => found(lower, g, scanned));
           if (present.length) {
-            present.forEach((w) => contentWords.add(w));
+            present.forEach((g) => contentGroups.add(g));
 
-            const positions = hitPositions(text, words);
+            const positions = hitPositions(text, groups, scanned);
             matchCount += positions.length;
             pagesWithHits++;
             // A page mentioning a term twenty times does not need twenty
@@ -246,7 +337,7 @@ export function search(query, items, texts, { type = null, perPage = 2 } = {}) {
               snippets.push({
                 attachmentId: att.id, file: att.name, page,
                 clause: clauseAt(text, at),
-                parts: snippetAt(text, at, words)
+                parts: snippetAt(text, at, groups, scanned)
               });
             }
           }
@@ -262,17 +353,17 @@ export function search(query, items, texts, { type = null, perPage = 2 } = {}) {
           // rather than typed.
           if (!pictures) continue;
           const inPicture = pictures.toLowerCase();
-          const only = words.filter((w) => inPicture.includes(w) && !lower.includes(w));
+          const only = groups.filter((g) => found(inPicture, g, true) && !present.includes(g));
           if (!only.length) continue;
-          only.forEach((w) => contentWords.add(w));
+          only.forEach((g) => contentGroups.add(g));
 
-          const found = hitPositions(pictures, only);
-          matchCount += found.length;
+          const hits = hitPositions(pictures, only, true);
+          matchCount += hits.length;
           if (!present.length) pagesWithHits++;
-          for (const at of found.slice(0, perPage)) {
+          for (const at of hits.slice(0, perPage)) {
             snippets.push({
               attachmentId: att.id, file: att.name, page,
-              inPicture: true, parts: snippetAt(pictures, at, only)
+              inPicture: true, parts: snippetAt(pictures, at, only, true)
             });
           }
         }
@@ -280,7 +371,7 @@ export function search(query, items, texts, { type = null, perPage = 2 } = {}) {
     }
 
     // Every term must appear somewhere — in the record or in a file it holds.
-    const covered = words.every((w) => meta.includes(w) || contentWords.has(w));
+    const covered = groups.every((g, i) => inMeta[i] || contentGroups.has(g));
     if (!covered) continue;
 
     results.push({
@@ -290,7 +381,7 @@ export function search(query, items, texts, { type = null, perPage = 2 } = {}) {
       pagesWithHits,
       // Title and field matches outrank a mention buried in a PDF, but a
       // document mentioning the term throughout outranks one mentioning it once.
-      score: metaHits * 10 + contentWords.size * 3 + Math.min(matchCount, 20)
+      score: metaHits * 10 + contentGroups.size * 3 + Math.min(matchCount, 20)
     });
   }
 
