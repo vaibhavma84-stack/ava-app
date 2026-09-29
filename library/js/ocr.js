@@ -142,7 +142,7 @@ export async function readOpeningPages(buffer, { pages = 3, onProgress } = {}) {
  * never having started, and on a ship it is the closing that is certain.
  */
 export async function readAllPages(buffer, {
-  from = 1, to = Infinity, onPage, onProgress, shouldStop, scale = 2.2
+  from = 1, to = Infinity, onPage, onProgress, shouldStop, scale = 2.2, skip
 } = {}) {
   const say = (note) => { try { onProgress?.(note); } catch { /* never break the read */ } };
 
@@ -162,6 +162,8 @@ export async function readAllPages(buffer, {
     worker = await reader();
     for (; page <= last; page++) {
       if (shouldStop?.()) return { stopped: true, lastPage: page - 1, pageCount, read, blank };
+      // Already read out of turn -- the page someone was looking at.
+      if (skip?.(page)) continue;
 
       say(`Page ${page} of ${last === pageCount ? pageCount : `${last} (of ${pageCount})`}`);
       const canvas = await renderPage(doc, page, scale);
@@ -179,6 +181,48 @@ export async function readAllPages(buffer, {
     try { await worker?.terminate(); } catch { /* nothing useful to do */ }
     try { await task.destroy(); } catch { /* nothing useful to do */ }
   }
+}
+
+/**
+ * A reader held open on one document, for reading single pages as they are
+ * asked for -- the page someone has stopped on in a scan they are reading.
+ *
+ * The document is parsed and the reader started once, not once a page: a
+ * manual of a few hundred megabytes takes seconds just to open.
+ */
+export async function pageReader(buffer, { scale = 2.2 } = {}) {
+  const pdfjs = await pdfLib();
+  const task = pdfjs.getDocument({ data: new Uint8Array(buffer) });
+  const doc = await task.promise;
+  let worker = null;
+  let closed = false;
+  // One page at a time: a second request waits for the first.
+  let queue = Promise.resolve();
+  return {
+    pageCount: doc.numPages,
+    read(page) {
+      const run = queue.then(async () => {
+        if (closed) return null;
+        worker = worker || await reader();
+        const canvas = await renderPage(doc, page, scale);
+        try {
+          const { data } = await worker.recognize(canvas);
+          const text = tidy(data?.text);
+          return tooLittle(text) ? '' : text;
+        } finally {
+          release(canvas);
+        }
+      });
+      queue = run.catch(() => {});
+      return run;
+    },
+    async close() {
+      closed = true;
+      await queue;
+      try { await worker?.terminate(); } catch { /* nothing useful to do */ }
+      try { await task.destroy(); } catch { /* nothing useful to do */ }
+    }
+  };
 }
 
 /**

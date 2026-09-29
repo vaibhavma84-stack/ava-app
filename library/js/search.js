@@ -321,7 +321,7 @@ export function search(query, items, texts, { type = null, perPage = 2 } = {}) {
         const pages = texts.get(att.id);
         if (!pages) continue;
         // A scan's pages were read by recognition; a PDF's text layer was not.
-        const scanned = (att.readTo || 0) > 0;
+        const scanned = (att.readTo || 0) > 0 || att.fromScan === true;
         for (const { page, text = '', pictures } of pages) {
           const lower = text.toLowerCase();
           const present = groups.filter((g) => found(lower, g, scanned));

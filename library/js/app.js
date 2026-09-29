@@ -15,7 +15,7 @@ import { revisionStatus, revisionLabel, countDue } from './revision.js';
 import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip, readZip } from './zip.js';
 
-const APP_VERSION = '2026.10.30';
+const APP_VERSION = '2026.10.31';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -192,6 +192,7 @@ function enterApp() {
   // After the first render, so a slow reply never delays the app opening.
   announceIfStale();
   dropOldContents();
+  loadAutoRead().then(() => autoReadSoon(5000));
 }
 
 /**
@@ -468,6 +469,8 @@ function renderRefine(results) {
 }
 
 function renderHome(body) {
+  const line = readingLine();
+  if (line) body.append(line);
   const counts = store.counts();
   const grid = el('div', { class: 'sections' });
   for (const type of TAB_ORDER) {
@@ -1714,6 +1717,12 @@ function isImage(att) {
     || /\.(jpe?g|png|heic|heif|webp|gif|bmp|tiff?)$/i.test(att.name || '');
 }
 
+// The words came out of the pixels: read by the reader, from the start or a
+// page out of turn. readTo alone misses a scan read only where someone stopped
+// in it, which then looked finished and was never offered the rest.
+const readFromScan = (att) => (att.readTo || 0) > 0 || att.fromScan === true;
+const partReadScan = (att) => readFromScan(att) && (att.readTo || 0) < (att.pageCount || 1);
+
 function textStatusOf(att) {
   // Older records predate textStatus and only carry a page count.
   if (att.textStatus) return att.textStatus;
@@ -1747,7 +1756,7 @@ function searchableState(data) {
     if (state !== STATUS.INDEXED) { worst = 'no'; continue; }
     // readTo is set by the reader alone, so it is what tells a scan stopped
     // half way from a PDF whose text was simply extracted.
-    const partRead = (att.readTo || 0) > 0 && att.readTo < (att.pageCount || 1);
+    const partRead = partReadScan(att);
     if (partRead) worst = worse(worst, 'part');
   }
   return worst;
@@ -1853,7 +1862,7 @@ function attachmentRow(att, onRemove) {
     // its seven pages already indexed was still offered a read it did not
     // need, which on a ship means a 6 MB download for nothing and worse text
     // than it already had.
-    const partRead = (att.readTo || 0) > 0 && att.readTo < (att.pageCount || 1);
+    const partRead = partReadScan(att);
     if (state !== STATUS.INDEXED || partRead) {
       const done = att.readTo || 0;
       const total = att.pageCount || 0;
@@ -1878,7 +1887,7 @@ function attachmentRow(att, onRemove) {
       && att.picturesTo >= (att.pageCount || 1);
     // Not for a scan: its pages are pictures already, and the read above has
     // been through them. Offering it here would read the same pixels twice.
-    const cameFromPixels = (att.readTo || 0) > 0;
+    const cameFromPixels = readFromScan(att);
     if (state === STATUS.INDEXED && !picturesDone && !cameFromPixels) {
       const done = att.picturesTo || 0;
       row.append(el('button', {
@@ -2041,8 +2050,11 @@ async function readPages(itemId, att, { into = 'text', onProgress, onPage, shoul
 
   const { readAllPages } = await import('./ocr.js');
   const blob = await store.readFile(att);
+  const half = into === 'pictures' ? 'pictures' : 'text';
   const walked = await readAllPages(await blob.arrayBuffer(), {
     from,
+    // A page read out of turn, because someone stopped on it, is not read again.
+    skip: (page) => Boolean(held.get(page)?.[half]),
     shouldStop: shouldStop || (() => false),
     onProgress,
     onPage: async ({ page, text }) => {
@@ -2146,7 +2158,7 @@ function outstandingReads(type, into) {
         // pixels rather than out of a text layer. Without this a read scan is
         // queued to have the same pixels read a second time, into a second
         // place, for nothing -- 61 pages of it in the count above.
-        if ((att.readTo || 0) > 0) continue;
+        if (readFromScan(att)) continue;
         const done = att.picturesTo || 0;
         if (done > 0 && done >= (pageCount || 1)) continue;
         jobs.push({ itemId: item.id, att, title, into, pages: Math.max((pageCount || 1) - done, 1) });
@@ -2157,7 +2169,7 @@ function outstandingReads(type, into) {
         if (state !== STATUS.INDEXED) jobs.push({ itemId: item.id, att, title, into, image: true, pages: 1 });
         continue;
       }
-      const partRead = (att.readTo || 0) > 0 && att.readTo < (pageCount || 1);
+      const partRead = partReadScan(att);
       if (state === STATUS.INDEXED && !partRead) continue;
       jobs.push({
         itemId: item.id, att, title, into,
@@ -2239,12 +2251,147 @@ async function readSection(type, into) {
     return;
   }
 
+  const stoppedByHand = Boolean(stoppedAt) || jobs.length > read;
   view.reading = null;
   render();
   const what = into === 'pictures' ? 'the pictures in ' : '';
   toast(stoppedAt
     ? `Stopped in ${stoppedAt} \u2014 ${plural(read, 'document', 'documents')} finished, and what was read of that one is kept`
     : `Read ${what}${plural(read, 'document', 'documents')}`);
+  return { stopped: stoppedByHand };
+}
+
+// ── reading without being asked ─────────────────────────────────────────────
+//
+// With it switched on, scans are read while the app is open, one section
+// after another, as soon as there is anything unread -- after an import, after
+// a save, on opening the app. The same run as the button in a section, with
+// the same Stop, and a line on the home screen saying what it is doing.
+//
+// Off unless chosen: it is a 7 MB download the first time and a phone's
+// battery after that. iOS stops it when the app is put away; it picks up
+// where it left off the next time the app is open.
+
+const autoRead = { on: false, paused: false, timer: null };
+
+async function loadAutoRead() {
+  autoRead.on = (await db.getMeta('autoRead')) === true;
+}
+
+function autoReadSoon(delay = 3000) {
+  if (!autoRead.on || autoRead.paused) return;
+  clearTimeout(autoRead.timer);
+  autoRead.timer = setTimeout(runAutoRead, delay);
+}
+
+async function runAutoRead() {
+  if (!autoRead.on || autoRead.paused || view.reading) return;
+  for (const type of TAB_ORDER) {
+    if (!outstandingReads(type, 'text').length) continue;
+    const { stopped } = await readSection(type, 'text') || {};
+    // Stop means stop, not "start the next section instead".
+    if (stopped) { autoRead.paused = true; return; }
+    if (!autoRead.on) return;
+  }
+}
+
+/** Home: a line saying a read is going on, wherever it was started. */
+function readingLine() {
+  if (!view.reading) return null;
+  const run = view.reading;
+  return el('div', { class: 'panel read-panel', id: 'readingLine' }, [
+    el('p', { class: 'stat-line', style: 'margin:0 0 8px',
+      text: `Reading ${TYPES[run.type].label.toLowerCase()} — ${run.title}, ${run.said}` }),
+    el('button', {
+      class: 'btn btn-sm btn-block', disabled: run.stopped,
+      onclick: () => { view.reading.stopped = true; render(); }
+    }, [run.stopped ? 'Stopping…' : 'Stop'])
+  ]);
+}
+
+// ── the page in front of you, first ─────────────────────────────────────────
+//
+// Opening a scan that has not been read and stopping on a page reads that page
+// there and then, so what is being looked at becomes searchable without
+// waiting for the pages before it. The whole-document read skips it later.
+
+const onDemand = { reader: null, attId: null, timer: null, busy: new Set() };
+
+function wantsPageReading(att) {
+  if (isImage(att) || /^text\//i.test(att.type || '') || /\.txt$/i.test(att.name || '')) return false;
+  const state = textStatusOf(att);
+  const partRead = partReadScan(att);
+  return state === STATUS.NO_TEXT || partRead;
+}
+
+async function readPageInView(itemId, att) {
+  const page = pageInView();
+  const texts = await store.loadTexts();
+  const pages = texts.get(att.id) || [];
+  if (pages.some((p) => p.page === page && p.text) || onDemand.busy.has(page)) return;
+  if (view.viewing?.attId !== att.id) return;
+  onDemand.busy.add(page);
+  try {
+    if (!onDemand.reader || onDemand.attId !== att.id) {
+      const { pageReader } = await import('./ocr.js');
+      const blob = await store.readFile(att);
+      onDemand.reader = await pageReader(await blob.arrayBuffer());
+      onDemand.attId = att.id;
+    }
+    const text = await onDemand.reader.read(page);
+    if (!text || view.viewing?.attId !== att.id) return;
+
+    const now = (await store.loadTexts()).get(att.id) || [];
+    const held = new Map(now.map((p) => [p.page, p]));
+    held.set(page, { ...(held.get(page) || { page }), text });
+    const sorted = [...held.values()].sort((a, b) => a.page - b.page);
+    await store.storeText(att.id, sorted);
+
+    const item = store.getItem(itemId);
+    if (item) {
+      // The mark is how far from the start every page has been read. A page
+      // further on does not move it, unless it closes the gap.
+      let readTo = att.readTo || 0;
+      while (held.get(readTo + 1)?.text) readTo++;
+      const next = (item.data.attachments || []).map((a) => a.id === att.id
+        ? { ...a, textPages: held.size, readTo: Math.max(a.readTo || 0, readTo), fromScan: true,
+            pageCount: a.pageCount || onDemand.reader.pageCount,
+            textStatus: STATUS.INDEXED, scanned: false }
+        : a);
+      await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, attachments: next } });
+    }
+    toast(`Page ${page} read — it can be searched now`);
+  } catch (ex) {
+    console.warn('Could not read the page', ex);
+  } finally {
+    onDemand.busy.delete(page);
+  }
+}
+
+function watchPageToRead(itemId, att) {
+  const body = $('#viewerBody');
+  const settle = () => {
+    clearTimeout(onDemand.timer);
+    // Stopped on, not scrolled past.
+    onDemand.timer = setTimeout(() => readPageInView(itemId, att), 1500);
+  };
+  body.addEventListener('scroll', settle, { passive: true });
+  settle();
+  return () => {
+    body.removeEventListener('scroll', settle);
+    clearTimeout(onDemand.timer);
+  };
+}
+
+let unwatchPageToRead = null;
+
+async function stopPageReading() {
+  unwatchPageToRead?.();
+  unwatchPageToRead = null;
+  const reader = onDemand.reader;
+  onDemand.reader = null;
+  onDemand.attId = null;
+  await reader?.close().catch(() => {});
 }
 
 /**
@@ -2391,6 +2538,10 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId) {
 
     watchPageMarks();
     drawStickies();
+    // The stored descriptor, not the one captured when the entry was drawn:
+    // a page read a moment ago has changed it.
+    const current = (store.getItem(itemId)?.data.attachments || []).find((a) => a.id === att.id) || att;
+    if (itemId && wantsPageReading(current)) unwatchPageToRead = watchPageToRead(itemId, current);
   } catch (ex) {
     clear(body).append(el('div', { class: 'empty' }, [
       el('h3', { text: 'Could not open it' }),
@@ -2425,6 +2576,7 @@ function watchPageMarks() {
 
 function closeViewer() {
   unwatchMarks?.();
+  stopPageReading();
   $('#viewer').hidden = true;
   disposeViewer?.();
   disposeViewer = null;
@@ -3297,7 +3449,9 @@ async function onImportPicked(e) {
   panel.remove();
   render();
   toast(`${added} imported${unreadable ? ` — ${unreadable} had no text to search` : ''}`
-    + (stopped ? ' · stopped' : ''));
+    + (stopped ? ' · stopped' : '')
+    + (unreadable && autoRead.on ? ', and will be read' : ''));
+  if (unreadable) autoReadSoon();
 }
 
 async function fillFromPdf(file) {
@@ -3381,8 +3535,15 @@ async function saveEditor() {
 
     const saved = await store.saveItem({ id: draft.id, type: draft.type, data: draft.data });
     closeEditor();
-    const scanned = draft.newFiles.length && draft.data.attachments.some((a) => a.scanned);
-    toast(scanned ? 'Saved — one file is a scan, so its text is not searchable' : 'Saved');
+    // Nothing sets a "scanned" flag on a file any more; what the reader found
+    // is its status. Testing the flag meant this never once said "scan".
+    const added = new Set(draft.data.attachments.slice(-draft.newFiles.length).map((a) => a.id));
+    const scanned = draft.newFiles.length > 0 && draft.data.attachments
+      .some((a) => added.has(a.id) && textStatusOf(a) === STATUS.NO_TEXT);
+    toast(scanned
+      ? (autoRead.on ? 'Saved — one file is a scan, and will be read shortly' : 'Saved — one file is a scan, so its text is not searchable')
+      : 'Saved');
+    autoReadSoon();
     if (view.detailId === saved.id) openDetail(saved.id);
   } catch (ex) {
     toast('Save failed: ' + ex.message);
@@ -3438,6 +3599,23 @@ async function openSettings() {
   ]));
   if (!installed) box.append(el('p', { class: 'hint', text: 'In Safari: Share → Add to Home Screen.' }));
   body.append(box);
+
+  body.append(el('div', { class: 'panel', id: 'autoReadPanel' }, [
+    el('h3', { text: 'Reading scans' }),
+    el('p', { text: 'Read scans while the app is open, without being asked: after an import, after a save, and when the app opens. Uses the battery, and about 7 MB the first time. Stop pauses it until the app is next opened. A page you stop on in a scan is always read first.' }),
+    el('button', {
+      class: 'btn btn-block' + (autoRead.on ? ' btn-primary' : ''),
+      'aria-pressed': String(autoRead.on),
+      onclick: async () => {
+        autoRead.on = !autoRead.on;
+        autoRead.paused = false;
+        await db.setMeta('autoRead', autoRead.on);
+        openSettings();
+        if (autoRead.on) autoReadSoon(500);
+        toast(autoRead.on ? 'Scans will be read while the app is open' : 'Scans are read only when asked');
+      }
+    }, [autoRead.on ? 'Reading automatically — on' : 'Read scans automatically — off'])
+  ]));
 
   const fullOut = el('div');
   body.append(el('div', { class: 'panel', id: 'fullBackup' }, [

@@ -2782,6 +2782,64 @@ try {
   await page.fill('#search', '');
   await page.waitForTimeout(300);
 
+  console.log('\nThe page in front of you, first');
+  await page.click('#fab');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('title', 'L-009 Page First');
+  await page.setInputFiles('#filePicker', SCAN_PATH);
+  await page.waitForTimeout(2500);
+  await save();
+  await openBranches();
+  await page.locator('.card', { hasText: 'L-009 Page First' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailBody button:has-text("Open")');
+  await page.waitForSelector('#viewerBody canvas[data-page="3"]', { timeout: 20000 });
+  await page.locator('#viewerBody canvas[data-page="3"]').scrollIntoViewIfNeeded();
+  await page.evaluate(() => {
+    const c = document.querySelector('#viewerBody canvas[data-page="3"]');
+    const body = document.getElementById('viewerBody');
+    body.scrollTop += c.getBoundingClientRect().top - body.getBoundingClientRect().top - 40;
+  });
+  await page.locator('.toast', { hasText: /Page 3 read/ }).waitFor({ timeout: 180000 });
+  check('stopping on a page of a scan reads that page', true);
+  await page.click('#viewerClose');
+  await page.waitForSelector('#viewer', { state: 'hidden' });
+  const firstRead = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    const item = store.itemsOfType('manual').find((i) => i.data.title === 'L-009 Page First');
+    const att = item.data.attachments[0];
+    return { id: item.id, pages: ((await store.loadTexts()).get(att.id) || []).map((p) => p.page), readTo: att.readTo || 0 };
+  });
+  check('only that page, not the ones before it', firstRead.pages.join(',') === '3', firstRead.pages.join(','));
+  check('and the mark of how far it is read from the start does not move', firstRead.readTo === 0, String(firstRead.readTo));
+  await closeDetail();
+  await page.fill('#search', 'winch brake');
+  await page.waitForTimeout(900);
+  check('the page is searchable straight away',
+    await page.locator('.card', { hasText: 'L-009 Page First' }).count() === 1);
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+
+  await openBranches();
+  await page.locator('.card', { hasText: 'L-009 Page First' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailBody button:has-text("Read the whole document")');
+  await page.locator('.toast', { hasText: /Read all|Stopped at|Could not/ }).waitFor({ timeout: 240000 });
+  const pagesAfter = await page.evaluate(async (id) => {
+    const store = await import('./js/store.js');
+    const att = store.getItem(id).data.attachments[0];
+    return ((await store.loadTexts()).get(att.id) || []).map((p) => p.page);
+  }, firstRead.id);
+  check('the whole read fills in the rest around it, once each',
+    pagesAfter.join(',') === '1,2,3,4', pagesAfter.join(','));
+  await closeDetail();
+  // Out of the way of the section read that follows, which counts documents.
+  await page.evaluate(async (id) => (await import('./js/store.js')).deleteItem(id), firstRead.id);
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card', { hasText: 'Manuals' }).click();
+  await page.waitForTimeout(300);
+
   // ---- reading a whole section without opening anything ------------------
   // A ship's manuals are dozens of documents and thousands of pages. Reading
   // them one at a time means opening each entry, finding the button and
@@ -3103,6 +3161,41 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await other.waitForSelector('#settings', { state: 'hidden', timeout: 20000 });
     const n = await other.evaluate(async () => (await import('./js/store.js')).allItems().length);
     check('restoring a records file actually restores it', n === here.items, `${n} vs ${here.items}`);
+    await fresh.close();
+  }
+
+  console.log('\nReading scans without being asked');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.click('#settingsBtn');
+    await other.waitForSelector('#settings:not([hidden])');
+    check('it is off until chosen',
+      /off/i.test(await other.locator('#autoReadPanel button').innerText()));
+    await other.click('#autoReadPanel button');
+    await other.waitForTimeout(300);
+    check('and says so once on', /on/i.test(await other.locator('#autoReadPanel button').innerText()));
+    await other.click('#settingsClose');
+    await other.locator('.section-card', { hasText: 'Manuals' }).click();
+    await other.click('#fab');
+    await other.waitForSelector('#editor:not([hidden])');
+    await other.fill('#editorBody [data-field="title"]', 'L-010 Read By Itself');
+    await other.setInputFiles('#filePicker', SCAN_PATH);
+    await other.waitForTimeout(2500);
+    await other.click('#editorSave');
+    await other.waitForSelector('#editor', { state: 'hidden', timeout: 30000 });
+    await other.locator('.toast', { hasText: /Read 1 document|Stopped/ }).waitFor({ timeout: 240000 });
+    const readItself = await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const att = store.allItems()[0].data.attachments[0];
+      return { status: att.textStatus, readTo: att.readTo, pages: ((await store.loadTexts()).get(att.id) || []).length };
+    });
+    check('a scan saved with it on is read without a button being pressed',
+      readItself.status === 'indexed' && readItself.readTo === 4 && readItself.pages === 4, JSON.stringify(readItself));
+    const remembered = await other.evaluate(async () => (await import('./js/db.js')).getMeta('autoRead'));
+    check('and the choice is remembered', remembered === true);
     await fresh.close();
   }
 

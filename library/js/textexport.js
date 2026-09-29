@@ -42,7 +42,7 @@ export function documentText(item, att, pages) {
   const sorted = [...(pages || [])].sort((a, b) => a.page - b.page);
   const lines = heading(item, att);
   lines.push(`Pages with text: ${sorted.length}${att.pageCount ? ` of ${att.pageCount}` : ''}`);
-  if ((att.readTo || 0) > 0) {
+  if ((att.readTo || 0) > 0 || att.fromScan === true) {
     lines.push('Read from a scan by text recognition: expect some misread characters, and check figures against the page.');
   }
   lines.push('');
