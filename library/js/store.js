@@ -252,6 +252,91 @@ export async function importRecords(payload) {
   return n;
 }
 
+// ── full backup ─────────────────────────────────────────────────────────────
+//
+// Everything: the entries as they are, with their own ids, the text read out
+// of every file, and the files themselves. For moving to a new phone, where
+// re-attaching a few hundred manuals by hand is not a real option.
+//
+// The caller packs it into zips. This side only says what goes in, and puts
+// it back.
+
+export const FULL_FORMAT = 'ava-library-full';
+
+const safeName = (name) => String(name || 'file').replace(/[\\/:*?"<>|\u0000-\u001f]+/g, '_').slice(0, 120);
+
+/**
+ * What a full backup holds: { manifest, texts, files: [{ path, blob, size }] }.
+ * The manifest names the path of every file, so a restore can tell a file it
+ * was not given from one that never existed.
+ */
+export async function fullBackup() {
+  const texts = await loadTexts();
+  const items = allItems();
+  const files = [];
+  const textOut = {};
+  const paths = {};
+  for (const item of items) {
+    for (const att of item.data?.attachments || []) {
+      if (texts.has(att.id)) textOut[att.id] = texts.get(att.id);
+      const row = await db.get(db.STORE_BLOBS, att.id);
+      if (!row?.blob) continue;
+      const path = `files/${att.id}/${safeName(att.name)}`;
+      paths[att.id] = path;
+      files.push({ path, blob: row.blob, size: row.blob.size, type: row.type });
+    }
+  }
+  const manifest = {
+    format: FULL_FORMAT,
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    counts: { items: items.length, files: files.length },
+    files: paths,
+    items
+  };
+  return { manifest, texts: textOut, files };
+}
+
+/**
+ * Put a full backup back.
+ *
+ * `blobFor(path)` returns the file stored at that path in whichever part it
+ * was given, or null. Entries come back under their own ids, so restoring
+ * onto a phone that already has some of them replaces them rather than
+ * doubling them. A file that was not among the parts given is left off its
+ * entry, and counted, rather than leaving an entry pointing at nothing --
+ * unless this phone already holds it.
+ */
+export async function restoreFull(manifest, texts, blobFor) {
+  if (manifest?.format !== FULL_FORMAT) throw new Error('Not a Library full backup');
+  let items = 0, files = 0, missing = 0;
+  for (const saved of manifest.items || []) {
+    if (!TYPES[saved.type]) continue;
+    const kept = [];
+    for (const att of saved.data?.attachments || []) {
+      const path = manifest.files?.[att.id];
+      const blob = path ? await blobFor(path) : null;
+      if (blob) {
+        const type = att.type || blob.type || 'application/octet-stream';
+        await db.put(db.STORE_BLOBS, { id: att.id, size: blob.size, type, blob: blob.slice(0, blob.size, type) });
+        files++;
+      } else if (!(await db.get(db.STORE_BLOBS, att.id))?.blob) {
+        if (path) missing++;
+        continue;
+      }
+      if (texts?.[att.id]) await db.put(db.STORE_TEXTS, { id: att.id, pages: texts[att.id] });
+      kept.push(att);
+    }
+    const item = { ...saved, data: { ...saved.data, attachments: kept } };
+    await db.put(db.STORE_ITEMS, { id: item.id, updatedAt: item.updatedAt || Date.now(), data: item });
+    state.items.set(item.id, item);
+    items++;
+  }
+  state.texts = null;
+  emit();
+  return { items, files, missing };
+}
+
 export async function eraseVault() {
   await db.destroyEverything();
   state.items = new Map();

@@ -13,9 +13,9 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 import { documentText, textFileName, exportable } from './textexport.js';
-import { makeZip } from './zip.js';
+import { makeZip, readZip } from './zip.js';
 
-const APP_VERSION = '2026.10.29';
+const APP_VERSION = '2026.10.30';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1574,6 +1574,7 @@ function wireApp() {
     render();
   });
   $('#settingsBtn').addEventListener('click', openSettings);
+  $('#fullPicker').addEventListener('change', onFullBackupPicked);
   $('#settingsClose').addEventListener('click', () => { $('#settings').hidden = true; });
   $('#detailClose').addEventListener('click', () => { $('#detail').hidden = true; view.detailId = null; });
   $('#detailEdit').addEventListener('click', () => {
@@ -1586,6 +1587,7 @@ function wireApp() {
   $('#fab').addEventListener('click', () => view.section && openEditor(view.section, null));
   $('#filePicker').addEventListener('change', onFilesPicked);
   $('#importPicker').addEventListener('change', onImportPicked);
+  $('#backupPicker').addEventListener('change', onBackupPicked);
   $('#viewerClose').addEventListener('click', closeViewer);
   // Wrapped, not passed straight in: a listener is handed the click event as
   // its first argument, and openNoteBox reads its first argument as the note
@@ -3437,10 +3439,20 @@ async function openSettings() {
   if (!installed) box.append(el('p', { class: 'hint', text: 'In Safari: Share → Add to Home Screen.' }));
   body.append(box);
 
+  const fullOut = el('div');
+  body.append(el('div', { class: 'panel', id: 'fullBackup' }, [
+    el('h3', { text: 'Full backup' }),
+    el('p', { text: `Everything: entries, the text read from them, and the files — ${formatBytes(store.attachmentBytes())} of them. For moving to a new phone. A very large library is split into parts of up to 1.5 GB; keep every part, and choose them all together to restore.` }),
+    el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px',
+      onclick: (e) => doFullBackup(e.target, fullOut) }, ['Make a full backup']),
+    fullOut,
+    el('button', { class: 'btn btn-block', onclick: () => $('#fullPicker').click() }, ['Restore a full backup'])
+  ]));
+
   body.append(el('div', { class: 'panel' }, [
-    el('h3', { text: 'Backup' }),
-    el('p', { text: 'Saves your records and their indexed text. The PDFs themselves are left out — a library of them is far too large for a single file, and you hold those elsewhere. Re-attach files after restoring.' }),
-    el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: doExport }, ['Export records']),
+    el('h3', { text: 'Records only' }),
+    el('p', { text: 'A small file of the entries alone, without the files or their text. Re-attach files after restoring.' }),
+    el('button', { class: 'btn btn-block', style: 'margin-bottom:8px', onclick: doExport }, ['Export records']),
     el('button', { class: 'btn btn-block', onclick: () => $('#backupPicker').click() }, ['Restore records'])
   ]));
 
@@ -3589,6 +3601,111 @@ async function onBackupPicked(e) {
     toast(`Brought ${n} record${n === 1 ? '' : 's'} in`);
   } catch (ex) {
     toast(ex.message);
+  }
+}
+
+// A part of a full backup: small enough for the share sheet to hand over and
+// for Files to hold, and well inside what one zip can address.
+const BACKUP_PART_BYTES = 1.5 * 1024 * 1024 * 1024;
+
+/**
+ * Pack the whole library into one zip, or several.
+ *
+ * The parts are built first and then offered one button each. The share sheet
+ * only opens from a tap, and packing a large library outlasts the tap that
+ * started it, so asking it to open afterwards would be refused.
+ */
+async function doFullBackup(button, out) {
+  const label = button.textContent;
+  button.disabled = true;
+  clear(out);
+  try {
+    button.textContent = 'Gathering…';
+    const { manifest, texts, files } = await store.fullBackup();
+    const parts = [[]];
+    let size = 0;
+    for (const f of files) {
+      if (size + f.size > BACKUP_PART_BYTES && parts[parts.length - 1].length) { parts.push([]); size = 0; }
+      parts[parts.length - 1].push({ name: f.path, data: f.blob });
+      size += f.size;
+    }
+    manifest.parts = parts.length;
+    // The list of entries goes in the first part only: it is what a restore
+    // starts from, and one copy of it cannot disagree with another.
+    parts[0].unshift(
+      { name: 'library.json', data: JSON.stringify(manifest) },
+      { name: 'texts.json', data: JSON.stringify(texts) }
+    );
+
+    const stamp = new Date().toISOString().slice(0, 10);
+    const zips = [];
+    for (const [i, entries] of parts.entries()) {
+      const zip = await makeZip(entries, {
+        onProgress: (n, total) => {
+          button.textContent = parts.length > 1
+            ? `Packing part ${i + 1} of ${parts.length} — ${n} of ${total}…`
+            : `Packing ${n} of ${total}…`;
+        }
+      });
+      const name = parts.length > 1
+        ? `library-backup-${stamp}-part${i + 1}-of-${parts.length}.zip`
+        : `library-backup-${stamp}.zip`;
+      zips.push({ zip, name });
+    }
+
+    out.append(el('p', { class: 'hint', style: 'margin:0 0 8px',
+      text: `${plural(manifest.counts.items, 'entry', 'entries')} and ${plural(manifest.counts.files, 'file', 'files')}, ready to save.` }));
+    for (const { zip, name } of zips) {
+      out.append(el('button', {
+        class: 'btn btn-sm btn-block', style: 'margin-bottom:8px',
+        onclick: async () => {
+          if (await shareBlob(zip, name, 'application/zip')) toast('Saved — keep it somewhere off this phone');
+        }
+      }, [zips.length > 1 ? `Save ${name.match(/part\d+-of-\d+/)[0].replace(/-/g, ' ')} — ${formatBytes(zip.size)}` : `Save backup — ${formatBytes(zip.size)}`]));
+    }
+  } catch (ex) {
+    toast(`Could not make the backup: ${ex.message}`);
+  } finally {
+    button.disabled = false;
+    button.textContent = label;
+  }
+}
+
+async function onFullBackupPicked(e) {
+  const picked = [...(e.target.files || [])];
+  e.target.value = '';
+  if (!picked.length) return;
+  try {
+    const blobs = new Map();
+    for (const file of picked) {
+      for (const entry of await readZip(file)) if (entry.blob) blobs.set(entry.name, entry.blob);
+    }
+    const listing = blobs.get('library.json');
+    if (!listing) {
+      toast('Choose the first part as well — it holds the list of entries');
+      return;
+    }
+    const manifest = JSON.parse(await listing.text());
+    const texts = blobs.has('texts.json') ? JSON.parse(await blobs.get('texts.json').text()) : {};
+    const given = picked.length;
+    if ((manifest.parts || 1) > given
+        && !confirm(`This backup is in ${manifest.parts} parts and ${given} ${given === 1 ? 'was' : 'were'} chosen. Files in the others will be left off their entries. Restore anyway?`)) {
+      return;
+    }
+    const needed = [...blobs.values()].reduce((n, b) => n + b.size, 0);
+    const space = db.room(await db.storageEstimate());
+    if (space && needed > space.free
+        && !confirm(`The backup holds ${formatBytes(needed)} and about ${formatBytes(space.free)} is free. Try anyway?`)) {
+      return;
+    }
+    toast('Restoring…');
+    const done = await store.restoreFull(manifest, texts, async (path) => blobs.get(path) || null);
+    $('#settings').hidden = true;
+    render();
+    toast(`Restored ${plural(done.items, 'entry', 'entries')} and ${plural(done.files, 'file', 'files')}`
+      + (done.missing ? ` — ${done.missing} not in the parts chosen` : ''));
+  } catch (ex) {
+    toast(`Could not restore: ${ex.message}`);
   }
 }
 

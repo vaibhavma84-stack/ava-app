@@ -3011,6 +3011,101 @@ print(json.dumps({"bad": bad, "names": z.namelist(),
   await page.click('#settingsClose');
   await page.waitForTimeout(200);
 
+  console.log('\nA full backup, and restoring it on another phone');
+  await page.click('#settingsBtn');
+  await page.waitForSelector('#settings:not([hidden])');
+  await page.click('#fullBackup button:has-text("Make a full backup")');
+  await page.waitForSelector('#fullBackup button:has-text("Save backup")', { timeout: 60000 });
+  const [fullDownload] = await Promise.all([
+    page.waitForEvent('download', { timeout: 20000 }),
+    page.click('#fullBackup button:has-text("Save backup")')
+  ]);
+  const fullPath = path.join(tmp, fullDownload.suggestedFilename());
+  await fullDownload.saveAs(fullPath);
+  const [recordsDownload] = await Promise.all([
+    page.waitForEvent('download', { timeout: 20000 }),
+    page.click('#settingsBody button:has-text("Export records")')
+  ]);
+  const recordsPath = path.join(tmp, recordsDownload.suggestedFilename());
+  await recordsDownload.saveAs(recordsPath);
+  const here = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    const items = store.allItems();
+    return { items: items.length, files: items.reduce((n, i) => n + (i.data.attachments || []).length, 0) };
+  });
+  await page.click('#settingsClose');
+  await page.waitForTimeout(200);
+
+  const packed = JSON.parse(execFileSync('python3', ['-c', `
+import zipfile, json, sys
+z = zipfile.ZipFile(sys.argv[1])
+m = json.loads(z.read("library.json"))
+print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["items"]), "files": len(m["files"])}))
+`, fullPath]).toString());
+  check('the backup is a sound zip', packed.bad === null, String(packed.bad));
+  check('it holds every entry', packed.items === here.items, `${packed.items} vs ${here.items}`);
+  check('and every file', packed.files === here.files && packed.names.filter((n) => n.startsWith('files/')).length === here.files,
+    `${packed.files} vs ${here.files}`);
+
+  {
+    // A new phone: a context of its own, with nothing in it.
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    other.on('dialog', (d) => d.accept());
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.click('#settingsBtn');
+    await other.waitForSelector('#settings:not([hidden])');
+    await other.setInputFiles('#fullPicker', fullPath);
+    await other.waitForSelector('#settings', { state: 'hidden', timeout: 60000 });
+    const restored = await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const { search } = await import('./js/search.js');
+      const items = store.allItems();
+      const engine = items.find((i) => i.data.title === 'Main Engine Operating Manual');
+      const att = engine.data.attachments[0];
+      const buf = await (await store.readFile(att)).arrayBuffer();
+      const digest = await crypto.subtle.digest('SHA-256', buf);
+      const hits = search('QUAYSIDEMARKER', items, await store.loadTexts());
+      return {
+        items: items.length,
+        files: items.reduce((n, i) => n + (i.data.attachments || []).length, 0),
+        sameId: Boolean(engine),
+        hash: [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join(''),
+        found: hits.map((h) => h.item.data.title)
+      };
+    });
+    check('every entry comes back', restored.items === here.items, `${restored.items} vs ${here.items}`);
+    check('with every file', restored.files === here.files, `${restored.files} vs ${here.files}`);
+    check('a file comes back byte for byte',
+      restored.hash === crypto.createHash('sha256').update(fs.readFileSync(PDF_PATH)).digest('hex'));
+    check('and its text is searchable without being read again',
+      restored.found.includes('Main Engine Operating Manual'), restored.found.join(','));
+
+    // Restoring the same backup twice replaces, it does not double.
+    await other.click('#settingsBtn');
+    await other.waitForSelector('#settings:not([hidden])');
+    await other.setInputFiles('#fullPicker', fullPath);
+    await other.waitForSelector('#settings', { state: 'hidden', timeout: 60000 });
+    const again = await other.evaluate(async () => (await import('./js/store.js')).allItems().length);
+    check('restoring it twice does not double the library', again === here.items, `${again} vs ${here.items}`);
+    await fresh.close();
+  }
+
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.click('#settingsBtn');
+    await other.waitForSelector('#settings:not([hidden])');
+    await other.setInputFiles('#backupPicker', recordsPath);
+    await other.waitForSelector('#settings', { state: 'hidden', timeout: 20000 });
+    const n = await other.evaluate(async () => (await import('./js/store.js')).allItems().length);
+    check('restoring a records file actually restores it', n === here.items, `${n} vs ${here.items}`);
+    await fresh.close();
+  }
+
   console.log('\nRoom left');
   const roomCases = await page.evaluate(async () => {
     const { room } = await import('./js/db.js');
