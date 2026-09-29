@@ -69,6 +69,26 @@ export async function storageEstimate() {
   try { return await navigator.storage?.estimate?.() ?? null; } catch { return null; }
 }
 
+// Below either of these the library is called short of room. A fraction alone
+// would say nothing until the last few hundred megabytes of a large quota, and
+// a figure alone would cry wolf on a phone that was only ever given a little.
+export const LOW_FRACTION = 0.8;
+export const LOW_BYTES = 500 * 1024 * 1024;
+
+/**
+ * How much more the library may store, from a storage estimate.
+ *
+ * Returns null when the browser will not say. Safari's quota is a share of the
+ * phone's own disk, so this moves with whatever else is on the phone.
+ */
+export function room(est) {
+  if (!est || !Number.isFinite(est.quota) || est.quota <= 0) return null;
+  const used = Math.max(0, est.usage || 0);
+  const free = Math.max(0, est.quota - used);
+  const fraction = used / est.quota;
+  return { used, quota: est.quota, free, fraction, low: fraction >= LOW_FRACTION || free < LOW_BYTES };
+}
+
 export async function requestPersistence() {
   try {
     if (!navigator.storage?.persist) return null;

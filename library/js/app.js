@@ -13,7 +13,7 @@ import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 
-const APP_VERSION = '2026.10.25';
+const APP_VERSION = '2026.10.26';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -3010,12 +3010,31 @@ async function onFilesPicked(e) {
   if (!files.length || !view.draft) return;
   view.draft.newFiles.push(...files);
   renderEditor();
+  warnIfNoRoom(view.draft.newFiles);
 
   // Fill in what the PDF can tell us about itself. Only the first page is read,
   // so this is quick, and only empty fields are touched -- anything already
   // typed is left exactly as it is.
   const pdf = files.find(isPdf);
   if (pdf) await fillFromPdf(pdf);
+}
+
+/**
+ * Say so when the files just chosen will not fit.
+ *
+ * A warning, not a refusal: the estimate is the browser's guess, and a file
+ * that does not fit fails on its own when it is saved. Knowing before sitting
+ * through an import of forty manuals is the point.
+ */
+async function warnIfNoRoom(files) {
+  const space = db.room(await db.storageEstimate());
+  if (!space) return;
+  const needed = files.reduce((sum, f) => sum + (f.size || 0), 0);
+  if (needed > space.free) {
+    toast(`Not enough room: these need ${formatBytes(needed)}, about ${formatBytes(space.free)} is free.`);
+  } else if (space.free - needed < db.LOW_BYTES) {
+    toast(`Space is getting low: about ${formatBytes(space.free - needed)} left after these.`);
+  }
 }
 
 /** Bringing a stack of documents in at once, rather than one at a time. */
@@ -3046,6 +3065,7 @@ async function onImportPicked(e) {
   const files = [...(e.target.files || [])];
   e.target.value = '';
   if (!files.length || !view.section) return;
+  warnIfNoRoom(files);
 
   const type = view.section;
   const def = TYPES[type];
@@ -3215,6 +3235,19 @@ async function openSettings() {
     box.append(el('div', { class: 'stat' }, [el('span', { text: 'Scans without text' }), el('span', { text: String(stats.unsearchable) })]));
   }
   box.append(el('div', { class: 'stat' }, [el('span', { text: 'Space used' }), el('span', { text: est ? formatBytes(est.usage) : 'unknown' })]));
+  const space = db.room(est);
+  box.append(el('div', { class: 'stat', id: 'spaceAvailable' }, [
+    el('span', { text: 'Space available' }),
+    el('span', {}, space
+      ? [
+          el('span', { text: `${formatBytes(space.free)} of ${formatBytes(space.quota)}` }),
+          ...(space.low ? [' ', el('span', { class: 'pill pill-warn', text: 'Low' })] : [])
+        ]
+      : [el('span', { text: 'unknown' })])
+  ]));
+  if (space?.low) {
+    box.append(el('p', { class: 'hint', text: 'Running short of room. Keep the largest manuals in iCloud Drive with a cloud link instead of the file, or free space on the phone — the limit is a share of the phone’s own storage.' }));
+  }
   box.append(el('div', { class: 'stat' }, [
     el('span', { text: 'Storage protected' }),
     el('span', {}, [el('span', { class: 'pill ' + (persisted ? 'pill-sage' : 'pill-warn'), text: persisted ? 'Persistent' : 'Best effort' })])

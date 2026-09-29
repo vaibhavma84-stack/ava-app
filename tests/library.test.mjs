@@ -2894,8 +2894,31 @@ try {
     /Up to date/i.test(versionSaid), versionSaid.replace(/\n/g, ' / '));
   check('and names the version it compared against',
     /2026\.\d\d\.\d\d/.test(versionSaid), versionSaid.replace(/\n/g, ' / '));
+  const spaceSaid = await page.locator('#spaceAvailable').innerText();
+  check('settings says how much space is left, out of how much',
+    /\d.*(KB|MB|GB) of \d.*(KB|MB|GB)/.test(spaceSaid), spaceSaid.replace(/\n/g, ' / '));
   await page.click('#settingsClose');
   await page.waitForTimeout(200);
+
+  console.log('\nRoom left');
+  const roomCases = await page.evaluate(async () => {
+    const { room } = await import('./js/db.js');
+    const MB = 1024 * 1024, GB = 1024 * MB;
+    return {
+      none: room(null),
+      noQuota: room({ usage: 5 }),
+      plenty: room({ usage: 1 * GB, quota: 20 * GB }),
+      nearlyFull: room({ usage: 17 * GB, quota: 20 * GB }),
+      smallButFine: room({ usage: 10 * MB, quota: 2 * GB }),
+      littleLeft: room({ usage: 700 * MB, quota: 1 * GB })
+    };
+  });
+  check('an estimate the browser will not give says nothing', roomCases.none === null && roomCases.noQuota === null);
+  check('free space is the quota less what is used',
+    roomCases.plenty.free === 19 * 1024 ** 3 && !roomCases.plenty.low, JSON.stringify(roomCases.plenty));
+  check('over 80% used is low, even with gigabytes left', roomCases.nearlyFull.low === true);
+  check('a small quota barely used is not low', roomCases.smallButFine.low === false, JSON.stringify(roomCases.smallButFine));
+  check('under 500 MB left is low', roomCases.littleLeft.low === true);
 
   console.log('\nPersistence and offline');
   await page.reload({ waitUntil: 'networkidle' });
