@@ -12,6 +12,7 @@
     "icons": "node tools/make-icons.mjs && node tools/make-library-icons.mjs",
     "test:mirror": "node tests/mirror.test.mjs",
     "mirror": "node tools/mirror-notices.mjs",
-    "stamp": "node tools/stamp-version.mjs"
+    "stamp": "node tools/stamp-version.mjs",
+    "vendor:anthropic": "node tools/vendor-anthropic.mjs"
   }
 }

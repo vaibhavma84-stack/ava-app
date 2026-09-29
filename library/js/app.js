@@ -15,8 +15,9 @@ import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip, readZip } from './zip.js';
+import * as ask from './ask.js';
 
-const APP_VERSION = '2026.10.32';
+const APP_VERSION = '2026.10.33';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -194,6 +195,7 @@ function enterApp() {
   announceIfStale();
   dropOldContents();
   loadAutoRead().then(() => autoReadSoon(5000));
+  loadAsk().then(render);
 }
 
 /**
@@ -847,6 +849,10 @@ async function renderSearch(body) {
   }
 
   if (!results.length) {
+    // Nothing holds every word, but a question is a sentence, not a search:
+    // asking looks for the pages holding the most of them.
+    const asking = askButton(query);
+    if (asking) body.append(asking);
     const scoped = view.searchScope ? ` in ${TYPES[view.searchScope].label}` : '';
     body.append(emptyState(
       texts ? 'Nothing found' : 'Nothing found yet',
@@ -854,6 +860,8 @@ async function renderSearch(body) {
     return;
   }
 
+  const asking = askButton(query);
+  if (asking) body.append(asking);
   const settings = alarmHits(query, results);
   if (settings) body.append(settings);
 
@@ -1582,6 +1590,7 @@ function wireApp() {
   });
   $('#settingsBtn').addEventListener('click', openSettings);
   $('#fullPicker').addEventListener('change', onFullBackupPicked);
+  $('#askClose').addEventListener('click', closeAsk);
   $('#settingsClose').addEventListener('click', () => { $('#settings').hidden = true; });
   $('#detailClose').addEventListener('click', () => { $('#detail').hidden = true; view.detailId = null; });
   $('#detailEdit').addEventListener('click', () => {
@@ -3745,6 +3754,7 @@ async function openSettings() {
   ]));
 
   body.append(textExportPanel());
+  body.append(askPanel());
 
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Bring records from AVA' }),
@@ -3995,6 +4005,147 @@ async function onFullBackupPicked(e) {
   } catch (ex) {
     toast(`Could not restore: ${ex.message}`);
   }
+}
+
+// ── asking Claude ───────────────────────────────────────────────────────────
+
+const askState = { key: null, model: ask.DEFAULT_MODEL, loaded: false, controller: null };
+
+async function loadAsk() {
+  askState.key = (await db.getMeta('anthropicKey')) || null;
+  askState.model = (await db.getMeta('askModel')) || ask.DEFAULT_MODEL;
+  askState.loaded = true;
+}
+
+/** On the search screen, once a key is in: ask the search as a question. */
+function askButton(query) {
+  if (!askState.key || !query.trim()) return null;
+  return el('button', {
+    class: 'btn btn-primary btn-block ask-btn', id: 'askBtn',
+    onclick: () => openAsk(query.trim())
+  }, [`Ask Claude: “${query.trim().slice(0, 60)}”`]);
+}
+
+const titleOf = (item) => item.data?.[TYPES[item.type]?.titleKey || 'title'] || 'Untitled';
+
+async function openAsk(question) {
+  const body = clear($('#askBody'));
+  $('#ask').hidden = false;
+  body.append(el('p', { class: 'ask-q', text: question }));
+  const status = el('p', { class: 'ask-status', text: 'Finding the pages that answer it…' });
+  const answer = el('div', { class: 'ask-answer', id: 'askAnswer' });
+  body.append(status, answer);
+
+  askState.controller?.abort();
+  const controller = new AbortController();
+  askState.controller = controller;
+  const model = askState.model;
+
+  if (navigator.onLine === false) {
+    status.textContent = 'Asking needs a connection. Search still works offline — close this and look through the results.';
+    return;
+  }
+
+  try {
+    const extra = await ask.searchWords(askState.key, model, question);
+    if (controller.signal.aborted) return;
+    const pages = ask.choosePages(question, extra, store.allItems(), await store.loadTexts(), titleOf);
+    if (!pages.length) {
+      status.textContent = 'Nothing in the library matches this question, so nothing was sent. Only documents whose text has been read can be asked about.';
+      return;
+    }
+
+    const docs = new Set(pages.map((p) => p.item.id)).size;
+    status.textContent = `Reading ${plural(pages.length, 'page', 'pages')} from ${plural(docs, 'document', 'documents')}…`;
+    const sent = el('details', { class: 'ask-pages' }, [
+      el('summary', { text: `Sent to Claude: ${plural(pages.length, 'page', 'pages')}` })
+    ]);
+    for (const p of pages) {
+      sent.append(el('button', {
+        class: 'answer-open', onclick: () => openAttachment(p.att, p.page, p.item.id)
+      }, [el('span', { class: 'answer-ref', text: titleOf(p.item) }), el('span', { class: 'answer-where', text: `page ${p.page}` })]));
+    }
+    body.append(sent);
+
+    const result = await ask.askClaude(askState.key, model, question, pages, titleOf, {
+      signal: controller.signal,
+      onText: (soFar) => { answer.textContent = soFar; }
+    });
+    if (askState.controller !== controller) return;
+
+    if (result.refused) {
+      status.textContent = 'Claude declined to answer this one. The pages it would have used are listed below.';
+      answer.textContent = '';
+      return;
+    }
+    // Drawn again from the finished answer, with each part followed by the
+    // pages it came from -- the way to check it.
+    clear(answer);
+    for (const block of result.blocks) {
+      answer.append(document.createTextNode(block.text));
+      for (const i of block.cites) {
+        const p = pages[i];
+        answer.append(el('button', {
+          class: 'cite', onclick: () => openAttachment(p.att, p.page, p.item.id)
+        }, [`${titleOf(p.item).slice(0, 28)} p.${p.page}`]));
+      }
+    }
+    const cost = ask.costOf(result.usage, model);
+    status.textContent = `${ask.modelInfo(model).label} · about $${cost < 0.01 ? cost.toFixed(3) : cost.toFixed(2)}`;
+    body.append(el('p', { class: 'ask-note', text: 'Answered only from the pages listed. Tap a page to check it — above all any figure — before acting on it.' }));
+  } catch (ex) {
+    if (askState.controller !== controller) return;
+    status.textContent = ask.explainFailure(ex);
+  }
+}
+
+function closeAsk() {
+  askState.controller?.abort();
+  askState.controller = null;
+  $('#ask').hidden = true;
+}
+
+/** Settings: the key, the model, and what asking sends where. */
+function askPanel() {
+  const panel = el('div', { class: 'panel', id: 'askPanel' }, [
+    el('h3', { text: 'Ask Claude' }),
+    el('p', { text: 'Optional, and it needs a connection. A question and the pages of your documents that best match it — never whole manuals, and nothing else — are sent to Anthropic, and Claude answers from those pages only, citing each one. Uses your own Anthropic API key (console.anthropic.com), billed to you: a few cents a question.' })
+  ]);
+  if (askState.key) {
+    panel.append(el('div', { class: 'stat' }, [
+      el('span', { text: 'API key' }),
+      el('span', { text: `…${askState.key.slice(-4)}` })
+    ]));
+    const pickModel = el('select', { class: 'field', id: 'askModel',
+      onchange: async (e) => { askState.model = e.target.value; await db.setMeta('askModel', askState.model); toast('Saved'); }
+    }, ask.MODELS.map((m) => el('option', { value: m.id, text: `${m.label} — ${m.note}` })));
+    pickModel.value = askState.model;
+    panel.append(el('label', { class: 'label', text: 'Model' }), pickModel);
+    panel.append(el('button', {
+      class: 'btn btn-danger btn-block', style: 'margin-top:10px',
+      onclick: async () => {
+        await db.setMeta('anthropicKey', null);
+        askState.key = null;
+        openSettings();
+        toast('Key removed — asking is off');
+      }
+    }, ['Remove the key']));
+    panel.append(el('p', { class: 'hint', text: 'The key is kept on this phone only, sent only to Anthropic, and left out of every backup and export.' }));
+  } else {
+    const input = el('input', { type: 'password', class: 'field', id: 'askKey', placeholder: 'sk-ant-…', autocomplete: 'off' });
+    panel.append(input, el('button', {
+      class: 'btn btn-primary btn-block', style: 'margin-top:8px',
+      onclick: async () => {
+        const key = input.value.trim();
+        if (!/^sk-ant-/.test(key)) { toast('That does not look like an Anthropic API key'); return; }
+        await db.setMeta('anthropicKey', key);
+        askState.key = key;
+        openSettings();
+        toast('Saved — search for something, then Ask Claude');
+      }
+    }, ['Save the key']));
+  }
+  return panel;
 }
 
 async function doErase() {

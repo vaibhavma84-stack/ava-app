@@ -527,3 +527,18 @@ select.field {
 /* The panels inside lose their own frame, so it reads as one section. */
 .tools-body .panel { border: 0; background: transparent; padding: 6px 4px 14px; margin: 0; }
 .tools-body .panel + .panel { border-top: 1px solid var(--line); }
+
+/* Ask */
+.ask-q { font-size: 15px; color: var(--text); margin: 0 0 12px; }
+.ask-status { color: var(--text-dim); font-size: 13px; margin: 0 0 10px; }
+.ask-answer { font-size: 14.5px; line-height: 1.6; color: var(--text); white-space: pre-wrap; overflow-wrap: anywhere; }
+.ask-answer p { margin: 0 0 10px; }
+.cite {
+  display: inline-block; margin: 0 4px 4px 0; padding: 1px 8px; border-radius: 999px;
+  border: 1px solid var(--copper); background: transparent; color: var(--copper-bright);
+  font-size: 11.5px; cursor: pointer; white-space: nowrap; vertical-align: 1px;
+}
+.ask-pages { margin-top: 14px; }
+.ask-pages summary { cursor: pointer; color: var(--text-dim); font-size: 13px; }
+.ask-note { color: var(--text-faint); font-size: 12px; margin-top: 12px; line-height: 1.5; }
+.ask-btn { margin-bottom: 12px; }

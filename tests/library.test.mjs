@@ -3275,6 +3275,127 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await fresh.close();
   }
 
+  console.log('\nAsking Claude');
+  {
+    // Anthropic's API is stood in for here: the suite runs with no key and
+    // no connection, and what matters is what the app sends and what it does
+    // with the answer.
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    other.on('dialog', (d) => d.accept());
+    const sentToApi = [];
+    await fresh.route('https://api.anthropic.com/**', async (route) => {
+      const req = route.request();
+      const body = JSON.parse(req.postData() || '{}');
+      sentToApi.push({ url: req.url(), headers: req.headers(), body });
+      if (!body.stream) {
+        return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({
+          id: 'msg_terms', type: 'message', role: 'assistant', model: body.model,
+          content: [{ type: 'text', text: JSON.stringify({ terms: ['starting air', 'air receiver'] }) }],
+          stop_reason: 'end_turn', stop_sequence: null, usage: { input_tokens: 120, output_tokens: 20 }
+        }) });
+      }
+      const ev = (type, data) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`;
+      const sse = [
+        ev('message_start', { message: { id: 'msg_1', type: 'message', role: 'assistant', model: body.model,
+          content: [], stop_reason: null, stop_sequence: null, usage: { input_tokens: 1500, output_tokens: 1 } } }),
+        ev('content_block_start', { index: 0, content_block: { type: 'text', text: '', citations: [] } }),
+        ev('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Starting air must be at least 25 bar before the first attempt.' } }),
+        ev('content_block_delta', { index: 0, delta: { type: 'citations_delta', citation: {
+          type: 'char_location', cited_text: 'Starting air pressure shall be a minimum of 25 bar', document_index: 0,
+          document_title: 'x', start_char_index: 0, end_char_index: 50 } } }),
+        ev('content_block_stop', { index: 0 }),
+        ev('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 40 } }),
+        ev('message_stop', {})
+      ].join('');
+      return route.fulfill({ status: 200, headers: { 'content-type': 'text/event-stream' }, body: sse });
+    });
+
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.locator('.section-card', { hasText: 'Manuals' }).click();
+    await other.click('#fab');
+    await other.waitForSelector('#editor:not([hidden])');
+    await other.fill('#editorBody [data-field="title"]', 'Main Engine Operating Manual');
+    await other.setInputFiles('#filePicker', PDF_PATH);
+    await other.waitForTimeout(1500);
+    await other.click('#editorSave');
+    await other.waitForSelector('#editor', { state: 'hidden', timeout: 30000 });
+
+    await other.fill('#search', 'minimum starting air pressure');
+    await other.waitForTimeout(600);
+    check('with no key, nothing offers to ask', await other.locator('#askBtn').count() === 0);
+
+    await other.click('#settingsBtn');
+    await other.waitForSelector('#settings:not([hidden])');
+    await other.fill('#askKey', 'sk-ant-test-0000-KEY1');
+    await other.click('#askPanel button:has-text("Save the key")');
+    await other.waitForTimeout(300);
+    check('a key once saved shows only its last characters',
+      /…KEY1/.test(await other.locator('#askPanel').innerText())
+      && !/sk-ant-test/.test(await other.locator('#askPanel').innerText()));
+    check('Opus 5.5 is the model unless another is chosen',
+      await other.locator('#askModel').inputValue() === 'claude-opus-5-5');
+    await other.click('#settingsClose');
+
+    await other.fill('#search', 'What is the minimum starting air pressure?');
+    await other.waitForTimeout(600);
+    check('a search offers to be asked as a question', await other.locator('#askBtn').count() === 1);
+    await other.click('#askBtn');
+    await other.waitForSelector('#ask:not([hidden])');
+    await other.locator('.cite').first().waitFor({ timeout: 20000 });
+
+    const answerShown = await other.locator('#askAnswer').innerText();
+    check('the answer is shown', /at least 25 bar/.test(answerShown), answerShown);
+    check('followed by the page it came from', /Main Engine Operating.* p\.1/.test(await other.locator('.cite').first().innerText()),
+      await other.locator('.cite').first().innerText());
+    check('with what it cost', /Claude Opus 5\.5 · about \$0\.0\d/.test(await other.locator('.ask-status').innerText()),
+      await other.locator('.ask-status').innerText());
+
+    const answerCall = sentToApi.find((c) => c.body.stream);
+    const docsSent = (answerCall?.body.messages?.[0]?.content || []).filter((b) => b.type === 'document');
+    check('first the question is turned into a manual\'s words, then answered',
+      sentToApi.length === 2 && !sentToApi[0].body.stream, String(sentToApi.length));
+    check('the pages go as cited documents, each named by its page',
+      docsSent.length >= 1 && docsSent.every((d) => d.citations?.enabled === true)
+      && docsSent.some((d) => /Main Engine Operating Manual — page 1/.test(d.title)),
+      docsSent.map((d) => d.title).join(' | '));
+    check('only the pages that match go, not the whole manual',
+      !docsSent.some((d) => /QUAYSIDEMARKER/.test(d.source?.data || '')),
+      docsSent.map((d) => d.title).join(' | '));
+    check('the answer is told to come from those pages alone',
+      /only from those pages/i.test(answerCall?.body.system || ''));
+    check('a declined answer falls back rather than stopping',
+      answerCall?.body.fallbacks === 'default'
+      && /server-side-fallback-2026-07-01/.test(answerCall?.headers['anthropic-beta'] || ''));
+    check('and the key goes to Anthropic in its own header',
+      answerCall?.headers['x-api-key'] === 'sk-ant-test-0000-KEY1' && /^https:\/\/api\.anthropic\.com\/v1\/messages/.test(answerCall.url));
+
+    await other.locator('.cite').first().click();
+    await other.waitForSelector('#viewer:not([hidden])');
+    check('tapping the page opens it', true);
+    await other.click('#viewerClose');
+    await other.click('#askClose');
+
+    // A key the API refuses says so in words.
+    await fresh.unroute('https://api.anthropic.com/**');
+    await fresh.route('https://api.anthropic.com/**', (route) => route.fulfill({
+      status: 401, contentType: 'application/json',
+      body: JSON.stringify({ type: 'error', error: { type: 'authentication_error', message: 'invalid x-api-key' } })
+    }));
+    await other.click('#askBtn');
+    await other.waitForSelector('#ask:not([hidden])');
+    await other.locator('.ask-status', { hasText: /key was not accepted|Nothing in the library/ }).waitFor({ timeout: 20000 });
+    check('a refused key is explained, not shown as a stack trace',
+      /key was not accepted/.test(await other.locator('.ask-status').innerText()),
+      await other.locator('.ask-status').innerText());
+    await other.click('#askClose');
+
+    const inBackup = await other.evaluate(async () => JSON.stringify((await (await import('./js/store.js')).fullBackup()).manifest));
+    check('the key is never in a backup', !/sk-ant/.test(inBackup));
+    await fresh.close();
+  }
+
   console.log('\nRoom left');
   const roomCases = await page.evaluate(async () => {
     const { room } = await import('./js/db.js');
