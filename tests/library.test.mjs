@@ -1019,6 +1019,7 @@ try {
   }
   await openBranches();
 
+  await openTools();
   check('picking several is offered', await page.locator('.select-bar button').count() === 1);
   await page.locator('.select-bar button', { hasText: 'Select several' }).click();
   await page.waitForTimeout(250);
@@ -1065,6 +1066,7 @@ try {
   check('a manual entered by hand keeps what was typed on it',
     applied.some((r) => /^Crane Manual::MV Northern Star\/Deck$/.test(r)), applied.join(' | '));
 
+  await openTools();
   check('the picking ends once it is applied',
     await page.locator('.select-bar button', { hasText: 'Select several' }).count() === 1);
   // A stack that vanishes on being filed looks like a stack that was lost.
@@ -1073,6 +1075,7 @@ try {
       .some((h) => /Gas Planet/.test(h)),
     (await page.locator('.group-head-btn.depth-1').allTextContents()).join(' | '));
 
+  await openTools();
   // A field left blank must leave twenty entries alone, not clear them.
   await page.locator('.select-bar button', { hasText: 'Select several' }).click();
   await page.waitForTimeout(200);
@@ -1108,6 +1111,7 @@ try {
   page.on('request', imoWatch);
 
   const imoPanel = '.imo-panel';
+  await openTools();
   check('publications offers the convention list',
     await page.locator(imoPanel).count() === 1);
   const offer = await page.locator(`${imoPanel} button`).first().innerText();
@@ -1149,6 +1153,7 @@ try {
   page.off('request', imoWatch);
   await closeDetail();
 
+  await openTools();
   // A convention still awaiting ratification must not read as if it were law.
   await page.locator(`${imoPanel} button`).first().click();
   await page.waitForTimeout(200);
@@ -2293,6 +2298,7 @@ try {
   check('the reference is on the card',
     /LP-07/.test((await page.locator('.card', { hasText: 'cargo compressor room' }).first().innerText())),
     await page.locator('.card', { hasText: 'cargo compressor room' }).first().innerText());
+  await openTools();
   check('a stack of them can be set to a ship at once too',
     await page.locator('.select-bar button', { hasText: 'Select several' }).count() === 1);
 
@@ -2303,6 +2309,7 @@ try {
   await page.waitForTimeout(200);
   await page.locator('.section-card:has(.section-name:text-is("Local Procedures"))').click();
   await page.waitForTimeout(250);
+  await openTools();
   check('and leaving the section stops the picking',
     await page.locator('.select-bar button', { hasText: 'Select several' }).count() === 1,
     (await page.locator('.select-bar button').allInnerTexts()).join(' | '));
@@ -3074,6 +3081,7 @@ try {
   }
 
   const readPanel = '.read-panel';
+  await openTools();
   check('the section says what is still unread',
     /2 documents hold words no search can reach/i.test(await page.locator(readPanel).innerText()),
     (await page.locator(readPanel).innerText()).replace(/\n/g, ' / '));
@@ -3115,6 +3123,7 @@ try {
 
   // The pictures are the separate, more expensive job, and it is offered
   // separately with its own count.
+  await openTools();
   const afterWords = await page.locator(readPanel).innerText();
   check('what is left over is the pictures, counted on their own',
     !/words no search can reach/i.test(afterWords)
@@ -3130,6 +3139,7 @@ try {
 
   // "Is there anything left?" answered by a sentence rather than by the
   // absence of a button.
+  await openTools();
   check('and then it says so plainly rather than going quiet',
     /Everything here is read/i.test(await page.locator(readPanel).innerText()),
     (await page.locator(readPanel).innerText()).replace(/\n/g, ' / '));
@@ -3141,6 +3151,7 @@ try {
   await page.waitForTimeout(200);
   const before = await page.locator('.card').count();
 
+  await openTools();
   check('every section offers an import', await page.locator('.import-panel').count() === 1);
   // Copies a byte apart from the ones added one at a time earlier: the same
   // file twice is skipped, which is tested on its own below.

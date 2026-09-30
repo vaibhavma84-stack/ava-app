@@ -18,7 +18,7 @@ import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.39';
+const APP_VERSION = '2026.10.40';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -512,7 +512,7 @@ function renderHome(body) {
     const def = TYPES[type];
     grid.append(el('button', {
       class: 'section-card',
-      onclick: () => { view.section = type; view.filter = null; render(); $('#body').scrollTop = 0; }
+      onclick: () => { view.section = type; view.filter = null; view.toolsOpen = false; render(); $('#body').scrollTop = 0; }
     }, [
       el('span', { class: 'section-ico' }, [icon(def.icon, 24)]),
       el('h2', { class: 'section-name', text: def.label }),
@@ -557,15 +557,17 @@ function toolsPanel(def, panels) {
   const outstanding = view.section === 'flag'
     ? SYNCABLE.reduce((n, admin) => n + withoutDocuments(admin).length, 0)
     : 0;
+  const unread = def.bulkRead && !view.reading ? outstandingReads(view.section, 'text').length : 0;
 
   const head = el('button', {
     class: 'tools-head', 'aria-expanded': String(open),
     onclick: () => { view.toolsOpen = !view.toolsOpen; render(); }
   }, [
-    el('span', { class: 'tools-title', text: 'Update, fetch and import' }),
-    // A number worth seeing without opening anything: documents the site holds
-    // that this phone has not taken yet.
+    el('span', { class: 'tools-title', text: view.section === 'flag' ? 'Update, fetch and import' : 'Import and tools' }),
+    // Numbers worth seeing without opening anything: documents the site holds
+    // that this phone has not taken yet, and documents no search can reach.
     outstanding ? el('span', { class: 'pill pill-copper', text: `${outstanding} to fetch` }) : null,
+    unread ? el('span', { class: 'pill pill-warn', text: `${unread} unread` }) : null,
     el('span', { class: 'tools-chevron', text: open ? '\u2212' : '+' })
   ]);
   wrap.append(head);
@@ -803,14 +805,17 @@ function renderSection(body) {
   if (view.section === 'publication') panels.push(conventionPanel());
   if (def.sources) panels.push(sourceLinks(def.sources));
 
-  // Folded only where it is genuinely in the way. Flag Circulars stacked four
-  // panels and about twenty buttons above the list; Publications has three
-  // panels and one of them is the convention list, which is worth having in
-  // sight. A fold that hides something wanted is a worse change than the
-  // crowding it fixes.
-  if (view.section === 'flag') body.append(toolsPanel(def, panels));
-  else for (const panel of panels) if (panel) body.append(panel);
-  if (def.bulkFields && store.itemsOfType(view.section).length) body.append(selectBar(def));
+  // Folded into one line in every section, so a section opens on its list.
+  // Importing, reading and the rest are done now and then; the documents are
+  // what is wanted every time.
+  // Picking several is in the fold until it is started; then the bar is what
+  // the screen is for, and sits over the list.
+  const canSelect = def.bulkFields && store.itemsOfType(view.section).length;
+  if (canSelect && !view.selecting) panels.unshift(selectBar(def));
+  body.append(toolsPanel(def, panels));
+  // A read that is running stays in sight, with its Stop, however the fold is.
+  if (view.reading && view.reading.type === view.section && !view.toolsOpen) body.append(readAllPanel(def));
+  if (canSelect && view.selecting) body.append(selectBar(def));
   let items = store.itemsOfType(view.section);
   if (view.filter && def.filterBy) {
     items = items.filter((i) => i.data[def.filterBy.key] === view.filter);
