@@ -18,7 +18,7 @@ import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.37';
+const APP_VERSION = '2026.10.38';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -4050,6 +4050,13 @@ async function onFilesPicked(e) {
   const files = [...(e.target.files || [])];
   e.target.value = '';
   if (!files.length || !view.draft) return;
+  for (const file of [...files]) {
+    const held = await alreadyHeld(file);
+    if (held.item && !confirm(`“${file.name}” is already in the library, in “${titleOf(held.item)}”. Add it here as well?`)) {
+      files.splice(files.indexOf(file), 1);
+    }
+  }
+  if (!files.length) return;
   view.draft.newFiles.push(...files);
   renderEditor();
   warnIfNoRoom(view.draft.newFiles);
@@ -4103,6 +4110,45 @@ function importPanel(def) {
  * entry, to be corrected. A file that cannot be read still becomes an entry,
  * titled from its filename, rather than being dropped.
  */
+// ── the same file twice ─────────────────────────────────────────────────────
+//
+// Stacks of manuals come from folders that overlap, and the same PDF brought in
+// twice is two entries, twice the space, and every search result doubled. A
+// file is the same file when its bytes are: compared by SHA-256, but only
+// against files of exactly the same size, so an import of a hundred new
+// manuals hashes almost nothing that is already here.
+
+const knownHashes = new Map();   // attachment id -> hash, for files stored before hashes were kept
+
+async function sha256(source) {
+  const buffer = source instanceof ArrayBuffer ? source : await source.arrayBuffer();
+  const digest = await crypto.subtle.digest('SHA-256', buffer);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+/**
+ * The entry already holding this file, as { item, att, hash }, or { hash }
+ * when it is new. The hash is worked out only if some file here is the same
+ * size.
+ */
+async function alreadyHeld(file, buffer = null) {
+  const same = [];
+  for (const item of store.allItems()) {
+    for (const att of item.data.attachments || []) if (att.size === file.size) same.push({ item, att });
+  }
+  if (!same.length) return { hash: null };
+  const hash = await sha256(buffer || file);
+  for (const { item, att } of same) {
+    let theirs = att.sha256 || knownHashes.get(att.id);
+    if (!theirs) {
+      try { theirs = await sha256(await store.readFile(att)); } catch { continue; }
+      knownHashes.set(att.id, theirs);
+    }
+    if (theirs === hash) return { item, att, hash };
+  }
+  return { hash };
+}
+
 async function onImportPicked(e) {
   const files = [...(e.target.files || [])];
   e.target.value = '';
@@ -4122,12 +4168,23 @@ async function onImportPicked(e) {
   $('#body').prepend(panel);
 
   let added = 0, unreadable = 0;
+  const skipped = [];
   for (const [i, file] of files.entries()) {
     if (stopped) break;
     status.textContent = `${i + 1} of ${files.length} — ${file.name}`;
     try {
       const buffer = await file.arrayBuffer();
+      // Checked against everything, including what this same import has just
+      // brought in: the same file picked twice in one go is still twice.
+      const held = await alreadyHeld(file, buffer);
+      if (held.item) {
+        skipped.push({ name: file.name, as: titleOf(held.item) });
+        bar.firstChild.style.width = `${Math.round(((i + 1) / files.length) * 100)}%`;
+        continue;
+      }
       const descriptor = await store.storeFile(file);
+      if (held.hash) descriptor.sha256 = held.hash;
+      else descriptor.sha256 = await sha256(buffer);
 
       let data = { attachments: [] };
       if (isPdf(file)) {
@@ -4158,7 +4215,19 @@ async function onImportPicked(e) {
 
   panel.remove();
   render();
+  if (skipped.length) {
+    const note = el('div', { class: 'panel', id: 'importSkipped' }, [
+      el('h3', { text: `${plural(skipped.length, 'file was', 'files were')} already here` }),
+      el('p', { class: 'hint', style: 'margin-top:0', text: 'The same file, byte for byte, is already in the library, so it was not brought in again.' })
+    ]);
+    for (const s of skipped.slice(0, 30)) {
+      note.append(el('div', { class: 'stat' }, [el('span', { text: s.name }), el('span', { text: s.as })]));
+    }
+    note.append(el('button', { class: 'btn btn-sm btn-block', style: 'margin-top:8px', onclick: () => note.remove() }, ['OK']));
+    $('#body').prepend(note);
+  }
   toast(`${added} imported${unreadable ? ` — ${unreadable} had no text to search` : ''}`
+    + (skipped.length ? ` · ${skipped.length} already here, skipped` : '')
     + (stopped ? ' · stopped' : '')
     + (unreadable && autoRead.on ? ', and will be read' : ''));
   if (unreadable) autoReadSoon();

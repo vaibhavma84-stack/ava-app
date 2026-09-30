@@ -3139,7 +3139,19 @@ try {
   const before = await page.locator('.card').count();
 
   check('every section offers an import', await page.locator('.import-panel').count() === 1);
-  await page.setInputFiles('#importPicker', [ALERT_PATH, SUBJECT_ALERT_PATH, NAMED_ALERT_PATH]);
+  // Copies a byte apart from the ones added one at a time earlier: the same
+  // file twice is skipped, which is tested on its own below.
+  // Written once each and never overwritten: a stored file can still refer
+  // to the one on disk, and rewriting it makes the stored copy unreadable.
+  const copies = new Map();
+  const copyOf = (file) => {
+    if (copies.has(file)) return copies.get(file);
+    const copy = path.join(tmp, `stack-${path.basename(file)}`);
+    copies.set(file, copy);
+    fs.writeFileSync(copy, Buffer.concat([fs.readFileSync(file), Buffer.from('\n% stack copy\n')]));
+    return copy;
+  };
+  await page.setInputFiles('#importPicker', [ALERT_PATH, SUBJECT_ALERT_PATH, NAMED_ALERT_PATH].map(copyOf));
   // Waited for by its words, not merely by being a toast: an older one is
   // still on screen, and matching that reads the result before it exists.
   const done = page.locator('.toast', { hasText: 'imported' });
@@ -3167,6 +3179,22 @@ try {
     await page.locator('.card').count() >= 1, String(await page.locator('.card').count()));
   await page.fill('#search', '');
   await page.waitForTimeout(300);
+
+  // The same file again, and the same file twice in one pick.
+  const countBeforeDup = await page.locator('.card').count();
+  await page.setInputFiles('#importPicker', [copyOf(ALERT_PATH), BARE_ALERT_PATH, BARE_ALERT_PATH]);
+  const dupDone = page.locator('.toast', { hasText: /imported.*already here/ });
+  await dupDone.waitFor({ timeout: 60000 });
+  const dupSaid = await dupDone.innerText();
+  check('a file already in the library is not brought in again',
+    /1 imported/.test(dupSaid) && /2 already here, skipped/.test(dupSaid), dupSaid);
+  check('and it says which, and where they already are',
+    /already here/i.test(await page.locator('#importSkipped').innerText())
+    && /stack-/.test(await page.locator('#importSkipped').innerText()));
+  await page.click('#importSkipped button:has-text("OK")');
+  await page.waitForTimeout(300);
+  check('only the new one became an entry', await page.locator('.card').count() === countBeforeDup + 1,
+    `${countBeforeDup} then ${await page.locator('.card').count()}`);
 
   // A circular often travels with its annexes, so one entry has to hold more
   // than one document — the circular and everything that came with it.
@@ -3289,7 +3317,10 @@ print(json.dumps({"bad": bad, "names": z.namelist(),
   await page.click('#settingsBtn');
   await page.waitForSelector('#settings:not([hidden])');
   await page.click('#fullBackup button:has-text("Make a full backup")');
-  await page.waitForSelector('#fullBackup button:has-text("Save backup")', { timeout: 60000 });
+  await page.locator('#fullBackup button:has-text("Save backup"), .toast:has-text("Could not make the backup")').first().waitFor({ timeout: 60000 });
+  if (await page.locator('.toast:has-text("Could not make the backup")').isVisible()) {
+    check('the full backup is made', false, await page.locator('.toast').innerText());
+  }
   const [fullDownload] = await Promise.all([
     page.waitForEvent('download', { timeout: 20000 }),
     page.click('#fullBackup button:has-text("Save backup")')
