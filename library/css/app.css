@@ -608,7 +608,7 @@ select.field {
 
 /* Pinning the page being read to the home screen. */
 .sheet-bar { position: relative; }
-.sheet-bar strong { max-width: calc(100% - 120px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sheet-bar strong { max-width: calc(100% - 290px); min-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pin-btn {
   position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
   border: 1px solid var(--line); background: var(--ink-1000); color: var(--text-dim);
@@ -623,24 +623,29 @@ select.field {
 .narrow-choices { display: flex; flex-wrap: wrap; gap: 6px; }
 .narrow-choices .scope-btn { white-space: normal; text-align: left; }
 
-/* Book view: one page to the screen, side by side, snapped into place. */
+/* Book view: one page to the screen, stacked like a book and turned by hand. */
 .viewer-body.book {
-  flex-direction: row; align-items: flex-start; gap: 0; padding: 0;
-  overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
-  scrollbar-width: none;
+  display: block; position: relative; overflow: hidden; padding: 0;
+  touch-action: none; overscroll-behavior: contain;
 }
-.viewer-body.book::-webkit-scrollbar { display: none; }
 .viewer-body.book .viewer-page {
-  flex: 0 0 auto; scroll-snap-align: center; scroll-snap-stop: always; position: relative;
+  position: absolute; border-radius: 2px; will-change: transform, opacity;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
   box-shadow: 0 0 18px rgba(0, 0, 0, .55);
-  border-radius: 2px; will-change: transform; backface-visibility: hidden;
 }
-.book-btn {
-  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
-  border: 1px solid var(--line); background: var(--ink-1000); color: var(--text-dim);
-  border-radius: 999px; padding: 4px 12px; font-size: 12px; cursor: pointer;
+.viewer-body.book .book-off { display: none !important; }
+.book-shade {
+  position: absolute; inset: 0; background: #000; opacity: 0; z-index: 2;
+  pointer-events: none; will-change: opacity;
 }
-.book-btn[aria-pressed="true"] { background: var(--copper); border-color: var(--copper); color: #17100a; }
+.view-switch {
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  display: inline-flex; padding: 2px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--ink-1000); cursor: pointer; font-size: 12px;
+}
+.view-switch span { padding: 4px 10px; border-radius: 999px; color: var(--text-dim); }
+.view-switch[aria-pressed="false"] .view-scroll,
+.view-switch[aria-pressed="true"] .view-pages { background: var(--copper); color: #17100a; font-weight: 600; }
 
 /* A book's chapters, laid out as pages of their own. */
 .epub-chapter {
@@ -654,3 +659,5 @@ select.field {
 .epub-chapter h1, .epub-chapter h2, .epub-chapter h3 { line-height: 1.25; }
 .epub-chapter pre { white-space: pre-wrap; }
 mark.find-mark { background: rgb(255 214 0 / .6); color: inherit; border-radius: 2px; }
+.viewer-body.book .hl, .viewer-body.book .sticky, .viewer-body.book .ribbon { z-index: 4; }
+.viewer-body.book.turning .hl, .viewer-body.book.turning .sticky, .viewer-body.book.turning .ribbon { visibility: hidden; }

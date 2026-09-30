@@ -94,7 +94,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
       if (marks) await highlight(page, viewport, ctx, marks);
       page.cleanup();
       // Its real shape is known now, rather than A4.
-      if (bookOn) { fit(canvas); onLayout?.(); }
+      if (bookOn && !canvas.classList.contains('book-off')) { fit(canvas); onLayout?.(); }
     } catch (ex) {
       rendered.delete(pageNo);
       console.warn('Could not draw page', pageNo, ex);
@@ -117,11 +117,26 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
 
   // ── book view ───────────────────────────────────────────────────────────
   //
-  // One page to the screen, turned by a swipe the way a book is. The pages
-  // sit side by side and snap into place; as one is swiped it swings on its
-  // spine and darkens, and at rest it is flat, so everything drawn over a
-  // page -- notes, highlights -- lines up with it again.
+  // One page to the screen, turned the way a book's are. The pages do not
+  // scroll: they lie stacked where they are, the finger moves the page it is
+  // on directly, and letting go finishes the turn -- or lets the page fall
+  // back -- as an animation the phone's graphics hardware runs by itself.
+  // Tying the turn to the scroll made each frame wait for script to catch up
+  // with a scroll that had already moved, and that is what juddered.
+  //
+  // Going forward the page lifts from its right edge and swings over on its
+  // spine, uncovering the next lying beneath it, which comes out of shadow as
+  // it is uncovered; going back the previous page swings back over. Only the
+  // page on screen and the ones either side of it are laid out at all.
   let bookOn = false;
+  let current = 1;
+  let busy = false;
+  let suppressClick = false;
+  const pageEl = (n) => container.querySelector(`canvas[data-page="${n}"]`);
+  const shade = el('div', { class: 'book-shade' });
+  const SPINE = 'perspective(1800px) rotateY';
+  const EASE = 'transform 300ms cubic-bezier(.2,.75,.25,1), opacity 300ms ease-out';
+
   const fit = (canvas) => {
     const W = container.clientWidth;
     const H = container.clientHeight;
@@ -129,66 +144,127 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     const w = Math.min(W, H / ratio);
     const h = w * ratio;
     Object.assign(canvas.style, {
-      width: `${w}px`, height: `${h}px`, aspectRatio: '',
-      margin: `${Math.max((H - h) / 2, 0)}px ${Math.max((W - w) / 2, 0)}px`
+      width: `${w}px`, height: `${h}px`, aspectRatio: '', margin: '0',
+      left: `${(W - w) / 2}px`, top: `${(H - h) / 2}px`
     });
   };
-  // The swipe moves the pages sideways; the turn undoes that for the two
-  // pages involved, so they stay put like the pages of a bound book, and
-  // swings the one on top about the spine. Going forward the page on screen
-  // lifts from its right edge and folds over to the left, uncovering the next
-  // one lying flat beneath it; going back, the previous page folds back over.
-  const turn = () => {
-    if (!bookOn) return;
-    const W = container.clientWidth || 1;
-    const centre = container.scrollLeft + W / 2;
+
+  // At rest: the page on screen on top, its neighbours ready beneath it and
+  // folded back, everything else not laid out.
+  const place = () => {
     for (const canvas of container.querySelectorAll('canvas[data-page]')) {
-      const slot = canvas.offsetLeft - parseFloat(canvas.style.marginLeft || 0);
-      const offset = (slot + W / 2 - centre) / W;
-      // Pages sit at fractional pixels, so "one page away" measures as 0.999:
-      // near enough is at rest, or the next page is left lying over this one.
-      if (Math.abs(offset) < 0.01 || Math.abs(offset) > 0.99) {
-        canvas.style.transform = '';
-        canvas.style.filter = '';
-        canvas.style.zIndex = '';
-        continue;
-      }
-      const hold = `translateX(${-offset * W}px)`;
-      if (offset < 0) {
-        // The page being turned: on top, pivoting on its left edge, gone
-        // edge-on a little before the next is fully in view.
-        const angle = Math.max(offset * 115, -90);
-        canvas.style.transformOrigin = 'left center';
-        canvas.style.transform = `${hold} perspective(1600px) rotateY(${angle}deg)`;
-        canvas.style.filter = `brightness(${1 - Math.min(-offset, 1) * 0.35})`;
-        canvas.style.zIndex = '2';
-      } else {
-        // The page underneath: flat and still, brightening as it is uncovered.
-        canvas.style.transformOrigin = 'center';
-        canvas.style.transform = hold;
-        canvas.style.filter = `brightness(${0.6 + (1 - offset) * 0.4})`;
-        canvas.style.zIndex = '1';
-      }
+      const n = Number(canvas.dataset.page);
+      const near = Math.abs(n - current) <= 1;
+      canvas.classList.toggle('book-off', !near);
+      if (!near) continue;
+      fit(canvas);
+      canvas.style.transition = '';
+      canvas.style.transformOrigin = 'left center';
+      canvas.style.transform = n === current - 1 ? `${SPINE}(-90deg)` : '';
+      canvas.style.opacity = n === current ? '1' : '0';
+      canvas.style.zIndex = n === current ? '2' : '1';
     }
+    shade.style.transition = '';
+    shade.style.opacity = '0';
+    container.classList.remove('turning');
+    container.dataset.current = String(current);
+    onLayout?.();
+    // Everything that watches the page in view listens for a scroll.
+    container.dispatchEvent(new Event('scroll'));
   };
-  container.addEventListener('scroll', turn, { passive: true });
-  const onResize = () => { if (bookOn) { for (const c of container.querySelectorAll('canvas[data-page]')) fit(c); onLayout?.(); } };
+
+  // How far a turn has gone, 0 to 1. dir 1 is forward, -1 back.
+  const progress = (dir, q) => {
+    const turning = pageEl(dir > 0 ? current : current - 1);
+    const under = pageEl(dir > 0 ? current + 1 : current);
+    if (!turning || !under) return;
+    // Notes and highlights belong to the page at rest; they step aside while
+    // it moves rather than hang in the air over it.
+    container.classList.add('turning');
+    under.style.opacity = '1';
+    under.style.zIndex = '1';
+    turning.style.opacity = '1';
+    turning.style.zIndex = '3';
+    turning.style.transformOrigin = 'left center';
+    turning.style.transform = `${SPINE}(${dir > 0 ? -q * 90 : -(1 - q) * 90}deg)`;
+    shade.style.opacity = String((dir > 0 ? 1 - q : q) * 0.4);
+  };
+
+  const finish = (dir, complete, from) => {
+    busy = true;
+    const turning = pageEl(dir > 0 ? current : current - 1);
+    for (const node of [turning, shade]) if (node) node.style.transition = EASE;
+    // Laid down first, so the animation starts from where the finger left it.
+    progress(dir, from);
+    void container.offsetWidth;
+    progress(dir, complete ? 1 : 0);
+    setTimeout(() => {
+      if (complete) current += dir;
+      busy = false;
+      place();
+    }, 320);
+  };
+
+  let drag = null;
+  container.addEventListener('pointerdown', (e) => {
+    if (!bookOn || busy || container.classList.contains('marking')) return;
+    if (!e.target.closest?.('canvas[data-page]')) return;
+    drag = { x: e.clientX, t: performance.now(), dir: 0, q: 0, id: e.pointerId };
+  });
+  container.addEventListener('pointermove', (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x;
+    if (!drag.dir) {
+      if (Math.abs(dx) < 8) return;
+      drag.dir = dx < 0 ? 1 : -1;
+      if (!pageEl(current + (drag.dir > 0 ? 1 : -1))) { drag = null; return; }
+      try { container.setPointerCapture(drag.id); } catch { /* already gone */ }
+    }
+    e.preventDefault();
+    drag.q = Math.min(Math.max((-dx * drag.dir) / (container.clientWidth * 0.8), 0), 1);
+    drag.speed = dx / Math.max(performance.now() - drag.t, 1);
+    progress(drag.dir, drag.q);
+  });
+  const release = () => {
+    if (!drag) return;
+    const { dir, q } = drag;
+    const flick = Math.abs(drag.speed || 0) > 0.45 && Math.sign(-(drag.speed || 0)) === dir;
+    drag = null;
+    if (!dir) return;
+    suppressClick = true;
+    setTimeout(() => { suppressClick = false; }, 400);
+    finish(dir, q > 0.35 || (q > 0.06 && flick), q);
+  };
+  container.addEventListener('pointerup', release);
+  container.addEventListener('pointercancel', release);
+  // A swipe ends in a click as well; it is not a tap on the page.
+  container.addEventListener('click', (e) => {
+    if (suppressClick) { e.stopImmediatePropagation(); e.preventDefault(); suppressClick = false; }
+  }, true);
+
+  const onResize = () => { if (bookOn) place(); };
   window.addEventListener('resize', onResize);
 
   const setBook = (on, page) => {
     bookOn = on;
     container.classList.toggle('book', on);
+    if (on) {
+      current = Math.min(Math.max(1, page || 1), doc.numPages);
+      container.append(shade);
+      container.scrollTop = 0;
+      place();
+      return;
+    }
+    shade.remove();
     for (const canvas of container.querySelectorAll('canvas[data-page]')) {
-      if (on) fit(canvas);
-      else {
-        Object.assign(canvas.style, { width: '', height: '', margin: '', transform: '', filter: '', aspectRatio: canvas.width ? '' : '1 / 1.414' });
-      }
+      canvas.classList.remove('book-off');
+      Object.assign(canvas.style, {
+        width: '', height: '', left: '', top: '', margin: '', transform: '', transformOrigin: '',
+        transition: '', opacity: '', zIndex: '', aspectRatio: canvas.width ? '' : '1 / 1.414'
+      });
     }
-    const at = container.querySelector(`canvas[data-page="${page}"]`);
-    if (at) {
-      if (on) container.scrollLeft = at.offsetLeft - parseFloat(at.style.marginLeft || 0);
-      else at.scrollIntoView({ block: 'start' });
-    }
+    delete container.dataset.current;
+    pageEl(page)?.scrollIntoView({ block: 'start' });
     onLayout?.();
   };
 
@@ -204,7 +280,6 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
 
   const teardown = () => {
     observer.disconnect();
-    container.removeEventListener('scroll', turn);
     window.removeEventListener('resize', onResize);
     container.classList.remove('book');
     task.destroy().catch(() => {});
@@ -213,11 +288,15 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   teardown.isBook = () => bookOn;
   /** Turn to a page, in either view. */
   teardown.goTo = (page) => {
-    const at = container.querySelector(`canvas[data-page="${page}"]`);
+    const at = pageEl(page);
     if (!at) return;
-    if (bookOn) container.scrollTo({ left: at.offsetLeft - parseFloat(at.style.marginLeft || 0), behavior: 'smooth' });
-    else at.scrollIntoView({ block: 'start' });
+    if (!bookOn) { at.scrollIntoView({ block: 'start' }); return; }
+    if (busy || page === current) return;
+    // The next or the previous page turns; further than that, it opens there.
+    if (Math.abs(page - current) === 1) finish(page > current ? 1 : -1, true, 0);
+    else { current = page; place(); }
   };
+  teardown.current = () => (bookOn ? current : null);
   // Highlight something new: every page already drawn is drawn again with it,
   // and pages drawn later pick it up as they come into view.
   teardown.setMarks = async (next) => {

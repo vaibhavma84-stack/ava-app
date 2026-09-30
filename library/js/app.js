@@ -19,7 +19,7 @@ import { isEpub, readEpub } from './epub.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.45';
+const APP_VERSION = '2026.10.46';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -2860,6 +2860,9 @@ function closeViewer() {
  */
 function pageInView() {
   const body = $('#viewerBody');
+  // In book view the page on screen is the one the viewer says; the others
+  // are stacked under it and would all be "in the middle".
+  if (body.classList.contains('book') && body.dataset.current) return Number(body.dataset.current);
   const frame = body.getBoundingClientRect();
   // The middle of the screen, across and down: pages run downwards when
   // scrolling and sideways in book view, and this is right for both.
@@ -3004,11 +3007,17 @@ async function changeHighlight(itemId, id, changes) {
   drawStickies();
 }
 
+/** Whether a page is where marks on it can be seen: in book view, only the page on screen. */
+function onScreen(page) {
+  const body = $('#viewerBody');
+  return !body.classList.contains('book') || Number(page.dataset.page) === Number(body.dataset.current);
+}
+
 function drawHighlights(body, item) {
   for (const h of item.data.highlights || []) {
     if (h.attId !== view.viewing.attId) continue;
     const canvas = body.querySelector(`canvas[data-page="${h.page}"]`);
-    if (!canvas) continue;
+    if (!canvas || !onScreen(canvas)) continue;
     for (const r of h.rects || []) {
       const mark = el('button', {
         class: `hl hl-${HL_COLOURS.includes(h.colour) ? h.colour : 'yellow'}`,
@@ -3482,7 +3491,7 @@ function drawStickies() {
 
   for (const [page, marks] of byPage) {
     const canvas = body.querySelector(`[data-page="${page}"]`);
-    if (!canvas) continue;
+    if (!canvas || !onScreen(canvas)) continue;
 
     for (const mark of marks.filter((m) => markKind(m) === 'bookmark')) {
       const ribbon = el('button', {

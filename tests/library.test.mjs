@@ -3771,23 +3771,67 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await other.waitForTimeout(400);
     const layout = await other.evaluate(() => {
       const b = document.getElementById('viewerBody');
-      const c = b.querySelector('canvas[data-page="1"]');
-      return { book: b.classList.contains('book'), fits: c.getBoundingClientRect().height <= b.clientHeight + 1,
-        sideways: b.scrollWidth > b.clientWidth * 1.5 };
+      const shown = [...b.querySelectorAll('canvas[data-page]')].filter((c) => getComputedStyle(c).display !== 'none');
+      const top = b.querySelector(`canvas[data-page="${b.dataset.current}"]`);
+      const box = top.getBoundingClientRect();
+      const frame = b.getBoundingClientRect();
+      return { book: b.classList.contains('book'), current: b.dataset.current, laidOut: shown.length,
+        fits: box.height <= frame.height + 1 && box.width <= frame.width + 1,
+        still: b.scrollWidth <= b.clientWidth + 1 };
     });
-    check('book view lays the pages side by side, one to the screen', layout.book && layout.fits && layout.sideways, JSON.stringify(layout));
-    await other.evaluate(() => { const b = document.getElementById('viewerBody'); b.scrollLeft = 0; });
-    await other.waitForTimeout(400);
-    const box = await other.locator('#viewerBody canvas[data-page="1"]').boundingBox();
-    await other.mouse.click(box.x + box.width * 0.9, box.y + box.height / 2);
-    await other.waitForTimeout(900);
-    const dbg = await other.evaluate(() => `at ${document.getElementById('viewerBody').scrollLeft}`);
-    check('a tap at the right edge turns to the next page', /p\.2/.test(await other.locator('#viewerPin').innerText()),
-      `${await other.locator('#viewerPin').innerText()} ${dbg}`);
-    const box2 = await other.locator('#viewerBody canvas[data-page="2"]').boundingBox();
-    await other.mouse.click(box2.x + box2.width * 0.1, box2.y + box2.height / 2);
-    await other.waitForTimeout(900);
-    check('and at the left edge turns back', /p\.1/.test(await other.locator('#viewerPin').innerText()),
+    check('book view shows one page, fitted to the screen, where it was',
+      layout.book && layout.current === '2' && layout.fits, JSON.stringify(layout));
+    check('the pages do not scroll: they are stacked, and only the neighbours laid out',
+      layout.still && layout.laidOut <= 3, JSON.stringify(layout));
+
+    const pageBox = async () => other.locator('#viewerBody canvas[data-page="' + await other.evaluate(() => document.getElementById('viewerBody').dataset.current) + '"]').boundingBox();
+    let box = await pageBox();
+    await other.mouse.click(box.x + box.width * 0.1, box.y + box.height / 2);
+    await other.waitForTimeout(700);
+    check('a tap at the left edge turns back', /p\.1/.test(await other.locator('#viewerPin').innerText()),
+      await other.locator('#viewerPin').innerText());
+
+    // A finger dragged from the right edge across to the left.
+    box = await pageBox();
+    await other.mouse.move(box.x + box.width * 0.85, box.y + box.height / 2);
+    await other.mouse.down();
+    await other.mouse.move(box.x + box.width * 0.6, box.y + box.height / 2, { steps: 5 });
+    const midTurn = await other.evaluate(() => {
+      const b = document.getElementById('viewerBody');
+      const page = b.querySelector('canvas[data-page="1"]');
+      return { transform: page.style.transform, filter: page.style.filter, next: b.querySelector('canvas[data-page="2"]').style.opacity };
+    });
+    check('dragging turns the page on its spine, under the finger',
+      /rotateY\(-\d/.test(midTurn.transform) && midTurn.next === '1', JSON.stringify(midTurn));
+    check('with nothing that makes the phone redraw the page every frame', !midTurn.filter, JSON.stringify(midTurn));
+    await other.mouse.move(box.x + box.width * 0.1, box.y + box.height / 2, { steps: 5 });
+    await other.mouse.up();
+    await other.waitForTimeout(700);
+    check('letting go finishes the turn', /p\.2/.test(await other.locator('#viewerPin').innerText()),
+      await other.locator('#viewerPin').innerText());
+
+    // Barely moved: it falls back.
+    box = await pageBox();
+    await other.mouse.move(box.x + box.width * 0.1, box.y + box.height / 2);
+    await other.mouse.down();
+    // Slowly: a quick flick of the same length is meant to turn the page.
+    for (const f of [0.13, 0.15, 0.17, 0.18]) {
+      await other.mouse.move(box.x + box.width * f, box.y + box.height / 2);
+      await other.waitForTimeout(150);
+    }
+    await other.mouse.up();
+    await other.waitForTimeout(700);
+    check('a turn barely started falls back', /p\.2/.test(await other.locator('#viewerPin').innerText()),
+      await other.locator('#viewerPin').innerText());
+
+    // A quick flick, the same short distance, does turn it.
+    box = await pageBox();
+    await other.mouse.move(box.x + box.width * 0.1, box.y + box.height / 2);
+    await other.mouse.down();
+    await other.mouse.move(box.x + box.width * 0.2, box.y + box.height / 2, { steps: 2 });
+    await other.mouse.up();
+    await other.waitForTimeout(700);
+    check('and a quick flick turns it', /p\.1/.test(await other.locator('#viewerPin').innerText()),
       await other.locator('#viewerPin').innerText());
     await other.click('#viewerClose');
     await other.locator('#recent .answer-open').first().click();
