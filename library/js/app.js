@@ -18,7 +18,7 @@ import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.43';
+const APP_VERSION = '2026.10.44';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1705,6 +1705,7 @@ function wireApp() {
   $('#viewerPin').addEventListener('click', togglePin);
   wireFind();
   wireMarking();
+  wireBookView();
   // Wrapped, not passed straight in: a listener is handed the click event as
   // its first argument, and openNoteBox reads its first argument as the note
   // being edited. That made every new note an edit of a note that does not
@@ -2622,6 +2623,39 @@ let disposeViewer = null;
  * Show a document in the app. An installed iOS web app cannot open a blob: URL
  * in a new tab, so this renders it here instead of handing it to the browser.
  */
+// ── book view ───────────────────────────────────────────────────────────────
+//
+// A page at a time, turned with a swipe or a tap at its edge, the way Books
+// turns them. Remembered, so a reader who prefers it gets it every time.
+
+const bookView = { on: false };
+db.getMeta('bookView').then((v) => { bookView.on = v === true; }).catch(() => {});
+
+async function toggleBookView() {
+  if (!disposeViewer?.setBook) return;
+  const page = pageInView();
+  bookView.on = !disposeViewer.isBook();
+  disposeViewer.setBook(bookView.on, page);
+  $('#viewerBook').setAttribute('aria-pressed', String(bookView.on));
+  await db.setMeta('bookView', bookView.on);
+}
+
+function wireBookView() {
+  $('#viewerBook').addEventListener('click', toggleBookView);
+  // A tap on the outer third of a page turns it, as a finger at the edge of
+  // a book does. The middle is left alone, for notes and highlights.
+  $('#viewerBody').addEventListener('click', (e) => {
+    if (!disposeViewer?.isBook?.() || marking.on) return;
+    const canvas = e.target.closest?.('canvas[data-page]');
+    if (!canvas) return;
+    const box = canvas.getBoundingClientRect();
+    const x = (e.clientX - box.left) / box.width;
+    const page = Number(canvas.dataset.page);
+    if (x < 0.3) disposeViewer.goTo(page - 1);
+    else if (x > 0.7) disposeViewer.goTo(page + 1);
+  });
+}
+
 // ── finding inside the open document ────────────────────────────────────────
 //
 // Opened from a search, the document lands on the right page, and then the
@@ -2676,8 +2710,8 @@ function goToFound(index) {
   const { pages } = finding;
   if (!pages.length) return;
   finding.index = (index + pages.length) % pages.length;
-  const canvas = $(`#viewerBody canvas[data-page="${pages[finding.index]}"]`);
-  canvas?.scrollIntoView({ block: 'start' });
+  if (disposeViewer?.goTo) disposeViewer.goTo(pages[finding.index]);
+  else $(`#viewerBody [data-page="${pages[finding.index]}"]`)?.scrollIntoView({ block: 'start' });
   showFindCount();
 }
 
@@ -2712,6 +2746,10 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
     disposeViewer?.();
     disposeViewer = await renderInto(body, blob, att.name, {
       startPage,
+      book: bookView.on,
+      // Pages change shape and place when book view lays them out; what is
+      // drawn over them follows.
+      onLayout: () => { drawStickies(); showPinState(); },
       onStatus: (text) => {
         $('#viewerTitle').textContent = startPage > 1
           ? `${att.name} · page ${startPage} of ${text.replace(/ pages?$/, '')}`
@@ -2731,6 +2769,8 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
     $('#markMode').hidden = !findable || !itemId;
     setMarking(false);
     $('#viewerPin').hidden = !findable || !itemId;
+    $('#viewerBook').hidden = !disposeViewer?.setBook;
+    $('#viewerBook').setAttribute('aria-pressed', String(Boolean(disposeViewer?.isBook?.())));
     showPinState();
     noteRecent(itemId, att, startPage);
     finding.att = findable ? att : null;
@@ -2813,17 +2853,20 @@ function closeViewer() {
  */
 function pageInView() {
   const body = $('#viewerBody');
-  const middle = body.getBoundingClientRect().top + body.clientHeight / 2;
+  const frame = body.getBoundingClientRect();
+  // The middle of the screen, across and down: pages run downwards when
+  // scrolling and sideways in book view, and this is right for both.
+  const mx = frame.left + body.clientWidth / 2;
+  const my = frame.top + body.clientHeight / 2;
   let best = 1;
   let nearest = Infinity;
-  for (const canvas of body.querySelectorAll('canvas[data-page]')) {
-    const box = canvas.getBoundingClientRect();
-    if (box.bottom < middle || box.top > middle) {
-      const gap = box.bottom < middle ? middle - box.bottom : box.top - middle;
-      if (gap < nearest) { nearest = gap; best = Number(canvas.dataset.page); }
-      continue;
-    }
-    return Number(canvas.dataset.page);
+  for (const page of body.querySelectorAll('[data-page]')) {
+    const box = page.getBoundingClientRect();
+    const dx = mx < box.left ? box.left - mx : mx > box.right ? mx - box.right : 0;
+    const dy = my < box.top ? box.top - my : my > box.bottom ? my - box.bottom : 0;
+    if (!dx && !dy) return Number(page.dataset.page);
+    const gap = dx + dy;
+    if (gap < nearest) { nearest = gap; best = Number(page.dataset.page); }
   }
   return best;
 }

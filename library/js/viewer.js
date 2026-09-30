@@ -37,7 +37,7 @@ function isImageBlob(blob, name) {
 const isTextBlob = (blob, name) =>
   /^text\//i.test(blob?.type || '') || /\.txt$/i.test(String(name || ''));
 
-export async function renderInto(container, blob, name, { onStatus, startPage = 1 } = {}) {
+export async function renderInto(container, blob, name, { onStatus, startPage = 1, book = false, onLayout } = {}) {
   clear(container);
 
   if (isImageBlob(blob, name)) {
@@ -88,6 +88,8 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
       await page.render({ canvasContext: ctx, viewport }).promise;
       if (marks) await highlight(page, viewport, ctx, marks);
       page.cleanup();
+      // Its real shape is known now, rather than A4.
+      if (bookOn) { fit(canvas); onLayout?.(); }
     } catch (ex) {
       rendered.delete(pageNo);
       console.warn('Could not draw page', pageNo, ex);
@@ -99,7 +101,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     for (const entry of entries) {
       if (entry.isIntersecting) draw(entry.target, Number(entry.target.dataset.page));
     }
-  }, { root: container, rootMargin: '600px 0px' });
+  }, { root: container, rootMargin: '600px 600px' });
 
   for (let n = 1; n <= doc.numPages; n++) {
     const canvas = el('canvas', { class: 'viewer-page', 'data-page': String(n), 'aria-label': `Page ${n}` });
@@ -108,18 +110,108 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     observer.observe(canvas);
   }
 
+  // ── book view ───────────────────────────────────────────────────────────
+  //
+  // One page to the screen, turned by a swipe the way a book is. The pages
+  // sit side by side and snap into place; as one is swiped it swings on its
+  // spine and darkens, and at rest it is flat, so everything drawn over a
+  // page -- notes, highlights -- lines up with it again.
+  let bookOn = false;
+  const fit = (canvas) => {
+    const W = container.clientWidth;
+    const H = container.clientHeight;
+    const ratio = canvas.width && canvas.height ? canvas.height / canvas.width : 1.414;
+    const w = Math.min(W, H / ratio);
+    const h = w * ratio;
+    Object.assign(canvas.style, {
+      width: `${w}px`, height: `${h}px`, aspectRatio: '',
+      margin: `${Math.max((H - h) / 2, 0)}px ${Math.max((W - w) / 2, 0)}px`
+    });
+  };
+  // The swipe moves the pages sideways; the turn undoes that for the two
+  // pages involved, so they stay put like the pages of a bound book, and
+  // swings the one on top about the spine. Going forward the page on screen
+  // lifts from its right edge and folds over to the left, uncovering the next
+  // one lying flat beneath it; going back, the previous page folds back over.
+  const turn = () => {
+    if (!bookOn) return;
+    const W = container.clientWidth || 1;
+    const centre = container.scrollLeft + W / 2;
+    for (const canvas of container.querySelectorAll('canvas[data-page]')) {
+      const slot = canvas.offsetLeft - parseFloat(canvas.style.marginLeft || 0);
+      const offset = (slot + W / 2 - centre) / W;
+      // Pages sit at fractional pixels, so "one page away" measures as 0.999:
+      // near enough is at rest, or the next page is left lying over this one.
+      if (Math.abs(offset) < 0.01 || Math.abs(offset) > 0.99) {
+        canvas.style.transform = '';
+        canvas.style.filter = '';
+        canvas.style.zIndex = '';
+        continue;
+      }
+      const hold = `translateX(${-offset * W}px)`;
+      if (offset < 0) {
+        // The page being turned: on top, pivoting on its left edge, gone
+        // edge-on a little before the next is fully in view.
+        const angle = Math.max(offset * 115, -90);
+        canvas.style.transformOrigin = 'left center';
+        canvas.style.transform = `${hold} perspective(1600px) rotateY(${angle}deg)`;
+        canvas.style.filter = `brightness(${1 - Math.min(-offset, 1) * 0.35})`;
+        canvas.style.zIndex = '2';
+      } else {
+        // The page underneath: flat and still, brightening as it is uncovered.
+        canvas.style.transformOrigin = 'center';
+        canvas.style.transform = hold;
+        canvas.style.filter = `brightness(${0.6 + (1 - offset) * 0.4})`;
+        canvas.style.zIndex = '1';
+      }
+    }
+  };
+  container.addEventListener('scroll', turn, { passive: true });
+  const onResize = () => { if (bookOn) { for (const c of container.querySelectorAll('canvas[data-page]')) fit(c); onLayout?.(); } };
+  window.addEventListener('resize', onResize);
+
+  const setBook = (on, page) => {
+    bookOn = on;
+    container.classList.toggle('book', on);
+    for (const canvas of container.querySelectorAll('canvas[data-page]')) {
+      if (on) fit(canvas);
+      else {
+        Object.assign(canvas.style, { width: '', height: '', margin: '', transform: '', filter: '', aspectRatio: canvas.width ? '' : '1 / 1.414' });
+      }
+    }
+    const at = container.querySelector(`canvas[data-page="${page}"]`);
+    if (at) {
+      if (on) container.scrollLeft = at.offsetLeft - parseFloat(at.style.marginLeft || 0);
+      else at.scrollIntoView({ block: 'start' });
+    }
+    onLayout?.();
+  };
+
   // Draw the page being jumped to first, so the sheet is never blank and a
   // search result lands where it should rather than at the front of the book.
   const target = Math.min(Math.max(1, startPage), doc.numPages);
   const wanted = container.querySelector(`canvas[data-page="${target}"]`);
   if (wanted) {
     await draw(wanted, target);
-    if (target > 1) wanted.scrollIntoView({ block: 'start' });
+    if (book) setBook(true, target);
+    else if (target > 1) wanted.scrollIntoView({ block: 'start' });
   }
 
   const teardown = () => {
     observer.disconnect();
+    container.removeEventListener('scroll', turn);
+    window.removeEventListener('resize', onResize);
+    container.classList.remove('book');
     task.destroy().catch(() => {});
+  };
+  teardown.setBook = setBook;
+  teardown.isBook = () => bookOn;
+  /** Turn to a page, in either view. */
+  teardown.goTo = (page) => {
+    const at = container.querySelector(`canvas[data-page="${page}"]`);
+    if (!at) return;
+    if (bookOn) container.scrollTo({ left: at.offsetLeft - parseFloat(at.style.marginLeft || 0), behavior: 'smooth' });
+    else at.scrollIntoView({ block: 'start' });
   };
   // Highlight something new: every page already drawn is drawn again with it,
   // and pages drawn later pick it up as they come into view.

@@ -3739,6 +3739,44 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     check('and can be taken off', await other.locator('#pinned').count() === 0);
     const inBackup = await other.evaluate(async () => (await (await import('./js/store.js')).fullBackup()).manifest.lists.recent.length);
     check('recent travels in a full backup too', inBackup === 1, String(inBackup));
+
+    // Book view: a page at a time, turned sideways, and remembered.
+    await other.locator('#recent .answer-open').first().click();
+    await other.waitForSelector('#viewer:not([hidden])');
+    await other.waitForSelector('#viewerBody canvas[data-page="2"]');
+    await other.click('#viewerBook');
+    await other.waitForTimeout(400);
+    const layout = await other.evaluate(() => {
+      const b = document.getElementById('viewerBody');
+      const c = b.querySelector('canvas[data-page="1"]');
+      return { book: b.classList.contains('book'), fits: c.getBoundingClientRect().height <= b.clientHeight + 1,
+        sideways: b.scrollWidth > b.clientWidth * 1.5 };
+    });
+    check('book view lays the pages side by side, one to the screen', layout.book && layout.fits && layout.sideways, JSON.stringify(layout));
+    await other.evaluate(() => { const b = document.getElementById('viewerBody'); b.scrollLeft = 0; });
+    await other.waitForTimeout(400);
+    const box = await other.locator('#viewerBody canvas[data-page="1"]').boundingBox();
+    await other.mouse.click(box.x + box.width * 0.9, box.y + box.height / 2);
+    await other.waitForTimeout(900);
+    const dbg = await other.evaluate(() => `at ${document.getElementById('viewerBody').scrollLeft}`);
+    check('a tap at the right edge turns to the next page', /p\.2/.test(await other.locator('#viewerPin').innerText()),
+      `${await other.locator('#viewerPin').innerText()} ${dbg}`);
+    const box2 = await other.locator('#viewerBody canvas[data-page="2"]').boundingBox();
+    await other.mouse.click(box2.x + box2.width * 0.1, box2.y + box2.height / 2);
+    await other.waitForTimeout(900);
+    check('and at the left edge turns back', /p\.1/.test(await other.locator('#viewerPin').innerText()),
+      await other.locator('#viewerPin').innerText());
+    await other.click('#viewerClose');
+    await other.locator('#recent .answer-open').first().click();
+    await other.waitForSelector('#viewerBody canvas');
+    await other.waitForTimeout(500);
+    check('book view is remembered the next time a document opens',
+      await other.evaluate(() => document.getElementById('viewerBody').classList.contains('book')));
+    await other.click('#viewerBook');
+    await other.waitForTimeout(300);
+    check('and switched off, the pages scroll downwards again',
+      !(await other.evaluate(() => document.getElementById('viewerBody').classList.contains('book'))));
+    await other.click('#viewerClose');
     await fresh.close();
   }
 

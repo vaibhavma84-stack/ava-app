@@ -622,3 +622,22 @@ select.field {
 /* The choices inside Narrow the results: rows that wrap, not a strip that scrolls. */
 .narrow-choices { display: flex; flex-wrap: wrap; gap: 6px; }
 .narrow-choices .scope-btn { white-space: normal; text-align: left; }
+
+/* Book view: one page to the screen, side by side, snapped into place. */
+.viewer-body.book {
+  flex-direction: row; align-items: flex-start; gap: 0; padding: 0;
+  overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.viewer-body.book::-webkit-scrollbar { display: none; }
+.viewer-body.book .viewer-page {
+  flex: 0 0 auto; scroll-snap-align: center; scroll-snap-stop: always; position: relative;
+  box-shadow: 0 0 18px rgba(0, 0, 0, .55);
+  border-radius: 2px; will-change: transform; backface-visibility: hidden;
+}
+.book-btn {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  border: 1px solid var(--line); background: var(--ink-1000); color: var(--text-dim);
+  border-radius: 999px; padding: 4px 12px; font-size: 12px; cursor: pointer;
+}
+.book-btn[aria-pressed="true"] { background: var(--copper); border-color: var(--copper); color: #17100a; }
