@@ -56,6 +56,11 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     return () => {};
   }
 
+  if (/epub/i.test(blob?.type || '') || /\.epub$/i.test(String(name || ''))) {
+    const { renderEpub } = await import('./epub.js');
+    return renderEpub(container, blob, { onStatus, startPage });
+  }
+
   if (!isPdfBlob(blob, name)) {
     container.append(el('div', { class: 'empty' }, [
       el('h3', { text: 'Cannot show this file' }),

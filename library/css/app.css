@@ -641,3 +641,16 @@ select.field {
   border-radius: 999px; padding: 4px 12px; font-size: 12px; cursor: pointer;
 }
 .book-btn[aria-pressed="true"] { background: var(--copper); border-color: var(--copper); color: #17100a; }
+
+/* A book's chapters, laid out as pages of their own. */
+.epub-chapter {
+  width: 100%; max-width: 760px; background: #fff; color: #161616; border-radius: 4px;
+  padding: 22px 20px 26px; font-family: Georgia, 'Times New Roman', serif; font-size: 16px; line-height: 1.6;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .5); overflow-wrap: anywhere; position: relative;
+}
+.epub-chapter img { max-width: 100%; height: auto; display: block; margin: 10px auto; }
+.epub-chapter table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.epub-chapter td, .epub-chapter th { border: 1px solid #ccc; padding: 4px 6px; vertical-align: top; }
+.epub-chapter h1, .epub-chapter h2, .epub-chapter h3 { line-height: 1.25; }
+.epub-chapter pre { white-space: pre-wrap; }
+mark.find-mark { background: rgb(255 214 0 / .6); color: inherit; border-radius: 2px; }

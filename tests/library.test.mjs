@@ -222,6 +222,29 @@ const NAMED_ALERT_PATH = path.join(tmp, 'Fleet Alert 077-2026 Gangway net riggin
 // A scan: the page drawn into a canvas and put back as an image, so the PDF
 // holds a picture of the words and no text at all. This is what a photocopied
 // manual actually is, and why nothing can be read out of one without OCR.
+// Two small EPUBs, written by Python's zipfile the way a real one is: an
+// open book with a picture and some things a book must never be allowed to
+// do, and one locked the way the Books store locks what it sells.
+const EPUB_PATH = path.join(tmp, 'Bridge Procedures Guide.epub');
+const LOCKED_EPUB_PATH = path.join(tmp, 'Bought Book.epub');
+execFileSync('python3', ['-c', `
+import zipfile, sys, base64
+png = base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==')
+def book(path, locked):
+    z = zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED)
+    z.writestr(zipfile.ZipInfo('mimetype'), 'application/epub+zip', compress_type=zipfile.ZIP_STORED)
+    z.writestr('META-INF/container.xml', '<?xml version="1.0"?><container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles></container>')
+    if locked:
+        z.writestr('META-INF/encryption.xml', '<encryption xmlns="urn:oasis:names:tc:opendocument:xmlns:container"><EncryptedData xmlns="http://www.w3.org/2001/04/xmlenc#"/></encryption>')
+    z.writestr('OEBPS/content.opf', '<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:title>Bridge Procedures Guide</dc:title><dc:creator>ICS</dc:creator><dc:publisher>Marisec</dc:publisher><dc:date>2016-05-01</dc:date></metadata><manifest><item id="c1" href="text/ch1.xhtml" media-type="application/xhtml+xml"/><item id="c2" href="text/ch2.xhtml" media-type="application/xhtml+xml"/><item id="p" href="img/pic.png" media-type="image/png"/></manifest><spine><itemref idref="c1"/><itemref idref="c2"/></spine></package>')
+    z.writestr('OEBPS/text/ch1.xhtml', '<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>One</title><script>window.__pwned = 1</script></head><body><h1>Passage planning</h1><p>Appraisal, planning, execution and monitoring.</p><img src="../img/pic.png" alt="chart" onerror="window.__pwned = 2"/><p><a href="javascript:window.__pwned=3">A link that must not work</a></p><script>window.__pwned = 4</script></body></html>')
+    z.writestr('OEBPS/text/ch2.xhtml', '<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Two</title></head><body><h1>Watchkeeping</h1><p>The EPUBMARKERWORD is in the second chapter.</p><table><tr><td>Cell one</td><td>Cell two</td></tr></table></body></html>')
+    z.writestr('OEBPS/img/pic.png', png)
+    z.close()
+book(sys.argv[1], False)
+book(sys.argv[2], True)
+`, EPUB_PATH, LOCKED_EPUB_PATH]);
+
 const ALARM_PATH = path.join(tmp, 'ME Alarm List.pdf');
 {
   const maker = await browser.newPage();
@@ -3795,6 +3818,74 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await other.waitForTimeout(500);
     const cat = await other.evaluate(async () => (await import('./js/store.js')).allItems()[0].data.category);
     check('one filed under the old name is renamed when the app opens', cat === 'MI', cat);
+    await fresh.close();
+  }
+
+  console.log('\nEPUB books');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    other.on('dialog', (d) => d.accept());
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.locator('.section-card', { hasText: 'Publications' }).click();
+    await other.setInputFiles('#importPicker', [EPUB_PATH, LOCKED_EPUB_PATH]);
+    await other.locator('.toast', { hasText: 'imported' }).waitFor({ timeout: 30000 });
+    const importedSaid = await other.locator('.toast', { hasText: 'imported' }).innerText();
+    check('books import alongside PDFs', /2 imported/.test(importedSaid), importedSaid);
+    check('and a locked one is said to have no text to search', /1 had no text/.test(importedSaid), importedSaid);
+    const book = await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const item = store.itemsOfType('publication').find((i) => (i.data.attachments || [])[0]?.name === 'Bridge Procedures Guide.epub');
+      const att = item.data.attachments[0];
+      return { title: item.data.title, publisher: item.data.publisher, edition: item.data.edition,
+        status: att.textStatus, chapters: att.pageCount, pages: ((await store.loadTexts()).get(att.id) || []).map((p) => p.page) };
+    });
+    check('a book fills itself in from what it says it is',
+      book.title === 'Bridge Procedures Guide' && book.publisher === 'Marisec' && book.edition === '2016', JSON.stringify(book));
+    check('and each chapter is read as a page', book.status === 'indexed' && book.chapters === 2 && book.pages.join(',') === '1,2', JSON.stringify(book));
+
+    await other.fill('#search', 'EPUBMARKERWORD');
+    await other.waitForTimeout(800);
+    const bookHit = await other.locator('.snippet').first().innerText().catch(() => '');
+    check('a word in a book is found, in its chapter', /EPUBMARKERWORD/.test(bookHit) && /page 2/i.test(bookHit), bookHit);
+    await other.locator('.snippet').first().click();
+    await other.waitForSelector('#viewerBody .epub-chapter');
+    await other.waitForTimeout(800);
+    const shown = await other.evaluate(() => {
+      const body = document.getElementById('viewerBody');
+      return {
+        chapters: body.querySelectorAll('.epub-chapter').length,
+        scripts: body.querySelectorAll('script').length,
+        links: body.querySelectorAll('a').length,
+        handlers: [...body.querySelectorAll('*')].some((e) => [...e.attributes].some((a) => /^on/i.test(a.name))),
+        pwned: window.__pwned ?? null,
+        img: body.querySelector('.epub-chapter img')?.getAttribute('src') || '',
+        table: body.querySelectorAll('.epub-chapter td').length,
+        linkText: /A link that must not work/.test(body.innerText),
+        marked: body.querySelectorAll('mark.find-mark').length
+      };
+    });
+    check('the book opens, a chapter to a page', shown.chapters === 2, JSON.stringify(shown));
+    check('with its pictures and tables', shown.img.startsWith('blob:') && shown.table === 2, JSON.stringify(shown));
+    check('and nothing in it can run: no script, no handler, no link',
+      shown.scripts === 0 && shown.links === 0 && !shown.handlers && shown.pwned === null && shown.linkText, JSON.stringify(shown));
+    check('the search word is marked in the chapter', shown.marked >= 1, JSON.stringify(shown));
+    check('and the find bar counts it', /p\.2 · 1 of 1/.test(await other.locator('#findCount').innerText()),
+      await other.locator('#findCount').innerText());
+    check('highlighting and book view are for PDFs only',
+      await other.locator('#markMode').isHidden() && await other.locator('#viewerBook').isHidden());
+    await other.click('#viewerClose');
+    await other.fill('#search', '');
+    await other.waitForTimeout(300);
+
+    const locked = await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const item = store.itemsOfType('publication').find((i) => (i.data.attachments || [])[0]?.name === 'Bought Book.epub');
+      return item.data.attachments[0];
+    });
+    check('a book from the Books store says why it cannot be read',
+      locked.textStatus === 'encrypted' && /copy-protected/i.test(locked.textError || ''), JSON.stringify(locked));
     await fresh.close();
   }
 

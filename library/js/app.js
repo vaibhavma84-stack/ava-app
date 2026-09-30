@@ -15,10 +15,11 @@ import { renderInto } from './viewer.js';
 import { revisionStatus, revisionLabel, countDue } from './revision.js';
 import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip, readZip } from './zip.js';
+import { isEpub, readEpub } from './epub.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.44';
+const APP_VERSION = '2026.10.45';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1942,6 +1943,11 @@ function attachmentRow(att, onRemove) {
     }
     // Already nothing but words: no picture to read, no text layer to retry.
     if (/^text\//i.test(att.type || '') || /\.txt$/i.test(att.name || '')) return row;
+    // A book is words too; a locked one cannot be read however it is asked.
+    if (isEpub(att)) {
+      if (state === STATUS.ENCRYPTED) row.append(el('p', { class: 'hint', text: att.textError || 'This book is copy-protected and can only be read in Apple Books.' }));
+      return row;
+    }
 
     if (isImage(att)) {
       if (state !== STATUS.INDEXED) {
@@ -2766,7 +2772,8 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
     const findable = Boolean(disposeViewer?.setMarks);
     $('#findBar').hidden = !findable;
     // Highlighting needs pages, and an entry to keep them on.
-    $('#markMode').hidden = !findable || !itemId;
+    // Highlighting marks a page's text layer, which only a PDF has.
+    $('#markMode').hidden = !findable || !itemId || !disposeViewer?.pick;
     setMarking(false);
     $('#viewerPin').hidden = !findable || !itemId;
     $('#viewerBook').hidden = !disposeViewer?.setBook;
@@ -4255,6 +4262,44 @@ async function onFilesPicked(e) {
   // typed is left exactly as it is.
   const pdf = files.find(isPdf);
   if (pdf) await fillFromPdf(pdf);
+  else {
+    const book = files.find(isEpub);
+    if (book) await fillFromBook(book);
+  }
+}
+
+/** What a book says about itself, as the fields of an entry that has them. */
+function bookFields(book, keys) {
+  const out = {};
+  const put = (key, value) => { if (value && keys.includes(key)) out[key] = value; };
+  put('title', book.title);
+  put('publisher', book.publisher || book.author);
+  put('edition', (book.date || '').slice(0, 4));
+  return out;
+}
+
+async function fillFromBook(file) {
+  const draft = view.draft;
+  if (!draft) return;
+  const def = TYPES[draft.type];
+  const book = await readEpub(file);
+  if (!view.draft || !book.ok) {
+    if (book.status === STATUS.ENCRYPTED) toast(book.error);
+    return;
+  }
+  const filled = [];
+  for (const [key, value] of Object.entries(bookFields(book, def.fields.map((f) => f.key)))) {
+    if (String(draft.data[key] || '').trim()) continue;
+    draft.data[key] = value;
+    filled.push(def.fields.find((f) => f.key === key)?.label || key);
+  }
+  renderEditor();
+  if (filled.length) {
+    $('#editorBody').prepend(el('div', { class: 'panel', style: 'border-color:var(--copper-dim)' }, [
+      el('h3', { text: 'Filled in from the book' }),
+      el('p', { style: 'margin:0', text: `${filled.join(', ')} — check these and correct anything wrong.` })
+    ]));
+  }
 }
 
 /**
@@ -4279,7 +4324,7 @@ async function warnIfNoRoom(files) {
 function importPanel(def) {
   const panel = el('div', { class: 'panel import-panel' }, [
     el('h3', { text: `Import ${def.label.toLowerCase()}` }),
-    el('p', { text: 'Choose several PDFs at once. Each becomes its own entry, filled in from the document and read so its contents can be searched with no signal.' })
+    el('p', { text: 'Choose several PDFs or EPUB books at once. Each becomes its own entry, filled in from the document and read so its contents can be searched with no signal.' })
   ]);
   panel.append(el('button', {
     class: 'btn btn-block', onclick: () => $('#importPicker').click()
@@ -4387,6 +4432,15 @@ async function onImportPicked(e) {
           textStatus: read.status, textError: read.error
         });
         if (read.status !== STATUS.INDEXED) unreadable++;
+      } else if (isEpub(file)) {
+        const book = await readEpub(file);
+        data = { ...data, ...bookFields(book, keys) };
+        if (book.pages.length) await store.storeText(descriptor.id, book.pages);
+        Object.assign(descriptor, {
+          textPages: book.pages.length, pageCount: book.pageCount,
+          textStatus: book.status, textError: book.error
+        });
+        if (book.status !== STATUS.INDEXED) unreadable++;
       }
 
       // Never nameless: a document that says nothing about itself is still
@@ -4478,6 +4532,17 @@ async function saveEditor() {
       status.textContent = `Encrypting ${file.name}…`;
       btn.textContent = 'Saving…';
       const descriptor = await store.storeFile(file);
+
+      // A book's chapters are its pages.
+      if (isEpub(file)) {
+        status.textContent = `Reading ${file.name}…`;
+        const book = await readEpub(file);
+        if (book.pages.length) await store.storeText(descriptor.id, book.pages);
+        Object.assign(descriptor, {
+          textPages: book.pages.length, pageCount: book.pageCount,
+          textStatus: book.status, textError: book.error
+        });
+      }
 
       // Read the text out of PDFs so their contents become searchable.
       if (isPdf(file)) {

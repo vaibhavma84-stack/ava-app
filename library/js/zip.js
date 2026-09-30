@@ -113,12 +113,19 @@ export async function makeZip(entries, { onProgress } = {}) {
   return new Blob([...parts, ...central, end.buffer], { type: 'application/zip' });
 }
 
+/** Inflate raw deflate data, with the browser's own decompressor. */
+async function inflate(blob) {
+  const stream = blob.stream().pipeThrough(new DecompressionStream('deflate-raw'));
+  return new Response(stream).blob();
+}
+
 /**
- * Read a zip's table of contents: [{ name, size, blob }].
+ * Read a zip's table of contents: [{ name, size, stored, blob, read() }].
  *
- * Each blob is a slice of the archive, not a copy, so a backup of a few
- * gigabytes can be opened without reading it into memory. Only stored
- * entries can be taken out this way, which is what makeZip writes.
+ * A stored entry's blob is a slice of the archive, not a copy, so a backup of
+ * a few gigabytes can be opened without reading it into memory. A compressed
+ * one -- every EPUB is one of these -- is inflated when read() is called,
+ * and only then.
  */
 export async function readZip(blob) {
   const tailSize = Math.min(blob.size, 22 + 0xffff);
@@ -139,7 +146,8 @@ export async function readZip(blob) {
   for (let i = 0; i < count; i++) {
     if (dir.getUint32(p, true) !== 0x02014b50) throw new Error('This zip is damaged');
     const method = dir.getUint16(p + 10, true);
-    const size = dir.getUint32(p + 20, true);
+    const packed = dir.getUint32(p + 20, true);
+    const size = dir.getUint32(p + 24, true);
     const nameLen = dir.getUint16(p + 28, true);
     const extraLen = dir.getUint16(p + 30, true);
     const commentLen = dir.getUint16(p + 32, true);
@@ -149,9 +157,14 @@ export async function readZip(blob) {
 
     const local = new DataView(await blob.slice(localAt, localAt + 30).arrayBuffer());
     const dataAt = localAt + 30 + local.getUint16(26, true) + local.getUint16(28, true);
+    const raw = blob.slice(dataAt, dataAt + packed);
+    const stored = method === 0;
     out.push({
-      name, size, stored: method === 0,
-      blob: method === 0 ? blob.slice(dataAt, dataAt + size) : null
+      name, size, stored,
+      blob: stored ? raw : null,
+      read: stored ? async () => raw
+        : method === 8 ? () => inflate(raw)
+        : async () => { throw new Error(`${name} is packed in a way this cannot open`); }
     });
   }
   return out;
