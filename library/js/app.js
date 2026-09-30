@@ -18,7 +18,7 @@ import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.42';
+const APP_VERSION = '2026.10.43';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -46,6 +46,7 @@ const view = {
   // Narrowing a search to one section. Cleared with the query, so a new
   // search is never quietly answered from inside the last one's filter.
   searchScope: null,
+  narrowOpen: false,
   // Narrowing a search further, to one ship or one kind of document. Cleared
   // with the query for the same reason the section is.
   searchVessel: null,
@@ -280,7 +281,10 @@ function render() {
   $('#screenTitle').textContent = title;
   $('#screenTitle').className = view.screen === 'home' ? 'brand' : 'brand small';
 
-  if (view.screen !== 'search') $('#refine').hidden = true;
+  // Rows of buttons across the top are gone everywhere: a section folds its
+  // list, and a search folds its narrowing into the results.
+  $('#refine').hidden = true;
+  $('#scope').hidden = true;
   if (view.screen === 'home') { renderScope(null); renderHome(body); }
   // No row of type buttons over a section: its list is folded by type
   // instead, under headings that open, which is one way to find things
@@ -436,29 +440,6 @@ function answersSection(item) {
 }
 
 /** Chips that narrow a search to one section, built from what actually hit. */
-function renderSearchScope(results) {
-  const scope = clear($('#scope'));
-  const counts = new Map();
-  for (const r of results) counts.set(r.item.type, (counts.get(r.item.type) || 0) + 1);
-
-  // Nothing to choose between: one section, or none.
-  if (counts.size < 2) {
-    scope.hidden = true;
-    if (view.searchScope && !counts.has(view.searchScope)) view.searchScope = null;
-    return;
-  }
-  scope.hidden = false;
-  const add = (label, value) => scope.append(el('button', {
-    class: 'scope-btn',
-    'aria-pressed': String(view.searchScope === value),
-    onclick: () => { view.searchScope = value; render(); }
-  }, [label]));
-  add(`All ${results.length}`, null);
-  for (const type of TAB_ORDER) {
-    if (!counts.has(type)) continue;
-    add(`${TYPES[type].short} ${counts.get(type)}`, type);
-  }
-}
 
 // The fields a search can be narrowed by, as they are written on the entry.
 const REFINE = [
@@ -474,15 +455,37 @@ const refineValue = (item, key) => String(item.data?.[key] || '').trim();
  *
  * Returns the results narrowed by whatever is chosen.
  */
-function renderRefine(results) {
-  const row = clear($('#refine'));
-  let shown = results;
-  let any = false;
+/**
+ * Narrowing a search -- to one section, one ship, one kind of document --
+ * folded into one line over the results, the way a section's tools are. It
+ * opens to the choices laid out in rows that wrap, never a row that runs off
+ * the side of the screen. The line says what the results are narrowed to,
+ * so a narrowed search never looks like the whole answer.
+ *
+ * Returns { panel, results }: the line (null when there is nothing to
+ * choose between) and the results as narrowed.
+ */
+function narrowSearch(all) {
+  const rows = [];
+  const chosen = [];
+
+  // Section first. Counted before anything else is narrowed, so a section
+  // can always be gone back to.
+  const bySection = new Map();
+  for (const r of all) bySection.set(r.item.type, (bySection.get(r.item.type) || 0) + 1);
+  if (view.searchScope && !bySection.has(view.searchScope)) view.searchScope = null;
+  if (bySection.size > 1 || view.searchScope) {
+    const options = [[null, `All ${all.length}`]];
+    for (const type of TAB_ORDER) if (bySection.has(type)) options.push([type, `${TYPES[type].short} ${bySection.get(type)}`]);
+    rows.push({ label: 'Section', state: 'searchScope', options });
+  }
+  if (view.searchScope) chosen.push(TYPES[view.searchScope].short);
+  const inSection = view.searchScope ? all.filter((r) => r.item.type === view.searchScope) : all;
 
   for (const f of REFINE) {
-    // Counted after the other filter, so the numbers on the chips are what
-    // tapping them would actually show.
-    const others = results.filter((r) => REFINE.every((o) =>
+    // Counted after the other filter, so the number on a choice is what
+    // choosing it would actually show.
+    const others = inSection.filter((r) => REFINE.every((o) =>
       o === f || !view[o.state] || refineValue(r.item, o.key) === view[o.state]));
     const counts = new Map();
     for (const r of others) {
@@ -493,27 +496,43 @@ function renderRefine(results) {
     // a filter that silently hides everything.
     if (view[f.state] && !counts.has(view[f.state])) view[f.state] = null;
     if (counts.size < 2 && !view[f.state]) continue;
-
-    if (any) row.append(el('span', { class: 'scope-gap' }));
-    any = true;
-    row.append(el('span', { class: 'scope-label', text: f.label }));
-    row.append(el('button', {
-      class: 'scope-btn', 'aria-pressed': String(!view[f.state]),
-      onclick: () => { view[f.state] = null; render(); }
-    }, ['Any']));
-    for (const [value, n] of [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))) {
-      row.append(el('button', {
-        class: 'scope-btn', 'aria-pressed': String(view[f.state] === value),
-        onclick: () => { view[f.state] = value; render(); }
-      }, [`${value} ${n}`]));
-    }
+    const options = [[null, 'Any'],
+      ...[...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([v, n]) => [v, `${v} ${n}`])];
+    rows.push({ label: f.label, state: f.state, options });
+    if (view[f.state]) chosen.push(view[f.state]);
   }
 
+  let results = inSection;
   for (const f of REFINE) {
-    if (view[f.state]) shown = shown.filter((r) => refineValue(r.item, f.key) === view[f.state]);
+    if (view[f.state]) results = results.filter((r) => refineValue(r.item, f.key) === view[f.state]);
   }
-  row.hidden = !any;
-  return shown;
+  if (!rows.length) return { panel: null, results };
+
+  const open = view.narrowOpen;
+  const wrap = el('div', { class: 'panel tools-panel', id: 'narrow' });
+  wrap.append(el('button', {
+    class: 'tools-head', 'aria-expanded': String(open),
+    onclick: () => { view.narrowOpen = !view.narrowOpen; render(); }
+  }, [
+    el('span', { class: 'tools-title', text: 'Narrow the results' }),
+    chosen.length ? el('span', { class: 'pill pill-copper', text: chosen.join(' \u00b7 ') }) : null,
+    el('span', { class: 'tools-chevron', text: open ? '\u2212' : '+' })
+  ]));
+  if (open) {
+    const inner = el('div', { class: 'tools-body' });
+    for (const row of rows) {
+      const choices = el('div', { class: 'narrow-choices' });
+      for (const [value, label] of row.options) {
+        choices.append(el('button', {
+          class: 'scope-btn', 'aria-pressed': String((view[row.state] || null) === value),
+          onclick: () => { view[row.state] = value; render(); }
+        }, [label]));
+      }
+      inner.append(el('p', { class: 'dkey', style: 'margin:8px 0 6px', text: row.label }), choices);
+    }
+    wrap.append(inner);
+  }
+  return { panel: wrap, results };
 }
 
 function renderHome(body) {
@@ -903,11 +922,9 @@ async function renderSearch(body) {
   // is this anywhere", and on a library holding both a question and the
   // documents that answer it, the question's own wording outranks every
   // answer. Narrowing to a section is how the second question gets asked.
-  renderSearchScope(all);
-  const inSection = view.searchScope
-    ? all.filter((r) => r.item.type === view.searchScope)
-    : all;
-  const results = renderRefine(inSection);
+  const narrowed = narrowSearch(all);
+  const results = narrowed.results;
+  if (narrowed.panel) body.append(narrowed.panel);
 
   if (view.linking) {
     const banner = linkingBanner();
@@ -1652,6 +1669,7 @@ function wireApp() {
     // would answer the new question from inside the old one's filter and say
     // nothing about it.
     view.searchScope = null;
+    view.narrowOpen = false;
     view.searchVessel = null;
     view.searchCategory = null;
     clearTimeout(searchTimer);

@@ -441,6 +441,14 @@ const save = async (timeout = 30000) => {
 // Flag Circulars folds its four panels behind one line so the circulars are
 // what the section opens on. Everything the suite does with those panels needs
 // them unfolded first.
+const openNarrow = async () => {
+  const head = page.locator('#narrow .tools-head');
+  if (await head.count() === 0) return;
+  if ((await head.getAttribute('aria-expanded')) === 'true') return;
+  await head.click();
+  await page.waitForSelector('#narrow .tools-body', { timeout: 5000 });
+};
+
 const openTools = async () => {
   const head = page.locator('.tools-head');
   if (await head.count() === 0) return;
@@ -978,28 +986,35 @@ try {
   // Searching across ships, then keeping to one of them.
   await page.fill('#search', 'manual');
   await page.waitForTimeout(500);
-  const refineChips = await page.locator('#refine .scope-btn').allTextContents();
+  check('no row of buttons runs across the results',
+    await page.locator('#refine').isHidden() && await page.locator('#scope').isHidden());
+  check('narrowing is one folded line', await page.locator('#narrow .tools-head[aria-expanded="false"]').count() === 1);
+  await openNarrow();
+  const refineChips = await page.locator('#narrow .scope-btn').allTextContents();
   check('a search across ships offers to narrow by ship',
     refineChips.includes('MV Northern Star 2') && refineChips.includes('MT Baltic Trader 1'), refineChips.join(','));
   check('and by type', refineChips.includes('Engine 2') && refineChips.includes('Deck 1'), refineChips.join(','));
-  await page.locator('#refine .scope-btn', { hasText: 'MV Northern Star' }).click();
+  await page.locator('#narrow .scope-btn', { hasText: 'MV Northern Star' }).click();
   await page.waitForTimeout(250);
   check('choosing a ship keeps only her documents', (await page.locator('.card').count()) === 2,
     String(await page.locator('.card').count()));
-  const byShip = await page.locator('#refine .scope-btn').allTextContents();
+  const byShip = await page.locator('#narrow .scope-btn').allTextContents();
   check('the type counts follow the ship chosen', byShip.includes('Engine 1') && byShip.includes('Deck 1'),
     byShip.join(','));
-  await page.locator('#refine .scope-btn', { hasText: 'Engine' }).click();
+  await page.locator('#narrow .scope-btn', { hasText: 'Engine' }).click();
   await page.waitForTimeout(250);
   const both = await page.locator('.card').allInnerTexts();
   check('ship and type together narrow to one', both.length === 1 && /Main Engine/.test(both[0]), both.join(' | '));
+  check('and the folded line says what it is narrowed to',
+    /MV Northern Star · Engine/i.test(await page.locator('#narrow .tools-head').innerText()),
+    await page.locator('#narrow .tools-head').innerText());
   await page.fill('#search', 'crane');
   await page.waitForTimeout(400);
   check('a new search starts unnarrowed', (await page.locator('.card').count()) === 1
-    && await page.locator('#refine').isHidden());
+    && await page.locator('#narrow').count() === 0);
   await page.fill('#search', '');
   await page.waitForTimeout(300);
-  check('and the row goes when the search does', await page.locator('#refine').isHidden());
+  check('and the line goes when the search does', await page.locator('#narrow').count() === 0);
 
   // ---- setting the ship on a stack at once -------------------------------
   // A stack imported together arrives with no ship on any of them, and they
@@ -2492,11 +2507,12 @@ try {
 
   // "Where in the Synergy manuals is this" is a different question from "where
   // is this anywhere", and the question library says the words too.
-  const searchChips = await page.locator('.scope-btn').allTextContents();
+  await openNarrow();
+  const searchChips = await page.locator('#narrow .scope-btn').allTextContents();
   check('the sections that matched are offered to narrow to',
     searchChips.some((c) => /^Synergy/.test(c)) && searchChips.some((c) => /^Pubs/.test(c)),
     searchChips.join(' | '));
-  await page.locator('.scope-btn', { hasText: 'Synergy' }).click();
+  await page.locator('#narrow .scope-btn', { hasText: 'Synergy' }).click();
   await page.waitForTimeout(700);
   const narrowed = (await page.locator('#body .card-title').allInnerTexts()).join(' | ');
   check('narrowing to one section leaves the question library out of it',
