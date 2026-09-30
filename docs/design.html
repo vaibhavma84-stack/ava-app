@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Earmark Android Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column for the design, with a wide band of phone mockups that wraps to a single column on phones */
+:root{
+  --bg:#f3f4f1; --surface:#ffffff; --fg:#1b1f1d; --muted:#5b645f; --line:#d9ddd8;
+  --accent:#1f6f5c; --accent-soft:#dcebe5; --rec:#c8412c; --warn:#a86a00;
+  --screen:#fbfcfa; --screen-2:#eef1ee; --frame:#222725;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Roboto, system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121614; --surface:#1a1f1d; --fg:#e7ebe8; --muted:#9aa49f; --line:#2e3532;
+  --accent:#5cc3a6; --accent-soft:#1d3a32; --rec:#ef6a55; --warn:#e0a53b;
+  --screen:#171b19; --screen-2:#222826; --frame:#0a0c0b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614; --surface:#1a1f1d; --fg:#e7ebe8; --muted:#9aa49f; --line:#2e3532;
+  --accent:#5cc3a6; --accent-soft:#1d3a32; --rec:#ef6a55; --warn:#e0a53b;
+  --screen:#171b19; --screen-2:#222826; --frame:#0a0c0b; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-inline:20px;padding-block:40px 80px}
+.wrap{max-width:1080px;margin:0 auto;display:grid;gap:56px}
+.col{max-width:68ch}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.65rem;font-weight:700;margin-bottom:14px}
+h3{font-size:1.1rem;font-weight:500;margin-bottom:6px}
+p{margin:0 0 12px}
+.eyebrow{font:500 .75rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.lede{font-size:1.15rem;color:var(--muted);max-width:60ch;margin-top:14px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;font:.85rem var(--mono);color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+section{display:grid;gap:10px}
+ul{margin:0;padding-left:1.2em}
+li{margin-bottom:6px}
+code{font:.88em var(--mono);background:var(--screen-2);padding:1px 5px;border-radius:4px}
+
+/* goals */
+.goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:8px}
+.goals div{background:var(--surface);padding:18px 18px 16px;min-width:0}
+.goals p{color:var(--muted);font-size:.95rem;margin:0}
+
+/* phones */
+.phones{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px 24px;margin-top:10px}
+figure{margin:0;display:grid;gap:12px;justify-items:center;min-width:0}
+figcaption{font-size:.9rem;color:var(--muted);max-width:280px}
+figcaption b{display:block;color:var(--fg);font-family:var(--display);font-weight:500;font-size:1rem}
+.phone{width:100%;max-width:262px;aspect-ratio:9/19;background:var(--frame);border-radius:34px;padding:9px;box-shadow:0 18px 40px -22px rgba(0,0,0,.45)}
+.scr{height:100%;background:var(--screen);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;font-size:11px;line-height:1.4;position:relative}
+.sb{display:flex;justify-content:space-between;padding:8px 16px 4px;font:500 9.5px var(--mono);color:var(--muted)}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:6px 14px 10px}
+.bar .t{font:700 15px var(--display)}
+.ic{width:22px;height:22px;border-radius:50%;background:var(--screen-2);display:grid;place-items:center;color:var(--muted);font-size:11px}
+.search{margin:0 12px 8px;background:var(--screen-2);border-radius:18px;padding:7px 12px;color:var(--muted)}
+.chips{display:flex;gap:5px;padding:0 12px 8px}
+.chip{border:1px solid var(--line);border-radius:10px;padding:2px 8px;font-size:9.5px;color:var(--muted)}
+.chip.on{background:var(--accent-soft);border-color:transparent;color:var(--accent);font-weight:600}
+.row{padding:8px 14px;border-top:1px solid var(--line);display:grid;gap:2px}
+.row .h{display:flex;justify-content:space-between;gap:8px;font-weight:600;font-size:11.5px}
+.row .s{color:var(--muted);font-size:10px;display:flex;gap:6px;align-items:center}
+.row .x{color:var(--muted);font-size:10px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+.pill{font:500 8.5px var(--mono);padding:1px 6px;border-radius:8px;background:var(--screen-2);color:var(--muted);white-space:nowrap}
+.pill.go{background:var(--accent-soft);color:var(--accent)}
+.prog{height:3px;background:var(--screen-2);border-radius:2px;overflow:hidden;margin-top:3px}
+.prog i{display:block;height:100%;width:62%;background:var(--accent)}
+.fab{position:absolute;right:14px;bottom:16px;display:flex;gap:6px}
+.fab span{background:var(--accent);color:var(--screen);border-radius:14px;padding:9px 13px;font-weight:600;font-size:11px}
+.fab span.alt{background:var(--screen-2);color:var(--fg)}
+.fill{flex:1}
+.rec-top{text-align:center;padding:14px 0 4px}
+.rec-dot{display:inline-flex;align-items:center;gap:5px;color:var(--rec);font:500 10px var(--mono);letter-spacing:.08em}
+.rec-dot::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--rec)}
+.timer{font:500 30px var(--mono);font-variant-numeric:tabular-nums;margin-top:4px}
+.wave{display:flex;align-items:center;justify-content:center;gap:2px;height:70px;padding:0 14px}
+.wave i{width:3px;border-radius:2px;background:var(--accent);opacity:.85}
+.wave i.old{background:var(--muted);opacity:.35}
+.live{margin:6px 12px;padding:10px;border-radius:12px;background:var(--screen-2);font-size:11px}
+.live .lbl{font:500 8.5px var(--mono);letter-spacing:.1em;color:var(--muted);margin-bottom:4px}
+.live em{color:var(--muted);font-style:normal}
+.ctrls{display:flex;justify-content:center;align-items:center;gap:22px;padding:14px 0 22px}
+.ctrls .sm{width:38px;height:38px;border-radius:50%;background:var(--screen-2);display:grid;place-items:center;font-size:10px;color:var(--fg)}
+.ctrls .big{width:60px;height:60px;border-radius:50%;border:3px solid var(--rec);display:grid;place-items:center}
+.ctrls .big i{width:22px;height:22px;border-radius:5px;background:var(--rec)}
+.seg{display:grid;grid-template-columns:40px 1fr;gap:6px;padding:6px 14px}
+.seg .ts{font:500 9.5px var(--mono);color:var(--accent);padding-top:1px}
+.seg .sp{font-weight:600;font-size:10px;color:var(--muted)}
+.seg p{margin:0;font-size:11px}
+.seg.now{background:var(--accent-soft)}
+.lowconf{text-decoration:underline wavy var(--warn);text-underline-offset:2px}
+.player{border-top:1px solid var(--line);padding:8px 14px 14px;display:grid;gap:6px;background:var(--surface)}
+.scrub{height:4px;background:var(--screen-2);border-radius:2px;position:relative}
+.scrub i{position:absolute;left:0;top:0;bottom:0;width:38%;background:var(--accent);border-radius:2px}
+.scrub b{position:absolute;left:38%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--accent)}
+.pl{display:flex;justify-content:space-between;align-items:center;font:500 9.5px var(--mono);color:var(--muted)}
+.pl .play{width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--screen);display:grid;place-items:center;font-size:11px}
+.sheet{margin-top:auto;background:var(--surface);border-radius:18px 18px 0 0;padding:10px 14px 16px;box-shadow:0 -8px 24px -12px rgba(0,0,0,.3);display:grid;gap:8px}
+.grab{width:32px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 2px}
+.sheet .t{font:700 13px var(--display)}
+.opt{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.opt:last-child{border:0}
+.opt small{color:var(--muted);display:block;font-size:9.5px}
+.radio{width:13px;height:13px;border-radius:50%;border:2px solid var(--line)}
+.radio.on{border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--surface);background:var(--accent)}
+.dim{flex:1;background:var(--screen);opacity:.5;padding:14px}
+.dim .row{border:0;padding:6px 0}
+.btn{background:var(--accent);color:var(--screen);text-align:center;border-radius:14px;padding:9px;font-weight:600}
+
+/* tables & diagram */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--screen-2)}
+tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.pick td{background:var(--accent-soft)}
+.pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin-top:6px}
+.step{flex:1 1 150px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.step .k{font:500 .7rem var(--mono);color:var(--accent);letter-spacing:.08em}
+.step h3{font-size:1rem;margin:4px 0}
+.step p{font-size:.88rem;color:var(--muted);margin:0}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.two>div{min-width:0}
+pre{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;font:.82rem/1.55 var(--mono)}
+.phase{display:grid;grid-template-columns:110px 1fr;gap:4px 18px;padding:14px 0;border-top:1px solid var(--line)}
+.phase .w{font:500 .8rem var(--mono);color:var(--accent)}
+.phase p{margin:0;color:var(--muted)}
+@media (max-width:520px){.phase{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="col">
+  <div class="eyebrow">Design proposal · Android</div>
+  <h1>Earmark: turn recordings into text, entirely on the phone</h1>
+  <p class="lede">Record a conversation, open an audio file, or pick a video, and get a searchable, timestamped transcript. Speech recognition runs on the device, so it works with no signal and nothing leaves the phone.</p>
+  <div class="meta"><span>Platform <b>Android 9+ (API 28)</b></span><span>Engine <b>Whisper, on-device</b></span><span>Language <b>English</b></span><span>Ships as <b>a standalone app</b></span><span>Stack <b>Kotlin · Jetpack Compose</b></span><span>Status <b>Draft for review</b></span></div>
+</header>
+
+<section>
+  <h2>What it must do</h2>
+  <div class="goals">
+    <div><h3>Work offline</h3><p>After a one-time model download, recording, transcription, search and export need no internet connection.</p></div>
+    <div><h3>Take any audio</h3><p>Record in the app, pick an audio file (MP3, M4A, WAV, OGG, OPUS, FLAC), or share a voice note in from WhatsApp or Recorder.</p></div>
+    <div><h3>Take video too</h3><p>Pick or share in a video (MP4, MKV, WebM, 3GP, MOV) from the gallery or WhatsApp. The app pulls out the sound track and transcribes that; export as subtitles to put words back on the video.</p></div>
+    <div><h3>Keep text tied to sound</h3><p>Every sentence carries its timestamp. Tap a line to hear it; edit words that were misheard.</p></div>
+    <div><h3>Get it out</h3><p>Copy, share, or export as plain text, SRT or VTT subtitles, with or without timestamps.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Screens</h2>
+  <p class="col">Four screens cover the whole job. Material 3 components, one accent colour, and red reserved for "recording in progress".</p>
+  <div class="phones">
+
+    <figure>
+      <div class="phone"><div class="scr">
+        <div class="sb"><span>09:41</span><span>● ▲ 82%</span></div>
+        <div class="bar"><span class="t">Earmark</span><span class="ic">⚙</span></div>
+        <div class="search">Search all transcripts</div>
+        <div class="chips"><span class="chip on">All</span><span class="chip">Recorded</span><span class="chip">Audio</span><span class="chip">Video</span></div>
+        <div class="row"><div class="h"><span>Engine room briefing</span><span class="pill go">62%</span></div><div class="s">Today 08:12 · 14:37</div><div class="prog"><i></i></div></div>
+        <div class="row"><div class="h"><span>Call with surveyor</span><span class="pill">Done</span></div><div class="s">Yesterday · 23:05</div><div class="x">"…the certificate needs the stamp from the flag state before…"</div></div>
+        <div class="row"><div class="h"><span>▶ Safety drill.mp4</span><span class="pill">Done</span></div><div class="s">Video · Mon · 06:52</div><div class="x">"…muster at station two, lifejackets on, and wait for the…"</div></div>
+        <div class="row"><div class="h"><span>voice-note-0417.opus</span><span class="pill">Done</span></div><div class="s">Mon · 01:48</div><div class="x">"Send the report over by tomorrow morning if you can…"</div></div>
+        <div class="row"><div class="h"><span>▶ Lecture — ECDIS week 3.mkv</span><span class="pill">Queued</span></div><div class="s">Video · Sun · 1:12:40</div></div>
+        <div class="fill"></div>
+        <div class="fab"><span class="alt">Import</span><span>● Record</span></div>
+      </div></div>
+      <figcaption><b>Library</b>Recordings, audio files and videos together, with status. Videos are marked ▶ and can be filtered. Search runs over every transcript. Long files show live progress and keep going in the background.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone"><div class="scr">
+        <div class="sb"><span>10:02</span><span>● ▲ 80%</span></div>
+        <div class="rec-top"><div class="rec-dot">RECORDING</div><div class="timer">04:17</div></div>
+        <div class="wave" id="wave"></div>
+        <div class="live"><div class="lbl">LIVE PREVIEW</div>Start with the port side generator, then check the fuel filters on number two <em>before we…</em></div>
+        <div class="fill"></div>
+        <div style="text-align:center;color:var(--muted);font-size:9.5px">Full transcript is made when you stop</div>
+        <div class="ctrls"><span class="sm">❚❚</span><span class="big"><i></i></span><span class="sm">⚑</span></div>
+      </div></div>
+      <figcaption><b>Recording</b>Big stop button, pause, and a flag to mark a moment. A rough live preview shows the mic is working; the accurate pass runs after you stop.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone"><div class="scr">
+        <div class="sb"><span>10:30</span><span>● ▲ 78%</span></div>
+        <div class="bar"><span class="ic">←</span><span class="t" style="font-size:13px">Call with surveyor</span><span class="ic">⋮</span></div>
+        <div class="seg"><span class="ts">00:00</span><div><div class="sp">Speaker 1</div><p>Morning. I've looked through the documents you sent over last night.</p></div></div>
+        <div class="seg now"><span class="ts">00:07</span><div><div class="sp">Speaker 2</div><p>Good. The main thing is the <span class="lowconf">IOPP</span> certificate, it expires in March.</p></div></div>
+        <div class="seg"><span class="ts">00:14</span><div><div class="sp">Speaker 1</div><p>Right, so the certificate needs the stamp from the flag state before the renewal survey.</p></div></div>
+        <div class="seg"><span class="ts">00:23</span><div><div class="sp">Speaker 2</div><p>I'll send the checklist this afternoon.</p></div></div>
+        <div class="fill"></div>
+        <div class="player">
+          <div class="scrub"><i></i><b></b></div>
+          <div class="pl"><span>08:46</span><span>0.5× · <b style="color:var(--fg)">1×</b> · 1.5×</span><span class="play">▶</span><span>23:05</span></div>
+        </div>
+      </div></div>
+      <figcaption><b>Transcript</b>The line being played is highlighted. Words the model was unsure of get a wavy underline, so they're easy to check. Tap any text to edit it.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="phone"><div class="scr">
+        <div class="sb"><span>10:31</span><span>● ▲ 78%</span></div>
+        <div class="dim"><div class="row"><div class="h"><span>Call with surveyor</span></div></div><div class="row"><div class="x">Morning. I've looked through the documents…</div></div></div>
+        <div class="sheet">
+          <div class="grab"></div>
+          <div class="t">Export transcript</div>
+          <div class="opt"><div>Plain text<small>Paragraphs, no timestamps</small></div><span class="radio"></span></div>
+          <div class="opt"><div>Text with timestamps<small>[00:07] Speaker 2: …</small></div><span class="radio on"></span></div>
+          <div class="opt"><div>Subtitles (.srt)<small>For video players and editors</small></div><span class="radio"></span></div>
+          <div class="opt"><div>Subtitles (.vtt)<small>For the web</small></div><span class="radio"></span></div>
+          <div class="btn">Share…</div>
+        </div>
+      </div></div>
+      <figcaption><b>Export</b>A bottom sheet with four formats. "Share" hands the file to any app (Gmail, Drive, WhatsApp); "Save" writes it to a folder the user picks.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<section class="col">
+  <h2>How transcription works</h2>
+  <p>A file of any length goes through the same five steps. The work runs in a background job with a progress notification, so the user can lock the phone or switch apps and it keeps going.</p>
+</section>
+<div class="pipe">
+  <div class="step"><div class="k">STEP 1</div><h3>Decode</h3><p>MediaExtractor finds the audio track (in an audio file or a video); MediaCodec turns AAC, MP3, Opus, AC-3 and the rest into raw PCM. Video frames are never decoded.</p></div>
+  <div class="step"><div class="k">STEP 2</div><h3>Resample</h3><p>Convert to 16 kHz mono float, the format Whisper expects.</p></div>
+  <div class="step"><div class="k">STEP 3</div><h3>Find speech</h3><p>Silero VAD skips silence and splits audio into ≤30 s chunks at pauses.</p></div>
+  <div class="step"><div class="k">STEP 4</div><h3>Recognise</h3><p>whisper.cpp (native, via JNI) returns text with per-segment and per-word timings.</p></div>
+  <div class="step"><div class="k">STEP 5</div><h3>Save</h3><p>Segments land in the database as they finish, so partial results appear early.</p></div>
+</div>
+
+<section>
+  <h2>Choosing the model</h2>
+  <p class="col">The app is English only, so it uses Whisper's English-only models, which are slightly more accurate for English than the multilingual ones of the same size. Bigger is more accurate and slower. The app ships without a model and downloads one on first run; the user can switch later in Settings. Sizes are for 5-bit quantised files; speeds are rough guides on a mid-range 2024 phone (8-core, 8 GB RAM) and will be measured in the prototype.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Model</th><th>Download</th><th>Speed (1 h audio)</th><th>Accuracy</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td>tiny.en</td><td class="n">≈ 31 MB</td><td class="n">≈ 6 min</td><td>Rough; fine for live preview</td><td>Old or low-RAM phones</td></tr>
+      <tr class="pick"><td><b>base.en</b> (default)</td><td class="n">≈ 57 MB</td><td class="n">≈ 12 min</td><td>Good for clear speech</td><td>Most users</td></tr>
+      <tr><td>small.en</td><td class="n">≈ 181 MB</td><td class="n">≈ 35 min</td><td>Noticeably better with accents and noise</td><td>Flagship phones, overnight jobs</td></tr>
+    </tbody>
+  </table></div>
+  <p class="col" style="color:var(--muted);font-size:.92rem;margin-top:8px">Alternatives considered: <b>Vosk</b> (small and streams well, weaker on accents; kept as an option for live preview), <b>Android's on-device SpeechRecognizer</b> (API 31+, built for live dictation, cannot take files reliably), <b>cloud APIs</b> (ruled out: need signal and send audio off the phone).</p>
+</section>
+
+<section class="two">
+  <div>
+    <h2>Architecture</h2>
+    <ul>
+      <li><b>UI:</b> Jetpack Compose, Material 3, one activity, Navigation Compose.</li>
+      <li><b>State:</b> MVVM with ViewModels and Kotlin Flow; Hilt for wiring.</li>
+      <li><b>Storage:</b> Room (SQLite) with an FTS4 table for full-text search.</li>
+      <li><b>Background work:</b> WorkManager running a foreground service (<code>mediaProcessing</code> type on Android 15+, <code>dataSync</code> below). One job at a time; others queue.</li>
+      <li><b>Recording:</b> AudioRecord at 16 kHz, saved as Opus (≈ 7 MB per hour) with a foreground <code>microphone</code> service.</li>
+      <li><b>Playback:</b> Media3 ExoPlayer, synced to the transcript.</li>
+      <li><b>Import:</b> Storage Access Framework picker and the Android Photo Picker (for gallery videos), plus a share-target intent filter for <code>audio/*</code> and <code>video/*</code>.</li>
+      <li><b>Video:</b> only the audio track is kept, re-encoded to Opus. A 1 GB phone video becomes about 7 MB per hour of sound. A thumbnail frame is saved for the library. The original video is opened again from its URI when the user wants to watch it with subtitles.</li>
+      <li><b>Native:</b> whisper.cpp built with the NDK for arm64-v8a, using NEON and 4 threads.</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Data model</h2>
+<pre>Recording
+  id, title, sourceUri, audioPath
+  durationMs, createdAt
+  sourceKind: RECORDED | AUDIO | VIDEO
+  thumbnailPath?
+  status: QUEUED | RUNNING | DONE | FAILED
+  progress: 0–100, modelName
+
+Segment
+  id, recordingId, startMs, endMs
+  speaker?, text, confidence
+  edited: Boolean
+
+SegmentFts  (text)   -- full-text index
+
+Bookmark
+  id, recordingId, atMs, label?</pre>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:10px">Sample SRT export:</p>
+<pre>2
+00:00:07,120 --> 00:00:13,480
+Good. The main thing is the IOPP
+certificate, it expires in March.</pre>
+  </div>
+</section>
+
+<section class="col">
+  <h2>Permissions and privacy</h2>
+  <ul>
+    <li><code>RECORD_AUDIO</code>, asked only when the user first taps Record.</li>
+    <li><code>POST_NOTIFICATIONS</code> (Android 13+) for the progress notification.</li>
+    <li><code>FOREGROUND_SERVICE_MICROPHONE</code> and <code>FOREGROUND_SERVICE_MEDIA_PROCESSING</code>.</li>
+    <li><code>INTERNET</code> is used only to download the model. No analytics, no accounts, no audio or text ever uploaded.</li>
+    <li>No storage permission needed: imported audio, and the sound pulled from videos, is copied into the app's private folder. Videos are read through the picker, never scanned.</li>
+  </ul>
+</section>
+
+<section class="col">
+  <h2>Edge cases to handle</h2>
+  <ul>
+    <li><b>Phone call during recording:</b> pause automatically on audio-focus loss, resume after.</li>
+    <li><b>App killed or phone restarted mid-job:</b> WorkManager resumes from the last saved segment, not from zero.</li>
+    <li><b>Low battery:</b> pause long jobs below 15% unless charging; offer "only while charging" in Settings.</li>
+    <li><b>Low storage:</b> check free space before recording or downloading a model, and say how much is needed.</li>
+    <li><b>Video with no sound track:</b> say "This video has no audio" at import, instead of queuing it.</li>
+    <li><b>Video with several audio tracks</b> (e.g. dubbed films): use the first, and let the user pick another from the recording's menu.</li>
+    <li><b>Very large videos:</b> extract audio as a stream, so a 4 GB file never has to be copied or held in memory.</li>
+    <li><b>Speech that isn't English:</b> the English models will produce poor text. If most of a transcript is low-confidence, show "This may not be English speech" instead of silently saving nonsense.</li>
+    <li><b>Hot phone:</b> drop to 2 threads when the system reports thermal throttling.</li>
+  </ul>
+</section>
+
+<section class="col">
+  <h2>Build plan</h2>
+  <div class="phase"><span class="w">Weeks 1–2</span><div><h3>Prove the engine</h3><p>whisper.cpp running from Kotlin on a real phone; transcribe a bundled WAV; measure speed and memory for tiny, base and small.</p></div></div>
+  <div class="phase"><span class="w">Weeks 3–5</span><div><h3>MVP</h3><p>Import an audio or video file, background transcription with progress, library list, transcript view with playback, export as text.</p></div></div>
+  <div class="phase"><span class="w">Weeks 6–7</span><div><h3>Recording</h3><p>In-app recorder, bookmarks, share-into-app, SRT and VTT export, search.</p></div></div>
+  <div class="phase"><span class="w">Weeks 8–9</span><div><h3>Polish and release</h3><p>Editing, low-confidence highlighting, dark theme, accessibility pass, internal test track on Google Play.</p></div></div>
+  <div class="phase"><span class="w">Later</span><div><h3>Nice to have</h3><p>Speaker labels (diarisation), live preview with Vosk, other languages (swap in the multilingual models and add a language picker), summary of long recordings.</p></div></div>
+</section>
+
+<section class="col">
+  <h2>Decisions</h2>
+  <ul>
+    <li><b>Standalone app</b>, with its own code, package name and Play Store listing. Not part of the library app.</li>
+    <li><b>English only</b> for the first release, using the <code>.en</code> Whisper models. The code keeps the model choice in one place so other languages can be added later.</li>
+  </ul>
+  <h2 style="margin-top:22px">Still open</h2>
+  <ul>
+    <li>Are speaker labels ("Speaker 1 / Speaker 2") needed in the first release? On-device diarisation adds size and effort. Until decided, the mockups show them but the build plan puts them under "Later".</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var w=document.getElementById('wave'); if(!w) return;
+  var n=46, s=7;
+  for(var i=0;i<n;i++){
+    s=(s*9301+49297)%233280;
+    var r=s/233280, env=Math.sin((i/n)*Math.PI*3.2)*0.4+0.6;
+    var h=Math.max(4,Math.round((0.25+r*0.75)*env*62));
+    var b=document.createElement('i'); b.style.height=h+'px';
+    if(i<n-14) b.className='old';
+    w.appendChild(b);
+  }
+})();
+</script>
+</body>
+</html>
