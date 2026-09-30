@@ -252,6 +252,29 @@ export async function importRecords(payload) {
   return n;
 }
 
+// ── lists kept beside the entries ───────────────────────────────────────────
+//
+// Saved answers, checklists, pinned pages: things that belong to the library
+// as a whole rather than to one entry. Each is one list under its own name,
+// and every one of them travels in a full backup.
+
+export const LISTS = ['savedAnswers', 'checklists', 'pins', 'recent'];
+const lists = new Map();
+
+export async function getList(name) {
+  if (!lists.has(name)) lists.set(name, (await db.getMeta(`list:${name}`)) || []);
+  return lists.get(name);
+}
+
+export async function setList(name, rows) {
+  lists.set(name, rows);
+  await db.setMeta(`list:${name}`, rows);
+  emit();
+}
+
+/** What a list holds right now, without waiting: [] until it is first read. */
+export const peekList = (name) => lists.get(name) || [];
+
 // ── full backup ─────────────────────────────────────────────────────────────
 //
 // Everything: the entries as they are, with their own ids, the text read out
@@ -292,7 +315,8 @@ export async function fullBackup() {
     exportedAt: new Date().toISOString(),
     counts: { items: items.length, files: files.length },
     files: paths,
-    items
+    items,
+    lists: Object.fromEntries(await Promise.all(LISTS.map(async (n) => [n, await getList(n)])))
   };
   return { manifest, texts: textOut, files };
 }
@@ -332,12 +356,22 @@ export async function restoreFull(manifest, texts, blobFor) {
     state.items.set(item.id, item);
     items++;
   }
+  // A list comes back merged with what is here, by id, so restoring onto a
+  // phone in use keeps what was saved on it since.
+  for (const name of LISTS) {
+    const saved = manifest.lists?.[name];
+    if (!Array.isArray(saved)) continue;
+    const here = await getList(name);
+    const ids = new Set(here.map((r) => r.id));
+    await setList(name, [...here, ...saved.filter((r) => !ids.has(r.id))]);
+  }
   state.texts = null;
   emit();
   return { items, files, missing };
 }
 
 export async function eraseVault() {
+  lists.clear();
   await db.destroyEverything();
   state.items = new Map();
   state.texts = null;

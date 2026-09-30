@@ -3479,7 +3479,7 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     check('the answer is shown', /at least 25 bar/.test(answerShown), answerShown);
     check('followed by the page it came from', /Main Engine Operating.* p\.1/.test(await other.locator('.cite').first().innerText()),
       await other.locator('.cite').first().innerText());
-    check('with what it cost', /Claude Opus 5\.5 · about \$0\.0\d/.test(await other.locator('.ask-status').innerText()),
+    check('with what it cost, and that it is kept', /Claude Opus 5\.5 · about \$0\.0\d+ · saved/.test(await other.locator('.ask-status').innerText()),
       await other.locator('.ask-status').innerText());
 
     const answerCall = sentToApi.find((c) => c.body.stream);
@@ -3506,6 +3506,38 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     check('tapping the page opens it', true);
     await other.click('#viewerClose');
     await other.click('#askClose');
+
+    // Kept, and readable again with no connection.
+    await fresh.setOffline(true);
+    await other.fill('#search', 'starting air');
+    await other.waitForTimeout(500);
+    check('a search shows a question already answered',
+      /Answered before · 1/i.test(await other.locator('#savedHits').innerText().catch(() => '')));
+    await other.fill('#search', '');
+    await other.waitForTimeout(300);
+    if (await other.locator('#backBtn').isVisible()) { await other.click('#backBtn'); await other.waitForTimeout(200); }
+    check('the home screen offers the saved answers',
+      /Saved answers\s*1/i.test(await other.locator('#open-answers').innerText().catch(() => '')));
+    await other.click('#open-answers');
+    await other.waitForTimeout(300);
+    await other.locator('#body .answer-open', { hasText: 'minimum starting air pressure' }).click();
+    await other.waitForSelector('#ask:not([hidden])');
+    check('and reads it again with no connection, pages and all',
+      /at least 25 bar/.test(await other.locator('#askAnswer').innerText())
+      && await other.locator('#askAnswer .cite').count() === 1);
+    await other.locator('#askAnswer .cite').first().click();
+    await other.waitForSelector('#viewer:not([hidden])');
+    await other.click('#viewerClose');
+    const listed = await other.evaluate(async () => (await (await import('./js/store.js')).fullBackup()).manifest.lists.savedAnswers.length);
+    check('saved answers travel in a full backup', listed === 1, String(listed));
+    await other.click('#askBody button:has-text("Delete this answer")');
+    await other.waitForTimeout(300);
+    check('and can be deleted', /No saved answers/i.test(await other.locator('#body').innerText()));
+    await fresh.setOffline(false);
+    await other.click('#backBtn');
+    await other.waitForTimeout(200);
+    await other.fill('#search', 'What is the minimum starting air pressure?');
+    await other.waitForTimeout(500);
 
     // A key the API refuses says so in words.
     await fresh.unroute('https://api.anthropic.com/**');

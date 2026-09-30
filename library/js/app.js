@@ -17,7 +17,7 @@ import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 
-const APP_VERSION = '2026.10.35';
+const APP_VERSION = '2026.10.36';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -62,7 +62,8 @@ const view = {
 };
 
 const PAGES = {
-  highlights: { title: 'Highlights', draw: (body) => renderHighlights(body) }
+  highlights: { title: 'Highlights', draw: (body) => renderHighlights(body) },
+  answers: { title: 'Saved answers', draw: (body) => renderSavedAnswers(body) }
 };
 
 let lockTimer = null;
@@ -204,6 +205,7 @@ function enterApp() {
   dropImplausibleMakers();
   loadAutoRead().then(() => autoReadSoon(5000));
   loadAsk().then(render);
+  Promise.all(store.LISTS.map((n) => store.getList(n))).then(render);
 }
 
 /**
@@ -884,6 +886,8 @@ async function renderSearch(body) {
     // asking looks for the pages holding the most of them.
     const asking = askButton(query);
     if (asking) body.append(asking);
+    const before = savedAnswersPanel(query);
+    if (before) body.append(before);
     const scoped = view.searchScope ? ` in ${TYPES[view.searchScope].label}` : '';
     body.append(emptyState(
       texts ? 'Nothing found' : 'Nothing found yet',
@@ -893,6 +897,8 @@ async function renderSearch(body) {
 
   const asking = askButton(query);
   if (asking) body.append(asking);
+  const before = savedAnswersPanel(query);
+  if (before) body.append(before);
   const settings = alarmHits(query, results);
   if (settings) body.append(settings);
 
@@ -3002,6 +3008,8 @@ function collectionsRow() {
   const rows = [];
   const highlights = allHighlights().length;
   if (highlights) rows.push(['highlights', 'Highlights', highlights]);
+  const answers = store.peekList('savedAnswers').length;
+  if (answers) rows.push(['answers', 'Saved answers', answers]);
   if (!rows.length) return null;
   return el('div', { class: 'collections' }, rows.map(([page, label, n]) => el('button', {
     class: 'collection-btn', id: `open-${page}`,
@@ -4440,23 +4448,115 @@ async function openAsk(question) {
     }
     // Drawn again from the finished answer, with each part followed by the
     // pages it came from -- the way to check it.
-    clear(answer);
-    for (const block of result.blocks) {
-      answer.append(document.createTextNode(block.text));
-      for (const i of block.cites) {
-        const p = pages[i];
-        answer.append(el('button', {
-          class: 'cite', onclick: () => openAttachment(p.att, p.page, p.item.id)
-        }, [`${titleOf(p.item).slice(0, 28)} p.${p.page}`]));
-      }
-    }
+    const refs = pages.map((p) => ({ itemId: p.item.id, attId: p.att.id, page: p.page, title: titleOf(p.item) }));
+    const blocks = result.blocks.map((b) => ({ text: b.text, cites: b.cites }));
+    drawAnswer(answer, blocks, refs);
     const cost = ask.costOf(result.usage, model);
-    status.textContent = `${ask.modelInfo(model).label} · about $${cost < 0.01 ? cost.toFixed(3) : cost.toFixed(2)}`;
-    body.append(el('p', { class: 'ask-note', text: 'Answered only from the pages listed. Tap a page to check it — above all any figure — before acting on it.' }));
+    const saved = {
+      id: store.newId(), question, at: new Date().toISOString(),
+      model, cost, blocks, refs
+    };
+    // Kept as soon as it arrives: it has been paid for, and at sea it may be
+    // the only way to read it again.
+    await store.setList('savedAnswers', [saved, ...store.peekList('savedAnswers')]);
+    status.textContent = `${ask.modelInfo(model).label} · about $${cost < 0.01 ? cost.toFixed(3) : cost.toFixed(2)} · saved`;
+    body.append(el('p', { class: 'ask-note', text: 'Answered only from the pages listed. Tap a page to check it — above all any figure — before acting on it. Kept under Saved answers, to read again with no connection.' }));
   } catch (ex) {
     if (askState.controller !== controller) return;
     status.textContent = ask.explainFailure(ex);
   }
+}
+
+/** Where a cited page is now, if it is still in the library. */
+function refTarget(ref) {
+  const item = store.getItem(ref.itemId);
+  const att = (item?.data.attachments || []).find((a) => a.id === ref.attId);
+  return item && att ? { item, att } : null;
+}
+
+function openRef(ref) {
+  const t = refTarget(ref);
+  if (!t) { toast('That document is no longer in the library'); return; }
+  openAttachment(t.att, ref.page, t.item.id);
+}
+
+/** An answer's text, each part followed by the pages it came from. */
+function drawAnswer(container, blocks, refs) {
+  clear(container);
+  for (const block of blocks) {
+    container.append(document.createTextNode(block.text));
+    for (const i of block.cites || []) {
+      const ref = refs[i];
+      if (!ref) continue;
+      container.append(el('button', { class: 'cite', onclick: () => openRef(ref) },
+        [`${ref.title.slice(0, 28)} p.${ref.page}`]));
+    }
+  }
+}
+
+const answerText = (a) => [a.question, ...(a.blocks || []).map((b) => b.text)].join(' ');
+const shortDate = (iso) => (iso || '').slice(0, 16).replace('T', ' ');
+
+/** A saved answer, read again: no connection needed, nothing sent. */
+function showSavedAnswer(saved) {
+  askState.controller?.abort();
+  askState.controller = null;
+  const body = clear($('#askBody'));
+  $('#ask').hidden = false;
+  body.append(el('p', { class: 'ask-q', text: saved.question }));
+  body.append(el('p', { class: 'ask-status',
+    text: `Saved ${shortDate(saved.at)} · ${ask.modelInfo(saved.model).label}` }));
+  const answer = el('div', { class: 'ask-answer', id: 'askAnswer' });
+  drawAnswer(answer, saved.blocks, saved.refs);
+  body.append(answer);
+  const sent = el('details', { class: 'ask-pages' }, [
+    el('summary', { text: `Answered from ${plural(saved.refs.length, 'page', 'pages')}` })
+  ]);
+  for (const ref of saved.refs) {
+    sent.append(el('button', { class: 'answer-open', onclick: () => openRef(ref) },
+      [el('span', { class: 'answer-ref', text: ref.title }), el('span', { class: 'answer-where', text: `page ${ref.page}` })]));
+  }
+  body.append(sent);
+  body.append(el('p', { class: 'ask-note', text: 'Answered from the pages as they were then. If a document has been replaced since, check the page in the new one.' }));
+  body.append(el('button', {
+    class: 'btn btn-danger btn-block', style: 'margin-top:12px',
+    onclick: async () => {
+      await store.setList('savedAnswers', store.peekList('savedAnswers').filter((a) => a.id !== saved.id));
+      closeAsk();
+      render();
+      toast('Answer deleted');
+    }
+  }, ['Delete this answer']));
+}
+
+function savedAnswerRow(a) {
+  return el('button', { class: 'answer-open', onclick: () => showSavedAnswer(a) }, [
+    el('span', { class: 'answer-ref', text: a.question }),
+    el('span', { class: 'answer-where', text: `${shortDate(a.at)} · ${plural(a.refs?.length || 0, 'page', 'pages')}` })
+  ]);
+}
+
+function renderSavedAnswers(body) {
+  const all = store.peekList('savedAnswers');
+  if (!all.length) {
+    body.append(emptyState('No saved answers', 'Every answer from Ask Claude is kept here, to read again with no connection.'));
+    return;
+  }
+  const panel = el('div', { class: 'panel' });
+  for (const a of all) panel.append(savedAnswerRow(a));
+  body.append(panel);
+}
+
+/** Search: questions already answered that match, before asking again. */
+function savedAnswersPanel(query) {
+  const test = matcher(query);
+  const hits = store.peekList('savedAnswers').filter((a) => test(answerText(a)));
+  if (!hits.length) return null;
+  const panel = el('div', { class: 'panel', id: 'savedHits' }, [
+    el('h3', { text: `Answered before \u00b7 ${hits.length}` })
+  ]);
+  for (const a of hits.slice(0, 5)) panel.append(savedAnswerRow(a));
+  return panel;
 }
 
 function closeAsk() {
