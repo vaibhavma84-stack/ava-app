@@ -10,6 +10,7 @@
 
 import { el, clear } from './ui.js';
 import { docSource } from './pdfsource.js';
+import { referencesIn } from './xref.js';
 
 const MAX_CANVAS_WIDTH = 1400;   // beyond this, a phone gains nothing but memory use
 
@@ -38,7 +39,7 @@ function isImageBlob(blob, name) {
 const isTextBlob = (blob, name) =>
   /^text\//i.test(blob?.type || '') || /\.txt$/i.test(String(name || ''));
 
-export async function renderInto(container, blob, name, { onStatus, startPage = 1, book = false, onLayout } = {}) {
+export async function renderInto(container, blob, name, { onStatus, startPage = 1, book = false, onLayout, onLink } = {}) {
   clear(container);
 
   if (isImageBlob(blob, name)) {
@@ -59,7 +60,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
 
   if (/epub/i.test(blob?.type || '') || /\.epub$/i.test(String(name || ''))) {
     const { renderEpub } = await import('./epub.js');
-    return renderEpub(container, blob, { onStatus, startPage });
+    return renderEpub(container, blob, { onStatus, startPage, onLink });
   }
 
   if (!isPdfBlob(blob, name)) {
@@ -80,20 +81,37 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   // What to highlight: given the words of one text fragment, the [start, end]
   // of each part of it to mark. Null for nothing.
   let marks = null;
+  // What can be tapped on each page drawn: the document's own links, and
+  // the references in its words that were found and underlined.
+  const links = new Map();
 
-  const draw = async (canvas, pageNo) => {
-    if (rendered.has(pageNo)) return;
+  // factor: drawn again, at that many times the usual detail -- a page
+  // pinched in, or put back to the usual (1) once it is not.
+  const draw = async (canvas, pageNo, factor = 0) => {
+    if (rendered.has(pageNo) && !factor) return;
     rendered.add(pageNo);
     try {
       const page = await doc.getPage(pageNo);
       const base = page.getViewport({ scale: 1 });
-      const viewport = page.getViewport({ scale: width / base.width });
-      canvas.width = Math.round(viewport.width);
-      canvas.height = Math.round(viewport.height);
-      const ctx = canvas.getContext('2d');
+      const across = Math.min(Math.round(width * (factor || 1)), 2600);
+      const viewport = page.getViewport({ scale: across / base.width });
+      // Drawn again over a page already showing, it is drawn aside and put
+      // in place whole, so the page never goes blank while it is redrawn.
+      const target = factor ? document.createElement('canvas') : canvas;
+      target.width = Math.round(viewport.width);
+      target.height = Math.round(viewport.height);
+      const ctx = target.getContext('2d');
       await page.render({ canvasContext: ctx, viewport }).promise;
       if (marks) await highlight(page, viewport, ctx, marks);
+      links.set(pageNo, await linksOn(page, viewport, ctx));
       page.cleanup();
+      if (target !== canvas) {
+        canvas.width = target.width;
+        canvas.height = target.height;
+        canvas.getContext('2d').drawImage(target, 0, 0);
+        target.width = 0;
+        target.height = 0;
+      }
       // Its real shape is known now, rather than A4.
       if (bookOn && !canvas.classList.contains('book-off')) {
         fit(canvas);
@@ -137,6 +155,9 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   // it is uncovered; going back the previous page swings back over. Only the
   // page on screen and the ones either side of it are laid out at all.
   let bookOn = false;
+  // How far the page on screen is zoomed in by pinching; 1 is not at all.
+  const zoom = { z: 1, x: 0, y: 0 };
+  const zoomed = () => zoom.z > 1.02;
   let current = 1;
   let busy = false;
   let suppressClick = false;
@@ -144,15 +165,27 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   const shade = el('div', { class: 'book-shade' });
   const SPINE = 'perspective(1800px) rotateY';
 
-  const fit = (canvas) => {
+  // Held sideways -- or on a tablet -- the pages lie open two at a time, as
+  // a book does: odd pages on the left, even on the right, the spine
+  // between. Turned, the right-hand page rolls over the spine and its back
+  // is the next left-hand page.
+  let spread = false;
+  const wantsSpread = () => bookOn && doc.numPages > 1 && container.clientWidth > container.clientHeight * 1.1;
+  const step = () => (spread ? 2 : 1);
+  const lead = (n) => (spread && n % 2 === 0 ? n - 1 : n);
+  const sideOf = (n) => (spread ? (n % 2 === 1 ? 'L' : 'R') : null);
+
+  const fit = (canvas, side = sideOf(Number(canvas.dataset.page))) => {
     const W = container.clientWidth;
     const H = container.clientHeight;
+    const room = side ? W / 2 : W;
     const ratio = canvas.width && canvas.height ? canvas.height / canvas.width : 1.414;
-    const w = Math.min(W, H / ratio);
+    const w = Math.min(room, H / ratio);
     const h = w * ratio;
+    const left = side === 'L' ? W / 2 - w : side === 'R' ? W / 2 : (W - w) / 2;
     Object.assign(canvas.style, {
       width: `${w}px`, height: `${h}px`, aspectRatio: '', margin: '0',
-      left: `${(W - w) / 2}px`, top: `${(H - h) / 2}px`
+      left: `${left}px`, top: `${(H - h) / 2}px`
     });
   };
 
@@ -181,11 +214,13 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   // finger lands and kept for the turn: cutting afresh for every angle as the
   // finger moves is the catch this was built to avoid.
   const TILT = 0.2;          // radians, about 11 degrees
-  const ready = new Map();   // "page|tilt" -> strips cut for it
-  const keyOf = (page, tilt) => `${page}|${tilt}`;
+  const ready = new Map();   // "page|tilt|back" -> strips cut for it
+  const keyOf = (page, tilt, back = 0) => `${page}|${tilt}|${back}`;
   const sizeOf = (canvas) => `${parseFloat(canvas.style.width)}x${parseFloat(canvas.style.height)}x${canvas.width}`;
 
-  const startCurl = (canvas, tilt) => {
+  // back: in a two-page spread, the page printed on the back of the sheet
+  // being turned -- the next left-hand page -- rather than plain paper.
+  const startCurl = (canvas, tilt, back = null) => {
     const w = parseFloat(canvas.style.width);
     const h = parseFloat(canvas.style.height);
     const phi = tilt * TILT;
@@ -220,7 +255,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     // strip is one more thing for the phone to move every frame.
     const count = Math.max(40, Math.min(200, Math.round((umax - umin) / 2)));
     return { layer, frame, strips: [], count, w, h, canvas, cast, tilt, phi, cos, sin, corners, umin, umax, vmin, vmax,
-      page: Number(canvas.dataset.page), size: sizeOf(canvas) };
+      back, page: Number(canvas.dataset.page), size: sizeOf(canvas) + (back ? `/${sizeOf(back)}` : '') };
   };
 
   const cutStrips = (c, upTo) => {
@@ -248,7 +283,22 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
         ctx.drawImage(c.canvas, 0, 0);
       }
       let dark, backDark, back;
-      if (!c.tilt) {
+      if (c.back) {
+        // The back of the sheet is the next page. Seen from behind, the
+        // strip's left edge is where the page's mirror image puts it, so the
+        // slice comes from the other end of that page.
+        const bscale = c.back.width / c.w;
+        const paper = document.createElement('canvas');
+        paper.className = 'curl-paper';
+        paper.width = Math.max(1, Math.ceil((su + 0.6) * bscale));
+        paper.height = Math.max(1, Math.ceil(len * bscale));
+        const from = (c.w - (u0 - c.umin) - (su + 0.6)) / c.w;
+        paper.getContext('2d').drawImage(c.back, from * c.back.width, 0, ((su + 0.6) / c.w) * c.back.width, c.back.height,
+          0, 0, paper.width, paper.height);
+        dark = el('div', { class: 'curl-dark' });
+        backDark = el('div', { class: 'curl-dark' });
+        back = el('div', { class: 'curl-back' }, [paper, backDark]);
+      } else if (!c.tilt) {
         dark = el('div', { class: 'curl-dark' });
         backDark = el('div', { class: 'curl-dark' });
         back = el('div', { class: 'curl-back' }, [backDark]);
@@ -300,21 +350,26 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   const prepare = () => {
     clearTimeout(preparing);
     preparing = setTimeout(() => {
-      if (!bookOn || busy) return;
+      if (!bookOn || busy || zoomed()) return;
       // Forward: this page, straight or by either corner. Back: the page
-      // before, straight.
-      const wanted = [[current, 0], [current, -1], [current, 1], [current - 1, 0]];
-      const keep = new Set(wanted.map(([p, t]) => keyOf(p, t)));
+      // before, straight. In a spread, the right-hand page with the next
+      // left-hand page on its back, and the sheet before, back over.
+      const wanted = spread
+        ? [[current + 1, 0, current + 2], [current - 1, 0, current]]
+        : [[current, 0], [current, -1], [current, 1], [current - 1, 0]];
+      const keep = new Set(wanted.map(([p, t, b]) => keyOf(p, t, b)));
       for (const [key, c] of [...ready]) if (!keep.has(key)) { c.layer.remove(); ready.delete(key); }
       const queue = [];
-      for (const [page, tilt] of wanted) {
+      for (const [page, tilt, backPage] of wanted) {
         const canvas = pageEl(page);
         if (!canvas || !canvas.width || canvas.classList.contains('book-off')) continue;
-        const key = keyOf(page, tilt);
+        const back = backPage ? pageEl(backPage) : null;
+        if (backPage && (!back || !back.width)) continue;
+        const key = keyOf(page, tilt, backPage);
         const had = ready.get(key);
-        if (had && had.size === sizeOf(canvas)) continue;
+        if (had && had.size === sizeOf(canvas) + (back ? `/${sizeOf(back)}` : '')) continue;
         if (had) { had.layer.remove(); ready.delete(key); }
-        const c = startCurl(canvas, tilt);
+        const c = startCurl(canvas, tilt, back);
         ready.set(key, c);
         queue.push([key, c]);
       }
@@ -330,11 +385,12 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     }, 120);
   };
 
-  const takeCurl = (canvas, tilt) => {
+  const takeCurl = (canvas, tilt, back = null) => {
     const page = Number(canvas.dataset.page);
-    const key = keyOf(page, tilt);
+    const key = keyOf(page, tilt, back ? Number(back.dataset.page) : 0);
     let c = ready.get(key);
-    if (!c || c.size !== sizeOf(canvas)) { if (c) c.layer.remove(); c = startCurl(canvas, tilt); }
+    const size = sizeOf(canvas) + (back ? `/${sizeOf(back)}` : '');
+    if (!c || c.size !== size) { if (c) c.layer.remove(); c = startCurl(canvas, tilt, back); }
     ready.delete(key);
     cutStrips(c, c.count);
     c.layer.style.display = '';
@@ -344,8 +400,11 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   // q: how far the page has rolled over, 0 flat to 1 gone.
   const rollTo = (q) => {
     const { strips, umin, umax, vmin } = curl;
-    const R = Math.max(curl.w * 0.1, 22);
-    const a = umax - q * (umax - umin + Math.PI * R + 6);
+    // A single page rolls away off its left edge. A sheet in a spread lands
+    // face down on the far side of the spine, as its mirror image: the roll
+    // tightens as it goes, until at the end the sheet lies flat.
+    const R = curl.back ? Math.max(Math.max(curl.w * 0.1, 22) * (1 - q), 0.5) : Math.max(curl.w * 0.1, 22);
+    const a = curl.back ? umax - q * (umax - umin) : umax - q * (umax - umin + Math.PI * R + 6);
     for (const s of strips) {
       const x = s.u0 - a;
       let X = s.u0;
@@ -392,9 +451,16 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   // everything else not laid out.
   const place = () => {
     endCurl();
+    const was = spread;
+    spread = wantsSpread();
+    if (spread !== was) forgetAll();
+    current = lead(Math.min(Math.max(1, current), doc.numPages));
+    settleZoom();
+    const open = spread ? [current, current + 1] : [current];
     for (const canvas of container.querySelectorAll('canvas[data-page]')) {
       const n = Number(canvas.dataset.page);
-      const near = Math.abs(n - current) <= 1;
+      // Laid out: what is open, and what a turn either way uncovers.
+      const near = spread ? n >= current - 2 && n <= current + 3 : Math.abs(n - current) <= 1;
       canvas.classList.toggle('book-off', !near);
       if (!near) continue;
       fit(canvas);
@@ -402,11 +468,12 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
       canvas.style.transformOrigin = 'left center';
       canvas.style.transform = '';
       canvas.style.visibility = '';
-      canvas.style.opacity = n === current ? '1' : '0';
-      canvas.style.zIndex = n === current ? '2' : '1';
+      canvas.style.opacity = open.includes(n) ? '1' : '0';
+      canvas.style.zIndex = open.includes(n) ? '2' : '1';
     }
-    shade.style.transition = '';
-    shade.style.opacity = '0';
+    // In a spread only the right-hand side is covered and uncovered.
+    Object.assign(shade.style, { transition: '', opacity: '0', left: spread ? '50%' : '0', width: spread ? '50%' : '100%' });
+    container.classList.toggle('spread', spread);
     container.classList.remove('turning');
     container.dataset.current = String(current);
     onLayout?.();
@@ -417,21 +484,29 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
 
   // How far a turn has gone, 0 to 1. dir 1 is forward, -1 back.
   const progress = (dir, q, tilt = 0) => {
-    const turning = pageEl(dir > 0 ? current : current - 1);
-    const under = pageEl(dir > 0 ? current + 1 : current);
-    if (!turning || !under) return;
+    // The sheet that turns, what is printed on its back in a spread, and
+    // what it uncovers.
+    const turning = pageEl(spread ? current + dir : dir > 0 ? current : current - 1);
+    const back = spread ? pageEl(dir > 0 ? current + 2 : current) : null;
+    const under = spread ? pageEl(dir > 0 ? current + 3 : current - 2) : pageEl(dir > 0 ? current + 1 : current);
+    if (!turning || (spread ? !back : !under)) return;
     // Notes and highlights belong to the page at rest; they step aside while
     // it moves rather than hang in the air over it.
     container.classList.add('turning');
-    under.style.opacity = '1';
-    under.style.zIndex = '1';
+    if (under) {
+      under.style.opacity = '1';
+      under.style.zIndex = '1';
+    }
+    // Going back in a spread, the left-hand page is the back of the sheet
+    // coming over, and goes with it.
+    if (spread && dir < 0) back.style.visibility = 'hidden';
     // Forward, the page on screen rolls away; back, the previous page rolls
     // back over it from the left.
     const rolled = dir > 0 ? q : 1 - q;
-    if (!curl && turning.width) {
-      // Only a forward turn is taken by a corner; the page coming back
-      // over from the left comes straight.
-      curl = takeCurl(turning, dir > 0 ? tilt : 0);
+    if (!curl && turning.width && (!back || back.width)) {
+      // Only a forward turn of a single page is taken by a corner; the page
+      // coming back over from the left comes straight.
+      curl = takeCurl(turning, dir > 0 && !spread ? tilt : 0, back);
       turning.style.visibility = 'hidden';
     }
     if (curl) rollTo(rolled);
@@ -439,7 +514,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
       // Not drawn yet, so there is nothing to cut into strips: it swings.
       turning.style.opacity = '1';
       turning.style.zIndex = '3';
-      turning.style.transform = `${SPINE}(${-rolled * 90}deg)`;
+      turning.style.transform = `${SPINE}(${-rolled * (spread ? 180 : 90)}deg)`;
     }
     shade.style.opacity = String((1 - rolled) * 0.35);
   };
@@ -451,41 +526,175 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     const to = complete ? 1 : 0;
     const start = performance.now();
     const span = 180 + Math.abs(to - from) * 260;
-    const step = (now) => {
+    const frame = (now) => {
       const t = Math.min((now - start) / span, 1);
       const eased = 1 - (1 - t) ** 3;
       progress(dir, from + (to - from) * eased, tilt);
-      if (t < 1) { requestAnimationFrame(step); return; }
-      if (complete) current += dir;
+      if (t < 1) { requestAnimationFrame(frame); return; }
+      if (complete) current += dir * step();
       busy = false;
       place();
     };
-    requestAnimationFrame(step);
+    requestAnimationFrame(frame);
+  };
+
+  // ── pinching ──
+  //
+  // Two fingers zoom the open page in, about the point between them, and
+  // move it about as they go. Zoomed, one finger moves the page rather than
+  // turning it; a double tap zooms in on the middle of a page, and out again.
+  // Let go zoomed in, the page is drawn again finer, so small print and
+  // drawings stay sharp rather than blown up.
+  const pointers = new Map();
+  let pinch = null;
+  let pan = null;
+  let lastTap = null;
+  let zoomFrame = 0;
+  const opened = () => [...container.querySelectorAll('canvas[data-page]')]
+    .filter((c) => !c.classList.contains('book-off') && c.style.opacity === '1');
+  const local = (p) => {
+    const r = container.getBoundingClientRect();
+    return { x: p.x - r.left, y: p.y - r.top };
+  };
+  const applyZoom = () => {
+    zoomFrame = 0;
+    for (const c of opened()) {
+      // Every page open scales about the same point, as one sheet.
+      c.style.transformOrigin = `${-parseFloat(c.style.left)}px ${-parseFloat(c.style.top)}px`;
+      c.style.transform = zoomed() ? `translate(${zoom.x}px, ${zoom.y}px) scale(${zoom.z})` : '';
+    }
+    container.classList.toggle('zoomed', zoomed());
+  };
+  const showZoom = () => { if (!zoomFrame) zoomFrame = requestAnimationFrame(applyZoom); };
+  const clampZoom = () => {
+    const W = container.clientWidth;
+    const H = container.clientHeight;
+    zoom.z = Math.min(Math.max(zoom.z, 1), 5);
+    zoom.x = Math.min(0, Math.max(W - W * zoom.z, zoom.x));
+    zoom.y = Math.min(0, Math.max(H - H * zoom.z, zoom.y));
+  };
+  const sharpen = () => {
+    const factor = Math.min(zoom.z, 2.5);
+    for (const c of opened()) {
+      if (Number(c.dataset.sharp || 1) >= factor - 0.05) continue;
+      c.dataset.sharp = String(factor);
+      draw(c, Number(c.dataset.page), factor);
+    }
+  };
+  // Back to the page as it was: its ordinary drawing, which holds a good
+  // deal less of the phone's memory than a sharpened one.
+  const settleZoom = () => {
+    zoom.z = 1; zoom.x = 0; zoom.y = 0;
+    pinch = null;
+    pan = null;
+    container.classList.remove('zoomed');
+    for (const c of container.querySelectorAll('canvas[data-sharp]')) {
+      delete c.dataset.sharp;
+      draw(c, Number(c.dataset.page), 1);
+    }
+  };
+  const resetZoom = () => {
+    settleZoom();
+    applyZoom();
+    onLayout?.();
+  };
+  const quietClick = () => {
+    suppressClick = true;
+    setTimeout(() => { suppressClick = false; }, 400);
+  };
+  const tapped = (e) => {
+    const now = performance.now();
+    const twice = lastTap && now - lastTap.t < 320 && Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y) < 30;
+    lastTap = twice ? null : { t: now, x: e.clientX, y: e.clientY };
+    if (!twice) return;
+    if (zoomed()) { resetZoom(); quietClick(); return; }
+    // The middle of a page: its edges are for turning it.
+    const canvas = document.elementFromPoint(e.clientX, e.clientY)?.closest?.('canvas[data-page]');
+    const box = canvas?.getBoundingClientRect();
+    if (!box) return;
+    const fx = (e.clientX - box.left) / box.width;
+    if (fx < 0.3 || fx > 0.7) return;
+    const at = local({ x: e.clientX, y: e.clientY });
+    zoom.z = 2.2;
+    zoom.x = at.x - at.x * zoom.z;
+    zoom.y = at.y - at.y * zoom.z;
+    clampZoom();
+    applyZoom();
+    sharpen();
+    onLayout?.();
+    quietClick();
   };
 
   let drag = null;
   container.addEventListener('pointerdown', (e) => {
-    if (!bookOn || busy || container.classList.contains('marking')) return;
+    if (!bookOn || container.classList.contains('marking')) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointers.size === 2) {
+      // A second finger: a pinch -- unless a turn is already under way.
+      if (busy || drag?.dir) return;
+      drag = null;
+      pan = null;
+      const [a, b] = [...pointers.values()];
+      pinch = { d: Math.hypot(a.x - b.x, a.y - b.y) || 1, mid: local({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }), z: zoom.z, x: zoom.x, y: zoom.y };
+      for (const id of pointers.keys()) { try { container.setPointerCapture(id); } catch { /* already gone */ } }
+      return;
+    }
+    if (pointers.size > 2 || busy) return;
     if (!e.target.closest?.('canvas[data-page]')) return;
+    if (zoomed()) {
+      pan = { x: e.clientX, y: e.clientY, zx: zoom.x, zy: zoom.y, moved: false };
+      try { container.setPointerCapture(e.pointerId); } catch { /* already gone */ }
+      return;
+    }
     drag = { x: e.clientX, y: e.clientY, tilt: 0, t: performance.now(), lastX: e.clientX, lastT: performance.now(), speed: 0, dir: 0, q: 0, id: e.pointerId };
   });
   container.addEventListener('pointermove', (e) => {
+    if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pinch) {
+      if (pointers.size < 2) return;
+      e.preventDefault();
+      const [a, b] = [...pointers.values()];
+      const mid = local({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+      // The point of the page first under the fingers stays under them.
+      const cx = (pinch.mid.x - pinch.x) / pinch.z;
+      const cy = (pinch.mid.y - pinch.y) / pinch.z;
+      zoom.z = Math.min(Math.max(pinch.z * (Math.hypot(a.x - b.x, a.y - b.y) / pinch.d), 1), 5);
+      zoom.x = mid.x - cx * zoom.z;
+      zoom.y = mid.y - cy * zoom.z;
+      clampZoom();
+      showZoom();
+      return;
+    }
+    if (pan) {
+      e.preventDefault();
+      const dx = e.clientX - pan.x;
+      const dy = e.clientY - pan.y;
+      if (Math.hypot(dx, dy) > 6) pan.moved = true;
+      zoom.x = pan.zx + dx;
+      zoom.y = pan.zy + dy;
+      clampZoom();
+      showZoom();
+      return;
+    }
     if (!drag) return;
     const dx = e.clientX - drag.x;
     if (!drag.dir) {
       if (Math.abs(dx) < 8) return;
       drag.dir = dx < 0 ? 1 : -1;
       // Taken by the top or the bottom corner, the page rolls on the slant.
-      const page = pageEl(current)?.getBoundingClientRect();
+      const page = spread ? null : pageEl(current)?.getBoundingClientRect();
       if (page && drag.dir > 0) {
         const at = (drag.y - page.top) / page.height;
         drag.tilt = at < 0.3 ? -1 : at > 0.7 ? 1 : 0;
       }
-      if (!pageEl(current + (drag.dir > 0 ? 1 : -1))) { drag = null; return; }
+      if (!pageEl(current + drag.dir * step())) { drag = null; return; }
       try { container.setPointerCapture(drag.id); } catch { /* already gone */ }
     }
     e.preventDefault();
-    drag.q = Math.min(Math.max((-dx * drag.dir) / (container.clientWidth * 0.8), 0), 1);
+    // A single page goes when the finger has crossed most of the screen; a
+    // sheet of a spread, when it has crossed most of both pages.
+    const reach = spread ? (parseFloat(pageEl(current)?.style.width) || container.clientWidth / 2) * 1.6 : container.clientWidth * 0.8;
+    drag.q = Math.min(Math.max((-dx * drag.dir) / reach, 0), 1);
     // How fast the finger is going as it leaves, not on average: a flick is
     // fast at the end whatever it was at the start.
     const now = performance.now();
@@ -509,12 +718,30 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     const flick = Math.abs(drag.speed || 0) > 0.45 && Math.sign(-(drag.speed || 0)) === dir;
     drag = null;
     if (!dir) return;
-    suppressClick = true;
-    setTimeout(() => { suppressClick = false; }, 400);
+    quietClick();
     finish(dir, q > 0.35 || (q > 0.06 && flick), q, tilt);
   };
-  container.addEventListener('pointerup', release);
-  container.addEventListener('pointercancel', release);
+  const lift = (e) => {
+    pointers.delete(e.pointerId);
+    if (pinch) {
+      if (pointers.size >= 2) return;
+      pinch = null;
+      quietClick();
+      if (zoom.z < 1.08) resetZoom();
+      else { sharpen(); onLayout?.(); }
+      return;
+    }
+    if (pan) {
+      const moved = pan.moved;
+      pan = null;
+      if (moved) { quietClick(); onLayout?.(); } else if (e.type === 'pointerup') tapped(e);
+      return;
+    }
+    if (drag && !drag.dir && e.type === 'pointerup') tapped(e);
+    release();
+  };
+  container.addEventListener('pointerup', lift);
+  container.addEventListener('pointercancel', lift);
   // A swipe ends in a click as well; it is not a tap on the page.
   container.addEventListener('click', (e) => {
     if (suppressClick) { e.stopImmediatePropagation(); e.preventDefault(); suppressClick = false; }
@@ -536,6 +763,9 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     shade.remove();
     endCurl();
     forgetAll();
+    settleZoom();
+    spread = false;
+    container.classList.remove('spread');
     for (const canvas of container.querySelectorAll('canvas[data-page]')) {
       canvas.classList.remove('book-off');
       canvas.style.visibility = '';
@@ -559,7 +789,46 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     else if (target > 1) wanted.scrollIntoView({ block: 'start' });
   }
 
+  // A tap on a link follows it. Listened for before anything else sees the
+  // tap, so a reference at the edge of a book page is followed rather than
+  // turning the page.
+  const onTap = (e) => {
+    if (container.classList.contains('marking') || zoomed()) return;
+    const canvas = e.target.closest?.('canvas[data-page]');
+    const pageNo = Number(canvas?.dataset.page);
+    const list = links.get(pageNo);
+    if (!list?.length) return;
+    const box = canvas.getBoundingClientRect();
+    const fx = (e.clientX - box.left) / box.width;
+    const fy = (e.clientY - box.top) / box.height;
+    // A fingertip is wider than a word's underline, so a tap near one takes
+    // it -- the nearest, where two lines' references are both near.
+    const px = (l) => {
+      const dx = Math.max(l.x - fx, 0, fx - (l.x + l.w)) * box.width;
+      const dy = Math.max(l.y - fy, 0, fy - (l.y + l.h)) * box.height;
+      return Math.hypot(dx, dy);
+    };
+    let hit = null;
+    let best = 9;
+    for (const l of list) { const d = px(l); if (d < best) { best = d; hit = l; } }
+    if (!hit) return;
+    e.stopImmediatePropagation();
+    e.preventDefault();
+    follow(hit, pageNo);
+  };
+  container.addEventListener('click', onTap, true);
+  const follow = async (hit, from) => {
+    if (hit.url) { onLink?.({ url: hit.url, from }); return; }
+    if (hit.ref) { onLink?.({ ref: hit.ref, from }); return; }
+    try {
+      const page = await destPage(doc, hit.dest);
+      if (page) onLink?.({ page, from });
+    } catch { /* a broken link in the file: nothing to follow */ }
+  };
+
+  let contents = null;
   const teardown = () => {
+    container.removeEventListener('click', onTap, true);
     observer.disconnect();
     window.removeEventListener('resize', onResize);
     container.classList.remove('book');
@@ -572,12 +841,34 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     const at = pageEl(page);
     if (!at) return;
     if (!bookOn) { at.scrollIntoView({ block: 'start' }); return; }
-    if (busy || page === current) return;
+    const to = lead(page);
+    if (busy || to === current) return;
     // The next or the previous page turns; further than that, it opens there.
-    if (Math.abs(page - current) === 1) finish(page > current ? 1 : -1, true, 0);
-    else { current = page; place(); }
+    if (!zoomed() && Math.abs(to - current) === step()) finish(to > current ? 1 : -1, true, 0);
+    else { current = to; place(); }
   };
+  teardown.isZoomed = zoomed;
+  teardown.isSpread = () => spread;
   teardown.current = () => (bookOn ? current : null);
+  teardown.pageCount = doc.numPages;
+  /** The document's own contents list -- its bookmarks -- where it has one. */
+  teardown.contents = async () => {
+    if (contents) return contents;
+    const out = [];
+    const walk = async (entries, depth) => {
+      for (const entry of entries || []) {
+        if (out.length >= 800) return;
+        let page = null;
+        try { page = await destPage(doc, entry.dest); } catch { /* broken entry */ }
+        const title = String(entry.title || '').replace(/\s+/g, ' ').trim();
+        if (title && page) out.push({ title, page, depth });
+        if (depth < 3) await walk(entry.items, depth + 1);
+      }
+    };
+    try { await walk(await doc.getOutline(), 0); } catch { /* none */ }
+    contents = out;
+    return out;
+  };
   // Highlight something new: every page already drawn is drawn again with it,
   // and pages drawn later pick it up as they come into view.
   teardown.setMarks = async (next) => {
@@ -586,13 +877,75 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     rendered.clear();
     for (const n of drawn) {
       const canvas = container.querySelector(`canvas[data-page="${n}"]`);
-      if (canvas) await draw(canvas, n);
+      if (canvas) await draw(canvas, n, Number(canvas.dataset.sharp) || 0);
     }
   };
   // What is written inside a rectangle of a page, for a highlight: the text
   // and the tight boxes around it, both in fractions of the page.
   teardown.pick = (pageNo, rect) => pickText(doc, pageNo, rect);
   return teardown;
+}
+
+/** The page a link's destination is on. */
+async function destPage(doc, dest) {
+  const d = typeof dest === 'string' ? await doc.getDestination(dest) : dest;
+  const ref = Array.isArray(d) ? d[0] : null;
+  if (ref == null) return null;
+  return (typeof ref === 'number' ? ref : await doc.getPageIndex(ref)) + 1;
+}
+
+/**
+ * What can be tapped on a page: the links the file itself carries, and the
+ * references in its words -- "see section 4.3" -- underlined as they are
+ * found, so it is plain they can be followed. Kept as fractions of the page.
+ */
+async function linksOn(page, viewport, ctx) {
+  const W = viewport.width;
+  const H = viewport.height;
+  const out = [];
+  const box = (x0, y0, x1, y1) => ({
+    x: Math.min(x0, x1) / W, y: Math.min(y0, y1) / H, w: Math.abs(x1 - x0) / W, h: Math.abs(y1 - y0) / H
+  });
+  try {
+    const [ma, mb, mc, md, me, mf] = viewport.transform;
+    const at = (x, y) => [ma * x + mc * y + me, mb * x + md * y + mf];
+    for (const a of await page.getAnnotations({ intent: 'display' })) {
+      if (a.subtype !== 'Link' || !(a.dest || a.url)) continue;
+      const [x0, y0] = at(a.rect[0], a.rect[1]);
+      const [x1, y1] = at(a.rect[2], a.rect[3]);
+      out.push({ ...box(x0, y0, x1, y1), dest: a.dest || null, url: a.dest ? null : a.url });
+    }
+  } catch { /* no annotations to read */ }
+
+  const content = await page.getTextContent();
+  const { Util } = pdfjs;
+  ctx.save();
+  ctx.strokeStyle = 'rgba(30, 90, 200, 0.8)';
+  ctx.lineWidth = Math.max(1, W / 700);
+  for (const item of content.items) {
+    const str = item.str || '';
+    if (!str.trim()) continue;
+    const refs = referencesIn(str);
+    if (!refs.length) continue;
+    const tx = Util.transform(viewport.transform, item.transform);
+    const height = Math.hypot(tx[2], tx[3]) || 10;
+    ctx.font = `${Math.max(Math.round(height), 1)}px ${content.styles?.[item.fontName]?.fontFamily || 'sans-serif'}`;
+    const k = ((item.width || 0) * viewport.scale) / (ctx.measureText(str).width || str.length);
+    for (const ref of refs) {
+      const x = tx[4] + ctx.measureText(str.slice(0, ref.start)).width * k;
+      const w = Math.max(ctx.measureText(str.slice(ref.start, ref.end)).width * k, 6);
+      // A link the file already has here is the better one to follow.
+      const b = box(x, tx[5] - height * 0.95, x + w, tx[5] + height * 0.25);
+      if (out.some((o) => !o.ref && b.x < o.x + o.w && b.x + b.w > o.x && b.y < o.y + o.h && b.y + b.h > o.y)) continue;
+      out.push({ ...b, ref: { kind: ref.kind, word: ref.word, label: ref.label } });
+      ctx.beginPath();
+      ctx.moveTo(x, tx[5] + height * 0.14);
+      ctx.lineTo(x + w, tx[5] + height * 0.14);
+      ctx.stroke();
+    }
+  }
+  ctx.restore();
+  return out;
 }
 
 let measurer = null;

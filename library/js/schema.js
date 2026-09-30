@@ -163,6 +163,14 @@ const ATTACHMENTS = {
 
 const NOTES = { key: 'notes', label: 'Notes', type: 'textarea' };
 
+// When a document has to be looked at again -- a circular's review date, a
+// publication's expiry, an MI to be re-read by a date. It comes up under Due
+// soon on the home screen a month ahead, and stays there once passed.
+const REVIEW_BY = {
+  key: 'reviewBy', label: 'Review / expiry date', type: 'date',
+  hint: 'Listed under Due soon on the home screen from 30 days before, and until it is dealt with.'
+};
+
 // Where a question is answered: a clause of a company document, held as a
 // list on the question. Added from a search rather than typed -- the whole
 // point is that you found the passage, and what is recorded is the passage you
@@ -185,6 +193,7 @@ export const TYPES = {
       { key: 'vessel', label: 'Vessel', type: 'text', group: 'where', suggestFrom: true },
       { key: 'location', label: 'Location onboard', type: 'text', group: 'where', placeholder: 'e.g. ECR shelf 3' },
       { ...NOTES, label: 'Notes / extracted procedures' },
+      REVIEW_BY,
       ATTACHMENTS,
       FILE_LINK
     ],
@@ -224,6 +233,7 @@ export const TYPES = {
         hint: 'When you last confirmed this is still the current revision. The app flags it after 90 days \u2014 a superseded copy is worse than no copy.'
       },
       { ...NOTES, label: 'Notes / what differs from the company procedure' },
+      REVIEW_BY,
       ATTACHMENTS,
       FILE_LINK
     ],
@@ -298,6 +308,7 @@ export const TYPES = {
       { key: 'vessel', label: 'Vessel', type: 'text', group: 'where', suggestFrom: true },
       { key: 'location', label: 'Location onboard', type: 'text', group: 'where' },
       NOTES,
+      REVIEW_BY,
       ATTACHMENTS,
       FILE_LINK
     ],
@@ -330,6 +341,7 @@ export const TYPES = {
       { key: 'department', label: 'Department', type: 'text', placeholder: 'e.g. HSEQ' },
       { key: 'vessel', label: 'Applies to', type: 'text', placeholder: 'e.g. All vessels' },
       NOTES,
+      REVIEW_BY,
       ATTACHMENTS,
       FILE_LINK
     ],
@@ -361,6 +373,7 @@ export const TYPES = {
       { key: 'supersedes', label: 'Supersedes', type: 'text', placeholder: 'e.g. MMN 7-070 Rev 2' },
       { key: 'vessel', label: 'Applies to', type: 'text', placeholder: 'e.g. All Panama-flagged vessels' },
       { ...NOTES, label: 'Summary' },
+      REVIEW_BY,
       ATTACHMENTS,
       FILE_LINK
     ],
@@ -402,6 +415,7 @@ export const TYPES = {
       { key: 'category', label: 'Category', type: 'select', options: CIRCULAR_CATEGORIES },
       { key: 'vessel', label: 'Applies to', type: 'text', placeholder: 'e.g. All vessels' },
       { ...NOTES, label: 'Summary' },
+      REVIEW_BY,
       ATTACHMENTS,
       FILE_LINK
     ],
@@ -423,6 +437,7 @@ export const TYPES = {
       { key: 'date', label: 'Date', type: 'date', group: 'ident' },
       { key: 'area', label: 'Area / subject', type: 'text', placeholder: 'e.g. North Sea, navigation warnings' },
       { ...NOTES, label: 'Summary' },
+      REVIEW_BY,
       ATTACHMENTS,
       FILE_LINK
     ],

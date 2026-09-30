@@ -129,10 +129,18 @@
       <button class="find-btn" id="findPrev" aria-label="Previous page with a match" disabled>&#8249;</button>
       <button class="find-btn" id="findNext" aria-label="Next page with a match" disabled>&#8250;</button>
       <button class="find-btn mark-btn" id="markMode" aria-pressed="false">Highlight</button>
+      <button class="find-btn night-btn" id="viewerNight" data-mode="off" aria-label="Night reading: off">&#9790;</button>
     </div>
-    <div class="viewer-body" id="viewerBody"></div>
+    <div class="viewer-wrap" id="viewerWrap">
+      <div class="viewer-body" id="viewerBody"></div>
+      <div class="night-veil night-invert" aria-hidden="true"></div>
+      <div class="night-veil night-tint" aria-hidden="true"></div>
+      <button class="back-chip" id="viewerBack" hidden></button>
+      <div class="contents-panel" id="contentsPanel" role="dialog" aria-label="Contents" hidden></div>
+    </div>
     <footer class="sheet-actions">
       <button class="btn" id="viewerClose">Close</button>
+      <button class="btn" id="viewerContents" hidden>Contents</button>
       <button class="btn" id="viewerMark" hidden>Bookmark</button>
       <button class="btn btn-primary" id="viewerNote" hidden>Note</button>
     </footer>

@@ -248,3 +248,42 @@ export function explainFailure(ex) {
   if (ex?.name === 'AbortError' || /abort/i.test(String(ex?.message))) return 'Stopped.';
   return `Could not ask: ${ex?.message || ex}`;
 }
+
+/** Whether a failure was the connection, not the question: worth trying again later. */
+export function isOffline(ex) {
+  const A = sdk;
+  if (A && A.APIConnectionTimeoutError && ex instanceof A.APIConnectionTimeoutError) return true;
+  if (A && ex instanceof A.APIConnectionError) return true;
+  return ex instanceof TypeError && /fetch|network|load failed/i.test(String(ex.message));
+}
+
+/**
+ * The part of a page that best answers a question, for reading with no
+ * connection: the stretch of about 280 characters holding most of the
+ * question's words, cut at word boundaries.
+ */
+export function passage(text, question, size = 280) {
+  const clean = String(text || '').replace(/\s+/g, ' ').trim();
+  if (clean.length <= size) return clean;
+  const terms = questionTerms(question).map((t) => t.toLowerCase()).filter((t) => t.length > 2);
+  const lower = clean.toLowerCase();
+  const hits = [];
+  for (const t of terms) {
+    for (let i = lower.indexOf(t); i !== -1; i = lower.indexOf(t, i + t.length)) hits.push([i, t]);
+  }
+  if (!hits.length) return `${clean.slice(0, size).replace(/\s+\S*$/, '')}\u2026`;
+  hits.sort((a, b) => a[0] - b[0]);
+  let best = 0;
+  let bestScore = -1;
+  for (let i = 0; i < hits.length; i++) {
+    const seen = new Set();
+    for (let j = i; j < hits.length && hits[j][0] < hits[i][0] + size - 20; j++) seen.add(hits[j][1]);
+    if (seen.size > bestScore) { bestScore = seen.size; best = hits[i][0]; }
+  }
+  let from = Math.max(0, best - 60);
+  if (from > 0) from = lower.indexOf(' ', from) + 1 || from;
+  let to = Math.min(clean.length, from + size);
+  if (to < clean.length) to = clean.lastIndexOf(' ', to) > from ? clean.lastIndexOf(' ', to) : to;
+  return `${from > 0 ? '\u2026' : ''}${clean.slice(from, to)}${to < clean.length ? '\u2026' : ''}`;
+}
+

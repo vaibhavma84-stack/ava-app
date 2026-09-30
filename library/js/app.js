@@ -18,8 +18,12 @@ import { makeZip, readZip } from './zip.js';
 import { isEpub, readEpub } from './epub.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
+import { findReference, describeReference } from './xref.js';
+import { dueStatus, dueLabel, dueSoon } from './due.js';
+import { findOlderEdition, changedPages, pageRanges } from './editions.js';
+import { PdfWriter } from './pdfwrite.js';
 
-const APP_VERSION = '2026.10.49';
+const APP_VERSION = '2026.10.50';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -211,8 +215,12 @@ function enterApp() {
   dropImplausibleMakers();
   renameManagersInstructions();
   loadAutoRead().then(() => autoReadSoon(5000));
-  loadAsk().then(render);
-  Promise.all(store.LISTS.map((n) => store.getList(n))).then(render);
+  const asking = loadAsk();
+  const held = Promise.all(store.LISTS.map((n) => store.getList(n)));
+  asking.then(render);
+  held.then(render);
+  // A question kept while out of range goes the first time there is one.
+  Promise.all([asking, held]).then(() => drainAskQueue());
 }
 
 /**
@@ -560,6 +568,12 @@ function renderHome(body) {
     ]));
   }
   body.append(grid);
+
+  const due = duePanel();
+  if (due) body.append(due);
+
+  const waiting = waitingPanel();
+  if (waiting) body.append(waiting);
 
   const quick = quickAccess();
   if (quick) body.append(quick);
@@ -965,7 +979,10 @@ async function renderSearch(body) {
   if (settings) body.append(settings);
 
   for (const type of TAB_ORDER) {
-    const group = results.filter((r) => r.item.type === type);
+    // A superseded edition is still found, after the one that replaced it.
+    const current = (r) => (r.item.data.supersededBy && store.getItem(r.item.data.supersededBy) ? 1 : 0);
+    const group = results.filter((r) => r.item.type === type)
+      .map((r, i) => [r, i]).sort((a, b) => current(a[0]) - current(b[0]) || a[1] - b[1]).map(([r]) => r);
     if (!group.length) continue;
     body.append(el('div', { class: 'group-head' }, [
       TYPES[type].label, el('span', { class: 'group-count', text: String(group.length) })
@@ -1504,6 +1521,12 @@ function emptyState(title, text) {
   ]);
 }
 
+function duePill(data) {
+  const due = dueStatus(data.reviewBy);
+  if (!due.state || due.state === 'later') return null;
+  return el('span', { class: `pill ${due.state === 'soon' ? 'pill-copper' : 'pill-warn'}`, text: dueLabel(due) });
+}
+
 function cardFor(item, snippets, matchInfo) {
   const def = TYPES[item.type];
   const title = item.data[def.titleKey] || 'Untitled';
@@ -1539,7 +1562,10 @@ function cardFor(item, snippets, matchInfo) {
         class: 'pill ' + (rev.state === 'ok' ? 'pill-sage' : 'pill-warn'),
         text: rev.state === 'ok' ? 'Current' : rev.state === 'never' ? 'Unverified' : 'Check'
       }) : null,
-      searchablePill(item.data)
+      item.data.supersededBy && store.getItem(item.data.supersededBy)
+        ? el('span', { class: 'pill pill-warn', text: 'Superseded' }) : null,
+      searchablePill(item.data),
+      duePill(item.data)
     ])
   ]);
   if (rev) {
@@ -1780,6 +1806,9 @@ function openDetail(id) {
         `This was on ${item.data.flagState || 'the administration'}\u2019s list when it was last read, and is not on it now — withdrawn, replaced, or moved. Noticed on ${displayDate(item.data.notInList)}. It is kept here with anything you added to it; check against the source before relying on it.` })
     ]));
   }
+
+  const editionsSec = editionsSection(item);
+  if (editionsSec) body.append(editionsSec);
 
   if (def.fields.some((f) => f.type === 'answers')) body.append(answersSection(item));
 
@@ -2753,12 +2782,45 @@ async function toggleBookView() {
   await db.setMeta('bookView', bookView.on);
 }
 
+// Night reading: a white page at night on the bridge costs the watch its
+// night vision. Dark turns the page light-on-dark; red keeps it red on black.
+// Remembered, like the view, for the next document opened.
+const NIGHT_MODES = ['off', 'dark', 'red'];
+const NIGHT_LABELS = { off: 'Night reading: off', dark: 'Night reading: dark pages', red: 'Night reading: red on black' };
+const night = { mode: 'off' };
+db.getMeta('nightMode').then((v) => { if (NIGHT_MODES.includes(v)) { night.mode = v; showNight(); } }).catch(() => {});
+
+function showNight() {
+  const wrap = $('#viewerWrap');
+  if (!wrap) return;
+  wrap.classList.toggle('night-dark', night.mode === 'dark');
+  wrap.classList.toggle('night-red', night.mode === 'red');
+  const button = $('#viewerNight');
+  button.dataset.mode = night.mode;
+  button.setAttribute('aria-label', NIGHT_LABELS[night.mode]);
+}
+
+async function cycleNight() {
+  night.mode = NIGHT_MODES[(NIGHT_MODES.indexOf(night.mode) + 1) % NIGHT_MODES.length];
+  showNight();
+  toast(NIGHT_LABELS[night.mode]);
+  await db.setMeta('nightMode', night.mode);
+}
+
 function wireBookView() {
   $('#viewerBook').addEventListener('click', toggleBookView);
+  $('#viewerNight').addEventListener('click', cycleNight);
+  $('#viewerContents').addEventListener('click', openContents);
+  $('#viewerBack').addEventListener('click', () => {
+    const page = Number($('#viewerBack').dataset.page);
+    hideBack();
+    if (page) disposeViewer?.goTo?.(page);
+  });
+  showNight();
   // A tap on the outer third of a page turns it, as a finger at the edge of
   // a book does. The middle is left alone, for notes and highlights.
   $('#viewerBody').addEventListener('click', (e) => {
-    if (!disposeViewer?.isBook?.() || marking.on) return;
+    if (!disposeViewer?.isBook?.() || marking.on || disposeViewer.isZoomed?.()) return;
     const canvas = e.target.closest?.('canvas[data-page]');
     if (!canvas) return;
     const box = canvas.getBoundingClientRect();
@@ -2848,6 +2910,8 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
   // where to be kept. Opened from a search result there is no open entry to
   // read it off, so the caller says.
   view.viewing = { itemId, attId: att.id };
+  hideBack();
+  $('#contentsPanel').hidden = true;
   $('#viewerNote').hidden = !itemId;
   $('#viewerMark').hidden = !itemId;
   closeNoteBox();
@@ -2863,6 +2927,7 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
       // Pages change shape and place when book view lays them out; what is
       // drawn over them follows.
       onLayout: () => { drawStickies(); showPinState(); },
+      onLink: (link) => followLink(att, link),
       onStatus: (text) => {
         $('#viewerTitle').textContent = startPage > 1
           ? `${att.name} · page ${startPage} of ${text.replace(/ pages?$/, '')}`
@@ -2884,6 +2949,7 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
     setMarking(false);
     $('#viewerPin').hidden = !findable || !itemId;
     $('#viewerBook').hidden = !disposeViewer?.setBook;
+    $('#viewerContents').hidden = !disposeViewer?.contents;
     $('#viewerBook').setAttribute('aria-pressed', String(Boolean(disposeViewer?.isBook?.())));
     showPinState();
     noteRecent(itemId, att, startPage);
@@ -2905,6 +2971,101 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
       el('p', { text: ex.message })
     ]));
   }
+}
+
+// ── contents, and following a reference ────────────────────────────────────
+//
+// A manual points at itself all the time -- "see section 4.3" -- and the
+// reference is tapped to follow it. Wherever a jump lands, a chip offers the
+// way back to the page it was made from, because following a reference is
+// usually a detour from the page being worked through.
+
+function jumpTo(page, from = pageInView()) {
+  if (!page || !disposeViewer?.goTo) return;
+  if (page !== from) {
+    const chip = $('#viewerBack');
+    chip.dataset.page = String(from);
+    chip.textContent = `\u2039 Back to p.${from}`;
+    chip.hidden = false;
+  }
+  disposeViewer.goTo(page);
+}
+
+function hideBack() {
+  const chip = $('#viewerBack');
+  chip.hidden = true;
+  delete chip.dataset.page;
+}
+
+async function followLink(att, link) {
+  if (link.url) {
+    if (/^https?:/i.test(link.url)) window.open(link.url, '_blank', 'noopener');
+    return;
+  }
+  if (link.page) { jumpTo(link.page, link.from); return; }
+  const pages = (await store.loadTexts()).get(att.id) || [];
+  const contents = (await disposeViewer?.contents?.()) || [];
+  const page = findReference(pages, link.ref, { from: link.from, contents, pageCount: disposeViewer?.pageCount });
+  if (page) jumpTo(page, link.from);
+  else toast(`${describeReference(link.ref)} could not be found in this document`);
+}
+
+async function openContents() {
+  const panel = clear($('#contentsPanel'));
+  const here = pageInView();
+  const count = disposeViewer?.pageCount || 0;
+  const close = () => { panel.hidden = true; };
+  const go = (page) => { close(); jumpTo(page, here); };
+
+  panel.append(el('div', { class: 'contents-head' }, [
+    el('h3', { text: 'Contents' }),
+    el('button', { class: 'btn', id: 'contentsClose', onclick: close }, ['Close'])
+  ]));
+  const input = el('input', {
+    class: 'find-input', id: 'gotoPage', type: 'number', inputmode: 'numeric',
+    min: '1', max: String(count), placeholder: 'Page', enterkeyhint: 'go'
+  });
+  const goToTyped = () => {
+    const n = Math.round(Number(input.value));
+    if (n >= 1 && n <= count) go(n);
+    else toast(`A page from 1 to ${count}`);
+  };
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); goToTyped(); } });
+  panel.append(el('div', { class: 'goto-row' }, [
+    input,
+    el('button', { class: 'btn', id: 'gotoGo', onclick: goToTyped }, ['Go']),
+    el('p', { class: 'hint', text: `of ${count} \u00b7 now on p.${here}` })
+  ]));
+  panel.hidden = false;
+
+  const entries = (await disposeViewer?.contents?.()) || [];
+  if (!entries.length) {
+    panel.append(el('p', { class: 'hint', text: 'This document carries no contents list of its own. Go to a page by its number, or to one of your bookmarks.' }));
+  }
+  // The section being read is the last one starting at or before this page.
+  let at = -1;
+  entries.forEach((e, i) => { if (e.page <= here) at = i; });
+  entries.forEach((e, i) => {
+    panel.append(el('button', {
+      class: `contents-entry depth-${Math.min(e.depth, 3)}${i === at ? ' here' : ''}`,
+      onclick: () => go(e.page)
+    }, [el('span', { text: e.title }), el('span', { class: 'contents-page', text: `p.${e.page}` })]));
+  });
+
+  const item = store.getItem(view.viewing?.itemId);
+  const marks = (item?.data.pageNotes || [])
+    .filter((n) => n.attId === view.viewing?.attId)
+    .sort((a, b) => a.page - b.page);
+  if (marks.length) {
+    panel.append(el('h3', { text: 'Your bookmarks and notes', style: 'margin-top:14px' }));
+    for (const n of marks) {
+      panel.append(el('button', { class: 'contents-entry', onclick: () => go(n.page) }, [
+        el('span', { text: markKind(n) === 'bookmark' ? 'Bookmark' : n.text }),
+        el('span', { class: 'contents-page', text: `p.${n.page}` })
+      ]));
+    }
+  }
+  panel.querySelector('.contents-entry.here')?.scrollIntoView({ block: 'center' });
 }
 
 let unwatchMarks = null;
@@ -2943,6 +3104,9 @@ function closeViewer() {
   clearTimeout(finding.timer);
   stopPageReading();
   $('#viewer').hidden = true;
+  hideBack();
+  $('#contentsPanel').hidden = true;
+  $('#viewerContents').hidden = true;
   disposeViewer?.();
   disposeViewer = null;
   clear($('#viewerBody'));
@@ -3303,6 +3467,136 @@ async function togglePin() {
 }
 
 /** Home: pinned pages, then what was open lately. */
+// ── editions ────────────────────────────────────────────────────────────────
+//
+// A newer copy of a document already held -- Rev 7 arriving while Rev 6 is on
+// the phone. It is offered, never assumed: two documents can share a title
+// and be different things. Linked, the old one is marked superseded and the
+// new one lists the pages whose words changed.
+
+async function compareEditions(old, fresh) {
+  const a = (old.data.attachments || [])[0];
+  const b = (fresh.data.attachments || [])[0];
+  if (!a || !b) return null;
+  const texts = await store.loadTexts();
+  const before = texts.get(a.id) || [];
+  const after = texts.get(b.id) || [];
+  if (!before.length || !after.length) return null;
+  const { changed, same, unread } = changedPages(before, after);
+  return { attId: b.id, against: a.id, pages: changed, same, unread };
+}
+
+async function linkEditions(oldId, newId) {
+  const old = store.getItem(oldId);
+  const fresh = store.getItem(newId);
+  if (!old || !fresh) return;
+  await store.saveItem({ id: old.id, type: old.type, data: { supersededBy: fresh.id, supersededOn: new Date().toISOString().slice(0, 10) } });
+  const diff = await compareEditions(old, fresh);
+  await store.saveItem({ id: fresh.id, type: fresh.type, data: { replaces: old.id, ...(diff ? { changedPages: diff } : {}) }, drop: diff ? [] : ['changedPages'] });
+}
+
+async function unlinkEditions(newId) {
+  const fresh = store.getItem(newId);
+  const old = store.getItem(fresh?.data.replaces);
+  if (old) await store.saveItem({ id: old.id, type: old.type, data: {}, drop: ['supersededBy', 'supersededOn'] });
+  if (fresh) await store.saveItem({ id: fresh.id, type: fresh.type, data: {}, drop: ['replaces', 'changedPages'] });
+}
+
+function offerEditions(pairs) {
+  $('#editionOffer')?.remove();
+  const panel = el('div', { class: 'panel', id: 'editionOffer' }, [el('h3', { text: 'A newer edition?' })]);
+  const done = (row) => { row.remove(); if (!panel.querySelector('.edition-pair')) panel.remove(); };
+  for (const { oldId, newId } of pairs) {
+    const old = store.getItem(oldId);
+    const fresh = store.getItem(newId);
+    if (!old || !fresh) continue;
+    const row = el('div', { class: 'edition-pair' });
+    row.append(
+      el('p', { class: 'hint', style: 'margin:0 0 8px' }, [
+        el('strong', { text: titleOf(fresh) }), ' looks like a newer edition of ', el('strong', { text: titleOf(old) }), '.'
+      ]),
+      el('div', { class: 'btn-row' }, [
+        el('button', { class: 'btn btn-sm btn-primary', onclick: async () => {
+          await linkEditions(oldId, newId);
+          done(row);
+          render();
+          toast('Linked \u2014 the older one is marked superseded');
+        } }, ['Link as newer edition']),
+        el('button', { class: 'btn btn-sm', onclick: () => done(row) }, ['Not the same'])
+      ])
+    );
+    panel.append(row);
+  }
+  if (panel.querySelector('.edition-pair')) $('#body').prepend(panel);
+}
+
+function editionsSection(item) {
+  const newer = item.data.supersededBy ? store.getItem(item.data.supersededBy) : null;
+  const older = item.data.replaces ? store.getItem(item.data.replaces) : null;
+  if (!newer && !older) return null;
+  const sec = el('div', { class: 'detail-sec', id: 'editions' }, [el('h4', { text: 'Editions' })]);
+  if (newer) {
+    sec.append(
+      el('p', { class: 'hint warn-text', text: `Superseded${item.data.supersededOn ? ` since ${displayDate(item.data.supersededOn)}` : ''}. Kept, and still searched, but check the newer edition before relying on it.` }),
+      el('button', { class: 'btn btn-sm btn-block', onclick: () => openDetail(newer.id) }, [`Newer edition: ${titleOf(newer)}`])
+    );
+  }
+  if (older) {
+    sec.append(el('button', { class: 'btn btn-sm btn-block', onclick: () => openDetail(older.id) }, [`Replaces: ${titleOf(older)}`]));
+    const diff = item.data.changedPages;
+    const att = (item.data.attachments || []).find((a) => a.id === diff?.attId);
+    if (diff && att) {
+      sec.append(el('p', { class: 'hint', style: 'margin-bottom:4px', text: diff.pages.length
+        ? `Changed from the edition it replaces: page${diff.pages.length === 1 ? '' : 's'} ${pageRanges(diff.pages)}. ${diff.same} unchanged.`
+        : `No page of it differs from the edition it replaces${diff.unread ? ' among the pages that have been read' : ''}.` }));
+      const pages = el('div', { class: 'changed-pages' });
+      for (const page of diff.pages.slice(0, 60)) {
+        pages.append(el('button', { class: 'scope-btn', onclick: () => openAttachment(att, page, item.id) }, [`p.${page}`]));
+      }
+      if (diff.pages.length) sec.append(pages);
+    } else {
+      sec.append(el('p', { class: 'hint', text: 'Which pages changed can be worked out once both have been read.' }),
+        el('button', { class: 'btn btn-sm', onclick: async () => {
+          await linkEditions(older.id, item.id);
+          openDetail(item.id);
+        } }, ['Compare the pages now']));
+    }
+    sec.append(el('button', { class: 'btn btn-sm', style: 'margin-top:6px', onclick: async () => {
+      await unlinkEditions(item.id);
+      openDetail(item.id);
+      render();
+    } }, ['Not an edition of it \u2014 unlink']));
+  }
+  return sec;
+}
+
+// ── due for review ──────────────────────────────────────────────────────────
+
+function duePanel() {
+  const rows = dueSoon(store.allItems());
+  if (!rows.length) return null;
+  const panel = el('div', { class: 'panel', id: 'dueSoon' }, [el('h3', { text: 'Due soon' })]);
+  for (const { item, state, days } of rows) {
+    const def = TYPES[item.type];
+    panel.append(el('div', { class: 'answer-row' }, [
+      el('button', { class: 'answer-open', onclick: () => openDetail(item.id) }, [
+        el('span', { class: 'answer-ref', text: item.data[def.titleKey] || 'Untitled' }),
+        el('span', { class: `answer-where due-${state}`, text: `${def.singular} \u00b7 ${dueLabel({ state, days })} \u00b7 ${displayDate(item.data.reviewBy)}` })
+      ]),
+      // Dealt with: the date comes off. A new date is set on the entry.
+      el('button', {
+        class: 'del-btn done-btn', 'aria-label': 'Dealt with: take the date off',
+        onclick: async () => {
+          await store.saveItem({ id: item.id, type: item.type, data: {}, drop: ['reviewBy'] });
+          toast('Taken off Due soon');
+          render();
+        }
+      }, ['\u2713'])
+    ]));
+  }
+  return panel;
+}
+
 function quickAccess() {
   const live = (rows) => rows.filter((r) => refTarget(r));
   const pins = live(store.peekList('pins'));
@@ -4075,6 +4369,138 @@ function pageNotesFor(item, att) {
  * Hand a file to the share sheet, or download it where there is none.
  * Returns false only when the person cancelled.
  */
+// ── the handover pack ───────────────────────────────────────────────────────
+//
+// What a relief needs from the phone, as one PDF they can open anywhere and
+// keep: what is due, the checklists worked through and when each step was
+// done, the answers looked up, and what was marked and noted in the manuals.
+
+const longDate = (iso) => new Date(iso).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' });
+const longTime = (iso) => new Date(iso).toLocaleString([], { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+/** Everything that goes in the pack, since a date (or all of it). */
+function handoverContents(since = '') {
+  const after = (iso) => !since || String(iso || '').slice(0, 10) >= since;
+  const byDoc = (rows) => {
+    const groups = new Map();
+    for (const r of rows) {
+      const key = `${r.item.id}|${r.att.id}`;
+      if (!groups.has(key)) groups.set(key, { item: r.item, att: r.att, rows: [] });
+      groups.get(key).rows.push(r);
+    }
+    for (const g of groups.values()) g.rows.sort((a, b) => a.page - b.page);
+    return [...groups.values()].sort((a, b) => titleOf(a.item).localeCompare(titleOf(b.item)));
+  };
+  const highlights = byDoc(allHighlights().filter(({ h }) => after(h.at)).map(({ item, att, h }) => ({ item, att, page: h.page, text: h.text || '(a marked area of a scanned page)' })));
+  const notes = [];
+  for (const item of store.allItems()) {
+    const atts = new Map((item.data.attachments || []).map((a) => [a.id, a]));
+    for (const n of item.data.pageNotes || []) {
+      if (markKind(n) !== 'note' || !after(n.at) || !atts.has(n.attId)) continue;
+      notes.push({ item, att: atts.get(n.attId), page: n.page, text: n.text });
+    }
+  }
+  const runs = [];
+  for (const list of store.peekList('checklists')) {
+    for (const run of list.runs || []) if (after(run.startedAt)) runs.push({ list, run });
+  }
+  runs.sort((a, b) => String(b.run.startedAt).localeCompare(String(a.run.startedAt)));
+  return {
+    due: dueSoon(store.allItems()),
+    runs,
+    answers: store.peekList('savedAnswers').filter((a) => after(a.at)),
+    highlights,
+    notes: byDoc(notes),
+    waiting: askQueue()
+  };
+}
+
+function handoverPdf(since = '') {
+  const c = handoverContents(since);
+  const pdf = new PdfWriter({ title: 'Handover pack' });
+  pdf.heading('Handover pack');
+  pdf.text(`Prepared ${longTime(new Date().toISOString())}${since ? ` \u00b7 covering from ${longDate(since)}` : ' \u00b7 everything held'}`, { grey: true, gap: 2 });
+  const counts = [
+    c.due.length ? `${c.due.length} due for review` : '',
+    c.runs.length ? plural(c.runs.length, 'checklist run', 'checklist runs') : '',
+    c.answers.length ? plural(c.answers.length, 'saved answer', 'saved answers') : '',
+    plural(c.highlights.reduce((n, g) => n + g.rows.length, 0), 'highlight', 'highlights'),
+    plural(c.notes.reduce((n, g) => n + g.rows.length, 0), 'page note', 'page notes')
+  ].filter((t) => t && !/^0 /.test(t));
+  pdf.text(counts.length ? counts.join(' \u00b7 ') : 'Nothing recorded for this period.', { grey: true });
+  pdf.rule();
+
+  if (c.due.length) {
+    pdf.heading('Due for review', 2);
+    for (const { item, state, days } of c.due) {
+      pdf.text(`${titleOf(item)} \u2014 ${TYPES[item.type].singular}, ${displayDate(item.data.reviewBy)} (${dueLabel({ state, days }).toLowerCase()})`, { indent: 8 });
+    }
+  }
+
+  if (c.runs.length) {
+    pdf.heading('Checklists', 2);
+    for (const { list, run } of c.runs) {
+      pdf.text(list.title, { bold: true, keep: true, gap: 1 });
+      const done = list.steps.filter((_, i) => run.ticks?.[i]).length;
+      pdf.text(`Started ${longTime(run.startedAt)} \u00b7 ${run.finishedAt ? `finished ${longTime(run.finishedAt)}` : 'not finished'} \u00b7 ${done} of ${list.steps.length} steps ticked`, { size: 9, grey: true, gap: 3 });
+      list.steps.forEach((step, i) => {
+        const at = run.ticks?.[i];
+        const where = step.ref ? ` (${step.ref.title}, p.${step.ref.page})` : '';
+        pdf.text(`${at ? '[x]' : '[  ]'} ${i + 1}. ${step.caution && !/^(caution|warning|danger)\b/i.test(step.text) ? 'CAUTION: ' : ''}${step.text}${where}${at ? ` \u2014 ${longTime(at)}` : ''}`, { indent: 10, size: 10, gap: 1 });
+      });
+      if (run.note) pdf.text(`Note: ${run.note}`, { indent: 10, size: 10 });
+      pdf.space(8);
+    }
+  }
+
+  if (c.answers.length) {
+    pdf.heading('Answers looked up', 2);
+    for (const a of c.answers) {
+      pdf.text(a.question, { bold: true, keep: true, gap: 1 });
+      pdf.text(`Asked ${longTime(a.at)}`, { size: 9, grey: true, gap: 3 });
+      for (const b of a.blocks || []) if (b.text?.trim()) pdf.text(b.text.trim(), { indent: 10, size: 10, gap: 2 });
+      const refs = (a.refs || []).map((r) => `${r.title} p.${r.page}`);
+      if (refs.length) pdf.text(`From: ${[...new Set(refs)].join('; ')}`, { indent: 10, size: 9, grey: true });
+      pdf.space(8);
+    }
+  }
+
+  const marked = (title, groups) => {
+    if (!groups.length) return;
+    pdf.heading(title, 2);
+    for (const g of groups) {
+      pdf.text(`${titleOf(g.item)}${g.att.name && g.att.name !== titleOf(g.item) ? ` \u2014 ${g.att.name}` : ''}`, { bold: true, keep: true, gap: 2 });
+      for (const r of g.rows) pdf.text(`p.${r.page}  ${r.text}`, { indent: 10, size: 10, gap: 2 });
+      pdf.space(6);
+    }
+  };
+  marked('Highlights', c.highlights);
+  marked('Notes on pages', c.notes);
+
+  if (c.waiting.length) {
+    pdf.heading('Questions still waiting for a connection', 2);
+    for (const q of c.waiting) pdf.text(`${q.question} (${longDate(q.at)})`, { indent: 8 });
+  }
+  return { blob: pdf.toBlob(), contents: c };
+}
+
+function handoverPanel() {
+  const since = el('input', { type: 'date', class: 'field', id: 'handoverSince', 'aria-label': 'From' });
+  const out = el('p', { class: 'hint', style: 'margin:8px 0 0' });
+  return el('div', { class: 'panel', id: 'handover' }, [
+    el('h3', { text: 'Handover pack' }),
+    el('p', { text: 'One PDF for your relief: what is due for review, checklists with the time each step was ticked, the answers you looked up, and your highlights and notes in the manuals. Leave the date empty for everything.' }),
+    el('label', { class: 'hint', style: 'display:block;margin-bottom:4px', text: 'From (optional)' }),
+    since,
+    el('button', { class: 'btn btn-primary btn-block', id: 'handoverMake', style: 'margin-top:10px', onclick: async () => {
+      const { blob } = handoverPdf(since.value);
+      out.textContent = `${formatBytes(blob.size)} PDF made.`;
+      await shareBlob(blob, `Handover pack ${new Date().toISOString().slice(0, 10)}.pdf`, 'application/pdf');
+    } }, ['Make the handover pack (PDF)']),
+    out
+  ]);
+}
+
 async function shareBlob(blob, filename, type) {
   const file = new File([blob], filename, { type });
   if (navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -4519,6 +4945,7 @@ async function onImportPicked(e) {
 
   let added = 0, unreadable = 0;
   const skipped = [];
+  const editions = [];
   for (const [i, file] of files.entries()) {
     if (stopped) break;
     status.textContent = `${i + 1} of ${files.length} — ${file.name}`;
@@ -4564,7 +4991,10 @@ async function onImportPicked(e) {
       if (!String(data[def.titleKey] || '').trim()) data[def.titleKey] = titleFromFilename(file.name);
       data.attachments = [descriptor];
 
-      revealItem(await store.saveItem({ type, data }));
+      const saved = await store.saveItem({ type, data });
+      revealItem(saved);
+      const older = findOlderEdition(store.allItems(), saved, titleOf);
+      if (older) editions.push({ oldId: older.id, newId: saved.id });
       added++;
     } catch (ex) {
       console.warn('Could not import', file.name, ex);
@@ -4590,6 +5020,7 @@ async function onImportPicked(e) {
     + (stopped ? ' · stopped' : '')
     + (unreadable && autoRead.on ? ', and will be read' : ''));
   if (unreadable) autoReadSoon();
+  if (editions.length) offerEditions(editions);
 }
 
 async function fillFromPdf(file) {
@@ -4682,8 +5113,11 @@ async function saveEditor() {
 
     for (const att of draft.removed) await store.removeFile(att).catch(() => {});
 
+    const isNew = !draft.id;
     const saved = await store.saveItem({ id: draft.id, type: draft.type, data: draft.data });
     revealItem(saved);
+    const older = isNew ? findOlderEdition(store.allItems(), saved, titleOf) : null;
+    if (older) setTimeout(() => offerEditions([{ oldId: older.id, newId: saved.id }]), 0);
     // The list was drawn as the save landed, before its folder was opened.
     render();
     closeEditor();
@@ -4778,6 +5212,8 @@ async function openSettings() {
     fullOut,
     el('button', { class: 'btn btn-block', onclick: () => $('#fullPicker').click() }, ['Restore a full backup'])
   ]));
+
+  body.append(handoverPanel());
 
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Records only' }),
@@ -5061,6 +5497,112 @@ function askButton(query) {
 
 const titleOf = (item) => item.data?.[TYPES[item.type]?.titleKey || 'title'] || 'Untitled';
 
+/**
+ * Ask one question: find the pages, send them, keep the answer. Used both
+ * with the sheet open and for a question that waited for a connection.
+ */
+async function runAsk(question, { signal, onStatus, onPages, onText } = {}) {
+  const model = askState.model;
+  const extra = await ask.searchWords(askState.key, model, question);
+  if (signal?.aborted) return null;
+  const pages = ask.choosePages(question, extra, store.allItems(), await store.loadTexts(), titleOf);
+  if (!pages.length) return { empty: true };
+  const docs = new Set(pages.map((p) => p.item.id)).size;
+  onStatus?.(`Reading ${plural(pages.length, 'page', 'pages')} from ${plural(docs, 'document', 'documents')}…`);
+  onPages?.(pages);
+  const result = await ask.askClaude(askState.key, model, question, pages, titleOf, { signal, onText });
+  if (result.refused) return { refused: true, pages };
+  const refs = pages.map((p) => ({ itemId: p.item.id, attId: p.att.id, page: p.page, title: titleOf(p.item) }));
+  const blocks = result.blocks.map((b) => ({ text: b.text, cites: b.cites }));
+  const cost = ask.costOf(result.usage, model);
+  const saved = { id: store.newId(), question, at: new Date().toISOString(), model, cost, blocks, refs };
+  // Kept as soon as it arrives: it has been paid for, and at sea it may be
+  // the only way to read it again.
+  await store.setList('savedAnswers', [saved, ...store.peekList('savedAnswers')]);
+  return { saved, refs, blocks, cost, model };
+}
+
+// ── asking with no connection ───────────────────────────────────────────────
+//
+// At sea there is often no signal. A question asked then is kept, and sent by
+// itself once the phone is back in range, the answer landing in Saved
+// answers. Meanwhile the library answers what it can on its own: the passages
+// of the pages that best match the question, which need no connection.
+
+const askQueue = () => store.peekList('askQueue');
+
+async function queueQuestion(question) {
+  if (askQueue().some((q) => q.question === question)) return;
+  await store.setList('askQueue', [...askQueue(), { id: store.newId(), question, at: new Date().toISOString() }]);
+}
+
+function offlinePassages(question) {
+  const wrap = el('div', { class: 'ask-offline', id: 'askOffline' }, [
+    el('h4', { text: 'From the library, meanwhile' })
+  ]);
+  (async () => {
+    // Best first -- and a superseded edition after the one that replaced it.
+    const old = (p) => (p.item.data.supersededBy && store.getItem(p.item.data.supersededBy) ? 1 : 0);
+    const pages = ask.choosePages(question, [], store.allItems(), await store.loadTexts(), titleOf)
+      .sort((a, b) => old(a) - old(b) || b.score - a.score).slice(0, 6);
+    if (!pages.length) {
+      wrap.append(el('p', { class: 'hint', text: 'No page in the library matches its words.' }));
+      return;
+    }
+    for (const p of pages) {
+      wrap.append(el('button', { class: 'answer-open passage', onclick: () => openAttachment(p.att, p.page, p.item.id) }, [
+        el('span', { class: 'answer-ref', text: `${titleOf(p.item)} · page ${p.page}` }),
+        el('span', { class: 'passage-text', text: ask.passage(p.text, question) })
+      ]));
+    }
+  })();
+  return wrap;
+}
+
+let draining = false;
+async function drainAskQueue() {
+  if (draining || !askState.key || navigator.onLine === false || !askQueue().length) return;
+  draining = true;
+  try {
+    for (const q of [...askQueue()]) {
+      try {
+        const done = await runAsk(q.question);
+        await store.setList('askQueue', askQueue().filter((x) => x.id !== q.id));
+        toast(done?.saved ? `Answered while you were away: “${q.question.slice(0, 50)}”` : `Asked, but nothing in the library matched: “${q.question.slice(0, 50)}”`);
+      } catch (ex) {
+        if (ask.isOffline(ex)) break;
+        await store.setList('askQueue', askQueue().map((x) => (x.id === q.id ? { ...x, error: ask.explainFailure(ex) } : x)));
+        break;
+      }
+    }
+  } finally {
+    draining = false;
+    if (view.screen === 'home') render();
+  }
+}
+window.addEventListener('online', () => drainAskQueue());
+document.addEventListener('visibilitychange', () => { if (!document.hidden) drainAskQueue(); });
+
+function waitingPanel() {
+  const rows = askQueue();
+  if (!rows.length) return null;
+  const panel = el('div', { class: 'panel', id: 'askWaiting' }, [
+    el('h3', { text: 'Waiting to ask' }),
+    el('p', { class: 'hint', style: 'margin-top:0', text: 'Sent by themselves once there is a connection; the answers go under Saved answers.' })
+  ]);
+  for (const q of rows) {
+    panel.append(el('div', { class: 'answer-row' }, [
+      el('button', { class: 'answer-open', onclick: () => openAsk(q.question) }, [
+        el('span', { class: 'answer-ref', text: q.question }),
+        el('span', { class: 'answer-where', text: q.error || `asked ${dayTime(q.at)}` })
+      ]),
+      el('button', { class: 'del-btn', 'aria-label': 'Do not ask this',
+        onclick: async () => { await store.setList('askQueue', askQueue().filter((x) => x.id !== q.id)); render(); } }, ['×'])
+    ]));
+  }
+  return panel;
+}
+
 async function openAsk(question) {
   const body = clear($('#askBody'));
   $('#ask').hidden = false;
@@ -5072,63 +5614,55 @@ async function openAsk(question) {
   askState.controller?.abort();
   const controller = new AbortController();
   askState.controller = controller;
-  const model = askState.model;
 
-  if (navigator.onLine === false) {
-    status.textContent = 'Asking needs a connection. Search still works offline — close this and look through the results.';
-    return;
-  }
+  const offline = async () => {
+    await queueQuestion(question);
+    status.textContent = 'No connection. The question is kept, and will be asked by itself once the phone is back in range — the answer will be under Saved answers.';
+    body.append(offlinePassages(question));
+  };
+  if (navigator.onLine === false) { await offline(); return; }
 
   try {
-    const extra = await ask.searchWords(askState.key, model, question);
-    if (controller.signal.aborted) return;
-    const pages = ask.choosePages(question, extra, store.allItems(), await store.loadTexts(), titleOf);
-    if (!pages.length) {
+    const done = await runAsk(question, {
+      signal: controller.signal,
+      onStatus: (text) => { status.textContent = text; },
+      onPages: (pages) => {
+        const sent = el('details', { class: 'ask-pages' }, [
+          el('summary', { text: `Sent to Claude: ${plural(pages.length, 'page', 'pages')}` })
+        ]);
+        for (const p of pages) {
+          sent.append(el('button', {
+            class: 'answer-open', onclick: () => openAttachment(p.att, p.page, p.item.id)
+          }, [el('span', { class: 'answer-ref', text: titleOf(p.item) }), el('span', { class: 'answer-where', text: `page ${p.page}` })]));
+        }
+        body.append(sent);
+      },
+      onText: (soFar) => { answer.textContent = soFar; }
+    });
+    if (!done || askState.controller !== controller) return;
+    // Asked now, so no longer waiting.
+    if (askQueue().some((q) => q.question === question)) {
+      await store.setList('askQueue', askQueue().filter((q) => q.question !== question));
+    }
+    if (done.empty) {
       status.textContent = 'Nothing in the library matches this question, so nothing was sent. Only documents whose text has been read can be asked about.';
       return;
     }
-
-    const docs = new Set(pages.map((p) => p.item.id)).size;
-    status.textContent = `Reading ${plural(pages.length, 'page', 'pages')} from ${plural(docs, 'document', 'documents')}…`;
-    const sent = el('details', { class: 'ask-pages' }, [
-      el('summary', { text: `Sent to Claude: ${plural(pages.length, 'page', 'pages')}` })
-    ]);
-    for (const p of pages) {
-      sent.append(el('button', {
-        class: 'answer-open', onclick: () => openAttachment(p.att, p.page, p.item.id)
-      }, [el('span', { class: 'answer-ref', text: titleOf(p.item) }), el('span', { class: 'answer-where', text: `page ${p.page}` })]));
-    }
-    body.append(sent);
-
-    const result = await ask.askClaude(askState.key, model, question, pages, titleOf, {
-      signal: controller.signal,
-      onText: (soFar) => { answer.textContent = soFar; }
-    });
-    if (askState.controller !== controller) return;
-
-    if (result.refused) {
+    if (done.refused) {
       status.textContent = 'Claude declined to answer this one. The pages it would have used are listed below.';
       answer.textContent = '';
       return;
     }
     // Drawn again from the finished answer, with each part followed by the
     // pages it came from -- the way to check it.
-    const refs = pages.map((p) => ({ itemId: p.item.id, attId: p.att.id, page: p.page, title: titleOf(p.item) }));
-    const blocks = result.blocks.map((b) => ({ text: b.text, cites: b.cites }));
-    drawAnswer(answer, blocks, refs);
-    const cost = ask.costOf(result.usage, model);
-    const saved = {
-      id: store.newId(), question, at: new Date().toISOString(),
-      model, cost, blocks, refs
-    };
-    // Kept as soon as it arrives: it has been paid for, and at sea it may be
-    // the only way to read it again.
-    await store.setList('savedAnswers', [saved, ...store.peekList('savedAnswers')]);
+    drawAnswer(answer, done.blocks, done.refs);
+    const { cost, model } = done;
     status.textContent = `${ask.modelInfo(model).label} · about $${cost < 0.01 ? cost.toFixed(3) : cost.toFixed(2)} · saved`;
     body.append(el('p', { class: 'ask-note', text: 'Answered only from the pages listed. Tap a page to check it — above all any figure — before acting on it. Kept under Saved answers, to read again with no connection.' }));
-    body.append(checklistFromAnswerButton(saved));
+    body.append(checklistFromAnswerButton(done.saved));
   } catch (ex) {
     if (askState.controller !== controller) return;
+    if (ask.isOffline(ex)) { await offline(); return; }
     status.textContent = ask.explainFailure(ex);
   }
 }

@@ -245,6 +245,44 @@ book(sys.argv[1], False)
 book(sys.argv[2], True)
 `, EPUB_PATH, LOCKED_EPUB_PATH]);
 
+// A manual that points at itself: a contents list of its own (the PDF's
+// bookmarks), references in its words, and one link the file carries.
+// Five pages, so a two-page spread has a sheet with something under it.
+const XREF_PATH = path.join(tmp, 'Cargo Handling Manual.pdf');
+{
+  const maker = await chromium.launch({ args: ['--no-sandbox'] });
+  const page = await maker.newPage();
+  await page.setContent(`<style>@page{size:A4;margin:20mm} body{font-family:serif;font-size:13pt} .pb{page-break-before:always}</style>
+<h1>Cargo Handling Manual</h1><p>Contents</p><p>1 Introduction ........ 2</p><p>3.2 Stripping ........ 3</p><p>Appendix A ........ 4</p>
+<h1 class="pb">1 Introduction</h1><p>Before starting, see section 3.2 for the stripping limits and Appendix A for the forms.</p><p style="margin-top:40px">The <a href="#s32">stripping procedure</a> is on its own page.</p><p style="margin-top:40px">MARPOL Annex VI applies to exhaust gas.</p>
+<h2 class="pb" id="s32">3.2 Stripping</h2><p>${'Stripping of cargo tanks. '.repeat(20)}</p>
+<h1 class="pb">Appendix A Forms</h1><p>Forms and checklists for cargo work.</p>
+<h1 class="pb">Appendix B Records</h1><p>Records kept on board.</p>`);
+  await page.pdf({ path: XREF_PATH, format: 'A4', outline: true, tagged: true });
+  await maker.close();
+}
+
+// Two editions of one manual: Rev 7 rewrites its second page and adds a
+// page at the front, which moves the rest along without changing them.
+const REV6_PATH = path.join(tmp, 'Ballast Operations Manual Rev 6.pdf');
+const REV7_PATH = path.join(tmp, 'Ballast Operations Manual Rev 7.pdf');
+{
+  const maker = await chromium.launch({ args: ['--no-sandbox'] });
+  const page = await maker.newPage();
+  const body = (pages) => `<style>@page{size:A4;margin:20mm} body{font-family:serif;font-size:13pt} .pb{page-break-before:always}</style>`
+    + pages.map((p, i) => `<div${i ? ' class="pb"' : ''}>${p}</div>`).join('');
+  const cover = (rev) => `<h1>Ballast Operations Manual ${rev}</h1><p>Issued to all vessels of the fleet.</p>`;
+  const one = '<h2>The system</h2><p>' + 'The ballast system serves the double bottom and wing tanks. '.repeat(12) + '</p>';
+  const two = (limit) => '<h2>Exchange</h2><p>' + `Sequential exchange keeps the stress within ${limit} of the permissible values. `.repeat(10) + '</p>';
+  const three = '<h2>Records</h2><p>' + 'Every exchange is entered in the ballast water record book with its position. '.repeat(10) + '</p>';
+  await page.setContent(body([cover('Rev 6'), one, two('80 percent'), three]));
+  await page.pdf({ path: REV6_PATH, format: 'A4' });
+  const added = '<h2>Revision record</h2><p>' + 'Revision seven changes the exchange limits and adds this record page. '.repeat(8) + '</p>';
+  await page.setContent(body([cover('Rev 7'), added, one, two('70 percent, and no more than two tanks at once'), three]));
+  await page.pdf({ path: REV7_PATH, format: 'A4' });
+  await maker.close();
+}
+
 // Over the size that is read a piece at a time: pictures of noise, which do
 // not compress, and a word to find on the last page.
 const BIG_PATH = path.join(tmp, 'Big Scanned Manual.pdf');
@@ -3919,6 +3957,426 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     check('and switched off, the pages scroll downwards again',
       !(await other.evaluate(() => document.getElementById('viewerBody').classList.contains('book'))));
     await other.click('#viewerClose');
+    await fresh.close();
+  }
+
+  console.log('\nReading at night, contents, references, zoom and spreads');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+
+    const refs = await other.evaluate(async () => {
+      const x = await import('./js/xref.js');
+      const line = 'Stop the pump, see section 4.3 and Appendix B. MARPOL Annex VI applies. Refer to 5.2.1 for limits. Page 12 has the table.';
+      const found = x.referencesIn(line).map((r) => line.slice(r.start, r.end));
+      const pages = [
+        { page: 2, text: 'Contents 4.3 Stripping ........ 12 4.4 Ballast ....... 13 Appendix B ........ 40' },
+        { page: 5, text: 'as said in section 4.3 Stripping is done' },
+        { page: 12, text: '4.2 Tanks blah. 4.3 Stripping The pump is stopped' },
+        { page: 30, text: 'CHAPTER 3 Cargo 3.1 General' },
+        { page: 40, text: 'Appendix B Forms and checklists' }
+      ];
+      return {
+        found,
+        section: x.findReference(pages, { kind: 'section', label: '4.3' }, { from: 5 }),
+        appendix: x.findReference(pages, { kind: 'appendix', label: 'B' }, { from: 5 }),
+        chapter: x.findReference(pages, { kind: 'chapter', label: '3' }, { from: 5 }),
+        listed: x.findReference(pages, { kind: 'section', label: '4.3' }, { contents: [{ title: '4.3 Stripping', page: 11 }] }),
+        missing: x.findReference(pages, { kind: 'section', label: '9.9' }, {})
+      };
+    });
+    check('references are picked out of a line, and another book’s annex is not',
+      JSON.stringify(refs.found) === JSON.stringify(['section 4.3', 'Appendix B', '5.2.1', 'Page 12']), JSON.stringify(refs.found));
+    check('a reference leads to its heading, past the contents page and the mentions of it',
+      refs.section === 12 && refs.appendix === 40 && refs.chapter === 30, JSON.stringify(refs));
+    check('the document’s own contents list is believed first, and a missing one leads nowhere',
+      refs.listed === 11 && refs.missing === null, JSON.stringify(refs));
+
+    await other.locator('.section-card', { hasText: 'Manuals' }).click();
+    await other.click('#fab');
+    await other.waitForSelector('#editor:not([hidden])');
+    await other.fill('#editorBody [data-field="title"]', 'Cargo Handling Manual');
+    await other.setInputFiles('#filePicker', XREF_PATH);
+    await other.waitForTimeout(1500);
+    await other.click('#editorSave');
+    await other.waitForSelector('#editor', { state: 'hidden', timeout: 30000 });
+    for (let i = 0; i < 5; i++) {
+      const shut = other.locator('.group-head-btn[aria-expanded="false"]').first();
+      if (await shut.count() === 0) break;
+      await shut.click();
+      await other.waitForTimeout(50);
+    }
+    await other.locator('.card', { hasText: 'Cargo Handling Manual' }).first().click();
+    await other.waitForSelector('#detail:not([hidden])');
+    await other.click('#detailBody button:has-text("Open")');
+    await other.waitForSelector('#viewerBody canvas[data-page="1"]');
+    await other.waitForTimeout(800);
+    const pin = () => other.locator('#viewerPin').innerText();
+
+    // Night reading.
+    const pixel = async () => {
+      const box = await other.locator('#viewerBody canvas[data-page="1"]').boundingBox();
+      const shot = await other.screenshot({ clip: { x: box.x + box.width * 0.5, y: box.y + 12, width: 1, height: 1 } });
+      return other.evaluate(async (b64) => {
+        const img = new Image();
+        img.src = `data:image/png;base64,${b64}`;
+        await img.decode();
+        const c = document.createElement('canvas');
+        c.width = c.height = 1;
+        const g = c.getContext('2d');
+        g.drawImage(img, 0, 0);
+        return [...g.getImageData(0, 0, 1, 1).data.slice(0, 3)];
+      }, shot.toString('base64'));
+    };
+    const day = await pixel();
+    await other.click('#viewerNight');
+    await other.waitForTimeout(200);
+    const dark = await pixel();
+    await other.click('#viewerNight');
+    await other.waitForTimeout(200);
+    const red = await pixel();
+    check('by day the page is white', day.every((v) => v > 240), JSON.stringify(day));
+    check('night reading turns the white page dark', dark.every((v) => v < 40), JSON.stringify(dark));
+    check('and red night reading keeps it dark, with nothing white left', red.every((v) => v < 40), JSON.stringify(red));
+    check('the mode is shown on its button', await other.getAttribute('#viewerNight', 'data-mode') === 'red');
+    check('with nothing that makes the phone redraw the page every frame',
+      !(await other.evaluate(() => [...document.querySelectorAll('#viewerWrap *')].some((e) => getComputedStyle(e).filter !== 'none'))));
+    await other.click('#viewerNight');
+    check('and it goes back to plain pages', await other.getAttribute('#viewerNight', 'data-mode') === 'off');
+
+    // Contents.
+    await other.click('#viewerContents');
+    await other.locator('.contents-entry', { hasText: 'Stripping' }).waitFor({ timeout: 5000 });
+    const listed = await other.locator('.contents-entry').allInnerTexts();
+    check('the contents are the document’s own, with their pages',
+      listed.some((t) => /Introduction/.test(t) && /p\.2/.test(t)) && listed.some((t) => /3\.2 Stripping/.test(t) && /p\.3/.test(t))
+        && listed.some((t) => /Appendix A/.test(t) && /p\.4/.test(t)), JSON.stringify(listed));
+    await other.fill('#gotoPage', '4');
+    await other.click('#gotoGo');
+    await other.waitForTimeout(700);
+    check('a page can be gone to by its number', /p\.4/.test(await pin()) && await other.locator('#contentsPanel').isHidden(), await pin());
+    check('with the way back offered', /Back to p\.1/.test(await other.locator('#viewerBack').innerText()));
+    await other.click('#viewerBack');
+    await other.waitForTimeout(700);
+    check('and taken', /p\.1/.test(await pin()) && await other.locator('#viewerBack').isHidden(), await pin());
+    await other.click('#viewerContents');
+    await other.locator('.contents-entry', { hasText: 'Introduction' }).click();
+    await other.waitForTimeout(900);
+    check('an entry in the contents opens its page', /p\.2/.test(await pin()), await pin());
+
+    // References on the page.
+    const spot = (text) => other.evaluate(async (text) => {
+      const pdfjs = await import('../vendor/pdf.min.mjs');
+      const canvas = document.querySelector('#viewerBody canvas[data-page="2"]');
+      const store = await import('./js/store.js');
+      const item = store.itemsOfType('manual').find((i) => i.data.title === 'Cargo Handling Manual');
+      const blob = await store.readFile(item.data.attachments[0]);
+      const doc = await pdfjs.getDocument({ data: new Uint8Array(await blob.arrayBuffer()) }).promise;
+      const page = await doc.getPage(2);
+      const vp = page.getViewport({ scale: 1 });
+      const items = (await page.getTextContent()).items;
+      const it = items.find((i) => i.str.includes(text));
+      const box = canvas.getBoundingClientRect();
+      const k = box.width / vp.width;
+      const at = it.str.indexOf(text);
+      const x = it.transform[4] + (it.width * (at + text.length / 2)) / it.str.length;
+      const y = vp.height - it.transform[5] - it.height * 0.35;
+      return { x: box.left + x * k, y: box.top + y * k };
+    }, text);
+    let at = await spot('section 3.2');
+    await other.mouse.click(at.x, at.y);
+    await other.waitForTimeout(900);
+    check('a reference in the text is followed to its section', /p\.3/.test(await pin()), await pin());
+    await other.click('#viewerBack');
+    await other.waitForTimeout(700);
+    at = await spot('Appendix A');
+    await other.mouse.click(at.x, at.y);
+    await other.waitForTimeout(900);
+    check('and to an appendix', /p\.4/.test(await pin()), await pin());
+    await other.click('#viewerBack');
+    await other.waitForTimeout(700);
+    at = await spot('stripping procedure');
+    await other.mouse.click(at.x, at.y);
+    await other.waitForTimeout(900);
+    check('a link the file carries is followed too', /p\.3/.test(await pin()), await pin());
+    await other.click('#viewerBack');
+    await other.waitForTimeout(700);
+    at = await spot('Annex VI');
+    await other.mouse.click(at.x, at.y);
+    await other.waitForTimeout(700);
+    check('another book’s annex is not a link', /p\.2/.test(await pin()) && await other.locator('#viewerBack').isHidden(), await pin());
+
+    // Pinching, in book view.
+    await other.click('#viewerBook');
+    await other.waitForTimeout(1200);
+    const pageBox = await other.locator('#viewerBody canvas[data-page="2"]').boundingBox();
+    const cx = pageBox.x + pageBox.width / 2;
+    const cy = pageBox.y + pageBox.height / 3;
+    const touch = (type, id, x, y) => other.evaluate(([type, id, x, y]) => {
+      const t = document.elementFromPoint(x, y) || document.getElementById('viewerBody');
+      t.dispatchEvent(new PointerEvent(type, { pointerId: id, pointerType: 'touch', clientX: x, clientY: y, bubbles: true, cancelable: true, isPrimary: id === 1 }));
+    }, [type, id, x, y]);
+    const widthBefore = await other.evaluate(() => document.querySelector('#viewerBody canvas[data-page="2"]').width);
+    await touch('pointerdown', 1, cx - 20, cy);
+    await touch('pointerdown', 2, cx + 20, cy);
+    for (let k = 1; k <= 5; k++) {
+      await touch('pointermove', 1, cx - 20 - k * 8, cy);
+      await touch('pointermove', 2, cx + 20 + k * 8, cy);
+      await other.waitForTimeout(30);
+    }
+    await touch('pointerup', 1, cx - 60, cy);
+    await touch('pointerup', 2, cx + 60, cy);
+    await other.waitForTimeout(1500);
+    const zoomed = await other.evaluate(() => {
+      const c = document.querySelector('#viewerBody canvas[data-page="2"]');
+      return { t: c.style.transform, w: c.width, zoomed: document.getElementById('viewerBody').classList.contains('zoomed') };
+    });
+    const scale = Number((/scale\(([\d.]+)\)/.exec(zoomed.t) || [])[1]);
+    check('two fingers spread apart zoom the page in', zoomed.zoomed && scale > 2.5 && scale < 3.5, JSON.stringify(zoomed));
+    check('and it is drawn again finer, not blown up', zoomed.w > widthBefore * 1.5, `${widthBefore} -> ${zoomed.w}`);
+    await touch('pointerdown', 1, cx, cy);
+    await touch('pointermove', 1, cx + 40, cy + 30);
+    await touch('pointerup', 1, cx + 40, cy + 30);
+    await other.waitForTimeout(200);
+    const panned = await other.evaluate(() => document.querySelector('#viewerBody canvas[data-page="2"]').style.transform);
+    check('zoomed, one finger moves the page about', panned !== zoomed.t && /scale/.test(panned), `${zoomed.t} -> ${panned}`);
+    await other.mouse.click(pageBox.x + pageBox.width * 0.95, cy);
+    await other.waitForTimeout(700);
+    check('and a tap at its edge does not turn it', /p\.2/.test(await pin()), await pin());
+    await other.mouse.click(cx, cy);
+    await other.waitForTimeout(60);
+    await other.mouse.click(cx, cy);
+    await other.waitForTimeout(800);
+    const reset = await other.evaluate(() => {
+      const c = document.querySelector('#viewerBody canvas[data-page="2"]');
+      return { t: c.style.transform, w: c.width };
+    });
+    check('a double tap puts it back, drawn as it was', !reset.t && reset.w === widthBefore, JSON.stringify(reset));
+    await other.mouse.click(pageBox.x + pageBox.width * 0.95, cy);
+    await other.waitForTimeout(800);
+    check('and the pages turn again', /p\.3/.test(await pin()), await pin());
+
+    // Held sideways: two pages open.
+    await other.setViewportSize({ width: 844, height: 390 });
+    await other.waitForTimeout(1500);
+    const open = () => other.evaluate(() => {
+      const b = document.getElementById('viewerBody');
+      return {
+        spread: b.classList.contains('spread'), current: b.dataset.current,
+        open: [...b.querySelectorAll('canvas[data-page]')]
+          .filter((c) => !c.classList.contains('book-off') && c.style.opacity === '1')
+          .map((c) => ({ page: c.dataset.page, left: parseFloat(c.style.left), width: parseFloat(c.style.width) }))
+      };
+    });
+    const sideways = await open();
+    const [l, r] = sideways.open.sort((a, b) => a.left - b.left);
+    check('held sideways, the book lies open at two pages, odd on the left',
+      sideways.spread && sideways.current === '3' && l?.page === '3' && r?.page === '4', JSON.stringify(sideways));
+    check('meeting at the spine', l && r && Math.abs(l.left + l.width - r.left) < 1, JSON.stringify(sideways));
+    // Back to the first two pages, and turn the right-hand one.
+    const firstLeft = await other.locator('#viewerBody canvas[data-page="3"]').boundingBox();
+    await other.mouse.click(firstLeft.x + firstLeft.width * 0.1, firstLeft.y + firstLeft.height / 2);
+    await other.waitForTimeout(900);
+    check('a tap at the left edge turns back a whole sheet', (await open()).current === '1', JSON.stringify(await open()));
+    const right = await other.locator('#viewerBody canvas[data-page="2"]').boundingBox();
+    await other.mouse.move(right.x + right.width * 0.9, right.y + right.height / 2);
+    await other.mouse.down();
+    await other.mouse.move(right.x + right.width * 0.1, right.y + right.height / 2, { steps: 6 });
+    await other.waitForTimeout(150);
+    const turning = await other.evaluate(() => {
+      const shown = [...document.querySelectorAll('#viewerBody .curl')].find((c) => c.style.display !== 'none');
+      return { strips: shown ? shown.querySelectorAll('.curl-strip').length : 0,
+        printed: shown ? shown.querySelectorAll('.curl-back canvas.curl-paper').length : 0,
+        under: document.querySelector('#viewerBody canvas[data-page="4"]').style.opacity,
+        left: document.querySelector('#viewerBody canvas[data-page="1"]').style.opacity };
+    });
+    check('the right-hand page turns over the spine, the next page printed on its back',
+      turning.strips >= 40 && turning.printed === turning.strips && turning.under === '1' && turning.left === '1', JSON.stringify(turning));
+    await other.mouse.move(right.x - right.width * 0.8, right.y + right.height / 2, { steps: 6 });
+    await other.mouse.up();
+    await other.waitForTimeout(900);
+    const after = await open();
+    check('and the book opens at the next two pages',
+      after.current === '3' && after.open.map((o) => o.page).sort().join() === '3,4', JSON.stringify(after));
+    await other.setViewportSize({ width: 390, height: 664 });
+    await other.waitForTimeout(1200);
+    const upright = await open();
+    check('stood upright again, one page at a time', !upright.spread && upright.open.length === 1, JSON.stringify(upright));
+    await other.click('#viewerBook');
+    await other.click('#viewerClose');
+    await fresh.close();
+  }
+
+  console.log('\nKeeping the library current, and handing over');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'], acceptDownloads: true });
+    const other = await fresh.newPage();
+    other.on('dialog', (d) => d.accept());
+    const asked = [];
+    await fresh.route('https://api.anthropic.com/**', async (route) => {
+      const body = JSON.parse(route.request().postData() || '{}');
+      asked.push(body);
+      if (!body.stream) {
+        return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({
+          id: 'msg_terms', type: 'message', role: 'assistant', model: body.model,
+          content: [{ type: 'text', text: JSON.stringify({ terms: ['exchange'] }) }],
+          stop_reason: 'end_turn', stop_sequence: null, usage: { input_tokens: 100, output_tokens: 10 }
+        }) });
+      }
+      const ev = (type, data) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`;
+      return route.fulfill({ status: 200, headers: { 'content-type': 'text/event-stream' }, body: [
+        ev('message_start', { message: { id: 'msg_1', type: 'message', role: 'assistant', model: body.model,
+          content: [], stop_reason: null, stop_sequence: null, usage: { input_tokens: 900, output_tokens: 1 } } }),
+        ev('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }),
+        ev('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Keep the stress within 70 percent during exchange.' } }),
+        ev('content_block_stop', { index: 0 }),
+        ev('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 20 } }),
+        ev('message_stop', {})
+      ].join('') });
+    });
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+
+    // Editions.
+    const editions = await other.evaluate(async () => {
+      const e = await import('./js/editions.js');
+      return {
+        same: e.editionKey('Cargo Operations Manual Rev 7') === e.editionKey('Cargo Operations Manual Rev.6 (2024)'),
+        underscores: e.editionKey('SMS_Manual_Vol_1_Ed2.pdf') === e.editionKey('SMS Manual Vol 1 - Edition 3 March 2025'),
+        different: e.editionKey('Cargo Operations Manual') !== e.editionKey('Ballast Operations Manual'),
+        ranges: e.pageRanges([1, 2, 3, 7, 9, 10])
+      };
+    });
+    check('two editions of a title are known as one document, and two titles are not',
+      editions.same && editions.underscores && editions.different, JSON.stringify(editions));
+    check('pages are listed as ranges', editions.ranges === '1–3, 7, 9–10', editions.ranges);
+
+    await other.locator('.section-card', { hasText: 'Manuals' }).click();
+    await other.setInputFiles('#importPicker', [REV6_PATH, REV7_PATH]);
+    await other.locator('#editionOffer').waitFor({ timeout: 30000 });
+    const offered = await other.locator('#editionOffer').innerText();
+    check('a newer edition is noticed on import, and offered rather than assumed',
+      /Rev 7.*looks like a newer edition of.*Rev 6/s.test(offered), offered);
+    await other.click('#editionOffer button:has-text("Link as newer edition")');
+    await other.locator('.toast', { hasText: 'superseded' }).waitFor({ timeout: 10000 });
+    for (let i = 0; i < 5; i++) {
+      const shut = other.locator('.group-head-btn[aria-expanded="false"]').first();
+      if (await shut.count() === 0) break;
+      await shut.click();
+      await other.waitForTimeout(50);
+    }
+    const oldCard = other.locator('.card', { hasText: 'Rev 6' });
+    check('the older one is marked superseded', /Superseded/i.test(await oldCard.innerText()), await oldCard.innerText());
+    await other.locator('.card', { hasText: 'Rev 7' }).click();
+    await other.waitForSelector('#detail:not([hidden])');
+    const ed = await other.locator('#editions').innerText();
+    check('the newer one says what it replaces', /Replaces: .*Rev 6/i.test(ed), ed);
+    check('and lists only the pages whose words changed — not the ones merely moved along',
+      /pages 1\u20132, 4\./.test(ed) && /2 unchanged/.test(ed), ed);
+    await other.locator('#editions .scope-btn', { hasText: 'p.4' }).click();
+    await other.locator('#viewerTitle', { hasText: /page 4/ }).waitFor({ timeout: 10000 });
+    check('a changed page opens where it is', true);
+    await other.click('#viewerClose');
+    await other.click('#editions button:has-text("Replaces")');
+    const oldEd = await other.locator('#editions').innerText();
+    check('and the older one points to the newer', /Superseded since/.test(oldEd) && /Newer edition: .*Rev 7/i.test(oldEd), oldEd);
+    await other.click('#detailClose');
+    await other.fill('#search', 'ballast water record book');
+    await other.waitForTimeout(800);
+    const found = await other.locator('.card .card-title').allInnerTexts();
+    check('both are still found, the current edition first',
+      found.length >= 2 && /Rev 7/.test(found[0]) && found.some((t) => /Rev 6/.test(t)), JSON.stringify(found));
+    await other.fill('#search', '');
+
+    // Due for review.
+    await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const day = (n) => new Date(Date.now() + n * 864e5).toISOString().slice(0, 10);
+      const [a, b] = store.itemsOfType('manual');
+      await store.saveItem({ id: a.id, type: a.type, data: { reviewBy: day(-3) } });
+      await store.saveItem({ id: b.id, type: b.type, data: { reviewBy: day(12) } });
+      await store.saveItem({ type: 'manual', data: { title: 'Far Off Manual', reviewBy: day(200) } });
+    });
+    if (await other.locator('#backBtn').isVisible()) await other.click('#backBtn');
+    await other.waitForTimeout(400);
+    await other.locator('#dueSoon').waitFor({ timeout: 5000 });
+    const due = await other.locator('#dueSoon').innerText();
+    check('the home screen lists what is due, the overdue first',
+      /Overdue 3 days[\s\S]*Due in 12 days/.test(due) && !/Far Off/.test(due), due);
+    check('a review date can be entered on any document',
+      await other.evaluate(async () => (await import('./js/schema.js')).TYPES.circular.fields.some((f) => f.key === 'reviewBy')));
+    await other.locator('#dueSoon .del-btn').first().click();
+    await other.waitForTimeout(400);
+    check('and one dealt with comes off the list', !/Overdue/.test(await other.locator('#dueSoon').innerText()),
+      await other.locator('#dueSoon').innerText());
+
+    // Asking with no connection.
+    await other.evaluate(async () => { await (await import('./js/db.js')).setMeta('anthropicKey', 'sk-ant-test-0000-KEY1'); });
+    await other.reload({ waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await fresh.setOffline(true);
+    await other.fill('#search', 'What limits apply to ballast exchange?');
+    await other.waitForTimeout(700);
+    await other.click('#askBtn');
+    await other.locator('#askOffline .passage').first().waitFor({ timeout: 10000 });
+    check('with no connection the question is kept', /kept, and will be asked by itself/.test(await other.locator('.ask-status').innerText()),
+      await other.locator('.ask-status').innerText());
+    const passages = await other.locator('#askOffline .passage').allInnerTexts();
+    check('and the library’s own best passages are shown meanwhile',
+      passages.length > 0 && /Ballast Operations Manual Rev 7/.test(passages[0]) && /exchange/i.test(passages[0]), JSON.stringify(passages.slice(0, 2)));
+    check('nothing was sent', asked.length === 0);
+    await other.click('#askClose');
+    await other.fill('#search', '');
+    if (await other.locator('#backBtn').isVisible()) await other.click('#backBtn');
+    await other.waitForTimeout(300);
+    check('the home screen shows it waiting', /What limits apply to ballast exchange/.test(await other.locator('#askWaiting').innerText()));
+    await fresh.setOffline(false);
+    await other.evaluate(() => window.dispatchEvent(new Event('online')));
+    await other.locator('.toast', { hasText: 'Answered while you were away' }).waitFor({ timeout: 20000 });
+    const savedNow = await other.evaluate(async () => (await import('./js/store.js')).peekList('savedAnswers').map((a) => a.question));
+    check('back in range, it is asked and the answer kept', savedNow.includes('What limits apply to ballast exchange?'), JSON.stringify(savedNow));
+    await other.waitForTimeout(300);
+    check('and it is no longer waiting', await other.locator('#askWaiting').count() === 0);
+
+    // The handover pack.
+    await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const item = store.itemsOfType('manual').find((i) => /Rev 7/.test(i.data.title));
+      const att = item.data.attachments[0];
+      await store.saveItem({ id: item.id, type: item.type, data: {
+        highlights: [{ id: 'h1', attId: att.id, page: 3, rects: [], text: 'no more than two tanks at once', colour: 'yellow', at: new Date().toISOString() }],
+        pageNotes: [{ id: 'n1', attId: att.id, page: 4, text: 'Record book is in the CCR', colour: 'yellow', kind: 'note', at: new Date().toISOString().slice(0, 10) }]
+      } });
+      const now = new Date().toISOString();
+      await store.setList('checklists', [{ id: 'c1', title: 'Before ballast exchange', createdAt: now,
+        steps: [{ text: 'Confirm the stress limits' }, { text: 'Log the position' }],
+        runs: [{ id: 'r1', startedAt: now, finishedAt: now, ticks: { 0: now } }] }]);
+    });
+    await other.click('#settingsBtn');
+    await other.waitForSelector('#settings:not([hidden])');
+    const [download] = await Promise.all([other.waitForEvent('download', { timeout: 15000 }), other.click('#handoverMake')]);
+    const packPath = path.join(tmp, 'pack.pdf');
+    await download.saveAs(packPath);
+    const pack = fs.readFileSync(packPath);
+    const read = await other.evaluate(async (b64) => {
+      const pdfjs = await import('../vendor/pdf.min.mjs');
+      pdfjs.GlobalWorkerOptions.workerSrc = new URL('../vendor/pdf.worker.wrapper.mjs', location.href).href;
+      const data = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+      const doc = await pdfjs.getDocument({ data }).promise;
+      let text = '';
+      for (let n = 1; n <= doc.numPages; n++) text += (await (await doc.getPage(n)).getTextContent()).items.map((i) => i.str).join(' ') + '\n';
+      return { pages: doc.numPages, text };
+    }, pack.toString('base64'));
+    check('the handover pack is a PDF that opens', pack.slice(0, 5).toString() === '%PDF-' && read.pages >= 1, `${pack.length} bytes`);
+    check('with what is due, the checklist and when each step was ticked',
+      /Due for review/.test(read.text) && /Before ballast exchange/.test(read.text) && /\[x\] 1\. Confirm the stress limits —/.test(read.text)
+        && /\[ +\] 2\. Log the position/.test(read.text), read.text.slice(0, 600));
+    check('the answers looked up, and the highlights and notes by document and page',
+      /What limits apply to ballast exchange\?/.test(read.text) && /p\.3 +no more than two tanks at once/.test(read.text)
+        && /p\.4 +Record book is in the CCR/.test(read.text), read.text.slice(0, 900));
+    await other.click('#settingsClose');
     await fresh.close();
   }
 

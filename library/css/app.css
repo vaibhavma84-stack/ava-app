@@ -478,6 +478,7 @@ select.field {
 
 /* ── document viewer ─────────────────────────────────────────────────────── */
 .viewer-panel { height: calc(100dvh - var(--safe-t) - 12px); }
+.viewer-wrap { position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
 .viewer-body {
   /* Stickies are positioned against the pages inside this, so they scroll
      with the document rather than sitting still on the screen. */
@@ -660,7 +661,8 @@ select.field {
 .epub-chapter pre { white-space: pre-wrap; }
 mark.find-mark { background: rgb(255 214 0 / .6); color: inherit; border-radius: 2px; }
 .viewer-body.book .hl, .viewer-body.book .sticky, .viewer-body.book .ribbon { z-index: 4; }
-.viewer-body.book.turning .hl, .viewer-body.book.turning .sticky, .viewer-body.book.turning .ribbon { visibility: hidden; }
+.viewer-body.book.turning .hl, .viewer-body.book.turning .sticky, .viewer-body.book.turning .ribbon,
+.viewer-body.book.zoomed .hl, .viewer-body.book.zoomed .sticky, .viewer-body.book.zoomed .ribbon { visibility: hidden; }
 
 /* The roll: strips of the page placed round a cylinder. */
 .curl {
@@ -690,3 +692,73 @@ mark.find-mark { background: rgb(255 214 0 / .6); color: inherit; border-radius:
   background: linear-gradient(to right, rgba(0,0,0,.45), rgba(0,0,0,.18) 35%, rgba(0,0,0,0));
   will-change: opacity, transform;
 }
+
+/* Night reading. The page is turned light-on-dark by a layer over it that
+   inverts what is beneath, then dimmed, or dyed red to keep night vision on
+   the bridge. Laid over the pages, not applied to them: a filter on the
+   pages would flatten the roll of a turning page. */
+.night-veil { position: absolute; inset: 0; pointer-events: none; z-index: 5; display: none; }
+.viewer-wrap.night-dark .night-veil, .viewer-wrap.night-red .night-veil { display: block; }
+.night-invert { background: #fff; mix-blend-mode: difference; }
+.viewer-wrap.night-dark .night-tint { background: rgba(0, 0, 0, .28); }
+.viewer-wrap.night-red .night-tint { background: #c41a0a; mix-blend-mode: multiply; }
+/* The margin round the pages, set to what turns dark once inverted. */
+.viewer-wrap.night-dark .viewer-body, .viewer-wrap.night-red .viewer-body { background: #eee; }
+.night-btn { font-size: 17px; }
+.night-btn[data-mode="dark"] { background: #d8d4cc; color: #17100a; border-color: #d8d4cc; }
+.night-btn[data-mode="red"] { background: #7a1208; color: #ffb3a8; border-color: #7a1208; }
+/* A shadow turns to a glow once inverted. */
+.viewer-wrap.night-dark .viewer-page, .viewer-wrap.night-red .viewer-page,
+.viewer-wrap.night-dark .epub-chapter, .viewer-wrap.night-red .epub-chapter { box-shadow: none; }
+
+/* The way back from a followed reference. */
+.back-chip {
+  position: absolute; left: 12px; bottom: 12px; z-index: 7;
+  border: 1px solid var(--copper); background: var(--ink-900); color: var(--copper-bright);
+  border-radius: 999px; padding: 8px 14px; font-size: 13px; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .5);
+}
+/* The document's contents, over the page. */
+.contents-panel {
+  position: absolute; inset: 0; z-index: 8; background: var(--ink-900);
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding: 12px calc(var(--safe-r) + 14px) 20px calc(var(--safe-l) + 14px);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.contents-panel[hidden] { display: none; }
+.goto-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.goto-row .find-input { flex: 0 1 120px; }
+.goto-row .hint { margin: 0; }
+.contents-entry {
+  display: flex; gap: 10px; justify-content: space-between; align-items: baseline;
+  text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line);
+  color: var(--text); padding: 10px 2px; font-size: 14.5px; cursor: pointer; width: 100%;
+}
+.contents-entry.depth-1 { padding-left: 16px; font-size: 14px; color: var(--text-dim); }
+.contents-entry.depth-2, .contents-entry.depth-3 { padding-left: 30px; font-size: 13.5px; color: var(--text-dim); }
+.contents-entry .contents-page { flex: 0 0 auto; font-family: var(--mono); font-size: 12px; color: var(--text-faint); }
+.contents-entry.here { color: var(--copper-bright); }
+.contents-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.contents-head h3 { margin: 0; }
+.epub-link { color: #8a4a12; text-decoration: underline; text-decoration-style: dotted; cursor: pointer; }
+/* Four buttons along the bottom of the reader, on a phone. */
+.viewer-panel .sheet-actions { gap: 7px; padding-left: calc(var(--safe-l) + 10px); padding-right: calc(var(--safe-r) + 10px); }
+.viewer-panel .sheet-actions > .btn { letter-spacing: .06em; padding-left: 4px; padding-right: 4px; }
+
+/* Due soon on the home screen: passed dates in the warning colour. */
+.answer-where.due-overdue, .answer-where.due-today { color: var(--warn); }
+#dueSoon { margin-top: 14px; }
+
+/* Editions: a newer copy offered, and the pages that changed. */
+.edition-pair { padding: 8px 0; border-top: 1px solid var(--line); }
+.edition-pair:first-of-type { border-top: 0; }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.changed-pages { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 6px; }
+.warn-text { color: var(--warn); }
+
+/* Asked with no connection: the library's own best passages. */
+.ask-offline { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.ask-offline h4 { margin: 4px 0; }
+.answer-open.passage { flex-direction: column; align-items: flex-start; gap: 4px; text-align: left; }
+.passage-text { font-size: 13.5px; line-height: 1.45; color: var(--text); white-space: normal; }
+.del-btn.done-btn { color: var(--sage); }

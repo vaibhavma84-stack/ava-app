@@ -133,7 +133,7 @@ const KEEP = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li',
 const DROP = new Set(['script', 'style', 'head', 'iframe', 'object', 'embed', 'link', 'meta', 'form', 'input',
   'button', 'textarea', 'select', 'audio', 'video', 'svg', 'math', 'template', 'noscript', 'canvas']);
 
-function copyInto(target, node, pictureFor) {
+function copyInto(target, node, pictureFor, linkFor = () => null) {
   for (const child of node.childNodes) {
     if (child.nodeType === 3) { target.append(document.createTextNode(child.nodeValue)); continue; }
     if (child.nodeType !== 1) continue;
@@ -157,11 +157,19 @@ function copyInto(target, node, pictureFor) {
         const span = Number(child.getAttribute('colspan'));
         if (span > 1 && span < 50) copy.colSpan = span;
       }
-      copyInto(copy, child, pictureFor);
+      copyInto(copy, child, pictureFor, linkFor);
       target.append(copy);
+    } else if (name === 'a' && linkFor(child.getAttribute('href') || '')) {
+      // A link to elsewhere in the book is kept as a place to go -- never as
+      // a link, which could lead anywhere.
+      const span = document.createElement('span');
+      span.className = 'epub-link';
+      span.dataset.goto = String(linkFor(child.getAttribute('href')));
+      copyInto(span, child, pictureFor, linkFor);
+      target.append(span);
     } else {
       // A link, a custom element: its words, without it.
-      copyInto(target, child, pictureFor);
+      copyInto(target, child, pictureFor, linkFor);
     }
   }
 }
@@ -171,9 +179,12 @@ function copyInto(target, node, pictureFor) {
  * page marked with its number so notes, pins and find land on it. Returns a
  * teardown with setMarks and goTo, like the PDF viewer's.
  */
-export async function renderEpub(container, blob, { onStatus, startPage = 1 } = {}) {
+export async function renderEpub(container, blob, { onStatus, startPage = 1, onLink } = {}) {
   const book = await openBook(blob);
   const urls = [];
+  const contents = [];
+  // Which chapter each file of the book is, for following a link to it.
+  const chapterOf = new Map(book.spine.map((item, i) => [item.href, i + 1]));
   onStatus?.(`${book.spine.length} chapter${book.spine.length === 1 ? '' : 's'}`);
 
   for (const [i, item] of book.spine.entries()) {
@@ -195,9 +206,22 @@ export async function renderEpub(container, blob, { onStatus, startPage = 1 } = 
       }).catch(() => {});
       return url;
     };
-    copyInto(section, first(doc, 'body') || doc.documentElement, pictureFor);
+    const linkFor = (href) => {
+      if (!href || /^[a-z][\w+.-]*:/i.test(href)) return null;
+      return href.startsWith('#') ? i + 1 : chapterOf.get(resolve(item.href, href)) || null;
+    };
+    contents.push({ title: chapterTitle(doc, `Chapter ${i + 1}`), page: i + 1, depth: 0 });
+    copyInto(section, first(doc, 'body') || doc.documentElement, pictureFor, linkFor);
     container.append(section);
   }
+  const onTap = (e) => {
+    const link = e.target.closest?.('.epub-link');
+    if (!link || container.classList.contains('marking')) return;
+    e.preventDefault();
+    const at = e.target.closest('[data-page]');
+    onLink?.({ page: Number(link.dataset.goto), from: Number(at?.dataset.page) || 1 });
+  };
+  container.addEventListener('click', onTap);
   const at = container.querySelector(`[data-page="${startPage}"]`);
   if (at && startPage > 1) at.scrollIntoView({ block: 'start' });
 
@@ -207,7 +231,12 @@ export async function renderEpub(container, blob, { onStatus, startPage = 1 } = 
     }
     container.normalize();
   };
-  const teardown = () => { for (const url of urls) URL.revokeObjectURL(url); };
+  const teardown = () => {
+    container.removeEventListener('click', onTap);
+    for (const url of urls) URL.revokeObjectURL(url);
+  };
+  teardown.pageCount = book.spine.length;
+  teardown.contents = async () => contents;
   teardown.setMarks = async (marks) => {
     unmark();
     if (!marks) return;
