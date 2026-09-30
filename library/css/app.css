@@ -588,3 +588,20 @@ select.field {
   border-radius: 10px; padding: 12px 14px; font-size: 14.5px; cursor: pointer; text-align: left;
 }
 .collection-btn .group-count { color: var(--copper-bright); }
+
+/* Checklists */
+.check-step {
+  display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left;
+  border: 1px solid var(--line); background: var(--ink-850); color: var(--text);
+  border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; cursor: pointer; font-size: 14.5px; line-height: 1.45;
+}
+.check-step.caution { border-color: var(--warn); }
+.check-box {
+  flex: 0 0 auto; width: 22px; height: 22px; border-radius: 5px; border: 2px solid var(--copper);
+  display: inline-flex; align-items: center; justify-content: center; color: #17100a; font-weight: 700; margin-top: 1px;
+}
+.check-step[aria-checked="true"] .check-box { background: var(--copper); }
+.check-step[aria-checked="true"] .check-text { color: var(--text-dim); text-decoration: line-through; text-decoration-color: var(--text-faint); }
+.check-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 auto; }
+.check-time { font-size: 12px; color: var(--sage); }
+.check-record { white-space: pre-wrap; font-family: var(--mono); font-size: 12.5px; line-height: 1.55; color: var(--text); margin: 0; }

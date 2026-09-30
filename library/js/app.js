@@ -16,8 +16,9 @@ import { revisionStatus, revisionLabel, countDue } from './revision.js';
 import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
+import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.36';
+const APP_VERSION = '2026.10.37';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -63,7 +64,8 @@ const view = {
 
 const PAGES = {
   highlights: { title: 'Highlights', draw: (body) => renderHighlights(body) },
-  answers: { title: 'Saved answers', draw: (body) => renderSavedAnswers(body) }
+  answers: { title: 'Saved answers', draw: (body) => renderSavedAnswers(body) },
+  checklists: { title: 'Checklists', draw: (body) => renderChecklists(body) }
 };
 
 let lockTimer = null;
@@ -1629,6 +1631,7 @@ function wireApp() {
   $('#settingsBtn').addEventListener('click', openSettings);
   $('#fullPicker').addEventListener('change', onFullBackupPicked);
   $('#askClose').addEventListener('click', closeAsk);
+  $('#checkClose').addEventListener('click', () => { $('#check').hidden = true; if (view.page === 'checklists') render(); });
   $('#settingsClose').addEventListener('click', () => { $('#settings').hidden = true; });
   $('#detailClose').addEventListener('click', () => { $('#detail').hidden = true; view.detailId = null; });
   $('#detailEdit').addEventListener('click', () => {
@@ -2920,6 +2923,8 @@ function openHighlightBox(h) {
     el('p', { class: 'note-page', text: `Highlight on page ${h.page}` }),
     h.text ? el('p', { class: 'hl-quote', text: h.text }) : null,
     swatches,
+    h.text ? el('button', { class: 'btn btn-sm btn-block', style: 'margin-top:9px',
+      onclick: () => addHighlightToChecklist(h) }, ['Add to a checklist']) : null,
     el('div', { class: 'fieldrow', style: 'margin-top:9px' }, [
       el('div', {}, [el('button', { class: 'btn btn-sm btn-block',
         onclick: async () => { await changeHighlight(itemId, h.id, null); closeNoteBox(); toast('Highlight removed'); } }, ['Remove'])]),
@@ -3010,11 +3015,229 @@ function collectionsRow() {
   if (highlights) rows.push(['highlights', 'Highlights', highlights]);
   const answers = store.peekList('savedAnswers').length;
   if (answers) rows.push(['answers', 'Saved answers', answers]);
+  // Always offered: a checklist can be started from nothing.
+  rows.push(['checklists', 'Checklists', store.peekList('checklists').length]);
   if (!rows.length) return null;
   return el('div', { class: 'collections' }, rows.map(([page, label, n]) => el('button', {
     class: 'collection-btn', id: `open-${page}`,
     onclick: () => { view.page = page; render(); $('#body').scrollTop = 0; }
   }, [el('span', { text: label }), el('span', { class: 'group-count', text: String(n) })])));
+}
+
+// ── checklists ──────────────────────────────────────────────────────────────
+
+const lists = () => store.peekList('checklists');
+const findList = (id) => lists().find((l) => l.id === id);
+async function saveList(changed) {
+  await store.setList('checklists', lists().map((l) => (l.id === changed.id ? changed : l)));
+}
+async function addList(list) {
+  await store.setList('checklists', [list, ...lists()]);
+  return list;
+}
+const openRun = (list) => [...(list.runs || [])].reverse().find((r) => !r.finishedAt) || null;
+const hhmm = (iso) => new Date(iso).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+const dayTime = (iso) => new Date(iso).toLocaleString([], { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+
+function checklistFromAnswerButton(saved) {
+  return el('button', {
+    class: 'btn btn-block', style: 'margin-top:10px',
+    onclick: async () => {
+      const steps = stepsFromAnswer(saved.blocks).map((s) => ({
+        text: s.text, caution: Boolean(s.caution),
+        ref: s.cite !== undefined && saved.refs[s.cite] ? saved.refs[s.cite] : null
+      }));
+      if (!steps.length) { toast('This answer has no numbered steps to make a checklist of'); return; }
+      const list = await addList({
+        id: store.newId(), title: saved.question.slice(0, 120), steps,
+        createdAt: new Date().toISOString(), runs: []
+      });
+      closeAsk();
+      openChecklist(list.id);
+      toast(`Checklist of ${plural(steps.length, 'step', 'steps')} made`);
+    }
+  }, ['Make a checklist of this']);
+}
+
+/** A highlighted line of a manual, as a step -- in a checklist that exists or a new one. */
+function addHighlightToChecklist(h) {
+  const { itemId, attId } = view.viewing || {};
+  const item = store.getItem(itemId);
+  if (!item) return;
+  const step = { text: h.text.replace(/\s*\n\s*/g, ' '), caution: /^(caution|warning|danger)\b/i.test(h.text),
+    ref: { itemId, attId, page: h.page, title: titleOf(item) } };
+  const add = async (list) => {
+    await saveList({ ...list, steps: [...list.steps, step] });
+    closeNoteBox();
+    toast(`Added to “${list.title}” as step ${list.steps.length + 1}`);
+  };
+  const box = $('#noteBox');
+  if (!box) return;
+  const choices = el('div', { style: 'margin-top:9px' }, [el('p', { class: 'note-page', text: 'Add to which checklist?' })]);
+  for (const list of lists().slice(0, 6)) {
+    choices.append(el('button', { class: 'btn btn-sm btn-block', style: 'margin-bottom:6px',
+      onclick: () => add(list) }, [list.title.slice(0, 50)]));
+  }
+  choices.append(el('button', { class: 'btn btn-sm btn-block btn-primary',
+    onclick: async () => {
+      const title = (prompt('Name the new checklist', `${titleOf(item)} — page ${h.page}`) || '').trim()
+        || `${titleOf(item)} — page ${h.page}`;
+      const list = await addList({ id: store.newId(), title, steps: [], createdAt: new Date().toISOString(), runs: [] });
+      await add(list);
+    } }, ['New checklist']));
+  box.append(choices);
+}
+
+function renderChecklists(body) {
+  body.append(el('button', { class: 'btn btn-primary btn-block', id: 'newChecklist', style: 'margin-bottom:12px',
+    onclick: async () => {
+      const list = await addList({ id: store.newId(), title: 'New checklist', steps: [],
+        createdAt: new Date().toISOString(), runs: [] });
+      openChecklist(list.id, { editing: true });
+    } }, ['New checklist']));
+  if (!lists().length) {
+    body.append(emptyState('No checklists yet',
+      'Make one from an Ask answer, add highlighted lines from a manual, or start one here and type the steps.'));
+    return;
+  }
+  const panel = el('div', { class: 'panel' });
+  for (const list of lists()) {
+    const runs = list.runs || [];
+    const last = runs[runs.length - 1];
+    panel.append(el('button', { class: 'answer-open', onclick: () => openChecklist(list.id) }, [
+      el('span', { class: 'answer-ref', text: list.title }),
+      el('span', { class: 'answer-where', text: [
+        plural(list.steps.length, 'step', 'steps'),
+        openRun(list) ? 'in progress' : null,
+        last ? `last used ${dayTime(last.startedAt)}` : 'not used yet'
+      ].filter(Boolean).join(' \u00b7 ') })
+    ]));
+  }
+  body.append(panel);
+}
+
+function openChecklist(id, { editing = false, record = null } = {}) {
+  const list = findList(id);
+  if (!list) return;
+  const body = clear($('#checkBody'));
+  $('#checkTitle').textContent = 'Checklist';
+  $('#check').hidden = false;
+  body.append(el('p', { class: 'ask-q', text: list.title }));
+
+  if (editing) return drawChecklistEditor(body, list);
+  if (record) return drawRunRecord(body, list, record);
+
+  const run = openRun(list);
+  const done = run ? list.steps.filter((_, i) => run.ticks?.[i]).length : 0;
+  body.append(el('p', { class: 'ask-status', id: 'checkProgress', text: run
+    ? `Started ${dayTime(run.startedAt)} \u00b7 ${done} of ${list.steps.length} ticked`
+    : `${plural(list.steps.length, 'step', 'steps')}` }));
+
+  list.steps.forEach((step, i) => {
+    const at = run?.ticks?.[i];
+    const row = el('div', {}, [el('button', {
+      class: `check-step${step.caution ? ' caution' : ''}`, role: 'checkbox',
+      'aria-checked': String(Boolean(at)), 'aria-disabled': String(!run),
+      onclick: () => { if (run) tickStep(list.id, run.id, i); else toast('Start the checklist to tick its steps'); }
+    }, [
+      el('span', { class: 'check-box', text: at ? '\u2713' : '' }),
+      el('span', { class: 'check-main' }, [
+        el('span', { class: 'check-text', text: `${i + 1}. ${step.text}` }),
+        at ? el('span', { class: 'check-time', text: `Ticked ${hhmm(at)}` }) : null
+      ])
+    ])]);
+    if (step.ref) row.firstChild.querySelector('.check-main').append(el('span', {}, [
+      el('button', { class: 'cite', onclick: (e) => { e.stopPropagation(); openRef(step.ref); } },
+        [`${step.ref.title.slice(0, 28)} p.${step.ref.page}`])
+    ]));
+    body.append(row);
+  });
+  if (!list.steps.length) body.append(el('p', { class: 'hint', text: 'No steps yet. Edit to add them, or add highlighted lines from a manual.' }));
+
+  if (run) {
+    body.append(el('button', { class: 'btn btn-primary btn-block', style: 'margin-top:6px',
+      onclick: async () => {
+        const fresh = findList(list.id);
+        await saveList({ ...fresh, runs: fresh.runs.map((r) => (r.id === run.id ? { ...r, finishedAt: new Date().toISOString() } : r)) });
+        openChecklist(list.id, { record: run.id });
+        toast('Finished — the record is kept');
+      } }, ['Finish']));
+  } else if (list.steps.length) {
+    body.append(el('button', { class: 'btn btn-primary btn-block', style: 'margin-top:6px',
+      onclick: async () => {
+        const fresh = findList(list.id);
+        await saveList({ ...fresh, runs: [...(fresh.runs || []), { id: store.newId(), startedAt: new Date().toISOString(), ticks: {} }] });
+        openChecklist(list.id);
+      } }, ['Start']));
+  }
+
+  const past = (list.runs || []).filter((r) => r.finishedAt).reverse();
+  if (past.length) {
+    body.append(el('p', { class: 'dkey', style: 'margin-top:16px', text: `Used ${plural(past.length, 'time', 'times')}` }));
+    for (const r of past.slice(0, 20)) {
+      const ticked = list.steps.filter((_, i) => r.ticks?.[i]).length;
+      body.append(el('button', { class: 'answer-open', onclick: () => openChecklist(list.id, { record: r.id }) }, [
+        el('span', { class: 'answer-ref', text: dayTime(r.startedAt) }),
+        el('span', { class: 'answer-where', text: `${ticked} of ${list.steps.length} ticked \u00b7 finished ${dayTime(r.finishedAt)}` })
+      ]));
+    }
+  }
+  body.append(el('div', { class: 'fieldrow', style: 'margin-top:14px' }, [
+    el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => openChecklist(list.id, { editing: true }) }, ['Edit'])]),
+    el('div', {}, [el('button', { class: 'btn btn-sm btn-block btn-danger',
+      onclick: async () => {
+        if (!confirm(`Delete “${list.title}” and every record of its use?`)) return;
+        await store.setList('checklists', lists().filter((l) => l.id !== list.id));
+        $('#check').hidden = true;
+        render();
+      } }, ['Delete'])])
+  ]));
+}
+
+async function tickStep(listId, runId, index) {
+  const list = findList(listId);
+  const runs = list.runs.map((r) => {
+    if (r.id !== runId) return r;
+    const ticks = { ...(r.ticks || {}) };
+    if (ticks[index]) delete ticks[index];
+    else ticks[index] = new Date().toISOString();
+    return { ...r, ticks };
+  });
+  await saveList({ ...list, runs });
+  const scroll = $('#checkBody').scrollTop;
+  openChecklist(listId);
+  $('#checkBody').scrollTop = scroll;
+}
+
+function drawRunRecord(body, list, runId) {
+  const run = (list.runs || []).find((r) => r.id === runId);
+  if (!run) return;
+  const text = runRecord(list, run);
+  body.append(el('pre', { class: 'check-record', id: 'checkRecord', text }));
+  body.append(el('button', { class: 'btn btn-primary btn-block', style: 'margin-top:12px',
+    onclick: async () => {
+      const stamp = run.startedAt.slice(0, 10);
+      const name = `${list.title.replace(/[\\/:*?"<>|]+/g, ' ').slice(0, 60).trim()} ${stamp}.txt`;
+      if (await shareBlob(new Blob([text], { type: 'text/plain' }), name, 'text/plain')) toast('Record exported');
+    } }, ['Export this record (.txt)']));
+  body.append(el('button', { class: 'btn btn-block', style: 'margin-top:8px',
+    onclick: () => openChecklist(list.id) }, ['Back to the checklist']));
+}
+
+function drawChecklistEditor(body, list) {
+  const title = el('input', { class: 'field', id: 'checkTitleInput', value: list.title });
+  const steps = el('textarea', { class: 'field', id: 'checkSteps', rows: '10',
+    placeholder: 'One step to a line' }, [list.steps.map((s) => s.text).join('\n')]);
+  body.append(el('label', { class: 'label', text: 'Name' }), title,
+    el('label', { class: 'label', style: 'margin-top:10px', text: 'Steps, one to a line' }), steps,
+    el('p', { class: 'hint', text: 'A step that starts with Caution or Warning is marked as one. Steps added from a manual keep their page while their words are unchanged.' }),
+    el('button', { class: 'btn btn-primary btn-block', style: 'margin-top:10px',
+      onclick: async () => {
+        const fresh = findList(list.id);
+        await saveList({ ...fresh, title: title.value.trim() || 'Checklist', steps: stepsFromLines(steps.value, fresh.steps) });
+        openChecklist(list.id);
+        toast('Saved');
+      } }, ['Save']));
 }
 
 const STICKY_COLOURS = ['yellow', 'pink', 'blue', 'green', 'orange'];
@@ -4461,6 +4684,7 @@ async function openAsk(question) {
     await store.setList('savedAnswers', [saved, ...store.peekList('savedAnswers')]);
     status.textContent = `${ask.modelInfo(model).label} · about $${cost < 0.01 ? cost.toFixed(3) : cost.toFixed(2)} · saved`;
     body.append(el('p', { class: 'ask-note', text: 'Answered only from the pages listed. Tap a page to check it — above all any figure — before acting on it. Kept under Saved answers, to read again with no connection.' }));
+    body.append(checklistFromAnswerButton(saved));
   } catch (ex) {
     if (askState.controller !== controller) return;
     status.textContent = ask.explainFailure(ex);
@@ -4518,6 +4742,7 @@ function showSavedAnswer(saved) {
   }
   body.append(sent);
   body.append(el('p', { class: 'ask-note', text: 'Answered from the pages as they were then. If a document has been replaced since, check the page in the new one.' }));
+  body.append(checklistFromAnswerButton(saved));
   body.append(el('button', {
     class: 'btn btn-danger btn-block', style: 'margin-top:12px',
     onclick: async () => {

@@ -778,6 +778,16 @@ try {
   check('it is drawn on the page', await page.locator('#viewerBody .hl').count() >= 1);
   await page.click('#markMode');
 
+  // A highlighted line of a manual, as a step of a checklist.
+  await page.locator('#viewerBody .hl').first().click();
+  await page.click('#noteBox button:has-text("Add to a checklist")');
+  await page.click('#noteBox button:has-text("New checklist")');
+  await page.locator('.toast', { hasText: /as step 1/ }).waitFor({ timeout: 5000 });
+  const fromHighlight = await page.evaluate(async () => (await (await import('./js/store.js')).getList('checklists'))[0]);
+  check('a highlight becomes a checklist step, keeping its page',
+    fromHighlight?.steps.length === 1 && /QUAYSIDEMARKER/.test(fromHighlight.steps[0].text)
+      && fromHighlight.steps[0].ref?.page === 2, JSON.stringify(fromHighlight?.steps));
+
   await page.click('#viewerClose');
   await page.waitForSelector('#viewer', { state: 'hidden' });
   await page.fill('#search', '');
@@ -3555,6 +3565,67 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
 
     const inBackup = await other.evaluate(async () => JSON.stringify((await (await import('./js/store.js')).fullBackup()).manifest));
     check('the key is never in a backup', !/sk-ant/.test(inBackup));
+    await fresh.close();
+  }
+
+  console.log('\nChecklists');
+  {
+    const steps = await page.evaluate(async () => {
+      const { stepsFromAnswer } = await import('./js/checklist.js');
+      return stepsFromAnswer([
+        { text: 'Before you start:\n1. Confirm the eductor drive pressure. ', cites: [0] },
+        { text: '\n2. Open the stripping valve.\n3. Start the pump. ', cites: [1] },
+        { text: '\nCaution: never run the pump dry.', cites: [] }
+      ]);
+    });
+    check('an answer\'s numbered steps and its caution become the steps',
+      steps.length === 4 && steps[0].cite === 0 && steps[2].cite === 1 && steps[3].caution === true,
+      JSON.stringify(steps));
+
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    other.on('dialog', (d) => d.accept());
+    const downloads = [];
+    other.on('download', (d) => downloads.push(d));
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.click('#open-checklists');
+    await other.click('#newChecklist');
+    await other.waitForSelector('#check:not([hidden])');
+    await other.fill('#checkTitleInput', 'Bunkering');
+    await other.fill('#checkSteps', 'Sound all tanks\nCaution: check the vents are open\nOpen the manifold valve');
+    await other.click('#checkBody button:has-text("Save")');
+    await other.waitForTimeout(300);
+    check('a checklist typed in has its steps', await other.locator('.check-step').count() === 3);
+    check('a caution is marked as one', await other.locator('.check-step.caution').count() === 1);
+    await other.click('#checkBody button:has-text("Start")');
+    await other.waitForTimeout(200);
+    await other.locator('.check-step').nth(0).click();
+    await other.waitForTimeout(200);
+    await other.locator('.check-step').nth(2).click();
+    await other.waitForTimeout(200);
+    check('each tick keeps its time',
+      await other.locator('.check-step[aria-checked="true"] .check-time').count() === 2
+      && /2 of 3 ticked/.test(await other.locator('#checkProgress').innerText()));
+    await other.click('#checkBody button:has-text("Finish")');
+    await other.waitForSelector('#checkRecord');
+    const record = await other.locator('#checkRecord').innerText();
+    check('finishing keeps a record of what was ticked, and when',
+      /Bunkering/.test(record) && /\[x\] 1\. Sound all tanks — /.test(record) && /\[ \] 2\. ! Caution/.test(record)
+        && /2 of 3 steps ticked/.test(record), record.replace(/\n/g, ' / '));
+    const [recordFile] = await Promise.all([
+      other.waitForEvent('download', { timeout: 10000 }),
+      other.click('#checkBody button:has-text("Export this record")')
+    ]);
+    check('and the record can be exported', /^Bunkering \d{4}-\d\d-\d\d\.txt$/.test(recordFile.suggestedFilename()),
+      recordFile.suggestedFilename());
+    await other.click('#checkBody button:has-text("Back to the checklist")');
+    check('the checklist is ready to use again, with its use listed',
+      await other.locator('#checkBody button:has-text("Start")').count() === 1
+      && /Used 1 time/i.test(await other.locator('#checkBody').innerText()));
+    await other.click('#checkClose');
+    const inBackup = await other.evaluate(async () => (await (await import('./js/store.js')).fullBackup()).manifest.lists.checklists.length);
+    check('checklists travel in a full backup', inBackup === 1);
     await fresh.close();
   }
 
