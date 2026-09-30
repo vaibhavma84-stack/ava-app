@@ -19,7 +19,7 @@ import { isEpub, readEpub } from './epub.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.47';
+const APP_VERSION = '2026.10.48';
 
 const view = {
   screen: 'home',      // home | section | search

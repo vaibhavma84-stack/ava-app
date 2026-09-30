@@ -3823,19 +3823,34 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await other.mouse.move(box.x + box.width * 0.85, box.y + box.height / 2);
     await other.mouse.down();
     await other.mouse.move(box.x + box.width * 0.6, box.y + box.height / 2, { steps: 5 });
+    await other.waitForTimeout(100);
     const midTurn = await other.evaluate(() => {
       const b = document.getElementById('viewerBody');
-      const page = b.querySelector('canvas[data-page="1"]');
-      return { transform: page.style.transform, filter: page.style.filter, next: b.querySelector('canvas[data-page="2"]').style.opacity };
+      const strips = [...b.querySelectorAll('.curl .curl-strip')];
+      const turned = strips.filter((st) => /rotateY\(-[1-9]|rotateY\(-0\.[0-9]*[1-9]/.test(st.style.transform));
+      return {
+        strips: strips.length, rolling: turned.length, flat: strips.length - turned.length,
+        pageHidden: b.querySelector('canvas[data-page="1"]').style.visibility === 'hidden',
+        next: b.querySelector('canvas[data-page="2"]').style.opacity,
+        filters: [...b.querySelectorAll('*')].some((e) => e.style && e.style.filter)
+      };
     });
-    check('dragging turns the page on its spine, under the finger',
-      /rotateY\(-\d/.test(midTurn.transform) && midTurn.next === '1', JSON.stringify(midTurn));
-    check('with nothing that makes the phone redraw the page every frame', !midTurn.filter, JSON.stringify(midTurn));
+    check('dragging rolls the page up from its edge, under the finger',
+      midTurn.strips >= 20 && midTurn.rolling > 0 && midTurn.flat > 0 && midTurn.pageHidden && midTurn.next === '1',
+      JSON.stringify(midTurn));
+    check('with nothing that makes the phone redraw the page every frame', !midTurn.filters, JSON.stringify(midTurn));
     await other.mouse.move(box.x + box.width * 0.1, box.y + box.height / 2, { steps: 5 });
     await other.mouse.up();
     await other.waitForTimeout(700);
     check('letting go finishes the turn', /p\.2/.test(await other.locator('#viewerPin').innerText()),
       await other.locator('#viewerPin').innerText());
+    // Strips for the next turn are cut ahead and kept out of sight.
+    check('and the roll is put away once the page lies flat',
+      await other.evaluate(() => [...document.querySelectorAll('#viewerBody .curl')].every((c) => getComputedStyle(c).display === 'none')
+        && [...document.querySelectorAll('#viewerBody canvas[data-page]')].every((c) => c.style.visibility !== 'hidden')));
+    await other.waitForTimeout(1200);
+    check('with the strips for the next turn cut ahead, while the page lies still',
+      await other.evaluate(() => [...document.querySelectorAll('#viewerBody .curl')].some((c) => c.querySelectorAll('.curl-strip').length >= 40)));
 
     // Barely moved: it falls back.
     box = await pageBox();
