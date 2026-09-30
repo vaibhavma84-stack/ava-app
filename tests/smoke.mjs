@@ -513,6 +513,12 @@ try {
   await page.click('#settingsBtn');
   await page.waitForSelector('#settings:not([hidden])');
   await page.click('#settingsBody button:has-text("Create CV")');
+  await page.waitForSelector('#tool:not([hidden])');
+  check('Create CV lets you choose what goes on it',
+    (await page.locator('#toolBody .tick-row').count()) === 3 + 4,   // three certificates, four voyages
+    String(await page.locator('#toolBody .tick-row').count()));
+  await page.locator('#toolBody .tick-row', { hasText: 'MV Typo' }).locator('input').uncheck();
+  await page.click('#toolBody button:has-text("PDF")');
   await page.waitForSelector('#viewer:not([hidden])');
   await page.waitForSelector('#viewerBody canvas', { timeout: 15000 });
   check('makes the CV and shows it', (await page.locator('#viewerTitle').textContent()).startsWith('CV-Test-Seafarer-'));
@@ -520,11 +526,127 @@ try {
   await shot('11-cv');
   await page.click('#viewerClose');
 
+  const [wordDownload] = await Promise.all([
+    page.waitForEvent('download'),
+    page.click('#toolBody button:has-text("Word")')
+  ]);
+  const wordPath = await wordDownload.path();
+  const word = fs.readFileSync(wordPath).toString('latin1');
+  check('makes the CV as a Word document', wordDownload.suggestedFilename().endsWith('.docx') && word.startsWith('PK') && word.includes('word/document.xml'),
+    wordDownload.suggestedFilename());
+  check('the CV leaves out what was unticked', word.includes('MV Northern Star') && !word.includes('MV Typo'));
+  await page.click('#toolClose');
+  await page.click('#settingsBody button:has-text("Create CV")');
+  check('remembers what was unticked',
+    !(await page.locator('#toolBody .tick-row', { hasText: 'MV Typo' }).locator('input').isChecked()));
+  await page.click('#toolClose');
+
   await page.click('#settingsBody button:has-text("Sea service record")');
   await page.waitForSelector('#viewerBody canvas', { timeout: 15000 });
   check('makes the sea service record', (await page.locator('#viewerTitle').textContent()).startsWith('Sea-service-Test-Seafarer-'));
   await page.click('#viewerClose');
   await page.click('#settingsClose');
+
+  // ── tax year ─────────────────────────────────────────────────────────────
+  console.log('\nTax year');
+  await page.click('.goal-link:has-text("days abroad")');
+  await page.waitForSelector('#editor:not([hidden])');
+  await pick('taxYearStart', 'January');
+  await set('taxDaysTarget', '183');
+  await save();
+  const tax = page.locator('.check', { hasText: 'Days abroad this tax year' });
+  check('counts days at sea this tax year', (await tax.textContent()).includes('/ 183 days'), await tax.textContent());
+
+  // ── ready to join ────────────────────────────────────────────────────────
+  console.log('\nReady to join');
+  await page.click('button:has-text("Ready to join?")');
+  await page.waitForSelector('#tool:not([hidden])');
+  await page.selectOption('#toolBody [data-join="rank"]', 'Third Officer');
+  await page.selectOption('#toolBody [data-join="vesselType"]', 'Bulk Carrier');
+  const joinText = await page.locator('#toolBody').textContent();
+  check('says whether you are ready', joinText.includes('Not ready yet'));
+  check('finds basic safety training on file', (await page.locator('.join-ok', { hasText: 'Basic Safety Training' }).count()) === 1);
+  check('flags the expired GMDSS', (await page.locator('.join-expired', { hasText: 'GMDSS' }).count()) === 1);
+  check('lists what is missing', (await page.locator('.join-missing', { hasText: 'Certificate of Competency' }).count()) === 1);
+  await page.selectOption('#toolBody [data-join="vesselType"]', 'Chemical Tanker');
+  check('a tanker adds tanker training', (await page.locator('.join-row', { hasText: 'chemical tanker' }).count()) >= 1);
+  await shot('12-join');
+  await page.locator('.join-missing', { hasText: 'Certificate of Competency' }).click();
+  await page.waitForSelector('#editor:not([hidden])');
+  check('tapping a missing one starts it',
+    (await page.inputValue('#editorBody [data-field="title"]')) === 'Certificate of Competency'
+    && (await page.locator('#editorTitle').textContent()) === 'New certificate');
+  await page.click('#editorCancel');
+
+  // ── scanning a certificate ───────────────────────────────────────────────
+  console.log('\nScanning a certificate');
+  const scan = await page.evaluate(async () => {
+    const c = document.createElement('canvas');
+    c.width = 1400; c.height = 900;
+    const x = c.getContext('2d');
+    x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height);
+    x.fillStyle = '#000'; x.font = 'bold 44px Arial';
+    x.fillText('DIRECTORATE GENERAL OF SHIPPING', 90, 110);
+    x.font = '40px Arial';
+    const lines = ['Advanced Fire Fighting', 'Certificate No: AFF/2022/88123', 'Date of Issue: 14/02/2022', 'Valid until: 13/02/2027'];
+    lines.forEach((l, i) => x.fillText(l, 90, 250 + i * 110));
+    const blob = await new Promise((r) => c.toBlob(r, 'image/png'));
+    return Array.from(new Uint8Array(await blob.arrayBuffer()));
+  });
+  await openNew('certificate');
+  await page.setInputFiles('#scanPicker', { name: 'aff.png', mimeType: 'image/png', buffer: Buffer.from(scan) });
+  await page.waitForFunction(() => /Filled|Could not/.test(document.querySelector('#scanStatus')?.textContent || ''), null, { timeout: 90000 });
+  const note = await page.locator('#scanStatus').textContent();
+  check('reads a photographed certificate', note.startsWith('Filled'), note);
+  check('fills the title', (await page.inputValue('#editorBody [data-field="title"]')) === 'Advanced Fire Fighting');
+  check('fills the number', (await page.inputValue('#editorBody [data-field="refNo"]')).replace(/\s/g, '') === 'AFF/2022/88123',
+    await page.inputValue('#editorBody [data-field="refNo"]'));
+  check('fills the dates', (await page.inputValue('#editorBody [data-field="issueDate"]')) === '2022-02-14'
+    && (await page.inputValue('#editorBody [data-field="expiryDate"]')) === '2027-02-13');
+  check('attaches the scan', (await page.locator('#editorBody', { hasText: 'aff.png' }).count()) === 1);
+  await shot('13-scan');
+  await save();
+
+  // ── backup reminder ──────────────────────────────────────────────────────
+  console.log('\nBackup reminder');
+  const nudge = page.locator('.backup-nudge');
+  check('reminds you when nothing has been backed up', await nudge.isVisible());
+  const [backup] = await Promise.all([page.waitForEvent('download'), nudge.locator('button:has-text("Back up now")').click()]);
+  check('backs up from the reminder', backup.suggestedFilename().startsWith('ava-backup-'));
+  await page.waitForSelector('.backup-nudge', { state: 'detached' });
+  check('the reminder goes once backed up', !(await nudge.count()));
+  await page.click('#settingsBtn');
+  await page.waitForSelector('#settings:not([hidden])');
+  check('settings shows when you last backed up',
+    !(await page.locator('#settingsBody .stat', { hasText: 'Last backup' }).textContent()).includes('Never'));
+  await page.click('#settingsClose');
+
+  // ── Face ID ──────────────────────────────────────────────────────────────
+  console.log('\nFace ID');
+  const cdp = await context.newCDPSession(page);
+  await cdp.send('WebAuthn.enable');
+  await cdp.send('WebAuthn.addVirtualAuthenticator', {
+    options: { protocol: 'ctap2', ctap2Version: 'ctap2_1', transport: 'internal', hasResidentKey: true,
+      hasUserVerification: true, isUserVerified: true, hasPrf: true, automaticPresenceSimulation: true }
+  });
+  await page.click('#settingsBtn');
+  await page.waitForSelector('#settings:not([hidden])');
+  await page.click('#settingsBody button:has-text("Turn on Face ID")');
+  await page.waitForSelector('#settingsBody button:has-text("Turn off Face ID")', { timeout: 15000 });
+  check('turns Face ID on', true);
+  await page.click('#settingsClose');
+  await page.click('#lockBtn');
+  await page.waitForSelector('#lock:not([hidden])');
+  check('the lock screen offers Face ID', await page.locator('#faceIdBtn').isVisible());
+  await page.click('#faceIdBtn');
+  await page.waitForSelector('#app:not([hidden])', { timeout: 15000 });
+  await page.click('.nav-btn[data-tab="seatime"]');
+  check('Face ID opens the vault with its data', (await page.locator('.card', { hasText: 'MV Northern Star' }).count()) === 1);
+  await page.click('#lockBtn');
+  await page.fill('#unlockCode', 'kestrel-harbour-92');
+  await page.click('#unlockForm button[type="submit"]');
+  await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+  check('the passcode still works with Face ID on', true);
 
   console.log('\nJavaScript errors: ' + (errors.length ? '\n  ' + errors.join('\n  ') : 'none'));
   if (errors.length) failed += errors.length;

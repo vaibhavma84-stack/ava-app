@@ -249,6 +249,39 @@ select.field { appearance: none; -webkit-appearance: none; background-image: lin
 }
 .editor-heading:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
 
+/* Certificate scan, at the top of the certificate form. */
+.scan-box { padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+
+/* Ready to join: one row per required certificate. */
+.join-results { display: flex; flex-direction: column; gap: 7px; }
+.join-row {
+  display: flex; gap: 11px; align-items: flex-start;
+  background: var(--navy-700); border: 1px solid var(--line-soft); border-radius: 10px; padding: 10px 12px;
+}
+.join-icon {
+  flex: 0 0 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 13px; font-weight: 700; border: 1px solid currentColor;
+}
+.join-ok .join-icon { color: var(--teal); }
+.join-lapses .join-icon { color: var(--amber); }
+.join-expired .join-icon, .join-missing .join-icon { color: var(--danger); }
+.join-optional .join-icon { color: var(--text-faint); }
+.join-missing, .join-optional { cursor: pointer; }
+.join-text { min-width: 0; flex: 1; }
+.join-label { font-size: 14px; }
+.join-detail { font-size: 12.5px; color: var(--text-dim); margin-top: 2px; overflow-wrap: anywhere; }
+.join-lapses .join-detail { color: var(--amber); }
+.join-expired .join-detail, .join-missing .join-detail { color: var(--danger); }
+
+/* Create CV: tick what goes on it. */
+.tick-row {
+  display: flex; gap: 12px; align-items: center; padding: 9px 2px;
+  border-bottom: 1px solid var(--line-soft); cursor: pointer;
+}
+.tick-row input { width: 20px; height: 20px; accent-color: var(--brass); flex: 0 0 auto; }
+.tick-text { display: flex; flex-direction: column; min-width: 0; font-size: 14px; }
+.tick-sub { font-size: 12px; color: var(--text-dim); }
+
 /* ── grouped global search ───────────────────────────────────────────────── */
 .group-head {
   display: flex; align-items: center; gap: 9px; margin: 14px 0 2px;
@@ -391,6 +424,8 @@ select.field { appearance: none; -webkit-appearance: none; background-image: lin
 /* ── document viewer ─────────────────────────────────────────────────────── */
 /* Above every other sheet: it opens from Settings (a CV) as well as from an entry. */
 #viewer { z-index: 45; }
+/* Tools open from Settings too, so they sit above it and below the viewer. */
+#tool { z-index: 44; }
 .viewer-panel { height: calc(100dvh - var(--safe-t) - 12px); }
 .viewer-body {
   flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;

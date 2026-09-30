@@ -18,6 +18,9 @@ export const CERT_CATEGORIES = [
   'Certificate of Competency', 'Endorsement', 'Training / STCW course', 'Medical', 'Travel document', 'Other'
 ];
 
+export const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+  'August', 'September', 'October', 'November', 'December'];
+
 const FILE_LINK = {
   key: 'fileLink', label: 'Cloud link', type: 'url',
   placeholder: 'https://… (iCloud or Drive)',
@@ -144,6 +147,10 @@ export const TYPES = {
         hint: 'Leave blank to count service in any rank.' },
       { key: 'goalMonths', label: 'Months needed', type: 'number', group: 'goal' },
       { key: 'goalSince', label: 'Counted from', type: 'date', group: 'goal' },
+      { type: 'heading', label: 'Days abroad for tax' },
+      { key: 'taxYearStart', label: 'Tax year starts in', type: 'select', options: MONTH_NAMES, group: 'tax' },
+      { key: 'taxDaysTarget', label: 'Days abroad needed', type: 'number', group: 'tax' },
+      { type: 'hint', label: 'Counts your days at sea in each tax year. Check the number your country uses for non-residence, and add any travel days yourself.' },
       { type: 'heading', label: 'Photo' },
       { key: 'attachments', label: 'Passport photo', type: 'attachments',
         hint: 'The first picture here goes on your CV. Kept encrypted on this device.' }

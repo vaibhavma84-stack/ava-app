@@ -194,7 +194,7 @@ function certificateRows(list) {
   ]);
 }
 
-const CERT_COLUMNS = [
+export const CERT_COLUMNS = [
   { label: 'Certificate', width: 0.34, bold: true },
   { label: 'Number', width: 0.17 },
   { label: 'Issued by', width: 0.21 },
@@ -222,7 +222,7 @@ function seaServiceRows(voyages, today) {
     });
 }
 
-const SEA_COLUMNS = [
+export const SEA_COLUMNS = [
   { label: 'Vessel', width: 0.16, bold: true },
   { label: 'Type', width: 0.105 },
   { label: 'GRT / DWT', width: 0.085, align: 'right' },
@@ -246,101 +246,114 @@ function findDocument(certificates, pattern) {
   return certificates.find((c) => certificateCategory(c) === 'Travel document' && pattern.test(`${c.title} ${c.issuer || ''}`));
 }
 
+const CERT_SECTIONS = [
+  ['Certificate of Competency', 'Certificates of competency'],
+  ['Endorsement', 'Endorsements'],
+  ['Travel document', 'Travel documents'],
+  ['Training / STCW course', 'STCW & training courses'],
+  ['Medical', 'Medical'],
+  ['Other', 'Other certificates']
+];
+
+export const DECLARATION = 'I hereby declare that the information given above is true and correct to the best of my knowledge.';
+
 /**
- * Build the CV.
+ * What goes on the CV, in order, independent of how it is drawn: the PDF and
+ * the Word document are both made from this.
  *   profile       the profile entry's data
  *   certificates  certificate data objects
  *   voyages       sea time data objects
- *   photo         optional JPEG bytes, portrait
  */
-export function buildCv({ profile = {}, certificates = [], voyages = [], photo = null, today = null } = {}) {
+export function cvModel({ profile = {}, certificates = [], voyages = [], today = null } = {}) {
   const now = today ? new Date(today + 'T00:00:00Z') : undefined;
-  const name = profile.fullName || 'Curriculum Vitae';
-  const doc = createPdf({ title: `${name} — CV`, author: profile.fullName || '' });
-  const f = flow(doc, { footer: `${name} — Curriculum Vitae` });
+  const summary = seaTimeSummary(voyages, now);
+  const groups = byCategory(certificates);
+  return {
+    name: profile.fullName || 'Curriculum Vitae',
+    position: profile.positionApplied ? `Position applied for: ${profile.positionApplied}` : '',
+    available: profile.availableFrom ? `Available from ${cvDate(profile.availableFrom)}` : '',
+    contact: [profile.phone, profile.email].filter(Boolean).join('   ·   '),
+    personal: [
+      ['Date of birth', cvDate(profile.dateOfBirth)],
+      ['Place of birth', profile.placeOfBirth],
+      ['Nationality', profile.nationality],
+      ['Marital status', profile.maritalStatus],
+      ['Nearest airport', profile.nearestAirport],
+      ['Languages', profile.languages],
+      ['Address', profile.address]
+    ].filter(([, v]) => v && String(v).trim()),
+    summary: profile.summary || '',
+    totals: summary.totalDays ? totalsPairs(summary) : [],
+    certSections: CERT_SECTIONS
+      .filter(([cat]) => groups[cat]?.length)
+      .map(([cat, title]) => ({ title, rows: certificateRows(groups[cat]) })),
+    seaRows: seaServiceRows(voyages, now),
+    skills: String(profile.skills || '').split(/\r?\n/).map((l) => l.replace(/^[-•*]\s*/, '').trim()).filter(Boolean),
+    education: profile.education || '',
+    references: profile.references || '',
+    date: cvDate(today || todayIso())
+  };
+}
+
+/** The CV as a PDF. photo is optional JPEG bytes, portrait. */
+export function buildCv({ photo = null, ...input } = {}) {
+  const m = cvModel(input);
+  const doc = createPdf({ title: `${m.name} — CV`, author: input.profile?.fullName || '' });
+  const f = flow(doc, { footer: `${m.name} — Curriculum Vitae` });
 
   // Header: name and position on the left, photo on the right.
   const photoW = 78, photoH = 100;
   const textW = f.width - (photo ? photoW + 16 : 0);
   const top = f.y;
-  doc.text(name.toUpperCase(), f.left, f.y, { size: 20, bold: true, color: INK });
+  doc.text(m.name.toUpperCase(), f.left, f.y, { size: 20, bold: true, color: INK });
   f.y += 26;
-  const position = profile.positionApplied ? `Position applied for: ${profile.positionApplied}` : '';
-  if (position) { doc.text(position, f.left, f.y, { size: 11, bold: true, color: ACCENT }); f.y += 16; }
-  if (profile.availableFrom) { doc.text(`Available from ${cvDate(profile.availableFrom)}`, f.left, f.y, { size: 9.5, color: DIM }); f.y += 14; }
-  const contact = [profile.phone, profile.email].filter(Boolean).join('   ·   ');
-  for (const line of contact ? wrapText(contact, textW, 9.5) : []) { doc.text(line, f.left, f.y, { size: 9.5, color: INK }); f.y += 13; }
+  if (m.position) { doc.text(m.position, f.left, f.y, { size: 11, bold: true, color: ACCENT }); f.y += 16; }
+  if (m.available) { doc.text(m.available, f.left, f.y, { size: 9.5, color: DIM }); f.y += 14; }
+  for (const line of m.contact ? wrapText(m.contact, textW, 9.5) : []) { doc.text(line, f.left, f.y, { size: 9.5, color: INK }); f.y += 13; }
   if (photo) {
     doc.rect(f.left + f.width - photoW, top, photoW, photoH, { stroke: RULE, lineWidth: 0.6 });
     doc.image(photo, f.left + f.width - photoW, top, photoW, photoH);
   }
   f.y = Math.max(f.y, photo ? top + photoH : f.y) + 4;
 
-  const personal = [
-    ['Date of birth', cvDate(profile.dateOfBirth)],
-    ['Place of birth', profile.placeOfBirth],
-    ['Nationality', profile.nationality],
-    ['Marital status', profile.maritalStatus],
-    ['Nearest airport', profile.nearestAirport],
-    ['Languages', profile.languages],
-    ['Address', profile.address]
-  ].filter(([, v]) => v && String(v).trim());
-  if (personal.length) {
+  if (m.personal.length) {
     f.heading('Personal details');
-    f.pairs(personal);
+    f.pairs(m.personal);
   }
-
-  if (profile.summary) {
+  if (m.summary) {
     f.heading('Professional summary');
-    f.paragraph(profile.summary);
+    f.paragraph(m.summary);
   }
-
-  const summary = seaTimeSummary(voyages, now);
-  if (summary.totalDays) {
+  if (m.totals.length) {
     f.heading('Sea service summary');
-    f.pairs(totalsPairs(summary), { labelWidth: 96 });
+    f.pairs(m.totals, { labelWidth: 96 });
   }
-
-  const groups = byCategory(certificates);
-  const certSections = [
-    ['Certificate of Competency', 'Certificates of competency'],
-    ['Endorsement', 'Endorsements'],
-    ['Travel document', 'Travel documents'],
-    ['Training / STCW course', 'STCW & training courses'],
-    ['Medical', 'Medical'],
-    ['Other', 'Other certificates']
-  ];
-  for (const [cat, title] of certSections) {
-    if (!groups[cat]?.length) continue;
-    f.heading(title);
-    f.table(CERT_COLUMNS, certificateRows(groups[cat]));
+  for (const section of m.certSections) {
+    f.heading(section.title);
+    f.table(CERT_COLUMNS, section.rows);
   }
-
-  const rows = seaServiceRows(voyages, now);
-  if (rows.length) {
+  if (m.seaRows.length) {
     f.heading('Sea service');
-    f.table(SEA_COLUMNS, rows, { size: 7.5 });
+    f.table(SEA_COLUMNS, m.seaRows, { size: 7.5 });
   }
-
-  const skills = String(profile.skills || '').split(/\r?\n/).filter((l) => l.trim());
-  if (skills.length) {
+  if (m.skills.length) {
     f.heading('Cargo & operational experience');
-    f.bullets(skills);
+    f.bullets(m.skills);
   }
-  if (profile.education) {
+  if (m.education) {
     f.heading('Education');
-    f.paragraph(profile.education);
+    f.paragraph(m.education);
   }
-  if (profile.references) {
+  if (m.references) {
     f.heading('References');
-    f.paragraph(profile.references);
+    f.paragraph(m.references);
   }
 
   f.need(70);
   f.gap(14);
-  f.paragraph('I hereby declare that the information given above is true and correct to the best of my knowledge.', { size: 9, color: DIM });
+  f.paragraph(DECLARATION, { size: 9, color: DIM });
   f.gap(22);
-  doc.text(`Date: ${cvDate(today || todayIso())}`, f.left, f.y, { size: 9, color: INK });
+  doc.text(`Date: ${m.date}`, f.left, f.y, { size: 9, color: INK });
   doc.line(f.left + f.width - 170, f.y + 10, f.left + f.width, f.y + 10, { color: INK, width: 0.5 });
   doc.text('Signature', f.left + f.width, f.y + 14, { size: 8, color: DIM, align: 'right' });
 

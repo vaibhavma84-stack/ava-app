@@ -7,6 +7,7 @@
 import * as db from './db.js';
 import * as sec from './crypto.js';
 import { TYPES } from './schema.js';
+import * as faceid from './faceid.js';
 
 const state = {
   dek: null,
@@ -37,6 +38,7 @@ export async function initialize(passcode) {
   if (await isInitialized()) throw new Error('A vault already exists on this device');
   const { meta, dek } = await sec.createVaultKey(passcode);
   await db.setMeta('vaultKey', meta);
+  await db.setMeta('faceId', null);
   state.dek = dek;
   state.items = new Map();
   await db.requestPersistence();
@@ -49,6 +51,28 @@ export async function unlock(passcode) {
   state.dek = await sec.unlockVaultKey(passcode, meta);
   await loadAll();
   emit();
+}
+
+/** Unlock with Face ID instead of the passcode, where it has been turned on. */
+export async function unlockWithFaceId() {
+  const record = await db.getMeta('faceId');
+  if (!record) throw new Error('Face ID is not turned on');
+  state.dek = await faceid.unlock(record);
+  await loadAll();
+  emit();
+}
+
+export async function faceIdEnabled() {
+  return Boolean(await db.getMeta('faceId'));
+}
+
+export async function enableFaceId() {
+  requireUnlocked();
+  await db.setMeta('faceId', await faceid.enroll(state.dek));
+}
+
+export async function disableFaceId() {
+  await db.setMeta('faceId', null);
 }
 
 export function lock() {
@@ -256,6 +280,8 @@ export async function importEncrypted(payload, passcode) {
   await db.clearStore(db.STORE_ITEMS);
   await db.clearStore(db.STORE_BLOBS);
   await db.setMeta('vaultKey', payload.vaultKey);
+  // The restored vault has its own key; a Face ID copy of the old one is useless.
+  await db.setMeta('faceId', null);
   await db.putMany(db.STORE_ITEMS, payload.items.map((r) => ({
     id: r.id,
     updatedAt: r.updatedAt,

@@ -7,8 +7,13 @@
 // Now a launch with a connection always gets current code, and a launch without
 // one falls straight back to the cache, so the app stays fully usable at sea.
 
-const VERSION = 'v19';
+const VERSION = 'v20';
 const CACHE = `ava-shell-${VERSION}`;
+
+// The certificate reader is megabytes and only wanted once a scan is asked
+// for, so it lives in a cache of its own, apart from the shell's.
+const OCR_CACHE = 'ava-ocr-v1';
+const isOcr = (url) => /\/vendor\/ocr\//.test(url);
 
 const SHELL = [
   './',
@@ -23,6 +28,12 @@ const SHELL = [
   'js/calendar.js',
   'js/pdf.js',
   'js/cv.js',
+  'js/docx.js',
+  'js/zip.js',
+  'js/join.js',
+  'js/scan.js',
+  'js/ocr.js',
+  'js/faceid.js',
   'js/db.js',
   'js/crypto.js',
   'js/icons.js',
@@ -55,7 +66,11 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      // Only AVA's own old caches: the Library shares this origin, and
+      // clearing its cache would leave it without an offline copy.
+      .then((keys) => Promise.all(keys
+        .filter((k) => (k.startsWith('ava-shell-') && k !== CACHE) || (k.startsWith('ava-ocr-') && k !== OCR_CACHE))
+        .map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -84,9 +99,21 @@ async function networkFirst(request) {
   }
 }
 
+/** The reader's files never change under the same name, so the cache answers first. */
+async function ocrFirst(request) {
+  const hit = await caches.match(request, { cacheName: OCR_CACHE });
+  if (hit) return hit;
+  const fresh = await fetch(request);
+  if (fresh && fresh.ok) {
+    const copy = fresh.clone();
+    caches.open(OCR_CACHE).then((c) => c.put(request, copy)).catch(() => {});
+  }
+  return fresh;
+}
+
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
   if (new URL(req.url).origin !== self.location.origin) return;
-  event.respondWith(networkFirst(req));
+  event.respondWith(isOcr(req.url) ? ocrFirst(req) : networkFirst(req));
 });

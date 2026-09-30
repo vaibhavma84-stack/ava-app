@@ -78,7 +78,48 @@ PDFs on the phone, with no connection needed:
   totals by rank and ship type, for exam and CoC applications.
 
 Both open in the app for checking, and *Save to Files* hands them to the share
-sheet for Mail, WhatsApp or Files.
+sheet for Mail, WhatsApp or Files. *Create CV* first lists every certificate and
+voyage so you can untick what an application does not need (remembered for next
+time), and makes it as a PDF or as a **Word document** (.docx) an agency can
+edit.
+
+## Ready to join
+
+A checklist of the STCW certificates most companies ask of a rank on a type of
+ship: CoC, GMDSS and ECDIS for deck officers, BST, PSCRB, AFF, Medical First
+Aid or Medical Care, security, tanker training for the cargo, medical fitness,
+passport and CDC, with flag endorsement, US visa and yellow fever as optional.
+Each is matched against your certificates and marked valid for the whole
+contract, expiring during it, already expired, or missing. Tapping a missing
+one starts a new certificate with its name filled in.
+
+## Scanning a certificate
+
+*Scan certificate* in the certificate form takes a photo or a PDF, reads it on
+the phone, and fills the title, number, issuer and issue and expiry dates it can
+find, never overwriting what you have typed. The scan is kept as an encrypted
+attachment. The reader (Tesseract, the same one the Library uses) is several
+megabytes, so it loads on first use and is then kept for use offline.
+
+## Days abroad for tax
+
+Set the month your tax year starts and the days abroad your country's rule
+needs, and the Sea Time tab counts the days at sea in the current tax year,
+plus what your current and planned contracts will add before it ends. Travel
+days to and from the ship are not included.
+
+## Backup reminder
+
+With the only copy on the phone, AVA reminds you to back up when nothing has
+ever been backed up, or when the last backup is over 30 days old and entries
+have changed since. Settings shows the date of the last backup.
+
+## Face ID
+
+Settings → Face ID creates a passkey on the phone. With iOS 18 or later its
+secret (WebAuthn PRF) unlocks a second copy of the vault key, so the lock screen
+can open with Face ID. The passcode keeps working, and restoring a backup turns
+Face ID off until it is set up again.
 
 ## Security
 

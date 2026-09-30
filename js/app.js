@@ -1,19 +1,24 @@
 import * as store from './store.js';
 import * as db from './db.js';
 import * as sec from './crypto.js';
-import { TYPES, TAB_ORDER, CONTRACT_FIELDS } from './schema.js';
+import { TYPES, TAB_ORDER, CONTRACT_FIELDS, RANKS, VESSEL_TYPES, MONTH_NAMES } from './schema.js';
 import {
   entryDays, isOnboard, formatDuration, seaTimeSummary, expiryStatus, expiryLabel, displayDate, displayDateShort,
-  findOverlaps, revalidationStatus, TANKER_TYPES, goalProgress, voyageProgress, validateSeaTime, expiriesDuringVoyages, certificateCategory
+  findOverlaps, revalidationStatus, TANKER_TYPES, taxYearDays, goalProgress, voyageProgress, validateSeaTime, expiriesDuringVoyages, certificateCategory
 } from './derive.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { icsForItem, icsForItems, datedCertificates, calendarFileName, eventFor } from './calendar.js';
 import { buildCv, buildSeaServiceStatement } from './cv.js';
+import { buildCvDocx } from './docx.js';
+import { checkReadiness } from './join.js';
+import { parseCertificateText } from './scan.js';
+import * as faceid from './faceid.js';
 
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
-const APP_VERSION = '2026.09.30';
+const APP_VERSION = '2026.09.30b';
+const BACKUP_NUDGE_DAYS = 30;
 
 const view = {
   tab: 'certificate',
@@ -23,7 +28,9 @@ const view = {
   autolockMs: AUTOLOCK_DEFAULT_MS,
   // 'numeric' shows the iOS number pad; 'text' the full keyboard. Remembered
   // per vault, because a numeric pad cannot type an existing letter passcode.
-  passStyle: 'text'
+  passStyle: 'text',
+  lastBackupAt: null,
+  backupSnoozeUntil: 0
 };
 
 /**
@@ -49,6 +56,8 @@ async function boot() {
   view.autolockMs = (await db.getMeta('autolockMs')) ?? AUTOLOCK_DEFAULT_MS;
   // Existing vaults predate this setting, so default them to the full keyboard.
   view.passStyle = (await db.getMeta('passcodeStyle')) ?? 'text';
+  view.lastBackupAt = (await db.getMeta('lastBackupAt')) ?? null;
+  view.backupSnoozeUntil = (await db.getMeta('backupSnoozeUntil')) ?? 0;
 
   const ready = await store.isInitialized();
   $('#lock').hidden = false;
@@ -57,7 +66,9 @@ async function boot() {
   $('#lockSub').textContent = ready ? 'Enter your passcode' : 'Everything stays on this iPhone';
   applyKeyboard($('#unlockCode'), view.passStyle);
   syncKeyboardToggle();
-  if (ready) setTimeout(() => $('#unlockCode').focus(), 150);
+  $('#faceIdBtn').hidden = !(ready && await store.faceIdEnabled());
+  // With Face ID on, the keyboard would only cover the button.
+  if (ready && $('#faceIdBtn').hidden) setTimeout(() => $('#unlockCode').focus(), 150);
 
   store.onChange(render);
   wireLock();
@@ -126,6 +137,22 @@ function wireLock() {
       $('#unlockCode').select();
     } finally {
       btn.disabled = false; btn.textContent = 'Unlock';
+    }
+  });
+
+  $('#faceIdBtn').addEventListener('click', async () => {
+    const err = $('#unlockError');
+    err.hidden = true;
+    const btn = $('#faceIdBtn');
+    btn.disabled = true;
+    try {
+      await store.unlockWithFaceId();
+      enterApp();
+    } catch (ex) {
+      if (ex.code !== 'CANCELLED') { err.textContent = ex.message; err.hidden = false; }
+      if (ex.code === 'STALE') { await store.disableFaceId(); btn.hidden = true; }
+    } finally {
+      btn.disabled = false;
     }
   });
 
@@ -218,8 +245,9 @@ function enterApp() {
 
 function lockNow() {
   store.lock();
-  for (const s of ['#detail', '#editor', '#settings']) $(s).hidden = true;
+  for (const s of ['#detail', '#editor', '#settings', '#tool']) $(s).hidden = true;
   closeViewer();
+  store.faceIdEnabled().then((on) => { $('#faceIdBtn').hidden = !on; }).catch(() => {});
   view.query = ''; view.draft = null; view.detailId = null;
   $('#search').value = '';
   $('#app').hidden = true;
@@ -284,6 +312,8 @@ function render() {
   renderNav();
   const list = clear($('#list'));
   $('#screenTitle').textContent = view.query ? 'Search results' : TYPES[view.tab].label;
+  const nudge = backupNudge();
+  if (nudge) list.append(nudge);
   if (view.query) renderSearch(list);
   else renderTab(list, view.tab);
 }
@@ -298,6 +328,7 @@ function renderTab(list, type) {
   if (type === 'certificate') {
     const clash = expiryClashPanel();
     if (clash) list.append(clash);
+    if (items.length) list.append(joinLink());
   }
 
   if (!items.length) {
@@ -305,6 +336,39 @@ function renderTab(list, type) {
     return;
   }
   for (const item of items) list.append(rowFor(item));
+}
+
+/**
+ * A reminder to back up, shown on every tab while it is due: when nothing has
+ * ever been backed up, or the last backup is a month old and entries have
+ * changed since. "Later" quietens it for three days.
+ */
+function backupNudge() {
+  const items = store.allItems();
+  if (!items.length || Date.now() < view.backupSnoozeUntil) return null;
+  const last = view.lastBackupAt;
+  const changed = last ? items.filter((i) => i.updatedAt > last).length : items.length;
+  if (!changed) return null;
+  const ageDays = last ? Math.floor((Date.now() - last) / 86400000) : null;
+  if (last && ageDays < BACKUP_NUDGE_DAYS) return null;
+  const text = last
+    ? `Last backup ${ageDays} days ago, and ${changed} entr${changed === 1 ? 'y has' : 'ies have'} changed since. This iPhone holds the only copy.`
+    : `${changed} entr${changed === 1 ? 'y' : 'ies'} and no backup yet. This iPhone holds the only copy.`;
+  return el('div', { class: 'check check-warn backup-nudge' }, [
+    el('div', { class: 'check-head' }, [el('span', { class: 'summary-label', text: 'Back up your vault' })]),
+    el('p', { class: 'check-text', text }),
+    el('div', { class: 'fieldrow', style: 'margin-top:10px' }, [
+      el('div', {}, [el('button', { class: 'btn btn-primary btn-sm btn-block', onclick: doExportEncrypted }, ['Back up now'])]),
+      el('div', {}, [el('button', {
+        class: 'btn btn-sm btn-block',
+        onclick: async () => {
+          view.backupSnoozeUntil = Date.now() + 3 * 86400000;
+          await db.setMeta('backupSnoozeUntil', view.backupSnoozeUntil);
+          render();
+        }
+      }, ['Later'])])
+    ])
+  ]);
 }
 
 function renderSearch(list) {
@@ -554,9 +618,47 @@ function seaTimeChecks(items) {
     }, ['Set a sea time goal for your next CoC']));
   }
 
+  const tax = taxPanel(data);
+  if (tax) out.push(tax);
+
   const clash = expiryClashPanel();
   if (clash) out.push(clash);
+  out.push(joinLink());
   return out;
+}
+
+function joinLink() {
+  return el('button', { class: 'btn btn-teal btn-block', onclick: () => openJoin() }, ['Ready to join? Check certificates']);
+}
+
+/** Days at sea in the current tax year, against the target set in the profile. */
+function taxPanel(data) {
+  const p = profileItem()?.data;
+  if (!p?.taxYearStart && !p?.taxDaysTarget) {
+    return el('button', {
+      class: 'btn btn-ghost btn-sm goal-link',
+      onclick: () => openEditor('profile', profileItem())
+    }, ['Track days abroad per tax year']);
+  }
+  const startMonth = Math.max(1, MONTH_NAMES.indexOf(p.taxYearStart) + 1);
+  const t = taxYearDays(data, { startMonth, target: p.taxDaysTarget });
+  const met = t.target && t.served >= t.target;
+  const onTrack = t.target && !met && t.planned >= t.target;
+  const box = el('div', { class: 'check' + (t.target && !met && !onTrack ? ' check-warn' : ''), onclick: () => openEditor('profile', profileItem()) }, [
+    el('div', { class: 'check-head' }, [
+      el('span', { class: 'summary-label', text: 'Days abroad this tax year' }),
+      t.target ? el('span', { class: 'pill ' + (met ? 'pill-teal' : onTrack ? 'pill-brass' : 'pill-amber'), text: met ? 'Met' : onTrack ? 'On track' : 'Short' }) : null
+    ]),
+    el('div', { class: 'dgrid two' }, [
+      dcell('At sea so far', t.target ? `${t.served} / ${t.target} days` : `${t.served} days`),
+      dcell('With planned contracts', `${t.planned} days`)
+    ])
+  ]);
+  if (t.target) box.append(el('div', { class: 'goal-bar' }, [el('i', { style: `width:${Math.min(100, (t.served / t.target) * 100).toFixed(1)}%` })]));
+  box.append(el('p', { class: 'hint', text: `Tax year ${displayDateShort(t.start)} – ${displayDateShort(t.end)} · ${t.daysLeftInYear} days left in it.`
+    + (t.target && !met ? ` ${t.remaining} more days needed${onTrack ? '; your planned contracts cover it' : t.plannedShort ? `, ${t.plannedShort} beyond what is planned` : ''}.` : '')
+    + ' Travel days to and from the ship are not included.' }));
+  return box;
 }
 
 /** Certificates whose expiry falls before the end of a current or planned contract. */
@@ -596,9 +698,11 @@ function wireApp() {
   $('#editorSave').addEventListener('click', saveEditor);
   $('#fab').addEventListener('click', () => openEditor(view.query ? view.tab : view.tab, null));
   $('#filePicker').addEventListener('change', onFilesPicked);
+  $('#scanPicker').addEventListener('change', onScanPicked);
+  $('#toolClose').addEventListener('click', () => { $('#tool').hidden = true; });
   $('#viewerClose').addEventListener('click', closeViewer);
 
-  for (const id of ['#detail', '#editor', '#settings']) {
+  for (const id of ['#detail', '#editor', '#settings', '#tool']) {
     $(id).addEventListener('click', (e) => { if (e.target.id === id.slice(1)) e.target.hidden = true; });
   }
 }
@@ -791,7 +895,7 @@ function openEditor(type, item) {
   };
   if (!view.draft.data.attachments) view.draft.data.attachments = [];
   if (type === 'seatime' && !view.draft.data.contracts) view.draft.data.contracts = [];
-  $('#editorTitle').textContent = (item ? 'Edit ' : 'New ') + def.singular.toLowerCase();
+  $('#editorTitle').textContent = (item?.id ? 'Edit ' : 'New ') + def.singular.toLowerCase();
   renderEditor();
   $('#editor').hidden = false;
   $('#editorBody').scrollTop = 0;
@@ -806,6 +910,14 @@ function renderEditor() {
   const draft = view.draft;
   const def = TYPES[draft.type];
   const body = clear($('#editorBody'));
+
+  if (draft.type === 'certificate') {
+    body.append(el('div', { class: 'scan-box' }, [
+      el('button', { class: 'btn btn-teal btn-block', id: 'scanBtn', onclick: () => $('#scanPicker').click() },
+        [draft.scanning ? 'Reading…' : 'Scan certificate (photo or PDF)']),
+      el('p', { class: 'hint', id: 'scanStatus', text: draft.scanNote || 'Fills in the title, number, issuer and dates it can read. Nothing leaves the phone.' })
+    ]));
+  }
 
   // Fields sharing a `group` render side by side.
   let i = 0;
@@ -866,6 +978,7 @@ function refreshEditorChecks() {
 
 function fieldFor(f, draft) {
   if (f.type === 'heading') return el('h4', { class: 'editor-heading', text: f.label });
+  if (f.type === 'hint') return el('p', { class: 'hint', style: 'margin-top:-6px', text: f.label });
   if (f.type === 'contracts') return contractsEditor(draft, f);
   if (f.type === 'attachments') return attachmentsEditor(draft, f);
 
@@ -1001,6 +1114,40 @@ function attachmentsEditor(draft, f) {
   return wrap;
 }
 
+/**
+ * Read a photographed or PDF certificate and fill the empty fields from it.
+ * Typed values are never overwritten, and the scan is kept as an attachment.
+ */
+async function onScanPicked(e) {
+  const file = e.target.files && e.target.files[0];
+  e.target.value = '';
+  const draft = view.draft;
+  if (!file || !draft || draft.type !== 'certificate') return;
+  const status = (text) => { const n = $('#scanStatus'); if (n) n.textContent = text; };
+  draft.scanning = true;
+  $('#scanBtn').textContent = 'Reading…';
+  $('#scanBtn').disabled = true;
+  try {
+    const { readDocument } = await import('./ocr.js');
+    const text = await readDocument(file, file.name, { onStatus: status });
+    const found = parseCertificateText(text);
+    const labels = { title: 'title', refNo: 'number', issuer: 'issuer', issueDate: 'issue date', expiryDate: 'expiry date' };
+    const filled = [];
+    for (const [key, value] of Object.entries(found)) {
+      if (!String(draft.data[key] || '').trim()) { draft.data[key] = value; filled.push(labels[key]); }
+    }
+    if (!draft.newFiles.some((f) => f.name === file.name && f.size === file.size)) draft.newFiles.push(file);
+    draft.scanNote = filled.length
+      ? `Filled ${filled.join(', ')} from the scan — check them against the certificate. The scan is attached.`
+      : 'Could not read the details clearly. The scan is attached; type the details in.';
+  } catch (ex) {
+    draft.scanNote = `Could not read it: ${ex.message}`;
+  } finally {
+    draft.scanning = false;
+    if (view.draft === draft) renderEditor();
+  }
+}
+
 function onFilesPicked(e) {
   const files = [...(e.target.files || [])];
   e.target.value = '';
@@ -1100,6 +1247,8 @@ async function openSettings() {
   lockPanel.append(select);
   body.append(lockPanel);
 
+  body.append(await faceIdPanel());
+
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Passcode' }),
     el('p', { text: 'Changing it re-wraps the encryption key, so it is instant — your data is not re-encrypted. You can switch between a passphrase and a number PIN here.' }),
@@ -1110,6 +1259,10 @@ async function openSettings() {
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Backup' }),
     el('p', { text: 'This device holds the only copy. Export regularly and keep the file in iCloud Drive — the backup is encrypted, so cloud storage is safe.' }),
+    el('div', { class: 'stat', style: 'margin-bottom:10px' }, [
+      el('span', { text: 'Last backup' }),
+      el('span', { text: view.lastBackupAt ? new Date(view.lastBackupAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : 'Never' })
+    ]),
     el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: doExportEncrypted }, ['Export encrypted backup']),
     el('button', { class: 'btn btn-block', style: 'margin-bottom:8px', onclick: () => $('#backupPicker').click() }, ['Restore from backup']),
     el('button', { class: 'btn btn-block', onclick: doExportPlain }, ['Export readable copy'])
@@ -1123,8 +1276,8 @@ async function openSettings() {
       : 'Add your name and particulars once; the CV fills in the rest from your certificates and sea time.' }),
     el('button', { class: 'btn btn-block', style: 'margin-bottom:8px', onclick: () => { $('#settings').hidden = true; openEditor('profile', profileItem()); } },
       [profile ? 'Edit profile' : 'Set up profile']),
-    el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: () => makePdf('cv') }, ['Create CV (PDF)']),
-    el('button', { class: 'btn btn-block', onclick: () => makePdf('statement') }, ['Sea service record (PDF)'])
+    el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: openCvTool }, ['Create CV (PDF or Word)']),
+    el('button', { class: 'btn btn-block', onclick: makeStatement }, ['Sea service record (PDF)'])
   ]));
 
   body.append(el('div', { class: 'panel' }, [
@@ -1177,6 +1330,192 @@ async function openSettings() {
 
   $('#settings').hidden = false;
   $('#settingsBody').scrollTop = 0;
+}
+
+async function faceIdPanel() {
+  const panel = el('div', { class: 'panel' }, [el('h3', { text: 'Face ID' })]);
+  if (!(await faceid.available())) {
+    panel.append(el('p', { text: 'Face ID or Touch ID is not available to AVA on this device.' }));
+    return panel;
+  }
+  const on = await store.faceIdEnabled();
+  panel.append(el('p', { text: on
+    ? 'On. The lock screen offers Face ID; your passcode still works, and is needed after a restore.'
+    : 'Unlock with Face ID instead of typing the passcode. The passcode keeps working. Needs iOS 18 or later.' }));
+  panel.append(el('button', {
+    class: 'btn btn-block' + (on ? '' : ' btn-teal'),
+    onclick: async (e) => {
+      e.target.disabled = true;
+      try {
+        if (on) {
+          await store.disableFaceId();
+          toast('Face ID turned off');
+        } else {
+          await store.enableFaceId();
+          toast('Face ID turned on');
+        }
+      } catch (ex) {
+        if (ex.code !== 'CANCELLED') toast(ex.message);
+      }
+      openSettings();
+    }
+  }, [on ? 'Turn off Face ID' : 'Turn on Face ID']));
+  return panel;
+}
+
+// ── tool sheet: ready to join, create CV ────────────────────────────────────
+
+function openTool(title, fill) {
+  $('#toolTitle').textContent = title;
+  fill(clear($('#toolBody')));
+  $('#tool').hidden = false;
+  $('#toolBody').scrollTop = 0;
+}
+
+function addMonths(isoDate, months) {
+  const d = new Date(isoDate + 'T00:00:00Z');
+  d.setUTCMonth(d.getUTCMonth() + months);
+  return d.toISOString().slice(0, 10);
+}
+
+/** Sensible starting values: the next planned voyage, else the last one's rank and type. */
+function joinDefaults() {
+  const today = new Date().toISOString().slice(0, 10);
+  const voyages = store.itemsOfType('seatime').map((i) => i.data);
+  const upcoming = voyages.filter((v) => v.signOnDate && v.signOnDate > today).sort((a, b) => a.signOnDate.localeCompare(b.signOnDate))[0];
+  const latest = voyages.filter((v) => v.signOnDate).sort((a, b) => b.signOnDate.localeCompare(a.signOnDate))[0];
+  const base = upcoming || latest || {};
+  const joinDate = upcoming?.signOnDate || today;
+  const ends = (upcoming?.contracts || []).map((c) => c.endDate).filter(Boolean);
+  if (upcoming?.signOffDate) ends.push(upcoming.signOffDate);
+  return {
+    rank: profileItem()?.data.positionApplied || base.rank || 'Chief Officer',
+    vesselType: base.vesselType || 'Bulk Carrier',
+    joinDate,
+    endDate: ends.sort().pop() || addMonths(joinDate, 6)
+  };
+}
+
+const JOIN_ICONS = { ok: '✓', lapses: '!', expired: '✕', missing: '✕', optional: '?' };
+
+function openJoin() {
+  const opts = joinDefaults();
+  openTool('Ready to join?', (body) => {
+    const results = el('div', { class: 'join-results' });
+    const select = (key, options) => {
+      const sel = el('select', { class: 'field', 'data-join': key, onchange: (e) => { opts[key] = e.target.value; draw(); } });
+      for (const o of options) sel.append(el('option', { value: o, selected: o === opts[key] }, [o]));
+      return sel;
+    };
+    const date = (key) => el('input', { class: 'field', type: 'date', 'data-join': key, value: opts[key], onchange: (e) => { opts[key] = e.target.value; draw(); } });
+
+    body.append(
+      el('p', { class: 'hint', style: 'margin:0', text: 'The STCW certificates most companies ask for, checked against your own. A company or flag may want others.' }),
+      el('div', { class: 'fieldrow' }, [
+        el('div', {}, [el('label', { class: 'label', text: 'Rank' }), select('rank', RANKS)]),
+        el('div', {}, [el('label', { class: 'label', text: 'Ship type' }), select('vesselType', VESSEL_TYPES)])
+      ]),
+      el('div', {}, [el('label', { class: 'label', text: 'Joining' }), date('joinDate')]),
+      el('div', {}, [el('label', { class: 'label', text: 'Contract ends' }), date('endDate')]),
+      results
+    );
+
+    function draw() {
+      clear(results);
+      const certs = store.itemsOfType('certificate').map((i) => i.data);
+      const r = checkReadiness(certs, opts);
+      const problems = r.counts.missing + r.counts.expired + r.counts.lapses;
+      results.append(el('div', { class: 'check ' + (r.ready ? '' : 'check-warn') }, [
+        el('div', { class: 'check-head' }, [
+          el('span', { class: 'summary-label', text: r.ready ? 'Ready to join' : 'Not ready yet' }),
+          el('span', { class: 'pill ' + (r.ready ? 'pill-teal' : 'pill-amber'), text: r.ready ? `${r.counts.ok} valid` : `${problems} to sort` })
+        ]),
+        el('p', { class: 'check-text', text: r.ready
+          ? `Everything required stays valid until ${displayDateShort(opts.endDate)}.`
+          : 'Missing or expiring items are listed first. Tap one that is missing to add it.' })
+      ]));
+
+      const order = { missing: 0, expired: 1, lapses: 2, optional: 3, ok: 4 };
+      for (const item of [...r.results].sort((a, b) => order[a.status] - order[b.status])) {
+        const c = item.certificate;
+        const detail = item.status === 'missing' ? 'Not on file'
+          : item.status === 'optional' ? (item.note || 'Optional') + ' · not on file'
+          : item.status === 'expired' ? `${c.title} expired ${displayDateShort(c.expiryDate)}`
+          : item.status === 'lapses' ? `${c.title} expires ${displayDateShort(c.expiryDate)}, before the contract ends`
+          : `${c.title}${c.expiryDate ? ` · valid to ${displayDateShort(c.expiryDate)}` : ' · no expiry'}`;
+        results.append(el('div', {
+          class: `join-row join-${item.status}`,
+          onclick: item.status === 'missing' || item.status === 'optional'
+            ? () => { $('#tool').hidden = true; openEditor('certificate', { data: { title: item.label } }); }
+            : null
+        }, [
+          el('span', { class: 'join-icon', text: JOIN_ICONS[item.status] }),
+          el('div', { class: 'join-text' }, [
+            el('div', { class: 'join-label', text: item.label + (item.optional ? ' (optional)' : '') }),
+            el('div', { class: 'join-detail', text: detail })
+          ])
+        ]));
+      }
+      if (r.others.length) {
+        results.append(el('p', { class: 'check-line warn-line', text: `Also expiring during the contract: ${r.others.map((c) => `${c.title} (${displayDateShort(c.expiryDate)})`).join(', ')}.` }));
+      }
+    }
+    draw();
+  });
+}
+
+/**
+ * Choose what goes on the CV, then make it as a PDF or a Word document.
+ * Unticked entries are remembered on the profile for next time.
+ */
+function openCvTool() {
+  const profile = profileItem();
+  if (!profile?.data.fullName) {
+    toast('Add your name to the profile first');
+    $('#settings').hidden = true;
+    return openEditor('profile', profile);
+  }
+  const excluded = new Set(profile.data.cvExclude || []);
+  openTool('Create CV', (body) => {
+    const tick = (item, label, sub) => el('label', { class: 'tick-row' }, [
+      el('input', {
+        type: 'checkbox', checked: !excluded.has(item.id), 'data-cv': item.id,
+        onchange: (e) => { if (e.target.checked) excluded.delete(item.id); else excluded.add(item.id); }
+      }),
+      el('span', { class: 'tick-text' }, [el('span', { text: label }), sub ? el('span', { class: 'tick-sub', text: sub }) : null])
+    ]);
+
+    body.append(el('p', { class: 'hint', style: 'margin:0', text: 'Untick anything this application does not need. Your choice is kept for next time.' }));
+    const certs = store.itemsOfType('certificate');
+    if (certs.length) {
+      body.append(el('h4', { class: 'editor-heading', text: 'Certificates' }));
+      for (const c of [...certs].sort((a, b) => certificateCategory(a.data).localeCompare(certificateCategory(b.data)))) {
+        const st = expiryStatus(c.data.expiryDate);
+        body.append(tick(c, c.data.title || 'Untitled', `${certificateCategory(c.data)}${st.state === 'expired' ? ' · expired' : ''}`));
+      }
+    }
+    const voyages = store.itemsOfType('seatime');
+    if (voyages.length) {
+      body.append(el('h4', { class: 'editor-heading', text: 'Sea service' }));
+      for (const v of voyages) {
+        body.append(tick(v, v.data.vessel || 'Unnamed vessel', [v.data.rank, displayDateShort(v.data.signOnDate)].filter(Boolean).join(' · ')));
+      }
+    }
+
+    const make = async (format, btn) => {
+      btn.disabled = true;
+      try {
+        await store.saveItem({ id: profile.id, data: { cvExclude: [...excluded] } });
+        await makeCv(format, excluded);
+      } finally {
+        btn.disabled = false;
+      }
+    };
+    body.append(el('div', { class: 'fieldrow', style: 'margin-top:6px' }, [
+      el('div', {}, [el('button', { class: 'btn btn-primary btn-block', onclick: (e) => make('pdf', e.target) }, ['PDF'])]),
+      el('div', {}, [el('button', { class: 'btn btn-block', onclick: (e) => make('docx', e.target) }, ['Word'])])
+    ]));
+  });
 }
 
 function changePasscodeFlow() {
@@ -1317,34 +1656,46 @@ async function profilePhotoJpeg(profile) {
   }
 }
 
-/** Build the CV or the sea service record, then show it with a Save button. */
-async function makePdf(kind) {
-  const profile = profileItem();
-  const voyages = store.itemsOfType('seatime').map((i) => i.data);
-  if (kind === 'cv' && !profile?.data.fullName) {
-    toast('Add your name to the profile first');
-    $('#settings').hidden = true;
-    return openEditor('profile', profile);
-  }
-  if (kind === 'statement' && !voyages.length) return toast('No sea time entries yet');
+function fileStem(prefix) {
+  const who = (profileItem()?.data.fullName || '').replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+  return `${prefix}${who ? '-' + who : ''}-${new Date().toISOString().slice(0, 10)}`;
+}
 
+const DOCX_TYPE = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+
+/** The CV as a PDF (shown in the viewer) or a Word file (straight to the share sheet). */
+async function makeCv(format, excluded = new Set()) {
+  const profile = profileItem();
   const input = {
     profile: profile?.data || {},
-    certificates: store.itemsOfType('certificate').map((i) => i.data),
-    voyages
+    certificates: store.itemsOfType('certificate').filter((i) => !excluded.has(i.id)).map((i) => i.data),
+    voyages: store.itemsOfType('seatime').filter((i) => !excluded.has(i.id)).map((i) => i.data)
   };
   try {
-    let bytes;
-    if (kind === 'cv') {
-      const photo = await profilePhotoJpeg(profile).catch((ex) => { toast(ex.message); return null; });
-      bytes = buildCv({ ...input, photo });
+    const photo = await profilePhotoJpeg(profile).catch((ex) => { toast(ex.message); return null; });
+    if (format === 'docx') {
+      const name = `${fileStem('CV')}.docx`;
+      await shareBlob(new Blob([buildCvDocx({ ...input, photo })], { type: DOCX_TYPE }), name);
+      toast('Word CV ready');
     } else {
-      bytes = buildSeaServiceStatement(input);
+      await showGeneratedPdf(new Blob([buildCv({ ...input, photo })], { type: 'application/pdf' }), `${fileStem('CV')}.pdf`);
     }
-    const who = (profile?.data.fullName || '').replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
-    const stamp = new Date().toISOString().slice(0, 10);
-    const name = kind === 'cv' ? `CV${who ? '-' + who : ''}-${stamp}.pdf` : `Sea-service${who ? '-' + who : ''}-${stamp}.pdf`;
-    await showGeneratedPdf(new Blob([bytes], { type: 'application/pdf' }), name);
+  } catch (ex) {
+    toast('Could not make the CV: ' + ex.message);
+  }
+}
+
+async function makeStatement() {
+  const profile = profileItem();
+  const voyages = store.itemsOfType('seatime').map((i) => i.data);
+  if (!voyages.length) return toast('No sea time entries yet');
+  try {
+    const bytes = buildSeaServiceStatement({
+      profile: profile?.data || {},
+      certificates: store.itemsOfType('certificate').map((i) => i.data),
+      voyages
+    });
+    await showGeneratedPdf(new Blob([bytes], { type: 'application/pdf' }), `${fileStem('Sea-service')}.pdf`);
   } catch (ex) {
     toast('Could not make the PDF: ' + ex.message);
   }
@@ -1398,7 +1749,13 @@ async function exportCalendar(items, filename, emptyMessage) {
 async function doExportEncrypted() {
   const payload = await store.exportEncrypted();
   const stamp = new Date().toISOString().slice(0, 10);
-  if (await shareOrDownload(payload, `ava-backup-${stamp}.json`)) toast('Backup ready — save it to Files');
+  if (await shareOrDownload(payload, `ava-backup-${stamp}.json`)) {
+    view.lastBackupAt = Date.now();
+    await db.setMeta('lastBackupAt', view.lastBackupAt);
+    toast('Backup ready — save it to Files');
+    render();
+    if (!$('#settings').hidden) openSettings();
+  }
 }
 
 async function doExportPlain() {

@@ -196,6 +196,49 @@ export function goalProgress(entries, goal, today = todayUTC()) {
   return { served, need, remaining: Math.max(0, need - served), done: served >= need, fraction: Math.min(1, served / need) };
 }
 
+/** The latest contract end, else the sign-off date: when a voyage is due to end. */
+function plannedEnd(entry) {
+  const ends = (entry.contracts || []).map((c) => parseDate(c.endDate)).filter(Boolean);
+  const off = parseDate(entry.signOffDate);
+  if (off) ends.push(off);
+  return ends.length ? ends.reduce((a, b) => (b > a ? b : a)) : null;
+}
+
+/**
+ * Days at sea in a tax year, for the residency rules that count days outside
+ * the country. The tax year starts on the first of startMonth (1-12).
+ *
+ * served   days already at sea this tax year, each counted once
+ * planned  served plus what current and planned contracts will add before
+ *          the year ends; an open voyage with no end date adds nothing
+ */
+export function taxYearDays(entries, { startMonth = 1, target = null } = {}, today = todayUTC()) {
+  const m = Math.min(12, Math.max(1, Number(startMonth) || 1)) - 1;
+  let startYear = today.getUTCFullYear();
+  if (today.getUTCMonth() < m) startYear--;
+  const start = new Date(Date.UTC(startYear, m, 1));
+  const end = addDays(new Date(Date.UTC(startYear + 1, m, 1)), -1);
+
+  const served = daysWithin(countedSegments(entries, today), start, today);
+
+  // Project forward: each voyage runs to its planned end, and an open one
+  // with no end date stops today rather than being assumed to run all year.
+  const projected = entries.map((e) => {
+    const endDate = plannedEnd(e);
+    return { ...e, signOffDate: endDate ? iso(endDate) : e.signOffDate || iso(today) };
+  });
+  const planned = daysWithin(countedSegments(projected, end), start, end);
+
+  const goal = Number(target) > 0 ? Number(target) : null;
+  return {
+    start: iso(start), end: iso(end), served, planned,
+    target: goal,
+    remaining: goal ? Math.max(0, goal - served) : null,
+    plannedShort: goal ? Math.max(0, goal - planned) : null,
+    daysLeftInYear: spanDays(today, end) - 1
+  };
+}
+
 /**
  * Where a voyage stands today: its day number, and the end of the contract --
  * the latest contract end date, else a sign-off date still to come.
@@ -203,10 +246,7 @@ export function goalProgress(entries, goal, today = todayUTC()) {
 export function voyageProgress(entry, today = todayUTC()) {
   if (!isOnboard(entry, today)) return null;
   const on = parseDate(entry.signOnDate);
-  const ends = (entry.contracts || []).map((c) => parseDate(c.endDate)).filter(Boolean);
-  const off = parseDate(entry.signOffDate);
-  if (off) ends.push(off);
-  const end = ends.length ? ends.reduce((a, b) => (b > a ? b : a)) : null;
+  const end = plannedEnd(entry);
   return {
     day: spanDays(on, today),
     endDate: end ? iso(end) : null,
@@ -271,6 +311,7 @@ export function certificateCategory(data) {
   if (data.category && CERT_CATEGORIES.includes(data.category)) return data.category;
   const t = `${data.title || ''} ${data.issuer || ''}`.toLowerCase();
   if (/passport|visa|\bcdc\b|continuous discharge|seaman|seafarer'?s (identity|book)|discharge book|\bsid\b/.test(t)) return 'Travel document';
+  if (/medical (first aid|care)|\bmfa\b|\bmecare\b/.test(t)) return 'Training / STCW course';
   if (/medical|\bpeme\b|yellow fever|vaccin|drug|alcohol|\bd ?& ?a\b/.test(t)) return 'Medical';
   if (/endorse|\bdce\b|dangerous cargo|\bgmdss\b|\bgoc\b|flag state/.test(t)) return 'Endorsement';
   if (/competen|\bcoc\b/.test(t)) return 'Certificate of Competency';
@@ -287,12 +328,8 @@ export function expiriesDuringVoyages(certificates, voyages, today = todayUTC())
   for (const v of voyages) {
     const on = parseDate(v.signOnDate);
     if (!on) continue;
-    const ends = (v.contracts || []).map((c) => parseDate(c.endDate)).filter(Boolean);
-    const off = parseDate(v.signOffDate);
-    if (off) ends.push(off);
-    if (!ends.length) continue;
-    const end = ends.reduce((a, b) => (b > a ? b : a));
-    if (end < today) continue;
+    const end = plannedEnd(v);
+    if (!end || end < today) continue;
     const from = on > today ? on : today;
     for (const c of certificates) {
       const exp = parseDate(c.expiryDate);

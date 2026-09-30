@@ -71,7 +71,11 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      // Only the Library's own old caches: AVA shares this origin, and
+      // clearing its cache would leave it without an offline copy.
+      .then((keys) => Promise.all(keys
+        .filter((k) => k.startsWith('library-shell-') && k !== CACHE)
+        .map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });

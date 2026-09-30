@@ -29,6 +29,7 @@
       <input type="password" id="unlockCode" class="field" placeholder="Passcode"
              autocomplete="current-password" enterkeyhint="go">
       <button class="btn btn-primary" type="submit">Unlock</button>
+      <button type="button" class="btn btn-teal" id="faceIdBtn" hidden>Unlock with Face ID</button>
       <p class="lock-error" id="unlockError" role="alert" hidden></p>
       <button type="button" class="btn btn-ghost btn-sm" id="kbToggle">Use full keyboard</button>
       <button type="button" class="btn btn-ghost btn-sm" id="restoreBtn2">Restore from a backup</button>
@@ -119,6 +120,17 @@
   </div>
 </section>
 
+<!-- ── Tool sheet: Ready to join, Create CV ───────────────────────────────── -->
+<section id="tool" class="sheet" hidden aria-modal="true" role="dialog">
+  <div class="sheet-panel">
+    <header class="sheet-bar"><strong id="toolTitle">Tool</strong></header>
+    <div class="sheet-body" id="toolBody"></div>
+    <footer class="sheet-actions" id="toolActions">
+      <button class="btn btn-primary" id="toolClose">Done</button>
+    </footer>
+  </div>
+</section>
+
 <!-- ── Settings ───────────────────────────────────────────────────────────── -->
 <section id="settings" class="sheet" hidden aria-modal="true" role="dialog">
   <div class="sheet-panel">
@@ -132,6 +144,7 @@
 
 <div id="toast" class="toast" hidden></div>
 <input type="file" id="filePicker" multiple hidden>
+<input type="file" id="scanPicker" accept="image/*,application/pdf" hidden>
 <input type="file" id="backupPicker" accept="application/json,.json" hidden>
 
 <script type="module" src="js/app.js"></script>
