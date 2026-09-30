@@ -258,7 +258,7 @@ export async function importRecords(payload) {
 // as a whole rather than to one entry. Each is one list under its own name,
 // and every one of them travels in a full backup.
 
-export const LISTS = ['savedAnswers', 'checklists', 'pins', 'recent', 'askQueue'];
+export const LISTS = ['savedAnswers', 'checklists', 'pins', 'recent', 'askQueue', 'kits'];
 const lists = new Map();
 
 export async function getList(name) {

@@ -283,6 +283,21 @@ const REV7_PATH = path.join(tmp, 'Ballast Operations Manual Rev 7.pdf');
   await maker.close();
 }
 
+// Two photographs of paper, for scanning with the camera: dark print on a
+// greyish sheet, a little off square, the way a phone sees a page.
+const PHOTO_ONE = path.join(tmp, 'photo-1.png');
+const PHOTO_TWO = path.join(tmp, 'photo-2.png');
+{
+  const maker = await chromium.launch({ args: ['--no-sandbox'] });
+  const page = await maker.newPage({ viewport: { width: 900, height: 1200 } });
+  const sheet = (html) => `<body style="margin:0;background:#8a8a80"><div style="margin:40px;padding:60px;background:#d9d6cc;color:#262626;font:28px/1.5 serif;height:1000px;transform:rotate(-0.6deg)">${html}</div></body>`;
+  await page.setContent(sheet('<h1 style="font-size:52px">Bunker Transfer Procedure</h1><p>Sound all bunker tanks before starting and record the ullages.</p><p>Keep the SCUPPERPLUGMARK in place on deck throughout.</p>'));
+  await page.screenshot({ path: PHOTO_ONE });
+  await page.setContent(sheet('<h2>Completion</h2><p>Close the manifold valve and take final soundings.</p>'));
+  await page.screenshot({ path: PHOTO_TWO });
+  await maker.close();
+}
+
 // Over the size that is read a piece at a time: pictures of noise, which do
 // not compress, and a word to find on the last page.
 const BIG_PATH = path.join(tmp, 'Big Scanned Manual.pdf');
@@ -4377,6 +4392,220 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
       /What limits apply to ballast exchange\?/.test(read.text) && /p\.3 +no more than two tanks at once/.test(read.text)
         && /p\.4 +Record book is in the CCR/.test(read.text), read.text.slice(0, 900));
     await other.click('#settingsClose');
+    await fresh.close();
+  }
+
+  console.log('\nKits, sharing pages, scanning and the lock');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'], acceptDownloads: true });
+    const other = await fresh.newPage();
+    other.on('dialog', (d) => d.accept());
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    const home = async () => {
+      for (let i = 0; i < 4 && await other.locator('#backBtn').isVisible(); i++) {
+        await other.click('#backBtn');
+        await other.waitForTimeout(150);
+      }
+    };
+    const unfold = async () => {
+      for (let i = 0; i < 5; i++) {
+        const shut = other.locator('.group-head-btn[aria-expanded="false"]').first();
+        if (await shut.count() === 0) break;
+        await shut.click();
+        await other.waitForTimeout(50);
+      }
+    };
+
+    await other.locator('.section-card', { hasText: 'Manuals' }).click();
+    await other.click('#fab');
+    await other.waitForSelector('#editor:not([hidden])');
+    await other.fill('#editorBody [data-field="title"]', 'Cargo Handling Manual');
+    await other.setInputFiles('#filePicker', XREF_PATH);
+    await other.waitForTimeout(1500);
+    await other.click('#editorSave');
+    await other.waitForSelector('#editor', { state: 'hidden', timeout: 30000 });
+    await unfold();
+    await other.locator('.card', { hasText: 'Cargo Handling Manual' }).first().click();
+    await other.waitForSelector('#detail:not([hidden])');
+    await other.click('#detailBody button:has-text("Open")');
+    await other.waitForSelector('#viewerBody canvas[data-page="2"]');
+    await other.waitForTimeout(600);
+
+    // A page into a new kit.
+    await other.click('#viewerContents');
+    await other.locator('.contents-entry', { hasText: 'Introduction' }).click();
+    await other.waitForTimeout(800);
+    await other.click('#viewerContents');
+    await other.click('#pageToKit');
+    await other.waitForSelector('#pick:not([hidden])');
+    await other.fill('#pickNewName', 'Bunkering');
+    await other.click('#pickNewMake');
+    await other.locator('.toast', { hasText: 'Added to Bunkering' }).waitFor({ timeout: 5000 });
+    check('a page goes into a kit, made on the spot', true);
+
+    // Sharing two pages.
+    await other.click('#viewerContents');
+    check('the page being read is offered for sharing', await other.inputValue('#sharePages') === '2', await other.inputValue('#sharePages'));
+    await other.fill('#sharePages', '2-3');
+    const [shared] = await Promise.all([other.waitForEvent('download', { timeout: 20000 }), other.click('#shareGo')]);
+    check('the file is named for its pages', /Cargo Handling Manual p2-3\.pdf$/.test(shared.suggestedFilename()), shared.suggestedFilename());
+    const sharedPath = path.join(tmp, 'shared.pdf');
+    await shared.saveAs(sharedPath);
+    const sharedRead = await other.evaluate(async (b64) => {
+      const pdfjs = await import('../vendor/pdf.min.mjs');
+      const doc = await pdfjs.getDocument({ data: Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)) }).promise;
+      const text = [];
+      for (let n = 1; n <= doc.numPages; n++) text.push((await (await doc.getPage(n)).getTextContent()).items.map((i) => i.str).join(' '));
+      return { pages: doc.numPages, text };
+    }, fs.readFileSync(sharedPath).toString('base64'));
+    check('only those pages are in it, with their words still text',
+      sharedRead.pages === 2 && /Introduction/.test(sharedRead.text[0]) && /3\.2 Stripping/.test(sharedRead.text[1]), JSON.stringify(sharedRead).slice(0, 300));
+    check('and it is a fraction of the whole', fs.statSync(sharedPath).size < fs.statSync(XREF_PATH).size, `${fs.statSync(sharedPath).size} of ${fs.statSync(XREF_PATH).size}`);
+    await other.fill('#sharePages', 'nine');
+    await other.click('#shareGo');
+    await other.locator('.toast', { hasText: /Pages from 1 to 5/ }).waitFor({ timeout: 5000 });
+    check('pages it does not have are said so', true);
+    await other.click('#contentsClose');
+    await other.click('#viewerClose');
+
+    // The entry, and a checklist, into the same kit.
+    await other.locator('#detailKits button:has-text("Add to a kit")').click();
+    await other.locator('.pick-kit', { hasText: 'Bunkering' }).click();
+    await other.locator('.toast', { hasText: 'Added to Bunkering' }).waitFor({ timeout: 5000 });
+    await other.click('#detailClose');
+    await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      await store.setList('checklists', [{ id: 'bk1', title: 'Before bunkering', steps: [{ text: 'Plugs in' }], createdAt: new Date().toISOString(), runs: [] }]);
+    });
+    await home();
+    await other.click('#open-checklists');
+    await other.locator('.answer-open', { hasText: 'Before bunkering' }).click();
+    await other.click('#checkToKit');
+    await other.locator('.pick-kit', { hasText: 'Bunkering' }).click();
+    await other.locator('.toast', { hasText: 'Added to Bunkering' }).waitFor({ timeout: 5000 });
+    await other.click('#checkClose');
+    await home();
+    await other.click('#open-kits');
+    await other.locator('#body .answer-open', { hasText: 'Bunkering' }).click();
+    const kitRows = await other.locator('#kitRows .answer-open').allInnerTexts();
+    check('the kit holds the page, the entry and the checklist, each said for what it is',
+      kitRows.length === 3 && /Manual[\s\S]*Cargo Handling Manual[\s\S]*page 2/i.test(kitRows[0]) && /Checklist[\s\S]*Before bunkering/i.test(kitRows[2]),
+      JSON.stringify(kitRows));
+    await other.locator('#kitRows .answer-open').first().click();
+    await other.locator('#viewerTitle', { hasText: /page 2/ }).waitFor({ timeout: 10000 });
+    check('and a page in it opens where it is', true);
+    await other.click('#viewerClose');
+    await other.locator('#kitRows .del-btn').last().click();
+    await other.waitForTimeout(300);
+    check('something can be taken out of it', await other.locator('#kitRows .answer-open').count() === 2);
+    const kept = await other.evaluate(async () => (await (await import('./js/store.js')).fullBackup()).manifest.lists.kits.length);
+    check('kits go into the full backup', kept === 1, String(kept));
+    await home();
+
+    // Scanning with the camera.
+    await other.locator('.section-card', { hasText: 'Manuals' }).click();
+    const head = other.locator('.tools-head');
+    if ((await head.getAttribute('aria-expanded')) !== 'true') await head.click();
+    await other.click('#scanStart');
+    await other.waitForSelector('#scan:not([hidden])');
+    check('nothing to save before a page is taken', await other.locator('#scanSave').isDisabled());
+    await other.setInputFiles('#cameraPicker', PHOTO_TWO);
+    await other.setInputFiles('#cameraPicker', PHOTO_ONE);
+    check('each photograph taken is a page', await other.locator('#scanPages .scan-page').count() === 2);
+    await other.locator('#scanPages .scan-left').click();
+    check('pages can be put in order', /2 pages/i.test(await other.locator('#scanSave').innerText()));
+    await other.click('#scanSave');
+    await other.locator('.toast', { hasText: /Saved 2 pages/ }).waitFor({ timeout: 120000 });
+    const scanned = await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const item = store.itemsOfType('manual').find((i) => i.data.attachments?.[0]?.fromScan);
+      const att = item?.data.attachments[0];
+      const texts = await store.loadTexts();
+      return { title: item?.data.title, name: att?.name, pages: att?.pageCount, status: att?.textStatus,
+        first: (texts.get(att?.id) || [])[0]?.text || '' };
+    });
+    check('the scan is kept as one PDF, read and searchable',
+      scanned.pages === 2 && scanned.status === 'indexed' && /SCUPPERPLUGMARK/.test(scanned.first), JSON.stringify(scanned));
+    check('named from what is written on its first page', /Bunker Transfer Procedure/i.test(scanned.title || ''), JSON.stringify(scanned));
+    await other.fill('#search', 'SCUPPERPLUGMARK');
+    await other.waitForTimeout(800);
+    check('and found by a word on it', /Bunker Transfer Procedure/i.test(await other.locator('.card').first().innerText()));
+    await other.fill('#search', '');
+    await home();
+
+    // The lock, with a phone's Face ID stood in for.
+    const cdp = await fresh.newCDPSession(other);
+    await cdp.send('WebAuthn.enable');
+    const { authenticatorId } = await cdp.send('WebAuthn.addVirtualAuthenticator', { options: {
+      protocol: 'ctap2', transport: 'internal', hasResidentKey: true, hasUserVerification: true,
+      isUserVerified: true, automaticPresenceSimulation: true } });
+    await other.click('#settingsBtn');
+    await other.waitForSelector('#settings:not([hidden])');
+    await other.fill('#lockPin', '12');
+    await other.click('#lockOn');
+    await other.locator('.toast', { hasText: '4 to 12 digits' }).waitFor({ timeout: 5000 });
+    await other.fill('#lockPin', '4821');
+    await other.fill('#lockPinAgain', '4821');
+    await other.click('#lockOn');
+    await other.locator('.toast', { hasText: 'Locked with Face ID' }).waitFor({ timeout: 15000 });
+    const stored = await other.evaluate(async () => (await import('./js/db.js')).getMeta('appLock'));
+    check('the lock is set with a passkey, and the PIN kept only as a hash',
+      Boolean(stored?.credentialId) && stored.pin?.hash && !JSON.stringify(stored).includes('4821'), JSON.stringify(stored));
+    await other.click('#settingsClose');
+
+    await other.reload({ waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.locator('#faceLock').waitFor({ state: 'hidden', timeout: 10000 });
+    check('opened again, Face ID unlocks it', true);
+
+    // Face ID not recognised: the PIN.
+    await cdp.send('WebAuthn.setUserVerified', { authenticatorId, isUserVerified: false });
+    await other.click('#settingsBtn');
+    await other.selectOption('#lockAway', '0');
+    await other.click('#lockNowBtn');
+    await other.waitForSelector('#faceLock:not([hidden])');
+    await other.waitForTimeout(600);
+    check('locked, it covers everything', await other.locator('#faceLock').isVisible());
+    await other.click('#faceUnlock');
+    await other.locator('#faceLockError').waitFor({ state: 'visible', timeout: 10000 });
+    check('a face not recognised does not unlock it', await other.locator('#faceLock').isVisible());
+    await other.fill('#pinInput', '0000');
+    await other.click('#pinForm button');
+    await other.waitForTimeout(700);
+    check('nor does the wrong PIN', await other.locator('#faceLock').isVisible() && /not the PIN/.test(await other.locator('#faceLockError').innerText()));
+    await other.fill('#pinInput', '4821');
+    await other.click('#pinForm button');
+    await other.locator('#faceLock').waitFor({ state: 'hidden', timeout: 10000 });
+    check('the right PIN does', true);
+
+    // Sent to the background and brought back.
+    const flip = (hidden) => other.evaluate((hidden) => {
+      Object.defineProperty(document, 'hidden', { configurable: true, get: () => hidden });
+      document.dispatchEvent(new Event('visibilitychange'));
+    }, hidden);
+    await flip(true);
+    check('the moment it goes into the background it is covered', await other.locator('#faceLock').isVisible());
+    await flip(false);
+    await other.waitForTimeout(500);
+    check('and set to lock at once, it is locked on return', await other.locator('#faceLock').isVisible());
+    await other.fill('#pinInput', '4821');
+    await other.click('#pinForm button');
+    await other.locator('#faceLock').waitFor({ state: 'hidden', timeout: 10000 });
+    await other.evaluate(() => document.querySelector('#photoPicker').click());
+    await flip(true);
+    await flip(false);
+    await other.waitForTimeout(300);
+    check('but choosing a photo is not being away', await other.locator('#faceLock').isHidden());
+
+    await other.click('#settingsBtn');
+    await other.fill('#lockOffPin', '4821');
+    await other.click('#lockOff');
+    await other.locator('.toast', { hasText: 'The lock is off' }).waitFor({ timeout: 5000 });
+    await other.reload({ waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.waitForTimeout(500);
+    check('turned off, it opens straight away', await other.locator('#faceLock').isHidden());
     await fresh.close();
   }
 

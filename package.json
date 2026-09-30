@@ -13,6 +13,7 @@
     "test:mirror": "node tests/mirror.test.mjs",
     "mirror": "node tools/mirror-notices.mjs",
     "stamp": "node tools/stamp-version.mjs",
-    "vendor:anthropic": "node tools/vendor-anthropic.mjs"
+    "vendor:anthropic": "node tools/vendor-anthropic.mjs",
+    "vendor:pdflib": "node tools/vendor-pdflib.mjs"
   }
 }

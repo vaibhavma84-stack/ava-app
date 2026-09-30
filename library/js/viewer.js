@@ -851,6 +851,21 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   teardown.isSpread = () => spread;
   teardown.current = () => (bookOn ? current : null);
   teardown.pageCount = doc.numPages;
+  /** A page drawn as a picture, about 150 dots to the inch: for sharing a page out of a file too big to take apart. */
+  teardown.pageImage = async (n) => {
+    const page = await doc.getPage(n);
+    const base = page.getViewport({ scale: 1 });
+    const viewport = page.getViewport({ scale: Math.min(150 / 72, 2400 / base.width) });
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(viewport.width);
+    canvas.height = Math.round(viewport.height);
+    await page.render({ canvasContext: canvas.getContext('2d', { alpha: false }), viewport }).promise;
+    page.cleanup();
+    const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/jpeg', 0.82));
+    canvas.width = 0;
+    canvas.height = 0;
+    return blob;
+  };
   /** The document's own contents list -- its bookmarks -- where it has one. */
   teardown.contents = async () => {
     if (contents) return contents;

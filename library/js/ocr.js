@@ -248,6 +248,30 @@ export async function readImage(blob, { onProgress } = {}) {
   }
 }
 
+/**
+ * Read several pictures with one reader -- the pages of a camera scan.
+ * Started once, not once a page. Returns [{ page, text }] for the pages that
+ * held words.
+ */
+export async function readImages(blobs, { onProgress } = {}) {
+  const say = (note) => { try { onProgress?.(note); } catch { /* never break the read */ } };
+  let worker = null;
+  const pages = [];
+  try {
+    say('Loading the reader\u2026');
+    worker = await reader();
+    for (const [i, blob] of blobs.entries()) {
+      say(`Reading page ${i + 1} of ${blobs.length}\u2026`);
+      const { data } = await worker.recognize(blob);
+      const text = tidy(data?.text);
+      if (!tooLittle(text)) pages.push({ page: i + 1, text });
+    }
+    return pages;
+  } finally {
+    try { await worker?.terminate(); } catch { /* nothing useful to do */ }
+  }
+}
+
 /** How many pages a PDF has, without reading any of them. */
 export async function countPages(buffer) {
   const pdfjs = await pdfLib();

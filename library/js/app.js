@@ -22,8 +22,10 @@ import { findReference, describeReference } from './xref.js';
 import { dueStatus, dueLabel, dueSoon } from './due.js';
 import { findOlderEdition, changedPages, pageRanges } from './editions.js';
 import { PdfWriter } from './pdfwrite.js';
+import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
+import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.50';
+const APP_VERSION = '2026.10.51';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -71,7 +73,9 @@ const view = {
 const PAGES = {
   highlights: { title: 'Highlights', draw: (body) => renderHighlights(body) },
   answers: { title: 'Saved answers', draw: (body) => renderSavedAnswers(body) },
-  checklists: { title: 'Checklists', draw: (body) => renderChecklists(body) }
+  checklists: { title: 'Checklists', draw: (body) => renderChecklists(body) },
+  kits: { title: 'Kits', draw: (body) => renderKits(body) },
+  kit: { title: () => findKit(view.kitId)?.title || 'Kit', draw: (body) => renderKit(body) }
 };
 
 let lockTimer = null;
@@ -85,6 +89,7 @@ async function boot() {
 
   store.onChange(render);
   wireApp();
+  wireLock();
 
   if (await store.needsMigration()) {
     // An older library, made when Library still had a passcode.
@@ -95,7 +100,158 @@ async function boot() {
   }
 
   await store.open();
+  // Locked before anything is drawn behind it.
+  await loadLock();
+  if (guard.cfg) lockNow();
   enterApp();
+}
+
+// ── the lock ────────────────────────────────────────────────────────────────
+//
+// Optional: Face ID (through a passkey this phone keeps for the site), with a
+// PIN for when the face will not do. It locks on opening, and again after the
+// app has been away longer than chosen -- and it covers the screen the moment
+// the app goes into the background, so the list of open apps never shows a
+// page of a manual.
+
+const guard = { cfg: null, locked: false, hiddenAt: 0, picking: 0 };
+
+async function loadLock() {
+  try { guard.cfg = (await db.getMeta('appLock')) || null; } catch { guard.cfg = null; }
+}
+
+function lockNow() {
+  guard.locked = true;
+  showLockScreen();
+  // Face ID is asked for straight away where the phone allows it without a
+  // tap; where it does not, the button is there and nothing is said.
+  if (guard.cfg?.credentialId) {
+    setTimeout(async () => {
+      if (!guard.locked || document.hidden) return;
+      try { if (await lock.checkFace(guard.cfg.credentialId)) unlocked(); } catch { /* the button is there */ }
+    }, 250);
+  }
+}
+
+function showLockScreen() {
+  const cfg = guard.cfg;
+  $('#faceLock').hidden = false;
+  $('#faceUnlock').hidden = !cfg?.credentialId;
+  $('#faceLockError').hidden = true;
+  $('#pinInput').value = '';
+  $('#faceLockSub').textContent = cfg?.credentialId ? 'Locked. Unlock with Face ID, or your PIN.' : 'Locked. Enter your PIN.';
+}
+
+function unlocked() {
+  guard.locked = false;
+  $('#faceLock').hidden = true;
+  $('#pinInput').blur();
+}
+
+async function unlockWithFace() {
+  const err = $('#faceLockError');
+  err.hidden = true;
+  try {
+    if (await lock.checkFace(guard.cfg.credentialId)) { unlocked(); return; }
+    err.textContent = 'Face ID did not confirm it was you.';
+  } catch (ex) {
+    err.textContent = ex?.name === 'NotAllowedError' ? 'Face ID was cancelled. Try again, or use your PIN.' : `Face ID could not be used: ${ex.message}`;
+  }
+  err.hidden = false;
+}
+
+function wireLock() {
+  $('#faceUnlock').addEventListener('click', unlockWithFace);
+  $('#pinForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const err = $('#faceLockError');
+    if (guard.cfg?.pin && await lock.checkPin($('#pinInput').value, guard.cfg.pin)) { unlocked(); return; }
+    err.textContent = 'That is not the PIN.';
+    err.hidden = false;
+    $('#pinInput').select();
+  });
+  // Choosing a file or taking a photo sends the app into the background for
+  // a moment; that is not being away.
+  document.addEventListener('click', (e) => { if (e.target?.matches?.('input[type="file"]')) guard.picking = Date.now(); }, true);
+  document.addEventListener('visibilitychange', () => {
+    if (!guard.cfg) return;
+    if (document.hidden) {
+      guard.hiddenAt = Date.now();
+      // Covered at once, so the app switcher's picture of it is the lock.
+      if (Date.now() - guard.picking > 3000) showLockScreen();
+      return;
+    }
+    const away = Date.now() - guard.hiddenAt;
+    const picking = guard.hiddenAt - guard.picking < 3000;
+    if (!guard.locked && (picking || away < (guard.cfg.away ?? 1) * 60000)) { unlocked(); return; }
+    lockNow();
+  });
+}
+
+function lockPanel() {
+  const panel = el('div', { class: 'panel', id: 'lockPanel' }, [el('h3', { text: 'Lock' })]);
+  const cfg = guard.cfg;
+  if (!cfg) {
+    const pin = el('input', { type: 'password', class: 'field', id: 'lockPin', inputmode: 'numeric', placeholder: 'A PIN, 4 to 12 digits', autocomplete: 'new-password' });
+    const again = el('input', { type: 'password', class: 'field', id: 'lockPinAgain', inputmode: 'numeric', placeholder: 'The PIN again', autocomplete: 'new-password', style: 'margin-top:8px' });
+    const note = el('p', { class: 'hint' });
+    lock.faceAvailable().then((face) => {
+      note.textContent = face
+        ? 'Opens only with Face ID (or Touch ID, or the phone\u2019s passcode). The PIN is for when that will not do.'
+        : 'This phone offers no Face ID to a web app here, so the library locks with the PIN.';
+    });
+    panel.append(
+      el('p', { text: 'Keeps the library closed to anyone who picks up the phone while it is unlocked. It locks when opened and after time away.' }),
+      note, pin, again,
+      el('button', { class: 'btn btn-primary btn-block', id: 'lockOn', style: 'margin-top:10px', onclick: async (e) => {
+        if (!/^\d{4,12}$/.test(pin.value)) { toast('The PIN is 4 to 12 digits'); pin.focus(); return; }
+        if (pin.value !== again.value) { toast('The two PINs are not the same'); again.select(); return; }
+        e.target.disabled = true;
+        try {
+          let credentialId = null;
+          if (await lock.faceAvailable()) {
+            try { credentialId = await lock.enrolFace(); } catch (ex) {
+              // Passkeys need iCloud Keychain on an iPhone; without it, or if
+              // Face ID was cancelled, the PIN can still lock it.
+              const why = ex?.name === 'NotAllowedError' ? 'Face ID was not set up' : `Face ID could not be set up (${ex.message})`;
+              if (!confirm(`${why}. Lock with the PIN only?`)) { toast('The lock is still off'); return; }
+            }
+          }
+          guard.cfg = { credentialId, pin: await lock.hashPin(pin.value), away: 1, since: new Date().toISOString() };
+          await db.setMeta('appLock', guard.cfg);
+          toast(credentialId ? 'Locked with Face ID from now on' : 'Locked with the PIN from now on');
+          openSettings();
+        } finally {
+          e.target.disabled = false;
+        }
+      } }, ['Turn on the lock'])
+    );
+    panel.append(el('p', { class: 'hint', text: 'This locks the app; it does not encrypt what is stored. Keep a full backup as well \u2014 a forgotten PIN and a lost face cannot be got round.' }));
+    return panel;
+  }
+  const away = el('select', { class: 'field', id: 'lockAway', 'aria-label': 'Lock again' },
+    lock.AWAY_CHOICES.map((c) => el('option', { value: String(c.minutes), text: c.label })));
+  away.value = String(cfg.away ?? 1);
+  away.addEventListener('change', async () => {
+    guard.cfg = { ...guard.cfg, away: Number(away.value) };
+    await db.setMeta('appLock', guard.cfg);
+    toast('Saved');
+  });
+  const pin = el('input', { type: 'password', class: 'field', id: 'lockOffPin', inputmode: 'numeric', placeholder: 'PIN, to turn it off', style: 'margin-top:8px' });
+  panel.append(
+    el('p', { text: cfg.credentialId ? 'On \u2014 Face ID, with your PIN as the way round it.' : 'On \u2014 with your PIN.' }),
+    el('label', { class: 'label', text: 'Lock again when the app has been away' }), away,
+    el('button', { class: 'btn btn-block', id: 'lockNowBtn', style: 'margin-top:10px', onclick: () => { $('#settings').hidden = true; lockNow(); } }, ['Lock now']),
+    pin,
+    el('button', { class: 'btn btn-block', id: 'lockOff', style: 'margin-top:8px', onclick: async () => {
+      if (!await lock.checkPin(pin.value, cfg.pin)) { toast('That is not the PIN'); pin.select(); return; }
+      guard.cfg = null;
+      await db.setMeta('appLock', null);
+      toast('The lock is off');
+      openSettings();
+    } }, ['Turn off the lock'])
+  );
+  return panel;
 }
 
 function wireMigration() {
@@ -287,7 +443,7 @@ function render() {
   $('#fab').hidden = view.screen !== 'section' || view.selecting;
 
   const title = view.screen === 'search' ? 'Search'
-    : view.screen === 'page' ? PAGES[view.page].title
+    : view.screen === 'page' ? [PAGES[view.page].title].map((t) => (typeof t === 'function' ? t() : t))[0]
     : view.section ? TYPES[view.section].label : 'LIBRARY';
   $('#screenTitle').textContent = title;
   $('#screenTitle').className = view.screen === 'home' ? 'brand' : 'brand small';
@@ -1711,6 +1867,7 @@ function wireApp() {
       view.query = ''; $('#search').value = '';
       view.searchScope = null; view.searchVessel = null; view.searchCategory = null;
     }
+    else if (view.page === 'kit') view.page = 'kits';
     else if (view.page) view.page = null;
     else { view.section = null; view.filter = null; endSelecting(); }
     render();
@@ -1718,7 +1875,12 @@ function wireApp() {
   $('#settingsBtn').addEventListener('click', openSettings);
   $('#fullPicker').addEventListener('change', onFullBackupPicked);
   $('#askClose').addEventListener('click', closeAsk);
-  $('#checkClose').addEventListener('click', () => { $('#check').hidden = true; if (view.page === 'checklists') render(); });
+  $('#checkClose').addEventListener('click', () => { $('#check').hidden = true; if (view.page === 'checklists' || view.page === 'kit') render(); });
+  $('#pickClose').addEventListener('click', () => { $('#pick').hidden = true; });
+  $('#scanClose').addEventListener('click', closeScan);
+  $('#scanSave').addEventListener('click', saveScan);
+  $('#cameraPicker').addEventListener('change', onPhotosPicked);
+  $('#photoPicker').addEventListener('change', onPhotosPicked);
   $('#settingsClose').addEventListener('click', () => { $('#settings').hidden = true; });
   $('#detailClose').addEventListener('click', () => { $('#detail').hidden = true; view.detailId = null; });
   $('#detailEdit').addEventListener('click', () => {
@@ -1849,6 +2011,13 @@ function openDetail(id) {
         : 'Nothing is held on the site for this one — the administration publishes no document for it. The link below opens it at the administration, which needs a connection.' })
     ]));
   }
+
+  const inKits = kits().filter((k) => k.rows.some((r) => r.itemId === item.id));
+  body.append(el('div', { class: 'detail-sec', id: 'detailKits' }, [
+    el('h4', { text: 'Kits' }),
+    inKits.length ? el('p', { class: 'hint', style: 'margin-top:0', text: `In ${inKits.map((k) => k.title).join(', ')}.` }) : null,
+    el('button', { class: 'btn btn-sm', onclick: () => pickKit({ kind: 'entry', itemId: item.id }, titleOf(item)) }, ['Add to a kit'])
+  ]));
 
   if (item.data.fileLink) {
     body.append(el('div', { class: 'detail-sec' }, [
@@ -3010,6 +3179,27 @@ async function followLink(att, link) {
   else toast(`${describeReference(link.ref)} could not be found in this document`);
 }
 
+async function sharePages(att, typed, button) {
+  const count = disposeViewer?.pageCount || 0;
+  const pages = parsePages(typed, count);
+  if (!pages) { toast(`Pages from 1 to ${count}, like 12-14 or 3, 7`); return; }
+  if (pages.length > 60) { toast('At most 60 pages at a time'); return; }
+  const label = button.textContent;
+  button.disabled = true;
+  button.textContent = '\u2026';
+  try {
+    const blob = await extractPages(await store.readFile(att), pages, { renderPage: disposeViewer.pageImage });
+    const base = String(att.name || 'Document').replace(/\.pdf$/i, '');
+    await shareBlob(blob, `${base} p${pagesLabel(pages)}.pdf`, 'application/pdf');
+    toast(`${plural(pages.length, 'page', 'pages')} \u00b7 ${formatBytes(blob.size)}`);
+  } catch (ex) {
+    toast(`Could not take the pages out: ${ex.message}`);
+  } finally {
+    button.disabled = false;
+    button.textContent = label;
+  }
+}
+
 async function openContents() {
   const panel = clear($('#contentsPanel'));
   const here = pageInView();
@@ -3036,6 +3226,25 @@ async function openContents() {
     el('button', { class: 'btn', id: 'gotoGo', onclick: goToTyped }, ['Go']),
     el('p', { class: 'hint', text: `of ${count} \u00b7 now on p.${here}` })
   ]));
+
+  // What can be done with the page being read, or a few of them.
+  const viewing = view.viewing;
+  const item = store.getItem(viewing?.itemId);
+  const att = (item?.data.attachments || []).find((a) => a.id === viewing?.attId);
+  const tools = el('div', { class: 'contents-tools' });
+  if (item && att) {
+    tools.append(el('button', { class: 'btn btn-sm', id: 'pageToKit', onclick: () => {
+      close();
+      pickKit({ kind: 'page', itemId: item.id, attId: att.id, page: here }, `${titleOf(item)}, page ${here}`);
+    } }, [`Add page ${here} to a kit`]));
+  }
+  if (att && disposeViewer?.pageImage) {
+    const open = disposeViewer.isSpread?.() ? `${here}-${Math.min(here + 1, count)}` : String(here);
+    const pages = el('input', { class: 'find-input', id: 'sharePages', value: open, placeholder: 'e.g. 12-14, 20', inputmode: 'text', 'aria-label': 'Pages to share' });
+    tools.append(el('p', { class: 'hint', style: 'margin:4px 0 0', text: 'Share only some pages, as a small PDF:' }),
+      el('div', { class: 'share-row' }, [pages, el('button', { class: 'btn', id: 'shareGo', onclick: (e) => sharePages(att, pages.value, e.target) }, ['Share'])]));
+  }
+  if (tools.children.length) panel.append(tools);
   panel.hidden = false;
 
   const entries = (await disposeViewer?.contents?.()) || [];
@@ -3052,7 +3261,6 @@ async function openContents() {
     }, [el('span', { text: e.title }), el('span', { class: 'contents-page', text: `p.${e.page}` })]));
   });
 
-  const item = store.getItem(view.viewing?.itemId);
   const marks = (item?.data.pageNotes || [])
     .filter((n) => n.attId === view.viewing?.attId)
     .sort((a, b) => a.page - b.page);
@@ -3410,8 +3618,9 @@ function collectionsRow() {
   if (highlights) rows.push(['highlights', 'Highlights', highlights]);
   const answers = store.peekList('savedAnswers').length;
   if (answers) rows.push(['answers', 'Saved answers', answers]);
-  // Always offered: a checklist can be started from nothing.
+  // Always offered: a checklist can be started from nothing, and so can a kit.
   rows.push(['checklists', 'Checklists', store.peekList('checklists').length]);
+  rows.push(['kits', 'Kits', store.peekList('kits').length]);
   if (!rows.length) return null;
   return el('div', { class: 'collections' }, rows.map(([page, label, n]) => el('button', {
     class: 'collection-btn', id: `open-${page}`,
@@ -3630,6 +3839,141 @@ function quickAccess() {
   return wrap;
 }
 
+// ── kits ────────────────────────────────────────────────────────────────────
+//
+// Everything one job needs, gathered: for bunkering, the pages of the
+// manual, the local procedure, the MI and the checklist. A kit holds pointers,
+// not copies, so a page or an entry is in as many kits as it is useful to.
+
+const kits = () => store.peekList('kits');
+const findKit = (id) => kits().find((k) => k.id === id);
+const saveKits = (rows) => store.setList('kits', rows);
+
+async function newKit(title) {
+  const kit = { id: store.newId(), title: title.trim() || 'New kit', rows: [], createdAt: new Date().toISOString() };
+  await saveKits([...kits(), kit]);
+  return kit;
+}
+
+const sameRow = (a, b) => a.kind === b.kind && a.itemId === b.itemId && a.attId === b.attId
+  && a.page === b.page && a.listId === b.listId;
+
+async function addToKit(kitId, row) {
+  const kit = findKit(kitId);
+  if (!kit) return;
+  if (kit.rows.some((r) => sameRow(r, row))) { toast(`Already in ${kit.title}`); return; }
+  await saveKits(kits().map((k) => (k.id === kitId ? { ...k, rows: [...k.rows, { id: store.newId(), ...row }] } : k)));
+  toast(`Added to ${kit.title}`);
+}
+
+/** Ask which kit, or make one, and put the row in it. */
+function pickKit(row, what) {
+  const body = clear($('#pickBody'));
+  $('#pickTitle').textContent = 'Add to a kit';
+  body.append(el('p', { class: 'ask-q', text: what }));
+  const done = () => { $('#pick').hidden = true; if (view.page?.startsWith('kit')) render(); };
+  for (const kit of kits()) {
+    body.append(el('button', { class: 'answer-open pick-kit', onclick: async () => { await addToKit(kit.id, row); done(); } }, [
+      el('span', { class: 'answer-ref', text: kit.title }),
+      el('span', { class: 'answer-where', text: plural(kit.rows.length, 'item', 'items') })
+    ]));
+  }
+  const name = el('input', { class: 'field', id: 'pickNewName', placeholder: kits().length ? 'Or a new kit, e.g. Bunkering' : 'New kit, e.g. Bunkering', enterkeyhint: 'done' });
+  const make = async () => {
+    if (!name.value.trim()) { name.focus(); return; }
+    const kit = await newKit(name.value);
+    await addToKit(kit.id, row);
+    done();
+  };
+  name.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); make(); } });
+  body.append(el('div', { class: 'pick-new' }, [name, el('button', { class: 'btn btn-primary', id: 'pickNewMake', onclick: make }, ['Make'])]));
+  $('#pick').hidden = false;
+}
+
+/** What a kit row is, and how it opens; null once what it points at is gone. */
+function kitTarget(row) {
+  if (row.kind === 'checklist') {
+    const list = findList(row.listId);
+    return list ? { kind: 'Checklist', title: list.title, where: plural(list.steps.length, 'step', 'steps'), open: () => openChecklist(list.id) } : null;
+  }
+  const item = store.getItem(row.itemId);
+  if (!item) return null;
+  const def = TYPES[item.type];
+  if (row.kind === 'page') {
+    const att = (item.data.attachments || []).find((a) => a.id === row.attId);
+    if (!att) return null;
+    return { kind: def.singular, title: titleOf(item), where: `page ${row.page}`, open: () => openAttachment(att, row.page, item.id) };
+  }
+  return { kind: def.singular, title: titleOf(item), where: item.data.refNo || item.data.revision || '', open: () => openDetail(item.id) };
+}
+
+function renderKits(body) {
+  const name = el('input', { class: 'field', id: 'newKitName', placeholder: 'A new kit, e.g. Bunkering', enterkeyhint: 'done' });
+  const make = async () => {
+    if (!name.value.trim()) { name.focus(); return; }
+    const kit = await newKit(name.value);
+    view.page = 'kit';
+    view.kitId = kit.id;
+    render();
+  };
+  name.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); make(); } });
+  body.append(el('div', { class: 'pick-new', style: 'margin-bottom:12px' }, [name, el('button', { class: 'btn btn-primary', id: 'newKit', onclick: make }, ['Make'])]));
+  if (!kits().length) {
+    body.append(emptyState('No kits yet',
+      'A kit gathers what one job needs \u2014 the manual\u2019s pages, the procedure, the MI, the checklist \u2014 so it opens from one place. Make one here, then add to it with \u201cAdd to a kit\u201d from a page, an entry or a checklist.'));
+    return;
+  }
+  const panel = el('div', { class: 'panel' });
+  for (const kit of kits()) {
+    panel.append(el('button', { class: 'answer-open', onclick: () => { view.page = 'kit'; view.kitId = kit.id; render(); $('#body').scrollTop = 0; } }, [
+      el('span', { class: 'answer-ref', text: kit.title }),
+      el('span', { class: 'answer-where', text: plural(kit.rows.filter(kitTarget).length, 'item', 'items') })
+    ]));
+  }
+  body.append(panel);
+}
+
+function renderKit(body) {
+  const kit = findKit(view.kitId);
+  if (!kit) { view.page = 'kits'; render(); return; }
+  const rows = kit.rows.map((r) => ({ row: r, t: kitTarget(r) })).filter((x) => x.t);
+  if (!rows.length) {
+    body.append(emptyState('Nothing in it yet',
+      'Open a page and use Contents \u2192 Add this page to a kit; or, on an entry or a checklist, Add to a kit.'));
+  } else {
+    const panel = el('div', { class: 'panel', id: 'kitRows' });
+    for (const { row, t } of rows) {
+      panel.append(el('div', { class: 'answer-row kit-row' }, [
+        el('button', { class: 'answer-open', onclick: t.open }, [
+          el('span', { class: 'kit-kind', text: t.kind }),
+          el('span', { class: 'answer-ref', text: t.title }),
+          t.where ? el('span', { class: 'answer-where', text: t.where }) : null
+        ]),
+        el('button', { class: 'del-btn', 'aria-label': 'Take out of the kit', onclick: async () => {
+          await saveKits(kits().map((k) => (k.id === kit.id ? { ...k, rows: k.rows.filter((r) => r.id !== row.id) } : k)));
+          render();
+        } }, ['\u00d7'])
+      ]));
+    }
+    body.append(panel);
+  }
+  const title = el('input', { class: 'field', id: 'kitTitle', value: kit.title });
+  body.append(el('div', { class: 'panel' }, [
+    el('h3', { text: 'This kit' }),
+    el('div', { class: 'pick-new' }, [title, el('button', { class: 'btn', onclick: async () => {
+      await saveKits(kits().map((k) => (k.id === kit.id ? { ...k, title: title.value.trim() || k.title } : k)));
+      render();
+      toast('Renamed');
+    } }, ['Rename'])]),
+    el('button', { class: 'btn btn-block', style: 'margin-top:10px', onclick: async () => {
+      if (!confirm(`Delete the kit \u201c${kit.title}\u201d? What is in it stays in the library.`)) return;
+      await saveKits(kits().filter((k) => k.id !== kit.id));
+      view.page = 'kits';
+      render();
+    } }, ['Delete this kit'])
+  ]));
+}
+
 // ── checklists ──────────────────────────────────────────────────────────────
 
 const lists = () => store.peekList('checklists');
@@ -3731,6 +4075,8 @@ function openChecklist(id, { editing = false, record = null } = {}) {
   body.append(el('p', { class: 'ask-q', text: list.title }));
 
   if (editing) return drawChecklistEditor(body, list);
+  body.append(el('button', { class: 'btn btn-sm', id: 'checkToKit', style: 'align-self:flex-start',
+    onclick: () => pickKit({ kind: 'checklist', listId: list.id }, list.title) }, ['Add to a kit']));
   if (record) return drawRunRecord(body, list, record);
 
   const run = openRun(list);
@@ -4871,7 +5217,144 @@ function importPanel(def) {
   panel.append(el('button', {
     class: 'btn btn-block', onclick: () => $('#importPicker').click()
   }, ['Choose files']));
+  panel.append(el('button', {
+    class: 'btn btn-block', id: 'scanStart', style: 'margin-top:8px', onclick: () => openScan(view.section)
+  }, ['Scan paper with the camera']));
   return panel;
+}
+
+// ── scanning paper with the camera ──────────────────────────────────────────
+//
+// A notice on the bulkhead, a placard, a page of the ship's own file that
+// exists nowhere else: photographed page by page, made into one PDF, and read
+// so its words are searched like everything else. The photographs are kept
+// as taken until Save, so the document look can be turned off after the
+// fact.
+
+const scanning = { type: null, shots: [], title: '', look: true, saving: false };
+
+function openScan(type) {
+  for (const s of scanning.shots) URL.revokeObjectURL(s.url);
+  Object.assign(scanning, { type, shots: [], title: '', look: true, saving: false });
+  drawScan();
+  $('#scan').hidden = false;
+}
+
+function closeScan() {
+  if (scanning.saving) return;
+  if (scanning.shots.length && !confirm('Throw away the pages taken?')) return;
+  for (const s of scanning.shots) URL.revokeObjectURL(s.url);
+  scanning.shots = [];
+  $('#scan').hidden = true;
+}
+
+function drawScan() {
+  const body = clear($('#scanBody'));
+  body.append(el('p', { class: 'hint', style: 'margin:0', text: 'Photograph each page in turn, flat and filling the frame. They are made into one PDF and read, so the words can be searched.' }));
+  const title = el('input', { class: 'field', id: 'scanTitle', placeholder: 'Title \u2014 read off the first page if left empty', value: scanning.title });
+  title.addEventListener('input', () => { scanning.title = title.value; });
+  const look = el('input', { type: 'checkbox', id: 'scanLook' });
+  look.checked = scanning.look;
+  look.addEventListener('change', () => { scanning.look = look.checked; });
+  body.append(title, el('label', { class: 'toggle-row' }, [look, 'Make it look like a document \u2014 grey, with white paper and black print']));
+  body.append(el('div', { class: 'scan-actions' }, [
+    el('button', { class: 'btn btn-primary', id: 'scanTake', onclick: () => $('#cameraPicker').click() }, [scanning.shots.length ? 'Take the next page' : 'Take a photo']),
+    el('button', { class: 'btn', id: 'scanChoose', onclick: () => $('#photoPicker').click() }, ['Choose photos'])
+  ]));
+  const grid = el('div', { class: 'scan-pages', id: 'scanPages' });
+  scanning.shots.forEach((shot, i) => {
+    grid.append(el('div', { class: 'scan-page' }, [
+      el('img', { src: shot.url, alt: `Page ${i + 1}` }),
+      el('span', { class: 'scan-no', text: String(i + 1) }),
+      i ? el('button', { class: 'scan-left', 'aria-label': 'Move earlier', onclick: () => {
+        [scanning.shots[i - 1], scanning.shots[i]] = [scanning.shots[i], scanning.shots[i - 1]];
+        drawScan();
+      } }, ['\u2039']) : null,
+      el('button', { class: 'scan-del', 'aria-label': `Remove page ${i + 1}`, onclick: () => {
+        URL.revokeObjectURL(shot.url);
+        scanning.shots.splice(i, 1);
+        drawScan();
+      } }, ['\u00d7'])
+    ]));
+  });
+  if (scanning.shots.length) body.append(grid);
+  $('#scanSave').disabled = !scanning.shots.length;
+  $('#scanSave').textContent = scanning.shots.length ? `Save ${plural(scanning.shots.length, 'page', 'pages')}` : 'Save';
+}
+
+function onPhotosPicked(e) {
+  const files = [...(e.target.files || [])].filter((f) => /^image\//.test(f.type) || /\.(jpe?g|png|heic|heif)$/i.test(f.name));
+  e.target.value = '';
+  for (const file of files) scanning.shots.push({ file, url: URL.createObjectURL(file) });
+  if (files.length) drawScan();
+}
+
+async function saveScan() {
+  if (!scanning.shots.length || scanning.saving) return;
+  scanning.saving = true;
+  const button = $('#scanSave');
+  button.disabled = true;
+  const status = el('p', { class: 'ask-status', id: 'scanStatus', text: 'Preparing the pages\u2026' });
+  $('#scanBody').append(status);
+  try {
+    const type = scanning.type;
+    const def = TYPES[type];
+    const keys = def.fields.map((f) => f.key);
+    const prepared = [];
+    for (const [i, shot] of scanning.shots.entries()) {
+      status.textContent = `Preparing page ${i + 1} of ${scanning.shots.length}\u2026`;
+      prepared.push(await preparePhoto(shot.file, { documentLook: scanning.look }));
+    }
+    status.textContent = 'Making the PDF\u2026';
+    const pdf = await pdfFromImages(prepared);
+
+    // Read now, while the pictures are to hand. With no reader to hand --
+    // it has never been loaded, and there is no signal -- the scan is kept
+    // anyway and read later, like any other.
+    let pages = [];
+    let read = true;
+    try {
+      const { readImages } = await import('./ocr.js');
+      pages = await readImages(prepared, { onProgress: (said) => { status.textContent = said; } });
+    } catch (ex) {
+      console.warn('Could not read the scan now', ex);
+      read = false;
+    }
+
+    let title = scanning.title.trim();
+    const stamp = new Date().toISOString().slice(0, 10);
+    if (!title && pages.length) {
+      const { describeFromText } = await import('./ocr.js');
+      const suggested = suggestFields(type, describeFromText(pages[0].text, prepared.length), 'scan.pdf', keys);
+      title = String(suggested[def.titleKey] || '').trim();
+    }
+    if (!title) title = `Scan ${stamp}`;
+    const name = `${title.replace(/[\\/:*?"<>|]+/g, ' ').slice(0, 80).trim()}.pdf`;
+    const file = new File([pdf], name, { type: 'application/pdf' });
+    const descriptor = await store.storeFile(file);
+    descriptor.sha256 = await sha256(pdf);
+    if (pages.length) await store.storeText(descriptor.id, pages);
+    Object.assign(descriptor, {
+      pageCount: prepared.length, textPages: pages.length,
+      textStatus: pages.length ? STATUS.INDEXED : STATUS.NO_TEXT,
+      readTo: read ? prepared.length : 0, fromScan: true
+    });
+    const saved = await store.saveItem({ type, data: { [def.titleKey]: title, attachments: [descriptor] } });
+    revealItem(saved);
+    for (const s of scanning.shots) URL.revokeObjectURL(s.url);
+    scanning.shots = [];
+    scanning.saving = false;
+    $('#scan').hidden = true;
+    render();
+    toast(read
+      ? `Saved ${plural(prepared.length, 'page', 'pages')}${pages.length ? ', read and searchable' : ' \u2014 no words could be read in them'}`
+      : 'Saved \u2014 it will be read when the reader is to hand');
+    if (!read) autoReadSoon();
+  } catch (ex) {
+    status.textContent = `Could not save the scan: ${ex.message}`;
+    scanning.saving = false;
+    button.disabled = false;
+  }
 }
 
 /**
@@ -5214,6 +5697,7 @@ async function openSettings() {
   ]));
 
   body.append(handoverPanel());
+  body.append(lockPanel());
 
   body.append(el('div', { class: 'panel' }, [
     el('h3', { text: 'Records only' }),
