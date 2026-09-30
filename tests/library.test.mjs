@@ -245,6 +245,33 @@ book(sys.argv[1], False)
 book(sys.argv[2], True)
 `, EPUB_PATH, LOCKED_EPUB_PATH]);
 
+// Over the size that is read a piece at a time: pictures of noise, which do
+// not compress, and a word to find on the last page.
+const BIG_PATH = path.join(tmp, 'Big Scanned Manual.pdf');
+{
+  const maker = await browser.newPage();
+  await maker.setContent('<canvas id="c" width="1600" height="1200"></canvas>');
+  // A different picture on each page: the same one twice is stored once.
+  const noises = [];
+  for (let n = 0; n < 5; n++) {
+    noises.push(await maker.evaluate(() => {
+      const c = document.getElementById('c');
+      const ctx = c.getContext('2d');
+      const img = ctx.createImageData(c.width, c.height);
+      for (let i = 0; i < img.data.length; i++) img.data[i] = (Math.random() * 256) | 0;
+      ctx.putImageData(img, 0, 0);
+      return c.toDataURL('image/png');
+    }));
+  }
+  await maker.setContent(
+    `<style>@page{size:A4;margin:10mm} img{width:100%;display:block;page-break-after:always} p{font-family:serif}</style>`
+    + noises.map((src) => `<img src="${src}">`).join('')
+    + '<p>The RANGEMARKERWORD is on the last page.</p>', { waitUntil: 'load' });
+  await maker.pdf({ path: BIG_PATH, format: 'A4' });
+  await maker.close();
+  console.log(`  generated big PDF: ${(fs.statSync(BIG_PATH).size / 1048576).toFixed(1)} MB`);
+}
+
 const ALARM_PATH = path.join(tmp, 'ME Alarm List.pdf');
 {
   const maker = await browser.newPage();
@@ -3930,6 +3957,74 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     });
     check('a book from the Books store says why it cannot be read',
       locked.textStatus === 'encrypted' && /copy-protected/i.test(locked.textError || ''), JSON.stringify(locked));
+    await fresh.close();
+  }
+
+  console.log('\nA large PDF, read a piece at a time');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.locator('.section-card', { hasText: 'Manuals' }).click();
+    await other.setInputFiles('#importPicker', BIG_PATH);
+    await other.locator('.toast', { hasText: 'imported' }).waitFor({ timeout: 60000 });
+    const big = await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const { extract, readLayout } = await import('./js/pdftext.js');
+      const { docSource } = await import('./js/pdfsource.js');
+      const item = store.itemsOfType('manual')[0];
+      const att = item.data.attachments[0];
+      const blob = await store.readFile(att);
+      const src = await docSource(await import('../vendor/pdf.min.mjs'), blob);
+      const again = await extract(blob);
+      const layout = await readLayout(blob);
+      return {
+        size: blob.size, ranged: Boolean(src.range), status: again.status, pages: again.pageCount,
+        found: again.pages.some((p) => /RANGEMARKERWORD/.test(p.text)),
+        layoutFound: layout.pages.flat().some((l) => /RANGEMARKERWORD/.test(l.text))
+      };
+    });
+    check('a PDF over 8 MB is opened a piece at a time, not read whole', big.size > 8 * 1048576 && big.ranged, JSON.stringify(big));
+    check('and still reads to its last page', big.status === 'indexed' && big.found && big.layoutFound, JSON.stringify(big));
+    await other.locator('.card').first().click();
+    await other.waitForSelector('#detail:not([hidden])');
+    await other.click('#detailBody button:has-text("Open")');
+    await other.waitForSelector('#viewerBody canvas[data-page="6"]', { timeout: 20000 });
+    await other.waitForFunction(() => {
+      const c = document.querySelector('#viewerBody canvas[data-page="1"]');
+      return c && c.width > 0;
+    }, null, { timeout: 20000 }).catch(() => {});
+    check('and it opens in the viewer', await other.evaluate(() => document.querySelector('#viewerBody canvas[data-page="1"]').width > 0));
+    await other.click('#viewerClose');
+    await fresh.close();
+  }
+
+  console.log('\nWhen the phone closes the app mid-read');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    check('an ordinary launch says nothing', await other.locator('#crashNotice').count() === 0);
+    // As the app leaves it just before iOS kills it for memory.
+    await other.evaluate(() => {
+      localStorage.setItem('library:heavy', JSON.stringify({ attId: 'att-123', name: 'Huge Scan.pdf', what: 'reading it', at: Date.now() }));
+      localStorage.setItem('library:launch', JSON.stringify({ at: Date.now(), settled: false }));
+    });
+    await other.reload({ waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    const said = await other.locator('#crashNotice').innerText().catch(() => '');
+    check('the next launch says which document it was reading', /Huge Scan\.pdf/.test(said) && /memory/i.test(said), said);
+    const guard = await other.evaluate(() => ({
+      skip: JSON.parse(localStorage.getItem('library:skip-read') || '[]'),
+      heavy: localStorage.getItem('library:heavy')
+    }));
+    check('that document is left out of reading done on its own', guard.skip.includes('att-123') && guard.heavy === null, JSON.stringify(guard));
+    await other.click('#crashNotice button:has-text("Include it again")');
+    await other.waitForTimeout(200);
+    check('and can be put back', !(await other.evaluate(() => JSON.parse(localStorage.getItem('library:skip-read') || '[]'))).includes('att-123')
+      && await other.locator('#crashNotice').count() === 0);
     await fresh.close();
   }
 

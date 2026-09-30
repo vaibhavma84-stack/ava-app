@@ -8,6 +8,8 @@
 // responses: a scan needs OCR, whereas a failure is a bug or a limit worth
 // knowing about. Collapsing both into "scanned" hides real problems.
 
+import { docSource } from './pdfsource.js';
+
 let pdfjs = null;
 
 async function lib() {
@@ -40,7 +42,7 @@ export async function extract(buffer, { onProgress } = {}) {
   let task = null;
   try {
     const pdfjsLib = await lib();
-    task = pdfjsLib.getDocument({ data: new Uint8Array(buffer) });
+    task = pdfjsLib.getDocument(await docSource(pdfjsLib, buffer));
     const doc = await task.promise;
 
     const pages = [];
@@ -103,7 +105,7 @@ export async function readLayout(buffer, { onProgress, shouldStop } = {}) {
   let task = null;
   try {
     const pdfjsLib = await lib();
-    task = pdfjsLib.getDocument({ data: new Uint8Array(buffer) });
+    task = pdfjsLib.getDocument(await docSource(pdfjsLib, buffer));
     const doc = await task.promise;
     const pages = [];
 
@@ -167,7 +169,7 @@ export async function describe(buffer) {
   let task = null;
   try {
     const pdfjsLib = await lib();
-    task = pdfjsLib.getDocument({ data: new Uint8Array(buffer) });
+    task = pdfjsLib.getDocument(await docSource(pdfjsLib, buffer));
     const doc = await task.promise;
 
     let info = {};

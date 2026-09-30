@@ -19,7 +19,7 @@ import { isEpub, readEpub } from './epub.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.46';
+const APP_VERSION = '2026.10.47';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -75,6 +75,8 @@ let lockTimer = null;
 // ── boot ────────────────────────────────────────────────────────────────────
 
 async function boot() {
+  // First of all: whatever runs next may be what closed it last time.
+  checkLastLaunch();
   registerServiceWorker();
 
   store.onChange(render);
@@ -537,6 +539,8 @@ function narrowSearch(all) {
 }
 
 function renderHome(body) {
+  const closed = crashNotice();
+  if (closed) body.append(closed);
   const line = readingLine();
   if (line) body.append(line);
   const counts = store.counts();
@@ -1125,7 +1129,7 @@ async function downloadDocument(item, onProgress) {
 
   const descriptor = await store.storeFile(new File([blob], name, { type: 'application/pdf' }));
 
-  const result = await extract(await blob.arrayBuffer(), { onProgress });
+  const result = await extract(blob, { onProgress });
   if (result.pages.length) await store.storeText(descriptor.id, result.pages);
   Object.assign(descriptor, {
     textPages: result.pages.length, pageCount: result.pageCount,
@@ -2041,7 +2045,7 @@ async function readScan(att, button) {
   try {
     const { readOpeningPages, describeFromText } = await import('./ocr.js');
     const blob = await store.readFile(att);
-    const result = await readOpeningPages(await blob.arrayBuffer(), {
+    const result = await readOpeningPages(blob, {
       onProgress: (said) => { note.textContent = said; }
     });
 
@@ -2173,22 +2177,31 @@ async function readPages(itemId, att, { into = 'text', onProgress, onPage, shoul
   const { readAllPages } = await import('./ocr.js');
   const blob = await store.readFile(att);
   const half = into === 'pictures' ? 'pictures' : 'text';
-  const walked = await readAllPages(await blob.arrayBuffer(), {
-    from,
-    // A page read out of turn, because someone stopped on it, is not read again.
-    skip: (page) => Boolean(held.get(page)?.[half]),
-    shouldStop: shouldStop || (() => false),
-    onProgress,
-    onPage: async ({ page, text }) => {
-      // Whichever half this run is filling, the other half of the page is
-      // kept exactly as it was.
-      const had = held.get(page) || { page, text: '' };
-      held.set(page, into === 'pictures' ? { ...had, pictures: text } : { ...had, text });
-      // Kept as it goes, not at the end: the end may never come.
-      await keep(page);
-      onPage?.(page);
-    }
-  });
+  // The file itself, not a copy of it in memory: a big scan is read a piece
+  // at a time. Marked as under way, so that if the phone closes the app for
+  // want of memory, the next launch knows which document it was.
+  heavyStart(att, into === 'pictures' ? 'reading its pictures' : 'reading it');
+  let walked;
+  try {
+    walked = await readAllPages(blob, {
+      from,
+      // A page read out of turn, because someone stopped on it, is not read again.
+      skip: (page) => Boolean(held.get(page)?.[half]),
+      shouldStop: shouldStop || (() => false),
+      onProgress,
+      onPage: async ({ page, text }) => {
+        // Whichever half this run is filling, the other half of the page is
+        // kept exactly as it was.
+        const had = held.get(page) || { page, text: '' };
+        held.set(page, into === 'pictures' ? { ...had, pictures: text } : { ...had, text });
+        // Kept as it goes, not at the end: the end may never come.
+        await keep(page);
+        onPage?.(page);
+      }
+    });
+  } finally {
+    heavyEnd();
+  }
 
   // A run that ends without being stopped has seen every page, including the
   // blank ones that were passed over.
@@ -2305,14 +2318,17 @@ function outstandingReads(type, into) {
 const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 
 /** Work through the queue, one document after another. */
-async function readSection(type, into) {
+async function readSection(type, into, { auto = false } = {}) {
   // One at a time. The panel is replaced by the progress while a run is going,
   // but only in the section being read -- walk to another one and its own
   // button is still there, and two runs sharing this one piece of state would
   // each overwrite what the other was showing and stop each other.
   if (view.reading) { toast('A read is already running'); return; }
 
-  const jobs = outstandingReads(type, into);
+  // A document the phone closed the app over is left out of reading done
+  // without being asked; pressing the button still reads it.
+  const skip = auto ? skippedReads() : new Set();
+  const jobs = outstandingReads(type, into).filter((j) => !skip.has(j.att.id));
   if (!jobs.length) return;
 
   view.reading = {
@@ -2338,9 +2354,15 @@ async function readSection(type, into) {
       if (job.image) {
         const { readImage } = await import('./ocr.js');
         const blob = await store.readFile(job.att);
-        const result = await readImage(blob, {
-          onProgress: (said) => { if (view.reading) { view.reading.said = said; render(); } }
-        });
+        heavyStart(job.att, 'reading');
+        let result;
+        try {
+          result = await readImage(blob, {
+            onProgress: (said) => { if (view.reading) { view.reading.said = said; render(); } }
+          });
+        } finally {
+          heavyEnd();
+        }
         if (result.ok) {
           await store.storeText(job.att.id, [{ page: 1, text: result.text }]);
           const item = store.getItem(job.itemId);
@@ -2396,6 +2418,88 @@ async function readSection(type, into) {
 
 const autoRead = { on: false, paused: false, timer: null };
 
+// ── when the phone closes the app ───────────────────────────────────────────
+//
+// iOS closes a web app that uses more memory than it allows, without a word,
+// and reopens it. If what used the memory starts again on its own -- reading
+// scans automatically -- it is closed again, and after a few rounds Safari
+// gives up on the page altogether: "A problem repeatedly occurred". Nothing
+// in the app can catch the closing itself, so it leaves a note before the
+// heavy work and clears it after. A note still there at the next launch says
+// the app was closed during that work: automatic reading is paused, that
+// document is left out of it, and the reader is told which it was.
+//
+// localStorage rather than the database: it is written at once, and a note
+// that has not reached the disk when the app is killed is no note at all.
+
+const NOTE_HEAVY = 'library:heavy';
+const NOTE_LAUNCH = 'library:launch';
+const NOTE_SKIP = 'library:skip-read';
+const note = {
+  get: (k) => { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch { return null; } },
+  set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode: no guard */ } },
+  del: (k) => { try { localStorage.removeItem(k); } catch { /* nothing to do */ } }
+};
+const lastLaunch = { heavy: null, died: false };
+
+function heavyStart(att, what) { note.set(NOTE_HEAVY, { attId: att.id, name: att.name, what, at: Date.now() }); }
+function heavyEnd() { note.del(NOTE_HEAVY); }
+const skippedReads = () => new Set(note.get(NOTE_SKIP) || []);
+
+/** Before anything else at launch: did the last one end badly? */
+function checkLastLaunch() {
+  lastLaunch.heavy = note.get(NOTE_HEAVY);
+  heavyEnd();
+  const previous = note.get(NOTE_LAUNCH);
+  // Closed within a couple of minutes of opening, without having settled.
+  lastLaunch.died = Boolean(previous && !previous.settled && Date.now() - previous.at < 3 * 60 * 1000);
+  note.set(NOTE_LAUNCH, { at: Date.now(), settled: false });
+  const settle = () => note.set(NOTE_LAUNCH, { at: Date.now(), settled: true });
+  setTimeout(settle, 45000);
+  // Put away, reloaded for an update, closed by hand: all say so on the way
+  // out. Being killed for memory says nothing, and that is the difference.
+  addEventListener('pagehide', settle);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') settle(); });
+
+  if (lastLaunch.heavy) {
+    const skip = skippedReads();
+    skip.add(lastLaunch.heavy.attId);
+    note.set(NOTE_SKIP, [...skip]);
+  }
+  if (lastLaunch.heavy || lastLaunch.died) autoRead.paused = true;
+}
+
+/** Home: what happened, in words, and the way to try again. */
+function crashNotice() {
+  if (!lastLaunch.heavy && !lastLaunch.died) return null;
+  const panel = el('div', { class: 'panel', id: 'crashNotice', style: 'border-color:var(--warn)' });
+  if (lastLaunch.heavy) {
+    const h = lastLaunch.heavy;
+    panel.append(
+      el('h3', { text: 'The app was closed while reading a document' }),
+      el('p', { style: 'margin-top:0', text: `iOS closed Library while ${h.what} “${h.name}” — most likely it needed more memory than the phone allows. It will not be read automatically again, and reading scans automatically is paused until the app is next opened. Everything else is as it was.` }),
+      el('div', { class: 'fieldrow' }, [
+        el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => {
+          const skip = skippedReads();
+          skip.delete(h.attId);
+          note.set(NOTE_SKIP, [...skip]);
+          lastLaunch.heavy = null; lastLaunch.died = false;
+          render();
+          toast('It will be read with the others again');
+        } }, ['Include it again'])]),
+        el('div', {}, [el('button', { class: 'btn btn-sm btn-block btn-primary', onclick: () => {
+          lastLaunch.heavy = null; lastLaunch.died = false; render();
+        } }, ['OK'])])
+      ]));
+  } else {
+    panel.append(
+      el('h3', { text: 'The app closed unexpectedly last time' }),
+      el('p', { style: 'margin-top:0', text: 'Reading scans automatically is paused until the app is next opened, in case that was the cause. Your library is as it was.' }),
+      el('button', { class: 'btn btn-sm btn-block btn-primary', onclick: () => { lastLaunch.died = false; render(); } }, ['OK']));
+  }
+  return panel;
+}
+
 async function loadAutoRead() {
   autoRead.on = (await db.getMeta('autoRead')) === true;
 }
@@ -2409,8 +2513,9 @@ function autoReadSoon(delay = 3000) {
 async function runAutoRead() {
   if (!autoRead.on || autoRead.paused || view.reading) return;
   for (const type of TAB_ORDER) {
-    if (!outstandingReads(type, 'text').length) continue;
-    const { stopped } = await readSection(type, 'text') || {};
+    const skip = skippedReads();
+    if (!outstandingReads(type, 'text').some((j) => !skip.has(j.att.id))) continue;
+    const { stopped } = await readSection(type, 'text', { auto: true }) || {};
     // Stop means stop, not "start the next section instead".
     if (stopped) { autoRead.paused = true; return; }
     if (!autoRead.on) return;
@@ -2457,10 +2562,12 @@ async function readPageInView(itemId, att) {
     if (!onDemand.reader || onDemand.attId !== att.id) {
       const { pageReader } = await import('./ocr.js');
       const blob = await store.readFile(att);
-      onDemand.reader = await pageReader(await blob.arrayBuffer());
+      onDemand.reader = await pageReader(blob);
       onDemand.attId = att.id;
     }
-    const text = await onDemand.reader.read(page);
+    heavyStart(att, 'reading a page of');
+    let text;
+    try { text = await onDemand.reader.read(page); } finally { heavyEnd(); }
     if (!text || view.viewing?.attId !== att.id) return;
 
     const now = (await store.loadTexts()).get(att.id) || [];
@@ -2598,7 +2705,7 @@ async function reReadText(att, button) {
   button.textContent = 'Reading…';
   try {
     const blob = await store.readFile(att);
-    const result = await extract(await blob.arrayBuffer());
+    const result = await extract(blob);
     if (result.pages.length) await store.storeText(att.id, result.pages);
 
     // The descriptor lives on the record, so update and save it there.
@@ -3733,7 +3840,7 @@ async function buildIndex(item, att, button) {
 
   try {
     const blob = await store.readFile(att);
-    const read = await readLayout(await blob.arrayBuffer(), {
+    const read = await readLayout(blob, {
       onProgress: (said) => { note.textContent = said; }
     });
     if (!read.ok) { toast(`Could not read it: ${read.error}`); return; }
@@ -3792,7 +3899,7 @@ async function buildAlarms(item, att, button) {
       pages = linesFromText((await store.loadTexts()).get(att.id));
     } else {
       const blob = await store.readFile(att);
-      const read = await readLayout(await blob.arrayBuffer(), {
+      const read = await readLayout(blob, {
         onProgress: (said) => { note.textContent = said; }
       });
       if (!read.ok) { toast(`Could not read it: ${read.error}`); return; }

@@ -13,6 +13,7 @@
 // from there.
 
 import { STATUS } from './pdftext.js';
+import { docSource } from './pdfsource.js';
 
 const ENGINE = new URL('../../vendor/ocr/', import.meta.url).href;
 
@@ -148,7 +149,7 @@ export async function readAllPages(buffer, {
 
   say('Loading the reader…');
   const pdfjs = await pdfLib();
-  const task = pdfjs.getDocument({ data: new Uint8Array(buffer) });
+  const task = pdfjs.getDocument(await docSource(pdfjs, buffer));
   const doc = await task.promise;
   const pageCount = doc.numPages;
   const last = Math.min(to, pageCount);
@@ -192,7 +193,7 @@ export async function readAllPages(buffer, {
  */
 export async function pageReader(buffer, { scale = 2.2 } = {}) {
   const pdfjs = await pdfLib();
-  const task = pdfjs.getDocument({ data: new Uint8Array(buffer) });
+  const task = pdfjs.getDocument(await docSource(pdfjs, buffer));
   const doc = await task.promise;
   let worker = null;
   let closed = false;
@@ -250,7 +251,7 @@ export async function readImage(blob, { onProgress } = {}) {
 /** How many pages a PDF has, without reading any of them. */
 export async function countPages(buffer) {
   const pdfjs = await pdfLib();
-  const task = pdfjs.getDocument({ data: new Uint8Array(buffer) });
+  const task = pdfjs.getDocument(await docSource(pdfjs, buffer));
   try {
     return (await task.promise).numPages;
   } finally {

@@ -9,6 +9,7 @@
 // opens immediately instead of rasterising itself first.
 
 import { el, clear } from './ui.js';
+import { docSource } from './pdfsource.js';
 
 const MAX_CANVAS_WIDTH = 1400;   // beyond this, a phone gains nothing but memory use
 
@@ -70,7 +71,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   }
 
   const pdfjsLib = await lib();
-  const task = pdfjsLib.getDocument({ data: new Uint8Array(await blob.arrayBuffer()) });
+  const task = pdfjsLib.getDocument(await docSource(pdfjsLib, blob));
   const doc = await task.promise;
   onStatus?.(`${doc.numPages} page${doc.numPages === 1 ? '' : 's'}`);
 
