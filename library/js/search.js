@@ -118,6 +118,18 @@ function findAll(lower, group, ocr) {
 const found = (lower, group, ocr) => findAll(lower, group, ocr).length > 0;
 
 /**
+ * Where a query's words are in one piece of text: [[start, end]], for marking
+ * them. Compiled once; the returned function is called per fragment.
+ */
+export function spansFor(query) {
+  const groups = compile(query);
+  return (text, ocr = false) => {
+    const lower = String(text).toLowerCase();
+    return groups.flatMap((g) => findAll(lower, g, ocr));
+  };
+}
+
+/**
  * A test for a single piece of text: does it hold everything the query asks
  * for? For rows read out of a table, which are matched whole rather than
  * ranked page by page.

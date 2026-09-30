@@ -1,7 +1,7 @@
 import * as store from './store.js';
 import * as db from './db.js';
 import { TYPES, TAB_ORDER } from './schema.js';
-import { search as runSearch, matcher } from './search.js';
+import { search as runSearch, matcher, spansFor } from './search.js';
 import { alarmsFrom, linesFromText, rowText } from './alarms.js';
 import { isPdf, extract, describe, selfTest, readLayout, STATUS } from './pdftext.js';
 import { equipmentFrom } from './outline.js';
@@ -17,7 +17,7 @@ import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 
-const APP_VERSION = '2026.10.33';
+const APP_VERSION = '2026.10.34';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1501,7 +1501,7 @@ function matchList(item, snippets, info) {
       const box = el('button', {
         class: 'snippet',
         // Tapping a hit opens the document at that page rather than page one.
-        onclick: (e) => { e.stopPropagation(); if (att) openAttachment(att, snip.page, item.id); }
+        onclick: (e) => { e.stopPropagation(); if (att) openAttachment(att, snip.page, item.id, { find: view.query }); }
       }, [
         // Said plainly, because a word read out of a diagram is a guess in a
         // way the document's own text is not.
@@ -1605,6 +1605,7 @@ function wireApp() {
   $('#importPicker').addEventListener('change', onImportPicked);
   $('#backupPicker').addEventListener('change', onBackupPicked);
   $('#viewerClose').addEventListener('click', closeViewer);
+  wireFind();
   // Wrapped, not passed straight in: a listener is handed the click event as
   // its first argument, and openNoteBox reads its first argument as the note
   // being edited. That made every new note an edit of a note that does not
@@ -2520,7 +2521,78 @@ let disposeViewer = null;
  * Show a document in the app. An installed iOS web app cannot open a blob: URL
  * in a new tab, so this renders it here instead of handing it to the browser.
  */
-async function openAttachment(att, startPage = 1, itemId = view.detailId) {
+// ── finding inside the open document ────────────────────────────────────────
+//
+// Opened from a search, the document lands on the right page, and then the
+// word still has to be found on it by eye. The find bar carries the search
+// in, marks every place it is on the page, and steps from one page holding it
+// to the next. Which pages hold it comes from the stored text, so a scan read
+// by recognition can be stepped through too -- it just has no text layer to
+// put the marks on.
+
+const finding = { att: null, pages: [], index: -1, timer: null };
+
+async function applyFind(query, { jump = true } = {}) {
+  const att = finding.att;
+  if (!att) return;
+  const q = query.trim();
+  const scan = readFromScan(att);
+  if (!q) {
+    finding.pages = [];
+    finding.index = -1;
+    disposeViewer?.setMarks?.(null);
+    showFindCount();
+    return;
+  }
+  const test = matcher(q);
+  const pages = ((await store.loadTexts()).get(att.id) || [])
+    .filter((p) => test([p.text, p.pictures].filter(Boolean).join(' '), scan))
+    .map((p) => p.page)
+    .sort((a, b) => a - b);
+  if (finding.att !== att) return;
+  finding.pages = pages;
+  const spans = spansFor(q);
+  await disposeViewer?.setMarks?.((str) => spans(str, scan));
+  // From where the reader is, not from the front of the book.
+  const here = pageInView();
+  const at = pages.findIndex((p) => p >= here);
+  finding.index = pages.length ? (at === -1 ? 0 : at) : -1;
+  showFindCount();
+  if (jump && pages.length && pages[finding.index] !== here) goToFound(finding.index);
+}
+
+function showFindCount() {
+  const { pages, index } = finding;
+  const has = $('#findInput').value.trim().length > 0;
+  $('#findCount').textContent = !has ? '' : pages.length
+    ? `p.${pages[index]} · ${index + 1} of ${pages.length}`
+    : 'Not found';
+  $('#findPrev').disabled = pages.length < 2;
+  $('#findNext').disabled = pages.length < 2;
+}
+
+function goToFound(index) {
+  const { pages } = finding;
+  if (!pages.length) return;
+  finding.index = (index + pages.length) % pages.length;
+  const canvas = $(`#viewerBody canvas[data-page="${pages[finding.index]}"]`);
+  canvas?.scrollIntoView({ block: 'start' });
+  showFindCount();
+}
+
+function wireFind() {
+  $('#findInput').addEventListener('input', (e) => {
+    clearTimeout(finding.timer);
+    finding.timer = setTimeout(() => applyFind(e.target.value), 250);
+  });
+  $('#findInput').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); goToFound(finding.index + 1); e.target.blur(); }
+  });
+  $('#findNext').addEventListener('click', () => goToFound(finding.index + 1));
+  $('#findPrev').addEventListener('click', () => goToFound(finding.index - 1));
+}
+
+async function openAttachment(att, startPage = 1, itemId = view.detailId, { find = '' } = {}) {
   const sheet = $('#viewer');
   const body = clear($('#viewerBody'));
   $('#viewerTitle').textContent = att.name || 'Document';
@@ -2551,6 +2623,17 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId) {
 
     watchPageMarks();
     drawStickies();
+    // Only a document with pages has anything to step through.
+    const findable = Boolean(disposeViewer?.setMarks);
+    $('#findBar').hidden = !findable;
+    finding.att = findable ? att : null;
+    finding.pages = [];
+    finding.index = -1;
+    $('#findInput').value = findable ? find : '';
+    showFindCount();
+    // Carried in from a search: marked, and counted from the page it opened
+    // on rather than jumped away from it.
+    if (findable && find) applyFind(find, { jump: false });
     // The stored descriptor, not the one captured when the entry was drawn:
     // a page read a moment ago has changed it.
     const current = (store.getItem(itemId)?.data.attachments || []).find((a) => a.id === att.id) || att;
@@ -2589,6 +2672,8 @@ function watchPageMarks() {
 
 function closeViewer() {
   unwatchMarks?.();
+  finding.att = null;
+  clearTimeout(finding.timer);
   stopPageReading();
   $('#viewer').hidden = true;
   disposeViewer?.();
@@ -3049,7 +3134,7 @@ function alarmHits(query, results) {
       parts[1].textContent += ` \u00b7 ${title}`;
       return parts;
     },
-    (row) => openAttachment(row.hit.att, row.page, row.hit.item.id)));
+    (row) => openAttachment(row.hit.att, row.page, row.hit.item.id, { find: row.tag || query })));
   panel.append(el('p', { class: 'hint', text: 'Read out of the document\u2019s tables. Check the figure on the page before acting on it.' }));
   return panel;
 }
@@ -3107,7 +3192,7 @@ function indexFor(item, att) {
   const alarms = (item.data.alarms || []).filter((a) => a.attId === att.id);
   if (alarms.length) {
     wrap.append(el('p', { class: 'dkey', style: 'margin-top:14px', text: `Alarms and settings \u00b7 ${alarms.length}` }));
-    wrap.append(pageList(alarms, alarmRowParts, (row) => openAttachment(att, row.page, item.id)));
+    wrap.append(pageList(alarms, alarmRowParts, (row) => openAttachment(att, row.page, item.id, { find: row.tag || row.description })));
   }
   const alarmsRead = (item.data.alarmsRead || []).includes(att.id);
   wrap.append(el('button', {

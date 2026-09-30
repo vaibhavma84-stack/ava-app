@@ -110,6 +110,13 @@
     <header class="sheet-bar">
       <strong id="viewerTitle">Document</strong>
     </header>
+    <div class="find-bar" id="findBar">
+      <input type="search" id="findInput" class="find-input" placeholder="Find in this document"
+             autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+      <span class="find-count" id="findCount" aria-live="polite"></span>
+      <button class="find-btn" id="findPrev" aria-label="Previous page with a match" disabled>&#8249;</button>
+      <button class="find-btn" id="findNext" aria-label="Next page with a match" disabled>&#8250;</button>
+    </div>
     <div class="viewer-body" id="viewerBody"></div>
     <footer class="sheet-actions">
       <button class="btn" id="viewerClose">Close</button>

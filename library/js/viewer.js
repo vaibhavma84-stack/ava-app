@@ -71,6 +71,9 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
 
   const width = Math.min(MAX_CANVAS_WIDTH, Math.round(container.clientWidth * (window.devicePixelRatio || 1)));
   const rendered = new Set();
+  // What to highlight: given the words of one text fragment, the [start, end]
+  // of each part of it to mark. Null for nothing.
+  let marks = null;
 
   const draw = async (canvas, pageNo) => {
     if (rendered.has(pageNo)) return;
@@ -81,7 +84,9 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
       const viewport = page.getViewport({ scale: width / base.width });
       canvas.width = Math.round(viewport.width);
       canvas.height = Math.round(viewport.height);
-      await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+      const ctx = canvas.getContext('2d');
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      if (marks) await highlight(page, viewport, ctx, marks);
       page.cleanup();
     } catch (ex) {
       rendered.delete(pageNo);
@@ -112,8 +117,57 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     if (target > 1) wanted.scrollIntoView({ block: 'start' });
   }
 
-  return () => {
+  const teardown = () => {
     observer.disconnect();
     task.destroy().catch(() => {});
   };
+  // Highlight something new: every page already drawn is drawn again with it,
+  // and pages drawn later pick it up as they come into view.
+  teardown.setMarks = async (next) => {
+    marks = next;
+    const drawn = [...rendered];
+    rendered.clear();
+    for (const n of drawn) {
+      const canvas = container.querySelector(`canvas[data-page="${n}"]`);
+      if (canvas) await draw(canvas, n);
+    }
+  };
+  return teardown;
+}
+
+/**
+ * Paint the parts of a page the search found, over the page itself.
+ *
+ * Where each word is comes from the page's text layer: every fragment has a
+ * position and a width, and a word inside a fragment is placed along it by
+ * its share of the characters. Close enough to put a mark on the right word;
+ * a scan has no text layer, and gets no marks, only the jump to its page.
+ */
+async function highlight(page, viewport, ctx, marks) {
+  const content = await page.getTextContent();
+  const { Util } = pdfjs;
+  ctx.save();
+  ctx.fillStyle = 'rgba(255, 196, 0, 0.42)';
+  ctx.globalCompositeOperation = 'multiply';
+  for (const item of content.items) {
+    const str = item.str || '';
+    if (!str.trim()) continue;
+    const spans = marks(str);
+    if (!spans?.length) continue;
+    const tx = Util.transform(viewport.transform, item.transform);
+    const height = Math.hypot(tx[2], tx[3]) || 10;
+    const length = (item.width || 0) * viewport.scale;
+    // Measured in a font like the page's, then scaled to the fragment's real
+    // width: an "i" is narrower than an "m", and a share of the characters
+    // puts the mark a word out along a long line.
+    ctx.font = `${Math.max(Math.round(height), 1)}px ${content.styles?.[item.fontName]?.fontFamily || 'sans-serif'}`;
+    const whole = ctx.measureText(str).width || str.length;
+    const k = length / whole;
+    for (const [s, e] of spans) {
+      const x = tx[4] + ctx.measureText(str.slice(0, s)).width * k;
+      const w = Math.max(ctx.measureText(str.slice(s, e)).width * k, 3);
+      ctx.fillRect(x - 1, tx[5] - height * 0.95, w + 2, height * 1.2);
+    }
+  }
+  ctx.restore();
 }

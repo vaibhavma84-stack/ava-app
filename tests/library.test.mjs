@@ -683,6 +683,49 @@ try {
   const page2 = await page.locator('.snippet').first().innerText();
   check('a term on page two reports page two', /page 2/i.test(page2), page2);
 
+  console.log('\nFinding inside the open document');
+  await page.locator('.snippet').first().click();
+  await page.waitForSelector('#viewer:not([hidden])');
+  await page.waitForSelector('#viewerBody canvas[data-page="2"]');
+  check('the search comes into the document with it',
+    await page.locator('#findInput').inputValue() === 'QUAYSIDEMARKER');
+  await page.locator('#findCount', { hasText: /of/ }).waitFor({ timeout: 10000 });
+  check('and says which page holds it', /p\.2 · 1 of 1/.test(await page.locator('#findCount').innerText()),
+    await page.locator('#findCount').innerText());
+  const marked = (n) => page.evaluate((pageNo) => {
+    const c = document.querySelector(`#viewerBody canvas[data-page="${pageNo}"]`);
+    if (!c || !c.width) return -1;
+    const { data } = c.getContext('2d').getImageData(0, 0, c.width, c.height);
+    let hits = 0;
+    for (let i = 0; i < data.length; i += 4) {
+      if (data[i] > 200 && data[i] - data[i + 2] > 60) hits++;
+    }
+    return hits;
+  }, n);
+  await page.waitForFunction(() => {
+    const c = document.querySelector('#viewerBody canvas[data-page="2"]');
+    if (!c || !c.width) return false;
+    const { data } = c.getContext('2d').getImageData(0, 0, c.width, c.height);
+    for (let i = 0; i < data.length; i += 4) if (data[i] > 200 && data[i] - data[i + 2] > 60) return true;
+    return false;
+  }, null, { timeout: 10000 }).catch(() => {});
+  check('the word is marked on the page', (await marked(2)) > 50, String(await marked(2)));
+
+  await page.fill('#findInput', 'SWELLWORD');
+  await page.locator('#findCount', { hasText: /of 2/ }).waitFor({ timeout: 10000 });
+  check('a word on two pages counts both', /of 2/.test(await page.locator('#findCount').innerText()),
+    await page.locator('#findCount').innerText());
+  const countBefore = await page.locator('#findCount').innerText();
+  await page.click('#findNext');
+  await page.waitForTimeout(300);
+  const countAfter = await page.locator('#findCount').innerText();
+  check('next steps to the other page', countBefore !== countAfter && /p\.[12] · [12] of 2/.test(countAfter), `${countBefore} -> ${countAfter}`);
+  await page.fill('#findInput', 'NOSUCHWORDANYWHERE');
+  await page.locator('#findCount', { hasText: 'Not found' }).waitFor({ timeout: 10000 });
+  check('a word that is not there says so', true);
+  await page.click('#viewerClose');
+  await page.waitForSelector('#viewer', { state: 'hidden' });
+
   // A term repeated across pages must report every hit, not a sample of three.
   await page.fill('#search', 'SWELLWORD');
   await page.waitForTimeout(700);
