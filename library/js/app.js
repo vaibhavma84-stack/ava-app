@@ -18,7 +18,7 @@ import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.38';
+const APP_VERSION = '2026.10.39';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -523,6 +523,9 @@ function renderHome(body) {
     ]));
   }
   body.append(grid);
+
+  const quick = quickAccess();
+  if (quick) body.append(quick);
 
   const lists = collectionsRow();
   if (lists) body.append(lists);
@@ -1646,6 +1649,7 @@ function wireApp() {
   $('#importPicker').addEventListener('change', onImportPicked);
   $('#backupPicker').addEventListener('change', onBackupPicked);
   $('#viewerClose').addEventListener('click', closeViewer);
+  $('#viewerPin').addEventListener('click', togglePin);
   wireFind();
   wireMarking();
   // Wrapped, not passed straight in: a listener is handed the click event as
@@ -2673,6 +2677,9 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
     // Highlighting needs pages, and an entry to keep them on.
     $('#markMode').hidden = !findable || !itemId;
     setMarking(false);
+    $('#viewerPin').hidden = !findable || !itemId;
+    showPinState();
+    noteRecent(itemId, att, startPage);
     finding.att = findable ? att : null;
     finding.pages = [];
     finding.index = -1;
@@ -2707,7 +2714,7 @@ function watchPageMarks() {
     if (waiting) return;
     // Throttled: a scroll fires many times a second and each one of these
     // measures every page canvas on the screen.
-    waiting = setTimeout(() => { waiting = null; drawStickies(); }, 180);
+    waiting = setTimeout(() => { waiting = null; drawStickies(); showPinState(); }, 180);
   };
   body.addEventListener('scroll', onScroll, { passive: true });
   unwatchMarks = () => {
@@ -2718,6 +2725,11 @@ function watchPageMarks() {
 }
 
 function closeViewer() {
+  // Where it was left, so Recent opens it there again.
+  if (view.viewing?.itemId && !$('#viewer').hidden) {
+    const att = (store.getItem(view.viewing.itemId)?.data.attachments || []).find((a) => a.id === view.viewing.attId);
+    if (att) noteRecent(view.viewing.itemId, att, pageInView()).then(() => { if (view.screen === 'home') render(); });
+  }
   unwatchMarks?.();
   setMarking(false);
   finding.att = null;
@@ -3022,6 +3034,87 @@ function collectionsRow() {
     class: 'collection-btn', id: `open-${page}`,
     onclick: () => { view.page = page; render(); $('#body').scrollTop = 0; }
   }, [el('span', { text: label }), el('span', { class: 'group-count', text: String(n) })])));
+}
+
+// ── recent and pinned ───────────────────────────────────────────────────────
+//
+// The last few documents opened, each at the page it was left on, and the
+// pages kept at hand for good -- the alarm list, the bunkering checklist --
+// one tap from the home screen instead of a section, a ship, a kind and a
+// scroll away.
+
+const RECENT_KEPT = 6;
+
+async function noteRecent(itemId, att, page) {
+  if (!itemId) return;
+  const item = store.getItem(itemId);
+  if (!item) return;
+  const row = { id: att.id, itemId, attId: att.id, page, title: titleOf(item), file: att.name, at: new Date().toISOString() };
+  const rest = store.peekList('recent').filter((r) => r.attId !== att.id);
+  await store.setList('recent', [row, ...rest].slice(0, RECENT_KEPT));
+}
+
+const pinKey = (attId, page) => `${attId}#${page}`;
+const isPinned = (attId, page) => store.peekList('pins').some((p) => p.id === pinKey(attId, page));
+
+function showPinState() {
+  const button = $('#viewerPin');
+  if (!view.viewing?.itemId || button.hidden) return;
+  const page = pageInView();
+  button.setAttribute('aria-pressed', String(isPinned(view.viewing.attId, page)));
+  button.textContent = isPinned(view.viewing.attId, page) ? `Pinned p.${page}` : `Pin p.${page}`;
+}
+
+async function togglePin() {
+  const { itemId, attId } = view.viewing || {};
+  const item = store.getItem(itemId);
+  const att = (item?.data.attachments || []).find((a) => a.id === attId);
+  if (!att) return;
+  const page = pageInView();
+  const id = pinKey(attId, page);
+  const pins = store.peekList('pins');
+  if (pins.some((p) => p.id === id)) {
+    await store.setList('pins', pins.filter((p) => p.id !== id));
+    toast(`Page ${page} unpinned`);
+  } else {
+    await store.setList('pins', [...pins, { id, itemId, attId, page, title: titleOf(item), at: new Date().toISOString() }]);
+    toast(`Page ${page} pinned to the home screen`);
+  }
+  showPinState();
+}
+
+/** Home: pinned pages, then what was open lately. */
+function quickAccess() {
+  const live = (rows) => rows.filter((r) => refTarget(r));
+  const pins = live(store.peekList('pins'));
+  const recent = live(store.peekList('recent')).slice(0, 4);
+  if (!pins.length && !recent.length) return null;
+  const wrap = el('div', { class: 'quick' });
+  if (pins.length) {
+    const panel = el('div', { class: 'panel', id: 'pinned' }, [el('h3', { text: 'Pinned' })]);
+    for (const p of pins) {
+      panel.append(el('div', { class: 'answer-row' }, [
+        el('button', { class: 'answer-open', onclick: () => openRef(p) }, [
+          el('span', { class: 'answer-ref', text: p.title }),
+          el('span', { class: 'answer-where', text: `page ${p.page}` })
+        ]),
+        el('button', { class: 'del-btn', 'aria-label': 'Unpin',
+          onclick: async () => { await store.setList('pins', store.peekList('pins').filter((x) => x.id !== p.id)); render(); } }, ['\u00d7'])
+      ]));
+    }
+    wrap.append(panel);
+  }
+  if (recent.length) {
+    const panel = el('div', { class: 'panel', id: 'recent' }, [el('h3', { text: 'Recent' })]);
+    for (const r of recent) {
+      panel.append(el('button', { class: 'answer-open', style: 'width:100%', onclick: () => openRef(r) }, [
+        el('span', { class: 'answer-ref', text: r.title }),
+        el('span', { class: 'answer-where', text: `page ${r.page} \u00b7 ${dayTime(r.at)}` })
+      ]));
+    }
+    wrap.append(panel);
+  }
+  return wrap;
 }
 
 // ── checklists ──────────────────────────────────────────────────────────────

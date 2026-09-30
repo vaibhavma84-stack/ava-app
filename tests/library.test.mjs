@@ -3660,6 +3660,65 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await fresh.close();
   }
 
+  console.log('\nRecent and pinned');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    check('nothing recent or pinned on a new library',
+      await other.locator('#pinned').count() === 0 && await other.locator('#recent').count() === 0);
+    await other.locator('.section-card', { hasText: 'Manuals' }).click();
+    await other.click('#fab');
+    await other.waitForSelector('#editor:not([hidden])');
+    await other.fill('#editorBody [data-field="title"]', 'Main Engine Operating Manual');
+    await other.setInputFiles('#filePicker', PDF_PATH);
+    await other.waitForTimeout(1500);
+    await other.click('#editorSave');
+    await other.waitForSelector('#editor', { state: 'hidden', timeout: 30000 });
+    for (let i = 0; i < 5; i++) {
+      const shut = other.locator('.group-head-btn[aria-expanded="false"]').first();
+      if (await shut.count() === 0) break;
+      await shut.click();
+      await other.waitForTimeout(50);
+    }
+    await other.locator('.card').first().click();
+    await other.waitForSelector('#detail:not([hidden])');
+    await other.click('#detailBody button:has-text("Open")');
+    await other.waitForSelector('#viewerBody canvas[data-page="2"]');
+    await other.evaluate(() => {
+      const c = document.querySelector('#viewerBody canvas[data-page="2"]');
+      const body = document.getElementById('viewerBody');
+      body.scrollTop += c.getBoundingClientRect().top - body.getBoundingClientRect().top;
+    });
+    await other.waitForTimeout(500);
+    check('the pin button names the page in view', /Pin p\.2/.test(await other.locator('#viewerPin').innerText()),
+      await other.locator('#viewerPin').innerText());
+    await other.click('#viewerPin');
+    await other.waitForTimeout(200);
+    check('and says once it is pinned', /Pinned p\.2/.test(await other.locator('#viewerPin').innerText()));
+    await other.click('#viewerClose');
+    await other.click('#detailClose');
+    await other.click('#backBtn');
+    await other.waitForTimeout(400);
+    const pinned = await other.locator('#pinned').innerText().catch(() => '');
+    const recent = await other.locator('#recent').innerText().catch(() => '');
+    check('the home screen has the pinned page', /Main Engine Operating Manual/.test(pinned) && /page 2/.test(pinned), pinned);
+    check('and the document just read, at the page it was left on', /Main Engine Operating Manual/.test(recent) && /page 2/.test(recent), recent);
+    await other.locator('#pinned .answer-open').first().click();
+    await other.waitForSelector('#viewer:not([hidden])');
+    await other.locator('#viewerTitle', { hasText: /page 2/ }).waitFor({ timeout: 10000 });
+    check('a pin opens its page', true);
+    await other.click('#viewerClose');
+    await other.waitForTimeout(300);
+    await other.locator('#pinned .del-btn').first().click();
+    await other.waitForTimeout(300);
+    check('and can be taken off', await other.locator('#pinned').count() === 0);
+    const inBackup = await other.evaluate(async () => (await (await import('./js/store.js')).fullBackup()).manifest.lists.recent.length);
+    check('recent travels in a full backup too', inBackup === 1, String(inBackup));
+    await fresh.close();
+  }
+
   console.log('\nRoom left');
   const roomCases = await page.evaluate(async () => {
     const { room } = await import('./js/db.js');

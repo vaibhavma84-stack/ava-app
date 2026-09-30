@@ -605,3 +605,16 @@ select.field {
 .check-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 auto; }
 .check-time { font-size: 12px; color: var(--sage); }
 .check-record { white-space: pre-wrap; font-family: var(--mono); font-size: 12.5px; line-height: 1.55; color: var(--text); margin: 0; }
+
+/* Pinning the page being read to the home screen. */
+.sheet-bar { position: relative; }
+.sheet-bar strong { max-width: calc(100% - 120px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pin-btn {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  border: 1px solid var(--line); background: var(--ink-1000); color: var(--text-dim);
+  border-radius: 999px; padding: 4px 12px; font-size: 12px; cursor: pointer;
+}
+.pin-btn[aria-pressed="true"] { background: var(--copper); border-color: var(--copper); color: #17100a; }
+.quick { margin-top: 14px; }
+.quick { display: flex; flex-direction: column; gap: 10px; }
+.quick .panel { padding-top: 10px; padding-bottom: 6px; margin: 0; }
