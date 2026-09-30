@@ -4,7 +4,7 @@ import { TYPES, TAB_ORDER } from './schema.js';
 import { search as runSearch, matcher, spansFor } from './search.js';
 import { alarmsFrom, linesFromText, rowText } from './alarms.js';
 import { isPdf, extract, describe, selfTest, readLayout, STATUS } from './pdftext.js';
-import { equipmentFrom } from './outline.js';
+import { equipmentFrom, plausibleMaker } from './outline.js';
 import { suggestFields, titleFromFilename } from './suggest.js';
 import { probeAll, fetchNotices, FEEDS, SYNCABLE } from './updates.js';
 import { fetchSummary } from './summary.js';
@@ -17,7 +17,7 @@ import { documentText, textFileName, exportable } from './textexport.js';
 import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 
-const APP_VERSION = '2026.10.34';
+const APP_VERSION = '2026.10.35';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -55,7 +55,14 @@ const view = {
   // Picking several entries to set one field on all of them at once.
   selecting: false,
   selected: new Set(),
-  bulk: null
+  bulk: null,
+  // A list gathered from across the library -- highlights and the like --
+  // shown in place of the sections until Back.
+  page: null
+};
+
+const PAGES = {
+  highlights: { title: 'Highlights', draw: (body) => renderHighlights(body) }
 };
 
 let lockTimer = null;
@@ -194,6 +201,7 @@ function enterApp() {
   // After the first render, so a slow reply never delays the app opening.
   announceIfStale();
   dropOldContents();
+  dropImplausibleMakers();
   loadAutoRead().then(() => autoReadSoon(5000));
   loadAsk().then(render);
 }
@@ -211,6 +219,24 @@ function enterApp() {
  * publication. Nothing here was typed by anyone; it was all worked out from
  * the file, and can be again.
  */
+/**
+ * Take off the makers an earlier reader found in the middle of sentences.
+ *
+ * It took a hyphenated word for a label -- "supplier-provided", "make-up" --
+ * and kept whatever followed as the maker. Those entries are on records
+ * already, and are searchable; the reader no longer makes them, and this
+ * clears the ones it made.
+ */
+async function dropImplausibleMakers() {
+  for (const item of store.allItems()) {
+    const equipment = item.data?.equipment;
+    if (!Array.isArray(equipment)) continue;
+    const kept = equipment.filter((e) => plausibleMaker(e.maker));
+    if (kept.length === equipment.length) continue;
+    await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, equipment: kept } });
+  }
+}
+
 async function dropOldContents() {
   const stale = store.allItems().filter((i) => Array.isArray(i.data?.contents));
   if (!stale.length) return;
@@ -225,7 +251,7 @@ function render() {
   if (!store.isOpen()) return;
   const body = clear($('#body'));
   const searching = view.query.trim().length > 0;
-  view.screen = searching ? 'search' : (view.section ? 'section' : 'home');
+  view.screen = searching ? 'search' : view.page ? 'page' : (view.section ? 'section' : 'home');
 
   $('#backBtn').hidden = view.screen === 'home';
   clear($('#backBtn'));
@@ -235,6 +261,7 @@ function render() {
   $('#fab').hidden = view.screen !== 'section' || view.selecting;
 
   const title = view.screen === 'search' ? 'Search'
+    : view.screen === 'page' ? PAGES[view.page].title
     : view.section ? TYPES[view.section].label : 'LIBRARY';
   $('#screenTitle').textContent = title;
   $('#screenTitle').className = view.screen === 'home' ? 'brand' : 'brand small';
@@ -242,6 +269,7 @@ function render() {
   if (view.screen !== 'search') $('#refine').hidden = true;
   if (view.screen === 'home') { renderScope(null); renderHome(body); }
   else if (view.screen === 'section') { renderScope(TYPES[view.section]); renderSection(body); }
+  else if (view.screen === 'page') { renderScope(null); PAGES[view.page].draw(body); }
   // The search screen fills the scope row itself, from what its results hit.
   else renderSearch(body);
 }
@@ -491,6 +519,9 @@ function renderHome(body) {
     ]));
   }
   body.append(grid);
+
+  const lists = collectionsRow();
+  if (lists) body.append(lists);
 
   const stats = store.textStats();
   if (stats.searchable || stats.unsearchable) {
@@ -1585,6 +1616,7 @@ function wireApp() {
       view.query = ''; $('#search').value = '';
       view.searchScope = null; view.searchVessel = null; view.searchCategory = null;
     }
+    else if (view.page) view.page = null;
     else { view.section = null; view.filter = null; endSelecting(); }
     render();
   });
@@ -1606,6 +1638,7 @@ function wireApp() {
   $('#backupPicker').addEventListener('change', onBackupPicked);
   $('#viewerClose').addEventListener('click', closeViewer);
   wireFind();
+  wireMarking();
   // Wrapped, not passed straight in: a listener is handed the click event as
   // its first argument, and openNoteBox reads its first argument as the note
   // being edited. That made every new note an edit of a note that does not
@@ -1685,6 +1718,8 @@ function openDetail(id) {
       sec3.append(attachmentRow(att));
       const notes = pageNotesFor(item, att);
       if (notes) sec3.append(notes);
+      const marked = highlightsFor(item, att);
+      if (marked) sec3.append(marked);
       if (isPdf(att) || /\.pdf$/i.test(att.name || '')) sec3.append(indexFor(item, att));
     }
     body.append(sec3);
@@ -2626,6 +2661,9 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
     // Only a document with pages has anything to step through.
     const findable = Boolean(disposeViewer?.setMarks);
     $('#findBar').hidden = !findable;
+    // Highlighting needs pages, and an entry to keep them on.
+    $('#markMode').hidden = !findable || !itemId;
+    setMarking(false);
     finding.att = findable ? att : null;
     finding.pages = [];
     finding.index = -1;
@@ -2672,6 +2710,7 @@ function watchPageMarks() {
 
 function closeViewer() {
   unwatchMarks?.();
+  setMarking(false);
   finding.att = null;
   clearTimeout(finding.timer);
   stopPageReading();
@@ -2736,6 +2775,240 @@ async function removePageNote(itemId, noteId) {
 
 // The colours a note can be. Dark ink on all of them, because a note is read
 // against a white page.
+// ── highlights ──────────────────────────────────────────────────────────────
+//
+// A passage marked on the page, the way a highlighter pen marks paper, and
+// kept: drawn again whenever the document is opened, listed under its file on
+// the entry, and gathered with every other one in the library on a page of
+// their own. The words under it are kept with it, taken from the page's text
+// layer, so a highlight can be read in a list and found by a search without
+// opening anything. A scan has no text layer; its highlight is the area.
+
+const HL_COLOURS = ['yellow', 'green', 'blue', 'pink'];
+const marking = { on: false, from: null, draft: null, canvas: null };
+
+function setMarking(on) {
+  marking.on = on;
+  $('#markMode').setAttribute('aria-pressed', String(on));
+  $('#viewerBody').classList.toggle('marking', on);
+  if (on) toast('Drag across the words to highlight. Tap Highlight again to scroll.');
+}
+
+function wireMarking() {
+  $('#markMode').addEventListener('click', () => setMarking(!marking.on));
+  const body = $('#viewerBody');
+  const at = (e, canvas) => {
+    const box = canvas.getBoundingClientRect();
+    return {
+      x: Math.min(Math.max((e.clientX - box.left) / box.width, 0), 1),
+      y: Math.min(Math.max((e.clientY - box.top) / box.height, 0), 1)
+    };
+  };
+  body.addEventListener('pointerdown', (e) => {
+    if (!marking.on || !view.viewing?.itemId) return;
+    const canvas = e.target.closest?.('canvas[data-page]');
+    if (!canvas) return;
+    e.preventDefault();
+    marking.canvas = canvas;
+    marking.from = at(e, canvas);
+    marking.draft = el('div', { class: 'hl-draft' });
+    body.append(marking.draft);
+    body.setPointerCapture?.(e.pointerId);
+  });
+  const rectOf = (e) => {
+    const to = at(e, marking.canvas);
+    const x = Math.min(marking.from.x, to.x);
+    const y = Math.min(marking.from.y, to.y);
+    return { x, y, w: Math.abs(to.x - marking.from.x), h: Math.abs(to.y - marking.from.y) };
+  };
+  body.addEventListener('pointermove', (e) => {
+    if (!marking.from) return;
+    const r = rectOf(e);
+    const c = marking.canvas;
+    Object.assign(marking.draft.style, {
+      left: `${c.offsetLeft + r.x * c.offsetWidth}px`, top: `${c.offsetTop + r.y * c.offsetHeight}px`,
+      width: `${r.w * c.offsetWidth}px`, height: `${r.h * c.offsetHeight}px`
+    });
+  });
+  const finish = async (e) => {
+    if (!marking.from) return;
+    const r = rectOf(e);
+    const canvas = marking.canvas;
+    marking.from = null;
+    marking.draft?.remove();
+    marking.draft = null;
+    // A tap, not a drag: nothing to mark. A sweep along a line is thin, so
+    // only its length has to be real.
+    if (r.w * canvas.offsetWidth < 12 && r.h * canvas.offsetHeight < 12) return;
+    // At least a line's height, so a sweep along the middle of a line still
+    // crosses it.
+    const minH = 14 / (canvas.offsetHeight || 1);
+    if (r.h < minH) { r.y = Math.max(0, r.y - (minH - r.h) / 2); r.h = minH; }
+    await addHighlight(Number(canvas.dataset.page), r);
+  };
+  body.addEventListener('pointerup', finish);
+  body.addEventListener('pointercancel', finish);
+}
+
+async function addHighlight(page, rect) {
+  const { itemId, attId } = view.viewing || {};
+  if (!itemId || !disposeViewer?.pick) return;
+  const picked = await disposeViewer.pick(page, rect);
+  const item = store.getItem(itemId);
+  if (!item) return;
+  const highlight = {
+    id: store.newId(), attId, page, rects: picked.rects, text: picked.text,
+    colour: 'yellow', at: new Date().toISOString()
+  };
+  const highlights = [...(item.data.highlights || []), highlight];
+  await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, highlights } });
+  if (view.detailId === itemId) openDetail(itemId);
+  drawStickies();
+  toast(picked.text ? `Highlighted on page ${page}` : `Area highlighted on page ${page} — a scan has no words to keep`);
+}
+
+/** Change a highlight's colour, or take it off (changes = null). */
+async function changeHighlight(itemId, id, changes) {
+  const item = store.getItem(itemId);
+  if (!item) return;
+  const highlights = changes === null
+    ? (item.data.highlights || []).filter((h) => h.id !== id)
+    : (item.data.highlights || []).map((h) => (h.id === id ? { ...h, ...changes } : h));
+  await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, highlights } });
+  if (view.detailId === itemId) openDetail(itemId);
+  if (view.page === 'highlights') render();
+  drawStickies();
+}
+
+function drawHighlights(body, item) {
+  for (const h of item.data.highlights || []) {
+    if (h.attId !== view.viewing.attId) continue;
+    const canvas = body.querySelector(`canvas[data-page="${h.page}"]`);
+    if (!canvas) continue;
+    for (const r of h.rects || []) {
+      const mark = el('button', {
+        class: `hl hl-${HL_COLOURS.includes(h.colour) ? h.colour : 'yellow'}`,
+        'aria-label': h.text ? `Highlight: ${h.text.slice(0, 60)}` : `Highlight on page ${h.page}`,
+        onclick: (e) => { e.stopPropagation(); if (!marking.on) openHighlightBox(h); }
+      });
+      Object.assign(mark.style, {
+        left: `${canvas.offsetLeft + r.x * canvas.offsetWidth}px`,
+        top: `${canvas.offsetTop + r.y * canvas.offsetHeight}px`,
+        width: `${r.w * canvas.offsetWidth}px`,
+        height: `${r.h * canvas.offsetHeight}px`
+      });
+      body.append(mark);
+    }
+  }
+}
+
+/** A highlight tapped on the page: what it says, its colour, and Remove. */
+function openHighlightBox(h) {
+  closeNoteBox();
+  const itemId = view.viewing?.itemId;
+  const swatches = el('div', { class: 'swatches' }, HL_COLOURS.map((name) => el('button', {
+    class: `hl-swatch hl-${name}`, 'aria-label': name, 'aria-pressed': String((h.colour || 'yellow') === name),
+    onclick: async () => { await changeHighlight(itemId, h.id, { colour: name }); closeNoteBox(); }
+  })));
+  const box = el('div', { class: 'note-box', id: 'noteBox' }, [
+    el('p', { class: 'note-page', text: `Highlight on page ${h.page}` }),
+    h.text ? el('p', { class: 'hl-quote', text: h.text }) : null,
+    swatches,
+    el('div', { class: 'fieldrow', style: 'margin-top:9px' }, [
+      el('div', {}, [el('button', { class: 'btn btn-sm btn-block',
+        onclick: async () => { await changeHighlight(itemId, h.id, null); closeNoteBox(); toast('Highlight removed'); } }, ['Remove'])]),
+      el('div', {}, [el('button', { class: 'btn btn-sm btn-block btn-primary', onclick: closeNoteBox }, ['Done'])])
+    ])
+  ]);
+  $('#viewer').querySelector('.viewer-panel').insertBefore(box, $('#viewer').querySelector('.sheet-actions'));
+}
+
+/** One highlight as a row of a list: its words, and where it is. */
+function highlightRow(item, att, h, { showTitle = false } = {}) {
+  const colour = HL_COLOURS.includes(h.colour) ? h.colour : 'yellow';
+  return el('div', { class: 'answer-row' }, [
+    el('button', { class: 'answer-open', style: 'display:flex',
+      onclick: () => openAttachment(att, h.page, item.id)
+    }, [
+      el('span', { class: `hl-row-mark hl-${colour}` }),
+      el('span', { style: 'display:flex;flex-direction:column;min-width:0' }, [
+        el('span', { class: 'answer-ref', text: h.text || 'Highlighted area' }),
+        el('span', { class: 'answer-where', text: [
+          showTitle ? titleOf(item) : null, `page ${h.page}`, (h.at || '').slice(0, 10)
+        ].filter(Boolean).join(' \u00b7 ') })
+      ])
+    ]),
+    el('button', { class: 'del-btn', 'aria-label': 'Remove this highlight',
+      onclick: () => changeHighlight(item.id, h.id, null) }, ['\u00d7'])
+  ]);
+}
+
+/** Under a file on its entry. */
+function highlightsFor(item, att) {
+  const rows = (item.data.highlights || []).filter((h) => h.attId === att.id)
+    .sort((a, b) => a.page - b.page || (a.rects?.[0]?.y || 0) - (b.rects?.[0]?.y || 0));
+  if (!rows.length) return null;
+  const wrap = el('div', { class: 'page-notes' }, [
+    el('p', { class: 'dkey', text: `${plural(rows.length, 'highlight', 'highlights')}` })
+  ]);
+  for (const h of rows) wrap.append(highlightRow(item, att, h));
+  return wrap;
+}
+
+/** Every highlight in the library, by document, in page order. */
+function allHighlights() {
+  const out = [];
+  for (const item of store.allItems()) {
+    const atts = new Map((item.data.attachments || []).map((a) => [a.id, a]));
+    for (const h of item.data.highlights || []) {
+      const att = atts.get(h.attId);
+      if (att) out.push({ item, att, h });
+    }
+  }
+  return out;
+}
+
+function renderHighlights(body) {
+  const all = allHighlights();
+  if (!all.length) {
+    body.append(emptyState('No highlights yet',
+      'Open a document, tap Highlight above the page, and drag across the words.'));
+    return;
+  }
+  // Newest first by document, so what was marked this week is at the top.
+  const byDoc = new Map();
+  for (const row of all) {
+    const key = `${row.item.id}|${row.att.id}`;
+    if (!byDoc.has(key)) byDoc.set(key, { item: row.item, att: row.att, rows: [], latest: '' });
+    const doc = byDoc.get(key);
+    doc.rows.push(row.h);
+    if ((row.h.at || '') > doc.latest) doc.latest = row.h.at || '';
+  }
+  body.append(el('p', { class: 'hint', style: 'margin:0 0 10px',
+    text: `${plural(all.length, 'highlight', 'highlights')} in ${plural(byDoc.size, 'document', 'documents')}. Search finds the words in them too.` }));
+  for (const doc of [...byDoc.values()].sort((a, b) => b.latest.localeCompare(a.latest))) {
+    body.append(el('div', { class: 'group-head' }, [
+      titleOf(doc.item), el('span', { class: 'group-count', text: String(doc.rows.length) })
+    ]));
+    const panel = el('div', { class: 'panel' });
+    doc.rows.sort((a, b) => a.page - b.page || (a.rects?.[0]?.y || 0) - (b.rects?.[0]?.y || 0))
+      .forEach((h) => panel.append(highlightRow(doc.item, doc.att, h)));
+    body.append(panel);
+  }
+}
+
+/** Home: the lists gathered from across the library, where there are any. */
+function collectionsRow() {
+  const rows = [];
+  const highlights = allHighlights().length;
+  if (highlights) rows.push(['highlights', 'Highlights', highlights]);
+  if (!rows.length) return null;
+  return el('div', { class: 'collections' }, rows.map(([page, label, n]) => el('button', {
+    class: 'collection-btn', id: `open-${page}`,
+    onclick: () => { view.page = page; render(); $('#body').scrollTop = 0; }
+  }, [el('span', { text: label }), el('span', { class: 'group-count', text: String(n) })])));
+}
+
 const STICKY_COLOURS = ['yellow', 'pink', 'blue', 'green', 'orange'];
 
 /**
@@ -2766,10 +3039,12 @@ function markKind(mark) {
 function drawStickies() {
   const body = $('#viewerBody');
   if (!body) return;
-  for (const old of body.querySelectorAll('.sticky, .ribbon')) old.remove();
+  for (const old of body.querySelectorAll('.sticky, .ribbon, .hl')) old.remove();
 
   const item = store.getItem(view.viewing?.itemId);
   if (!item) return;
+  // Under the notes, so a note on top of a highlight can still be tapped.
+  drawHighlights(body, item);
 
   const byPage = new Map();
   for (const note of item.data.pageNotes || []) {

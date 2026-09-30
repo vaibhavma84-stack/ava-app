@@ -132,7 +132,94 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
       if (canvas) await draw(canvas, n);
     }
   };
+  // What is written inside a rectangle of a page, for a highlight: the text
+  // and the tight boxes around it, both in fractions of the page.
+  teardown.pick = (pageNo, rect) => pickText(doc, pageNo, rect);
   return teardown;
+}
+
+let measurer = null;
+function widths(str, fontFamily, size) {
+  measurer = measurer || document.createElement('canvas').getContext('2d');
+  measurer.font = `${Math.max(Math.round(size), 1)}px ${fontFamily || 'sans-serif'}`;
+  const edges = [0];
+  for (let i = 1; i <= str.length; i++) edges.push(measurer.measureText(str.slice(0, i)).width);
+  return edges;
+}
+
+/**
+ * The words a dragged rectangle covers.
+ *
+ * Every fragment of the page's text that the rectangle crosses, cut to the
+ * letters inside it, and the box around each -- so a sweep across half a line
+ * marks those words and not the whole line. Returned as fractions of the page
+ * so it lands in the same place at any width. A scan has no text layer; its
+ * highlight is the rectangle itself, with no words.
+ */
+async function pickText(doc, pageNo, rect) {
+  const page = await doc.getPage(pageNo);
+  const viewport = page.getViewport({ scale: 1 });
+  const W = viewport.width;
+  const H = viewport.height;
+  const content = await page.getTextContent();
+  const { Util } = pdfjs;
+  const r = { x0: rect.x * W, y0: rect.y * H, x1: (rect.x + rect.w) * W, y1: (rect.y + rect.h) * H };
+  const parts = [];
+
+  for (const item of content.items) {
+    const str = item.str || '';
+    if (!str.trim()) continue;
+    const tx = Util.transform(viewport.transform, item.transform);
+    const h = Math.hypot(tx[2], tx[3]) || 10;
+    const top = tx[5] - h * 0.95;
+    const bottom = tx[5] + h * 0.25;
+    // Crossed by the rectangle for a good part of the line's height, not
+    // grazed by its edge -- or a sweep along one line takes the next one too.
+    const overlap = Math.min(bottom, r.y1) - Math.max(top, r.y0);
+    if (overlap < (bottom - top) * 0.4) continue;
+    const length = item.width || 0;
+    if (tx[4] > r.x1 || tx[4] + length < r.x0) continue;
+
+    const edges = widths(str, content.styles?.[item.fontName]?.fontFamily, h);
+    const k = length / (edges[edges.length - 1] || 1);
+    let from = 0;
+    while (from < str.length && tx[4] + edges[from + 1] * k <= r.x0) from++;
+    let to = str.length;
+    while (to > from && tx[4] + edges[to - 1] * k >= r.x1) to--;
+    const text = str.slice(from, to);
+    if (!text.trim()) continue;
+    parts.push({
+      text, top, bottom, baseline: tx[5],
+      x: tx[4] + edges[from] * k,
+      right: tx[4] + edges[to] * k
+    });
+  }
+  page.cleanup();
+
+  if (!parts.length) return { text: '', rects: [rect] };
+
+  // Into lines, top to bottom and left to right; a line's pieces become one
+  // box, the way a highlighter pen goes along it.
+  parts.sort((a, b) => a.baseline - b.baseline || a.x - b.x);
+  const lines = [];
+  for (const p of parts) {
+    const line = lines[lines.length - 1];
+    if (line && Math.abs(line.baseline - p.baseline) < (p.bottom - p.top) * 0.5) {
+      line.pieces.push(p);
+      line.x = Math.min(line.x, p.x); line.right = Math.max(line.right, p.right);
+      line.top = Math.min(line.top, p.top); line.bottom = Math.max(line.bottom, p.bottom);
+    } else {
+      lines.push({ baseline: p.baseline, pieces: [p], x: p.x, right: p.right, top: p.top, bottom: p.bottom });
+    }
+  }
+  const join = (pieces) => pieces.sort((a, b) => a.x - b.x)
+    .reduce((out, p) => (out && !/\s$/.test(out) && !/^\s/.test(p.text) ? `${out} ${p.text}` : out + p.text), '');
+  return {
+    // A sweep that starts a hair early takes the colon before the word.
+    text: lines.map((l) => join(l.pieces).replace(/\s+/g, ' ').trim()).join('\n')
+      .replace(/^[\s:;,.)\]–—-]+/, '').replace(/[\s:;,(\[–—-]+$/, ''),
+    rects: lines.map((l) => ({ x: l.x / W, y: l.top / H, w: (l.right - l.x) / W, h: (l.bottom - l.top) / H }))
+  };
 }
 
 /**

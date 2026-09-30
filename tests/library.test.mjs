@@ -723,8 +723,95 @@ try {
   await page.fill('#findInput', 'NOSUCHWORDANYWHERE');
   await page.locator('#findCount', { hasText: 'Not found' }).waitFor({ timeout: 10000 });
   check('a word that is not there says so', true);
+
+  console.log('\nMakers are labels, not hyphenated words');
+  const makers = await page.evaluate(async () => {
+    const { equipmentFrom } = await import('./js/outline.js');
+    const L = (text, size = 10) => ({ page: 1, size, text });
+    return equipmentFrom([[
+      L('Sea valve monitoring', 14), L('Check the make-up in the section before sailing.'),
+      L('Use supplier-provided tools for structured onboard familiarisation will enhance.'),
+      L('Mooring Winch', 14), L('Maker: Hatlapa Model: MW-250'),
+      L('Compressor', 14), L('Manufacturer – Sperre')
+    ]]).map((e) => `${e.name}=${e.maker}`);
+  });
+  check('"make-up" and "supplier-provided" are not taken for makers',
+    makers.join(',') === 'Mooring Winch=Hatlapa,Compressor=Sperre', makers.join(','));
+
+  console.log('\nHighlighting');
+  // Where the word is on screen: found by the find marks, then swept over
+  // with a finger as a person would.
+  await page.fill('#findInput', 'QUAYSIDEMARKER');
+  await page.locator('#findCount', { hasText: /of 1/ }).waitFor({ timeout: 10000 });
+  await page.waitForTimeout(600);
+  await page.locator('#viewerBody canvas[data-page="2"]').scrollIntoViewIfNeeded();
+  const spot = await page.evaluate(() => {
+    const c = document.querySelector('#viewerBody canvas[data-page="2"]');
+    const { data } = c.getContext('2d').getImageData(0, 0, c.width, c.height);
+    let x0 = Infinity, y0 = Infinity, x1 = -1, y1 = -1;
+    for (let y = 0; y < c.height; y++) for (let x = 0; x < c.width; x++) {
+      const i = (y * c.width + x) * 4;
+      if (data[i] > 200 && data[i] - data[i + 2] > 60) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+    }
+    const box = c.getBoundingClientRect();
+    const k = box.width / c.width;
+    return { left: box.left + x0 * k, right: box.left + x1 * k, mid: box.top + ((y0 + y1) / 2) * k };
+  });
+  await page.fill('#findInput', '');
+  await page.waitForTimeout(400);
+  await page.click('#markMode');
+  check('the highlighter can be switched on', await page.getAttribute('#markMode', 'aria-pressed') === 'true');
+  await page.mouse.move(spot.left - 2, spot.mid - 3);
+  await page.mouse.down();
+  await page.mouse.move((spot.left + spot.right) / 2, spot.mid, { steps: 4 });
+  await page.mouse.move(spot.right + 2, spot.mid + 3, { steps: 4 });
+  await page.mouse.up();
+  await page.locator('.toast', { hasText: /Highlighted on page 2/ }).waitFor({ timeout: 10000 });
+  const saved = await page.evaluate(async () => {
+    const store = await import('./js/store.js');
+    return store.itemsOfType('manual')[0].data.highlights || [];
+  });
+  check('sweeping across a word highlights it, and keeps the word',
+    saved.length === 1 && /QUAYSIDEMARKER/.test(saved[0].text) && saved[0].page === 2, JSON.stringify(saved));
+  check('only the word swept, not the whole line',
+    !/Unique marker two/.test(saved[0]?.text || ''), saved[0]?.text);
+  check('it is drawn on the page', await page.locator('#viewerBody .hl').count() >= 1);
+  await page.click('#markMode');
+
   await page.click('#viewerClose');
   await page.waitForSelector('#viewer', { state: 'hidden' });
+  await page.fill('#search', '');
+  await page.waitForTimeout(300);
+  await openBranches();
+  await page.locator('.card', { hasText: 'Main Engine Operating Manual' }).first().click();
+  await page.waitForSelector('#detail:not([hidden])');
+  check('the entry lists it under its file',
+    /1 highlight/i.test(await page.locator('#detailBody').innerText())
+    && /QUAYSIDEMARKER/.test(await page.locator('#detailBody .page-notes').last().innerText()));
+  await page.locator('#detailBody .page-notes .answer-open', { hasText: 'QUAYSIDEMARKER' }).click();
+  await page.waitForSelector('#viewer:not([hidden])');
+  await page.waitForSelector('#viewerBody .hl', { timeout: 10000 });
+  check('and opening it again, it is still on the page', await page.locator('#viewerBody .hl').count() >= 1);
+  await page.click('#viewerClose');
+  await page.waitForSelector('#viewer', { state: 'hidden' });
+  await closeDetail();
+
+  if (await page.locator('#backBtn').isVisible()) { await page.click('#backBtn'); await page.waitForTimeout(200); }
+  check('the home screen offers every highlight in the library',
+    /Highlights\s*1/i.test(await page.locator('#open-highlights').innerText().catch(() => '')));
+  await page.click('#open-highlights');
+  await page.waitForTimeout(300);
+  const allMarked = await page.locator('#body').innerText();
+  check('listed by document, with its words and page',
+    /Main Engine Operating Manual/i.test(allMarked) && /QUAYSIDEMARKER/.test(allMarked) && /page 2/.test(allMarked),
+    allMarked.slice(0, 200).replace(/\n/g, ' / '));
+  await page.locator('#body .answer-row .del-btn').first().click();
+  await page.waitForTimeout(400);
+  check('and can be taken off from the list', /No highlights yet/i.test(await page.locator('#body').innerText()));
+  await page.click('#backBtn');
+  await page.waitForTimeout(200);
+  await page.locator('.section-card', { hasText: 'Manuals' }).click();
+  await page.waitForTimeout(300);
 
   // A term repeated across pages must report every hit, not a sample of three.
   await page.fill('#search', 'SWELLWORD');

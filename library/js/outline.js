@@ -37,11 +37,31 @@ function bodySize(pages) {
 const NUMBERED = /^(\d{1,2}(?:\.\d{1,3}){0,4})[.):]?\s+(\S.*)$/;
 
 // What a document calls the maker of something, and what it calls the thing.
-const MAKER_LABEL = /\b(maker|manufacturer|make|builder|supplier|supplied by)\b\s*[:–—-]\s*/i;
-const OTHER_LABEL = /\b(model|type|serial(?:\s*(?:no|number))?|capacity|rating|size|quantity|qty|swl|year|output|part(?:\s*no)?)\b\s*[:–—-]/i;
+//
+// A label is followed by a colon, or by a dash with space around it: "Maker:
+// Hatlapa", "Maker – Hatlapa". A hyphen joined to the word is a compound, not
+// a label -- "make-up water", "supplier-provided tools", "type-approved" --
+// and reading those as labels put "up in the section" down as the maker of a
+// sea valve.
+const MAKER_LABEL = /(?<![\w-])(maker|manufacturer|make|builder|supplier|supplied by)\b(?:\s*:|\s+[–—-](?=\s))\s*/i;
+const OTHER_LABEL = /(?<![\w-])(model|type|serial(?:\s*(?:no|number))?|capacity|rating|size|quantity|qty|swl|year|output|part(?:\s*no)?)\b(?:\s*:|\s+[–—-](?=\s))/i;
 const MAKER_COLUMN = /^(maker|manufacturer|make|builder|supplier|vendor)s?$/i;
 const THING_COLUMN = /^(equipment|item|machinery|description|unit|name|component|plant|system)s?$/i;
 const MODEL_COLUMN = /^(model|type|part\s*no\.?|designation)s?$/i;
+
+/**
+ * Whether what was read as a maker could be a maker's name.
+ *
+ * A maker is a name: it starts with a capital or a figure and runs to a few
+ * words. "provided tools for structured onboard familiarisation will enhance"
+ * is the rest of a sentence, and is not.
+ */
+export function plausibleMaker(value) {
+  const v = String(value || '').trim();
+  if (!v || v.length > 60) return false;
+  if (!/^[A-Z0-9ÀÖØÞ]/.test(v)) return false;
+  return v.split(/\s+/).length <= 6;
+}
 
 /** Trim a captured value back to the value, without the next label after it. */
 function valueOnly(rest) {
@@ -70,7 +90,7 @@ export function equipmentFrom(pages) {
   const seen = new Set();
 
   const keep = (entry) => {
-    if (!entry.maker || !entry.maker.trim()) return;
+    if (!plausibleMaker(entry.maker)) return;
     const key = `${(entry.name || '').toLowerCase()}|${entry.maker.toLowerCase()}`;
     if (seen.has(key)) return;
     seen.add(key);

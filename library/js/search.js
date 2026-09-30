@@ -147,6 +147,11 @@ function metaText(item) {
     // text already, and counting them again as fields of the entry would rank
     // a document by how many settings it lists.
     if (key === 'alarms' || key === 'alarmsRead') continue;
+    // A highlight is found by the words under it, not by its colour or date.
+    if (key === 'highlights' && Array.isArray(value)) {
+      for (const h of value) if (h?.text) parts.push(h.text);
+      continue;
+    }
     if (key === 'attachments' && Array.isArray(value)) {
       for (const a of value) parts.push(a.name || '');
     } else if (Array.isArray(value)) {

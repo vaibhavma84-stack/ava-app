@@ -561,3 +561,30 @@ select.field {
 .ask-pages summary { cursor: pointer; color: var(--text-dim); font-size: 13px; }
 .ask-note { color: var(--text-faint); font-size: 12px; margin-top: 12px; line-height: 1.5; }
 .ask-btn { margin-bottom: 12px; }
+
+/* Highlights: drawn over the page, the way a highlighter pen goes on paper. */
+.mark-btn { width: auto; padding: 0 10px; font-size: 12.5px; letter-spacing: .02em; }
+.mark-btn[aria-pressed="true"] { background: var(--copper); border-color: var(--copper); color: #17100a; }
+/* While highlighting, a drag on a page marks it instead of scrolling. */
+.viewer-body.marking .viewer-page { touch-action: none; cursor: crosshair; }
+.viewer-body.marking .hl { pointer-events: none; }
+.hl {
+  position: absolute; border-radius: 2px; mix-blend-mode: multiply; padding: 0; border: 0;
+  background: rgb(var(--hl) / .5); cursor: pointer;
+}
+.hl-yellow { --hl: 255 214 0; }
+.hl-green  { --hl: 120 220 110; }
+.hl-blue   { --hl: 110 180 255; }
+.hl-pink   { --hl: 255 130 170; }
+.hl-draft { position: absolute; border: 1.5px dashed var(--copper); background: rgb(255 196 0 / .18); pointer-events: none; }
+.hl-quote { font-family: var(--serif, Georgia, serif); font-size: 14.5px; line-height: 1.5; color: var(--text); margin: 0 0 8px; white-space: pre-wrap; }
+.hl-swatch { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; background: rgb(var(--hl)); cursor: pointer; }
+.hl-swatch[aria-pressed="true"] { border-color: var(--text); }
+.hl-row-mark { display: inline-block; width: 4px; align-self: stretch; border-radius: 2px; background: rgb(var(--hl)); margin-right: 8px; flex: 0 0 auto; }
+.collections { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+.collection-btn {
+  display: flex; justify-content: space-between; align-items: center; width: 100%;
+  border: 1px solid var(--line); background: var(--ink-850); color: var(--text);
+  border-radius: 10px; padding: 12px 14px; font-size: 14.5px; cursor: pointer; text-align: left;
+}
+.collection-btn .group-count { color: var(--copper-bright); }
