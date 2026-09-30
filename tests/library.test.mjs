@@ -969,15 +969,10 @@ try {
     (await page.locator('.group-head-btn.depth-2').count()) === 2,
     String(await page.locator('.group-head-btn.depth-2').count()));
 
-  const chips = await page.locator('.scope-btn').allTextContents();
-  check('a type filter is offered', chips.includes('Engine') && chips.includes('Deck'), chips.join(','));
-  await page.locator('.scope-btn', { hasText: 'Deck' }).click();
-  await page.waitForTimeout(200);
-  check('filtering by type narrows the list', (await page.locator('.card').count()) === 1);
-  await page.locator('.scope-btn', { hasText: 'All' }).click();
-  await page.waitForTimeout(200);
+  // The kinds are folders in the list, not a row of buttons over it.
+  check('no row of type buttons over the list', await page.locator('#scope').isHidden());
   await openBranches();
-  check('clearing the filter restores it', (await page.locator('.card').count()) === 3);
+  check('every manual is in the folders', (await page.locator('.card').count()) === 3);
   await shot('lib-04-grouped');
 
   // Searching across ships, then keeping to one of them.
@@ -1131,9 +1126,11 @@ try {
   await solasRow.locator('button').click();
   await page.waitForTimeout(400);
   check('adding one files it', await page.locator('.card', { hasText: 'Safety of Life at Sea' }).count() === 1);
-  check('under its own heading',
-    (await page.locator('.group-head').allTextContents()).some((h) => h.includes('IMO Convention')),
-    (await page.locator('.group-head').allTextContents()).join(' | '));
+  // Filed as a convention: a folder of its own once there is anything else
+  // in Publications to tell it apart from.
+  const filedAs = await page.evaluate(async () => (await import('./js/store.js')).itemsOfType('publication')
+    .find((i) => /Safety of Life at Sea/.test(i.data.title))?.data.category);
+  check('under its own heading', filedAs === 'IMO Convention', String(filedAs));
   check('and it is not offered a second time',
     await page.locator(`${imoPanel} .stat`, { hasText: 'SOLAS 1974' }).count() === 0);
   // Nothing has been added to it yet, so there is nothing to be searchable or
@@ -1682,15 +1679,8 @@ try {
     (await page.locator('.card').count()) === mgnCards.length,
     String(await page.locator('.card').count()));
 
-  // A pill has already narrowed the list to one class. Making the reader open
-  // the branches again to see the few left would be asking twice.
-  await page.locator('.scope-btn', { hasText: 'MSN' }).first().click();
-  await page.waitForTimeout(300);
-  const filtered = await page.locator('.card').allInnerTexts();
-  check('filtering by a class shows them without opening anything',
-    filtered.length > 0 && filtered.every((c) => /MSN/.test(c)), filtered.join(' | '));
-  await page.locator('.scope-btn', { hasText: 'All' }).first().click();
-  await page.waitForTimeout(300);
+  // The classes are folders, not a row of buttons over the list.
+  check('no row of class buttons over the circulars', await page.locator('#scope').isHidden());
 
   await openTools();
   await page.waitForTimeout(300);
@@ -2288,7 +2278,9 @@ try {
   const localHeads = await page.locator('.group-head-btn.depth-1').allTextContents();
   check('procedures are filed under the ship they belong to',
     localHeads.length === 1 && /Gas Planet/.test(localHeads[0]), localHeads.join(' | '));
-  await page.locator('.group-head-btn', { hasText: 'Gas Planet' }).click();
+  // Opened already if what was just saved is in it; opened here if not.
+  const gasPlanet = page.locator('.group-head-btn', { hasText: 'Gas Planet' });
+  if (await gasPlanet.getAttribute('aria-expanded') !== 'true') await gasPlanet.click();
   await page.waitForTimeout(250);
   const jobs = await page.locator('.group-head-btn.depth-2').allTextContents();
   check('and under the job they cover',
@@ -2786,6 +2778,7 @@ try {
     });
   });
   await page.waitForTimeout(400);
+  await openBranches();
   await page.locator('.card', { hasText: 'Discontinuation of Shipconrep' }).click();
   await page.waitForSelector('#detail:not([hidden])');
   await page.click('#detailEdit');
@@ -2798,9 +2791,9 @@ try {
   await page.waitForTimeout(200);
   await closeDetail();
   await page.waitForTimeout(200);
-  const keptChips = await page.locator('#scope .scope-btn').allInnerTexts();
-  check('and is still one of the filters',
-    keptChips.includes('Commercial'), keptChips.join(' | '));
+  const keptFolders = await page.locator('.group-head-btn .group-name').allInnerTexts();
+  check('and is still one of the folders',
+    keptFolders.some((f) => /Commercial/i.test(f)), keptFolders.join(' | '));
 
   await page.click('#backBtn');
   await page.locator('.section-card', { hasText: 'Synergy' }).click();

@@ -18,7 +18,7 @@ import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.41';
+const APP_VERSION = '2026.10.42';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -282,7 +282,10 @@ function render() {
 
   if (view.screen !== 'search') $('#refine').hidden = true;
   if (view.screen === 'home') { renderScope(null); renderHome(body); }
-  else if (view.screen === 'section') { renderScope(TYPES[view.section]); renderSection(body); }
+  // No row of type buttons over a section: its list is folded by type
+  // instead, under headings that open, which is one way to find things
+  // rather than two.
+  else if (view.screen === 'section') { renderScope(null); renderSection(body); }
   else if (view.screen === 'page') { renderScope(null); PAGES[view.page].draw(body); }
   // The search screen fills the scope row itself, from what its results hit.
   else renderSearch(body);
@@ -804,6 +807,25 @@ function renderTree(body, def, groups, names) {
   }
 }
 
+/**
+ * Open the folders an entry is filed in, so what was just added is in sight
+ * rather than filed away out of it -- a stack that vanishes on being filed
+ * looks like a stack that was lost.
+ */
+function revealItem(item) {
+  const def = TYPES[item?.type];
+  if (!def) return;
+  const folder = def.collapsible ? def.groupBy : (def.groupBy || def.filterBy);
+  if (!folder) return;
+  const name = String(item.data[folder.key] || '').trim() || folder.blank || 'Other';
+  const key = (n) => `${item.type}\u203a${n}`;
+  view.openGroups.add(key(name));
+  if (def.collapsible && def.subGroupBy) {
+    const kind = String(item.data[def.subGroupBy.key] || '').trim() || def.subGroupBy.blank;
+    view.openGroups.add(key(`${name} \u203a ${kind}`));
+  }
+}
+
 function renderSection(body) {
   const def = TYPES[view.section];
   const panels = [];
@@ -836,31 +858,29 @@ function renderSection(body) {
     return;
   }
 
-  if (def.groupBy) {
-    // Group headers, e.g. manuals filed under each ship.
+  // Every section is folders: by ship, by flag, by chapter -- or, where a
+  // section files by nothing else, by its type. Shut until opened, and not
+  // folders at all when everything would be in one of them.
+  const folder = def.collapsible ? def.groupBy : (def.groupBy || def.filterBy);
+  if (folder) {
+    const blank = folder.blank || 'Other';
     const groups = new Map();
     for (const item of items) {
-      const key = item.data[def.groupBy.key] || def.groupBy.blank;
+      const key = String(item.data[folder.key] || '').trim() || blank;
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(item);
     }
     const names = [...groups.keys()].sort((a, b) => {
-      if (a === def.groupBy.blank) return 1;
-      if (b === def.groupBy.blank) return -1;
+      if (a === blank) return 1;
+      if (b === blank) return -1;
       return a.localeCompare(b);
     });
-
-    if (def.collapsible) { renderTree(body, def, groups, names); return; }
-
-    for (const name of names) {
-      body.append(el('div', { class: 'group-head' }, [
-        name, el('span', { class: 'group-count', text: String(groups.get(name).length) })
-      ]));
-      for (const item of groups.get(name)) body.append(cardFor(item));
+    if (def.collapsible || names.length > 1) {
+      renderTree(body, def.collapsible ? def : { ...def, subGroupBy: null }, groups, names);
+      return;
     }
-  } else {
-    for (const item of items) body.append(cardFor(item));
   }
+  for (const item of items) body.append(cardFor(item));
 }
 
 async function renderSearch(body) {
@@ -973,7 +993,7 @@ function conventionPanel() {
     const add = el('button', { class: 'btn btn-sm', text: 'Add' });
     add.addEventListener('click', async () => {
       add.disabled = true;
-      await store.saveItem({ type: 'publication', data: asPublication(convention) });
+      revealItem(await store.saveItem({ type: 'publication', data: asPublication(convention) }));
       view.imoOpen = true;
       render();
     });
@@ -991,7 +1011,7 @@ function conventionPanel() {
     all.disabled = true;
     all.textContent = 'Adding…';
     for (const convention of missing) {
-      await store.saveItem({ type: 'publication', data: asPublication(convention) });
+      revealItem(await store.saveItem({ type: 'publication', data: asPublication(convention) }));
     }
     render();
   });
@@ -4313,7 +4333,7 @@ async function onImportPicked(e) {
       if (!String(data[def.titleKey] || '').trim()) data[def.titleKey] = titleFromFilename(file.name);
       data.attachments = [descriptor];
 
-      await store.saveItem({ type, data });
+      revealItem(await store.saveItem({ type, data }));
       added++;
     } catch (ex) {
       console.warn('Could not import', file.name, ex);
@@ -4421,6 +4441,9 @@ async function saveEditor() {
     for (const att of draft.removed) await store.removeFile(att).catch(() => {});
 
     const saved = await store.saveItem({ id: draft.id, type: draft.type, data: draft.data });
+    revealItem(saved);
+    // The list was drawn as the save landed, before its folder was opened.
+    render();
     closeEditor();
     // Nothing sets a "scanned" flag on a file any more; what the reader found
     // is its status. Testing the flag meant this never once said "scan".
