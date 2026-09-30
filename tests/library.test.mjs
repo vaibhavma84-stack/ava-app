@@ -687,6 +687,9 @@ try {
   await page.locator('.snippet').first().click();
   await page.waitForSelector('#viewer:not([hidden])');
   await page.waitForSelector('#viewerBody canvas[data-page="2"]');
+  // Filled in once the document has opened, which is a moment after its
+  // first page appears.
+  await page.waitForFunction(() => document.getElementById('findInput').value === 'QUAYSIDEMARKER', null, { timeout: 10000 }).catch(() => {});
   check('the search comes into the document with it',
     await page.locator('#findInput').inputValue() === 'QUAYSIDEMARKER');
   await page.locator('#findCount', { hasText: /of/ }).waitFor({ timeout: 10000 });
