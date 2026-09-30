@@ -2074,7 +2074,7 @@ try {
   check('the date is read too', alert.date === '2026-08-14', JSON.stringify(alert));
   const offered = await page.locator('#editorBody [data-field="category"] option').allInnerTexts();
   check('the circular categories are the ones the fleet issues',
-    ['Manager\u2019s Instructions', 'QHSE', 'Fleet Alert', 'Safety Alert']
+    ['MI', 'QHSE', 'Fleet Alert', 'Safety Alert']
       .every((t) => offered.includes(t)), offered.join(' | '));
   check('and the generic list it replaced is gone',
     !offered.some((t) => /Technical|Crewing|HSEQ|Security|Environmental|Commercial/.test(t)),
@@ -3730,6 +3730,24 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     check('and can be taken off', await other.locator('#pinned').count() === 0);
     const inBackup = await other.evaluate(async () => (await (await import('./js/store.js')).fullBackup()).manifest.lists.recent.length);
     check('recent travels in a full backup too', inBackup === 1, String(inBackup));
+    await fresh.close();
+  }
+
+  console.log('\nManager\u2019s Instructions are MI');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      await store.saveItem({ type: 'synergy', data: { title: 'Old instruction', category: 'Manager\u2019s Instructions' } });
+    });
+    await other.reload({ waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.waitForTimeout(500);
+    const cat = await other.evaluate(async () => (await import('./js/store.js')).allItems()[0].data.category);
+    check('one filed under the old name is renamed when the app opens', cat === 'MI', cat);
     await fresh.close();
   }
 

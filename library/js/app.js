@@ -18,7 +18,7 @@ import { makeZip, readZip } from './zip.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 
-const APP_VERSION = '2026.10.40';
+const APP_VERSION = '2026.10.41';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -205,6 +205,7 @@ function enterApp() {
   announceIfStale();
   dropOldContents();
   dropImplausibleMakers();
+  renameManagersInstructions();
   loadAutoRead().then(() => autoReadSoon(5000));
   loadAsk().then(render);
   Promise.all(store.LISTS.map((n) => store.getList(n))).then(render);
@@ -231,6 +232,15 @@ function enterApp() {
  * already, and are searchable; the reader no longer makes them, and this
  * clears the ones it made.
  */
+/** "Manager's Instructions", as filed before it was shortened to what it is called: MI. */
+async function renameManagersInstructions() {
+  for (const item of store.allItems()) {
+    if (!/^manager['\u2019]?s\s+instructions?$/i.test(String(item.data?.category || '').trim())) continue;
+    await store.saveItem({ id: item.id, type: item.type, data: { ...item.data, category: 'MI' } });
+  }
+  if (view.filter && /^manager/i.test(view.filter)) view.filter = 'MI';
+}
+
 async function dropImplausibleMakers() {
   for (const item of store.allItems()) {
     const equipment = item.data?.equipment;

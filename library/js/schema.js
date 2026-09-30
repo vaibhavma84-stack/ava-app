@@ -22,8 +22,10 @@ export const PUBLICATION_CATEGORIES = [
 // editor puts a stored value back as an option rather than changing it, and
 // the filter chips are built from the entries themselves rather than from
 // this list, so nothing already entered is disturbed or becomes unfindable.
+// Manager's Instructions are called MI on board, and the full name made the
+// filter chip the widest thing on the screen.
 export const CIRCULAR_CATEGORIES = [
-  'Manager\u2019s Instructions',
+  'MI',
   'QHSE',
   'Fleet Alert',
   'Safety Alert',

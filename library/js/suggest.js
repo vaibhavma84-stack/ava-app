@@ -77,7 +77,7 @@ function pickLabelled(described, labels) {
  * before "Alert", or every alert would come back as the plainer one.
  */
 const SYNERGY_KINDS = [
-  [/manager'?\u2019?s?\s+instructions?/i, 'Manager\u2019s Instructions'],
+  [/manager'?\u2019?s?\s+instructions?/i, 'MI'],
   [/\bQHSE\b/i, 'QHSE'],
   [/fleet\s+alert/i, 'Fleet Alert'],
   [/safety\s+alert/i, 'Safety Alert']
