@@ -2,14 +2,18 @@ import * as store from './store.js';
 import * as db from './db.js';
 import * as sec from './crypto.js';
 import { TYPES, TAB_ORDER, CONTRACT_FIELDS } from './schema.js';
-import { entryDays, isOnboard, formatDuration, seaTimeSummary, expiryStatus, expiryLabel, displayDate, displayDateShort } from './derive.js';
+import {
+  entryDays, isOnboard, formatDuration, seaTimeSummary, expiryStatus, expiryLabel, displayDate, displayDateShort,
+  findOverlaps, revalidationStatus, TANKER_TYPES, goalProgress, voyageProgress, validateSeaTime, expiriesDuringVoyages, certificateCategory
+} from './derive.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { icsForItem, icsForItems, datedCertificates, calendarFileName, eventFor } from './calendar.js';
+import { buildCv, buildSeaServiceStatement } from './cv.js';
 
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
-const APP_VERSION = '2026.08.31';
+const APP_VERSION = '2026.09.30';
 
 const view = {
   tab: 'certificate',
@@ -215,6 +219,7 @@ function enterApp() {
 function lockNow() {
   store.lock();
   for (const s of ['#detail', '#editor', '#settings']) $(s).hidden = true;
+  closeViewer();
   view.query = ''; view.draft = null; view.detailId = null;
   $('#search').value = '';
   $('#app').hidden = true;
@@ -286,7 +291,14 @@ function render() {
 function renderTab(list, type) {
   const items = store.itemsOfType(type);
 
-  if (type === 'seatime') list.append(seaTimeSummaryPanel(items));
+  if (type === 'seatime') {
+    list.append(seaTimeSummaryPanel(items));
+    for (const panel of seaTimeChecks(items)) list.append(panel);
+  }
+  if (type === 'certificate') {
+    const clash = expiryClashPanel();
+    if (clash) list.append(clash);
+  }
 
   if (!items.length) {
     list.append(emptyState(`No ${TYPES[type].label.toLowerCase()} yet`, 'Tap + to add the first entry.'));
@@ -395,7 +407,7 @@ function seaTimeRow(item) {
     el('p', { class: 'card-sub', text: [d.rank, d.vesselType].filter(Boolean).join(' · ') || '—' }),
     el('div', { class: 'dgrid two' }, [
       dcell('Sign on', displayDateShort(d.signOnDate)),
-      dcell('Sign off', onboard ? 'Onboard' : displayDateShort(d.signOffDate))
+      dcell('Sign off', onboard && !d.signOffDate ? 'Onboard' : displayDateShort(d.signOffDate))
     ]),
     el('div', { class: 'dgrid' }, [
       dcell('GRT', d.grt || '—'),
@@ -403,7 +415,19 @@ function seaTimeRow(item) {
       dcell('KW', d.kw || '—')
     ])
   ]);
+  const progress = voyageProgress(d);
+  if (progress) card.append(el('p', { class: 'voyage-count', text: voyageCountText(progress) }));
   return card;
+}
+
+/** "Day 87 onboard · 33 days to contract end" */
+function voyageCountText({ day, daysLeft, endDate }) {
+  const parts = [`Day ${day} onboard`];
+  if (daysLeft === null) parts.push('no contract end set');
+  else if (daysLeft > 0) parts.push(`${daysLeft} day${daysLeft === 1 ? '' : 's'} to contract end (${displayDateShort(endDate)})`);
+  else if (daysLeft === 0) parts.push('contract ends today');
+  else parts.push(`contract ended ${-daysLeft} day${daysLeft === -1 ? '' : 's'} ago`);
+  return parts.join(' · ');
 }
 
 function dcell(key, value, dim) {
@@ -415,7 +439,7 @@ function dcell(key, value, dim) {
 
 function seaTimeSummaryPanel(items) {
   const data = items.map((i) => i.data);
-  const { totalDays, byRank, voyages } = seaTimeSummary(data);
+  const { totalDays, byRank, byType, tankerDays, overlapDays, voyages } = seaTimeSummary(data);
   const panel = el('div', { class: 'summary' }, [
     el('div', { class: 'summary-top' }, [
       el('div', {}, [
@@ -427,7 +451,7 @@ function seaTimeSummaryPanel(items) {
         el('div', { class: 'summary-total', style: 'font-size:19px', text: String(voyages) })
       ])
     ]),
-    el('div', { class: 'summary-days', text: `${totalDays} days total · 30-day months` })
+    el('div', { class: 'summary-days', text: `${totalDays} days total · 30-day months` + (overlapDays ? ` · ${overlapDays} overlapping days counted once` : '') })
   ]);
 
   const max = byRank.length ? byRank[0].days : 0;
@@ -438,7 +462,121 @@ function seaTimeSummaryPanel(items) {
       el('span', { class: 'rank-days', text: formatDuration(r.days) })
     ]));
   }
+
+  // By ship type, for endorsements that ask for time on a kind of ship.
+  if (byType.length > 1 || tankerDays) {
+    panel.append(el('div', { class: 'summary-label summary-sub', text: 'By ship type' }));
+    const typeMax = byType.length ? byType[0].days : 0;
+    const rows = byType.map((t) => [t.type, t.days]);
+    if (tankerDays && byType.filter((t) => TANKERS.has(t.type)).length > 1) rows.push(['All tankers', tankerDays]);
+    for (const [label, days] of rows) {
+      panel.append(el('div', { class: 'kind-row' }, [
+        el('span', { class: 'rank-name', text: label }),
+        el('span', { class: 'rank-bar', style: `width:${typeMax ? Math.max(6, Math.min(1, days / typeMax) * 64) : 0}px` }),
+        el('span', { class: 'rank-days', text: formatDuration(days) })
+      ]));
+    }
+  }
   return panel;
+}
+
+const TANKERS = new Set(TANKER_TYPES);
+
+function profileItem() {
+  return store.itemsOfType('profile')[0] || null;
+}
+
+/**
+ * The cards under the sea time total: overlapping voyages, STCW revalidation,
+ * the goal being worked towards, and certificates that lapse mid-contract.
+ */
+function seaTimeChecks(items) {
+  const data = items.map((i) => i.data);
+  const out = [];
+
+  const overlaps = findOverlaps(data);
+  if (overlaps.length) {
+    const box = el('div', { class: 'check check-warn' }, [
+      el('div', { class: 'check-head' }, [
+        el('span', { class: 'summary-label', text: 'Overlapping voyages' }),
+        el('span', { class: 'pill pill-amber', text: `${overlaps.length}` })
+      ]),
+      el('p', { class: 'check-text', text: 'These dates overlap, usually from a mistyped date. The shared days are counted once, against the earlier voyage.' })
+    ]);
+    for (const { a, b, days } of overlaps) {
+      box.append(el('p', { class: 'check-line mono', text: `${a.vessel || '—'} ↔ ${b.vessel || '—'}: ${days} day${days === 1 ? '' : 's'}` }));
+    }
+    out.push(box);
+  }
+
+  if (data.some((d) => entryDays(d) > 0)) {
+    const r = revalidationStatus(data);
+    const coc = store.itemsOfType('certificate')
+      .filter((c) => certificateCategory(c.data) === 'Certificate of Competency' && c.data.expiryDate)
+      .sort((a, b) => a.data.expiryDate.localeCompare(b.data.expiryDate))[0];
+    const box = el('div', { class: 'check' + (r.met ? '' : ' check-warn') }, [
+      el('div', { class: 'check-head' }, [
+        el('span', { class: 'summary-label', text: 'CoC revalidation' }),
+        el('span', { class: 'pill ' + (r.met ? 'pill-teal' : 'pill-amber'), text: r.met ? 'Sea time met' : 'Short' })
+      ]),
+      el('div', { class: 'dgrid two' }, [
+        dcell('Last 5 years', `${formatDuration(r.last5y)} / 12 mo`),
+        dcell('Last 6 months', `${formatDuration(r.last6m)} / 3 mo`)
+      ])
+    ]);
+    if (coc) {
+      box.append(el('p', { class: 'check-text', text: `${coc.data.title}: ${expiryLabel(expiryStatus(coc.data.expiryDate)).toLowerCase()} (${displayDateShort(coc.data.expiryDate)}).` }));
+    }
+    box.append(el('p', { class: 'hint', text: r.met
+      ? 'STCW I/11: 12 months in the last 5 years, or 3 months in the last 6. Your administration may also accept other routes.'
+      : `STCW I/11 needs 12 months in the last 5 years (${formatDuration(r.short5y)} to go), or 3 months in the last 6. Your administration may accept other routes.` }));
+    out.push(box);
+  }
+
+  const profile = profileItem();
+  const goal = goalProgress(data, profile?.data);
+  if (goal) {
+    const p = profile.data;
+    const scope = [p.goalRank ? `as ${p.goalRank}` : 'in any rank', p.goalSince ? `since ${displayDateShort(p.goalSince)}` : ''].filter(Boolean).join(' ');
+    out.push(el('div', { class: 'check', onclick: () => openEditor('profile', profileItem()) }, [
+      el('div', { class: 'check-head' }, [
+        el('span', { class: 'summary-label', text: p.goalLabel || 'Sea time goal' }),
+        el('span', { class: 'pill ' + (goal.done ? 'pill-teal' : 'pill-brass'), text: goal.done ? 'Done' : `${Math.floor(goal.fraction * 100)}%` })
+      ]),
+      el('div', { class: 'goal-bar' }, [el('i', { style: `width:${(goal.fraction * 100).toFixed(1)}%` })]),
+      el('p', { class: 'check-text mono', text: `${formatDuration(goal.served)} of ${formatDuration(goal.need)} ${scope}` }),
+      el('p', { class: 'hint', text: goal.done ? 'Sea time for this goal is complete.' : `${formatDuration(goal.remaining)} (${goal.remaining} days) still to serve.` })
+    ]));
+  } else {
+    out.push(el('button', {
+      class: 'btn btn-ghost btn-sm goal-link',
+      onclick: () => openEditor('profile', profileItem())
+    }, ['Set a sea time goal for your next CoC']));
+  }
+
+  const clash = expiryClashPanel();
+  if (clash) out.push(clash);
+  return out;
+}
+
+/** Certificates whose expiry falls before the end of a current or planned contract. */
+function expiryClashPanel() {
+  const clashes = expiriesDuringVoyages(
+    store.itemsOfType('certificate').map((c) => c.data),
+    store.itemsOfType('seatime').map((v) => v.data)
+  );
+  if (!clashes.length) return null;
+  const box = el('div', { class: 'check check-danger' }, [
+    el('div', { class: 'check-head' }, [
+      el('span', { class: 'summary-label', text: 'Expires during a contract' }),
+      el('span', { class: 'pill pill-danger', text: String(clashes.length) })
+    ])
+  ]);
+  for (const c of clashes) {
+    box.append(el('p', { class: 'check-line', text: `${c.certificate.title || 'Certificate'} expires ${displayDateShort(c.expiryDate)}, before ${c.voyage.vessel || 'the voyage'} ends ${displayDateShort(c.endDate)}.` }));
+  }
+  box.append(el('p', { class: 'hint', text: 'Renew before joining, or plan the renewal ashore.' }));
+  return box;
 }
 
 // ── chrome wiring ───────────────────────────────────────────────────────────
@@ -485,11 +623,17 @@ function openDetail(id) {
   }
   if (item.type === 'seatime') {
     const days = entryDays(item.data);
+    const progress = voyageProgress(item.data);
     body.append(el('div', { class: 'summary' }, [
       el('div', { class: 'summary-label', text: isOnboard(item.data) ? 'Sea time so far' : 'Sea time this voyage' }),
       el('div', { class: 'summary-total', text: formatDuration(days) }),
-      el('div', { class: 'summary-days', text: `${days} days` })
+      el('div', { class: 'summary-days', text: `${days} days` }),
+      progress ? el('div', { class: 'voyage-count', text: voyageCountText(progress) }) : null
     ]));
+    const others = store.itemsOfType('seatime').filter((i) => i.id !== item.id).map((i) => i.data);
+    for (const w of validateSeaTime(item.data, others).warnings) {
+      body.append(el('p', { class: 'check-line warn-line', text: w }));
+    }
   }
 
   // Plain field readout, skipping the specials handled below.
@@ -627,20 +771,9 @@ function closeViewer() {
  */
 async function shareAttachment(att) {
   try {
-    const blob = await store.readFile(att);
-    const file = new File([blob], att.name, { type: att.type || 'application/octet-stream' });
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({ files: [file], title: att.name });
-      return;
-    }
-    const url = URL.createObjectURL(blob);
-    const a = el('a', { href: url, download: att.name });
-    document.body.append(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 30000);
+    await shareBlob(await store.readFile(att), att.name, att.type);
   } catch (ex) {
-    if (ex.name !== 'AbortError') toast('Could not share: ' + ex.message);
+    toast('Could not share: ' + ex.message);
   }
 }
 
@@ -695,7 +828,13 @@ function renderEditor() {
     }, [draft.pinned ? 'Pinned — tap to unpin' : 'Pin to top']));
   }
 
-  if (draft.id) {
+  if (draft.type === 'seatime') {
+    const others = store.itemsOfType('seatime').filter((i) => i.id !== draft.id).map((i) => i.data);
+    const { errors, warnings } = validateSeaTime(draft.data, others);
+    body.append(fillChecks(el('div', { id: 'editorChecks' }), errors, warnings));
+  }
+
+  if (draft.id && !def.singleton) {
     body.append(el('button', {
       class: 'btn btn-danger btn-block',
       onclick: async () => {
@@ -708,7 +847,25 @@ function renderEditor() {
   }
 }
 
+function fillChecks(box, errors, warnings) {
+  clear(box);
+  for (const e of errors) box.append(el('p', { class: 'check-line err-line', text: e }));
+  for (const w of warnings) box.append(el('p', { class: 'check-line warn-line', text: w }));
+  return box;
+}
+
+/** Re-check a voyage's dates as they are typed, without redrawing the form. */
+function refreshEditorChecks() {
+  const draft = view.draft;
+  const box = $('#editorChecks');
+  if (!draft || draft.type !== 'seatime' || !box) return;
+  const others = store.itemsOfType('seatime').filter((i) => i.id !== draft.id).map((i) => i.data);
+  const { errors, warnings } = validateSeaTime(draft.data, others);
+  fillChecks(box, errors, warnings);
+}
+
 function fieldFor(f, draft) {
+  if (f.type === 'heading') return el('h4', { class: 'editor-heading', text: f.label });
   if (f.type === 'contracts') return contractsEditor(draft, f);
   if (f.type === 'attachments') return attachmentsEditor(draft, f);
 
@@ -741,7 +898,8 @@ function fieldFor(f, draft) {
       step: f.step || null,
       value,
       placeholder: f.placeholder || '',
-      oninput: (e) => { draft.data[f.key] = e.target.value; }
+      oninput: (e) => { draft.data[f.key] = e.target.value; },
+      onchange: f.type === 'date' ? refreshEditorChecks : null
     }));
   }
   if (f.hint) wrap.append(el('p', { class: 'hint', text: f.hint }));
@@ -806,7 +964,8 @@ function contractField(cf, contract) {
       type: cf.type === 'date' ? 'date' : 'text',
       value: contract[cf.key] || '',
       placeholder: cf.placeholder || '',
-      oninput: (e) => { contract[cf.key] = e.target.value; }
+      oninput: (e) => { contract[cf.key] = e.target.value; },
+      onchange: cf.type === 'date' ? refreshEditorChecks : null
     }));
   }
   return wrap;
@@ -857,6 +1016,13 @@ async function saveEditor() {
 
   const required = def.fields.find((f) => f.required && !String(draft.data[f.key] || '').trim());
   if (required) return toast(`${required.label} is required`);
+
+  if (draft.type === 'seatime') {
+    const others = store.itemsOfType('seatime').filter((i) => i.id !== draft.id).map((i) => i.data);
+    const { errors, warnings } = validateSeaTime(draft.data, others);
+    if (errors.length) return toast(errors[0]);
+    if (warnings.length && !confirm(`${warnings.join('\n')}\n\nSave anyway?`)) return;
+  }
 
   const btn = $('#editorSave');
   btn.disabled = true;
@@ -947,6 +1113,18 @@ async function openSettings() {
     el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: doExportEncrypted }, ['Export encrypted backup']),
     el('button', { class: 'btn btn-block', style: 'margin-bottom:8px', onclick: () => $('#backupPicker').click() }, ['Restore from backup']),
     el('button', { class: 'btn btn-block', onclick: doExportPlain }, ['Export readable copy'])
+  ]));
+
+  const profile = profileItem();
+  body.append(el('div', { class: 'panel' }, [
+    el('h3', { text: 'Profile & CV' }),
+    el('p', { text: profile?.data.fullName
+      ? `CVs are made from your profile, certificates and sea time. Profile: ${profile.data.fullName}.`
+      : 'Add your name and particulars once; the CV fills in the rest from your certificates and sea time.' }),
+    el('button', { class: 'btn btn-block', style: 'margin-bottom:8px', onclick: () => { $('#settings').hidden = true; openEditor('profile', profileItem()); } },
+      [profile ? 'Edit profile' : 'Set up profile']),
+    el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: () => makePdf('cv') }, ['Create CV (PDF)']),
+    el('button', { class: 'btn btn-block', onclick: () => makePdf('statement') }, ['Sea service record (PDF)'])
   ]));
 
   body.append(el('div', { class: 'panel' }, [
@@ -1106,6 +1284,99 @@ async function shareText(text, filename, mime) {
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 30000);
   return true;
+}
+
+/**
+ * The profile's first picture as a portrait JPEG for the CV. Whatever the phone
+ * saved (HEIC, PNG, a huge JPEG) is redrawn through a canvas, cropped to 3:4.
+ */
+async function profilePhotoJpeg(profile) {
+  const att = (profile?.data.attachments || []).find((a) => (a.type || '').startsWith('image/') || /\.(jpe?g|png|heic|heif|webp)$/i.test(a.name || ''));
+  if (!att) return null;
+  const blob = await store.readFile(att);
+  const url = URL.createObjectURL(blob);
+  try {
+    const img = await new Promise((resolve, reject) => {
+      const i = new Image();
+      i.onload = () => resolve(i);
+      i.onerror = () => reject(new Error('The photo could not be read'));
+      i.src = url;
+    });
+    const w = img.naturalWidth, h = img.naturalHeight;
+    const cropW = Math.min(w, h * 0.75), cropH = cropW / 0.75;
+    const canvas = document.createElement('canvas');
+    canvas.width = 450; canvas.height = 600;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, (w - cropW) / 2, Math.max(0, (h - cropH) / 3), cropW, cropH, 0, 0, canvas.width, canvas.height);
+    const jpeg = await new Promise((resolve) => canvas.toBlob(resolve, 'image/jpeg', 0.88));
+    return new Uint8Array(await jpeg.arrayBuffer());
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+/** Build the CV or the sea service record, then show it with a Save button. */
+async function makePdf(kind) {
+  const profile = profileItem();
+  const voyages = store.itemsOfType('seatime').map((i) => i.data);
+  if (kind === 'cv' && !profile?.data.fullName) {
+    toast('Add your name to the profile first');
+    $('#settings').hidden = true;
+    return openEditor('profile', profile);
+  }
+  if (kind === 'statement' && !voyages.length) return toast('No sea time entries yet');
+
+  const input = {
+    profile: profile?.data || {},
+    certificates: store.itemsOfType('certificate').map((i) => i.data),
+    voyages
+  };
+  try {
+    let bytes;
+    if (kind === 'cv') {
+      const photo = await profilePhotoJpeg(profile).catch((ex) => { toast(ex.message); return null; });
+      bytes = buildCv({ ...input, photo });
+    } else {
+      bytes = buildSeaServiceStatement(input);
+    }
+    const who = (profile?.data.fullName || '').replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+    const stamp = new Date().toISOString().slice(0, 10);
+    const name = kind === 'cv' ? `CV${who ? '-' + who : ''}-${stamp}.pdf` : `Sea-service${who ? '-' + who : ''}-${stamp}.pdf`;
+    await showGeneratedPdf(new Blob([bytes], { type: 'application/pdf' }), name);
+  } catch (ex) {
+    toast('Could not make the PDF: ' + ex.message);
+  }
+}
+
+async function showGeneratedPdf(blob, name) {
+  const body = clear($('#viewerBody'));
+  $('#viewerTitle').textContent = name;
+  $('#viewer').hidden = false;
+  $('#viewerShare').onclick = () => shareBlob(blob, name);
+  disposeViewer?.();
+  disposeViewer = await renderInto(body, blob, name, {
+    onStatus: (text) => { $('#viewerTitle').textContent = `${name} · ${text}`; }
+  });
+}
+
+async function shareBlob(blob, filename, type = blob.type) {
+  const file = new File([blob], filename, { type: type || 'application/octet-stream' });
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    try {
+      await navigator.share({ files: [file], title: filename });
+      return;
+    } catch (ex) {
+      if (ex.name === 'AbortError') return;
+    }
+  }
+  const url = URL.createObjectURL(blob);
+  const a = el('a', { href: url, download: filename });
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
 }
 
 async function addToCalendar(item) {

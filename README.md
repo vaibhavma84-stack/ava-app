@@ -44,7 +44,41 @@ treated as still onboard and counts up to today.
 
 Totals are shown as `X mo Y d` using **30-day months**, the convention used on
 sea service letters, alongside the raw day count. The Sea Time tab also breaks
-the total down by rank.
+the total down by rank and by ship type, with all tanker time added together.
+
+- **Overlaps** — if two voyages share days (usually a mistyped date), those days
+  are counted once, against the earlier voyage, and the pair is listed so the
+  date can be fixed. The editor warns about an overlap before saving.
+- **Planned dates** — a sign-off still in the future counts as onboard up to
+  today; a sign-on in the future counts nothing yet.
+- **Date checks** — a sign-off before sign-on, or a contract that ends before it
+  starts, will not save.
+- **CoC revalidation** — shows sea time in the last 5 years against the STCW
+  I/11 figure of 12 months, and in the last 6 months against 3 months, next to
+  your CoC's expiry.
+- **Sea time goal** — set in the profile: the rank whose service counts, the
+  months needed, and the date to count from. A progress bar shows what is left.
+- **Contract countdown** — an onboard voyage shows its day number and the days
+  to the latest contract end date.
+- **Expiring mid-contract** — any certificate that expires before a current or
+  planned contract ends is flagged on the Sea Time and Certificates tabs.
+
+## CV and sea service record
+
+Settings → **Profile & CV** holds the few details no other entry has (name,
+particulars, summary, experience, references, a photo). From there AVA makes two
+PDFs on the phone, with no connection needed:
+
+- **CV** — laid out the way manning agencies ask deck officers for one: personal
+  details, a sea service summary, certificates of competency, endorsements,
+  travel documents, STCW courses and medical (each certificate is placed by its
+  *Kind*, or by a guess from its title), then sea service newest first, cargo
+  experience, education, references and a signed declaration.
+- **Sea service record** — every voyage oldest first, with days per voyage and
+  totals by rank and ship type, for exam and CoC applications.
+
+Both open in the app for checking, and *Save to Files* hands them to the share
+sheet for Mail, WhatsApp or Files.
 
 ## Security
 

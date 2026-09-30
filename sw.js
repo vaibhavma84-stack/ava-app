@@ -7,7 +7,7 @@
 // Now a launch with a connection always gets current code, and a launch without
 // one falls straight back to the cache, so the app stays fully usable at sea.
 
-const VERSION = 'v18';
+const VERSION = 'v19';
 const CACHE = `ava-shell-${VERSION}`;
 
 const SHELL = [
@@ -21,6 +21,8 @@ const SHELL = [
   'js/schema.js',
   'js/derive.js',
   'js/calendar.js',
+  'js/pdf.js',
+  'js/cv.js',
   'js/db.js',
   'js/crypto.js',
   'js/icons.js',

@@ -14,6 +14,10 @@ export const RANKS = [
   'Fitter', 'Oiler', 'Wiper', 'Chief Cook', 'Steward', 'Other'
 ];
 
+export const CERT_CATEGORIES = [
+  'Certificate of Competency', 'Endorsement', 'Training / STCW course', 'Medical', 'Travel document', 'Other'
+];
+
 const FILE_LINK = {
   key: 'fileLink', label: 'Cloud link', type: 'url',
   placeholder: 'https://… (iCloud or Drive)',
@@ -37,6 +41,8 @@ export const TYPES = {
     tracksExpiry: true,
     fields: [
       { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. STCW Basic Safety Training' },
+      { key: 'category', label: 'Kind', type: 'select', options: CERT_CATEGORIES,
+        hint: 'Decides where it goes on your CV. Left blank, AVA guesses from the title.' },
       { key: 'issuer', label: 'Issuer', type: 'text', placeholder: 'e.g. DG Shipping' },
       { key: 'refNo', label: 'Reference no.', type: 'text' },
       { key: 'issueDate', label: 'Issue date', type: 'date' },
@@ -64,6 +70,8 @@ export const TYPES = {
       { key: 'grt', label: 'GRT', type: 'number', group: 'tonnage' },
       { key: 'nrt', label: 'NRT', type: 'number', group: 'tonnage' },
       { key: 'kw', label: 'KW', type: 'number', group: 'tonnage' },
+      { key: 'dwt', label: 'DWT', type: 'number', group: 'tonnage2' },
+      { key: 'engine', label: 'Main engine', type: 'text', group: 'tonnage2', placeholder: 'e.g. MAN B&W' },
       // Two per row: four across is unusable on a phone, and "Official number"
       // is abbreviated so its label stays on one line.
       { key: 'flag', label: 'Flag', type: 'text', group: 'registry1' },
@@ -98,6 +106,48 @@ export const TYPES = {
       FILE_LINK
     ],
     sort: (a, b) => (b.updatedAt || 0) - (a.updatedAt || 0)
+  },
+
+  // One per vault, reached from Settings rather than a tab. It holds what the
+  // CV needs that no other entry does, and the sea time goal.
+  profile: {
+    label: 'Profile',
+    short: 'Profile',
+    singular: 'Profile',
+    icon: 'bookmark',
+    titleKey: 'fullName',
+    singleton: true,
+    fields: [
+      { type: 'heading', label: 'For your CV' },
+      { key: 'fullName', label: 'Full name', type: 'text', placeholder: 'As in your passport' },
+      { key: 'positionApplied', label: 'Position applied for', type: 'select', options: RANKS },
+      { key: 'availableFrom', label: 'Available from', type: 'date' },
+      { key: 'dateOfBirth', label: 'Date of birth', type: 'date', group: 'birth' },
+      { key: 'placeOfBirth', label: 'Place of birth', type: 'text', group: 'birth' },
+      { key: 'nationality', label: 'Nationality', type: 'text', group: 'nat' },
+      { key: 'maritalStatus', label: 'Marital status', type: 'text', group: 'nat' },
+      { key: 'phone', label: 'Phone', type: 'text', placeholder: 'With country code' },
+      { key: 'email', label: 'Email', type: 'text' },
+      { key: 'address', label: 'Address', type: 'textarea', rows: 3 },
+      { key: 'nearestAirport', label: 'Nearest airport', type: 'text' },
+      { key: 'summary', label: 'Professional summary', type: 'textarea', rows: 5,
+        placeholder: 'e.g. Chief Officer with 6 years on crude and product tankers, experienced in cargo planning, STS operations and SIRE/CDI inspections.' },
+      { key: 'skills', label: 'Cargo & operational experience', type: 'textarea', rows: 5,
+        hint: 'One per line — cargoes, STS, ECDIS types, inspections, PMS or cargo software.' },
+      { key: 'languages', label: 'Languages', type: 'text', placeholder: 'e.g. English (fluent), Hindi' },
+      { key: 'education', label: 'Education', type: 'textarea', rows: 3 },
+      { key: 'references', label: 'References', type: 'textarea', rows: 4,
+        hint: 'Master or superintendent: name, company, phone or email.' },
+      { type: 'heading', label: 'Sea time goal' },
+      { key: 'goalLabel', label: 'Working towards', type: 'text', placeholder: 'e.g. Master CoC' },
+      { key: 'goalRank', label: 'Service that counts, as', type: 'select', options: RANKS,
+        hint: 'Leave blank to count service in any rank.' },
+      { key: 'goalMonths', label: 'Months needed', type: 'number', group: 'goal' },
+      { key: 'goalSince', label: 'Counted from', type: 'date', group: 'goal' },
+      { type: 'heading', label: 'Photo' },
+      { key: 'attachments', label: 'Passport photo', type: 'attachments',
+        hint: 'The first picture here goes on your CV. Kept encrypted on this device.' }
+    ]
   }
 };
 

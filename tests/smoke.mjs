@@ -439,6 +439,93 @@ try {
   check('the pinned note is untouched by that edit',
     await cardWith('Rotterdam agent contact').isVisible());
 
+  // ── sea time checks ─────────────────────────────────────────────────────
+  console.log('\nSea time checks');
+  // Saving an edit reopens the entry, so close it first.
+  if (await page.locator('#detail').isVisible()) await page.click('#detailClose');
+  await page.click('.nav-btn[data-tab="seatime"]');
+  const reval = page.locator('.check', { hasText: 'CoC revalidation' });
+  check('shows the STCW revalidation check', await reval.isVisible());
+  check('ten months in five years is short of twelve',
+    (await reval.locator('.pill').textContent()) === 'Short');
+  check('breaks sea time down by ship type',
+    (await page.locator('.kind-row').allTextContents()).some((t) => t.includes('Bulk Carrier')));
+
+  await openNew('seatime');
+  await set('vessel', 'MV Backwards');
+  await set('signOnDate', '2025-05-01');
+  await set('signOffDate', '2025-04-01');
+  await page.locator('#editorBody [data-field="signOffDate"]').dispatchEvent('change');
+  check('warns in the form that sign-off is before sign-on',
+    (await page.locator('#editorChecks .err-line').textContent() || '').includes('before sign-on'));
+  await page.click('#editorSave');
+  check('will not save a voyage that ends before it starts', await page.locator('#editor').isVisible());
+  await page.click('#editorCancel');
+
+  await openNew('seatime');
+  await set('vessel', 'MV Typo');
+  await pick('rank', 'Third Officer');
+  await set('signOnDate', '2024-07-01');
+  await set('signOffDate', '2024-07-20');
+  await page.locator('#editorBody [data-field="signOffDate"]').dispatchEvent('change');
+  check('warns in the form about the overlap',
+    (await page.locator('#editorChecks .warn-line').textContent() || '').includes('Overlaps MV Northern Star by 9 days'));
+  await save();   // the confirm is accepted
+  check('lists the overlapping voyages',
+    (await page.locator('.check', { hasText: 'Overlapping voyages' }).textContent()).includes('MV Northern Star ↔ MV Typo: 9 days'));
+  check('counts overlapping days only once',
+    (await page.locator('.summary-total').first().textContent()).trim() === '10 mo 14 d',
+    await page.locator('.summary-total').first().textContent());
+
+  await openNew('seatime');
+  await set('vessel', 'MV Current');
+  await pick('rank', 'Third Officer');
+  await pick('vesselType', 'Product Tanker');
+  await set('signOnDate', iso(-10));
+  await page.click('#editorBody button:has-text("+ Add contract")');
+  await page.fill('#editorBody [data-contract-field="endDate"]', iso(60));
+  await save();
+  check('counts down to the contract end',
+    (await cardWith('MV Current').locator('.voyage-count').textContent()) === `Day 11 onboard · 60 days to contract end (${await page.evaluate((d) => new Date(d + 'T00:00:00Z').toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }), iso(60))})`,
+    await cardWith('MV Current').locator('.voyage-count').textContent());
+  check('flags a certificate that expires mid-contract',
+    (await page.locator('.check', { hasText: 'Expires during a contract' }).textContent()).includes('Medical Fitness Certificate'));
+  await shot('10-seatime-checks');
+
+  // ── profile, goal and CV ────────────────────────────────────────────────
+  console.log('\nProfile and CV');
+  await page.click('.goal-link');
+  await page.waitForSelector('#editor:not([hidden])');
+  check('the goal link opens the profile', (await page.locator('#editorTitle').textContent()) === 'New profile');
+  check('the profile cannot be deleted from its form',
+    !(await page.locator('#editorBody button:has-text("Delete entry")').count()));
+  await set('fullName', 'Test Seafarer');
+  await pick('positionApplied', 'Chief Officer');
+  await set('goalLabel', 'Second Mate CoC');
+  await pick('goalRank', 'Third Officer');
+  await set('goalMonths', '12');
+  await save();
+  const goal = page.locator('.check', { hasText: 'Second Mate CoC' });
+  check('shows progress towards the goal', (await goal.textContent()).includes('of 12 mo as Third Officer'),
+    await goal.textContent());
+  check('the profile is not a tab of its own', (await page.locator('.nav-btn').count()) === 3);
+
+  await page.click('#settingsBtn');
+  await page.waitForSelector('#settings:not([hidden])');
+  await page.click('#settingsBody button:has-text("Create CV")');
+  await page.waitForSelector('#viewer:not([hidden])');
+  await page.waitForSelector('#viewerBody canvas', { timeout: 15000 });
+  check('makes the CV and shows it', (await page.locator('#viewerTitle').textContent()).startsWith('CV-Test-Seafarer-'));
+  await page.waitForTimeout(600);
+  await shot('11-cv');
+  await page.click('#viewerClose');
+
+  await page.click('#settingsBody button:has-text("Sea service record")');
+  await page.waitForSelector('#viewerBody canvas', { timeout: 15000 });
+  check('makes the sea service record', (await page.locator('#viewerTitle').textContent()).startsWith('Sea-service-Test-Seafarer-'));
+  await page.click('#viewerClose');
+  await page.click('#settingsClose');
+
   console.log('\nJavaScript errors: ' + (errors.length ? '\n  ' + errors.join('\n  ') : 'none'));
   if (errors.length) failed += errors.length;
 
