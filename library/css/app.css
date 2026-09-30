@@ -680,8 +680,13 @@ mark.find-mark { background: rgb(255 214 0 / .6); color: inherit; border-radius:
 /* The back of the sheet: paper, lit a little less than the front. */
 .curl-back { transform: rotateY(180deg); background: #f4f2ed; }
 .curl-back .curl-dark { backface-visibility: visible; -webkit-backface-visibility: visible; }
+/* A slanted roll: the shading and the paper are drawn to the page's shape. */
+.curl-dark.shaped, .curl-back.shaped { background: none; }
+.curl-paper { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.curl-frame { position: absolute; left: 0; top: 0; transform-origin: 0 0; transform-style: preserve-3d; }
+.curl-cast-clip { position: absolute; overflow: hidden; pointer-events: none; }
 .curl-cast {
   position: absolute; top: 0; bottom: 0; left: 0; width: 0; opacity: 0; pointer-events: none;
   background: linear-gradient(to right, rgba(0,0,0,.45), rgba(0,0,0,.18) 35%, rgba(0,0,0,0));
-  will-change: opacity, left;
+  will-change: opacity, transform;
 }

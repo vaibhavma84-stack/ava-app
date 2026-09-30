@@ -3818,6 +3818,39 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     check('a tap at the left edge turns back', /p\.1/.test(await other.locator('#viewerPin').innerText()),
       await other.locator('#viewerPin').innerText());
 
+    // Taken by the top corner: the page rolls on the slant, corner first.
+    box = await pageBox();
+    await other.mouse.move(box.x + box.width * 0.85, box.y + box.height * 0.15);
+    await other.mouse.down();
+    await other.mouse.move(box.x + box.width * 0.6, box.y + box.height * 0.18, { steps: 5 });
+    await other.waitForTimeout(100);
+    const cornerTurn = await other.evaluate(() => {
+      const b = document.getElementById('viewerBody');
+      const shown = [...b.querySelectorAll('.curl')].find((c) => c.style.display !== 'none');
+      const strips = shown ? [...shown.querySelectorAll('.curl-strip')] : [];
+      return {
+        frame: shown?.querySelector('.curl-frame')?.style.transform || '',
+        strips: strips.length,
+        rolling: strips.filter((st) => /rotateY\(-[1-9]|rotateY\(-0\.[0-9]*[1-9]/.test(st.style.transform)).length,
+        // A clipped layer turned in 3D breaks up; the shape is drawn instead.
+        clipped: shown ? [...shown.querySelectorAll('.curl-strip, .curl-strip *')].some((e) => e.style.clipPath) : true,
+        shaped: shown ? shown.querySelectorAll('canvas.curl-paper').length : 0
+      };
+    });
+    check('a page taken by its top corner rolls on the slant',
+      /rotateZ\(-0\.2rad\)/.test(cornerTurn.frame) && cornerTurn.rolling > 0 && cornerTurn.rolling < cornerTurn.strips,
+      JSON.stringify(cornerTurn));
+    check('with the back of the paper cut to the page, not clipped in 3D',
+      !cornerTurn.clipped && cornerTurn.shaped === cornerTurn.strips, JSON.stringify(cornerTurn));
+    for (const f of [0.7, 0.78, 0.84, 0.86]) {
+      await other.mouse.move(box.x + box.width * f, box.y + box.height * 0.18);
+      await other.waitForTimeout(120);
+    }
+    await other.mouse.up();
+    await other.waitForTimeout(700);
+    check('and taken back, lies down again where it was', /p\.1/.test(await other.locator('#viewerPin').innerText()),
+      await other.locator('#viewerPin').innerText());
+
     // A finger dragged from the right edge across to the left.
     box = await pageBox();
     await other.mouse.move(box.x + box.width * 0.85, box.y + box.height / 2);

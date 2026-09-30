@@ -173,49 +173,127 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   // ahead, while the page lies still: for the page on screen and the one
   // before it, a few strips a frame, kept out of sight until a turn needs
   // them. A turn that comes before they are ready finishes the cutting then.
-  const ready = new Map();   // page number -> strips cut for it
+  //
+  // A page taken by its top or bottom corner rolls on the slant, that corner
+  // first, the way a page does when a book is turned by its corner. The
+  // strips then run along the slant, so the page is cut three ways -- straight,
+  // and slanted each way -- all ahead of time. The slant is set by where the
+  // finger lands and kept for the turn: cutting afresh for every angle as the
+  // finger moves is the catch this was built to avoid.
+  const TILT = 0.2;          // radians, about 11 degrees
+  const ready = new Map();   // "page|tilt" -> strips cut for it
+  const keyOf = (page, tilt) => `${page}|${tilt}`;
+  const sizeOf = (canvas) => `${parseFloat(canvas.style.width)}x${parseFloat(canvas.style.height)}x${canvas.width}`;
 
-  const startCurl = (canvas) => {
+  const startCurl = (canvas, tilt) => {
     const w = parseFloat(canvas.style.width);
     const h = parseFloat(canvas.style.height);
+    const phi = tilt * TILT;
+    const cos = Math.cos(phi);
+    const sin = Math.sin(phi);
+    // The page in the turned frame: u across the roll, v along it.
+    const corners = [[0, 0], [w, 0], [w, h], [0, h]].map(([x, y]) => [x * cos + y * sin, -x * sin + y * cos]);
+    const us = corners.map((c) => c[0]);
+    const vs = corners.map((c) => c[1]);
+    const umin = Math.min(...us), umax = Math.max(...us);
+    const vmin = Math.min(...vs), vmax = Math.max(...vs);
+
     const layer = el('div', { class: 'curl' });
     Object.assign(layer.style, {
       left: canvas.style.left, top: canvas.style.top, width: `${w}px`, height: `${h}px`, display: 'none'
     });
-    // About one strip to every two points of width -- some 170 on a phone,
-    // at most 200. Finer than that the roll looks no rounder, and each strip
-    // is one more thing for the phone to move every frame.
-    const count = Math.max(40, Math.min(200, Math.round(w / 2)));
-    // The shadow the roll casts on the page it is uncovering.
+    const frame = el('div', { class: 'curl-frame' });
+    frame.style.transform = `rotateZ(${phi}rad)`;
+    // The shadow the roll casts on the page it is uncovering, kept to the page.
+    const castClip = el('div', { class: 'curl-cast-clip' });
+    Object.assign(castClip.style, {
+      left: `${umin}px`, top: `${vmin}px`, width: `${umax - umin}px`, height: `${vmax - vmin}px`,
+      clipPath: tilt ? `polygon(${corners.map(([u, v]) => `${(u - umin).toFixed(2)}px ${(v - vmin).toFixed(2)}px`).join(',')})` : ''
+    });
     const cast = el('div', { class: 'curl-cast' });
-    layer.append(cast);
+    castClip.append(cast);
+    frame.append(castClip);
+    layer.append(frame);
     container.append(layer);
-    return { layer, strips: [], count, w, h, canvas, cast, page: Number(canvas.dataset.page), size: `${w}x${h}x${canvas.width}` };
+    // About one strip to every two points across the roll -- some 170 on a
+    // phone, at most 200. Finer than that the roll looks no rounder, and each
+    // strip is one more thing for the phone to move every frame.
+    const count = Math.max(40, Math.min(200, Math.round((umax - umin) / 2)));
+    return { layer, frame, strips: [], count, w, h, canvas, cast, tilt, phi, cos, sin, corners, umin, umax, vmin, vmax,
+      page: Number(canvas.dataset.page), size: sizeOf(canvas) };
   };
 
   const cutStrips = (c, upTo) => {
-    const sw = c.w / c.count;
-    const srcW = c.canvas.width / c.count;
+    const span = c.umax - c.umin;
+    const su = span / c.count;
+    const len = c.vmax - c.vmin;
+    const scale = c.canvas.width / c.w;          // page pixels to the point
     for (let i = c.strips.length; i < Math.min(upTo, c.count); i++) {
+      const u0 = c.umin + i * su;
       const strip = el('div', { class: 'curl-strip' });
       // A hair wider than its share, so no seam of light shows between them.
-      Object.assign(strip.style, { width: `${sw + 0.6}px`, height: `${c.h}px` });
+      Object.assign(strip.style, { width: `${su + 0.6}px`, height: `${len}px` });
       const face = document.createElement('canvas');
       face.className = 'curl-face';
-      face.width = Math.max(1, Math.ceil(srcW));
-      face.height = c.canvas.height;
-      face.getContext('2d').drawImage(c.canvas, i * srcW, 0, srcW, c.canvas.height, 0, 0, face.width, face.height);
-      const dark = el('div', { class: 'curl-dark' });
-      const backDark = el('div', { class: 'curl-dark' });
-      strip.append(face, dark, el('div', { class: 'curl-back' }, [backDark]));
-      c.layer.append(strip);
-      c.strips.push({ strip, dark, backDark, x0: i * sw });
+      face.width = Math.max(1, Math.ceil((su + 0.6) * scale));
+      face.height = Math.max(1, Math.ceil(len * scale));
+      const ctx = face.getContext('2d');
+      if (!c.tilt) {
+        ctx.drawImage(c.canvas, u0 * scale, 0, (su + 0.6) * scale, c.canvas.height, 0, 0, face.width, face.height);
+      } else {
+        // The page, turned into the strip's frame: local = R(-phi) * page.
+        ctx.setTransform(new DOMMatrix()
+          .translate(-u0 * scale, -c.vmin * scale)
+          .rotate(0, 0, -c.phi * 180 / Math.PI));
+        ctx.drawImage(c.canvas, 0, 0);
+      }
+      let dark, backDark, back;
+      if (!c.tilt) {
+        dark = el('div', { class: 'curl-dark' });
+        backDark = el('div', { class: 'curl-dark' });
+        back = el('div', { class: 'curl-back' }, [backDark]);
+      } else {
+        // Only the page, not the corners of the band beyond it. The face is
+        // cut to it already -- it is transparent outside -- and the shading
+        // and the paper back are drawn to the same shape. Not trimmed with a
+        // clip: a clipped layer turned in 3D breaks up into fragments.
+        // Drawn narrow and stretched: flat colour needs little detail.
+        const bw = su + 0.6;
+        const shape = (colour, mirror) => {
+          const shaped = document.createElement('canvas');
+          shaped.width = 4;
+          shaped.height = Math.max(2, Math.ceil(len * 1.5));
+          const sx = shaped.width / bw;
+          const sy = shaped.height / len;
+          const g = shaped.getContext('2d');
+          g.fillStyle = colour;
+          g.beginPath();
+          for (const [u, v] of c.corners) {
+            const x = u - u0;
+            g.lineTo((mirror ? bw - x : x) * sx, (v - c.vmin) * sy);
+          }
+          g.fill();
+          return shaped;
+        };
+        dark = shape('#000', false);
+        dark.className = 'curl-dark shaped';
+        // The back is turned over, so what is left of it is on the right.
+        backDark = shape('#000', true);
+        backDark.className = 'curl-dark shaped';
+        const paper = shape('#f4f2ed', true);
+        paper.className = 'curl-paper';
+        back = el('div', { class: 'curl-back shaped' }, [paper, backDark]);
+      }
+      strip.append(face, dark, back);
+      c.frame.append(strip);
+      c.strips.push({ strip, dark, backDark, u0 });
     }
   };
 
   const forget = (page) => {
-    const c = ready.get(page);
-    if (c) { c.layer.remove(); ready.delete(page); }
+    for (const [key, c] of [...ready]) {
+      if (c.page === page) { c.layer.remove(); ready.delete(key); }
+    }
   };
 
   let preparing = 0;
@@ -223,34 +301,41 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     clearTimeout(preparing);
     preparing = setTimeout(() => {
       if (!bookOn || busy) return;
-      const wanted = [current, current - 1];
-      for (const page of [...ready.keys()]) if (!wanted.includes(page)) forget(page);
-      for (const page of wanted) {
+      // Forward: this page, straight or by either corner. Back: the page
+      // before, straight.
+      const wanted = [[current, 0], [current, -1], [current, 1], [current - 1, 0]];
+      const keep = new Set(wanted.map(([p, t]) => keyOf(p, t)));
+      for (const [key, c] of [...ready]) if (!keep.has(key)) { c.layer.remove(); ready.delete(key); }
+      const queue = [];
+      for (const [page, tilt] of wanted) {
         const canvas = pageEl(page);
         if (!canvas || !canvas.width || canvas.classList.contains('book-off')) continue;
-        const had = ready.get(page);
-        const size = `${parseFloat(canvas.style.width)}x${parseFloat(canvas.style.height)}x${canvas.width}`;
-        if (had && had.size === size) continue;
-        forget(page);
-        const c = startCurl(canvas);
-        ready.set(page, c);
-        // A few at a time, so no frame is held up for long.
-        const more = () => {
-          if (ready.get(page) !== c || c.strips.length >= c.count) return;
-          cutStrips(c, c.strips.length + 24);
-          requestAnimationFrame(more);
-        };
-        requestAnimationFrame(more);
+        const key = keyOf(page, tilt);
+        const had = ready.get(key);
+        if (had && had.size === sizeOf(canvas)) continue;
+        if (had) { had.layer.remove(); ready.delete(key); }
+        const c = startCurl(canvas, tilt);
+        ready.set(key, c);
+        queue.push([key, c]);
       }
+      // One after another, a few strips a frame, straight ones first.
+      const more = () => {
+        while (queue.length && (ready.get(queue[0][0]) !== queue[0][1] || queue[0][1].strips.length >= queue[0][1].count)) queue.shift();
+        if (!queue.length || busy) return;
+        const c = queue[0][1];
+        cutStrips(c, c.strips.length + 20);
+        requestAnimationFrame(more);
+      };
+      requestAnimationFrame(more);
     }, 120);
   };
 
-  const takeCurl = (canvas) => {
+  const takeCurl = (canvas, tilt) => {
     const page = Number(canvas.dataset.page);
-    let c = ready.get(page);
-    const size = `${parseFloat(canvas.style.width)}x${parseFloat(canvas.style.height)}x${canvas.width}`;
-    if (!c || c.size !== size) { forget(page); c = startCurl(canvas); }
-    ready.delete(page);
+    const key = keyOf(page, tilt);
+    let c = ready.get(key);
+    if (!c || c.size !== sizeOf(canvas)) { if (c) c.layer.remove(); c = startCurl(canvas, tilt); }
+    ready.delete(key);
     cutStrips(c, c.count);
     c.layer.style.display = '';
     return c;
@@ -258,12 +343,12 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
 
   // q: how far the page has rolled over, 0 flat to 1 gone.
   const rollTo = (q) => {
-    const { strips, w } = curl;
-    const R = Math.max(w * 0.1, 22);
-    const a = w - q * (w + Math.PI * R + 6);
+    const { strips, umin, umax, vmin } = curl;
+    const R = Math.max(curl.w * 0.1, 22);
+    const a = umax - q * (umax - umin + Math.PI * R + 6);
     for (const s of strips) {
-      const x = s.x0 - a;
-      let X = s.x0;
+      const x = s.u0 - a;
+      let X = s.u0;
       let Z = 0;
       let th = 0;
       if (x > 0) {
@@ -277,7 +362,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
           Z = 2 * R;
         }
       }
-      s.strip.style.transform = `translate3d(${X.toFixed(2)}px,0,${Z.toFixed(2)}px) rotateY(${(-th).toFixed(4)}rad)`;
+      s.strip.style.transform = `translate3d(${X.toFixed(2)}px,${vmin.toFixed(2)}px,${Z.toFixed(2)}px) rotateY(${(-th).toFixed(4)}rad)`;
       // Light from in front: the face darkens as it turns away up the roll,
       // the back is darkest where it comes over the top and lightens as it
       // lies down flat. Smooth from strip to strip, so the roll reads as one
@@ -287,9 +372,9 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     }
     // Cast from the top of the roll across the page beneath, deepest as the
     // page stands up and fading as it lies down on the far side.
-    const edge = Math.min(a + R, w);
+    const edge = Math.min(a + R, umax);
     Object.assign(curl.cast.style, {
-      left: `${edge.toFixed(1)}px`,
+      transform: `translateX(${(edge - umin).toFixed(1)}px)`,
       width: `${(R * 1.6).toFixed(1)}px`,
       opacity: (Math.sin(Math.min(q, 1) * Math.PI) * 0.9 + (q > 0 ? 0.1 : 0)).toFixed(3)
     });
@@ -301,7 +386,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     curl.canvas.style.visibility = '';
     curl = null;
   };
-  const forgetAll = () => { for (const page of [...ready.keys()]) forget(page); };
+  const forgetAll = () => { for (const c of ready.values()) c.layer.remove(); ready.clear(); };
 
   // At rest: the page on screen on top, its neighbours ready beneath it,
   // everything else not laid out.
@@ -331,7 +416,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   };
 
   // How far a turn has gone, 0 to 1. dir 1 is forward, -1 back.
-  const progress = (dir, q) => {
+  const progress = (dir, q, tilt = 0) => {
     const turning = pageEl(dir > 0 ? current : current - 1);
     const under = pageEl(dir > 0 ? current + 1 : current);
     if (!turning || !under) return;
@@ -344,7 +429,9 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     // back over it from the left.
     const rolled = dir > 0 ? q : 1 - q;
     if (!curl && turning.width) {
-      curl = takeCurl(turning);
+      // Only a forward turn is taken by a corner; the page coming back
+      // over from the left comes straight.
+      curl = takeCurl(turning, dir > 0 ? tilt : 0);
       turning.style.visibility = 'hidden';
     }
     if (curl) rollTo(rolled);
@@ -359,7 +446,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
 
   // Finished by the same hand that moved it, frame by frame: the strips go
   // where the roll puts them, so they cannot simply be left to a transition.
-  const finish = (dir, complete, from) => {
+  const finish = (dir, complete, from, tilt = 0) => {
     busy = true;
     const to = complete ? 1 : 0;
     const start = performance.now();
@@ -367,7 +454,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     const step = (now) => {
       const t = Math.min((now - start) / span, 1);
       const eased = 1 - (1 - t) ** 3;
-      progress(dir, from + (to - from) * eased);
+      progress(dir, from + (to - from) * eased, tilt);
       if (t < 1) { requestAnimationFrame(step); return; }
       if (complete) current += dir;
       busy = false;
@@ -380,7 +467,7 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
   container.addEventListener('pointerdown', (e) => {
     if (!bookOn || busy || container.classList.contains('marking')) return;
     if (!e.target.closest?.('canvas[data-page]')) return;
-    drag = { x: e.clientX, t: performance.now(), lastX: e.clientX, lastT: performance.now(), speed: 0, dir: 0, q: 0, id: e.pointerId };
+    drag = { x: e.clientX, y: e.clientY, tilt: 0, t: performance.now(), lastX: e.clientX, lastT: performance.now(), speed: 0, dir: 0, q: 0, id: e.pointerId };
   });
   container.addEventListener('pointermove', (e) => {
     if (!drag) return;
@@ -388,6 +475,12 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
     if (!drag.dir) {
       if (Math.abs(dx) < 8) return;
       drag.dir = dx < 0 ? 1 : -1;
+      // Taken by the top or the bottom corner, the page rolls on the slant.
+      const page = pageEl(current)?.getBoundingClientRect();
+      if (page && drag.dir > 0) {
+        const at = (drag.y - page.top) / page.height;
+        drag.tilt = at < 0.3 ? -1 : at > 0.7 ? 1 : 0;
+      }
       if (!pageEl(current + (drag.dir > 0 ? 1 : -1))) { drag = null; return; }
       try { container.setPointerCapture(drag.id); } catch { /* already gone */ }
     }
@@ -405,20 +498,20 @@ export async function renderInto(container, blob, name, { onStatus, startPage = 
       drag.frame = requestAnimationFrame(() => {
         if (!drag) return;
         drag.frame = 0;
-        progress(drag.dir, drag.q);
+        progress(drag.dir, drag.q, drag.tilt);
       });
     }
   });
   const release = () => {
     if (!drag) return;
-    const { dir, q } = drag;
+    const { dir, q, tilt } = drag;
     if (drag.frame) cancelAnimationFrame(drag.frame);
     const flick = Math.abs(drag.speed || 0) > 0.45 && Math.sign(-(drag.speed || 0)) === dir;
     drag = null;
     if (!dir) return;
     suppressClick = true;
     setTimeout(() => { suppressClick = false; }, 400);
-    finish(dir, q > 0.35 || (q > 0.06 && flick), q);
+    finish(dir, q > 0.35 || (q > 0.06 && flick), q, tilt);
   };
   container.addEventListener('pointerup', release);
   container.addEventListener('pointercancel', release);
