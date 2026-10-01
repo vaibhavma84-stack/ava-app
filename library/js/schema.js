@@ -50,6 +50,13 @@ export const LOCAL_PROCEDURE_CATEGORIES = [
   'Emergency', 'Maintenance', 'Permit to Work', 'Other'
 ];
 
+// What an instrument on board is for. A gas detector and a sextant are both
+// instruments; they are looked for in different places.
+export const INSTRUMENT_CATEGORIES = [
+  'Gas Detection', 'Navigation', 'GMDSS / Radio', 'Engine Room', 'Cargo',
+  'Safety', 'Measuring / Test', 'Other'
+];
+
 export const FLAG_STATES = ['MCA', 'Panama', 'Singapore', 'Other'];
 
 /**
@@ -210,6 +217,41 @@ export const TYPES = {
     // time, so the whole section can be queued and worked through.
     bulkRead: true,
     filterBy: { key: 'category', label: 'Type' },
+    sort: (a, b) => (a.category || '').localeCompare(b.category || '')
+                 || (a.title || '').localeCompare(b.title || '')
+  },
+
+  // The instruments on board -- a GX-8000 gas detector, a multimeter, the
+  // portable O2 meters -- each with what is needed to work it: who made it,
+  // its model and serial, where it lives, when it was last calibrated and
+  // when it is due again, and its manual and procedures attached.
+  instrument: {
+    label: 'Instruments',
+    short: 'Instruments',
+    singular: 'Instrument',
+    icon: 'gauge',
+    titleKey: 'title',
+    fields: [
+      { key: 'title', label: 'Instrument', type: 'text', required: true, placeholder: 'e.g. GX-8000 gas detector' },
+      { key: 'category', label: 'Kind', type: 'select', options: INSTRUMENT_CATEGORIES },
+      { keepCase: true, key: 'maker', label: 'Maker', type: 'text', group: 'ident', placeholder: 'e.g. Riken Keiki' },
+      { keepCase: true, key: 'model', label: 'Model', type: 'text', group: 'ident', placeholder: 'e.g. GX-8000' },
+      { keepCase: true, key: 'serialNo', label: 'Serial number', type: 'text' },
+      { key: 'vessel', label: 'Vessel', type: 'text', group: 'where', suggestFrom: true },
+      { key: 'location', label: 'Location onboard', type: 'text', group: 'where', placeholder: 'e.g. CCR locker' },
+      { key: 'calibrated', label: 'Last calibrated', type: 'date' },
+      { ...REVIEW_BY, label: 'Calibration / service due' },
+      { ...NOTES, label: 'Notes / procedures' },
+      ATTACHMENTS,
+      FILE_LINK
+    ],
+    listFields: ['maker', 'model'],
+    groupBy: { key: 'vessel', label: 'Vessel', blank: 'No vessel set' },
+    subGroupBy: { key: 'category', label: 'Kind', blank: 'Unsorted' },
+    collapsible: true,
+    bulkFields: ['vessel', 'category'],
+    bulkRead: true,
+    filterBy: { key: 'category', label: 'Kind' },
     sort: (a, b) => (a.category || '').localeCompare(b.category || '')
                  || (a.title || '').localeCompare(b.title || '')
   },
@@ -451,4 +493,4 @@ export const TYPES = {
 // 'notice' is defined above but parked: it is not listed here, so nothing
 // renders it, and any records already saved under it stay untouched. Adding it
 // back to this list restores both the section and its entries.
-export const TAB_ORDER = ['publication', 'manual', 'local', 'synergy', 'flag', 'circular', 'sire'];
+export const TAB_ORDER = ['publication', 'manual', 'instrument', 'local', 'synergy', 'flag', 'circular', 'sire'];

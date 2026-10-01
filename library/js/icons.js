@@ -1,5 +1,6 @@
 // Monochrome line icons; they inherit currentColor so section tints come from CSS.
 const PATHS = {
+  gauge: '<path d="M3.5 17a8.5 8.5 0 1 1 17 0"/><line x1="12" y1="15" x2="16.5" y2="9.5"/><circle cx="12" cy="15" r="1.3"/><line x1="6" y1="12.5" x2="7.3" y2="13"/><line x1="18" y1="12.5" x2="16.7" y2="13"/>',
   book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
   library: '<path d="M4 5v14"/><path d="M8 5v14"/><path d="M12.5 5.5l4.5-1 3.5 13-4.5 1z"/><path d="M2 19h20"/>',
   megaphone: '<path d="M3 11v2a1 1 0 0 0 1 1h3l7 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M18 8a5 5 0 0 1 0 8"/>',

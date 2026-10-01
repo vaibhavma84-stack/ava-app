@@ -591,10 +591,10 @@ try {
   check('opens straight away, with no passcode', true);
   check('no lock screen is shown', await page.locator('#lock').isHidden());
   check('opens on the sections screen',
-    (await page.locator('.section-card').count()) === 7);
+    (await page.locator('.section-card').count()) === 8);
   const names = await page.locator('.section-name').allTextContents();
   check('sections appear in the configured order',
-    names.join(',') === 'Publications,Manuals,Local Procedures,Synergy,Flag Circulars,Circulars,SIRE 2.0',
+    names.join(',') === 'Publications,Manuals,Instruments,Local Procedures,Synergy,Flag Circulars,Circulars,SIRE 2.0',
     names.join(','));
   await shot('lib-01-home');
 
@@ -4606,6 +4606,45 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
     await other.waitForTimeout(500);
     check('turned off, it opens straight away', await other.locator('#faceLock').isHidden());
+    await fresh.close();
+  }
+
+  console.log('\nInstruments');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.locator('.section-card', { hasText: 'Instruments' }).click();
+    check('instruments have a section of their own', /Instruments/i.test(await other.locator('#screenTitle').innerText()));
+    await other.click('#fab');
+    await other.waitForSelector('#editor:not([hidden])');
+    const due = new Date(Date.now() + 10 * 864e5).toISOString().slice(0, 10);
+    await other.fill('#editorBody [data-field="title"]', 'GX-8000 gas detector');
+    await other.selectOption('#editorBody [data-field="category"]', 'Gas Detection');
+    await other.fill('#editorBody [data-field="maker"]', 'Riken Keiki');
+    await other.fill('#editorBody [data-field="model"]', 'GX-8000');
+    await other.fill('#editorBody [data-field="serialNo"]', 'SN 40213');
+    await other.fill('#editorBody [data-field="reviewBy"]', due);
+    await other.fill('#editorBody [data-field="notes"]', 'Bump test before each entry into an enclosed space.');
+    await other.click('#editorSave');
+    await other.waitForSelector('#editor', { state: 'hidden', timeout: 15000 });
+    for (let i = 0; i < 5; i++) {
+      const shut = other.locator('.group-head-btn[aria-expanded="false"]').first();
+      if (await shut.count() === 0) break;
+      await shut.click();
+      await other.waitForTimeout(50);
+    }
+    const card = await other.locator('.card', { hasText: /GX-8000 gas detector/i }).innerText();
+    check('an instrument shows its maker and model, and when it is due', /Riken Keiki/.test(card) && /GX-8000/.test(card) && /Due in 10 days/i.test(card), card);
+    await other.click('#backBtn');
+    await other.waitForTimeout(300);
+    const dueText = await other.locator('#dueSoon').innerText().catch((e) => `none: ${e.message.slice(0, 80)}`);
+    check('and its calibration comes up under Due soon', /GX-8000 gas detector[\s\S]*Instrument/i.test(dueText), dueText);
+    await other.fill('#search', 'bump test');
+    await other.waitForTimeout(600);
+    const hit = await other.locator('.card').first().innerText().catch(() => 'no card');
+    check('its procedures are searched', /GX-8000 gas detector/i.test(hit), hit);
     await fresh.close();
   }
 
