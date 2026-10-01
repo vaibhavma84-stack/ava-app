@@ -25,7 +25,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.52';
+const APP_VERSION = '2026.10.53';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -3902,7 +3902,11 @@ function kitTarget(row) {
   if (row.kind === 'page') {
     const att = (item.data.attachments || []).find((a) => a.id === row.attId);
     if (!att) return null;
-    return { kind: def.singular, title: titleOf(item), where: `page ${row.page}`, open: () => openAttachment(att, row.page, item.id) };
+    // An entry with several files says which one, and a row given a name
+    // says what is on the page.
+    const file = item.data.attachments.length > 1 ? att.name.replace(/\.[a-z0-9]+$/i, '') : '';
+    const where = [row.label, file, `page ${row.page}`].filter(Boolean).join(' · ');
+    return { kind: def.singular, title: titleOf(item), where, open: () => openAttachment(att, row.page, item.id) };
   }
   return { kind: def.singular, title: titleOf(item), where: item.data.refNo || item.data.revision || '', open: () => openDetail(item.id) };
 }

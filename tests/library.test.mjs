@@ -4645,6 +4645,23 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await other.waitForTimeout(600);
     const hit = await other.locator('.card').first().innerText().catch(() => 'no card');
     check('its procedures are searched', /GX-8000 gas detector/i.test(hit), hit);
+    await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const item = await store.saveItem({ type: 'instrument', data: { title: 'RX-8000', attachments: [
+        { id: 'rxa', name: 'RX-8000 Calibration.pdf', type: 'application/pdf', size: 1 },
+        { id: 'rxb', name: 'RX-8000 Operating Manual.pdf', type: 'application/pdf', size: 1 }
+      ] } });
+      await store.setList('kits', [{ id: 'rxk', title: 'RX kit', createdAt: new Date().toISOString(), rows: [
+        { id: 'r1', kind: 'page', itemId: item.id, attId: 'rxb', page: 24, label: 'Air calibration' }
+      ] }]);
+    });
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.click('#open-kits');
+    await other.locator('#body .answer-open', { hasText: 'RX kit' }).click();
+    const rxRow = await other.locator('#kitRows .answer-open').first().innerText();
+    check('a page in a kit says what it is and which file it is in',
+      /Air calibration/.test(rxRow) && /RX-8000 Operating Manual/.test(rxRow) && /page 24/i.test(rxRow), rxRow);
     await fresh.close();
   }
 
