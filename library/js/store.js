@@ -331,6 +331,25 @@ export async function fullBackup() {
  * entry, and counted, rather than leaving an entry pointing at nothing --
  * unless this phone already holds it.
  */
+/**
+ * The bytes of a blob, copied out into a blob of their own.
+ *
+ * A file in a backup is a slice from the middle of the zip that was picked.
+ * Safari on the iPhone keeps such a slice in the database as the picked file
+ * and loses where in it the slice began, so a PDF came back starting at the
+ * zip's first byte rather than its own -- "Invalid Root reference" when it
+ * was opened. Copied out, a slice is only its own bytes. Read a piece at a
+ * time, so a large manual is not one great block of memory.
+ */
+async function ownBytes(blob, type) {
+  const STEP = 8 * 1024 * 1024;
+  const parts = [];
+  for (let at = 0; at < blob.size; at += STEP) {
+    parts.push(await blob.slice(at, Math.min(blob.size, at + STEP)).arrayBuffer());
+  }
+  return new Blob(parts, { type });
+}
+
 export async function restoreFull(manifest, texts, blobFor) {
   if (manifest?.format !== FULL_FORMAT) throw new Error('Not a Library full backup');
   let items = 0, files = 0, missing = 0;
@@ -342,7 +361,7 @@ export async function restoreFull(manifest, texts, blobFor) {
       const blob = path ? await blobFor(path) : null;
       if (blob) {
         const type = att.type || blob.type || 'application/octet-stream';
-        await db.put(db.STORE_BLOBS, { id: att.id, size: blob.size, type, blob: blob.slice(0, blob.size, type) });
+        await db.put(db.STORE_BLOBS, { id: att.id, size: blob.size, type, blob: await ownBytes(blob, type) });
         files++;
       } else if (!(await db.get(db.STORE_BLOBS, att.id))?.blob) {
         if (path) missing++;

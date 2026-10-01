@@ -57,6 +57,12 @@ export const INSTRUMENT_CATEGORIES = [
   'Safety', 'Measuring / Test', 'Other'
 ];
 
+// What a calculation on board works out. Filed by the job it is done for.
+export const CALCULATION_CATEGORIES = [
+  'Cargo Operations', 'Stability / Loading', 'Ballast', 'Bunkering',
+  'Engine Room', 'Gas / Atmosphere', 'Conversions', 'Other'
+];
+
 export const FLAG_STATES = ['MCA', 'Panama', 'Singapore', 'Other'];
 
 /**
@@ -254,6 +260,33 @@ export const TYPES = {
     filterBy: { key: 'category', label: 'Kind' },
     sort: (a, b) => (a.category || '').localeCompare(b.category || '')
                  || (a.title || '').localeCompare(b.title || '')
+  },
+
+  // Worked calculations -- a discharge rate against back pressure, a bunker
+  // quantity, a stability check -- with the inputs, the steps and the answer
+  // written in, and the workings attached, so the next one is done the same way.
+  calculation: {
+    label: 'Calculations',
+    short: 'Calculations',
+    singular: 'Calculation',
+    icon: 'calculator',
+    titleKey: 'title',
+    fields: [
+      { key: 'title', label: 'Calculation', type: 'text', required: true, placeholder: 'e.g. Rate calculations 1' },
+      { key: 'category', label: 'Kind', type: 'select', options: CALCULATION_CATEGORIES },
+      { keepCase: true, key: 'subject', label: 'What it works out', type: 'text', placeholder: 'e.g. Propane discharge rate vs 3 bar back pressure' },
+      { key: 'vessel', label: 'Vessel', type: 'text', suggestFrom: true },
+      { key: 'date', label: 'Prepared', type: 'date' },
+      { ...NOTES, label: 'Inputs, steps and result' },
+      ATTACHMENTS,
+      FILE_LINK
+    ],
+    listFields: ['subject'],
+    groupBy: { key: 'category', label: 'Kind', blank: 'Unsorted' },
+    collapsible: true,
+    bulkFields: ['vessel', 'category'],
+    filterBy: { key: 'vessel', label: 'Vessel' },
+    sort: (a, b) => (a.title || '').localeCompare(b.title || '', undefined, { numeric: true })
   },
 
   local: {
@@ -493,4 +526,4 @@ export const TYPES = {
 // 'notice' is defined above but parked: it is not listed here, so nothing
 // renders it, and any records already saved under it stay untouched. Adding it
 // back to this list restores both the section and its entries.
-export const TAB_ORDER = ['publication', 'manual', 'instrument', 'local', 'synergy', 'flag', 'circular', 'sire'];
+export const TAB_ORDER = ['publication', 'manual', 'instrument', 'calculation', 'local', 'synergy', 'flag', 'circular', 'sire'];

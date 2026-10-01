@@ -591,10 +591,10 @@ try {
   check('opens straight away, with no passcode', true);
   check('no lock screen is shown', await page.locator('#lock').isHidden());
   check('opens on the sections screen',
-    (await page.locator('.section-card').count()) === 8);
+    (await page.locator('.section-card').count()) === 9);
   const names = await page.locator('.section-name').allTextContents();
   check('sections appear in the configured order',
-    names.join(',') === 'Publications,Manuals,Instruments,Local Procedures,Synergy,Flag Circulars,Circulars,SIRE 2.0',
+    names.join(',') === 'Publications,Manuals,Instruments,Calculations,Local Procedures,Synergy,Flag Circulars,Circulars,SIRE 2.0',
     names.join(','));
   await shot('lib-01-home');
 
@@ -3485,10 +3485,31 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     other.on('dialog', (d) => d.accept());
     await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
     await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    // Safari on the iPhone stores a slice from the middle of a picked file as
+    // if it began at the file's first byte. Chromium does not, so watch for
+    // such a slice reaching the database at all.
+    await other.evaluate(() => {
+      const offset = new WeakSet();
+      const slice = Blob.prototype.slice;
+      Blob.prototype.slice = function (start, ...rest) {
+        const part = slice.call(this, start, ...rest);
+        // A slice of such a slice still begins part-way into the file.
+        if (start > 0 || offset.has(this)) offset.add(part);
+        return part;
+      };
+      const put = IDBObjectStore.prototype.put;
+      window.__slicesStored = 0;
+      IDBObjectStore.prototype.put = function (value, ...rest) {
+        if (value && value.blob instanceof Blob && offset.has(value.blob)) window.__slicesStored++;
+        return put.call(this, value, ...rest);
+      };
+    });
     await other.click('#settingsBtn');
     await other.waitForSelector('#settings:not([hidden])');
     await other.setInputFiles('#fullPicker', fullPath);
     await other.waitForSelector('#settings', { state: 'hidden', timeout: 60000 });
+    const slicesStored = await other.evaluate(() => window.__slicesStored);
+    check('a restored file is kept as its own bytes, not as a slice of the zip', slicesStored === 0, `${slicesStored} slices stored`);
     const restored = await other.evaluate(async () => {
       const store = await import('./js/store.js');
       const { search } = await import('./js/search.js');
@@ -4662,6 +4683,45 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     const rxRow = await other.locator('#kitRows .answer-open').first().innerText();
     check('a page in a kit says what it is and which file it is in',
       /Air calibration/.test(rxRow) && /RX-8000 Operating Manual/.test(rxRow) && /page 24/i.test(rxRow), rxRow);
+    await fresh.close();
+  }
+
+  console.log('\nCalculations');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.locator('.section-card', { hasText: 'Calculations' }).click();
+    check('calculations have a section of their own', /Calculations/i.test(await other.locator('#screenTitle').innerText()));
+    await other.click('#fab');
+    await other.waitForSelector('#editor:not([hidden])');
+    await other.fill('#editorBody [data-field="title"]', 'Rate calculations 1');
+    await other.selectOption('#editorBody [data-field="category"]', 'Cargo Operations');
+    await other.fill('#editorBody [data-field="subject"]', 'Propane discharge rate vs 3 bar back pressure');
+    await other.fill('#editorBody [data-field="notes"]', 'Two pumps in parallel: about 1,600 m3/h, 925 t/h. SYSTEMCURVEMARKER');
+    await other.click('#editorSave');
+    await other.waitForSelector('#editor', { state: 'hidden', timeout: 15000 });
+    for (let i = 0; i < 5; i++) {
+      const shut = other.locator('.group-head-btn[aria-expanded="false"]').first();
+      if (await shut.count() === 0) break;
+      await shut.click();
+      await other.waitForTimeout(50);
+    }
+    const card = await other.locator('.card', { hasText: /Rate calculations 1/i }).innerText();
+    check('a calculation shows what it works out', /Propane discharge rate/.test(card), card);
+    await other.click('#backBtn');
+    await other.waitForTimeout(300);
+    await other.fill('#search', 'SYSTEMCURVEMARKER');
+    await other.waitForTimeout(600);
+    const hit = await other.locator('.card').first().innerText().catch(() => 'no card');
+    check('and its workings are searched', /Rate calculations 1/i.test(hit), hit);
+    await other.locator('.card').first().click();
+    await other.waitForSelector('#detail:not([hidden])');
+    const long = await other.locator('#detail .stat-long').first().evaluate((n) => ({
+      text: n.innerText, align: getComputedStyle(n.lastElementChild).textAlign
+    })).catch((e) => ({ text: e.message, align: '' }));
+    check('the workings read as a paragraph under their label', /SYSTEMCURVEMARKER/.test(long.text) && /left|start/.test(long.align), JSON.stringify(long));
     await fresh.close();
   }
 

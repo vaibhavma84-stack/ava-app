@@ -25,7 +25,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.53';
+const APP_VERSION = '2026.10.54';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1945,7 +1945,9 @@ function openDetail(id) {
     if (['attachments', 'fileLink', 'answers'].includes(f.key) || f.key === def.titleKey) continue;
     const raw = item.data[f.key];
     if (raw === undefined || raw === null || raw === '') continue;
-    section.append(el('div', { class: 'stat' }, [
+    // Written-in text -- notes, a procedure, a calculation's workings -- reads
+    // as a paragraph under its label, its lines kept, not squeezed to the right.
+    section.append(el('div', { class: f.type === 'textarea' ? 'stat stat-long' : 'stat' }, [
       el('span', { text: f.label }),
       el('span', { text: f.type === 'date' ? displayDate(raw) : String(raw) })
     ]));

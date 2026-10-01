@@ -1,5 +1,6 @@
 // Monochrome line icons; they inherit currentColor so section tints come from CSS.
 const PATHS = {
+  calculator: '<rect x="5" y="2.5" width="14" height="19" rx="2"/><rect x="8" y="5.5" width="8" height="3.5" rx="0.5"/><line x1="8.5" y1="12.5" x2="9.5" y2="12.5"/><line x1="11.5" y1="12.5" x2="12.5" y2="12.5"/><line x1="14.5" y1="12.5" x2="15.5" y2="12.5"/><line x1="8.5" y1="16" x2="9.5" y2="16"/><line x1="11.5" y1="16" x2="12.5" y2="16"/><line x1="14.5" y1="15" x2="14.5" y2="18.5"/>',
   gauge: '<path d="M3.5 17a8.5 8.5 0 1 1 17 0"/><line x1="12" y1="15" x2="16.5" y2="9.5"/><circle cx="12" cy="15" r="1.3"/><line x1="6" y1="12.5" x2="7.3" y2="13"/><line x1="18" y1="12.5" x2="16.7" y2="13"/>',
   book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
   library: '<path d="M4 5v14"/><path d="M8 5v14"/><path d="M12.5 5.5l4.5-1 3.5 13-4.5 1z"/><path d="M2 19h20"/>',
