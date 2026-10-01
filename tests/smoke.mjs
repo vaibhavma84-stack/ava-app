@@ -648,6 +648,91 @@ try {
   await page.waitForSelector('#app:not([hidden])', { timeout: 10000 });
   check('the passcode still works with Face ID on', true);
 
+  // ── sea service letters and earnings ─────────────────────────────────────
+  console.log('\nLetters and earnings');
+  await page.click('.nav-btn[data-tab="seatime"]');
+  const lettersBox = page.locator('.check', { hasText: 'Sea service letters' });
+  check('counts voyages without a sea service letter', (await lettersBox.locator('.pill').textContent()) === '0 of 3',
+    await lettersBox.locator('.pill').textContent());
+  await lettersBox.locator('.letter-line', { hasText: 'MV Northern Star' }).click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailEdit');
+  await page.waitForSelector('#editor:not([hidden])');
+  await pick('letterStatus', 'Received');
+  await save();
+  await page.click('#detailClose');
+  check('marking a letter received counts it', (await lettersBox.locator('.pill').textContent()) === '1 of 3');
+
+  await cardWith('MV Current').click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailEdit');
+  await page.waitForSelector('#editor:not([hidden])');
+  await page.fill('#editorBody [data-contract-field="wage"]', 'USD 4,000 / month');
+  await save();
+  await page.click('#detailClose');
+  const pay = page.locator('.check', { hasText: 'Earnings' });
+  check('shows earnings from the contract wage', (await pay.textContent()).includes('USD'), await pay.textContent());
+
+  // ── bio-data ─────────────────────────────────────────────────────────────
+  console.log('\nBio-data');
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.click('#settingsBtn');
+  await page.waitForSelector('#settings:not([hidden])');
+  await page.click('#settingsBody button:has-text("Bio-data sheet")');
+  await page.waitForSelector('#viewerBody canvas', { timeout: 15000 });
+  check('makes the bio-data sheet', (await page.locator('#viewerTitle').textContent()).startsWith('Bio-data-Test-Seafarer-'));
+  await page.click('#viewerClose');
+  await page.click('#settingsBody button:has-text("Copy bio-data")');
+  await page.waitForTimeout(300);
+  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  check('copies the bio-data as text', copied.includes('PERSONAL\nFull name: Test Seafarer'), copied.slice(0, 80));
+
+  // ── import from a spreadsheet ────────────────────────────────────────────
+  console.log('\nImport');
+  const sheet = 'Ship,Rank,Type,Sign on,Sign off\r\nMV Imported One,2/O,Bulker,01/02/2022,30/07/2022\r\nMV Imported Two,3/O,Container,15/09/2021,10/12/2021\r\nMV Northern Star,3/O,Bulker,10/01/2024,09/07/2024\r\n';
+  await page.setInputFiles('#csvPicker', { name: 'my-sea-time.csv', mimeType: 'text/csv', buffer: Buffer.from(sheet) });
+  await page.waitForSelector('#tool:not([hidden])');
+  const preview = await page.locator('#toolBody').textContent();
+  check('shows what the sheet would add', preview.includes('2 voyages to add, 1 already in AVA and skipped'), preview.slice(0, 160));
+  await shot('14-import');
+  await page.click('#toolBody button:has-text("Import 2 voyages")');
+  await page.waitForSelector('#tool', { state: 'hidden' });
+  check('imports the voyages', await cardWith('MV Imported One').isVisible());
+  check('reads ranks the way they are written in a sheet',
+    (await cardWith('MV Imported One').textContent()).includes('Second Officer'));
+
+  // ── document pack ────────────────────────────────────────────────────────
+  console.log('\nDocument pack');
+  await page.click('.nav-btn[data-tab="certificate"]');
+  await page.click('button:has-text("Document pack for an agency")');
+  await page.waitForSelector('#tool:not([hidden])');
+  check('only certificates with a scan can be ticked',
+    await page.locator('#toolBody .tick-row', { hasText: 'Advanced Fire Fighting' }).locator('input').isEnabled()
+    && !(await page.locator('#toolBody .tick-row', { hasText: 'GMDSS' }).locator('input').isEnabled()));
+  await page.click('#toolBody button:has-text("Make the PDF")');
+  await page.waitForSelector('#viewerBody canvas', { timeout: 20000 });
+  check('makes the pack and shows it', (await page.locator('#viewerTitle').textContent()).startsWith('Documents-Test-Seafarer-'));
+  check('the pack is the index page plus the scan', /· 2 pages/.test(await page.locator('#viewerTitle').textContent()),
+    await page.locator('#viewerTitle').textContent());
+  await page.waitForTimeout(600);
+  await shot('15-pack');
+  await page.click('#viewerClose');
+  await page.click('#toolClose');
+
+  // ── leave ────────────────────────────────────────────────────────────────
+  console.log('\nLeave');
+  await page.click('.nav-btn[data-tab="seatime"]');
+  await cardWith('MV Current').click();
+  await page.waitForSelector('#detail:not([hidden])');
+  await page.click('#detailEdit');
+  await page.waitForSelector('#editor:not([hidden])');
+  await set('signOffDate', iso(-1));
+  await save();
+  await page.click('#detailClose');
+  const leaveBox = page.locator('.check', { hasText: 'On leave' });
+  check('after signing off, shows days at home', (await leaveBox.textContent()).includes('At home1 day'), await leaveBox.textContent());
+  check('estimates the next joining from the usual leave', (await leaveBox.textContent()).includes('Usual leave ends'));
+
   console.log('\nJavaScript errors: ' + (errors.length ? '\n  ' + errors.join('\n  ') : 'none'));
   if (errors.length) failed += errors.length;
 

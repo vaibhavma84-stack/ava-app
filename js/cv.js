@@ -452,3 +452,88 @@ export function buildSeaServiceStatement({ profile = {}, certificates = [], voya
   f.finish();
   return doc.output();
 }
+
+/** The one document of a kind that lasts longest, for the bio-data's document table. */
+function latestOf(certificates, test) {
+  return certificates.filter(test).sort((a, b) => (b.expiryDate || '9999').localeCompare(a.expiryDate || '9999'))[0] || null;
+}
+
+/**
+ * Everything a manning agency's bio-data form asks for, gathered in one place:
+ * particulars, next of kin, sizes, documents and a short sea service summary.
+ * Returned as sections of label/value pairs, so the same content can be drawn
+ * as a PDF or copied as text into the agency's own form.
+ */
+export function biodataModel({ profile = {}, certificates = [], voyages = [], today = null } = {}) {
+  const now = today ? new Date(today + 'T00:00:00Z') : undefined;
+  const doc = (re) => latestOf(certificates, (c) => re.test(`${c.title} ${c.issuer || ''}`));
+  const coc = latestOf(certificates, (c) => certificateCategory(c) === 'Certificate of Competency');
+  const docRow = (label, c) => (c ? [label, [c.refNo, c.expiryDate ? `valid to ${cvDate(c.expiryDate)}` : '', c.issuer].filter(Boolean).join(' · ') || c.title] : [label, '']);
+  const summary = seaTimeSummary(voyages, now);
+  const recent = [...voyages].filter((v) => v.signOnDate).sort((a, b) => b.signOnDate.localeCompare(a.signOnDate)).slice(0, 3);
+
+  return [
+    { title: 'Personal', pairs: [
+      ['Full name', profile.fullName], ['Position applied for', profile.positionApplied],
+      ['Available from', cvDate(profile.availableFrom)], ['Date of birth', cvDate(profile.dateOfBirth)],
+      ['Place of birth', profile.placeOfBirth], ['Nationality', profile.nationality],
+      ['Marital status', profile.maritalStatus], ['Religion / diet', profile.religion],
+      ['National seafarer ID', profile.seafarerId], ['Languages', profile.languages]
+    ] },
+    { title: 'Contact', pairs: [
+      ['Phone', profile.phone], ['Email', profile.email], ['Address', profile.address], ['Nearest airport', profile.nearestAirport]
+    ] },
+    { title: 'Next of kin', pairs: [
+      ['Name', profile.nokName], ['Relationship', profile.nokRelation], ['Phone', profile.nokPhone], ['Address', profile.nokAddress]
+    ] },
+    { title: 'Physical & kit', pairs: [
+      ['Height', profile.height ? `${profile.height} cm` : ''], ['Weight', profile.weight ? `${profile.weight} kg` : ''],
+      ['Boiler suit', profile.boilerSuit], ['Shoe size', profile.shoeSize], ['Blood group', profile.bloodGroup]
+    ] },
+    { title: 'Documents', pairs: [
+      docRow('Passport', doc(/passport/i)),
+      docRow('CDC / Seaman\'s book', doc(/\bcdc\b|continuous discharge|seaman|seafarer'?s (identity|record)|discharge book/i)),
+      docRow('US visa', doc(/c1 ?\/ ?d|\bus visa|united states/i)),
+      docRow('Certificate of Competency', coc),
+      docRow('GMDSS GOC', doc(/gmdss|\bgoc\b/i)),
+      docRow('Medical', latestOf(certificates, (c) => certificateCategory(c) === 'Medical')),
+      docRow('Yellow fever', doc(/yellow fever/i))
+    ] },
+    { title: 'Sea service', pairs: [
+      ['Total sea time', summary.totalDays ? `${formatDuration(summary.totalDays)} (${summary.totalDays} days)` : ''],
+      ...summary.byRank.slice(0, 3).map((r) => [`As ${r.rank}`, formatDuration(r.days)]),
+      ...recent.map((v, i) => [i === 0 ? 'Last vessels' : '', `${v.vessel || ''} · ${v.rank || ''} · ${v.vesselType || ''} · ${cvDate(v.signOnDate)} to ${isOnboard(v, now) ? 'onboard' : cvDate(v.signOffDate)}`])
+    ] }
+  ].map((s) => ({ ...s, pairs: s.pairs.filter(([, v]) => v && String(v).trim()) }))
+    .filter((s) => s.pairs.length);
+}
+
+/** The bio-data as plain text, for pasting into an agency's form or an email. */
+export function biodataText(input) {
+  return biodataModel(input).map((s) =>
+    `${s.title.toUpperCase()}\n${s.pairs.map(([k, v]) => `${k ? k + ': ' : '    '}${String(v).replace(/\n/g, ', ')}`).join('\n')}`
+  ).join('\n\n') + '\n';
+}
+
+/** The bio-data as a one- or two-page PDF, with the photo if there is one. */
+export function buildBiodata({ photo = null, ...input } = {}) {
+  const sections = biodataModel(input);
+  const name = input.profile?.fullName || '';
+  const doc = createPdf({ title: `Bio-data${name ? ' — ' + name : ''}`, author: name });
+  const f = flow(doc, { footer: `Bio-data${name ? ' — ' + name : ''}` });
+  const top = f.y;
+  doc.text('SEAFARER BIO-DATA', f.left, f.y, { size: 16, bold: true, color: INK });
+  f.y += 22;
+  if (name) { doc.text(name, f.left, f.y, { size: 12, bold: true, color: ACCENT }); f.y += 16; }
+  if (photo) {
+    doc.rect(f.left + f.width - 66, top, 66, 85, { stroke: RULE, lineWidth: 0.6 });
+    doc.image(photo, f.left + f.width - 66, top, 66, 85);
+    f.y = Math.max(f.y, top + 85);
+  }
+  for (const s of sections) {
+    f.heading(s.title);
+    f.pairs(s.pairs, { columns: 1, labelWidth: 150 });
+  }
+  f.finish();
+  return doc.output();
+}

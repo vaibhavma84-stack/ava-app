@@ -213,11 +213,7 @@ function plannedEnd(entry) {
  *          the year ends; an open voyage with no end date adds nothing
  */
 export function taxYearDays(entries, { startMonth = 1, target = null } = {}, today = todayUTC()) {
-  const m = Math.min(12, Math.max(1, Number(startMonth) || 1)) - 1;
-  let startYear = today.getUTCFullYear();
-  if (today.getUTCMonth() < m) startYear--;
-  const start = new Date(Date.UTC(startYear, m, 1));
-  const end = addDays(new Date(Date.UTC(startYear + 1, m, 1)), -1);
+  const { start, end } = taxYearBounds(startMonth, today);
 
   const served = daysWithin(countedSegments(entries, today), start, today);
 
@@ -276,6 +272,144 @@ export function validateSeaTime(entry, others = [], today = todayUTC()) {
     }
   }
   return { errors, warnings };
+}
+
+/** The tax year (starting on the 1st of startMonth, 1-12) that a date falls in. */
+function taxYearBounds(startMonth, date) {
+  const m = Math.min(12, Math.max(1, Number(startMonth) || 1)) - 1;
+  let startYear = date.getUTCFullYear();
+  if (date.getUTCMonth() < m) startYear--;
+  return {
+    start: new Date(Date.UTC(startYear, m, 1)),
+    end: addDays(new Date(Date.UTC(startYear + 1, m, 1)), -1)
+  };
+}
+
+// ── time at home ──────────────────────────────────────────────────────────
+
+const average = (xs) => (xs.length ? Math.round(xs.reduce((a, b) => a + b, 0) / xs.length) : null);
+
+/**
+ * Where you stand between ships: days at home since the last sign-off, your
+ * usual time aboard and at home (from completed voyages), and the next
+ * joining -- a planned voyage if one is entered, else an estimate from the
+ * usual leave.
+ */
+export function leaveStatus(entries, today = todayUTC()) {
+  const voyages = entries
+    .map((e) => ({ on: parseDate(e.signOnDate), off: parseDate(e.signOffDate), entry: e }))
+    .filter((v) => v.on)
+    .sort((a, b) => a.on - b.on);
+  const done = voyages.filter((v) => v.off && v.off <= today && v.off >= v.on);
+  const tours = done.map((v) => spanDays(v.on, v.off));
+  const gaps = [];
+  for (let i = 1; i < done.length; i++) {
+    const gap = Math.round((done[i].on - done[i - 1].off) / MS_PER_DAY) - 1;
+    if (gap > 0) gaps.push(gap);
+  }
+  const onboard = voyages.some((v) => isOnboard(v.entry, today));
+  const last = done[done.length - 1] || null;
+  const next = voyages.find((v) => v.on > today) || null;
+  const usualLeave = average(gaps.slice(-4));
+  const status = {
+    onboard,
+    usualTour: average(tours.slice(-4)),
+    usualLeave,
+    lastSignOff: last ? iso(last.off) : null,
+    daysHome: !onboard && last ? Math.round((today - last.off) / MS_PER_DAY) : null,
+    nextJoin: next ? iso(next.on) : null,
+    nextVessel: next ? next.entry.vessel || '' : null,
+    daysToJoin: next ? Math.round((next.on - today) / MS_PER_DAY) : null,
+    expectedJoin: null
+  };
+  if (!onboard && !next && last && usualLeave) status.expectedJoin = iso(addDays(last.off, usualLeave + 1));
+  return status;
+}
+
+// ── earnings ──────────────────────────────────────────────────────────────
+
+const CURRENCY_WORDS = { '$': 'USD', 'US$': 'USD', '€': 'EUR', '£': 'GBP', '₹': 'INR', 'RS': 'INR', 'RS.': 'INR' };
+
+/**
+ * Read a wage typed as free text: "USD 4,200 / month", "$150 per day",
+ * "4200 EUR". The period defaults to monthly. Returns null if no amount.
+ */
+export function parseWage(text) {
+  const t = String(text || '').trim();
+  if (!t) return null;
+  const amount = /(\d[\d,]*(?:\.\d+)?)\s*(k)?\b/i.exec(t);
+  if (!amount) return null;
+  let value = Number(amount[1].replace(/,/g, ''));
+  if (amount[2]) value *= 1000;
+  if (!value) return null;
+  const code = /\b([A-Z]{3})\b/.exec(t.toUpperCase().replace(/\b(PER|DAY|MONTH|WEEK|YEAR|PCM|BASIC|WAGE|TOTAL|NET)\b/g, ''));
+  const symbol = /(US\$|\$|€|£|₹|\bRS\.?)/i.exec(t);
+  const currency = code ? code[1] : symbol ? CURRENCY_WORDS[symbol[1].toUpperCase()] : '';
+  const period = /\b(day|daily|per diem)\b/i.test(t) ? 'day' : /\b(year|annum|annual)/i.test(t) ? 'year' : 'month';
+  return { amount: value, currency, period };
+}
+
+function dailyRate({ amount, period }) {
+  if (period === 'day') return amount;
+  if (period === 'year') return amount / 365;
+  return (amount * 12) / 365;
+}
+
+/**
+ * Pay from each contract with a wage: what has been earned so far and what
+ * the whole contract comes to. A contract's dates default to its voyage's.
+ * Approximate: a monthly wage is spread over the year's days.
+ */
+export function contractEarnings(entries, today = todayUTC()) {
+  const out = [];
+  for (const e of entries) {
+    for (const c of e.contracts || []) {
+      const wage = parseWage(c.wage);
+      if (!wage) continue;
+      const start = parseDate(c.startDate) || parseDate(e.signOnDate);
+      const end = parseDate(c.endDate) || parseDate(e.signOffDate);
+      if (!start) continue;
+      const rate = dailyRate(wage);
+      const servedTo = end && end < today ? end : today;
+      const earnedDays = start > today ? 0 : spanDays(start, servedTo);
+      out.push({
+        vessel: e.vessel || '', company: c.company || e.company || '', wage,
+        start: iso(start), end: end ? iso(end) : null, rate,
+        earned: Math.round(rate * earnedDays),
+        total: end ? Math.round(rate * spanDays(start, end)) : null
+      });
+    }
+  }
+  return out.sort((a, b) => b.start.localeCompare(a.start));
+}
+
+/** Earnings inside the current tax year, by currency: earned so far and expected by its end. */
+export function earningsThisTaxYear(entries, { startMonth = 1 } = {}, today = todayUTC()) {
+  const { start, end } = taxYearBounds(startMonth, today);
+  const totals = {};
+  for (const c of contractEarnings(entries, today)) {
+    const cs = parseDate(c.start), ce = c.end ? parseDate(c.end) : today;
+    const a = cs > start ? cs : start;
+    const earnedTo = ce < today ? ce : today;
+    const plannedTo = ce < end ? ce : end;
+    const t = totals[c.wage.currency || '—'] ||= { currency: c.wage.currency || '', earned: 0, expected: 0 };
+    t.earned += Math.round(c.rate * spanDays(a, earnedTo < end ? earnedTo : end));
+    t.expected += Math.round(c.rate * spanDays(a, plannedTo));
+  }
+  return { start: iso(start), end: iso(end), totals: Object.values(totals) };
+}
+
+// ── sea service letters ───────────────────────────────────────────────────
+
+/** Completed voyages with and without a sea service letter on file. */
+export function letterStatus(entries, today = todayUTC()) {
+  const done = entries.filter((e) => e.signOnDate && e.signOffDate && parseDate(e.signOffDate) <= today);
+  const has = (e) => e.letterStatus === 'Received';
+  return {
+    total: done.length,
+    received: done.filter(has).length,
+    missing: done.filter((e) => !has(e)).sort((a, b) => (b.signOnDate || '').localeCompare(a.signOnDate || ''))
+  };
 }
 
 export const EXPIRY_WARNING_DAYS = 90;

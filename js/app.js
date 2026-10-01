@@ -4,20 +4,21 @@ import * as sec from './crypto.js';
 import { TYPES, TAB_ORDER, CONTRACT_FIELDS, RANKS, VESSEL_TYPES, MONTH_NAMES } from './schema.js';
 import {
   entryDays, isOnboard, formatDuration, seaTimeSummary, expiryStatus, expiryLabel, displayDate, displayDateShort,
-  findOverlaps, revalidationStatus, TANKER_TYPES, taxYearDays, goalProgress, voyageProgress, validateSeaTime, expiriesDuringVoyages, certificateCategory
+  findOverlaps, revalidationStatus, TANKER_TYPES, taxYearDays, leaveStatus, earningsThisTaxYear, contractEarnings, letterStatus, goalProgress, voyageProgress, validateSeaTime, expiriesDuringVoyages, certificateCategory
 } from './derive.js';
 import { el, $, clear, toast, formatBytes } from './ui.js';
 import { icon } from './icons.js';
 import { renderInto } from './viewer.js';
 import { icsForItem, icsForItems, datedCertificates, calendarFileName, eventFor } from './calendar.js';
-import { buildCv, buildSeaServiceStatement } from './cv.js';
+import { buildCv, buildSeaServiceStatement, buildBiodata, biodataText } from './cv.js';
+import { parseCsv, rowsToEntries, templateCsv } from './csv.js';
 import { buildCvDocx } from './docx.js';
 import { checkReadiness } from './join.js';
 import { parseCertificateText } from './scan.js';
 import * as faceid from './faceid.js';
 
 const AUTOLOCK_DEFAULT_MS = 5 * 60 * 1000;
-const APP_VERSION = '2026.09.30b';
+const APP_VERSION = '2026.10.01';
 const BACKUP_NUDGE_DAYS = 30;
 
 const view = {
@@ -328,7 +329,10 @@ function renderTab(list, type) {
   if (type === 'certificate') {
     const clash = expiryClashPanel();
     if (clash) list.append(clash);
-    if (items.length) list.append(joinLink());
+    if (items.length) {
+      list.append(joinLink());
+      list.append(el('button', { class: 'btn btn-block', onclick: openPackTool }, ['Document pack for an agency (PDF)']));
+    }
   }
 
   if (!items.length) {
@@ -558,6 +562,9 @@ function seaTimeChecks(items) {
   const data = items.map((i) => i.data);
   const out = [];
 
+  const leave = leavePanel(data);
+  if (leave) out.push(leave);
+
   const overlaps = findOverlaps(data);
   if (overlaps.length) {
     const box = el('div', { class: 'check check-warn' }, [
@@ -620,11 +627,87 @@ function seaTimeChecks(items) {
 
   const tax = taxPanel(data);
   if (tax) out.push(tax);
+  const pay = earningsPanel(data);
+  if (pay) out.push(pay);
+  const letters = lettersPanel(items);
+  if (letters) out.push(letters);
 
   const clash = expiryClashPanel();
   if (clash) out.push(clash);
   out.push(joinLink());
   return out;
+}
+
+/** Between ships: days at home, usual rotation, and the next joining. */
+function leavePanel(data) {
+  const l = leaveStatus(data);
+  if (l.onboard || (!l.lastSignOff && !l.nextJoin)) return null;
+  const lines = [];
+  if (l.daysToJoin !== null) lines.push(dcell('Next joining', `${displayDateShort(l.nextJoin)} · ${l.daysToJoin === 0 ? 'today' : `in ${l.daysToJoin} d`}`));
+  else if (l.expectedJoin) lines.push(dcell('Usual leave ends', displayDateShort(l.expectedJoin), true));
+  if (l.daysHome !== null) lines.push(dcell('At home', `${l.daysHome} day${l.daysHome === 1 ? '' : 's'}`));
+  const box = el('div', { class: 'check' }, [
+    el('div', { class: 'check-head' }, [
+      el('span', { class: 'summary-label', text: 'On leave' }),
+      l.nextVessel ? el('span', { class: 'pill pill-teal', text: l.nextVessel }) : null
+    ]),
+    el('div', { class: 'dgrid two' }, lines)
+  ]);
+  if (l.usualTour || l.usualLeave) {
+    box.append(el('p', { class: 'hint', text: `Your usual rotation: ${l.usualTour ? `${formatDuration(l.usualTour)} aboard` : '—'}, ${l.usualLeave ? `${formatDuration(l.usualLeave)} at home` : '—'} (last four voyages).` }));
+  }
+  return box;
+}
+
+/** Pay from contracts that have a wage: this tax year, and the latest contracts. */
+function earningsPanel(data) {
+  const all = contractEarnings(data);
+  if (!all.length) return null;
+  const p = profileItem()?.data;
+  const startMonth = Math.max(1, MONTH_NAMES.indexOf(p?.taxYearStart) + 1);
+  const year = earningsThisTaxYear(data, { startMonth });
+  const money = (n, cur) => `${cur ? cur + ' ' : ''}${Math.round(n).toLocaleString()}`;
+  const box = el('div', { class: 'check' }, [
+    el('div', { class: 'check-head' }, [el('span', { class: 'summary-label', text: 'Earnings' })])
+  ]);
+  for (const t of year.totals) {
+    box.append(el('div', { class: 'dgrid two' }, [
+      dcell(`This tax year${year.totals.length > 1 ? ' · ' + (t.currency || '?') : ''}`, money(t.earned, t.currency)),
+      dcell('By year end, as planned', money(t.expected, t.currency), true)
+    ]));
+  }
+  for (const c of all.slice(0, 3)) {
+    box.append(el('p', { class: 'check-line mono', text: `${c.vessel || c.company || 'Contract'}: ${money(c.earned, c.wage.currency)}${c.total && c.total !== c.earned ? ` of ${money(c.total, c.wage.currency)}` : ''}` }));
+  }
+  box.append(el('p', { class: 'hint', text: `From the wage on each contract, spread evenly over its days. Tax year ${displayDateShort(year.start)} – ${displayDateShort(year.end)}. Approximate: bonuses, overtime and deductions are not included.` }));
+  return box;
+}
+
+/** Completed voyages still without a sea service letter. */
+function lettersPanel(items) {
+  const st = letterStatus(items.map((i) => i.data));
+  if (!st.total) return null;
+  const box = el('div', { class: 'check' + (st.missing.length ? ' check-warn' : '') }, [
+    el('div', { class: 'check-head' }, [
+      el('span', { class: 'summary-label', text: 'Sea service letters' }),
+      el('span', { class: 'pill ' + (st.missing.length ? 'pill-amber' : 'pill-teal'), text: `${st.received} of ${st.total}` })
+    ])
+  ]);
+  if (!st.missing.length) {
+    box.append(el('p', { class: 'check-text', text: 'You have a letter for every completed voyage.' }));
+    return box;
+  }
+  for (const v of st.missing.slice(0, 6)) {
+    const item = items.find((i) => i.data === v);
+    box.append(el('p', {
+      class: 'check-line letter-line',
+      onclick: () => item && openDetail(item.id),
+      text: `${v.vessel || 'Voyage'} · ${displayDateShort(v.signOffDate)}${v.letterStatus === 'Requested' ? ' · requested' : ''}`
+    }));
+  }
+  if (st.missing.length > 6) box.append(el('p', { class: 'check-line', text: `and ${st.missing.length - 6} more` }));
+  box.append(el('p', { class: 'hint', text: 'Exam and CoC applications ask for these. Mark each voyage when its letter arrives, and attach it.' }));
+  return box;
 }
 
 function joinLink() {
@@ -699,6 +782,7 @@ function wireApp() {
   $('#fab').addEventListener('click', () => openEditor(view.query ? view.tab : view.tab, null));
   $('#filePicker').addEventListener('change', onFilesPicked);
   $('#scanPicker').addEventListener('change', onScanPicked);
+  $('#csvPicker').addEventListener('change', onCsvPicked);
   $('#toolClose').addEventListener('click', () => { $('#tool').hidden = true; });
   $('#viewerClose').addEventListener('click', closeViewer);
 
@@ -1277,7 +1361,20 @@ async function openSettings() {
     el('button', { class: 'btn btn-block', style: 'margin-bottom:8px', onclick: () => { $('#settings').hidden = true; openEditor('profile', profileItem()); } },
       [profile ? 'Edit profile' : 'Set up profile']),
     el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: openCvTool }, ['Create CV (PDF or Word)']),
-    el('button', { class: 'btn btn-block', onclick: makeStatement }, ['Sea service record (PDF)'])
+    el('button', { class: 'btn btn-block', style: 'margin-bottom:8px', onclick: makeStatement }, ['Sea service record (PDF)']),
+    el('button', { class: 'btn btn-block', style: 'margin-bottom:8px', onclick: makeBiodata }, ['Bio-data sheet (PDF)']),
+    el('button', { class: 'btn btn-block', style: 'margin-bottom:8px', onclick: copyBiodata }, ['Copy bio-data as text']),
+    el('button', { class: 'btn btn-block', onclick: openPackTool }, ['Document pack (PDF)'])
+  ]));
+
+  body.append(el('div', { class: 'panel' }, [
+    el('h3', { text: 'Import from a spreadsheet' }),
+    el('p', { text: 'Bring in sea service or certificates kept in Excel or Numbers: save the sheet as CSV and pick it here. Every row is shown before anything is saved.' }),
+    el('button', { class: 'btn btn-primary btn-block', style: 'margin-bottom:8px', onclick: () => $('#csvPicker').click() }, ['Choose CSV file']),
+    el('div', { class: 'fieldrow' }, [
+      el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => shareText(templateCsv('seatime'), 'ava-sea-service-template.csv', 'text/csv') }, ['Sea time template'])]),
+      el('div', {}, [el('button', { class: 'btn btn-sm btn-block', onclick: () => shareText(templateCsv('certificate'), 'ava-certificates-template.csv', 'text/csv') }, ['Certificates template'])])
+    ])
   ]));
 
   body.append(el('div', { class: 'panel' }, [
@@ -1515,6 +1612,220 @@ function openCvTool() {
       el('div', {}, [el('button', { class: 'btn btn-primary btn-block', onclick: (e) => make('pdf', e.target) }, ['PDF'])]),
       el('div', {}, [el('button', { class: 'btn btn-block', onclick: (e) => make('docx', e.target) }, ['Word'])])
     ]));
+  });
+}
+
+// ── bio-data ────────────────────────────────────────────────────────────────
+
+function biodataInput() {
+  return {
+    profile: profileItem()?.data || {},
+    certificates: store.itemsOfType('certificate').map((i) => i.data),
+    voyages: store.itemsOfType('seatime').map((i) => i.data)
+  };
+}
+
+async function makeBiodata() {
+  const profile = profileItem();
+  if (!profile?.data.fullName) {
+    toast('Add your name to the profile first');
+    $('#settings').hidden = true;
+    return openEditor('profile', profile);
+  }
+  try {
+    const photo = await profilePhotoJpeg(profile).catch(() => null);
+    await showGeneratedPdf(new Blob([buildBiodata({ ...biodataInput(), photo })], { type: 'application/pdf' }), `${fileStem('Bio-data')}.pdf`);
+  } catch (ex) {
+    toast('Could not make the bio-data: ' + ex.message);
+  }
+}
+
+async function copyBiodata() {
+  const text = biodataText(biodataInput());
+  try {
+    await navigator.clipboard.writeText(text);
+    toast('Bio-data copied — paste it into the agency form');
+  } catch {
+    // No clipboard permission: hand it over as a file instead.
+    await shareText(text, `${fileStem('Bio-data')}.txt`, 'text/plain');
+  }
+}
+
+// ── document pack ───────────────────────────────────────────────────────────
+
+/** Redraw any picture as a JPEG no larger than maxSide, for embedding in a PDF. */
+async function imageToJpeg(blob, maxSide = 2000) {
+  const url = URL.createObjectURL(blob);
+  try {
+    const img = await new Promise((resolve, reject) => {
+      const i = new Image();
+      i.onload = () => resolve(i);
+      i.onerror = () => reject(new Error('picture could not be read'));
+      i.src = url;
+    });
+    const scale = Math.min(1, maxSide / Math.max(img.naturalWidth, img.naturalHeight));
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(img.naturalWidth * scale);
+    canvas.height = Math.round(img.naturalHeight * scale);
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    const jpeg = await new Promise((resolve) => canvas.toBlob(resolve, 'image/jpeg', 0.85));
+    return new Uint8Array(await jpeg.arrayBuffer());
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+/** An attachment as something the pack can place: a PDF as it is, any picture as a JPEG. */
+async function packFile(att) {
+  const blob = await store.readFile(att);
+  const type = att.type || blob.type || '';
+  if (type === 'application/pdf' || /\.pdf$/i.test(att.name || '')) return { name: att.name, kind: 'pdf', bytes: new Uint8Array(await blob.arrayBuffer()) };
+  if (type.startsWith('image/') || /\.(jpe?g|png|heic|heif|webp|gif)$/i.test(att.name || '')) {
+    return { name: att.name, kind: 'jpeg', bytes: await imageToJpeg(blob) };
+  }
+  return null;
+}
+
+const PACK_ORDER = ['Travel document', 'Certificate of Competency', 'Endorsement', 'Medical', 'Training / STCW course', 'Other'];
+
+/**
+ * Tick the certificates an agency asked for; their scans become one PDF with
+ * an index page. Certificates with no scan are listed but cannot be ticked.
+ */
+function openPackTool() {
+  const profile = profileItem();
+  const certs = store.itemsOfType('certificate')
+    .sort((a, b) => PACK_ORDER.indexOf(certificateCategory(a.data)) - PACK_ORDER.indexOf(certificateCategory(b.data)));
+  const remembered = new Set(profile?.data.packInclude || certs.filter((c) => (c.data.attachments || []).length).map((c) => c.id));
+  const chosen = new Set(certs.filter((c) => remembered.has(c.id) && (c.data.attachments || []).length).map((c) => c.id));
+
+  openTool('Document pack', (body) => {
+    body.append(el('p', { class: 'hint', style: 'margin:0', text: 'Tick what the agency asked for. The scans attached to each become one PDF, in this order, with an index page.' }));
+    if (!certs.length) {
+      body.append(el('p', { class: 'check-text', text: 'No certificates yet.' }));
+      return;
+    }
+    let group = null;
+    for (const c of certs) {
+      const cat = certificateCategory(c.data);
+      if (cat !== group) { body.append(el('h4', { class: 'editor-heading', text: cat })); group = cat; }
+      const files = (c.data.attachments || []).length;
+      const st = expiryStatus(c.data.expiryDate);
+      body.append(el('label', { class: 'tick-row' + (files ? '' : ' tick-off') }, [
+        el('input', {
+          type: 'checkbox', checked: chosen.has(c.id), disabled: !files, 'data-pack': c.id,
+          onchange: (e) => { if (e.target.checked) chosen.add(c.id); else chosen.delete(c.id); }
+        }),
+        el('span', { class: 'tick-text' }, [
+          el('span', { text: c.data.title || 'Untitled' }),
+          el('span', { class: 'tick-sub', text: files
+            ? `${files} file${files === 1 ? '' : 's'}${st.state === 'expired' ? ' · expired' : c.data.expiryDate ? ` · to ${displayDateShort(c.data.expiryDate)}` : ''}`
+            : 'No scan attached — add one to include it' })
+        ])
+      ]));
+    }
+    body.append(el('button', {
+      class: 'btn btn-primary btn-block', style: 'margin-top:6px',
+      onclick: async (e) => {
+        if (!chosen.size) return toast('Tick at least one certificate');
+        const btn = e.target;
+        btn.disabled = true;
+        btn.textContent = 'Making the pack…';
+        try {
+          if (profile) await store.saveItem({ id: profile.id, data: { packInclude: [...chosen] } });
+          const documents = [];
+          for (const c of certs.filter((x) => chosen.has(x.id))) {
+            const files = [];
+            for (const att of c.data.attachments || []) {
+              const f = await packFile(att).catch(() => null);
+              if (f) files.push(f);
+            }
+            documents.push({ title: c.data.title, refNo: c.data.refNo, issuer: c.data.issuer, expiryDate: c.data.expiryDate, files });
+          }
+          const { buildDocumentPack } = await import('./pack.js');
+          const pack = await buildDocumentPack({ name: profile?.data.fullName || '', documents });
+          if (pack.failures.length) toast(`Could not include: ${pack.failures.join(', ')}`);
+          await showGeneratedPdf(new Blob([pack.bytes], { type: 'application/pdf' }), `${fileStem('Documents')}.pdf`);
+        } catch (ex) {
+          toast('Could not make the pack: ' + ex.message);
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Make the PDF';
+        }
+      }
+    }, ['Make the PDF']));
+  });
+}
+
+// ── import from CSV ─────────────────────────────────────────────────────────
+
+async function onCsvPicked(e) {
+  const file = e.target.files && e.target.files[0];
+  e.target.value = '';
+  if (!file) return;
+  let rows;
+  try {
+    rows = parseCsv(await file.text());
+  } catch (ex) {
+    return toast('Could not read that file: ' + ex.message);
+  }
+  openImportTool(rows, file.name);
+}
+
+/** Show what a sheet would add, and add it only when asked. */
+function openImportTool(rows, fileName, kind = null) {
+  const existingOf = (k) => store.itemsOfType(k).map((i) => i.data);
+  const guess = rowsToEntries(rows, { existing: [] , kind });
+  const result = guess.kind ? rowsToEntries(rows, { existing: existingOf(guess.kind), kind: guess.kind }) : guess;
+
+  openTool('Import', (body) => {
+    body.append(el('p', { class: 'hint', style: 'margin:0', text: fileName }));
+    if (!result.kind) {
+      for (const p of result.problems) body.append(el('p', { class: 'check-line err-line', text: p }));
+      return;
+    }
+    const label = result.kind === 'seatime' ? 'voyages' : 'certificates';
+    body.append(el('div', { class: 'segment' }, [
+      el('button', { type: 'button', class: 'seg', 'aria-checked': String(result.kind === 'seatime'), onclick: () => openImportTool(rows, fileName, 'seatime') }, ['Sea time']),
+      el('button', { type: 'button', class: 'seg', 'aria-checked': String(result.kind === 'certificate'), onclick: () => openImportTool(rows, fileName, 'certificate') }, ['Certificates'])
+    ]));
+    body.append(el('p', { class: 'check-text', text: `${result.entries.length} ${label} to add${result.skipped.length ? `, ${result.skipped.length} already in AVA and skipped` : ''}.` }));
+    const labelOf = (f) => TYPES[result.kind].fields.find((x) => x.key === f)?.label || f;
+    const cols = Object.entries(result.columns).map(([f, h]) => `${h} → ${labelOf(f)}`).join(' · ');
+    body.append(el('p', { class: 'hint', text: `Columns read: ${cols}` }));
+    for (const p of result.problems.slice(0, 8)) body.append(el('p', { class: 'check-line warn-line', text: p }));
+    if (result.problems.length > 8) body.append(el('p', { class: 'check-line warn-line', text: `and ${result.problems.length - 8} more` }));
+
+    for (const d of result.entries.slice(0, 50)) {
+      const line = result.kind === 'seatime'
+        ? [d.rank, d.vesselType, `${displayDateShort(d.signOnDate)} → ${d.signOffDate ? displayDateShort(d.signOffDate) : 'onboard'}`]
+        : [d.refNo, d.expiryDate ? `expires ${displayDateShort(d.expiryDate)}` : 'no expiry'];
+      body.append(el('div', { class: 'import-row' }, [
+        el('div', { class: 'join-label', text: result.kind === 'seatime' ? d.vessel : d.title }),
+        el('div', { class: 'join-detail', text: line.filter(Boolean).join(' · ') })
+      ]));
+    }
+    if (result.entries.length > 50) body.append(el('p', { class: 'hint', text: `and ${result.entries.length - 50} more` }));
+
+    if (result.entries.length) {
+      body.append(el('button', {
+        class: 'btn btn-primary btn-block', style: 'margin-top:6px',
+        onclick: async (ev) => {
+          ev.target.disabled = true;
+          for (const data of result.entries) {
+            await store.saveItem({ type: result.kind, data: { ...data, attachments: [], ...(result.kind === 'seatime' ? { contracts: [] } : {}) } });
+          }
+          $('#tool').hidden = true;
+          $('#settings').hidden = true;
+          view.tab = result.kind;
+          render();
+          toast(`Imported ${result.entries.length} ${label}`);
+        }
+      }, [`Import ${result.entries.length} ${label}`]));
+    }
   });
 }
 

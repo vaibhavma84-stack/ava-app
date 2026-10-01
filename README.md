@@ -83,6 +83,33 @@ voyage so you can untick what an application does not need (remembered for next
 time), and makes it as a PDF or as a **Word document** (.docx) an agency can
 edit.
 
+## Document pack, bio-data and import
+
+- **Document pack** — tick the certificates an agency asked for (from the
+  Certificates tab or Settings) and their attached scans become one PDF: an
+  index page, then every document in order, each page labelled with what it
+  is. PDF scans keep their own pages; photos are placed on A4.
+- **Bio-data sheet** — next of kin, sizes, blood group and seafarer ID join
+  the profile, and Settings makes a one-page bio-data PDF with the documents
+  that last longest and the last three vessels, or copies the same as text
+  to paste into an agency's own form.
+- **Import from a spreadsheet** — a sheet saved as CSV is read by its column
+  names (Vessel or Ship, Sign on or Joined, 2/O or Second Officer, Excel's
+  own date numbers) and every row is shown before anything is added. Rows
+  already in AVA are skipped. Templates for both kinds are in Settings.
+
+## Letters, earnings and leave
+
+- **Sea service letters** — each voyage records whether its company letter
+  has been received, and the Sea Time tab lists completed voyages still
+  without one.
+- **Earnings** — a contract's wage ("USD 4,200 / month", "$150 per day") is
+  spread over its days to show pay so far this tax year, what the planned
+  contracts bring by its end, and each contract's total. Approximate.
+- **Leave** — between ships, days at home, the usual time aboard and at home
+  over the last four voyages, and a countdown to the next joining, or the
+  date the usual leave would end.
+
 ## Ready to join
 
 A checklist of the STCW certificates most companies ask of a rank on a type of

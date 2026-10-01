@@ -7,7 +7,7 @@
 // Now a launch with a connection always gets current code, and a launch without
 // one falls straight back to the cache, so the app stays fully usable at sea.
 
-const VERSION = 'v20';
+const VERSION = 'v21';
 const CACHE = `ava-shell-${VERSION}`;
 
 // The certificate reader is megabytes and only wanted once a scan is asked
@@ -34,6 +34,9 @@ const SHELL = [
   'js/scan.js',
   'js/ocr.js',
   'js/faceid.js',
+  'js/csv.js',
+  'js/pack.js',
+  'vendor/pdf-lib.mjs',
   'js/db.js',
   'js/crypto.js',
   'js/icons.js',

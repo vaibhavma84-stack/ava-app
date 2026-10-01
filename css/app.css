@@ -281,6 +281,9 @@ select.field { appearance: none; -webkit-appearance: none; background-image: lin
 .tick-row input { width: 20px; height: 20px; accent-color: var(--brass); flex: 0 0 auto; }
 .tick-text { display: flex; flex-direction: column; min-width: 0; font-size: 14px; }
 .tick-sub { font-size: 12px; color: var(--text-dim); }
+.tick-off { opacity: .55; cursor: default; }
+.import-row { padding: 8px 2px; border-bottom: 1px solid var(--line-soft); }
+.letter-line { cursor: pointer; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 
 /* ── grouped global search ───────────────────────────────────────────────── */
 .group-head {
