@@ -4760,6 +4760,8 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
       await store.saveItem({ type: 'sire2', data: { refNo: '8.3.7', chapter: 'Chapter 8 \u2014 Cargo and Ballast Systems', section: '8.3 Oil and Chemical',
         title: 'Inert gas oxygen analyser', lpg: 'Not applicable to LPG', vessel: 'Oil, Chemical',
         answer: 'ANSWER\nCalibrated monthly; see PMS job IG-04. ANSWERMARKER\n\nEXPECTED EVIDENCE\n\u2022 Calibration records.\n  \u2192 PMS job IG-04 GREENLINE' } });
+      await store.saveItem({ type: 'sire2', data: { refNo: '10.1.1', chapter: 'Chapter 10 \u2014 Machinery Spaces', section: '10.1 Engine Room Management', title: 'Standing orders' } });
+      await store.saveItem({ type: 'sire2', data: { refNo: '8.10.1', chapter: 'Chapter 8 \u2014 Cargo and Ballast Systems', section: '8.10 Later section', title: 'A later section' } });
       await store.saveItem({ type: 'sire', data: { refNo: '2.1', title: 'An old question' } });
     });
     await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
@@ -4774,6 +4776,9 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
       await other.waitForTimeout(50);
     }
     const heads = await other.locator('.group-head-btn').allInnerTexts();
+    const at = (re) => heads.findIndex((h) => re.test(h));
+    check('chapters and sections are in number order, 8 before 10 and 8.3 before 8.10',
+      at(/Chapter 8/i) < at(/Chapter 10/i) && at(/8\.3 Oil/i) < at(/8\.10 Later/i), JSON.stringify(heads));
     check('questions are filed by chapter and then by section',
       heads.some((h) => /Chapter 8/i.test(h)) && heads.some((h) => /8\.3 Oil and Chemical/i.test(h)), JSON.stringify(heads));
     const card = await other.locator('.card', { hasText: /oxygen analyser/i }).innerText();

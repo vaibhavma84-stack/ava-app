@@ -25,7 +25,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.58';
+const APP_VERSION = '2026.10.59';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -992,7 +992,7 @@ function renderTree(body, def, groups, names) {
     for (const kind of [...kinds.keys()].sort((a, b) => {
       if (a === def.subGroupBy.blank) return 1;
       if (b === def.subGroupBy.blank) return -1;
-      return a.localeCompare(b);
+      return a.localeCompare(b, undefined, { numeric: true });
     })) {
       // Keyed by both, so opening MGN under MCA does not open it under a flag
       // that happens to use the same word for something else.
@@ -1070,7 +1070,8 @@ function renderSection(body) {
     const names = [...groups.keys()].sort((a, b) => {
       if (a === blank) return 1;
       if (b === blank) return -1;
-      return a.localeCompare(b);
+      // Chapter 8 before Chapter 10, section 8.2 before 8.10.
+      return a.localeCompare(b, undefined, { numeric: true });
     });
     if (def.collapsible || names.length > 1) {
       renderTree(body, def.collapsible ? def : { ...def, subGroupBy: null }, groups, names);
