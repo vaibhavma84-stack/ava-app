@@ -25,7 +25,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.57';
+const APP_VERSION = '2026.10.58';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -340,6 +340,8 @@ function registerServiceWorker() {
     // over an open editor used to latch this flag anyway, so the reload never
     // came — not on that change, and not on any change after it.
     if (view.draft || !$('#editor').hidden) return;
+    // A reload part-way through a restore would leave it half done.
+    if (view.restoring) { view.reloadAfterRestore = true; return; }
     reloading = true;
     location.reload();
   });
@@ -1959,7 +1961,7 @@ function openDetail(id) {
     // as a paragraph under its label, its lines kept, not squeezed to the right.
     section.append(el('div', { class: f.type === 'textarea' ? 'stat stat-long' : 'stat' }, [
       el('span', { text: f.label }),
-      el('span', { text: f.type === 'date' ? displayDate(raw) : String(raw) })
+      f.answerLines ? answerSheet(String(raw)) : el('span', { text: f.type === 'date' ? displayDate(raw) : String(raw) })
     ]));
     shown++;
   }
@@ -5953,6 +5955,18 @@ async function doFullBackup(button, out) {
   }
 }
 
+// An answer sheet: the points it answers (bullets, headings, the closing
+// source note) stay as they are; everything written as the answer is green.
+function answerSheet(text) {
+  const out = el('span', { class: 'answer-text' });
+  const lines = text.split('\n');
+  lines.forEach((line, i) => {
+    const asked = /^\s*\u2022/.test(line) || /^[A-Z][A-Z &]+$/.test(line.trim()) || /^\(Searched:/.test(line);
+    out.append(el('span', { class: asked ? 'answer-q' : 'answer-a', text: i < lines.length - 1 ? line + '\n' : line }));
+  });
+  return out;
+}
+
 async function onFullBackupPicked(e) {
   const picked = [...(e.target.files || [])];
   e.target.value = '';
@@ -5981,7 +5995,18 @@ async function onFullBackupPicked(e) {
       return;
     }
     toast('Restoring…');
-    const done = await store.restoreFull(manifest, texts, async (path) => blobs.get(path) || null);
+    view.restoring = true;
+    let done;
+    try {
+      done = await store.restoreFull(manifest, texts, async (path) => blobs.get(path) || null);
+    } finally {
+      view.restoring = false;
+    }
+    if (view.reloadAfterRestore) {
+      toast(`Restored ${plural(done.items, 'entry', 'entries')} — updating the app`);
+      setTimeout(() => location.reload(), 1500);
+      return;
+    }
     $('#settings').hidden = true;
     render();
     toast(`Restored ${plural(done.items, 'entry', 'entries')} and ${plural(done.files, 'file', 'files')}`

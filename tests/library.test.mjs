@@ -4758,7 +4758,8 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await other.evaluate(async () => {
       const store = await import('./js/store.js');
       await store.saveItem({ type: 'sire2', data: { refNo: '8.3.7', chapter: 'Chapter 8 \u2014 Cargo and Ballast Systems', section: '8.3 Oil and Chemical',
-        title: 'Inert gas oxygen analyser', lpg: 'Not applicable to LPG', vessel: 'Oil, Chemical', answer: 'Calibrated monthly; see PMS job IG-04. ANSWERMARKER' } });
+        title: 'Inert gas oxygen analyser', lpg: 'Not applicable to LPG', vessel: 'Oil, Chemical',
+        answer: 'ANSWER\nCalibrated monthly; see PMS job IG-04. ANSWERMARKER\n\nEXPECTED EVIDENCE\n\u2022 Calibration records.\n  \u2192 PMS job IG-04 GREENLINE' } });
       await store.saveItem({ type: 'sire', data: { refNo: '2.1', title: 'An old question' } });
     });
     await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
@@ -4782,6 +4783,14 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await other.waitForSelector('#detail:not([hidden])');
     const detail = await other.locator('#detailBody').innerText();
     check('and its answer is shown with it', /Answer[\s\S]*ANSWERMARKER/.test(detail), detail.slice(0, 300));
+    const colours = await other.evaluate(() => {
+      const of = (re) => [...document.querySelectorAll('#detailBody .answer-text > span')].find((s) => re.test(s.textContent));
+      const c = (s) => s && getComputedStyle(s).color;
+      return { answer: c(of(/ANSWERMARKER/)), line: c(of(/GREENLINE/)), point: c(of(/Calibration records/)), head: c(of(/^EXPECTED/)) };
+    });
+    const green = (c) => { const [r, g, b] = (c || '').match(/\d+/g)?.map(Number) || []; return g > r + 40 && g > b + 40; };
+    check('answers are green and the points they answer are not',
+      green(colours.answer) && green(colours.line) && !green(colours.point) && !green(colours.head), JSON.stringify(colours));
     await other.click('#detailClose');
     await other.evaluate(async () => {
       const store = await import('./js/store.js');

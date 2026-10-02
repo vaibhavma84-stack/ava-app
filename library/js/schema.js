@@ -213,7 +213,7 @@ function sireLibrary(label, short, about) {
       { keepCase: true, key: 'vessel', label: 'Vessel types', type: 'text', placeholder: 'e.g. Oil, Chemical, LPG, LNG' },
       { key: 'roviq', label: 'ROVIQ sequence', type: 'text' },
       { key: 'question', label: 'Question', type: 'textarea' },
-      { key: 'answer', label: 'Answer', type: 'textarea', showEmpty: 'Not answered yet \u2014 tap Edit to write it.', placeholder: 'How this ship meets it, and where the evidence is' },
+      { key: 'answer', label: 'Answer', type: 'textarea', answerLines: true, showEmpty: 'Not answered yet \u2014 tap Edit to write it.', placeholder: 'How this ship meets it, and where the evidence is' },
       { ...NOTES, label: 'Expected evidence and guidance' },
       ANSWERS,
       ATTACHMENTS,
