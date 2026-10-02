@@ -25,7 +25,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.54';
+const APP_VERSION = '2026.10.55';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -3137,10 +3137,25 @@ async function openAttachment(att, startPage = 1, itemId = view.detailId, { find
     const current = (store.getItem(itemId)?.data.attachments || []).find((a) => a.id === att.id) || att;
     if (itemId && wantsPageReading(current)) unwatchPageToRead = watchPageToRead(itemId, current);
   } catch (ex) {
+    const damaged = await storedFileDamaged(att);
     clear(body).append(el('div', { class: 'empty' }, [
       el('h3', { text: 'Could not open it' }),
-      el('p', { text: ex.message })
+      el('p', { text: damaged
+        ? 'The copy of this file on this phone is damaged — it does not begin as a PDF does. Restore the backup it came from again (Settings → Restore a full backup) to replace it, or add the file again.'
+        : ex.message }),
+      el('p', { class: 'hint', text: `Library ${APP_VERSION}` })
     ]));
+  }
+}
+
+/** Whether a stored PDF no longer begins as a PDF does. */
+async function storedFileDamaged(att) {
+  if (!/pdf/i.test(att?.type || '') && !/\.pdf$/i.test(att?.name || '')) return false;
+  try {
+    const head = new Uint8Array(await (await store.readFile(att)).slice(0, 1024).arrayBuffer());
+    return !new TextDecoder('latin1').decode(head).includes('%PDF-');
+  } catch {
+    return false;
   }
 }
 

@@ -4722,6 +4722,24 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
       text: n.innerText, align: getComputedStyle(n.lastElementChild).textAlign
     })).catch((e) => ({ text: e.message, align: '' }));
     check('the workings read as a paragraph under their label', /SYSTEMCURVEMARKER/.test(long.text) && /left|start/.test(long.align), JSON.stringify(long));
+
+    // A stored PDF that does not begin as one says so, and what to do.
+    await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const att = await store.storeFile(new File(['PK\u0003\u0004 not a pdf at all'], 'Broken.pdf', { type: 'application/pdf' }));
+      await store.saveItem({ type: 'calculation', data: { title: 'Broken file check', attachments: [att] } });
+    });
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    await other.fill('#search', 'Broken file check');
+    await other.waitForTimeout(600);
+    await other.locator('.card', { hasText: 'Broken file check' }).first().click();
+    await other.waitForSelector('#detail:not([hidden])');
+    await other.locator('#detail button', { hasText: /^Open$/i }).first().click();
+    await other.waitForSelector('#viewer:not([hidden])');
+    await other.waitForTimeout(1500);
+    const said = await other.locator('#viewerBody').innerText();
+    check('a damaged file says it is damaged and how to replace it', /damaged/i.test(said) && /Restore/.test(said), said);
     await fresh.close();
   }
 
