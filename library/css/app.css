@@ -446,6 +446,7 @@ select.field {
 .stat > span:last-child { color: var(--text-dim); font-family: var(--mono); text-align: right; }
 .stat-long { flex-direction: column; gap: 4px; }
 .stat-long > span:last-child { color: var(--text); font-family: inherit; text-align: left; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; }
+.stat-empty > span:last-child { color: var(--text-dim); font-style: italic; }
 .detail-sec { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 2px; }
 .detail-sec:first-child { border-top: 0; padding-top: 0; }
 .detail-sec h4 { font-family: var(--display); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--copper); margin: 0 0 9px; }

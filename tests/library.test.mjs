@@ -591,10 +591,10 @@ try {
   check('opens straight away, with no passcode', true);
   check('no lock screen is shown', await page.locator('#lock').isHidden());
   check('opens on the sections screen',
-    (await page.locator('.section-card').count()) === 9);
+    (await page.locator('.section-card').count()) === 10);
   const names = await page.locator('.section-name').allTextContents();
   check('sections appear in the configured order',
-    names.join(',') === 'Publications,Manuals,Instruments,Calculations,Local Procedures,Synergy,Flag Circulars,Circulars,SIRE 2.0',
+    names.join(',') === 'Publications,Manuals,Instruments,Calculations,Local Procedures,Synergy,Flag Circulars,Circulars,SIRE Part 1,SIRE Part 2',
     names.join(','));
   await shot('lib-01-home');
 
@@ -2571,7 +2571,7 @@ try {
 
   await page.click('#backBtn');
   await page.waitForTimeout(200);
-  await page.locator('.section-card:has(.section-name:text-is("SIRE 2.0"))').click();
+  await page.locator('.section-card:has(.section-name:text-is("SIRE Part 2"))').click();
   await page.click('#fab');
   await page.waitForSelector('#editor:not([hidden])');
   await set('refNo', '2.1');
@@ -2633,7 +2633,7 @@ try {
   await page.locator('.link-banner button').click();
   await page.waitForTimeout(700);
   check('and finishing puts you back where the question was',
-    /^SIRE 2.0$/i.test(await page.locator('#screenTitle').innerText()),
+    /^SIRE Part 2$/i.test(await page.locator('#screenTitle').innerText()),
     await page.locator('#screenTitle').innerText());
 
   await openBranches();
@@ -4743,6 +4743,55 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await other.waitForTimeout(1500);
     const said = await other.locator('#viewerBody').innerText();
     check('a damaged file says it is damaged and how to replace it', /damaged/i.test(said) && /Restore/.test(said), said);
+    await fresh.close();
+  }
+
+  console.log('\nSIRE question library in two parts');
+  {
+    const fresh = await browser.newContext({ ...devices['iPhone 13'] });
+    const other = await fresh.newPage();
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    const tiles = await other.locator('.section-name').allTextContents();
+    check('the question library is two tiles, and the old one is hidden while empty',
+      tiles.includes('SIRE Part 1') && tiles.includes('SIRE Part 2') && !tiles.includes('SIRE 2.0'), tiles.join(','));
+    await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      await store.saveItem({ type: 'sire2', data: { refNo: '8.3.7', chapter: 'Chapter 8 \u2014 Cargo and Ballast Systems', section: '8.3 Oil and Chemical',
+        title: 'Inert gas oxygen analyser', lpg: 'Not applicable to LPG', vessel: 'Oil, Chemical', answer: 'Calibrated monthly; see PMS job IG-04. ANSWERMARKER' } });
+      await store.saveItem({ type: 'sire', data: { refNo: '2.1', title: 'An old question' } });
+    });
+    await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+    await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
+    check('the old tile comes back while it holds a question',
+      (await other.locator('.section-name').allTextContents()).includes('SIRE 2.0'));
+    await other.locator('.section-card', { hasText: 'SIRE Part 2' }).click();
+    for (let i = 0; i < 5; i++) {
+      const shut = other.locator('.group-head-btn[aria-expanded="false"]').first();
+      if (await shut.count() === 0) break;
+      await shut.click();
+      await other.waitForTimeout(50);
+    }
+    const heads = await other.locator('.group-head-btn').allInnerTexts();
+    check('questions are filed by chapter and then by section',
+      heads.some((h) => /Chapter 8/i.test(h)) && heads.some((h) => /8\.3 Oil and Chemical/i.test(h)), JSON.stringify(heads));
+    const card = await other.locator('.card', { hasText: /oxygen analyser/i }).innerText();
+    check('a question not for LPG carriers says so on its card', /Not applicable to LPG/i.test(card), card);
+    check('and carries its number', /8\.3\.7/.test(card), card);
+    await other.locator('.card', { hasText: /oxygen analyser/i }).click();
+    await other.waitForSelector('#detail:not([hidden])');
+    const detail = await other.locator('#detailBody').innerText();
+    check('and its answer is shown with it', /Answer[\s\S]*ANSWERMARKER/.test(detail), detail.slice(0, 300));
+    await other.click('#detailClose');
+    await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      await store.saveItem({ type: 'sire2', data: { refNo: '8.3.8', chapter: 'Chapter 8 \u2014 Cargo and Ballast Systems', section: '8.3 Oil and Chemical', title: 'Unanswered question' } });
+    });
+    await other.waitForTimeout(400);
+    await other.locator('.card', { hasText: 'Unanswered question' }).click();
+    await other.waitForSelector('#detail:not([hidden])');
+    check('a question not yet answered says so where the answer goes',
+      /Answer\s*Not answered yet/i.test(await other.locator('#detailBody').innerText()));
     await fresh.close();
   }
 

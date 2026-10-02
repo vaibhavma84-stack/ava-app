@@ -25,7 +25,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.56';
+const APP_VERSION = '2026.10.57';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -711,6 +711,7 @@ function renderHome(body) {
   const grid = el('div', { class: 'sections' });
   for (const type of TAB_ORDER) {
     const def = TYPES[type];
+    if (def.hideWhenEmpty && !counts[type]) continue;
     grid.append(el('button', {
       class: 'section-card',
       onclick: () => { view.section = type; view.filter = null; view.toolsOpen = false; render(); $('#body').scrollTop = 0; }
@@ -1804,7 +1805,7 @@ function matchList(item, snippets, info) {
 
       // A question cannot answer itself: the question library says the words
       // too, and more prominently than the manual that governs them.
-      if (view.linking && item.id !== view.linking.id && item.type !== 'sire') {
+      if (view.linking && item.id !== view.linking.id && !item.type.startsWith('sire')) {
         const question = store.getItem(view.linking.id);
         const had = question && alreadyLinked(question, snip);
         holder.append(el('button', {
@@ -1944,7 +1945,16 @@ function openDetail(id) {
   for (const f of def.fields) {
     if (['attachments', 'fileLink', 'answers'].includes(f.key) || f.key === def.titleKey) continue;
     const raw = item.data[f.key];
-    if (raw === undefined || raw === null || raw === '') continue;
+    if (raw === undefined || raw === null || raw === '') {
+      // A field that is there to be filled in says so, rather than not being there.
+      if (f.showEmpty) {
+        section.append(el('div', { class: 'stat stat-long stat-empty' }, [
+          el('span', { text: f.label }), el('span', { text: f.showEmpty })
+        ]));
+        shown++;
+      }
+      continue;
+    }
     // Written-in text -- notes, a procedure, a calculation's workings -- reads
     // as a paragraph under its label, its lines kept, not squeezed to the right.
     section.append(el('div', { class: f.type === 'textarea' ? 'stat stat-long' : 'stat' }, [

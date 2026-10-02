@@ -193,6 +193,45 @@ const ANSWERS = {
   hint: 'The clauses of the company documents that answer this question. Added from a search.'
 };
 
+// Whether a SIRE question is for an LPG carrier, taken from its vessel types.
+export const LPG_NOT_APPLICABLE = 'Not applicable to LPG';
+
+function sireLibrary(label, short, about) {
+  return {
+    label,
+    short,
+    singular: 'SIRE question',
+    about,
+    icon: 'inspect',
+    titleKey: 'title',
+    fields: [
+      { keepCase: true, key: 'refNo', label: 'Question', type: 'text', required: true, placeholder: 'e.g. 8.6.3', group: 'ident' },
+      { key: 'chapter', label: 'Chapter', type: 'text', group: 'ident', suggestFrom: true },
+      { key: 'section', label: 'Section', type: 'text', suggestFrom: true },
+      { key: 'title', label: 'Subject', type: 'text', required: true, placeholder: 'e.g. Cargo tank relief valves' },
+      { key: 'lpg', label: 'LPG carrier', type: 'select', options: [LPG_NOT_APPLICABLE] },
+      { keepCase: true, key: 'vessel', label: 'Vessel types', type: 'text', placeholder: 'e.g. Oil, Chemical, LPG, LNG' },
+      { key: 'roviq', label: 'ROVIQ sequence', type: 'text' },
+      { key: 'question', label: 'Question', type: 'textarea' },
+      { key: 'answer', label: 'Answer', type: 'textarea', showEmpty: 'Not answered yet \u2014 tap Edit to write it.', placeholder: 'How this ship meets it, and where the evidence is' },
+      { ...NOTES, label: 'Expected evidence and guidance' },
+      ANSWERS,
+      ATTACHMENTS,
+      FILE_LINK
+    ],
+    listFields: ['refNo', 'lpg'],
+    groupBy: { key: 'chapter', label: 'Chapter', blank: 'No chapter set' },
+    subGroupBy: { key: 'section', label: 'Section', blank: 'No section set' },
+    collapsible: true,
+    bulkFields: ['chapter', 'lpg'],
+    derive: (data) => {
+      const number = String(data.refNo || '').trim();
+      if (!data.chapter && /^\d/.test(number)) data.chapter = `Chapter ${number.split('.')[0]}`;
+    },
+    sort: (a, b) => byReference(a.refNo, b.refNo) || (a.title || '').localeCompare(b.title || '')
+  };
+}
+
 export const TYPES = {
   manual: {
     label: 'Manuals',
@@ -338,8 +377,11 @@ export const TYPES = {
   // by vessel type, and they are revised -- so what the app holds is the shape
   // of a question and the links out of it, and the questions themselves come
   // off the copy on the phone.
+  // Kept for the questions added before the library was split in two; its
+  // tile shows only while it holds any.
   sire: {
     label: 'SIRE 2.0',
+    hideWhenEmpty: true,
     short: 'SIRE',
     singular: 'SIRE question',
     icon: 'inspect',
@@ -368,6 +410,13 @@ export const TYPES = {
     // Ascending: a question set is read from 1.1 down, not newest first.
     sort: (a, b) => byReference(a.refNo, b.refNo) || (a.title || '').localeCompare(b.title || '')
   },
+
+  // The SIRE 2.0 Question Library in its two parts, one entry per question:
+  // the question, who it applies to -- marked plainly where it is not for an
+  // LPG carrier -- the ship's answer, what the inspector expects to see, and
+  // the company clauses that answer it.
+  sire1: sireLibrary('SIRE Part 1', 'SIRE 1', 'Chapters 2\u20137: certification, crew, navigation, safety, pollution, security'),
+  sire2: sireLibrary('SIRE Part 2', 'SIRE 2', 'Chapters 8\u201312: cargo and ballast, mooring, machinery, appearance, ice'),
 
   publication: {
     label: 'Publications',
@@ -528,4 +577,4 @@ export const TYPES = {
 // 'notice' is defined above but parked: it is not listed here, so nothing
 // renders it, and any records already saved under it stay untouched. Adding it
 // back to this list restores both the section and its entries.
-export const TAB_ORDER = ['publication', 'manual', 'instrument', 'calculation', 'local', 'synergy', 'flag', 'circular', 'sire'];
+export const TAB_ORDER = ['publication', 'manual', 'instrument', 'calculation', 'local', 'synergy', 'flag', 'circular', 'sire1', 'sire2', 'sire'];
