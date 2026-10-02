@@ -252,8 +252,10 @@ export const TYPES = {
       FILE_LINK
     ],
     listFields: ['maker', 'model'],
-    groupBy: { key: 'vessel', label: 'Vessel', blank: 'No vessel set' },
-    subGroupBy: { key: 'category', label: 'Kind', blank: 'Unsorted' },
+    // Filed by what it is and then by model: every GX-3R together, whichever
+    // locker it lives in. The ship and place on board are on the entry.
+    groupBy: { key: 'category', label: 'Kind', blank: 'Unsorted' },
+    subGroupBy: { key: 'model', label: 'Model', blank: 'No model set' },
     collapsible: true,
     bulkFields: ['vessel', 'category'],
     bulkRead: true,

@@ -4656,6 +4656,9 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
       await shut.click();
       await other.waitForTimeout(50);
     }
+    const folders = await other.locator('.group-head-btn').allInnerTexts();
+    check('instruments are filed by kind and then by model',
+      folders.some((t) => /Gas Detection/i.test(t)) && folders.some((t) => /GX-8000/.test(t)), JSON.stringify(folders));
     const card = await other.locator('.card', { hasText: /GX-8000 gas detector/i }).innerText();
     check('an instrument shows its maker and model, and when it is due', /Riken Keiki/.test(card) && /GX-8000/.test(card) && /Due in 10 days/i.test(card), card);
     await other.click('#backBtn');
