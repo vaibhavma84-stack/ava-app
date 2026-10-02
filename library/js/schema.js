@@ -212,9 +212,9 @@ function sireLibrary(label, short, about) {
       { key: 'lpg', label: 'LPG carrier', type: 'select', options: [LPG_NOT_APPLICABLE] },
       { keepCase: true, key: 'vessel', label: 'Vessel types', type: 'text', placeholder: 'e.g. Oil, Chemical, LPG, LNG' },
       { key: 'roviq', label: 'ROVIQ sequence', type: 'text' },
-      { key: 'question', label: 'Question', type: 'textarea' },
-      { key: 'answer', label: 'Answer', type: 'textarea', answerLines: true, showEmpty: 'Not answered yet \u2014 tap Edit to write it.', placeholder: 'How this ship meets it, and where the evidence is' },
-      { ...NOTES, label: 'Expected evidence and guidance' },
+      { key: 'question', label: 'Question', type: 'textarea', markRoles: true },
+      { key: 'answer', label: 'Answer', type: 'textarea', answerLines: true, markRoles: true, showEmpty: 'Not answered yet \u2014 tap Edit to write it.', placeholder: 'How this ship meets it, and where the evidence is' },
+      { ...NOTES, label: 'Expected evidence and guidance', markRoles: true },
       ANSWERS,
       ATTACHMENTS,
       FILE_LINK

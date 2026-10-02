@@ -4759,6 +4759,8 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
       const store = await import('./js/store.js');
       await store.saveItem({ type: 'sire2', data: { refNo: '8.3.7', chapter: 'Chapter 8 \u2014 Cargo and Ballast Systems', section: '8.3 Oil and Chemical',
         title: 'Inert gas oxygen analyser', lpg: 'Not applicable to LPG', vessel: 'Oil, Chemical',
+        question: 'Was the analyser calibrated? Were the Master and officers familiar with the procedure?',
+        notes: 'The master valve was open. The Chief Engineer had not signed the records.',
         answer: 'ANSWER\nCalibrated monthly; see PMS job IG-04. ANSWERMARKER\n\nEXPECTED EVIDENCE\n\u2022 Calibration records.\n  \u2192 PMS job IG-04 GREENLINE' } });
       await store.saveItem({ type: 'sire2', data: { refNo: '10.1.1', chapter: 'Chapter 10 \u2014 Machinery Spaces', section: '10.1 Engine Room Management', title: 'Standing orders' } });
       await store.saveItem({ type: 'sire2', data: { refNo: '8.10.1', chapter: 'Chapter 8 \u2014 Cargo and Ballast Systems', section: '8.10 Later section', title: 'A later section' } });
@@ -4794,6 +4796,13 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
       return { answer: c(of(/ANSWERMARKER/)), line: c(of(/GREENLINE/)), point: c(of(/Calibration records/)), head: c(of(/^EXPECTED/)) };
     });
     const green = (c) => { const [r, g, b] = (c || '').match(/\d+/g)?.map(Number) || []; return g > r + 40 && g > b + 40; };
+    const blue = await other.locator('#detailBody .role-text').allInnerTexts();
+    check('what the Master and officers must know is marked out, and nothing else',
+      blue.some((t) => /Master and officers familiar/.test(t)) && blue.some((t) => /Chief Engineer had not signed/.test(t))
+        && !blue.some((t) => /analyser calibrated|master valve/.test(t)), JSON.stringify(blue));
+    const roleColour = await other.locator('#detailBody .role-text').first().evaluate((n) => getComputedStyle(n).color);
+    const [rr, rg, rb] = roleColour.match(/\d+/g).map(Number);
+    check('in blue', rb > rr + 40 && rb > rg, roleColour);
     check('answers are green and the points they answer are not',
       green(colours.answer) && green(colours.line) && !green(colours.point) && !green(colours.head), JSON.stringify(colours));
     await other.click('#detailClose');

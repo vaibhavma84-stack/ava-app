@@ -25,7 +25,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.59';
+const APP_VERSION = '2026.10.60';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -1962,7 +1962,9 @@ function openDetail(id) {
     // as a paragraph under its label, its lines kept, not squeezed to the right.
     section.append(el('div', { class: f.type === 'textarea' ? 'stat stat-long' : 'stat' }, [
       el('span', { text: f.label }),
-      f.answerLines ? answerSheet(String(raw)) : el('span', { text: f.type === 'date' ? displayDate(raw) : String(raw) })
+      f.answerLines ? answerSheet(String(raw))
+        : f.markRoles ? roleMarked(String(raw), el('span'))
+          : el('span', { text: f.type === 'date' ? displayDate(raw) : String(raw) })
     ]));
     shown++;
   }
@@ -5956,6 +5958,21 @@ async function doFullBackup(button, out) {
   }
 }
 
+// What SIRE expects the Master and officers themselves to know is in blue:
+// each sentence that names them, so it can be learnt before the inspection.
+// "Master" only as the rank -- a capital M -- not a master switch or valve.
+const MASTER = /\bMaster(?:s|['\u2019]s)?\b/;
+const OFFICERS = /\bofficers?\b|\bOOWs?\b|\bChief (?:Engineer|Mate)\b|\b(?:Second|Third|2nd|3rd) Engineers?\b/i;
+const namesRole = (sentence) => MASTER.test(sentence) || OFFICERS.test(sentence);
+
+function roleMarked(text, into) {
+  for (const part of text.split(/(?<=[.?!;:])(\s+)/)) {
+    if (/^\s*$/.test(part)) { into.append(part); continue; }
+    into.append(namesRole(part) ? el('span', { class: 'role-text', text: part }) : part);
+  }
+  return into;
+}
+
 // An answer sheet: the points it answers (bullets, headings, the closing
 // source note) stay as they are; everything written as the answer is green.
 function answerSheet(text) {
@@ -5963,7 +5980,10 @@ function answerSheet(text) {
   const lines = text.split('\n');
   lines.forEach((line, i) => {
     const asked = /^\s*\u2022/.test(line) || /^[A-Z][A-Z &]+$/.test(line.trim()) || /^\(Searched:/.test(line);
-    out.append(el('span', { class: asked ? 'answer-q' : 'answer-a', text: i < lines.length - 1 ? line + '\n' : line }));
+    const text = i < lines.length - 1 ? line + '\n' : line;
+    // What SIRE asks stays plain, bar what it asks of the Master and officers;
+    // what is written as the answer is all green.
+    out.append(asked ? roleMarked(text, el('span', { class: 'answer-q' })) : el('span', { class: 'answer-a', text }));
   });
   return out;
 }
