@@ -27,7 +27,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.65';
+const APP_VERSION = '2026.10.66';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -859,6 +859,11 @@ function renderTile(body) {
   const tile = tileById(view.tileId);
   if (!tile) { view.section = null; view.tileId = null; return renderHome(body); }
   if (tile.parentId) body.append(el('p', { class: 'hint tile-path', text: tilePath(tile.id) }));
+  // Several files at once, each its own entry in this tile, read as it comes in.
+  body.append(el('button', {
+    class: 'btn btn-primary btn-block', id: 'tileUpload', style: 'margin-bottom:10px',
+    onclick: () => { $('#importPicker').accept = ''; $('#importPicker').click(); }
+  }, ['Upload files here']));
   body.append(el('div', { class: 'tile-actions' }, [
     el('button', { class: 'btn btn-sm', id: 'tileRename', onclick: () => renameTile(tile.id) }, ['Rename']),
     el('button', { class: 'btn btn-sm', id: 'tileDelete', onclick: () => deleteTile(tile.id) }, ['Delete tile'])
@@ -869,7 +874,7 @@ function renderTile(body) {
     body.append(el('h3', { class: 'tile-heading', text: 'Entries' }));
     for (const item of items) body.append(cardFor(item));
   } else {
-    body.append(el('p', { class: 'hint', style: 'text-align:center', text: 'Tap + to add an entry with its PDFs here.' }));
+    body.append(el('p', { class: 'hint', style: 'text-align:center', text: 'Upload files here, or tap + to write an entry and add its files.' }));
   }
 }
 
@@ -5779,6 +5784,8 @@ async function onImportPicked(e) {
       // findable by what it was called.
       if (!String(data[def.titleKey] || '').trim()) data[def.titleKey] = titleFromFilename(file.name);
       data.attachments = [descriptor];
+      // Brought in from inside a tile: filed in that tile.
+      if (BINDER) data.tileId = view.tileId;
 
       const saved = await store.saveItem({ type, data });
       revealItem(saved);
