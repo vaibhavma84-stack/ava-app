@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.avaapp.mylibrary'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.avaapp.mylibrary'
+        minSdk 26
+        targetSdk 34
+        // Each build from GitHub counts up, so a new APK installs over the old one.
+        versionCode((System.getenv('VERSION_CODE') ?: '1') as int)
+        versionName(System.getenv('VERSION_NAME') ?: '1.0')
+    }
+
+    // One fixed key, kept with the project, so every build can update the app
+    // already installed rather than needing it removed first.
+    signingConfigs {
+        release {
+            storeFile file('release.keystore')
+            storePassword 'mylibrary'
+            keyAlias 'mylibrary'
+            keyPassword 'mylibrary'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.11.0'
+    implementation 'androidx.core:core:1.13.1'
+}

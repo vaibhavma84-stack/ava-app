@@ -1,7 +1,10 @@
 // IndexedDB for Library. Stores ciphertext only; it knows nothing about keys.
 // Separate database from AVA, so the two apps never touch each other's data.
 
-const DB_NAME = 'ava-library';
+import { BINDER } from './mode.js';
+
+// The tile-it-yourself app keeps its own database, never the Library's.
+const DB_NAME = BINDER ? 'my-library' : 'ava-library';
 const DB_VERSION = 1;
 
 export const STORE_ITEMS = 'items';   // { id, updatedAt, iv, ct }

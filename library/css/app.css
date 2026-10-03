@@ -169,6 +169,11 @@ select.field {
   display: flex; flex-direction: column; gap: 9px; min-height: 104px;
 }
 .section-card:active { background: var(--ink-700); }
+.tile-new { border-style: dashed; color: var(--text-dim); }
+.tile-new .section-ico { font-size: 24px; color: var(--copper); }
+.tile-actions { display: flex; gap: 8px; margin-bottom: 12px; }
+.tile-heading { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--copper); margin: 18px 0 8px; }
+.tile-path { margin: 0 0 8px; }
 .section-ico { color: var(--copper); display: flex; }
 .section-name {
   font-family: var(--display); font-size: 15px; letter-spacing: .08em; text-transform: uppercase;

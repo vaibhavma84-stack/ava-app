@@ -19,6 +19,7 @@ import { isEpub, readEpub } from './epub.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
 import { parseSheet, buildSheet } from './answersheet.js';
+import { BINDER } from './mode.js';
 import { findReference, describeReference } from './xref.js';
 import { dueStatus, dueLabel, dueSoon } from './due.js';
 import { findOlderEdition, changedPages, pageRanges } from './editions.js';
@@ -26,7 +27,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.64';
+const APP_VERSION = '2026.10.65';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -332,8 +333,28 @@ async function announceIfStale() {
   if (body && !$('#staleBar')) body.parentNode.insertBefore(bar, body);
 }
 
+// The Android back button: close what is on top, else go up a level. False
+// at the top, so the phone leaves the app.
+window.__androidBack = () => {
+  const overlays = [['viewer', 'viewerClose'], ['pick', 'pickClose'], ['scan', 'scanClose'], ['check', 'checkClose'],
+    ['ask', 'askClose'], ['editor', 'editorCancel'], ['bulk', 'bulkCancel'], ['detail', 'detailClose'], ['settings', 'settingsClose']];
+  for (const [id, close] of overlays) {
+    const box = document.getElementById(id);
+    if (box && !box.hidden) {
+      if (close && document.getElementById(close)) document.getElementById(close).click();
+      else box.hidden = true;
+      return true;
+    }
+  }
+  if (view.screen !== 'home') { $('#backBtn').click(); return true; }
+  return false;
+};
+
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
+  // Inside the Android app the pages come out of the app itself; there is
+  // nothing for a worker to keep.
+  if (window.AndroidBridge) return;
   let reloading = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (reloading) return;
@@ -447,7 +468,8 @@ function render() {
 
   const title = view.screen === 'search' ? 'Search'
     : view.screen === 'page' ? [PAGES[view.page].title].map((t) => (typeof t === 'function' ? t() : t))[0]
-    : view.section ? TYPES[view.section].label : 'LIBRARY';
+    : view.section ? (BINDER ? (tileById(view.tileId)?.name || 'Tile') : TYPES[view.section].label)
+    : BINDER ? 'MY LIBRARY' : 'LIBRARY';
   $('#screenTitle').textContent = title;
   $('#screenTitle').className = view.screen === 'home' ? 'brand' : 'brand small';
 
@@ -711,6 +733,7 @@ function renderHome(body) {
   const line = readingLine();
   if (line) body.append(line);
   const counts = store.counts();
+  if (BINDER) body.append(tileGrid(null));
   const grid = el('div', { class: 'sections' });
   for (const type of TAB_ORDER) {
     const def = TYPES[type];
@@ -727,7 +750,7 @@ function renderHome(body) {
         : null
     ]));
   }
-  body.append(grid);
+  if (!BINDER) body.append(grid);
 
   const due = duePanel();
   if (due) body.append(due);
@@ -748,6 +771,121 @@ function renderHome(body) {
       + (stats.unsearchable ? ` · ${stats.unsearchable} scanned, no text to search` : '')
     ]));
   }
+}
+
+// ── tiles (the tile-it-yourself app) ───────────────────────────────────────
+//
+// Tiles are made by the person, and hold tiles of their own as deep as wanted.
+// Entries are filed in the tile they were made in.
+
+let tilesRead = false;
+const allTiles = () => store.peekList('tiles');
+const tileById = (id) => allTiles().find((t) => t.id === id) || null;
+const childTiles = (id) => allTiles().filter((t) => (t.parentId || null) === (id || null))
+  .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+const entriesIn = (id) => store.itemsOfType('doc').filter((i) => i.data.tileId === id);
+
+function tilePath(id) {
+  const names = [];
+  for (let t = tileById(id); t; t = tileById(t.parentId)) names.unshift(t.name);
+  return names.join(' \u203a ');
+}
+
+/** Everything a tile holds, all the way down. */
+function tileTotal(id) {
+  return entriesIn(id).length + childTiles(id).reduce((n, t) => n + tileTotal(t.id), 0);
+}
+
+async function saveTiles(rows) {
+  await store.setList('tiles', rows);
+}
+
+async function newTile(parentId) {
+  const name = (prompt(parentId ? 'Name of the new sub-tile' : 'Name of the new tile') || '').trim();
+  if (!name) return;
+  await saveTiles([...allTiles(), { id: store.newId(), name, parentId: parentId || null, createdAt: new Date().toISOString() }]);
+  render();
+}
+
+async function renameTile(id) {
+  const tile = tileById(id);
+  const name = (prompt('New name', tile.name) || '').trim();
+  if (!name || name === tile.name) return;
+  await saveTiles(allTiles().map((t) => (t.id === id ? { ...t, name } : t)));
+  render();
+}
+
+async function deleteTile(id) {
+  if (childTiles(id).length || entriesIn(id).length) {
+    return toast('Move or delete what is in this tile first');
+  }
+  if (!confirm(`Delete the tile \u201c${tileById(id).name}\u201d?`)) return;
+  const parent = tileById(id).parentId || null;
+  await saveTiles(allTiles().filter((t) => t.id !== id));
+  view.tileId = parent;
+  if (!parent) view.section = null;
+  render();
+}
+
+function tileGrid(parentId) {
+  if (!tilesRead) {
+    tilesRead = true;
+    store.getList('tiles').then(() => render());
+  }
+  const grid = el('div', { class: 'sections' });
+  for (const tile of childTiles(parentId)) {
+    const subs = childTiles(tile.id).length;
+    const total = tileTotal(tile.id);
+    grid.append(el('button', {
+      class: 'section-card tile-card',
+      onclick: () => { view.section = 'doc'; view.tileId = tile.id; view.filter = null; render(); $('#body').scrollTop = 0; }
+    }, [
+      el('span', { class: 'section-ico' }, [icon('folder', 24)]),
+      el('h2', { class: 'section-name', text: tile.name }),
+      el('span', { class: 'section-count', text: [subs ? `${subs} ${subs === 1 ? 'sub-tile' : 'sub-tiles'}` : '', `${total} ${total === 1 ? 'entry' : 'entries'}`].filter(Boolean).join(' \u00b7 ') })
+    ]));
+  }
+  grid.append(el('button', {
+    class: 'section-card tile-new', id: parentId ? 'newSubTile' : 'newTile',
+    onclick: () => newTile(parentId)
+  }, [
+    el('span', { class: 'section-ico' }, ['+']),
+    el('h2', { class: 'section-name', text: parentId ? 'New sub-tile' : 'New tile' })
+  ]));
+  return grid;
+}
+
+function renderTile(body) {
+  const tile = tileById(view.tileId);
+  if (!tile) { view.section = null; view.tileId = null; return renderHome(body); }
+  if (tile.parentId) body.append(el('p', { class: 'hint tile-path', text: tilePath(tile.id) }));
+  body.append(el('div', { class: 'tile-actions' }, [
+    el('button', { class: 'btn btn-sm', id: 'tileRename', onclick: () => renameTile(tile.id) }, ['Rename']),
+    el('button', { class: 'btn btn-sm', id: 'tileDelete', onclick: () => deleteTile(tile.id) }, ['Delete tile'])
+  ]));
+  body.append(tileGrid(tile.id));
+  const items = entriesIn(tile.id);
+  if (items.length) {
+    body.append(el('h3', { class: 'tile-heading', text: 'Entries' }));
+    for (const item of items) body.append(cardFor(item));
+  } else {
+    body.append(el('p', { class: 'hint', style: 'text-align:center', text: 'Tap + to add an entry with its PDFs here.' }));
+  }
+}
+
+function tileField(f, draft) {
+  const wrap = el('div', {}, [el('label', { class: 'label', text: f.label })]);
+  const sel = el('select', { class: 'field', 'data-field': f.key, onchange: (e) => { draft.data[f.key] = e.target.value || null; } });
+  sel.append(el('option', { value: '' }, ['\u2014']));
+  const add = (parentId) => {
+    for (const t of childTiles(parentId)) {
+      sel.append(el('option', { value: t.id, selected: draft.data[f.key] === t.id }, [tilePath(t.id)]));
+      add(t.id);
+    }
+  };
+  add(null);
+  wrap.append(sel);
+  return wrap;
 }
 
 /**
@@ -1031,6 +1169,7 @@ function revealItem(item) {
 }
 
 function renderSection(body) {
+  if (BINDER) return renderTile(body);
   const def = TYPES[view.section];
   const panels = [];
   if (view.section === 'flag') {
@@ -1884,7 +2023,9 @@ function wireApp() {
     }
     else if (view.page === 'kit') view.page = 'kits';
     else if (view.page) view.page = null;
-    else { view.section = null; view.filter = null; endSelecting(); }
+    // Inside a sub-tile, back is the tile it is in.
+    else if (BINDER && tileById(view.tileId)?.parentId) view.tileId = tileById(view.tileId).parentId;
+    else { view.section = null; view.tileId = null; view.filter = null; endSelecting(); }
     render();
   });
   $('#settingsBtn').addEventListener('click', openSettings);
@@ -1905,7 +2046,12 @@ function wireApp() {
   });
   $('#editorCancel').addEventListener('click', closeEditor);
   $('#editorSave').addEventListener('click', saveEditor);
-  $('#fab').addEventListener('click', () => view.section && openEditor(view.section, null));
+  $('#fab').addEventListener('click', () => {
+    if (!view.section) return;
+    openEditor(view.section, null);
+    // A new entry goes in the tile it was made in.
+    if (BINDER && view.draft) view.draft.data.tileId = view.tileId;
+  });
   $('#filePicker').addEventListener('change', onFilesPicked);
   $('#importPicker').addEventListener('change', onImportPicked);
   $('#backupPicker').addEventListener('change', onBackupPicked);
@@ -1959,6 +2105,13 @@ function openDetail(id) {
   for (const f of def.fields) {
     if (['attachments', 'fileLink', 'answers'].includes(f.key) || f.key === def.titleKey) continue;
     const raw = item.data[f.key];
+    if (f.type === 'tile') {
+      if (raw && tileById(raw)) {
+        section.append(el('div', { class: 'stat' }, [el('span', { text: f.label }), el('span', { text: tilePath(raw) })]));
+        shown++;
+      }
+      continue;
+    }
     if (f.type === 'qa') {
       const pairs = (Array.isArray(raw) ? raw : []).filter((p) => (p.q || '').trim() || (p.a || '').trim());
       section.append(pairs.length ? qaBlock(f, pairs)
@@ -4901,7 +5054,24 @@ function handoverPanel() {
   ]);
 }
 
+// The Android app hands a file out through the phone: a copy in Downloads,
+// then the share sheet. Sent in pieces, as text, which is all a page can give it.
+async function androidSave(blob, filename, type) {
+  const bridge = window.AndroidBridge;
+  if (!bridge.begin(filename, type || blob.type || 'application/octet-stream')) throw new Error('could not start');
+  const STEP = 3 * 256 * 1024;
+  for (let at = 0; at < blob.size; at += STEP) {
+    const bytes = new Uint8Array(await blob.slice(at, at + STEP).arrayBuffer());
+    let bin = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    if (!bridge.append(btoa(bin))) throw new Error('could not write');
+  }
+  if (!bridge.finish()) throw new Error('could not save');
+  return true;
+}
+
 async function shareBlob(blob, filename, type) {
+  if (window.AndroidBridge) return androidSave(blob, filename, type);
   const file = new File([blob], filename, { type });
   if (navigator.canShare && navigator.canShare({ files: [file] })) {
     try { await navigator.share({ files: [file], title: filename }); return true; }
@@ -5003,6 +5173,7 @@ function textExportPanel() {
 async function shareAttachment(att) {
   try {
     const blob = await store.readFile(att);
+    if (window.AndroidBridge) { await androidSave(blob, att.name, att.type); return; }
     const file = new File([blob], att.name, { type: att.type || 'application/octet-stream' });
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       await navigator.share({ files: [file], title: att.name });
@@ -5153,6 +5324,7 @@ function fieldFor(f, draft) {
   if (f.type === 'answers') return null;
   if (f.answerLines) return answerEditor(f, draft);
   if (f.type === 'qa') return qaEditor(f, draft);
+  if (f.type === 'tile') return tileField(f, draft);
   const wrap = el('div', {}, [el('label', { class: 'label', text: f.label })]);
   const value = draft.data[f.key] ?? '';
 

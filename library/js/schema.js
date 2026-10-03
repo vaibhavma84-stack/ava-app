@@ -2,6 +2,7 @@
 // the detail view and the edit form. Adding a field is a one-line change.
 
 import { IMO_LIST_URL } from './imo.js';
+import { BINDER } from './mode.js';
 
 export const MANUAL_CATEGORIES = [
   'Deck', 'Engine', 'Safety', 'Cargo', 'Navigation', 'ISM / ISPS', 'MARPOL',
@@ -237,7 +238,7 @@ function sireLibrary(label, short, about) {
   };
 }
 
-export const TYPES = {
+const LIBRARY_TYPES = {
   manual: {
     label: 'Manuals',
     short: 'Manuals',
@@ -586,4 +587,31 @@ export const TYPES = {
 // 'notice' is defined above but parked: it is not listed here, so nothing
 // renders it, and any records already saved under it stay untouched. Adding it
 // back to this list restores both the section and its entries.
-export const TAB_ORDER = ['publication', 'manual', 'instrument', 'calculation', 'local', 'synergy', 'flag', 'circular', 'sire1', 'sire2', 'sire'];
+const LIBRARY_ORDER = ['publication', 'manual', 'instrument', 'calculation', 'local', 'synergy', 'flag', 'circular', 'sire1', 'sire2', 'sire'];
+
+// The tile-it-yourself app has one kind of entry -- a document or note with
+// its files -- filed in the tile it was made in (data.tileId). The tiles
+// themselves are a list the person makes, not sections written here.
+const BINDER_TYPES = {
+  doc: {
+    label: 'Entries',
+    short: 'Entries',
+    singular: 'Entry',
+    icon: 'book',
+    titleKey: 'title',
+    fields: [
+      { key: 'title', label: 'Title', type: 'text', required: true, placeholder: 'e.g. Cargo Operations Manual' },
+      { key: 'tileId', label: 'Tile', type: 'tile' },
+      { keepCase: true, key: 'refNo', label: 'Reference', type: 'text', placeholder: 'e.g. rev. 3, form number' },
+      { key: 'notes', label: 'Notes', type: 'textarea', placeholder: 'Anything to keep with it' },
+      { key: 'sireQA', label: 'Questions and answers', type: 'qa', showEmpty: 'None added yet \u2014 tap Edit to add a question and its answer.' },
+      { key: 'attachments', label: 'Files on this device', type: 'attachments', hint: 'PDFs are read for their text when added, so their contents become searchable.' },
+      { key: 'fileLink', label: 'Link', type: 'url', placeholder: 'https://\u2026' }
+    ],
+    listFields: ['refNo'],
+    sort: (a, b) => (a.title || '').localeCompare(b.title || '', undefined, { numeric: true })
+  }
+};
+
+export const TYPES = BINDER ? BINDER_TYPES : LIBRARY_TYPES;
+export const TAB_ORDER = BINDER ? ['doc'] : LIBRARY_ORDER;

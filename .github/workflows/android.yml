@@ -1,0 +1,76 @@
+name: Android app
+
+# Builds "My Library" -- the tile-it-yourself app -- as an APK, and publishes
+# it on the repository's Releases page to download onto the phone.
+on:
+  push:
+    paths:
+      - 'library/**'
+      - 'vendor/**'
+      - 'android/**'
+      - '.github/workflows/android.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android
+  cancel-in-progress: true
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Put the app inside the APK
+        run: |
+          A=android/app/src/main/assets
+          rm -rf "$A" && mkdir -p "$A"
+          # The library's pages and the PDF reader. The flag documents and
+          # catalogues are the Library's own, not wanted in an empty app.
+          rsync -a --exclude docs --exclude data library "$A/"
+          cp -r vendor "$A/"
+          sed -i "s/export const MODE = 'library';/export const MODE = 'binder';/" "$A/library/js/mode.js"
+          grep -q "MODE = 'binder'" "$A/library/js/mode.js"
+          du -sh "$A"
+
+      - name: Build
+        working-directory: android
+        env:
+          VERSION_CODE: ${{ github.run_number }}
+          VERSION_NAME: 1.${{ github.run_number }}
+        run: gradle --no-daemon assembleRelease
+
+      - name: Name the APK
+        run: |
+          mkdir -p out
+          cp android/app/build/outputs/apk/release/app-release.apk "out/MyLibrary-1.${{ github.run_number }}.apk"
+          ls -la out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MyLibrary-apk
+          path: out/*.apk
+
+      - name: Publish on Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: my-library-1.${{ github.run_number }}
+          name: My Library 1.${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
+          make_latest: true
+          body: |
+            My Library for Android. Download the .apk below on the phone and open it to install.
+            Built from ${{ github.sha }}.
+          files: out/*.apk
