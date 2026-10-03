@@ -26,7 +26,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.62';
+const APP_VERSION = '2026.10.63';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -997,6 +997,12 @@ function renderTree(body, def, groups, names) {
     })) {
       // Keyed by both, so opening MGN under MCA does not open it under a flag
       // that happens to use the same word for something else.
+      // Equipment with no model is simply listed under its section, after
+      // the model folders, rather than in a folder of its own.
+      if (kind === def.subGroupBy.blank && def.subGroupBy.loose) {
+        for (const item of kinds.get(kind)) body.append(cardFor(item));
+        continue;
+      }
       const key = groupKey(`${name} \u203a ${kind}`);
       body.append(branch(key, kind, kinds.get(kind).length, 2));
       if (!branchOpen(key)) continue;
@@ -1068,9 +1074,13 @@ function renderSection(body) {
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(item);
     }
+    const order = folder.order || [];
+    const at = (n) => (order.includes(n) ? order.indexOf(n) : order.length);
     const names = [...groups.keys()].sort((a, b) => {
       if (a === blank) return 1;
       if (b === blank) return -1;
+      // A section with an order of its own -- Cargo, LSA, FFA... -- keeps it.
+      if (at(a) !== at(b)) return at(a) - at(b);
       // Chapter 8 before Chapter 10, section 8.2 before 8.10.
       return a.localeCompare(b, undefined, { numeric: true });
     });
@@ -1949,6 +1959,13 @@ function openDetail(id) {
   for (const f of def.fields) {
     if (['attachments', 'fileLink', 'answers'].includes(f.key) || f.key === def.titleKey) continue;
     const raw = item.data[f.key];
+    if (f.type === 'qa') {
+      const pairs = (Array.isArray(raw) ? raw : []).filter((p) => (p.q || '').trim() || (p.a || '').trim());
+      section.append(pairs.length ? qaBlock(f, pairs)
+        : el('div', { class: 'stat stat-long stat-empty' }, [el('span', { text: f.label }), el('span', { text: f.showEmpty })]));
+      shown++;
+      continue;
+    }
     if (raw === undefined || raw === null || raw === '') {
       // A field that is there to be filled in says so, rather than not being there.
       if (f.showEmpty) {
@@ -5066,6 +5083,49 @@ function fit(box) {
   box.style.height = `${box.scrollHeight + 2}px`;
 }
 
+// Questions asked about a piece of equipment, each with its answer: the
+// question as SIRE puts it, with the Master and officers in blue, the answer
+// in green.
+function qaBlock(f, pairs) {
+  const box = el('span', { class: 'answer-text' });
+  pairs.forEach((p, i) => {
+    if (i) box.append('\n\n');
+    box.append(roleMarked(p.q || '', el('span', { class: 'answer-q qa-q' })), '\n');
+    box.append(el('span', { class: 'answer-a', text: (p.a || '').trim() ? p.a : 'Not answered yet' }));
+  });
+  return el('div', { class: 'stat stat-long' }, [el('span', { text: f.label }), box]);
+}
+
+function qaEditor(f, draft) {
+  if (!Array.isArray(draft.data[f.key])) draft.data[f.key] = [];
+  const pairs = draft.data[f.key];
+  const wrap = el('div', { class: 'answer-editor' }, [el('label', { class: 'label', text: f.label })]);
+  const list = el('div');
+  const draw = () => {
+    clear(list);
+    pairs.forEach((p, i) => {
+      list.append(el('div', { class: 'qa-pair' }, [
+        el('div', { class: 'answer-point qa-head' }, [
+          el('span', { text: `Question ${i + 1}` }),
+          el('button', {
+            class: 'del-btn', 'aria-label': 'Remove this question', type: 'button',
+            onclick: () => { if (confirm('Remove this question and its answer?')) { pairs.splice(i, 1); draw(); } }
+          }, ['\u00d7'])
+        ]),
+        growing({ 'data-qa': `${i}-q`, placeholder: 'The question as SIRE asks it, e.g. 5.4.1 \u2026' }, p.q || '', (v) => { p.q = v; }),
+        el('div', { class: 'answer-point', text: 'Answer' }),
+        growing({ 'data-qa': `${i}-a`, placeholder: 'How this ship meets it, and where the evidence is' }, p.a || '', (v) => { p.a = v; })
+      ]));
+    });
+  };
+  draw();
+  wrap.append(list, el('button', {
+    class: 'btn btn-block', type: 'button', id: 'qaAdd',
+    onclick: () => { pairs.push({ q: '', a: '' }); draw(); list.lastChild?.querySelector('textarea')?.focus(); }
+  }, ['+ Add a SIRE question']));
+  return wrap;
+}
+
 // An answer sheet is written point by point: the overall answer, then a box
 // under each thing the inspector will look for.
 function answerEditor(f, draft) {
@@ -5092,6 +5152,7 @@ function fieldFor(f, draft) {
   // clause reference retyped into a box is the thing this exists to avoid.
   if (f.type === 'answers') return null;
   if (f.answerLines) return answerEditor(f, draft);
+  if (f.type === 'qa') return qaEditor(f, draft);
   const wrap = el('div', {}, [el('label', { class: 'label', text: f.label })]);
   const value = draft.data[f.key] ?? '';
 

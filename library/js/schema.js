@@ -52,9 +52,12 @@ export const LOCAL_PROCEDURE_CATEGORIES = [
 
 // What an instrument on board is for. A gas detector and a sextant are both
 // instruments; they are looked for in different places.
+// Equipment is filed by the part of the ship it belongs to, as SIRE asks
+// about it: cargo plant, life-saving and fire-fighting appliances, security,
+// ballast, navigation.
 export const INSTRUMENT_CATEGORIES = [
-  'Gas Detection', 'Navigation', 'GMDSS / Radio', 'Engine Room', 'Cargo',
-  'Safety', 'Measuring / Test', 'Other'
+  'Cargo', 'LSA', 'FFA', 'ISPS', 'Ballast', 'Navigation',
+  'GMDSS / Radio', 'Gas Detection', 'Mooring', 'Engine Room', 'Measuring / Test', 'Other'
 ];
 
 // What a calculation on board works out. Filed by the job it is done for.
@@ -273,14 +276,14 @@ export const TYPES = {
   // its model and serial, where it lives, when it was last calibrated and
   // when it is due again, and its manual and procedures attached.
   instrument: {
-    label: 'Instruments',
-    short: 'Instruments',
-    singular: 'Instrument',
+    label: 'Equipment',
+    short: 'Equipment',
+    singular: 'Equipment',
     icon: 'gauge',
     titleKey: 'title',
     fields: [
-      { key: 'title', label: 'Instrument', type: 'text', required: true, placeholder: 'e.g. GX-8000 gas detector' },
-      { key: 'category', label: 'Kind', type: 'select', options: INSTRUMENT_CATEGORIES },
+      { key: 'title', label: 'Equipment', type: 'text', required: true, placeholder: 'e.g. GX-8000 gas detector' },
+      { key: 'category', label: 'Section', type: 'select', options: INSTRUMENT_CATEGORIES },
       { keepCase: true, key: 'maker', label: 'Maker', type: 'text', group: 'ident', placeholder: 'e.g. Riken Keiki' },
       { keepCase: true, key: 'model', label: 'Model', type: 'text', group: 'ident', placeholder: 'e.g. GX-8000' },
       { keepCase: true, key: 'serialNo', label: 'Serial number', type: 'text' },
@@ -289,18 +292,22 @@ export const TYPES = {
       { key: 'calibrated', label: 'Last calibrated', type: 'date' },
       { ...REVIEW_BY, label: 'Calibration / service due' },
       { ...NOTES, label: 'Notes / procedures' },
-      ATTACHMENTS,
+      // What SIRE asks about this equipment, and the answer, one pair at a time.
+      { key: 'sireQA', label: 'SIRE questions', type: 'qa', showEmpty: 'None added yet \u2014 tap Edit to add a question and its answer.' },
+      { ...ATTACHMENTS, label: 'Manuals and files on this device' },
       FILE_LINK
     ],
     listFields: ['maker', 'model'],
-    // Filed by what it is and then by model: every GX-3R together, whichever
+    // Filed by section and then by model: every GX-3R together, whichever
     // locker it lives in. The ship and place on board are on the entry.
-    groupBy: { key: 'category', label: 'Kind', blank: 'Unsorted' },
-    subGroupBy: { key: 'model', label: 'Model', blank: 'No model set' },
+    groupBy: { key: 'category', label: 'Section', blank: 'Unsorted', order: INSTRUMENT_CATEGORIES },
+    // Questions answered and manuals added on the phone outlive a newer list.
+    keepEdits: true,
+    subGroupBy: { key: 'model', label: 'Model', blank: 'No model set', loose: true },
     collapsible: true,
     bulkFields: ['vessel', 'category'],
     bulkRead: true,
-    filterBy: { key: 'category', label: 'Kind' },
+    filterBy: { key: 'category', label: 'Section' },
     sort: (a, b) => (a.category || '').localeCompare(b.category || '')
                  || (a.title || '').localeCompare(b.title || '')
   },

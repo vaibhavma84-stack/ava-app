@@ -594,7 +594,7 @@ try {
     (await page.locator('.section-card').count()) === 10);
   const names = await page.locator('.section-name').allTextContents();
   check('sections appear in the configured order',
-    names.join(',') === 'Publications,Manuals,Instruments,Calculations,Local Procedures,Synergy,Flag Circulars,Circulars,SIRE Part 1,SIRE Part 2',
+    names.join(',') === 'Publications,Manuals,Equipment,Calculations,Local Procedures,Synergy,Flag Circulars,Circulars,SIRE Part 1,SIRE Part 2',
     names.join(','));
   await shot('lib-01-home');
 
@@ -4630,14 +4630,14 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     await fresh.close();
   }
 
-  console.log('\nInstruments');
+  console.log('\nEquipment');
   {
     const fresh = await browser.newContext({ ...devices['iPhone 13'] });
     const other = await fresh.newPage();
     await other.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
     await other.waitForSelector('#app:not([hidden])', { timeout: 10000 });
-    await other.locator('.section-card', { hasText: 'Instruments' }).click();
-    check('instruments have a section of their own', /Instruments/i.test(await other.locator('#screenTitle').innerText()));
+    await other.locator('.section-card', { hasText: 'Equipment' }).click();
+    check('equipment has a section of its own', /Equipment/i.test(await other.locator('#screenTitle').innerText()));
     await other.click('#fab');
     await other.waitForSelector('#editor:not([hidden])');
     const due = new Date(Date.now() + 10 * 864e5).toISOString().slice(0, 10);
@@ -4657,18 +4657,69 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
       await other.waitForTimeout(50);
     }
     const folders = await other.locator('.group-head-btn').allInnerTexts();
-    check('instruments are filed by kind and then by model',
+    check('equipment is filed by section and then by model',
       folders.some((t) => /Gas Detection/i.test(t)) && folders.some((t) => /GX-8000/.test(t)), JSON.stringify(folders));
     const card = await other.locator('.card', { hasText: /GX-8000 gas detector/i }).innerText();
     check('an instrument shows its maker and model, and when it is due', /Riken Keiki/.test(card) && /GX-8000/.test(card) && /Due in 10 days/i.test(card), card);
     await other.click('#backBtn');
     await other.waitForTimeout(300);
     const dueText = await other.locator('#dueSoon').innerText().catch((e) => `none: ${e.message.slice(0, 80)}`);
-    check('and its calibration comes up under Due soon', /GX-8000 gas detector[\s\S]*Instrument/i.test(dueText), dueText);
+    check('and its calibration comes up under Due soon', /GX-8000 gas detector[\s\S]*Equipment/i.test(dueText), dueText);
     await other.fill('#search', 'bump test');
     await other.waitForTimeout(600);
     const hit = await other.locator('.card').first().innerText().catch(() => 'no card');
     check('its procedures are searched', /GX-8000 gas detector/i.test(hit), hit);
+    // SIRE questions about it, each with its answer.
+    await other.fill('#search', '');
+    await other.locator('.section-card', { hasText: 'Equipment' }).click();
+    for (let i = 0; i < 5; i++) {
+      const shut = other.locator('.group-head-btn[aria-expanded="false"]').first();
+      if (await shut.count() === 0) break;
+      await shut.click();
+      await other.waitForTimeout(50);
+    }
+    const sectionsOffered = await other.evaluate(async () => (await import('./js/schema.js')).TYPES.instrument.fields.find((f) => f.key === 'category').options.join(','));
+    await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      for (const [title, category] of [['Lifeboat', 'LSA'], ['ECDIS', 'Navigation'], ['Cargo compressor', 'Cargo']]) {
+        await store.saveItem({ type: 'instrument', data: { title, category } });
+      }
+    });
+    await other.waitForTimeout(400);
+    const tops = await other.locator('.group-head-btn').allInnerTexts();
+    const pos = (re) => tops.findIndex((t) => re.test(t));
+    check('sections come in their own order, cargo first, then LSA, ahead of navigation',
+      pos(/^Cargo/i) < pos(/^LSA/i) && pos(/^LSA/i) < pos(/^Navigation/i) && pos(/^Navigation/i) < pos(/^Gas Detection/i), JSON.stringify(tops));
+    await other.locator('.group-head-btn', { hasText: /^LSA/i }).click();
+    await other.waitForTimeout(200);
+    check('and equipment with no model sits straight under its section',
+      await other.locator('.card', { hasText: 'Lifeboat' }).count() === 1
+        && !(await other.locator('.group-head-btn').allInnerTexts()).some((t) => /No model set/i.test(t)));
+    check('equipment has sections for cargo, LSA, FFA, ISPS, ballast and navigation',
+      ['Cargo', 'LSA', 'FFA', 'ISPS', 'Ballast', 'Navigation'].every((x) => sectionsOffered.split(',').includes(x)), sectionsOffered);
+    await other.locator('.card', { hasText: /GX-8000 gas detector/i }).click();
+    await other.waitForSelector('#detail:not([hidden])');
+    check('an entry with no SIRE questions says how to add one', /SIRE questions\s*None added yet/i.test(await other.locator('#detailBody').innerText()));
+    await other.click('#detailEdit');
+    await other.waitForSelector('#editor:not([hidden])');
+    await other.click('#qaAdd');
+    await other.fill('#editorBody [data-qa="0-q"]', '5.6.1 Were the officers familiar with the bump test? QAMARK');
+    await other.fill('#editorBody [data-qa="0-a"]', 'Bump tested before each use, recorded in the log. QAANSWER');
+    await other.click('#qaAdd');
+    await other.fill('#editorBody [data-qa="1-q"]', 'Second question QTWO');
+    await other.click('#editorSave');
+    await other.waitForSelector('#editor', { state: 'hidden', timeout: 15000 });
+    const qaText = await other.locator('#detailBody').innerText();
+    check('SIRE questions are kept on the equipment, each with its answer',
+      /SIRE questions[\s\S]*QAMARK[\s\S]*QAANSWER[\s\S]*QTWO[\s\S]*Not answered yet/.test(qaText), qaText.slice(-400));
+    const qaBlue = await other.locator('#detailBody .qa-q .role-text').allInnerTexts();
+    check('with what the officers must know in blue', qaBlue.some((t) => /officers familiar/.test(t)), JSON.stringify(qaBlue));
+    await other.click('#detailClose');
+    await other.click('#backBtn');
+    await other.fill('#search', 'QAANSWER');
+    await other.waitForTimeout(600);
+    const qaHit = await other.locator('.card').first().innerText().catch(() => 'no card');
+    check('and they are searched', /GX-8000 gas detector/i.test(qaHit), qaHit);
     await other.evaluate(async () => {
       const store = await import('./js/store.js');
       const item = await store.saveItem({ type: 'instrument', data: { title: 'RX-8000', attachments: [
