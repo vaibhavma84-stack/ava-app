@@ -26,7 +26,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.63';
+const APP_VERSION = '2026.10.64';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -6066,7 +6066,8 @@ const OFFICERS = /\bofficers?\b|\bOOWs?\b|\bChief (?:Engineer|Mate)\b|\b(?:Secon
 const namesRole = (sentence) => MASTER.test(sentence) || OFFICERS.test(sentence);
 
 function roleMarked(text, into) {
-  for (const part of text.split(/(?<=[.?!;:])(\s+)/)) {
+  // A new line ends a sentence too: a heading above a question is not part of it.
+  for (const part of text.split(/(?<=[.?!;:])(\s+)|(\n)/).filter((p) => p !== undefined && p !== '')) {
     if (/^\s*$/.test(part)) { into.append(part); continue; }
     into.append(namesRole(part) ? el('span', { class: 'role-text', text: part }) : part);
   }
