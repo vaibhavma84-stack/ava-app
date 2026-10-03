@@ -452,6 +452,9 @@ select.field {
 .answer-text .answer-a { color: var(--answer); }
 .answer-text .answer-q { color: var(--text); }
 .role-text { color: var(--role); }
+.field.grow { resize: none; overflow: hidden; min-height: 52px; line-height: 1.45; color: var(--answer); }
+.answer-point { margin: 14px 0 6px; font-size: 14px; line-height: 1.45; color: var(--text); }
+.answer-editor .answer-point:first-of-type { margin-top: 2px; }
 .detail-sec { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 2px; }
 .detail-sec:first-child { border-top: 0; padding-top: 0; }
 .detail-sec h4 { font-family: var(--display); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--copper); margin: 0 0 9px; }

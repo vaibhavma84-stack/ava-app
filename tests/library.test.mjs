@@ -4805,7 +4805,28 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     check('in blue', rb > rr + 40 && rb > rg, roleColour);
     check('answers are green and the points they answer are not',
       green(colours.answer) && green(colours.line) && !green(colours.point) && !green(colours.head), JSON.stringify(colours));
-    await other.click('#detailClose');
+    // Written point by point: a box for the overall answer and one under each point.
+    await other.click('#detailEdit');
+    await other.waitForSelector('#editor:not([hidden])');
+    const boxes = await other.locator('#editorBody .answer-editor textarea').count();
+    const pointBox = other.locator('#editorBody textarea[data-point="0"]');
+    check('the answer is a box for the whole and one under each evidence point',
+      boxes === 2 && /PMS job IG-04 GREENLINE/.test(await pointBox.inputValue())
+        && /Calibration records/.test(await other.locator('#editorBody .answer-point').allInnerTexts().then((t) => t.join(' '))), String(boxes));
+    const before = await pointBox.evaluate((n) => n.offsetHeight);
+    await pointBox.fill('PMS job IG-04 GREENLINE\nCertificate in the CCR file\nLast done in March\nNext due in September\nSpare cell on board');
+    const after = await pointBox.evaluate((n) => n.offsetHeight);
+    check('and the box grows with what is written', after > before, `${before} -> ${after}`);
+    await other.click('#editorSave');
+    await other.waitForSelector('#editor', { state: 'hidden' });
+    const savedAnswer = await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      return store.itemsOfType('sire2').find((i) => i.data.refNo === '8.3.7').data.answer;
+    });
+    check('what is written under a point is kept under it, the rest as it was',
+      savedAnswer === 'ANSWER\nCalibrated monthly; see PMS job IG-04. ANSWERMARKER\n\nEXPECTED EVIDENCE\n\u2022 Calibration records.\n  \u2192 PMS job IG-04 GREENLINE\n    Certificate in the CCR file\n    Last done in March\n    Next due in September\n    Spare cell on board',
+      JSON.stringify(savedAnswer));
+    if (!(await other.locator('#detail').isHidden())) await other.click('#detailClose');
     await other.evaluate(async () => {
       const store = await import('./js/store.js');
       await store.saveItem({ type: 'sire2', data: { refNo: '8.3.8', chapter: 'Chapter 8 \u2014 Cargo and Ballast Systems', section: '8.3 Oil and Chemical', title: 'Unanswered question' } });

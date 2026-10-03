@@ -18,6 +18,7 @@ import { makeZip, readZip } from './zip.js';
 import { isEpub, readEpub } from './epub.js';
 import * as ask from './ask.js';
 import { stepsFromAnswer, stepsFromLines, runRecord } from './checklist.js';
+import { parseSheet, buildSheet } from './answersheet.js';
 import { findReference, describeReference } from './xref.js';
 import { dueStatus, dueLabel, dueSoon } from './due.js';
 import { findOlderEdition, changedPages, pageRanges } from './editions.js';
@@ -25,7 +26,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.60';
+const APP_VERSION = '2026.10.61';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -5050,11 +5051,47 @@ function renderEditor() {
   }
 }
 
+// A box that is as tall as what is written in it.
+function growing(attrs, value, onChange) {
+  const box = el('textarea', {
+    ...attrs, class: 'field grow', rows: 2,
+    oninput: (e) => { fit(e.target); onChange(e.target.value); }
+  }, [value]);
+  setTimeout(() => fit(box), 0);
+  return box;
+}
+
+function fit(box) {
+  box.style.height = 'auto';
+  box.style.height = `${box.scrollHeight + 2}px`;
+}
+
+// An answer sheet is written point by point: the overall answer, then a box
+// under each thing the inspector will look for.
+function answerEditor(f, draft) {
+  const sheet = parseSheet(draft.data[f.key]);
+  const keep = () => { draft.data[f.key] = buildSheet(sheet); };
+  const wrap = el('div', { class: 'answer-editor' }, [el('label', { class: 'label', text: f.label })]);
+  if (sheet.points.length) wrap.append(el('div', { class: 'answer-point' }, ['Overall answer']));
+  wrap.append(growing({ 'data-field': f.key, placeholder: f.placeholder || '' }, sheet.summary, (v) => {
+    sheet.summary = v; sheet.free = sheet.free && !sheet.points.length; keep();
+  }));
+  sheet.points.forEach((p, i) => {
+    wrap.append(roleMarked(p.point.replace(/^\u2022\s*/, ''), el('div', { class: 'answer-point' })));
+    wrap.append(growing({ 'data-point': i, placeholder: 'What answers this, and where it is' }, p.answer, (v) => {
+      p.answer = v; keep();
+    }));
+  });
+  if (sheet.tail) wrap.append(el('p', { class: 'hint', text: sheet.tail }));
+  return wrap;
+}
+
 function fieldFor(f, draft) {
   if (f.type === 'attachments') return attachmentsEditor(draft, f);
   // Built by searching and linking, on the entry rather than in the form: a
   // clause reference retyped into a box is the thing this exists to avoid.
   if (f.type === 'answers') return null;
+  if (f.answerLines) return answerEditor(f, draft);
   const wrap = el('div', {}, [el('label', { class: 'label', text: f.label })]);
   const value = draft.data[f.key] ?? '';
 
