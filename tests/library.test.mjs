@@ -4826,6 +4826,26 @@ print(json.dumps({"bad": z.testzip(), "names": z.namelist(), "items": len(m["ite
     check('what is written under a point is kept under it, the rest as it was',
       savedAnswer === 'ANSWER\nCalibrated monthly; see PMS job IG-04. ANSWERMARKER\n\nEXPECTED EVIDENCE\n\u2022 Calibration records.\n  \u2192 PMS job IG-04 GREENLINE\n    Certificate in the CCR file\n    Last done in March\n    Next due in September\n    Spare cell on board',
       JSON.stringify(savedAnswer));
+    const restored = await other.evaluate(async () => {
+      const store = await import('./js/store.js');
+      const mine = store.itemsOfType('sire2').find((i) => i.data.refNo === '8.3.7');
+      const untouched = store.itemsOfType('sire2').find((i) => i.data.refNo === '10.1.1');
+      const pack = (items) => ({ format: 'ava-library-full', version: 1, files: {}, items, lists: {} });
+      const done = await store.restoreFull(pack([
+        { id: mine.id, type: 'sire2', data: { ...mine.data, editedOnPhone: undefined, answer: 'FROM THE PACK' } },
+        { id: untouched.id, type: 'sire2', data: { ...untouched.data, answer: 'NEW FROM THE PACK' } }
+      ]), {}, async () => null);
+      const after = (n) => store.itemsOfType('sire2').find((i) => i.data.refNo === n).data.answer;
+      const result = { kept: done.keptEdits, mine: after('8.3.7'), other: after('10.1.1') };
+      // The phone's own backup of an edited question still restores it.
+      await store.restoreFull(pack([{ id: mine.id, type: 'sire2', data: { ...mine.data, answer: 'FROM MY BACKUP' } }]), {}, async () => null);
+      result.backup = after('8.3.7');
+      await store.saveItem({ id: mine.id, type: 'sire2', data: mine.data });
+      return result;
+    });
+    check('a newer pack leaves a question edited on the phone alone, and updates the rest',
+      restored.kept === 1 && /Spare cell on board/.test(restored.mine) && restored.other === 'NEW FROM THE PACK', JSON.stringify(restored));
+    check('while the phone\u2019s own backup still puts it back', restored.backup === 'FROM MY BACKUP', JSON.stringify(restored));
     if (!(await other.locator('#detail').isHidden())) await other.click('#detailClose');
     await other.evaluate(async () => {
       const store = await import('./js/store.js');

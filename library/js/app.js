@@ -26,7 +26,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.61';
+const APP_VERSION = '2026.10.62';
 
 const view = {
   screen: 'home',      // home | section | search
@@ -5670,6 +5670,8 @@ async function saveEditor() {
     for (const att of draft.removed) await store.removeFile(att).catch(() => {});
 
     const isNew = !draft.id;
+    // Marked, so a later pack of the same questions leaves this one alone.
+    if (def.keepEdits) draft.data.editedOnPhone = new Date().toISOString();
     const saved = await store.saveItem({ id: draft.id, type: draft.type, data: draft.data });
     revealItem(saved);
     const older = isNew ? findOlderEdition(store.allItems(), saved, titleOf) : null;
@@ -6068,7 +6070,8 @@ async function onFullBackupPicked(e) {
     $('#settings').hidden = true;
     render();
     toast(`Restored ${plural(done.items, 'entry', 'entries')} and ${plural(done.files, 'file', 'files')}`
-      + (done.missing ? ` — ${done.missing} not in the parts chosen` : ''));
+      + (done.missing ? ` — ${done.missing} not in the parts chosen` : '')
+      + (done.keptEdits ? ` — kept ${plural(done.keptEdits, 'question', 'questions')} you edited` : ''));
   } catch (ex) {
     toast(`Could not restore: ${ex.message}`);
   }

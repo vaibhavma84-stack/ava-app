@@ -352,9 +352,16 @@ async function ownBytes(blob, type) {
 
 export async function restoreFull(manifest, texts, blobFor) {
   if (manifest?.format !== FULL_FORMAT) throw new Error('Not a Library full backup');
-  let items = 0, files = 0, missing = 0;
+  let items = 0, files = 0, missing = 0, keptEdits = 0;
   for (const saved of manifest.items || []) {
     if (!TYPES[saved.type]) continue;
+    // A question answered on this phone is not written over by a newer copy
+    // of the same question from a pack; the phone's own backup still restores it.
+    const here = state.items.get(saved.id);
+    if (TYPES[saved.type].keepEdits && here?.data?.editedOnPhone && !saved.data?.editedOnPhone) {
+      keptEdits++;
+      continue;
+    }
     const kept = [];
     for (const att of saved.data?.attachments || []) {
       const path = manifest.files?.[att.id];
@@ -386,7 +393,7 @@ export async function restoreFull(manifest, texts, blobFor) {
   }
   state.texts = null;
   emit();
-  return { items, files, missing };
+  return { items, files, missing, keptEdits };
 }
 
 export async function eraseVault() {

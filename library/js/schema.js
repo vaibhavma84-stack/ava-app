@@ -223,6 +223,8 @@ function sireLibrary(label, short, about) {
     groupBy: { key: 'chapter', label: 'Chapter', blank: 'No chapter set' },
     subGroupBy: { key: 'section', label: 'Section', blank: 'No section set' },
     collapsible: true,
+    // Answers written on the phone outlive a newer pack of the same questions.
+    keepEdits: true,
     bulkFields: ['chapter', 'lpg'],
     derive: (data) => {
       const number = String(data.refNo || '').trim();
