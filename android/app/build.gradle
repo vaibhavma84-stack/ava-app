@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+    // ML Kit brings an older kotlin-stdlib-jdk8 alongside androidx's newer
+    // kotlin-stdlib; lining them up keeps the same classes from arriving twice.
+    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.22')
     implementation 'androidx.webkit:webkit:1.11.0'
     implementation 'androidx.core:core:1.13.1'
     // Reads scanned pages on the phone, offline; the model is inside the APK.
