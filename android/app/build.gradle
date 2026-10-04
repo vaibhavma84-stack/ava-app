@@ -42,4 +42,6 @@ android {
 dependencies {
     implementation 'androidx.webkit:webkit:1.11.0'
     implementation 'androidx.core:core:1.13.1'
+    // Reads scanned pages on the phone, offline; the model is inside the APK.
+    implementation 'com.google.mlkit:text-recognition:16.0.1'
 }

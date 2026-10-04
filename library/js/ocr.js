@@ -58,6 +58,9 @@ async function pdfLib() {
  * per page would spend more time starting up than reading.
  */
 async function reader(onStatus) {
+  // Inside the Android app the phone reads the page itself (ML Kit, on the
+  // device, offline): far faster than Tesseract, and it needs nothing loaded.
+  if (window.AndroidBridge?.ocr) return phoneReader();
   const Tesseract = await engine();
   return Tesseract.createWorker('eng', 1, {
     workerPath: `${ENGINE}worker.min.js`,
@@ -68,6 +71,33 @@ async function reader(onStatus) {
       if (m?.status === 'recognizing text') onStatus?.(Math.round((m.progress || 0) * 100));
     }
   });
+}
+
+/** A picture as the text the phone needs: JPEG, base64, without its prefix. */
+async function asJpeg(image) {
+  if (image instanceof HTMLCanvasElement) return image.toDataURL('image/jpeg', 0.85).split(',')[1];
+  const url = await new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = () => reject(r.error);
+    r.readAsDataURL(image);
+  });
+  return String(url).split(',')[1];
+}
+
+/** The phone's own reader, shaped like a Tesseract worker so nothing else changes. */
+function phoneReader() {
+  return {
+    async recognize(image) {
+      const jpeg = await asJpeg(image);
+      // Let the page draw its progress before the phone takes the thread.
+      await new Promise((r) => setTimeout(r, 0));
+      const text = window.AndroidBridge.ocr(jpeg);
+      if (String(text).startsWith('\u0000')) throw new Error(String(text).slice(1) || 'The phone could not read the page');
+      return { data: { text } };
+    },
+    async terminate() {}
+  };
 }
 
 /**

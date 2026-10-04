@@ -5,6 +5,8 @@ import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +24,12 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import androidx.core.content.FileProvider;
+import com.google.android.gms.tasks.Tasks;
+import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.text.Text;
+import com.google.mlkit.vision.text.TextRecognition;
+import com.google.mlkit.vision.text.TextRecognizer;
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 import androidx.webkit.WebViewAssetLoader;
 
 import java.io.File;
@@ -155,8 +163,31 @@ public class MainActivity extends Activity {
         runOnUiThread(() -> Toast.makeText(this, text, Toast.LENGTH_LONG).show());
     }
 
-    /** What the page can ask of the phone: to hand a file out of the app. */
+    private TextRecognizer recognizer;
+
+    /** What the page can ask of the phone: to read a picture, and to hand a file out of the app. */
     private class Bridge {
+        /**
+         * The words in a page drawn as a JPEG. Called off the main thread, so
+         * waiting for the reader here is allowed. A leading NUL marks an error.
+         */
+        @JavascriptInterface
+        public String ocr(String jpegBase64) {
+            Bitmap bitmap = null;
+            try {
+                if (recognizer == null) recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+                byte[] bytes = Base64.decode(jpegBase64, Base64.DEFAULT);
+                bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                if (bitmap == null) return "\u0000The page could not be drawn";
+                Text text = Tasks.await(recognizer.process(InputImage.fromBitmap(bitmap, 0)));
+                return text.getText();
+            } catch (Exception e) {
+                return "\u0000" + e.getMessage();
+            } finally {
+                if (bitmap != null) bitmap.recycle();
+            }
+        }
+
         @JavascriptInterface
         public boolean begin(String name, String type) {
             try {

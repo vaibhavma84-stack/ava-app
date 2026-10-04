@@ -27,7 +27,7 @@ import { PdfWriter } from './pdfwrite.js';
 import { parsePages, pagesLabel, extractPages, pdfFromImages, preparePhoto } from './pagesout.js';
 import * as lock from './lock.js';
 
-const APP_VERSION = '2026.10.66';
+const APP_VERSION = '2026.10.67';
 
 const view = {
   screen: 'home',      // home | section | search
