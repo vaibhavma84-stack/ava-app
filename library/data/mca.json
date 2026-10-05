@@ -1,7 +1,31 @@
 {
  "administration": "MCA",
- "fetched": "2026-09-28",
+ "fetched": "2026-10-05",
  "notices": [
+  {
+   "title": "MGN 719 (M+F) Operating in GNSS denied and degraded environments",
+   "refNo": "MGN 719 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-10-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-719-mf-operating-in-gnss-denied-and-degraded-environments",
+   "file": "docs/mca/MGN-719-M-F.txt",
+   "bytes": 8368
+  },
+  {
+   "title": "MIN 732 (M+F) Amendment 3 guidance for shipowners, fishing vessel owners, seafarers and fishers affected by the conflict in the Middle East",
+   "refNo": "MIN 732 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-09-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-732-mf-amendment-3-guidance-for-shipowners-fishing-vessel-owners-seafarers-and-fishers-affected-by-the-conflict-in-the-middle-east"
+  },
+  {
+   "title": "MGN 417 (M+F) Amendment 1 Radio communications GMDSS shore based maintenance",
+   "refNo": "MGN 417 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-09-28",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-417-mf-amendment-1-radio-communications-gmdss-shore-based-maintenance",
+   "file": "docs/mca/MGN-417-M-F.pdf"
+  },
   {
    "title": "MGN 652 (M+F) Amendment 1 infectious disease at sea",
    "refNo": "MGN 652 (M+F)",
@@ -72,18 +96,11 @@
    "file": "docs/mca/MGN-370-M-F.txt"
   },
   {
-   "title": "MIN 732 (M+F) Amendment 3 guidance for shipowners, fishing vessel owners, seafarers and fishers affected by the conflict in the Middle East",
-   "refNo": "MIN 732 (M+F)",
-   "docType": "MIN (Marine Information Note)",
-   "date": "2026-07-31",
-   "sourceUrl": "https://www.gov.uk/government/publications/min-732-mf-amendment-3-guidance-for-shipowners-fishing-vessel-owners-seafarers-and-fishers-affected-by-the-conflict-in-the-middle-east"
-  },
-  {
-   "title": "MGN165 Amendment 2 (F) fishing vessels: risk of flooding",
+   "title": "MGN 165 Amendment 2 (F) fishing vessels and the risk of flooding",
    "refNo": "MGN 165",
    "docType": "MGN (Marine Guidance Note)",
    "date": "2026-07-23",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn165-amendment-2-f-fishing-vessels-risk-of-flooding",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-165-amendment-2-f-fishing-vessels-and-the-risk-of-flooding",
    "file": "docs/mca/MGN-165.pdf"
   },
   {
@@ -190,13 +207,6 @@
    "date": "2026-04-13",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-544-amendment-1-mf-means-of-recovery-of-persons-from-the-water-by-ships-and-boats-plans-procedures-and-acceptance-of-recovery-equipment",
    "file": "docs/mca/MGN-544.txt"
-  },
-  {
-   "title": "MIN 688 (M) Amendment 4 code of safe working practices: 2026 edition",
-   "refNo": "MIN 688 (M)",
-   "docType": "MIN (Marine Information Note)",
-   "date": "2026-04-07",
-   "sourceUrl": "https://www.gov.uk/government/publications/min-688-m-amendment-4-code-of-safe-working-practices-2026-edition"
   },
   {
    "title": "MGN 297 (M) amendment 2 the carriage of defibrillators on ships",
@@ -588,14 +598,6 @@
    "docType": "MIN (Marine Information Note)",
    "date": "2025-10-28",
    "sourceUrl": "https://www.gov.uk/government/publications/min-725-m-electronic-reporting-of-persons-on-board-passenger-ships"
-  },
-  {
-   "title": "MGN 417 (M+F) Amendment 1 Radio communications GMDSS shore based maintenance",
-   "refNo": "MGN 417 (M+F)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2025-10-20",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-417-mf-amendment-1-radio-communications-gmdss-shore-based-maintenance",
-   "file": "docs/mca/MGN-417-M-F.pdf"
   },
   {
    "title": "MGN 446 (M+F) Amd 3 (control of vibration at work) - exemptions",
@@ -1021,14 +1023,6 @@
    "docType": "MIN (Marine Information Note)",
    "date": "2024-07-31",
    "sourceUrl": "https://www.gov.uk/government/publications/min-712-m-f-amendment-1-written-assessment-dates-small-vessel-engineer-officers-yachts-sail-training-and-small-vessels"
-  },
-  {
-   "title": "MGN 35 (M+F) Amendment 2 Accidents when using power operated watertight doors",
-   "refNo": "MGN 35 (M+F)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2024-07-23",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-35-mf-amendment-2-accidents-when-using-power-operated-watertight-doors",
-   "file": "docs/mca/MGN-35-M-F.pdf"
   },
   {
    "title": "MGN 548 (M+F) Amendment 1 Life-Saving Appliances – servicing requirements for SOLAS inflatable life saving appliances at approved service stations",

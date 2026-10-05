@@ -1,0 +1,179 @@
+MGN 719 (M+F) Operating in GNSS denied and degraded environments
+2026-10-01
+Source: https://www.gov.uk/government/publications/mgn-719-mf-operating-in-gnss-denied-and-degraded-environments
+
+Summary
+
+This Marine Guidance Note highlights the increasing risk of Global Navigation Satellite Systems (GNSS) service degradation or denial and the potential impacts on maritime safety and operations. As vessels, ports and maritime services become more dependent on satellite-derived PNT information, disruption from jamming, spoofing or signal loss can affect navigation, traffic management and other critical systems. This MGN encourages stakeholders to understand these risks, review contingency arrangements and maintain resilient navigation practices to support safe and continuous operations during periods of GNSS based PNT disruption.
+
+1. Introduction/background
+
+1.1 GNSS, (GPS, Galileo, GLONASS and BeiDou), have become key to modern maritime operations, providing PNT information to a wide range of shipboard and shore-based systems.
+
+1.2 Recent years have seen a marked increase in reports of GNSS interference worldwide, particularly in the Black Sea, Baltic Sea, Gulf region and parts of East Asia. Such interference may take the form of jamming (where signals are blocked or degraded), or spoofing, (where false position information is presented to users). This interference degrades or denies satellite derived PNT, meaning that GNSS is no longer universally available at certain locations.
+
+1.3 The loss or degradation of PNT information will impact navigation, communications, timing-dependent systems, port operations and vessel tracking management (VTM).
+
+1.4 The increasing prevalence of these events demonstrates that maritime stakeholders must be prepared to operate safely when satellite-derived PNT services become degraded, unreliable or unavailable and therefore are encouraged to ensure that personnel remain proficient in alternative means of maintaining operations.
+
+2. Risks Associated with PNT Degradation
+
+2.1 The following is a non-exhaustive list of equipment and or services that could be impacted by a loss or degradation of satellite derived PNT. This list is provided to support maritime stakeholders in identifying their own dependencies.
+
+2.2 Shipboard Navigation Systems
+
+Potentially affected systems include:
+
+2.2.1 Electronic Chart Display and Information Systems (ECDIS)
+
+2.2.2 GNSS receivers
+
+2.2.3 Integrated Bridge Systems (IBS)
+
+2.2.4 Automatic Identification Systems (AIS)
+
+2.2.5 Radar systems using GNSS inputs
+
+2.2.6 Track control systems and autopilots
+
+2.2.7 Dynamic Positioning (DP) systems
+
+2.2.8 Voyage planning and route monitoring systems
+
+2.2.9 Gyro Compass’
+
+2.2.10 GMDSS
+
+2.2.11 Pilot Portable Units (PPUs)
+
+2.3 Shore-Based and Traffic Management Systems
+
+Affected systems may include:
+
+2.3.1 Vessel Traffic Services (VTS)
+
+2.3.2 Port Management Information Systems
+
+2.3.3 Pilotage Management Systems
+
+2.3.4 Search and Rescue coordination systems
+
+2.3.5 Long Range Identification and Tracking
+
+2.3.6 Automated logistics systems
+
+2.3.7 Fleet management and asset tracking systems
+
+2.4 Timing-Dependent Systems
+
+Many communications and data systems rely on precise timing information derived from GNSS. Examples include:
+
+2.4.1 Communications networks
+
+2.4.2 Data and monitoring networks using NTP or PTP synchronisation
+
+2.4.3 Control and monitoring systems dependent upon UTC traceability
+
+2.4.4 Platform management systems
+
+2.5 Wider Maritime Activities
+
+Additional systems and activities that may be affected include:
+
+2.5.1 Fishing:
+
+2.5.1.1 Net Plotters
+
+2.5.1.2 Gear monitoring systems
+
+2.5.1.3 Fish Finding systems
+
+2.5.2 Offshore construction activities
+
+2.5.3 Offshore energy installations
+
+2.5.4 Survey-grade GNSS and RTK systems
+
+2.6 Stakeholders should assess their own dependencies on GNSS-derived PNT services to identify systems / services not listed in above.
+
+3. Operational Considerations
+
+3.1 PNT risks should be considered and mitigated in the same manner as other risks that may affect the conduct of maritime operations. Therefore, Maritime stakeholders are invited to recognise that GNSS-derived information may be susceptible to disruption and assess whether appropriate resilience measures are required.
+
+3.2 Operators and stakeholders are encouraged to:
+
+3.2.1 Review risk assessments relating to GNSS degradation and denial.
+
+3.2.2 Identify critical systems dependent on external PNT data. This should include an in-depth review of the underlying system architecture, data flows, interfaces, and operational dependencies that rely on PNT to underpin their functionality.
+
+3.2.3 Establish procedures for detecting and responding to GNSS interference.
+
+3.2.4 Ensure bridge teams and operational personnel understand the limitations of GNSS.
+
+3.2.5 Verify navigational information using independent means where practicable.
+
+3.2.6 Exercise contingency procedures during drills and training activities.
+
+3.2.7 Consider the impact of PNT degradation within emergency preparedness plans
+
+3.2.8 Review business continuity arrangements and contingency plans.
+
+3.2.9 Engage with service providers and stakeholders regarding resilience measures.
+
+4. Alternative Means of Navigation
+
+4.1 The MCA recommends that mariners exercise the ability to navigate safely using alternative sources of navigational information.
+
+4.2 Depending on the vessel type, operating area and equipment fitted, alternative methods may include:
+
+4.2.1 Radar navigation and position fixing.
+
+4.2.2 Visual navigation techniques.
+
+4.2.3 Celestial navigation.
+
+4.2.4 Dead reckoning and estimated position methods.
+
+4.2.5 Independent sensor systems and integrated navigation techniques.
+
+4.3 Alternative and complementary PNT technologies are under development; however, many are unlikely to be available at scale in the near term. Consequently, the maintenance of resilient navigation practices remains essential.
+
+5. Financial Impact
+
+5.1 The DSIT 2023 economic impact of GNSS disruption report identified the maritime industry as one of the most GNSS-dependent sectors of the UK economy. The sector is particularly financially vulnerable to the effects of GNSS disruption or denial, which may result in significant economic impacts where appropriate resilience measures are not in place. The report estimates the following losses arising from a seven-day GNSS outage:
+
+5.1.1 Shipping: £183m
+
+5.1.2 Port Operations: £1,309m
+
+5.1.3 Fishing Industry: £8m
+
+5.1.4 Total: £1.5Bn
+
+6. Future PNT Services
+
+6.1 The UK Government views eLORAN as a key element of national PNT resilience. Through the UKs PNT Office, it is developing plans for a sovereign eLORAN network that will provide a terrestrial backup to GNSS for PNT. The aim is to improve the resilience of UK Critical National Infrastructure and reduce vulnerability to GNSS disruption, with initial capability planned for 2028 (timing) and full operational capability by 2030 (Position and Navigation).
+
+6.2 MCA continues to engage with IMO member states to establish the standards and proliferation of alternative sources of PNT internationally. Alternatives to satellite derived PNT under development in addition to eLORAN include but not limited to; VDES R mode, use of 5G (mobile) networks, Automatic visual fixing, Automatic celestial fixing and inertial navigation systems. The MCA’s objective to improve the proliferation of PNT technologies which have different failure modes to GNSS.
+
+7. Conclusion
+
+7.1 The increasing occurrence of GNSS interference globally demonstrates the need for greater awareness of PNT vulnerabilities throughout the UK’s maritime sector. Operators, ports, harbour authorities and service providers are encouraged to assess and understand their dependencies on PNT services and take proportionate action to strengthen resilience against degradation or denial events.
+
+7.2 Maintaining safe navigation and continuity of maritime operations requires preparedness, effective contingency arrangements and continued competence in alternative means of PNT.
+
+More information
+
+Marine Safety & PNT Services
+
+Maritime and Coastguard Agency
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email: PNTServices@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Please note that all addresses and telephone numbers are correct at time of publishing.
