@@ -1,6 +1,6 @@
 {
  "administration": "MCA",
- "fetched": "2026-10-05",
+ "fetched": "2026-10-12",
  "notices": [
   {
    "title": "MGN 719 (M+F) Operating in GNSS denied and degraded environments",
@@ -8,8 +8,14 @@
    "docType": "MGN (Marine Guidance Note)",
    "date": "2026-10-01",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-719-mf-operating-in-gnss-denied-and-degraded-environments",
-   "file": "docs/mca/MGN-719-M-F.txt",
-   "bytes": 8368
+   "file": "docs/mca/MGN-719-M-F.txt"
+  },
+  {
+   "title": "MIN 720 (M) Amendment 1 - Transforming seafarer training: the UK’s modernised officer qualifications syllabus",
+   "refNo": "MIN 720 (M)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-09-30",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-720-m-amendment-1-transforming-seafarer-training-the-uks-modernised-officer-qualifications-syllabus"
   },
   {
    "title": "MIN 732 (M+F) Amendment 3 guidance for shipowners, fishing vessel owners, seafarers and fishers affected by the conflict in the Middle East",
@@ -176,13 +182,6 @@
    "docType": "MIN (Marine Information Note)",
    "date": "2026-04-21",
    "sourceUrl": "https://www.gov.uk/government/publications/min-654-m-engineering-and-electro-technical-officer-oral-exam-syllabus-amendment-1"
-  },
-  {
-   "title": "MIN 720 (M): Transforming Seafarer Training: The UK's Modernised Officer Qualifications Syllabus",
-   "refNo": "MIN 720 (M)",
-   "docType": "MIN (Marine Information Note)",
-   "date": "2026-04-21",
-   "sourceUrl": "https://www.gov.uk/government/publications/min-720-m-transforming-seafarer-training-the-uks-modernised-officer-qualifications-syllabus"
   },
   {
    "title": "MGN 717 (M+F) Air Quality: amendments to mandatory international instruments",
