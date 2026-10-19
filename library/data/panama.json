@@ -1,7 +1,31 @@
 {
  "administration": "Panama",
- "fetched": "2026-10-12",
+ "fetched": "2026-10-19",
  "notices": [
+  {
+   "title": "MMC 195 – 09 04 2026 rev dccm",
+   "refNo": "MMC 195",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-10-15",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMC-195-09-04-2026-rev-dccm.pdf",
+   "file": "docs/panama/MMC-195.pdf"
+  },
+  {
+   "title": "MMN 05 2026 – 13 10 2026",
+   "refNo": "MMN 05-2026",
+   "docType": "MMN (Merchant Marine Notice)",
+   "date": "2026-10-15",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-05-2026-13-10-2026.pdf",
+   "file": "docs/panama/MMN-05-2026.pdf"
+  },
+  {
+   "title": "MMN 03 2022 – UKRAINE – 13 10 2026",
+   "refNo": "MMN 03-2022",
+   "docType": "MMN (Merchant Marine Notice)",
+   "date": "2026-10-15",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-03-2022-UKRAINE-13-10-2026.pdf",
+   "file": "docs/panama/MMN-03-2022.pdf"
+  },
   {
    "title": "MMC 270 – 03 09 2026",
    "refNo": "MMC 270",
@@ -59,14 +83,6 @@
    "date": "2026-07-27",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/07/MMN-18-2021-23-07-2026.pdf",
    "file": "docs/panama/MMN-18-2021.pdf"
-  },
-  {
-   "title": "MMN 05 2026 – 26 06 2026",
-   "refNo": "MMN 05-2026",
-   "docType": "MMN (Merchant Marine Notice)",
-   "date": "2026-06-29",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/06/MMN-05-2026-26-06-2026.pdf",
-   "file": "docs/panama/MMN-05-2026.pdf"
   },
   {
    "title": "MMC 269 – june 2026 rev",
@@ -343,14 +359,6 @@
    "file": "docs/panama/MMC-217.pdf"
   },
   {
-   "title": "MMN 03 2022 – UKRAINE – 7 enero 2026",
-   "refNo": "MMN 03-2022",
-   "docType": "MMN (Merchant Marine Notice)",
-   "date": "2026-01-12",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/01/MMN-03-2022-UKRAINE-7-enero-2026.pdf",
-   "file": "docs/panama/MMN-03-2022.pdf"
-  },
-  {
    "title": "MMC 194 January 2026 – CM Rev dccm",
    "refNo": "MMC 194",
    "docType": "Merchant Marine Circular",
@@ -439,16 +447,6 @@
    "date": "2025-09-04",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/09/MMN-01-2022-FEBRUARY-2022-Cancelled-28-08-2025.pdf",
    "file": "docs/panama/MMN-01-2022.pdf"
-  },
-  {
-   "title": "MMC 195 09 04 2026",
-   "refNo": "MMC 195",
-   "docType": "Merchant Marine Circular",
-   "date": "2025-09-01",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/09/MMC-195-09-04-2026.pdf",
-   "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/09/MMC-195-09-04-2026.pdf",
-   "listedOn": "/segumar/merchant-marine-circulars/",
-   "file": "docs/panama/MMC-195.pdf"
   },
   {
    "title": "MMC 224 Sept 2025 Rev MR",

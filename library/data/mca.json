@@ -1,7 +1,37 @@
 {
  "administration": "MCA",
- "fetched": "2026-10-12",
+ "fetched": "2026-10-19",
  "notices": [
+  {
+   "title": "MSN 1874 (M+F) Amendment 12 Marine Equipment – United Kingdom conformity assessment and type approval procedures for marine equipment",
+   "refNo": "MSN 1874 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2026-10-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1874-mf-amendment-12-marine-equipment-united-kingdom-conformity-assessment-and-type-approval-procedures-for-marine-equipment",
+   "file": "docs/mca/MSN-1874-M-F.pdf"
+  },
+  {
+   "title": "MIN 739 (F) Acceptable standard of liferaft for less than 7m Fishing Vessels",
+   "refNo": "MIN 739 (F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-10-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-739-f-acceptable-standard-of-liferaft-for-less-than-7m-fishing-vessels"
+  },
+  {
+   "title": "MIN 740 (M+F) List of MCA Recognised private nautical chart producers under MGN 293 (M+F)",
+   "refNo": "MIN 740 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-10-16",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-740-mf-list-of-mca-recognised-private-nautical-chart-producers-under-mgn-293-mf"
+  },
+  {
+   "title": "MGN 417 (M+F) Amendment 1 Radio communications GMDSS shore based maintenance",
+   "refNo": "MGN 417 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-10-14",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-417-mf-amendment-1-radio-communications-gmdss-shore-based-maintenance",
+   "file": "docs/mca/MGN-417-M-F.pdf"
+  },
   {
    "title": "MGN 719 (M+F) Operating in GNSS denied and degraded environments",
    "refNo": "MGN 719 (M+F)",
@@ -23,14 +53,6 @@
    "docType": "MIN (Marine Information Note)",
    "date": "2026-09-30",
    "sourceUrl": "https://www.gov.uk/government/publications/min-732-mf-amendment-3-guidance-for-shipowners-fishing-vessel-owners-seafarers-and-fishers-affected-by-the-conflict-in-the-middle-east"
-  },
-  {
-   "title": "MGN 417 (M+F) Amendment 1 Radio communications GMDSS shore based maintenance",
-   "refNo": "MGN 417 (M+F)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2026-09-28",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-417-mf-amendment-1-radio-communications-gmdss-shore-based-maintenance",
-   "file": "docs/mca/MGN-417-M-F.pdf"
   },
   {
    "title": "MGN 652 (M+F) Amendment 1 infectious disease at sea",
@@ -512,14 +534,6 @@
    "date": "2025-12-11",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-701-m-application-of-the-industrial-personnel-code-and-the-special-purpose-ships-code",
    "file": "docs/mca/MGN-701-M.txt"
-  },
-  {
-   "title": "MSN 1874 (M+F) Amendment 11 Marine Equipment United Kingdom conformity assessment and type approval procedures for marine equipment",
-   "refNo": "MSN 1874 (M+F)",
-   "docType": "MSN (Merchant Shipping Notice)",
-   "date": "2025-12-10",
-   "sourceUrl": "https://www.gov.uk/government/publications/msn-1874-mf-amendment-11-marine-equipment-united-kingdom-conformity-assessment-and-type-approval-procedures-for-marine-equipment",
-   "file": "docs/mca/MSN-1874-M-F.pdf"
   },
   {
    "title": "MSN 1920 (M) Code of safety for special purpose ships, 1983",

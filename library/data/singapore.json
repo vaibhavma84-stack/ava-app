@@ -1,7 +1,37 @@
 {
  "administration": "Singapore",
- "fetched": "2026-10-12",
+ "fetched": "2026-10-19",
  "notices": [
+  {
+   "title": "PORT MARINE NOTICE NO. 138 OF 2026 - HAZE ADVISORY PSI 200 AND ABOVE",
+   "refNo": "PN 138/2026",
+   "docType": "Marine Notice",
+   "date": "2026-10-14",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-138-of-2026-haze-advisory-psi-200-and-above",
+   "docUrl": "https://www.mpa.gov.sg/api/media/3cacc540-bdb6-4e66-8d49-e7f9c3bca162/PMN-138-of-2026---Haze-Advisory-PSI-200-and-above.pdf",
+   "file": "docs/singapore/PN-138-2026.pdf",
+   "bytes": 101188
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 137 OF 2026 - SEABED DREDGING AT LOYANG OFFSHORE SUPPLY BASE JETTY",
+   "refNo": "PN 137/2026",
+   "docType": "Marine Notice",
+   "date": "2026-10-14",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-137-of-2026-seabed-dredging-at-loyang-offshore-supply-base-jetty",
+   "docUrl": "https://www.mpa.gov.sg/api/media/8d7d3f91-3575-4c2c-98d5-96d819ac458a/pn26-137.pdf",
+   "file": "docs/singapore/PN-137-2026.pdf",
+   "bytes": 256689
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 136 of 2026 - OPERATION OF UNMANNED AIRCRAFT OVER SINGAPORE PORT WATERS",
+   "refNo": "PN 136/2026",
+   "docType": "Marine Notice",
+   "date": "2026-10-14",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-136-of-2026-operation-of-unmanned-aircraft-over-singapore-port-waters",
+   "docUrl": "https://www.mpa.gov.sg/api/media/8190dd2e-61b3-4f20-9465-f00c16d7b56a/pn26-136.pdf",
+   "file": "docs/singapore/PN-136-2026.pdf",
+   "bytes": 166512
+  },
   {
    "title": "PORT MARINE NOTICE NO. 135 OF 2026 - MARINE STRUCTURE CONSTRUCTION OFF TUAS SOUTH BOULEVARD FOR PIER EXTENSION",
    "refNo": "PN 135/2026",
@@ -9,8 +39,7 @@
    "date": "2026-10-09",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-135-of-2026-marine-structure-construction-off-tuas-south-boulevard-for-pier-extension",
    "docUrl": "https://www.mpa.gov.sg/api/media/d47a69b3-0098-42cf-8400-c439d15ab380/pn135-26.pdf",
-   "file": "docs/singapore/PN-135-2026.pdf",
-   "bytes": 177313
+   "file": "docs/singapore/PN-135-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 133 OF 2026 - KUSU PILGRIMAGE SEASON",
@@ -19,8 +48,7 @@
    "date": "2026-10-08",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-133-of-2026-kusu-pilgrimage-season",
    "docUrl": "https://www.mpa.gov.sg/api/media/7d024d67-f1dc-4f8b-90fa-aab8fe01c55d/PMN-133-of-2026---Kusu-Pilgrimage-Season.pdf",
-   "file": "docs/singapore/PN-133-2026.pdf",
-   "bytes": 1181744
+   "file": "docs/singapore/PN-133-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 132 of 2026 - FIBRE OPTIC CABLE LAYING OPERATION OFF ST JOHN’S ISLAND",
@@ -29,8 +57,7 @@
    "date": "2026-10-08",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-132-of-2026-fibre-optic-cable-laying-operation-off-st-johns-island",
    "docUrl": "https://www.mpa.gov.sg/api/media/446cd31c-f5fd-468f-a3a8-8b4bc4dd7561/pn26-132.pdf",
-   "file": "docs/singapore/PN-132-2026.pdf",
-   "bytes": 320650
+   "file": "docs/singapore/PN-132-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 130 of 2026 - CONSTRUCTION OF CONTAINMENT BUNDS AT TUAS VIEW EXTENSION",
@@ -110,7 +137,7 @@
    "docType": "Marine Notice",
    "date": "2026-09-24",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-123-of-2026-transport-of-sand-material-at-tuas-view-extension",
-   "docUrl": "https://www.mpa.gov.sg/api/media/29fe1fee-c16b-4b8a-a163-2fa90a2568a0/pn26-123.pdf",
+   "docUrl": "https://www.mpa.gov.sg/api/media/60965789-46d5-4a18-89c9-24ee0a892fff/pn26-123.pdf",
    "file": "docs/singapore/PN-123-2026.pdf"
   },
   {
@@ -128,7 +155,7 @@
    "docType": "Marine Notice",
    "date": "2026-09-23",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-121-of-2026-works-at-tuas-terminal-phase-2",
-   "docUrl": "https://www.mpa.gov.sg/api/media/4d9a659c-d9eb-4dfc-876a-4247822a6825/pn26-121.pdf",
+   "docUrl": "https://www.mpa.gov.sg/api/media/a6911d0c-2379-49c8-8314-3b924a25a246/pn26-121.pdf",
    "file": "docs/singapore/PN-121-2026.pdf"
   },
   {
