@@ -1,0 +1,95 @@
+MGN 721 (M+F) Interpretation of references to Marine Equipment Directive (MED) approved equipment in selected MCA documentation
+2026-10-23
+Source: https://www.gov.uk/government/publications/mgn-721-mf-interpretation-of-references-to-marine-equipment-directive-med-approved-equipment-in-selected-mca-documentation
+
+Summary
+
+This Marine Guidance Notice explains how any references to the Marine Equipment Directive, or to “MED” equipment in the MCA publications listed in the Annex to this document should be read following the introduction of the United Kingdom Marine Equipment approval regime in January 2021.
+
+1. Introduction/background
+
+1.1 The Merchant Shipping (Marine Equipment) Regulations 2025 (the “2025 Regulations”) establish the United Kingdom conformity assessment system for marine equipment placed, or to be placed, on board United Kingdom ships. The 2025 Regulations replaced the Merchant Shipping (Marine Equipment) Regulations 2016 and came into force on 5 January 2026.
+
+1.2 Several documents were published before the current United Kingdom regime was reflected consistently in MCA documentation. Those publications therefore contain references to the Marine Equipment Directive, the “MED”, MED approval, MED certification or associated European Union terminology.
+
+1.3 The affected publications are being reviewed through their normal update procedures. This Note gives a consistent interim interpretation so that outdated terminology does not cause confusion or direct users away from the applicable United Kingdom approval requirements.
+
+2. Interpretation of references
+
+2.1 In the publications and provisions listed in the Annex, and subject to paragraph 2.3, references to any of the following should be read as references to the applicable United Kingdom marine equipment requirements:
+
+• the Marine Equipment Directive or “MED”;
+
+• MED-approved or MED-certified equipment;
+
+• approval, conformity assessment or certification under the MED; and
+
+• a notified body, wheel mark or EU declaration of conformity where the reference is intended to describe the approval required for new equipment placed on board a United Kingdom ship.
+
+2.2 For this purpose, the applicable United Kingdom marine equipment requirements are the Merchant Shipping (Marine Equipment) Regulations 2025, as amended, together with MSN 1874 (M+F), as amended. Depending on the equipment and the circumstances, the relevant United Kingdom terminology may include “UK approved”, “Approved Body”, “UK declaration of conformity” and the Red Ensign conformity mark.
+
+2.3 This interpretation must not be applied where the context expressly concerns:
+
+• The EU Marine Equipment Directive as a distinct European Union legal regime;
+
+• EU-approved or wheel-marked equipment already placed on board, or otherwise accepted, under applicable transitional provisions;
+
+• the acceptance of non-UK approved equipment, including any acceptance route expressly provided by the 2025 Regulations or MSN 1874 (M+F); or
+
+• a historical statement for which substituting United Kingdom terminology would alter the meaning.
+
+2.4 Where there is doubt about the approval applicable to a particular item of equipment, readers should refer to the current version of MSN 1874 (M+F) and contact the MCA before procuring, installing or accepting the equipment.
+
+3. Practical effect
+
+3.1 For new or replacement equipment required to comply with the United Kingdom conformity assessment procedures, references in the listed provisions to MED approval should not be treated as a requirement to obtain EU MED approval. The equipment should meet the approval and marking requirements that apply under the 2025 Regulations and MSN 1874 (M+F), as amended.
+
+3.2 This Note does not change the carriage, construction, performance, testing, installation, servicing or maintenance requirements stated in the relevant Code or Notice. It addresses only the interpretation of outdated marine equipment approval terminology.
+
+3.3 If this Note appears to conflict with legislation or with the current version of MSN 1874 (M+F), the legislation and MSN 1874 (M+F) take precedence.
+
+4. Review of affected publications
+
+4.1 The MCA intends that the outdated references identified in the Annex will be considered when each publication is next revised. The inclusion of a publication in the Annex does not otherwise alter its status or scope.
+
+More information
+
+Marine Equipment
+Maritime and Coastguard Agency
+Bay 2/21
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Telephone: +44 (0)203 81 72000
+
+Email: MEQA@mcga.gov.uk
+
+Website: www.gov.uk/mca
+
+Annex
+
+MSN 1871 -     The Code of Practice for the Safety of Small Fishing Vessels of less than 15m Length Overall
+
+MSN 1872 -     The Code of Safe Working Practice for the Construction and Use of Fishing Vessels of 15m Length Overall to less than 24m Registered Length
+
+MSN 1873 -     The Code of Practice for the Construction and Safe Operation of Fishing Vessels of 24m Registered Length and Over
+
+MSN 1823 –    Safety Code for Passenger Ships
+
+MGN 542 -      The Hovercraft Code
+
+MSN 1809 –    Standard of Radio Equipment Required on Ships
+
+MGN 343 -      Hydrostatic Release Units (HRU): Stowage and Float Free Arrangements for Inflatable Liferafts
+
+MGN 540 -      Life-Saving Appliances - Lifeboats and Rescue Boats - Fitting of ‘Fall Preventer Devices’ to Reduce the Danger of Accidental Hook Release
+
+MGN 541 -      Life-Saving Appliances - Lifeboats and Rescue Boats - Evaluation and Replacement of Lifeboat Release and Retrieval Systems (LRRS)
+
+MGN 544 -      Means of Recovery of Persons from the Water by Ships and Boats - Plans, Procedures and Acceptance of Recovery Equipment
+
+Inland Waters Small Passenger Boat Code
+
+Small Seagoing Passenger Ship Code

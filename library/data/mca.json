@@ -1,7 +1,16 @@
 {
  "administration": "MCA",
- "fetched": "2026-10-19",
+ "fetched": "2026-10-26",
  "notices": [
+  {
+   "title": "MGN 721 (M+F) Interpretation of references to Marine Equipment Directive (MED) approved equipment in selected MCA documentation",
+   "refNo": "MGN 721 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-10-23",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-721-mf-interpretation-of-references-to-marine-equipment-directive-med-approved-equipment-in-selected-mca-documentation",
+   "file": "docs/mca/MGN-721-M-F.txt",
+   "bytes": 5852
+  },
   {
    "title": "MSN 1874 (M+F) Amendment 12 Marine Equipment – United Kingdom conformity assessment and type approval procedures for marine equipment",
    "refNo": "MSN 1874 (M+F)",
@@ -2370,14 +2379,6 @@
    "file": "docs/mca/MSN-1869-M.pdf"
   },
   {
-   "title": "MGN 623 (M+F) Telemedical advice service (TMAS) for ships at sea",
-   "refNo": "MGN 623 (M+F)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2019-12-19",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-623-mf-telemedical-advice-service-tmas-for-ships-at-sea",
-   "file": "docs/mca/MGN-623-M-F.pdf"
-  },
-  {
    "title": "MGN 406 (M+F) Use of barbecues and pig roasts on ships and fishing vessels",
    "refNo": "MGN 406 (M+F)",
    "docType": "MGN (Marine Guidance Note)",
@@ -3183,14 +3184,6 @@
    "date": "2007-12-31",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-358-cers-reporting-requirements-for-port-waste-and-bulk-carrier-infringements",
    "file": "docs/mca/MGN-358.pdf"
-  },
-  {
-   "title": "MGN 357 Night time lookout: photochromic lenses and dark adaptation",
-   "refNo": "MGN 357",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2007-12-30",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-357-night-time-lookout-photocromic-lenses-and-dark-adaptation",
-   "file": "docs/mca/MGN-357.pdf"
   },
   {
    "title": "MGN 344 Observations from passenger vessel evacuation exercises",

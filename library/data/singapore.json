@@ -1,7 +1,47 @@
 {
  "administration": "Singapore",
- "fetched": "2026-10-19",
+ "fetched": "2026-10-26",
  "notices": [
+  {
+   "title": "PORT MARINE NOTICE NO. 142 OF 2026 - POWER SHUTDOWN AT ICA CREW OFFICE – PSA PASIR PANJANG TERMINAL(PPT) 4 CREW OFFICE",
+   "refNo": "PN 142/2026",
+   "docType": "Marine Notice",
+   "date": "2026-10-22",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-142-of-2026-power-shutdown-at-ica-crew-office-psa-pasir-panjang-terminalppt-4-crew-office",
+   "docUrl": "https://www.mpa.gov.sg/api/media/5abff951-8e2d-48af-90ef-07e8ec1d24a8/pn142-26.pdf",
+   "file": "docs/singapore/PN-142-2026.pdf",
+   "bytes": 103555
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 141 OF 2026 - MARINE SOIL INVESTIGATION WORKS FOR THE PROPOSED BIOMASS POWER PLANT AT JURONG ISLAND",
+   "refNo": "PN 141/2026",
+   "docType": "Marine Notice",
+   "date": "2026-10-21",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-141-of-2026-marine-soil-investigation-works-for-the-proposed-biomass-power-plant-at-jurong-island",
+   "docUrl": "https://www.mpa.gov.sg/api/media/72076166-4d32-41b2-a6d2-c9789e942fd3/pn141-26.pdf",
+   "file": "docs/singapore/PN-141-2026.pdf",
+   "bytes": 123483
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 140 of 2026 - UPDATED HAZE ADVISORY – GUIDANCE ON USE OF PSI FORECAST AND 1-HOUR PM2.5 READINGS",
+   "refNo": "PN 140/2026",
+   "docType": "Marine Notice",
+   "date": "2026-10-21",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-140-of-2026-updated-haze-advisory-guidance-on-use-of-psi-forecast-and-1-hour-pm25-readings",
+   "docUrl": "https://www.mpa.gov.sg/api/media/46b5766d-ef45-4a37-aa3a-8143cb3ab634/pn26-140.pdf",
+   "file": "docs/singapore/PN-140-2026.pdf",
+   "bytes": 282524
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 139 of 2026 - CRANE BARGE OVERNIGHT STAYING AT PULAU SATUMU",
+   "refNo": "PN 139/2026",
+   "docType": "Marine Notice",
+   "date": "2026-10-19",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-139-of-2026-crane-barge-overnight-staying-at-pulau-satumu",
+   "docUrl": "https://www.mpa.gov.sg/api/media/6134d5bb-a6b5-4e53-84c6-d8d90efbe266/pn26-139.pdf",
+   "file": "docs/singapore/PN-139-2026.pdf",
+   "bytes": 225611
+  },
   {
    "title": "PORT MARINE NOTICE NO. 138 OF 2026 - HAZE ADVISORY PSI 200 AND ABOVE",
    "refNo": "PN 138/2026",
@@ -9,8 +49,7 @@
    "date": "2026-10-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-138-of-2026-haze-advisory-psi-200-and-above",
    "docUrl": "https://www.mpa.gov.sg/api/media/3cacc540-bdb6-4e66-8d49-e7f9c3bca162/PMN-138-of-2026---Haze-Advisory-PSI-200-and-above.pdf",
-   "file": "docs/singapore/PN-138-2026.pdf",
-   "bytes": 101188
+   "file": "docs/singapore/PN-138-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 137 OF 2026 - SEABED DREDGING AT LOYANG OFFSHORE SUPPLY BASE JETTY",
@@ -19,8 +58,7 @@
    "date": "2026-10-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-137-of-2026-seabed-dredging-at-loyang-offshore-supply-base-jetty",
    "docUrl": "https://www.mpa.gov.sg/api/media/8d7d3f91-3575-4c2c-98d5-96d819ac458a/pn26-137.pdf",
-   "file": "docs/singapore/PN-137-2026.pdf",
-   "bytes": 256689
+   "file": "docs/singapore/PN-137-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 136 of 2026 - OPERATION OF UNMANNED AIRCRAFT OVER SINGAPORE PORT WATERS",
@@ -29,8 +67,7 @@
    "date": "2026-10-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-136-of-2026-operation-of-unmanned-aircraft-over-singapore-port-waters",
    "docUrl": "https://www.mpa.gov.sg/api/media/8190dd2e-61b3-4f20-9465-f00c16d7b56a/pn26-136.pdf",
-   "file": "docs/singapore/PN-136-2026.pdf",
-   "bytes": 166512
+   "file": "docs/singapore/PN-136-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 135 OF 2026 - MARINE STRUCTURE CONSTRUCTION OFF TUAS SOUTH BOULEVARD FOR PIER EXTENSION",
@@ -434,7 +471,7 @@
    "docType": "Marine Notice",
    "date": "2026-05-12",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-67-of-2026---soil-investigation-works-at-tuas-curve-profile",
-   "docUrl": "https://www.mpa.gov.sg/api/media/d693f72d-bc32-4f7c-b455-b9fbd504f460/pn26-67.pdf",
+   "docUrl": "https://www.mpa.gov.sg/api/media/19648b15-e952-4833-8c85-564074feab90/pn67-26.pdf",
    "file": "docs/singapore/PN-67-2026.pdf"
   },
   {
