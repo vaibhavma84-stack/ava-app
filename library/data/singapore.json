@@ -1,6 +1,6 @@
 {
  "administration": "Singapore",
- "fetched": "2026-10-26",
+ "fetched": "2026-11-02",
  "notices": [
   {
    "title": "PORT MARINE NOTICE NO. 142 OF 2026 - POWER SHUTDOWN AT ICA CREW OFFICE – PSA PASIR PANJANG TERMINAL(PPT) 4 CREW OFFICE",
@@ -9,8 +9,7 @@
    "date": "2026-10-22",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-142-of-2026-power-shutdown-at-ica-crew-office-psa-pasir-panjang-terminalppt-4-crew-office",
    "docUrl": "https://www.mpa.gov.sg/api/media/5abff951-8e2d-48af-90ef-07e8ec1d24a8/pn142-26.pdf",
-   "file": "docs/singapore/PN-142-2026.pdf",
-   "bytes": 103555
+   "file": "docs/singapore/PN-142-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 141 OF 2026 - MARINE SOIL INVESTIGATION WORKS FOR THE PROPOSED BIOMASS POWER PLANT AT JURONG ISLAND",
@@ -19,8 +18,7 @@
    "date": "2026-10-21",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-141-of-2026-marine-soil-investigation-works-for-the-proposed-biomass-power-plant-at-jurong-island",
    "docUrl": "https://www.mpa.gov.sg/api/media/72076166-4d32-41b2-a6d2-c9789e942fd3/pn141-26.pdf",
-   "file": "docs/singapore/PN-141-2026.pdf",
-   "bytes": 123483
+   "file": "docs/singapore/PN-141-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 140 of 2026 - UPDATED HAZE ADVISORY – GUIDANCE ON USE OF PSI FORECAST AND 1-HOUR PM2.5 READINGS",
@@ -29,8 +27,7 @@
    "date": "2026-10-21",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-140-of-2026-updated-haze-advisory-guidance-on-use-of-psi-forecast-and-1-hour-pm25-readings",
    "docUrl": "https://www.mpa.gov.sg/api/media/46b5766d-ef45-4a37-aa3a-8143cb3ab634/pn26-140.pdf",
-   "file": "docs/singapore/PN-140-2026.pdf",
-   "bytes": 282524
+   "file": "docs/singapore/PN-140-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 139 of 2026 - CRANE BARGE OVERNIGHT STAYING AT PULAU SATUMU",
@@ -39,8 +36,7 @@
    "date": "2026-10-19",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-139-of-2026-crane-barge-overnight-staying-at-pulau-satumu",
    "docUrl": "https://www.mpa.gov.sg/api/media/6134d5bb-a6b5-4e53-84c6-d8d90efbe266/pn26-139.pdf",
-   "file": "docs/singapore/PN-139-2026.pdf",
-   "bytes": 225611
+   "file": "docs/singapore/PN-139-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 138 OF 2026 - HAZE ADVISORY PSI 200 AND ABOVE",

@@ -1,15 +1,30 @@
 {
  "administration": "MCA",
- "fetched": "2026-10-26",
+ "fetched": "2026-11-02",
  "notices": [
+  {
+   "title": "MSN 1862 (M) - Amendment 1 - UK Requirements for Deck Ratings",
+   "refNo": "MSN 1862 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2026-11-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1862-m-amendment-1-uk-requirements-for-deck-ratings",
+   "file": "docs/mca/MSN-1862-M.pdf"
+  },
+  {
+   "title": "MSN 1863 (M+F) - Amendment 1 - UK Requirements for Engine Room Ratings",
+   "refNo": "MSN 1863 (M+F)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2026-11-01",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1863-mf-amendment-1-uk-requirements-for-engine-room-ratings",
+   "file": "docs/mca/MSN-1863-M-F.pdf"
+  },
   {
    "title": "MGN 721 (M+F) Interpretation of references to Marine Equipment Directive (MED) approved equipment in selected MCA documentation",
    "refNo": "MGN 721 (M+F)",
    "docType": "MGN (Marine Guidance Note)",
    "date": "2026-10-23",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-721-mf-interpretation-of-references-to-marine-equipment-directive-med-approved-equipment-in-selected-mca-documentation",
-   "file": "docs/mca/MGN-721-M-F.txt",
-   "bytes": 5852
+   "file": "docs/mca/MGN-721-M-F.txt"
   },
   {
    "title": "MSN 1874 (M+F) Amendment 12 Marine Equipment – United Kingdom conformity assessment and type approval procedures for marine equipment",
@@ -1759,22 +1774,6 @@
    "date": "2022-12-19",
    "sourceUrl": "https://www.gov.uk/government/publications/msn-1861-m-amendment-1-uk-procedure-for-the-revalidation-of-certificates-of-competency-and-tanker-endorsements",
    "file": "docs/mca/MSN-1861-M.pdf"
-  },
-  {
-   "title": "MSN 1862 (M) - Amendment 1 - UK Requirements for Deck Ratings",
-   "refNo": "MSN 1862 (M)",
-   "docType": "MSN (Merchant Shipping Notice)",
-   "date": "2022-12-19",
-   "sourceUrl": "https://www.gov.uk/government/publications/msn-1862-m-amendment-1-uk-requirements-for-deck-ratings",
-   "file": "docs/mca/MSN-1862-M.pdf"
-  },
-  {
-   "title": "MSN 1863 (M+F) - Amendment 1 - UK Requirements for Engine Room Ratings",
-   "refNo": "MSN 1863 (M+F)",
-   "docType": "MSN (Merchant Shipping Notice)",
-   "date": "2022-12-19",
-   "sourceUrl": "https://www.gov.uk/government/publications/msn-1863-mf-amendment-1-uk-requirements-for-engine-room-ratings",
-   "file": "docs/mca/MSN-1863-M-F.pdf"
   },
   {
    "title": "MSN 1864 (M) - Amendment 1 - UK Requirements for Radio Operators",

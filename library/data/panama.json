@@ -1,7 +1,40 @@
 {
  "administration": "Panama",
- "fetched": "2026-10-26",
+ "fetched": "2026-11-02",
  "notices": [
+  {
+   "title": "MMC 217 – STS – 26 octubre 2026",
+   "refNo": "MMC 217",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-10-29",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMC-217-STS-26-octubre-2026.pdf",
+   "file": "docs/panama/MMC-217.pdf"
+  },
+  {
+   "title": "MMN 17 2026 – Invalid extensions of Statutory Certification Oct 2026",
+   "refNo": "MMN 17-2026",
+   "docType": "MMN (Merchant Marine Notice)",
+   "date": "2026-10-29",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-17-2026-Invalid-extensions-of-Statutory-Certification-Oct-2026.pdf",
+   "file": "docs/panama/MMN-17-2026.pdf",
+   "bytes": 402693
+  },
+  {
+   "title": "MMN 18 2021 – OCTOBER 2026",
+   "refNo": "MMN 18-2021",
+   "docType": "MMN (Merchant Marine Notice)",
+   "date": "2026-10-29",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-18-2021-OCTOBER-2026.pdf",
+   "file": "docs/panama/MMN-18-2021.pdf"
+  },
+  {
+   "title": "MMC 169 – 22 10 2026",
+   "refNo": "MMC 169",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-10-26",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMC-169-22-10-2026.pdf",
+   "file": "docs/panama/MMC-169.pdf"
+  },
   {
    "title": "MMC 359 – 14 octubre 2026",
    "refNo": "MMC 359",
@@ -83,14 +116,6 @@
    "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-245-7-09-2026.pdf",
    "listedOn": "/segumar/merchant-marine-circulars/",
    "file": "docs/panama/MMC-245.pdf"
-  },
-  {
-   "title": "MMN 18 2021 – 23 07 2026",
-   "refNo": "MMN 18-2021",
-   "docType": "MMN (Merchant Marine Notice)",
-   "date": "2026-07-27",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/07/MMN-18-2021-23-07-2026.pdf",
-   "file": "docs/panama/MMN-18-2021.pdf"
   },
   {
    "title": "MMC 269 – june 2026 rev",
@@ -283,14 +308,6 @@
    "file": "docs/panama/MMC-215.pdf"
   },
   {
-   "title": "MMC 169 – 05 03 2026",
-   "refNo": "MMC 169",
-   "docType": "Merchant Marine Circular",
-   "date": "2026-03-06",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/03/MMC-169-05-03-2026.pdf",
-   "file": "docs/panama/MMC-169.pdf"
-  },
-  {
    "title": "MMN 05 2026",
    "refNo": "MMN 05",
    "docType": "MMN (Merchant Marine Notice)",
@@ -357,14 +374,6 @@
    "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/02/MMN-04-2026-PSC-USCG-03-02-2026.pdf",
    "listedOn": "/segumar/merchant-marine-circulars/marine-notices/",
    "file": "docs/panama/MMN-04-2026.pdf"
-  },
-  {
-   "title": "MMC 217 – STS – 16 01 2026",
-   "refNo": "MMC 217",
-   "docType": "Merchant Marine Circular",
-   "date": "2026-01-19",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/01/MMC-217-STS-16-01-2026.pdf",
-   "file": "docs/panama/MMC-217.pdf"
   },
   {
    "title": "MMC 194 January 2026 – CM Rev dccm",
