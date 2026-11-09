@@ -1,0 +1,34 @@
+MGN 168 (M+F) Amendment 1 The marking of seismic streamers
+2026-11-03
+Source: https://www.gov.uk/government/publications/mgn-168-mf-amendment-1-the-marking-of-seismic-streamers
+
+Summary
+
+Seismic streamers that are being towed represent a potential hazard to navigation and should be marked with tail buoys. The attachment of radar transponders to mark the end of seismic streamers is not normally permitted in the UK.
+
+Marking of Seismic Streamers
+
+• At it’s sixty-seventh session (December 1996), the Maritime Safety Committee of the International Maritime Organization (IMO), approved the following recommendations on the marking of arrays of seismic streamers towed by survey vessels:
+
+   1.1 Towed streamers can extend to considerable lengths (e.g. more than 8 Km) and their ends can be out of sight of the towing vessel. Long unmarked streamers represent a danger to navigation to other vessels, which need to be warned that they may be running into danger.
+
+   1.2 To enhance safe navigation, seismic survey vessels should mark streamers they are towing with tail buoys. Additionally, another buoy should be towed a short distance behind the towing vessel. All buoys should display by day and night an all-round, high intensity white light flashing the Morse signal “U” – “You are running into danger”.
+
+   1.3 It should be clear to approaching vessels that the area of danger lies between the buoy towed close to the vessel and the array of buoys towed on the tails of the streamers.
+
+   1.4 Attention is also drawn to the content of IMO SN/Circ. 154 on the use of radar transponders on ships for safety purposes. To avoid causing confusion on radar displays, and to ensure proper identification of navigation radar beacons (racons) in the area, the use of radar transponders in the congested and constrained waters around the United Kingdom is not normally permitted. Permission must be obtained from this Administration, on a case by case basis, in accordance with IMO Res. A. 615 (15).
+
+2.These IMO recommendations are based on a paper originally submitted by the United Kingdom. They are fully supported by the Maritime and Coastguard Agency and operators are encouraged to implement them.
+
+More information
+
+Marine Safety & PNT Services
+Maritime and Coastguard Agency
+Spring Place
+105 Commercial Road
+Southampton
+SO15 1EG
+
+Email: navigationsafety@mcga.gov.uk
+
+Website: www.gov.uk/mca

@@ -1,7 +1,17 @@
 {
  "administration": "Singapore",
- "fetched": "2026-11-02",
+ "fetched": "2026-11-09",
  "notices": [
+  {
+   "title": "PORT MARINE CIRCULAR NO. 11 OF 2026 - MARITIME DECLARATION OF HEALTH",
+   "refNo": "PC 11/2026",
+   "docType": "Port Marine Circular",
+   "date": "2026-11-04",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no-11-of-2026-maritime-declaration-of-health",
+   "docUrl": "https://www.mpa.gov.sg/api/media/dad93d6b-44f0-41f6-9446-cf7dbdfe0916/pc26-11.pdf",
+   "file": "docs/singapore/PC-11-2026.pdf",
+   "bytes": 365743
+  },
   {
    "title": "PORT MARINE NOTICE NO. 142 OF 2026 - POWER SHUTDOWN AT ICA CREW OFFICE – PSA PASIR PANJANG TERMINAL(PPT) 4 CREW OFFICE",
    "refNo": "PN 142/2026",
@@ -28,15 +38,6 @@
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-140-of-2026-updated-haze-advisory-guidance-on-use-of-psi-forecast-and-1-hour-pm25-readings",
    "docUrl": "https://www.mpa.gov.sg/api/media/46b5766d-ef45-4a37-aa3a-8143cb3ab634/pn26-140.pdf",
    "file": "docs/singapore/PN-140-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 139 of 2026 - CRANE BARGE OVERNIGHT STAYING AT PULAU SATUMU",
-   "refNo": "PN 139/2026",
-   "docType": "Marine Notice",
-   "date": "2026-10-19",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-139-of-2026-crane-barge-overnight-staying-at-pulau-satumu",
-   "docUrl": "https://www.mpa.gov.sg/api/media/6134d5bb-a6b5-4e53-84c6-d8d90efbe266/pn26-139.pdf",
-   "file": "docs/singapore/PN-139-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 138 OF 2026 - HAZE ADVISORY PSI 200 AND ABOVE",
@@ -102,15 +103,6 @@
    "file": "docs/singapore/PN-130-2026.pdf"
   },
   {
-   "title": "PORT MARINE NOTICE NO. 129 of 2026 - MARINE SOIL INVESTIGATION WORKS AT JURONG PORT",
-   "refNo": "PN 129/2026",
-   "docType": "Marine Notice",
-   "date": "2026-10-01",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-129-of-2026-marine-soil-investigation-works-at-jurong-port",
-   "docUrl": "https://www.mpa.gov.sg/api/media/137af79f-dbfc-4061-a902-6b10343ce2e1/pn26-129.pdf",
-   "file": "docs/singapore/PN-129-2026.pdf"
-  },
-  {
    "title": "No. 9 of 2026 - KEY SHIPPING DIVISION CONTACTS",
    "refNo": "SC 09/2026",
    "docType": "Shipping Circular",
@@ -156,15 +148,6 @@
    "file": "docs/singapore/PN-125-2026.pdf"
   },
   {
-   "title": "PORT MARINE NOTICE NO. 124 of 2026 - RESTRICTION ON VESSELS TRANSITING, ANCHORING, OR REMAINING IN THE RESTRICTED AREA OFF MARINA BARRAGE & MARINA EAST DURING THE F1 SINGAPORE GRAND PRIX 2026",
-   "refNo": "PN 124/2026",
-   "docType": "Marine Notice",
-   "date": "2026-09-25",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-124-of-2026-restriction-on-vessels-transiting-anchoring-or-remaining-in-the-restricted-area-off-marina-barrage-marina-east-during-the-f1-singapore-grand-prix-2026",
-   "docUrl": "https://www.mpa.gov.sg/api/media/7be477e2-c1b9-4992-8e32-e6f80e32c556/pn26-124.pdf",
-   "file": "docs/singapore/PN-124-2026.pdf"
-  },
-  {
    "title": "PORT MARINE NOTICE NO. 123 of 2026 - TRANSPORT OF SAND MATERIAL AT TUAS VIEW EXTENSION",
    "refNo": "PN 123/2026",
    "docType": "Marine Notice",
@@ -174,15 +157,6 @@
    "file": "docs/singapore/PN-123-2026.pdf"
   },
   {
-   "title": "PORT MARINE NOTICE NO. 122 of 2026 - POLICE COAST GUARD GROUND DEPLOYMENT EXERCISE AT SEA OFF SEMAKAU",
-   "refNo": "PN 122/2026",
-   "docType": "Marine Notice",
-   "date": "2026-09-23",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-122-of-2026-police-coast-guard-ground-deployment-exercise-at-sea-off-semakau",
-   "docUrl": "https://www.mpa.gov.sg/api/media/dd47e5be-e5bc-406a-bd29-c4e9c3ba3451/pn26-122.pdf",
-   "file": "docs/singapore/PN-122-2026.pdf"
-  },
-  {
    "title": "PORT MARINE NOTICE NO. 121 of 2026 - WORKS AT TUAS TERMINAL PHASE 2",
    "refNo": "PN 121/2026",
    "docType": "Marine Notice",
@@ -190,15 +164,6 @@
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-121-of-2026-works-at-tuas-terminal-phase-2",
    "docUrl": "https://www.mpa.gov.sg/api/media/a6911d0c-2379-49c8-8314-3b924a25a246/pn26-121.pdf",
    "file": "docs/singapore/PN-121-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 114 of 2026 - DEPLOYMENT OF ADCP FOR PLUME SURVEY",
-   "refNo": "PN 114/2026",
-   "docType": "Marine Notice",
-   "date": "2026-09-17",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-114-of-2026-deployment-of-adcp-for-plume-survey",
-   "docUrl": "https://www.mpa.gov.sg/api/media/f3e24b76-0bbe-40f8-8b78-1e658629706c/PMN-114-OF-2026---DEPLOYMENT-OF-ADCP-FOR-PLUME-SURVEY.pdf",
-   "file": "docs/singapore/PN-114-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 113 of 2026 - DEPLOYMENT OF SEABED ADCP FOR NUS RESEARCH",
@@ -372,15 +337,6 @@
    "file": "docs/singapore/PN-81-2026.pdf"
   },
   {
-   "title": "PORT MARINE NOTICE NO.80 of 2026 -  MARINE SOIL INVESTIGATION WORKS FOR WOODLANDS-JOHOR BAHRU CABLE SYSTEM (WJBC) IN JOHOR STRAITS",
-   "refNo": "PN 80/2026",
-   "docType": "Marine Notice",
-   "date": "2026-06-09",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no80-of-2026-marine-soil-investigation-works-for-woodlands-johor-bahru-cable-system-wjbc-in-johor-straits",
-   "docUrl": "https://www.mpa.gov.sg/api/media/953cfcab-7aef-4453-920d-387adfc9b0a5/pn26-80.pdf",
-   "file": "docs/singapore/PN-80-2026.pdf"
-  },
-  {
    "title": "PORT MARINE NOTICE NO.78 of 2026 - ERECTION OF FLOTSAM JETTY AND OTHER ANCILLARIES",
    "refNo": "PN 78/2026",
    "docType": "Marine Notice",
@@ -516,15 +472,6 @@
    "file": "docs/singapore/PC-05-2026.pdf"
   },
   {
-   "title": "PORT MARINE NOTICE NO. 60 OF 2026 - DREDGING WORKS AT GUL BASIN",
-   "refNo": "PN 60/2026",
-   "docType": "Marine Notice",
-   "date": "2026-04-14",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-60-of-2026---dredging-works-at-gul-basin",
-   "docUrl": "https://www.mpa.gov.sg/api/media/265a9bdc-9dea-484a-8490-09e6e452813b/pn26-6040983eec-e10e-48ea-85ec-6c38c1e95366.pdf",
-   "file": "docs/singapore/PN-60-2026.pdf"
-  },
-  {
    "title": "PORT MARINE NOTICE NO. 59 OF 2026 - NOTICE ON PENALTIES FOR NON-COMPLIANCE OF PREVAILING IMMIGRATION PROCEDURES",
    "refNo": "PN 59/2026",
    "docType": "Marine Notice",
@@ -532,15 +479,6 @@
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-59-of-2026---notice-on-penalties-for-non-compliance-of-prevailing-immigration-procedures",
    "docUrl": "https://www.mpa.gov.sg/api/media/5e12748f-032d-4216-a085-1a0f72ad3fd7/pn26-59.pdf",
    "file": "docs/singapore/PN-59-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 58 OF 2026 - CONSTRUCTION OF VERTICAL PERIMETER WALL AND RECLAMATION WORKS FOR WEST OF CAUSEWAY (NORTHERN COAST OF WOODLANDS)",
-   "refNo": "PN 58/2026",
-   "docType": "Marine Notice",
-   "date": "2026-04-10",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-58-of-2026---construction-of-vertical-perimeter-wall-and-reclamation-works-for-west-of-causeway-(northern-coast-of-woodlands)",
-   "docUrl": "https://www.mpa.gov.sg/api/media/59c47b62-a306-484d-91d2-69bf2097365c/pn26-58.pdf",
-   "file": "docs/singapore/PN-58-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 56 OF 2026 - CLOSURE OF ST JOHN’S ISLAND JETTY AND KUSU ISLAND BUMBOAT JETTY",
@@ -552,15 +490,6 @@
    "file": "docs/singapore/PN-56-2026.pdf"
   },
   {
-   "title": "PORT MARINE NOTICE NO. 52 OF 2026 -  CONSTRUCTION OF CONTAINMENT BUNDS AT TUAS VIEW EXTENSION",
-   "refNo": "PN 52/2026",
-   "docType": "Marine Notice",
-   "date": "2026-04-02",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-52-of-2026----construction-of-containment-bunds-at-tuas-view-extension",
-   "docUrl": "https://www.mpa.gov.sg/api/media/5ca7e8de-f67d-420e-bebd-eb404b03c5ee/pn26-52.pdf",
-   "file": "docs/singapore/PN-52-2026.pdf"
-  },
-  {
    "title": "No. 4 of 2026 - SAFETY REMINDER: COLLISION PREVENTION BETWEEN MERCHANT VESSELS AND FISHING VESSELS IN CHINA'S COASTAL WATERS",
    "refNo": "SC 04/2026",
    "docType": "Shipping Circular",
@@ -568,15 +497,6 @@
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no.-4-of-2026---safety-reminder--collision-prevention-between-merchant-vessels-and-fishing-vessels-in-chinas-coastal-waters",
    "docUrl": "https://www.mpa.gov.sg/api/media/12900bde-a1db-449d-a3db-fa63808467e6/sc_no_4_of_2026.pdf",
    "file": "docs/singapore/SC-04-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 50 OF 2026 - STRUCTURAL REPLACEMENT OF BREASTING DOLPHIN 2 AT EXISTING WHARF 10 ON LOT 1083P MK34 AT PULAU BUKOM",
-   "refNo": "PN 50/2026",
-   "docType": "Marine Notice",
-   "date": "2026-03-31",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-50-of-2026---structural-replacement-of-breasting-dolphin-2-at-existing-wharf-10-on-lot-1083p-mk34-at-pulau-bukom",
-   "docUrl": "https://www.mpa.gov.sg/api/media/a6fa861d-2ef2-40a3-859d-52ce2f46bd40/pn26-50.pdf",
-   "file": "docs/singapore/PN-50-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 39 OF 2026 - REVISED NEA PORT HEALTH OFFICE OPERATIONAL HOURS",
@@ -604,15 +524,6 @@
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no.-3-of-2026---revalidation-of-certificates-issued-under-the-international-convention-on-standards-of-training--certification-and-watchkeeping-for-seafarers--1978-(stcw-1978)--as-amended-by-singapore",
    "docUrl": "https://www.mpa.gov.sg/api/media/ac83414c-6450-4a3a-94ca-3acf56ebab8f/sc_no_3_of_2026.pdf",
    "file": "docs/singapore/SC-03-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE CIRCULAR NO. 03 OF 2026 -MARITIME DECLARATION OF HEALTH",
-   "refNo": "PC 03/2026",
-   "docType": "Port Marine Circular",
-   "date": "2026-02-25",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-03-of-2026--maritime-declaration-of-health",
-   "docUrl": "https://www.mpa.gov.sg/api/media/bf8c2b8e-15dd-479f-8c8d-3d2122c55ba1/pmc-03-of-2026---maritime-declaration-of-health.pdf",
-   "file": "docs/singapore/PC-03-2026.pdf"
   },
   {
    "title": "No. 2 of 2026 - PREVENTION OF POLLUTION OF THE SEA (AIR) (AMENDMENT) REGULATIONS 2026",
@@ -656,7 +567,7 @@
    "docType": "Port Marine Circular",
    "date": "2025-12-31",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no.-01-of-2026---list-of-active-port-marine-circulars",
-   "docUrl": "https://www.mpa.gov.sg/api/media/ba7dd201-3ddc-418e-97af-bddef808d43e/pc26-01.pdf",
+   "docUrl": "https://www.mpa.gov.sg/api/media/c820fbb5-a24d-4ee2-8947-f35ae4d5af24/pc26-01.pdf",
    "file": "docs/singapore/PC-01-2026.pdf"
   },
   {

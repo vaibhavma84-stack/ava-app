@@ -1,7 +1,39 @@
 {
  "administration": "Panama",
- "fetched": "2026-11-02",
+ "fetched": "2026-11-09",
  "notices": [
+  {
+   "title": "MMC 150 – November – Cancelled",
+   "refNo": "MMC 150",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-11-02",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMC-150-November-Cancelled.pdf",
+   "file": "docs/panama/MMC-150.pdf"
+  },
+  {
+   "title": "MMC 87 rev dccm 2 11 26",
+   "refNo": "MMC 87",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-11-02",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMC-87-rev-dccm-2-11-26.pdf",
+   "file": "docs/panama/MMC-87.pdf"
+  },
+  {
+   "title": "MMC 171 – 2nov2026 rev sdgmm",
+   "refNo": "MMC 171",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-11-02",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMC-171-2nov2026-rev-sdgmm.pdf",
+   "file": "docs/panama/MMC-171.pdf"
+  },
+  {
+   "title": "MMN 17 2026 – Invalid extensions of Statutory Certification Oct 2026 (1)",
+   "refNo": "MMN 17-2026",
+   "docType": "MMN (Merchant Marine Notice)",
+   "date": "2026-11-02",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMN-17-2026-Invalid-extensions-of-Statutory-Certification-Oct-2026-1.pdf",
+   "file": "docs/panama/MMN-17-2026.pdf"
+  },
   {
    "title": "MMC 217 – STS – 26 octubre 2026",
    "refNo": "MMC 217",
@@ -9,15 +41,6 @@
    "date": "2026-10-29",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMC-217-STS-26-octubre-2026.pdf",
    "file": "docs/panama/MMC-217.pdf"
-  },
-  {
-   "title": "MMN 17 2026 – Invalid extensions of Statutory Certification Oct 2026",
-   "refNo": "MMN 17-2026",
-   "docType": "MMN (Merchant Marine Notice)",
-   "date": "2026-10-29",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-17-2026-Invalid-extensions-of-Statutory-Certification-Oct-2026.pdf",
-   "file": "docs/panama/MMN-17-2026.pdf",
-   "bytes": 402693
   },
   {
    "title": "MMN 18 2021 – OCTOBER 2026",
@@ -196,14 +219,6 @@
    "date": "2026-05-21",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/05/MMN-09-2024-09-08-2024-BWMC-D-2.pdf",
    "file": "docs/panama/MMN-09-2024.pdf"
-  },
-  {
-   "title": "MMC 171 – 08 05 2026",
-   "refNo": "MMC 171",
-   "docType": "Merchant Marine Circular",
-   "date": "2026-05-12",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/05/MMC-171-08-05-2026.pdf",
-   "file": "docs/panama/MMC-171.pdf"
   },
   {
    "title": "MMN 10 2026 – FLAG STATE INSPECTORS CANCELLED – 14 04 2026",
@@ -510,14 +525,6 @@
    "file": "docs/panama/MMC-123.pdf"
   },
   {
-   "title": "MMC 243 – 13 08 2025",
-   "refNo": "MMC 243",
-   "docType": "Merchant Marine Circular",
-   "date": "2025-08-14",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-243-13-08-2025.pdf",
-   "file": "docs/panama/MMC-243.pdf"
-  },
-  {
    "title": "MMN 07 2025 – Insurers due diligence Rv MR",
    "refNo": "MMN 07-2025",
    "docType": "MMN (Merchant Marine Notice)",
@@ -532,6 +539,16 @@
    "date": "2025-08-01",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMN-05-2025-CIC-2025-Ballast.pdf",
    "file": "docs/panama/MMN-05-2025.pdf"
+  },
+  {
+   "title": "MMC 243 13 08 2025",
+   "refNo": "MMC 243",
+   "docType": "Merchant Marine Circular",
+   "date": "2025-08-01",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-243-13-08-2025.pdf",
+   "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-243-13-08-2025.pdf",
+   "listedOn": "/segumar/merchant-marine-circulars/",
+   "file": "docs/panama/MMC-243.pdf"
   },
   {
    "title": "MMC 386 Aug 2025 Rv MR",
@@ -1051,16 +1068,6 @@
    "file": "docs/panama/MMC-370.pdf"
   },
   {
-   "title": "MMC 87 Panama Policy on MODU Code and Offshore Drilling Units Rev Oct 2023",
-   "refNo": "MMC 87",
-   "docType": "Merchant Marine Circular",
-   "date": "2024-02-01",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2024/02/MMC-87-Panama-Policy-on-MODU-Code-and-Offshore-Drilling-Units-Rev-Oct-2023.pdf",
-   "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2024/02/MMC-87-Panama-Policy-on-MODU-Code-and-Offshore-Drilling-Units-Rev-Oct-2023.pdf",
-   "listedOn": "/segumar/merchant-marine-circulars/",
-   "file": "docs/panama/MMC-87.pdf"
-  },
-  {
    "title": "MMC 200 MARPOL 7378 Annex II and IBCBCH Code relative matters october 29 2023 rev 2 nuevo 1",
    "refNo": "MMC 200",
    "docType": "Merchant Marine Circular",
@@ -1425,16 +1432,6 @@
    "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2023/12/MMC-271-DGGM-17-07-2025-1.pdf",
    "listedOn": "/segumar/merchant-marine-circulars/",
    "file": "docs/panama/MMC-271.pdf"
-  },
-  {
-   "title": "MMC 150 13 03 2024",
-   "refNo": "MMC 150",
-   "docType": "Merchant Marine Circular",
-   "date": "2023-12-01",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2023/12/MMC-150-13-03-2024.pdf",
-   "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2023/12/MMC-150-13-03-2024.pdf",
-   "listedOn": "/segumar/merchant-marine-circulars/",
-   "file": "docs/panama/MMC-150.pdf"
   },
   {
    "title": "MMC 334 GMDSS REQUIREMENTS March 2024 1",

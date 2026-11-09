@@ -1,7 +1,24 @@
 {
  "administration": "MCA",
- "fetched": "2026-11-02",
+ "fetched": "2026-11-09",
  "notices": [
+  {
+   "title": "MGN 168 (M+F) Amendment 1 The marking of seismic streamers",
+   "refNo": "MGN 168 (M+F)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-11-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-168-mf-amendment-1-the-marking-of-seismic-streamers",
+   "file": "docs/mca/MGN-168-M-F.txt",
+   "bytes": 2422
+  },
+  {
+   "title": "MGN 199 (M) Amendment 1 Danger of interaction",
+   "refNo": "MGN 199 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-11-03",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-199-m-amendment-1-danger-of-interaction",
+   "file": "docs/mca/MGN-199-M.pdf"
+  },
   {
    "title": "MSN 1862 (M) - Amendment 1 - UK Requirements for Deck Ratings",
    "refNo": "MSN 1862 (M)",
@@ -1289,14 +1306,6 @@
    "date": "2024-01-22",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-628-mf-amendment-1-construction-and-outfit-standards-for-fishing-vessels-of-less-than-15m-length-overall",
    "file": "docs/mca/MGN-628-M-F.pdf"
-  },
-  {
-   "title": "MSN 1914 (M) The carriage of dangerous goods and marine pollutants: amendments to international standards",
-   "refNo": "MSN 1914 (M)",
-   "docType": "MSN (Merchant Shipping Notice)",
-   "date": "2024-01-11",
-   "sourceUrl": "https://www.gov.uk/government/publications/msn-1914-m-the-carriage-of-dangerous-goods-and-marine-pollutants-amendments-to-international-standards",
-   "file": "docs/mca/MSN-1914-M.txt"
   },
   {
    "title": "MGN 379 (M+F) Amendment 1: use of electronic navigational aids",
@@ -3561,14 +3570,6 @@
    "file": "docs/mca/MGN-223-M.pdf"
   },
   {
-   "title": "MGN 199 (M) Dangers of interaction",
-   "refNo": "MGN 199 (M)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2002-04-27",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-199-dangers-of-interaction",
-   "file": "docs/mca/MGN-199-M.pdf"
-  },
-  {
    "title": "MGN 218 (M) Thames safety inquiry recommendation 27.2",
    "refNo": "MGN 218 (M)",
    "docType": "MGN (Marine Guidance Note)",
@@ -3607,14 +3608,6 @@
    "date": "2001-06-30",
    "sourceUrl": "https://www.gov.uk/government/publications/msn-1757-requirements-for-life-saving-appliances",
    "file": "docs/mca/MSN-1757.pdf"
-  },
-  {
-   "title": "MGN 168 (M + F) The marking of seismic streamers",
-   "refNo": "MGN 168",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2001-02-01",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-168-the-marking-of-seismic-streamers",
-   "file": "docs/mca/MGN-168.pdf"
   },
   {
    "title": "MGN 164 (M) STCW 95 Part 18: Conversion of Tonnage",
