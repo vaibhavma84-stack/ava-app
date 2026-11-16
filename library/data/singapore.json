@@ -1,7 +1,17 @@
 {
  "administration": "Singapore",
- "fetched": "2026-11-09",
+ "fetched": "2026-11-16",
  "notices": [
+  {
+   "title": "PORT MARINE NOTICE NO. 143 OF 2026 - COASTAL DEVELOPMENT PROJECT AND TEMPORARY HOLDING AREA AT NORTHERN COAST OF WOODLANDS",
+   "refNo": "PN 143/2026",
+   "docType": "Marine Notice",
+   "date": "2026-11-12",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-143-of-2026-coastal-development-project-and-temporary-holding-area-at-northern-coast-of-woodlands",
+   "docUrl": "https://www.mpa.gov.sg/api/media/e273d579-0067-49cd-861d-9fdcfdc132f1/pn26-143.pdf",
+   "file": "docs/singapore/PN-143-2026.pdf",
+   "bytes": 470146
+  },
   {
    "title": "PORT MARINE CIRCULAR NO. 11 OF 2026 - MARITIME DECLARATION OF HEALTH",
    "refNo": "PC 11/2026",
@@ -9,8 +19,7 @@
    "date": "2026-11-04",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no-11-of-2026-maritime-declaration-of-health",
    "docUrl": "https://www.mpa.gov.sg/api/media/dad93d6b-44f0-41f6-9446-cf7dbdfe0916/pc26-11.pdf",
-   "file": "docs/singapore/PC-11-2026.pdf",
-   "bytes": 365743
+   "file": "docs/singapore/PC-11-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 142 OF 2026 - POWER SHUTDOWN AT ICA CREW OFFICE – PSA PASIR PANJANG TERMINAL(PPT) 4 CREW OFFICE",
@@ -54,7 +63,7 @@
    "docType": "Marine Notice",
    "date": "2026-10-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-137-of-2026-seabed-dredging-at-loyang-offshore-supply-base-jetty",
-   "docUrl": "https://www.mpa.gov.sg/api/media/8d7d3f91-3575-4c2c-98d5-96d819ac458a/pn26-137.pdf",
+   "docUrl": "https://www.mpa.gov.sg/api/media/a4e57e83-a02c-4aa4-b992-c8de2cf399d6/pn26-137-1-1.pdf",
    "file": "docs/singapore/PN-137-2026.pdf"
   },
   {
@@ -72,7 +81,7 @@
    "docType": "Marine Notice",
    "date": "2026-10-09",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-135-of-2026-marine-structure-construction-off-tuas-south-boulevard-for-pier-extension",
-   "docUrl": "https://www.mpa.gov.sg/api/media/d47a69b3-0098-42cf-8400-c439d15ab380/pn135-26.pdf",
+   "docUrl": "https://www.mpa.gov.sg/api/media/8fcf0154-4f12-4f42-bb7c-c8d7e51f6d8c/pn135-26-1.pdf",
    "file": "docs/singapore/PN-135-2026.pdf"
   },
   {
@@ -153,7 +162,7 @@
    "docType": "Marine Notice",
    "date": "2026-09-24",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-123-of-2026-transport-of-sand-material-at-tuas-view-extension",
-   "docUrl": "https://www.mpa.gov.sg/api/media/60965789-46d5-4a18-89c9-24ee0a892fff/pn26-123.pdf",
+   "docUrl": "https://www.mpa.gov.sg/api/media/3e9efae9-66c6-4bcf-a555-8b3a41c9a273/pn123-26.pdf",
    "file": "docs/singapore/PN-123-2026.pdf"
   },
   {

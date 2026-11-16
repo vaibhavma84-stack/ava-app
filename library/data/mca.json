@@ -1,15 +1,22 @@
 {
  "administration": "MCA",
- "fetched": "2026-11-09",
+ "fetched": "2026-11-16",
  "notices": [
+  {
+   "title": "MGN 600 (M) Amendment 3 Maritime Labour Convention - Inspection of coded vessels",
+   "refNo": "MGN 600 (M)",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-11-11",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-600-m-maritime-labour-convention-inspection-of-coded-vessels",
+   "file": "docs/mca/MGN-600-M.txt"
+  },
   {
    "title": "MGN 168 (M+F) Amendment 1 The marking of seismic streamers",
    "refNo": "MGN 168 (M+F)",
    "docType": "MGN (Marine Guidance Note)",
    "date": "2026-11-03",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-168-mf-amendment-1-the-marking-of-seismic-streamers",
-   "file": "docs/mca/MGN-168-M-F.txt",
-   "bytes": 2422
+   "file": "docs/mca/MGN-168-M-F.txt"
   },
   {
    "title": "MGN 199 (M) Amendment 1 Danger of interaction",
@@ -893,14 +900,6 @@
    "docType": "MIN (Marine Information Note)",
    "date": "2025-03-24",
    "sourceUrl": "https://www.gov.uk/guidance/min-580-new-route-to-an-uk-officer-of-the-watch-oow-yachts-certificate-of-competency"
-  },
-  {
-   "title": "MGN 600 (M) Amendment 3 Maritime Labour Convention - Inspection of coded vessels",
-   "refNo": "MGN 600 (M)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2025-02-25",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-600-m-maritime-labour-convention-inspection-of-coded-vessels",
-   "file": "docs/mca/MGN-600-M.txt"
   },
   {
    "title": "MGN 193 Amendment 2 (M+F) the effects of alcohol or drugs at sea",
@@ -2760,13 +2759,6 @@
    "file": "docs/mca/MGN-542-M.pdf"
   },
   {
-   "title": "MIN 516 Amendment: International Maritime Solid Bulk Cargoes Code",
-   "refNo": "MIN 516",
-   "docType": "MIN (Marine Information Note)",
-   "date": "2015-12-16",
-   "sourceUrl": "https://www.gov.uk/government/publications/min-516-m-amendment-to-the-international-maritime-solid-bulk-cargoes-code"
-  },
-  {
    "title": "MGN 540 Fitting 'fall preventer devices' to on-load release hooks",
    "refNo": "MGN 540",
    "docType": "MGN (Marine Guidance Note)",
@@ -2868,14 +2860,6 @@
    "date": "2014-07-31",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-516m-ship-construction-and-equipment-use-and-application-of-imo-codes-and-guidelines-for-offshore-vessels",
    "file": "docs/mca/MGN-516-M.pdf"
-  },
-  {
-   "title": "MGN 511 (M) - Solid Bulk Cargoes: Amendments 02-13 to (IMSBC)",
-   "refNo": "MGN 511 (M)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2014-06-26",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-511m-solid-bulk-cargoes",
-   "file": "docs/mca/MGN-511-M.pdf"
   },
   {
    "title": "MGN 512 (M) - Solid bulk cargoes: Cargoes not listed in (IMSBC)",
@@ -3584,14 +3568,6 @@
    "date": "2001-12-01",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-210-advice-on-the-dangers-of-flooding-of-forward-compartments",
    "file": "docs/mca/MGN-210-M.pdf"
-  },
-  {
-   "title": "MGN 198 (M) Safety at solid bulk cargo terminals",
-   "refNo": "MGN 198 (M)",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2001-11-28",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-198-safety-at-solid-bulk-cargo-terminals",
-   "file": "docs/mca/MGN-198-M.pdf"
   },
   {
    "title": "MGN 190 (F) Copper pipe failure in engine cooling water systems",

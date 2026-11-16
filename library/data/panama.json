@@ -1,7 +1,23 @@
 {
  "administration": "Panama",
- "fetched": "2026-11-09",
+ "fetched": "2026-11-16",
  "notices": [
+  {
+   "title": "MMC 245  11 06 2026 rev dccm (1)",
+   "refNo": "MMC 245",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-11-13",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMC-245-11-06-2026-rev-dccm-1.pdf",
+   "file": "docs/panama/MMC-245.pdf"
+  },
+  {
+   "title": "MMN 17 2026 – Invalid extensions of Statutory Certification Oct 2026 (2)",
+   "refNo": "MMN 17-2026",
+   "docType": "MMN (Merchant Marine Notice)",
+   "date": "2026-11-13",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMN-17-2026-Invalid-extensions-of-Statutory-Certification-Oct-2026-2.pdf",
+   "file": "docs/panama/MMN-17-2026.pdf"
+  },
   {
    "title": "MMC 150 – November – Cancelled",
    "refNo": "MMC 150",
@@ -25,14 +41,6 @@
    "date": "2026-11-02",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMC-171-2nov2026-rev-sdgmm.pdf",
    "file": "docs/panama/MMC-171.pdf"
-  },
-  {
-   "title": "MMN 17 2026 – Invalid extensions of Statutory Certification Oct 2026 (1)",
-   "refNo": "MMN 17-2026",
-   "docType": "MMN (Merchant Marine Notice)",
-   "date": "2026-11-02",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMN-17-2026-Invalid-extensions-of-Statutory-Certification-Oct-2026-1.pdf",
-   "file": "docs/panama/MMN-17-2026.pdf"
   },
   {
    "title": "MMC 217 – STS – 26 octubre 2026",
@@ -75,20 +83,20 @@
    "file": "docs/panama/MMC-195.pdf"
   },
   {
-   "title": "MMN 05 2026 – 13 10 2026",
-   "refNo": "MMN 05-2026",
-   "docType": "MMN (Merchant Marine Notice)",
-   "date": "2026-10-15",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-05-2026-13-10-2026.pdf",
-   "file": "docs/panama/MMN-05-2026.pdf"
-  },
-  {
    "title": "MMN 03 2022 – UKRAINE – 13 10 2026",
    "refNo": "MMN 03-2022",
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-10-15",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-03-2022-UKRAINE-13-10-2026.pdf",
    "file": "docs/panama/MMN-03-2022.pdf"
+  },
+  {
+   "title": "MMN 05 2026 – 13 10 2026",
+   "refNo": "MMN 05-2026",
+   "docType": "MMN (Merchant Marine Notice)",
+   "date": "2026-10-15",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-05-2026-13-10-2026.pdf",
+   "file": "docs/panama/MMN-05-2026.pdf"
   },
   {
    "title": "MMC 270 – 03 09 2026",
@@ -129,16 +137,6 @@
    "date": "2026-08-07",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-136-RO-24-07-2026-2-1.pdf",
    "file": "docs/panama/MMC-136.pdf"
-  },
-  {
-   "title": "MMC 245 7 09 2026",
-   "refNo": "MMC 245",
-   "docType": "Merchant Marine Circular",
-   "date": "2026-08-01",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-245-7-09-2026.pdf",
-   "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/08/MMC-245-7-09-2026.pdf",
-   "listedOn": "/segumar/merchant-marine-circulars/",
-   "file": "docs/panama/MMC-245.pdf"
   },
   {
    "title": "MMC 269 – june 2026 rev",
@@ -517,14 +515,6 @@
    "file": "docs/panama/MMC-339.pdf"
   },
   {
-   "title": "MMC 123 – 13 8 2025",
-   "refNo": "MMC 123",
-   "docType": "Merchant Marine Circular",
-   "date": "2025-08-14",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-123-13-8-2025.pdf",
-   "file": "docs/panama/MMC-123.pdf"
-  },
-  {
    "title": "MMN 07 2025 – Insurers due diligence Rv MR",
    "refNo": "MMN 07-2025",
    "docType": "MMN (Merchant Marine Notice)",
@@ -539,6 +529,16 @@
    "date": "2025-08-01",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMN-05-2025-CIC-2025-Ballast.pdf",
    "file": "docs/panama/MMN-05-2025.pdf"
+  },
+  {
+   "title": "MMC 123 13 8 2025",
+   "refNo": "MMC 123",
+   "docType": "Merchant Marine Circular",
+   "date": "2025-08-01",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-123-13-8-2025.pdf",
+   "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2025/08/MMC-123-13-8-2025.pdf",
+   "listedOn": "/segumar/merchant-marine-circulars/",
+   "file": "docs/panama/MMC-123.pdf"
   },
   {
    "title": "MMC 243 13 08 2025",
