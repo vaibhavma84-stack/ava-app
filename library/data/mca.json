@@ -1,7 +1,30 @@
 {
  "administration": "MCA",
- "fetched": "2026-11-16",
+ "fetched": "2026-11-23",
  "notices": [
+  {
+   "title": "MGN 608 Amendment 1 (M+F) Radio Survey Service: Authorisation",
+   "refNo": "MGN 608",
+   "docType": "MGN (Marine Guidance Note)",
+   "date": "2026-11-20",
+   "sourceUrl": "https://www.gov.uk/government/publications/mgn-608-amendment-1-mf-radio-survey-service-authorisation",
+   "file": "docs/mca/MGN-608.txt"
+  },
+  {
+   "title": "MIN 743 (M+F) Changes to NAVTEX and Maritime Safety Information (MSI) arrangements in the English Channel from 1 January 2027",
+   "refNo": "MIN 743 (M+F)",
+   "docType": "MIN (Marine Information Note)",
+   "date": "2026-11-19",
+   "sourceUrl": "https://www.gov.uk/government/publications/min-743-mf-changes-to-navtex-and-maritime-safety-information-msi-arrangements-in-the-english-channel-from-1-january-2027"
+  },
+  {
+   "title": "MSN 1853 (M) Amendment 1: Boatmasters’ Qualifications, Crew and Hours of Work",
+   "refNo": "MSN 1853 (M)",
+   "docType": "MSN (Merchant Shipping Notice)",
+   "date": "2026-11-17",
+   "sourceUrl": "https://www.gov.uk/government/publications/msn-1853-m-boatmasters-qualifications-crew-and-hours-of-work",
+   "file": "docs/mca/MSN-1853-M.pdf"
+  },
   {
    "title": "MGN 600 (M) Amendment 3 Maritime Labour Convention - Inspection of coded vessels",
    "refNo": "MGN 600 (M)",
@@ -885,14 +908,6 @@
    "date": "2025-04-10",
    "sourceUrl": "https://www.gov.uk/government/publications/mgn-580-m-amendment-1-fire-protection-fire-retardant-treatments-for-fabrics",
    "file": "docs/mca/MGN-580-M.txt"
-  },
-  {
-   "title": "MGN 608 Amendment 1 (M+F) Radio Survey Service: Authorisation",
-   "refNo": "MGN 608",
-   "docType": "MGN (Marine Guidance Note)",
-   "date": "2025-03-28",
-   "sourceUrl": "https://www.gov.uk/government/publications/mgn-608-amendment-1-mf-radio-survey-service-authorisation",
-   "file": "docs/mca/MGN-608.txt"
   },
   {
    "title": "MIN 580 New route to an UK Officer of the Watch (OOW) yachts Certificate of Competency",
@@ -2095,14 +2110,6 @@
    "date": "2021-12-06",
    "sourceUrl": "https://www.gov.uk/government/publications/msn-1903-m-the-global-maritime-distress-and-safety-system-gmdss-ship-requirements",
    "file": "docs/mca/MSN-1903-M.txt"
-  },
-  {
-   "title": "MSN 1853 (M) Amendment 1: Boatmasters’ Qualifications, Crew and Hours of Work",
-   "refNo": "MSN 1853 (M)",
-   "docType": "MSN (Merchant Shipping Notice)",
-   "date": "2021-12-02",
-   "sourceUrl": "https://www.gov.uk/government/publications/msn-1853-m-boatmasters-qualifications-crew-and-hours-of-work",
-   "file": "docs/mca/MSN-1853-M.pdf"
   },
   {
    "title": "MGN 661 (M+F) Navigation - safe and responsible anchoring and fishing practices",

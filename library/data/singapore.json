@@ -1,7 +1,87 @@
 {
  "administration": "Singapore",
- "fetched": "2026-11-16",
+ "fetched": "2026-11-23",
  "notices": [
+  {
+   "title": "PORT MARINE NOTICE NO. 150 OF 2026 - SUPPLY AND DELIVERY OF SAND AT CHANGI DEPOSITION AREA",
+   "refNo": "PN 150/2026",
+   "docType": "Marine Notice",
+   "date": "2026-11-23",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-150-of-2026-supply-and-delivery-of-sand-at-changi-deposition-area",
+   "docUrl": "https://www.mpa.gov.sg/api/media/792823a4-fc1e-46fc-b76f-d4a2e6769e56/pn26-150.pdf",
+   "file": "docs/singapore/PN-150-2026.pdf",
+   "bytes": 410751
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 149 OF 2026 - CLEARING OF SEABED FOR PROPOSED WATERFRONT DEVELOPMENT",
+   "refNo": "PN 149/2026",
+   "docType": "Marine Notice",
+   "date": "2026-11-23",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-149-of-2026-clearing-of-seabed-for-proposed-waterfront-development",
+   "docUrl": "https://www.mpa.gov.sg/api/media/75f2b611-3ad5-4cb2-94bb-ee8a2ec08a95/pn26-149.pdf",
+   "file": "docs/singapore/PN-149-2026.pdf",
+   "bytes": 391807
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 148 OF 2026 - RECTIFICATION OF FLOATING SEA BARRIER AT SENTOSA COVE",
+   "refNo": "PN 148/2026",
+   "docType": "Marine Notice",
+   "date": "2026-11-23",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-148-of-2026-rectification-of-floating-sea-barrier-at-sentosa-cove",
+   "docUrl": "https://www.mpa.gov.sg/api/media/d0d2c012-7993-4988-8b10-1e169e2b4b2c/pn26-148.pdf",
+   "file": "docs/singapore/PN-148-2026.pdf",
+   "bytes": 422619
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 147 OF 2026 - MARINE SOIL INVESTIGATION AND SURVEY WORKS AT SOUTH OF TUAS VIEW EXTENSION, SINKI FAIRWAY AND TEMASEK FAIRWAY",
+   "refNo": "PN 147/2026",
+   "docType": "Marine Notice",
+   "date": "2026-11-20",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-147-of-2026-marine-soil-investigation-and-survey-works-at-south-of-tuas-view-extension-sinki-fairway-and-temasek-fairway",
+   "docUrl": "https://www.mpa.gov.sg/api/media/dfae4b83-9edf-45c4-8a35-ea3e33fbea93/pn26-147.pdf",
+   "file": "docs/singapore/PN-147-2026.pdf",
+   "bytes": 471891
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 146 OF 2026 - SCHEDULED MAINTENANCE FOR ICA SYSTEM (24 NOV 2026)",
+   "refNo": "PN 146/2026",
+   "docType": "Marine Notice",
+   "date": "2026-11-19",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-146-of-2026-scheduled-maintenance-for-ica-system-24-nov-2026",
+   "docUrl": "https://www.mpa.gov.sg/api/media/d95ee2b3-e743-4af0-a291-c8c0554aee30/pn26-146.pdf",
+   "file": "docs/singapore/PN-146-2026.pdf",
+   "bytes": 143417
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 145 OF 2026 - ANCHORING OF VESSELS AT CHANGI EAST DEPOSITION AREA (CEDA)",
+   "refNo": "PN 145/2026",
+   "docType": "Marine Notice",
+   "date": "2026-11-19",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-145-of-2026-anchoring-of-vessels-at-changi-east-deposition-area-ceda",
+   "docUrl": "https://www.mpa.gov.sg/api/media/b9391bdf-7e0c-4cdd-a093-4c3156ca86ba/pn145-26.pdf",
+   "file": "docs/singapore/PN-145-2026.pdf",
+   "bytes": 341430
+  },
+  {
+   "title": "PORT MARINE NOTICE NO. 144 OF 2026 - DREDGING WORKS AT OMLUB JETTY/ EXXONMOBIL",
+   "refNo": "PN 144/2026",
+   "docType": "Marine Notice",
+   "date": "2026-11-17",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-144-of-2026-dredging-works-at-omlub-jetty-exxonmobil",
+   "docUrl": "https://www.mpa.gov.sg/api/media/851d51ce-eb59-427d-a333-14ec7dcb23a1/pn144-26.pdf",
+   "file": "docs/singapore/PN-144-2026.pdf",
+   "bytes": 228345
+  },
+  {
+   "title": "PORT MARINE CIRCULAR NO. 12 OF 2026 - EARLY ADOPTER SCHEME FOR ELECTRIC HARBOUR CRAFT (EASE)",
+   "refNo": "PC 12/2026",
+   "docType": "Port Marine Circular",
+   "date": "2026-11-17",
+   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no-12-of-2026-early-adopter-scheme-for-electric-harbour-craft-ease",
+   "docUrl": "https://www.mpa.gov.sg/api/media/fe8684fc-ab98-419c-81cb-226bacabf3c4/pc26-12.pdf",
+   "file": "docs/singapore/PC-12-2026.pdf",
+   "bytes": 171196
+  },
   {
    "title": "PORT MARINE NOTICE NO. 143 OF 2026 - COASTAL DEVELOPMENT PROJECT AND TEMPORARY HOLDING AREA AT NORTHERN COAST OF WOODLANDS",
    "refNo": "PN 143/2026",
@@ -9,8 +89,7 @@
    "date": "2026-11-12",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-143-of-2026-coastal-development-project-and-temporary-holding-area-at-northern-coast-of-woodlands",
    "docUrl": "https://www.mpa.gov.sg/api/media/e273d579-0067-49cd-861d-9fdcfdc132f1/pn26-143.pdf",
-   "file": "docs/singapore/PN-143-2026.pdf",
-   "bytes": 470146
+   "file": "docs/singapore/PN-143-2026.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 11 OF 2026 - MARITIME DECLARATION OF HEALTH",
@@ -20,15 +99,6 @@
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-circular-no-11-of-2026-maritime-declaration-of-health",
    "docUrl": "https://www.mpa.gov.sg/api/media/dad93d6b-44f0-41f6-9446-cf7dbdfe0916/pc26-11.pdf",
    "file": "docs/singapore/PC-11-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 142 OF 2026 - POWER SHUTDOWN AT ICA CREW OFFICE – PSA PASIR PANJANG TERMINAL(PPT) 4 CREW OFFICE",
-   "refNo": "PN 142/2026",
-   "docType": "Marine Notice",
-   "date": "2026-10-22",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-142-of-2026-power-shutdown-at-ica-crew-office-psa-pasir-panjang-terminalppt-4-crew-office",
-   "docUrl": "https://www.mpa.gov.sg/api/media/5abff951-8e2d-48af-90ef-07e8ec1d24a8/pn142-26.pdf",
-   "file": "docs/singapore/PN-142-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 141 OF 2026 - MARINE SOIL INVESTIGATION WORKS FOR THE PROPOSED BIOMASS POWER PLANT AT JURONG ISLAND",
@@ -63,7 +133,7 @@
    "docType": "Marine Notice",
    "date": "2026-10-14",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-137-of-2026-seabed-dredging-at-loyang-offshore-supply-base-jetty",
-   "docUrl": "https://www.mpa.gov.sg/api/media/a4e57e83-a02c-4aa4-b992-c8de2cf399d6/pn26-137-1-1.pdf",
+   "docUrl": "https://www.mpa.gov.sg/api/media/025a3d11-509f-40f3-bc37-8abeaeeb2dd6/pn26-137.pdf",
    "file": "docs/singapore/PN-137-2026.pdf"
   },
   {
@@ -83,15 +153,6 @@
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-135-of-2026-marine-structure-construction-off-tuas-south-boulevard-for-pier-extension",
    "docUrl": "https://www.mpa.gov.sg/api/media/8fcf0154-4f12-4f42-bb7c-c8d7e51f6d8c/pn135-26-1.pdf",
    "file": "docs/singapore/PN-135-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 133 OF 2026 - KUSU PILGRIMAGE SEASON",
-   "refNo": "PN 133/2026",
-   "docType": "Marine Notice",
-   "date": "2026-10-08",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-133-of-2026-kusu-pilgrimage-season",
-   "docUrl": "https://www.mpa.gov.sg/api/media/7d024d67-f1dc-4f8b-90fa-aab8fe01c55d/PMN-133-of-2026---Kusu-Pilgrimage-Season.pdf",
-   "file": "docs/singapore/PN-133-2026.pdf"
   },
   {
    "title": "PORT MARINE NOTICE NO. 132 of 2026 - FIBRE OPTIC CABLE LAYING OPERATION OFF ST JOHN’S ISLAND",
@@ -171,7 +232,7 @@
    "docType": "Marine Notice",
    "date": "2026-09-23",
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no-121-of-2026-works-at-tuas-terminal-phase-2",
-   "docUrl": "https://www.mpa.gov.sg/api/media/a6911d0c-2379-49c8-8314-3b924a25a246/pn26-121.pdf",
+   "docUrl": "https://www.mpa.gov.sg/api/media/b791bffe-fcb1-45cf-a59d-cc2cf73540e0/pn26-121.pdf",
    "file": "docs/singapore/PN-121-2026.pdf"
   },
   {
@@ -409,24 +470,6 @@
    "file": "docs/singapore/PN-70-2026.pdf"
   },
   {
-   "title": "PORT MARINE NOTICE NO. 69 OF 2026 - COASTAL DEVELOPMENT PROJECT AND TEMPORARY HOLDING AREA AT NORTHERN COAST OF WOODLANDS",
-   "refNo": "PN 69/2026",
-   "docType": "Marine Notice",
-   "date": "2026-05-13",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-69-of-2026---coastal-development-project-and-temporary-holding-area-at-northern-coast-of-woodlands",
-   "docUrl": "https://www.mpa.gov.sg/api/media/8b0295fd-b840-4c74-8fff-f1d4f71f3160/pn26-69.pdf",
-   "file": "docs/singapore/PN-69-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 68 OF 2026 - MARINE SOIL INVESTIGATION WORKS AT JURONG ISLAND",
-   "refNo": "PN 68/2026",
-   "docType": "Marine Notice",
-   "date": "2026-05-12",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-68-of-2026---marine-soil-investigation-works-at-jurong-island",
-   "docUrl": "https://www.mpa.gov.sg/api/media/7df70875-fecd-4498-b9a9-1285a62df49e/pn26-68.pdf",
-   "file": "docs/singapore/PN-68-2026.pdf"
-  },
-  {
    "title": "PORT MARINE NOTICE NO. 67 OF 2026 - MARINE SOIL INVESTIGATION WORKS AT TUAS CURVE PROFILE",
    "refNo": "PN 67/2026",
    "docType": "Marine Notice",
@@ -452,24 +495,6 @@
    "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/no.-5-of-2026---requirements-for-singapore-registered-pleasure-craft",
    "docUrl": "https://www.mpa.gov.sg/api/media/6740764b-7723-432b-86f2-da849d5b2592/sc_no_5_of_2026.pdf",
    "file": "docs/singapore/SC-05-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 65 OF 2026 - ANCHORING OF VESSELS AT CHANGI EAST DEPOSITION AREA (CEDA)",
-   "refNo": "PN 65/2026",
-   "docType": "Marine Notice",
-   "date": "2026-04-29",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-65-of-2026---anchoring-of-vessels-at-changi-east-deposition-area-(ceda)",
-   "docUrl": "https://www.mpa.gov.sg/api/media/4b6ad86a-33a6-45c9-b86e-53f7adf0416e/pn26-65.pdf",
-   "file": "docs/singapore/PN-65-2026.pdf"
-  },
-  {
-   "title": "PORT MARINE NOTICE NO. 64 OF 2026 - DEPLOYMENT AND SERVICING OF ADCP AND BUOY",
-   "refNo": "PN 64/2026",
-   "docType": "Marine Notice",
-   "date": "2026-04-29",
-   "sourceUrl": "https://www.mpa.gov.sg/media-centre/details/port-marine-notice-no.-64-of-2026---deployment-and-servicing-of-adcp-and-buoy",
-   "docUrl": "https://www.mpa.gov.sg/api/media/e92dfbed-95e9-491d-bab0-e883f018b395/pn26-64.pdf",
-   "file": "docs/singapore/PN-64-2026.pdf"
   },
   {
    "title": "PORT MARINE CIRCULAR NO. 05 OF 2026 - JOINT ADVISORY: COMPLIANCE WITH THE HARBOUR CRAFT REGULATIONS AND THE EMPLOYMENT OF FOREIGN MANPOWER ACT",

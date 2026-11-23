@@ -1,7 +1,23 @@
 {
  "administration": "Panama",
- "fetched": "2026-11-16",
+ "fetched": "2026-11-23",
  "notices": [
+  {
+   "title": "MMC 337 – December 2022 – CANCELLED – 12 11 2026",
+   "refNo": "MMC 337",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-11-17",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMC-337-December-2022-CANCELLED-12-11-2026.pdf",
+   "file": "docs/panama/MMC-337.pdf"
+  },
+  {
+   "title": "MMC 183 – 12 11 2026",
+   "refNo": "MMC 183",
+   "docType": "Merchant Marine Circular",
+   "date": "2026-11-17",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/11/MMC-183-12-11-2026.pdf",
+   "file": "docs/panama/MMC-183.pdf"
+  },
   {
    "title": "MMC 245  11 06 2026 rev dccm (1)",
    "refNo": "MMC 245",
@@ -83,20 +99,20 @@
    "file": "docs/panama/MMC-195.pdf"
   },
   {
-   "title": "MMN 03 2022 – UKRAINE – 13 10 2026",
-   "refNo": "MMN 03-2022",
-   "docType": "MMN (Merchant Marine Notice)",
-   "date": "2026-10-15",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-03-2022-UKRAINE-13-10-2026.pdf",
-   "file": "docs/panama/MMN-03-2022.pdf"
-  },
-  {
    "title": "MMN 05 2026 – 13 10 2026",
    "refNo": "MMN 05-2026",
    "docType": "MMN (Merchant Marine Notice)",
    "date": "2026-10-15",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-05-2026-13-10-2026.pdf",
    "file": "docs/panama/MMN-05-2026.pdf"
+  },
+  {
+   "title": "MMN 03 2022 – UKRAINE – 13 10 2026",
+   "refNo": "MMN 03-2022",
+   "docType": "MMN (Merchant Marine Notice)",
+   "date": "2026-10-15",
+   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/10/MMN-03-2022-UKRAINE-13-10-2026.pdf",
+   "file": "docs/panama/MMN-03-2022.pdf"
   },
   {
    "title": "MMC 270 – 03 09 2026",
@@ -153,14 +169,6 @@
    "date": "2026-06-16",
    "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/06/MMN-03-2026-29-01-2026.pdf",
    "file": "docs/panama/MMN-03-2026.pdf"
-  },
-  {
-   "title": "MMC 183 – rev dccm 5 6 2026 limpio (1)",
-   "refNo": "MMC 183",
-   "docType": "Merchant Marine Circular",
-   "date": "2026-06-05",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2026/06/MMC-183-rev-dccm-5-6-2026-limpio-1.pdf",
-   "file": "docs/panama/MMC-183.pdf"
   },
   {
    "title": "MMC 175 16 06 2026 DGGM",
@@ -1864,16 +1872,6 @@
    "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2023/03/MMC-158-EPIRB-REGISTRATION-Jan-2023-Rev-MR.pdf",
    "listedOn": "/segumar/merchant-marine-circulars/",
    "file": "docs/panama/MMC-158.pdf"
-  },
-  {
-   "title": "MMC 337 15 12 2022 2",
-   "refNo": "MMC 337",
-   "docType": "Merchant Marine Circular",
-   "date": "2023-03-01",
-   "sourceUrl": "https://www.panamashipregistry.com/wp-content/uploads/2023/03/MMC-337-15-12-2022-2.pdf",
-   "docUrl": "https://www.panamashipregistry.com/wp-content/uploads/2023/03/MMC-337-15-12-2022-2.pdf",
-   "listedOn": "/segumar/merchant-marine-circulars/",
-   "file": "docs/panama/MMC-337.pdf"
   },
   {
    "title": "MMC 384 24 10 2022",
